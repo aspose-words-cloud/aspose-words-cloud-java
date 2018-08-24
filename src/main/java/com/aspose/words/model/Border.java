@@ -1,0 +1,381 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose">
+ *   Copyright (c) 2018 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
+package com.aspose.words.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
+import com.aspose.words.model.XmlColor;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+/**
+ * Represents a border of an object.
+ */
+@ApiModel(description = "Represents a border of an object.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+public class Border {
+  @JsonProperty("link")
+  private WordsApiLink link = null;
+
+  /**
+   * Gets or sets the border type.             
+   */
+  public enum BorderTypeEnum {
+    BOTTOM("Bottom"),
+    
+    LEFT("Left"),
+    
+    RIGHT("Right"),
+    
+    TOP("Top"),
+    
+    HORIZONTAL("Horizontal"),
+    
+    VERTICAL("Vertical"),
+    
+    DIAGONALDOWN("DiagonalDown"),
+    
+    DIAGONALUP("DiagonalUp"),
+    
+    NONE("None");
+
+    private String value;
+
+    BorderTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static BorderTypeEnum fromValue(String text) {
+      for (BorderTypeEnum b : BorderTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("BorderType")
+  private BorderTypeEnum borderType = null;
+
+  @JsonProperty("Color")
+  private XmlColor color = null;
+
+  @JsonProperty("DistanceFromText")
+  private Double distanceFromText = null;
+
+  /**
+   * Gets or sets the border style.
+   */
+  public enum LineStyleEnum {
+    NONE("None"),
+    
+    SINGLE("Single"),
+    
+    THICK("Thick"),
+    
+    DOUBLE("Double"),
+    
+    HAIRLINE("Hairline"),
+    
+    DOT("Dot"),
+    
+    DASHLARGEGAP("DashLargeGap"),
+    
+    DOTDASH("DotDash"),
+    
+    DOTDOTDASH("DotDotDash"),
+    
+    TRIPLE("Triple"),
+    
+    THINTHICKSMALLGAP("ThinThickSmallGap"),
+    
+    THICKTHINSMALLGAP("ThickThinSmallGap"),
+    
+    THINTHICKTHINSMALLGAP("ThinThickThinSmallGap"),
+    
+    THINTHICKMEDIUMGAP("ThinThickMediumGap"),
+    
+    THICKTHINMEDIUMGAP("ThickThinMediumGap"),
+    
+    THINTHICKTHINMEDIUMGAP("ThinThickThinMediumGap"),
+    
+    THINTHICKLARGEGAP("ThinThickLargeGap"),
+    
+    THICKTHINLARGEGAP("ThickThinLargeGap"),
+    
+    THINTHICKTHINLARGEGAP("ThinThickThinLargeGap"),
+    
+    WAVE("Wave"),
+    
+    DOUBLEWAVE("DoubleWave"),
+    
+    DASHSMALLGAP("DashSmallGap"),
+    
+    DASHDOTSTROKER("DashDotStroker"),
+    
+    EMBOSS3D("Emboss3D"),
+    
+    ENGRAVE3D("Engrave3D"),
+    
+    OUTSET("Outset"),
+    
+    INSET("Inset");
+
+    private String value;
+
+    LineStyleEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static LineStyleEnum fromValue(String text) {
+      for (LineStyleEnum b : LineStyleEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("LineStyle")
+  private LineStyleEnum lineStyle = null;
+
+  @JsonProperty("LineWidth")
+  private Double lineWidth = null;
+
+  @JsonProperty("Shadow")
+  private Boolean shadow = null;
+
+  public Border link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
+
+  public Border borderType(BorderTypeEnum borderType) {
+    this.borderType = borderType;
+    return this;
+  }
+
+   /**
+   * Gets or sets the border type.             
+   * @return borderType
+  **/
+  @ApiModelProperty(value = "Gets or sets the border type.             ")
+  public BorderTypeEnum getBorderType() {
+    return borderType;
+  }
+
+  public void setBorderType(BorderTypeEnum borderType) {
+    this.borderType = borderType;
+  }
+
+  public Border color(XmlColor color) {
+    this.color = color;
+    return this;
+  }
+
+   /**
+   * Gets or sets the border color.             
+   * @return color
+  **/
+  @ApiModelProperty(value = "Gets or sets the border color.             ")
+  public XmlColor getColor() {
+    return color;
+  }
+
+  public void setColor(XmlColor color) {
+    this.color = color;
+  }
+
+  public Border distanceFromText(Double distanceFromText) {
+    this.distanceFromText = distanceFromText;
+    return this;
+  }
+
+   /**
+   * Gets or sets distance of the border from text or from the page edge in points.
+   * @return distanceFromText
+  **/
+  @ApiModelProperty(value = "Gets or sets distance of the border from text or from the page edge in points.")
+  public Double getDistanceFromText() {
+    return distanceFromText;
+  }
+
+  public void setDistanceFromText(Double distanceFromText) {
+    this.distanceFromText = distanceFromText;
+  }
+
+  public Border lineStyle(LineStyleEnum lineStyle) {
+    this.lineStyle = lineStyle;
+    return this;
+  }
+
+   /**
+   * Gets or sets the border style.
+   * @return lineStyle
+  **/
+  @ApiModelProperty(value = "Gets or sets the border style.")
+  public LineStyleEnum getLineStyle() {
+    return lineStyle;
+  }
+
+  public void setLineStyle(LineStyleEnum lineStyle) {
+    this.lineStyle = lineStyle;
+  }
+
+  public Border lineWidth(Double lineWidth) {
+    this.lineWidth = lineWidth;
+    return this;
+  }
+
+   /**
+   * Gets or sets the border width in points.
+   * @return lineWidth
+  **/
+  @ApiModelProperty(value = "Gets or sets the border width in points.")
+  public Double getLineWidth() {
+    return lineWidth;
+  }
+
+  public void setLineWidth(Double lineWidth) {
+    this.lineWidth = lineWidth;
+  }
+
+  public Border shadow(Boolean shadow) {
+    this.shadow = shadow;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value indicating whether the border has a shadow.
+   * @return shadow
+  **/
+  @ApiModelProperty(value = "Gets or sets a value indicating whether the border has a shadow.")
+  public Boolean isShadow() {
+    return shadow;
+  }
+
+  public void setShadow(Boolean shadow) {
+    this.shadow = shadow;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Border border = (Border) o;
+    return Objects.equals(this.link, border.link) &&
+        Objects.equals(this.borderType, border.borderType) &&
+        Objects.equals(this.color, border.color) &&
+        Objects.equals(this.distanceFromText, border.distanceFromText) &&
+        Objects.equals(this.lineStyle, border.lineStyle) &&
+        Objects.equals(this.lineWidth, border.lineWidth) &&
+        Objects.equals(this.shadow, border.shadow);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(link, borderType, color, distanceFromText, lineStyle, lineWidth, shadow);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Border {\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    borderType: ").append(toIndentedString(borderType)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
+    sb.append("    distanceFromText: ").append(toIndentedString(distanceFromText)).append("\n");
+    sb.append("    lineStyle: ").append(toIndentedString(lineStyle)).append("\n");
+    sb.append("    lineWidth: ").append(toIndentedString(lineWidth)).append("\n");
+    sb.append("    shadow: ").append(toIndentedString(shadow)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}
+

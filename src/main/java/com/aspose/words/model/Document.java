@@ -1,0 +1,306 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose">
+ *   Copyright (c) 2018 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
+package com.aspose.words.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.aspose.words.model.DocumentProperties;
+import com.aspose.words.model.Link;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Represents Words document DTO.
+ */
+@ApiModel(description = "Represents Words document DTO.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+public class Document {
+  @JsonProperty("Links")
+  private List<Link> links = null;
+
+  @JsonProperty("FileName")
+  private String fileName = null;
+
+  /**
+   * Gets the original format of the document.
+   */
+  public enum SourceFormatEnum {
+    UNKNOWN("Unknown"),
+    
+    DOC("Doc"),
+    
+    DOT("Dot"),
+    
+    DOCPREWORD60("DocPreWord60"),
+    
+    DOCX("Docx"),
+    
+    DOCM("Docm"),
+    
+    DOTX("Dotx"),
+    
+    DOTM("Dotm"),
+    
+    FLATOPC("FlatOpc"),
+    
+    RTF("Rtf"),
+    
+    WORDML("WordML"),
+    
+    HTML("Html"),
+    
+    MHTML("Mhtml"),
+    
+    EPUB("Epub"),
+    
+    TEXT("Text"),
+    
+    ODT("Odt"),
+    
+    OTT("Ott"),
+    
+    PDF("Pdf"),
+    
+    XPS("Xps"),
+    
+    TIFF("Tiff"),
+    
+    SVG("Svg");
+
+    private String value;
+
+    SourceFormatEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SourceFormatEnum fromValue(String text) {
+      for (SourceFormatEnum b : SourceFormatEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("SourceFormat")
+  private SourceFormatEnum sourceFormat = null;
+
+  @JsonProperty("IsEncrypted")
+  private Boolean isEncrypted = null;
+
+  @JsonProperty("IsSigned")
+  private Boolean isSigned = null;
+
+  @JsonProperty("DocumentProperties")
+  private DocumentProperties documentProperties = null;
+
+  public Document links(List<Link> links) {
+    this.links = links;
+    return this;
+  }
+
+  public Document addLinksItem(Link linksItem) {
+    if (this.links == null) {
+      this.links = new ArrayList<Link>();
+    }
+    this.links.add(linksItem);
+    return this;
+  }
+
+   /**
+   * A list of links that originate from this document.
+   * @return links
+  **/
+  @ApiModelProperty(value = "A list of links that originate from this document.")
+  public List<Link> getLinks() {
+    return links;
+  }
+
+  public void setLinks(List<Link> links) {
+    this.links = links;
+  }
+
+  public Document fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * Gets the name of the file.
+   * @return fileName
+  **/
+  @ApiModelProperty(value = "Gets the name of the file.")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public Document sourceFormat(SourceFormatEnum sourceFormat) {
+    this.sourceFormat = sourceFormat;
+    return this;
+  }
+
+   /**
+   * Gets the original format of the document.
+   * @return sourceFormat
+  **/
+  @ApiModelProperty(required = true, value = "Gets the original format of the document.")
+  public SourceFormatEnum getSourceFormat() {
+    return sourceFormat;
+  }
+
+  public void setSourceFormat(SourceFormatEnum sourceFormat) {
+    this.sourceFormat = sourceFormat;
+  }
+
+  public Document isEncrypted(Boolean isEncrypted) {
+    this.isEncrypted = isEncrypted;
+    return this;
+  }
+
+   /**
+   * Returns true if the document is encrypted and requires a password to open. 
+   * @return isEncrypted
+  **/
+  @ApiModelProperty(required = true, value = "Returns true if the document is encrypted and requires a password to open. ")
+  public Boolean isIsEncrypted() {
+    return isEncrypted;
+  }
+
+  public void setIsEncrypted(Boolean isEncrypted) {
+    this.isEncrypted = isEncrypted;
+  }
+
+  public Document isSigned(Boolean isSigned) {
+    this.isSigned = isSigned;
+    return this;
+  }
+
+   /**
+   * Returns true if the document contains a digital signature. This property merely informs that a  digital signature is present on a document, but it does not specify whether the signature is valid or not. 
+   * @return isSigned
+  **/
+  @ApiModelProperty(required = true, value = "Returns true if the document contains a digital signature. This property merely informs that a  digital signature is present on a document, but it does not specify whether the signature is valid or not. ")
+  public Boolean isIsSigned() {
+    return isSigned;
+  }
+
+  public void setIsSigned(Boolean isSigned) {
+    this.isSigned = isSigned;
+  }
+
+  public Document documentProperties(DocumentProperties documentProperties) {
+    this.documentProperties = documentProperties;
+    return this;
+  }
+
+   /**
+   * Returns document properties.
+   * @return documentProperties
+  **/
+  @ApiModelProperty(value = "Returns document properties.")
+  public DocumentProperties getDocumentProperties() {
+    return documentProperties;
+  }
+
+  public void setDocumentProperties(DocumentProperties documentProperties) {
+    this.documentProperties = documentProperties;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Document document = (Document) o;
+    return Objects.equals(this.links, document.links) &&
+        Objects.equals(this.fileName, document.fileName) &&
+        Objects.equals(this.sourceFormat, document.sourceFormat) &&
+        Objects.equals(this.isEncrypted, document.isEncrypted) &&
+        Objects.equals(this.isSigned, document.isSigned) &&
+        Objects.equals(this.documentProperties, document.documentProperties);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(links, fileName, sourceFormat, isEncrypted, isSigned, documentProperties);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class Document {\n");
+    
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    sourceFormat: ").append(toIndentedString(sourceFormat)).append("\n");
+    sb.append("    isEncrypted: ").append(toIndentedString(isEncrypted)).append("\n");
+    sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
+    sb.append("    documentProperties: ").append(toIndentedString(documentProperties)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}
+
