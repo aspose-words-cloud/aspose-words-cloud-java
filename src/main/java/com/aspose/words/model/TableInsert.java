@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Table element
  */
 @ApiModel(description = "Table element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:32:37.342Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:36:42.079Z")
 public class TableInsert {
   @JsonProperty("Postion")
   private DocumentPosition postion = null;

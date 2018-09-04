@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Class for insert watermark text request building. 
  */
 @ApiModel(description = "Class for insert watermark text request building. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:32:37.342Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:36:42.079Z")
 public class WatermarkText {
   @JsonProperty("Text")
   private String text = null;
