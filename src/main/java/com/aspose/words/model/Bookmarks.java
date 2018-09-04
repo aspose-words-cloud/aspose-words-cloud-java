@@ -44,7 +44,7 @@ import java.util.List;
  * Represents an array of bookmarks.
  */
 @ApiModel(description = "Represents an array of bookmarks.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:55:55.437Z")
 public class Bookmarks {
   @JsonProperty("link")
   private WordsApiLink link = null;

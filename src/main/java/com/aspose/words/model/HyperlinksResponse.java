@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * This response should be returned by the service when handling:  GET /{name}/hyperlinks .
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/hyperlinks .")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:55:55.437Z")
 public class HyperlinksResponse {
   @JsonProperty("Code")
   private Integer code = null;

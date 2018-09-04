@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container abstract class for image save options
  */
 @ApiModel(description = "Container abstract class for image save options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:55:55.437Z")
 public class ImageSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

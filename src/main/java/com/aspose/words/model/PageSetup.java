@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents the page setup properties of a section.             
  */
 @ApiModel(description = "Represents the page setup properties of a section.             ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:55:55.437Z")
 public class PageSetup {
   @JsonProperty("link")
   private WordsApiLink link = null;
