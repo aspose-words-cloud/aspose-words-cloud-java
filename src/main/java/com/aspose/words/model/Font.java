@@ -43,7 +43,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Font element             
  */
 @ApiModel(description = "Font element             ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
 public class Font {
   @JsonProperty("link")
   private WordsApiLink link = null;

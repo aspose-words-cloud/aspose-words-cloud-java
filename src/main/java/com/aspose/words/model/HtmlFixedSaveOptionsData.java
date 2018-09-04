@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for fixed html save options
  */
 @ApiModel(description = "container class for fixed html save options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
 public class HtmlFixedSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

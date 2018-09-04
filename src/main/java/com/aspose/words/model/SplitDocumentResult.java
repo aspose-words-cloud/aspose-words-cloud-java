@@ -42,7 +42,7 @@ import java.util.List;
  * Result of splitting document.
  */
 @ApiModel(description = "Result of splitting document.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
 public class SplitDocumentResult {
   @JsonProperty("SourceDocument")
   private FileLink sourceDocument = null;

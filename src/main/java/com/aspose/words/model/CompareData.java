@@ -40,7 +40,7 @@ import org.threeten.bp.OffsetDateTime;
  * Container class for compare documents
  */
 @ApiModel(description = "Container class for compare documents")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
 public class CompareData {
   @JsonProperty("ComparingWithDocument")
   private String comparingWithDocument = null;

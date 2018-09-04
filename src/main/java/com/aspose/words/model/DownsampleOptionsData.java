@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for Downsample options
  */
 @ApiModel(description = "Container class for Downsample options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
 public class DownsampleOptionsData {
   @JsonProperty("DownsampleImages")
   private Boolean downsampleImages = null;

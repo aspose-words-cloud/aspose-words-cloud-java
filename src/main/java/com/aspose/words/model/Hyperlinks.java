@@ -44,7 +44,7 @@ import java.util.List;
  * Collection of .
  */
 @ApiModel(description = "Collection of .")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
 public class Hyperlinks {
   @JsonProperty("link")
   private WordsApiLink link = null;

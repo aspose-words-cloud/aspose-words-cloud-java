@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * base container class for save options data
  */
 @ApiModel(description = "base container class for save options data")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
 public class SaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;
