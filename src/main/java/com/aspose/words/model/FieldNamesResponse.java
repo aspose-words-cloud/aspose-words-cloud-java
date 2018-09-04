@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:39:50.697Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:43:27.551Z")
 public class FieldNamesResponse {
   @JsonProperty("Code")
   private Integer code = null;
