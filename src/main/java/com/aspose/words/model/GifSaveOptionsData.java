@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for gif save options.
  */
 @ApiModel(description = "Container class for gif save options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:28:34.829Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:32:37.342Z")
 public class GifSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

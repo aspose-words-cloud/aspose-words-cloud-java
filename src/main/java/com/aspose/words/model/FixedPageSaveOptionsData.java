@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
  */
 @ApiModel(description = "Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:28:34.829Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:32:37.342Z")
 public class FixedPageSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

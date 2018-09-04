@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result of search operation.
  */
 @ApiModel(description = "Result of search operation.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:28:34.829Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:32:37.342Z")
 public class SearchResult {
   @JsonProperty("RangeStart")
   private DocumentPosition rangeStart = null;

@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a document which will be appended to the original resource document.
  */
 @ApiModel(description = "Represents a document which will be appended to the original resource document.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:28:34.829Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:32:37.342Z")
 public class DocumentEntry {
   @JsonProperty("Href")
   private String href = null;

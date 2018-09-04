@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Allows to specify additional System.Drawing.Graphics quality options.
  */
 @ApiModel(description = "Allows to specify additional System.Drawing.Graphics quality options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:28:34.829Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:32:37.342Z")
 public class GraphicsQualityOptionsData {
   /**
    * Gets or sets a value that specifies how composited images are drawn to this Graphics.
