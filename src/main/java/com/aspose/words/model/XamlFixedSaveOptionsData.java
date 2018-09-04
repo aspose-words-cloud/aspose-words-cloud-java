@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for xaml fixed save options
  */
 @ApiModel(description = "container class for xaml fixed save options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:32:20.291Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:36:10.439Z")
 public class XamlFixedSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

@@ -44,7 +44,7 @@ import java.util.List;
  * Section element
  */
 @ApiModel(description = "Section element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:32:20.291Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:36:10.439Z")
 public class Section {
   @JsonProperty("link")
   private WordsApiLink link = null;

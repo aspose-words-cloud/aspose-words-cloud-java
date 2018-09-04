@@ -43,7 +43,7 @@ import java.util.List;
  * Represents a collection of merge fields within a document. 
  */
 @ApiModel(description = "Represents a collection of merge fields within a document. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:32:20.291Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:36:10.439Z")
 public class FieldNames {
   @JsonProperty("link")
   private WordsApiLink link = null;
