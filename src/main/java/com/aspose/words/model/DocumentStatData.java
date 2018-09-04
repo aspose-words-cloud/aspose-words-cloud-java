@@ -43,7 +43,7 @@ import java.util.List;
  * Container for the document&#39;s statistical data
  */
 @ApiModel(description = "Container for the document's statistical data")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:41:06.799Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:44:53.189Z")
 public class DocumentStatData {
   @JsonProperty("WordCount")
   private Integer wordCount = null;

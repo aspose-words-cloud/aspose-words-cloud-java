@@ -42,7 +42,7 @@ import java.util.List;
  * Represents a list of documents which will be appended to the original resource document.
  */
 @ApiModel(description = "Represents a list of documents which will be appended to the original resource document.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:41:06.799Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:44:53.189Z")
 public class DocumentEntryList {
   @JsonProperty("DocumentEntries")
   private List<DocumentEntry> documentEntries = null;
