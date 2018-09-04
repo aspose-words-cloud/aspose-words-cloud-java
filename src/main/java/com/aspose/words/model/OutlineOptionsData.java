@@ -42,7 +42,7 @@ import java.util.List;
  * container class for outline options
  */
 @ApiModel(description = "container class for outline options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:13:25.620Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:17:13.230Z")
 public class OutlineOptionsData {
   @JsonProperty("BookmarksOutlineLevels")
   private List<BookmarksOutlineLevelData> bookmarksOutlineLevels = null;

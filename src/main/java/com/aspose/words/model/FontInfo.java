@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Font info
  */
 @ApiModel(description = "Font info")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:13:25.620Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:17:13.230Z")
 public class FontInfo {
   @JsonProperty("FontFamilyName")
   private String fontFamilyName = null;
