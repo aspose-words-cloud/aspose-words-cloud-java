@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for svg save options
  */
 @ApiModel(description = "container class for svg save options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:59:49.194Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
 public class SvgSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

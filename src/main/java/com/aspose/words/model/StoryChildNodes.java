@@ -42,7 +42,7 @@ import java.util.List;
  * Child nodes of  or 
  */
 @ApiModel(description = "Child nodes of  or ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:59:49.194Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
 public class StoryChildNodes {
   @JsonProperty("ChildNodes")
   private List<NodeLink> childNodes = null;

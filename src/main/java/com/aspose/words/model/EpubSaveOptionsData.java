@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for epub save options.
  */
 @ApiModel(description = "Container class for epub save options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:59:49.194Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
 public class EpubSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;
