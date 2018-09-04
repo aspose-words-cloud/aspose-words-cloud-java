@@ -44,7 +44,7 @@ import java.util.List;
  * Collection of comments.
  */
 @ApiModel(description = "Collection of comments.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:10:48.387Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:14:42.822Z")
 public class CommentsCollection {
   @JsonProperty("link")
   private WordsApiLink link = null;

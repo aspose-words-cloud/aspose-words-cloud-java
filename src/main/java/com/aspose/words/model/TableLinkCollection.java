@@ -44,7 +44,7 @@ import java.util.List;
  * Collection of links to tables
  */
 @ApiModel(description = "Collection of links to tables")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:10:48.387Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:14:42.822Z")
 public class TableLinkCollection {
   @JsonProperty("link")
   private WordsApiLink link = null;

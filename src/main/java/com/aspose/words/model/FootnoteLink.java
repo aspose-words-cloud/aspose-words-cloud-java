@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Footnote link.
  */
 @ApiModel(description = "Footnote link.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:10:48.387Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:14:42.822Z")
 public class FootnoteLink {
   @JsonProperty("link")
   private WordsApiLink link = null;
