@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for tiff save options.
  */
 @ApiModel(description = "Container class for tiff save options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:47:31.656Z")
+
 public class TiffSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;
