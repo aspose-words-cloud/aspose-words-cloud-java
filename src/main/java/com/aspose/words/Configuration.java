@@ -39,7 +39,7 @@ public class Configuration {
      */
     public static ApiClient getDefaultApiClient() {
         try {
-            defaultApiClient = new ApiClient("","");
+            defaultApiClient = new ApiClient("","", null);
         } catch (ApiException e) {
             e.printStackTrace();
         }

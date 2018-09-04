@@ -91,10 +91,12 @@ public class ApiClient {
 
   private DateFormat dateFormat;
 
-  public ApiClient(String appKey, String appSid) throws ApiException {
+  public ApiClient(String appKey, String appSid, String baseUrl) throws ApiException {
     if (apiKey == null || appSid == null){
         throw new IllegalArgumentException("appKey and appSid couldn't be null values");
     }
+
+    if (baseUrl != null) this.baseUrl = baseUrl;
 
     this.apiKey = appKey;
     this.appSid = appSid;

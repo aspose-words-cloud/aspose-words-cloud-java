@@ -6,14 +6,8 @@
     <packaging>jar</packaging>
     <name>AsposeWordsCloud</name>
     <version>18.8</version>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
+    <url>https://github.com/aspose-words-cloud/aspose-words-cloud-java</url>
     <description>Swagger Java</description>
-    <scm>
-        <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
-        <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-        <url>https://github.com/swagger-api/swagger-codegen</url>
-    </scm>
-
     <licenses>
         <license>
             <name>Unlicense</name>
@@ -21,7 +15,18 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-
+    <repositories>
+        <repository>
+            <id>aspose</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <url>https://artifact.aspose.cloud/repo/</url>
+        </repository>
+    </repositories>
     <developers>
         <developer>
             <name>Swagger</name>
@@ -46,7 +51,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>2.2.0</version>
+                                    <version>3.3.9</version>
                                 </requireMavenVersion>
                             </rules>
                         </configuration>
@@ -254,6 +259,12 @@
             <artifactId>junit</artifactId>
             <version>${junit-version}</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.aspose/aspose-cloud-storage -->
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-cloud-storage</artifactId>
+            <version>1.0.2</version>
         </dependency>
     </dependencies>
     <properties>
