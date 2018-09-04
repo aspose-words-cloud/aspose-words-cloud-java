@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a position in the document tree.
  */
 @ApiModel(description = "Represents a position in the document tree.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:17:13.230Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:20:41.870Z")
 public class DocumentPosition {
   @JsonProperty("Node")
   private NodeLink node = null;

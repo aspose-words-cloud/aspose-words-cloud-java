@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for bmp save options.
  */
 @ApiModel(description = "Container class for bmp save options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:17:13.230Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:20:41.870Z")
 public class BmpSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

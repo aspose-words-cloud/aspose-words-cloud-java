@@ -43,7 +43,7 @@ import java.util.List;
  * Represents Words document DTO.
  */
 @ApiModel(description = "Represents Words document DTO.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:17:13.230Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:20:41.870Z")
 public class Document {
   @JsonProperty("Links")
   private List<Link> links = null;

@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to node
  */
 @ApiModel(description = "Reference to node")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:17:13.230Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:20:41.870Z")
 public class NodeLink {
   @JsonProperty("link")
   private WordsApiLink link = null;
