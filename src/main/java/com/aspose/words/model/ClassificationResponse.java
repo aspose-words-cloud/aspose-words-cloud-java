@@ -43,7 +43,7 @@ import java.util.List;
  * This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify
  */
 @ApiModel(description = "This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:43:27.551Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:47:31.656Z")
 public class ClassificationResponse {
   @JsonProperty("Code")
   private Integer code = null;

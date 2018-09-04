@@ -43,7 +43,7 @@ import java.util.List;
  * The list of fonts, available for document processing
  */
 @ApiModel(description = "The list of fonts, available for document processing")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:43:27.551Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:47:31.656Z")
 public class AvailableFontsResponse {
   @JsonProperty("Code")
   private Integer code = null;

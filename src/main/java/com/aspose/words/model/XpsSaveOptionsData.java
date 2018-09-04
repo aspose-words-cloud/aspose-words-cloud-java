@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for xps save options.
  */
 @ApiModel(description = "Container class for xps save options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:43:27.551Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:47:31.656Z")
 public class XpsSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

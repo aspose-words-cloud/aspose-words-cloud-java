@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a border of an object.
  */
 @ApiModel(description = "Represents a border of an object.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:43:27.551Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:47:31.656Z")
 public class Border {
   @JsonProperty("link")
   private WordsApiLink link = null;
