@@ -43,7 +43,7 @@ import java.util.List;
  * Table cell element.
  */
 @ApiModel(description = "Table cell element.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:24:30.691Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:28:34.829Z")
 public class TableCell {
   @JsonProperty("link")
   private WordsApiLink link = null;
