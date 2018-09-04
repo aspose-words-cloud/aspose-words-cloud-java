@@ -45,7 +45,7 @@ import java.util.List;
  * Table row element.
  */
 @ApiModel(description = "Table row element.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:32:20.291Z")
 public class TableRow {
   @JsonProperty("link")
   private WordsApiLink link = null;

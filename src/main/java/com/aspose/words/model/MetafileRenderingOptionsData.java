@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for options of metafile rendering
  */
 @ApiModel(description = "container class for options of metafile rendering")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:32:20.291Z")
 public class MetafileRenderingOptionsData {
   @JsonProperty("EmfPlusDualRenderingMode")
   private String emfPlusDualRenderingMode = null;

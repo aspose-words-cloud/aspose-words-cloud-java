@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for png save options.
  */
 @ApiModel(description = "container class for png save options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:32:20.291Z")
 public class PngSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

@@ -44,7 +44,7 @@ import java.util.List;
  * Collection of document properties.
  */
 @ApiModel(description = "Collection of document properties.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:28:29.802Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:32:20.291Z")
 public class DocumentProperties {
   @JsonProperty("link")
   private WordsApiLink link = null;
