@@ -43,7 +43,7 @@ import java.util.List;
  * Represents Drawing Object DTO.
  */
 @ApiModel(description = "Represents Drawing Object DTO.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:36:42.079Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:41:06.799Z")
 public class DrawingObject {
   @JsonProperty("link")
   private WordsApiLink link = null;

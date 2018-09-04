@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for individual bookmarks outline level
  */
 @ApiModel(description = "container class for individual bookmarks outline level")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:36:42.079Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:41:06.799Z")
 public class BookmarksOutlineLevelData {
   @JsonProperty("Name")
   private String name = null;
