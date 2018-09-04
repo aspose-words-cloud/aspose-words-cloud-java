@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Table cell element
  */
 @ApiModel(description = "Table cell element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
 public class TableCellInsert {
   @JsonProperty("InsertAfter")
   private Integer insertAfter = null;

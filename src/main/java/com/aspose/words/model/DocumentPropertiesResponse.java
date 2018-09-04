@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * This response should be returned by the service when handling:  GET /documentProperties.
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET /documentProperties.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
 public class DocumentPropertiesResponse {
   @JsonProperty("Code")
   private Integer code = null;

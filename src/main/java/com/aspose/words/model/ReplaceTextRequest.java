@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Class for document replace text request building.
  */
 @ApiModel(description = "Class for document replace text request building.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
 public class ReplaceTextRequest {
   @JsonProperty("OldValue")
   private String oldValue = null;

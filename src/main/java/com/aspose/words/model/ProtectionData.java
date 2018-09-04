@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container for the data about protection of the document
  */
 @ApiModel(description = "Container for the data about protection of the document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
 public class ProtectionData {
   @JsonProperty("ProtectionType")
   private String protectionType = null;
