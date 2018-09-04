@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for mhtml save options.
  */
 @ApiModel(description = "Container class for mhtml save options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
 public class MhtmlSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

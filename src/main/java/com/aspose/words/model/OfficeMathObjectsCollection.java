@@ -44,7 +44,7 @@ import java.util.List;
  * Collection of OfficeMath objects.
  */
 @ApiModel(description = "Collection of OfficeMath objects.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
 public class OfficeMathObjectsCollection {
   @JsonProperty("link")
   private WordsApiLink link = null;

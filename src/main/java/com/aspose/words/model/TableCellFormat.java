@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents all formatting for a table row.
  */
 @ApiModel(description = "Represents all formatting for a table row.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
 public class TableCellFormat {
   @JsonProperty("link")
   private WordsApiLink link = null;

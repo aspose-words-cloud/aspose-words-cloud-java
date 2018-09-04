@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Table link element
  */
 @ApiModel(description = "Table link element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
 public class TableLink {
   @JsonProperty("link")
   private WordsApiLink link = null;

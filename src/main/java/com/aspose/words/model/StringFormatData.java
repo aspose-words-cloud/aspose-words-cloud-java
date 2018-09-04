@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Allows to specify System.Drawing.StringFormat options.
  */
 @ApiModel(description = "Allows to specify System.Drawing.StringFormat options.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
 public class StringFormatData {
   /**
    * Gets or sets horizontal alignment of the string.

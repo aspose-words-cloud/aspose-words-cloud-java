@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a single bookmark.
  */
 @ApiModel(description = "Represents a single bookmark.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:52:14.252Z")
 public class Bookmark {
   @JsonProperty("link")
   private WordsApiLink link = null;
