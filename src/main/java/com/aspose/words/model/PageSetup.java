@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents the page setup properties of a section.             
  */
 @ApiModel(description = "Represents the page setup properties of a section.             ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:09:46.443Z")
 public class PageSetup {
   @JsonProperty("link")
   private WordsApiLink link = null;
@@ -363,8 +363,6 @@ public class PageSetup {
     VIETCARDINALTEXT("VietCardinalText"),
     
     NUMBERINDASH("NumberInDash"),
-    
-    NUMINDASH("NumInDash"),
     
     LOWERCASERUSSIAN("LowercaseRussian"),
     

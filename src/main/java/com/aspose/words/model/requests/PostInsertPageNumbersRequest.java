@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostInsertPageNumbersRequest.java">
@@ -248,4 +249,3 @@ public class PostInsertPageNumbersRequest
     {
         RevisionDateTime = value;
     }
-}

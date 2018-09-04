@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetBorderRequest.java">
@@ -202,4 +203,3 @@ public class GetBorderRequest
     {
         Password = value;
     }
-}

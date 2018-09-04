@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteRunRequest.java">
@@ -271,4 +272,3 @@ public class DeleteRunRequest
     {
         RevisionDateTime = value;
     }
-}

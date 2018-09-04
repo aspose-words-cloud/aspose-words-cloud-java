@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateSectionPageSetupRequest.java">
@@ -271,4 +272,3 @@ public class UpdateSectionPageSetupRequest
     {
         RevisionDateTime = value;
     }
-}

@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostUpdateDocumentBookmarkRequest.java">
@@ -271,4 +272,3 @@ public class PostUpdateDocumentBookmarkRequest
     {
         RevisionDateTime = value;
     }
-}

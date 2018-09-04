@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentStatisticsRequest.java">
@@ -225,4 +226,3 @@ public class GetDocumentStatisticsRequest
     {
         IncludeTextInShapes = value;
     }
-}

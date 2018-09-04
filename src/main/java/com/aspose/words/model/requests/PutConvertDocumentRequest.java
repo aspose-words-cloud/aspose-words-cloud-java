@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutConvertDocumentRequest.java">
@@ -179,4 +180,3 @@ public class PutConvertDocumentRequest
     {
         FontsLocation = value;
     }
-}

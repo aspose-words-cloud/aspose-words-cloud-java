@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutCreateDocumentRequest.java">
@@ -110,4 +111,3 @@ public class PutCreateDocumentRequest
     {
         Folder = value;
     }
-}

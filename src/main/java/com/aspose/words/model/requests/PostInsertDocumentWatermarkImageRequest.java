@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostInsertDocumentWatermarkImageRequest.java">
@@ -294,4 +295,3 @@ public class PostInsertDocumentWatermarkImageRequest
     {
         Image = value;
     }
-}

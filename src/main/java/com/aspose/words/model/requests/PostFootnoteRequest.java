@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostFootnoteRequest.java">
@@ -294,4 +295,3 @@ public class PostFootnoteRequest
     {
         NodePath = value;
     }
-}

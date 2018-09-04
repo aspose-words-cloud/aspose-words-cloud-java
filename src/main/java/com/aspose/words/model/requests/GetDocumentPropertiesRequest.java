@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentPropertiesRequest.java">
@@ -156,4 +157,3 @@ public class GetDocumentPropertiesRequest
     {
         Password = value;
     }
-}

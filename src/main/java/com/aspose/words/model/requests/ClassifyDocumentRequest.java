@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ClassifyDocumentRequest.java">
@@ -202,4 +203,3 @@ public class ClassifyDocumentRequest
     {
         Taxonomy = value;
     }
-}

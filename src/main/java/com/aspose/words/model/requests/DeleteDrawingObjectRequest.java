@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteDrawingObjectRequest.java">
@@ -271,4 +272,3 @@ public class DeleteDrawingObjectRequest
     {
         NodePath = value;
     }
-}

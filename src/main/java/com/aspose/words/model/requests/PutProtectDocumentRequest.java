@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutProtectDocumentRequest.java">
@@ -202,4 +203,3 @@ public class PutProtectDocumentRequest
     {
         DestFileName = value;
     }
-}

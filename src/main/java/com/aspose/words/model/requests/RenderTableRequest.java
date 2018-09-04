@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderTableRequest.java">
@@ -248,4 +249,3 @@ public class RenderTableRequest
     {
         FontsLocation = value;
     }
-}

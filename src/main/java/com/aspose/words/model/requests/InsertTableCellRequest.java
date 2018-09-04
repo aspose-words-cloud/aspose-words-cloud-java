@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableCellRequest.java">
@@ -271,4 +272,3 @@ public class InsertTableCellRequest
     {
         Cell = value;
     }
-}

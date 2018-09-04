@@ -40,7 +40,7 @@ import org.threeten.bp.OffsetDateTime;
  * container class for details of digital signature
  */
 @ApiModel(description = "container class for details of digital signature")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:09:46.443Z")
 public class PdfDigitalSignatureDetailsData {
   @JsonProperty("CertificateFilename")
   private String certificateFilename = null;

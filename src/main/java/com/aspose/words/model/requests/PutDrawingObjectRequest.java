@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutDrawingObjectRequest.java">
@@ -294,4 +295,3 @@ public class PutDrawingObjectRequest
     {
         NodePath = value;
     }
-}

@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTablePropertiesRequest.java">
@@ -294,4 +295,3 @@ public class UpdateTablePropertiesRequest
     {
         NodePath = value;
     }
-}

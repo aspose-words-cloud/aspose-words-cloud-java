@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteParagraphRequest.java">
@@ -271,4 +272,3 @@ public class DeleteParagraphRequest
     {
         NodePath = value;
     }
-}

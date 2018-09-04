@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutHeaderFooterRequest.java">
@@ -271,4 +272,3 @@ public class PutHeaderFooterRequest
     {
         SectionPath = value;
     }
-}

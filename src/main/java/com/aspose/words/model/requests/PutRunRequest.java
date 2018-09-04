@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutRunRequest.java">
@@ -294,4 +295,3 @@ public class PutRunRequest
     {
         InsertBeforeNode = value;
     }
-}

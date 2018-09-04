@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutParagraphRequest.java">
@@ -294,4 +295,3 @@ public class PutParagraphRequest
     {
         InsertBeforeNode = value;
     }
-}

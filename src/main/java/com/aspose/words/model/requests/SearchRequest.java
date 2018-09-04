@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SearchRequest.java">
@@ -179,4 +180,3 @@ public class SearchRequest
     {
         Password = value;
     }
-}

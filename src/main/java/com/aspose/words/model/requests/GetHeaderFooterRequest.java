@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetHeaderFooterRequest.java">
@@ -202,4 +203,3 @@ public class GetHeaderFooterRequest
     {
         FilterByType = value;
     }
-}

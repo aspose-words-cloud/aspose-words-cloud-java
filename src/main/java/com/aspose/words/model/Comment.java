@@ -44,7 +44,7 @@ import org.threeten.bp.OffsetDateTime;
  * Comment.
  */
 @ApiModel(description = "Comment.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:09:46.443Z")
 public class Comment {
   @JsonProperty("link")
   private WordsApiLink link = null;

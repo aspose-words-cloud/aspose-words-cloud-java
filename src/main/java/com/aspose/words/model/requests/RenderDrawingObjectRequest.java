@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderDrawingObjectRequest.java">
@@ -248,4 +249,3 @@ public class RenderDrawingObjectRequest
     {
         FontsLocation = value;
     }
-}

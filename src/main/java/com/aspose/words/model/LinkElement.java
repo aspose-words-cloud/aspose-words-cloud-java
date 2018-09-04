@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to document.
  */
 @ApiModel(description = "Reference to document.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:09:46.443Z")
 public class LinkElement {
   @JsonProperty("link")
   private WordsApiLink link = null;

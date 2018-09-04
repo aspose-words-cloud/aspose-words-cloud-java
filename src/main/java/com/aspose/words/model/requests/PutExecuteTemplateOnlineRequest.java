@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutExecuteTemplateOnlineRequest.java">
@@ -179,4 +180,3 @@ public class PutExecuteTemplateOnlineRequest
     {
         DocumentFileName = value;
     }
-}

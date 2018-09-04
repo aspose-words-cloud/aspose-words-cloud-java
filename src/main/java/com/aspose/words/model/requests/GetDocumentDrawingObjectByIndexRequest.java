@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentDrawingObjectByIndexRequest.java">
@@ -202,4 +203,3 @@ public class GetDocumentDrawingObjectByIndexRequest
     {
         NodePath = value;
     }
-}

@@ -42,7 +42,7 @@ import java.util.List;
  * container class for outline options
  */
 @ApiModel(description = "container class for outline options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:09:46.443Z")
 public class OutlineOptionsData {
   @JsonProperty("BookmarksOutlineLevels")
   private List<BookmarksOutlineLevelData> bookmarksOutlineLevels = null;
@@ -52,6 +52,9 @@ public class OutlineOptionsData {
 
   @JsonProperty("CreateMissingOutlineLevels")
   private Boolean createMissingOutlineLevels = null;
+
+  @JsonProperty("CreateOutlinesForHeadingsInTables")
+  private Boolean createOutlinesForHeadingsInTables = null;
 
   @JsonProperty("ExpandedOutlineLevels")
   private Integer expandedOutlineLevels = null;
@@ -121,6 +124,24 @@ public class OutlineOptionsData {
     this.createMissingOutlineLevels = createMissingOutlineLevels;
   }
 
+  public OutlineOptionsData createOutlinesForHeadingsInTables(Boolean createOutlinesForHeadingsInTables) {
+    this.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
+    return this;
+  }
+
+   /**
+   * Specifies whether or not to create outlines for headings (paragraphs formatted     with the Heading styles) inside tables.
+   * @return createOutlinesForHeadingsInTables
+  **/
+  @ApiModelProperty(value = "Specifies whether or not to create outlines for headings (paragraphs formatted     with the Heading styles) inside tables.")
+  public Boolean isCreateOutlinesForHeadingsInTables() {
+    return createOutlinesForHeadingsInTables;
+  }
+
+  public void setCreateOutlinesForHeadingsInTables(Boolean createOutlinesForHeadingsInTables) {
+    this.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
+  }
+
   public OutlineOptionsData expandedOutlineLevels(Integer expandedOutlineLevels) {
     this.expandedOutlineLevels = expandedOutlineLevels;
     return this;
@@ -170,13 +191,14 @@ public class OutlineOptionsData {
     return Objects.equals(this.bookmarksOutlineLevels, outlineOptionsData.bookmarksOutlineLevels) &&
         Objects.equals(this.defaultBookmarksOutlineLevel, outlineOptionsData.defaultBookmarksOutlineLevel) &&
         Objects.equals(this.createMissingOutlineLevels, outlineOptionsData.createMissingOutlineLevels) &&
+        Objects.equals(this.createOutlinesForHeadingsInTables, outlineOptionsData.createOutlinesForHeadingsInTables) &&
         Objects.equals(this.expandedOutlineLevels, outlineOptionsData.expandedOutlineLevels) &&
         Objects.equals(this.headingsOutlineLevels, outlineOptionsData.headingsOutlineLevels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bookmarksOutlineLevels, defaultBookmarksOutlineLevel, createMissingOutlineLevels, expandedOutlineLevels, headingsOutlineLevels);
+    return Objects.hash(bookmarksOutlineLevels, defaultBookmarksOutlineLevel, createMissingOutlineLevels, createOutlinesForHeadingsInTables, expandedOutlineLevels, headingsOutlineLevels);
   }
 
 
@@ -188,6 +210,7 @@ public class OutlineOptionsData {
     sb.append("    bookmarksOutlineLevels: ").append(toIndentedString(bookmarksOutlineLevels)).append("\n");
     sb.append("    defaultBookmarksOutlineLevel: ").append(toIndentedString(defaultBookmarksOutlineLevel)).append("\n");
     sb.append("    createMissingOutlineLevels: ").append(toIndentedString(createMissingOutlineLevels)).append("\n");
+    sb.append("    createOutlinesForHeadingsInTables: ").append(toIndentedString(createOutlinesForHeadingsInTables)).append("\n");
     sb.append("    expandedOutlineLevels: ").append(toIndentedString(expandedOutlineLevels)).append("\n");
     sb.append("    headingsOutlineLevels: ").append(toIndentedString(headingsOutlineLevels)).append("\n");
     sb.append("}");

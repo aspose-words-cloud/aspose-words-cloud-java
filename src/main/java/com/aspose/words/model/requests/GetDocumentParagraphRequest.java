@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentParagraphRequest.java">
@@ -202,4 +203,3 @@ public class GetDocumentParagraphRequest
     {
         NodePath = value;
     }
-}

@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetFieldsRequest.java">
@@ -179,4 +180,3 @@ public class GetFieldsRequest
     {
         NodePath = value;
     }
-}

@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostUpdateDocumentFieldsRequest.java">
@@ -179,4 +180,3 @@ public class PostUpdateDocumentFieldsRequest
     {
         DestFileName = value;
     }
-}

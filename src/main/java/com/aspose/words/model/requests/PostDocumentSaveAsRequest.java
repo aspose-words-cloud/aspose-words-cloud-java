@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostDocumentSaveAsRequest.java">
@@ -225,4 +226,3 @@ public class PostDocumentSaveAsRequest
     {
         FontsLocation = value;
     }
-}

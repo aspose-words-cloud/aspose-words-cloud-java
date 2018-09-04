@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteDocumentWatermarkRequest.java">
@@ -225,4 +226,3 @@ public class DeleteDocumentWatermarkRequest
     {
         RevisionDateTime = value;
     }
-}

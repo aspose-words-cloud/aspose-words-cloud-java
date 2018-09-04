@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentParagraphRunRequest.java">
@@ -202,4 +203,3 @@ public class GetDocumentParagraphRunRequest
     {
         Password = value;
     }
-}

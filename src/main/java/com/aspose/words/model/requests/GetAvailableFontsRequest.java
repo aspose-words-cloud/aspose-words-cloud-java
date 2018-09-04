@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetAvailableFontsRequest.java">
@@ -64,4 +65,3 @@ public class GetAvailableFontsRequest
     {
         FontsLocation = value;
     }
-}

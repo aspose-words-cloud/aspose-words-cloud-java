@@ -1,3 +1,4 @@
+}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteDocumentMacrosRequest.java">
@@ -225,4 +226,3 @@ public class DeleteDocumentMacrosRequest
     {
         RevisionDateTime = value;
     }
-}
