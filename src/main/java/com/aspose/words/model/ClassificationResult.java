@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a single classification result.
  */
 @ApiModel(description = "Represents a single classification result.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:10:48.387Z")
 public class ClassificationResult {
   @JsonProperty("ClassName")
   private String className = null;

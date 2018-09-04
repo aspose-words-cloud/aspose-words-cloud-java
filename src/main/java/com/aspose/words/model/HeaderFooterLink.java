@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * HeaderFooter link element
  */
 @ApiModel(description = "HeaderFooter link element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:10:48.387Z")
 public class HeaderFooterLink {
   @JsonProperty("link")
   private WordsApiLink link = null;

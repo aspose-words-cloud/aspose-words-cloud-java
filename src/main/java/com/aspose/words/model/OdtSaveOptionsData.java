@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for odt/ott save options
  */
 @ApiModel(description = "container class for odt/ott save options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:10:48.387Z")
 public class OdtSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

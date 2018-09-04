@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)
  */
 @ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:10:48.387Z")
 public class RevisionsModificationResponse {
   @JsonProperty("Code")
   private Integer code = null;

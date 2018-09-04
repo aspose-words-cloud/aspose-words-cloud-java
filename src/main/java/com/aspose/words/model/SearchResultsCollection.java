@@ -44,7 +44,7 @@ import java.util.List;
  * Collection of search results.
  */
 @ApiModel(description = "Collection of search results.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:10:48.387Z")
 public class SearchResultsCollection {
   @JsonProperty("link")
   private WordsApiLink link = null;
