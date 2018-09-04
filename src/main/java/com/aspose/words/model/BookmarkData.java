@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * DTO for bookmark updating.
  */
 @ApiModel(description = "DTO for bookmark updating.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:44:53.189Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
 public class BookmarkData {
   @JsonProperty("Name")
   private String name = null;

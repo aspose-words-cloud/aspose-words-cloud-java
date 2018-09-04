@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Run element
  */
 @ApiModel(description = "Run element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:44:53.189Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
 public class Run {
   @JsonProperty("link")
   private WordsApiLink link = null;

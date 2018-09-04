@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Request on changing of protection
  */
 @ApiModel(description = "Request on changing of protection")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:44:53.189Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:48:33.761Z")
 public class ProtectionRequest {
   @JsonProperty("Password")
   private String password = null;
