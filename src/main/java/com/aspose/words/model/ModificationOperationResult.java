@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * result of the operation which modifies the original document and saves the result
  */
 @ApiModel(description = "result of the operation which modifies the original document and saves the result")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:20:41.870Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:24:30.691Z")
 public class ModificationOperationResult {
   @JsonProperty("Source")
   private FileLink source = null;

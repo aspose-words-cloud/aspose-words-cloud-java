@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Class is used for insert page number request building.
  */
 @ApiModel(description = "Class is used for insert page number request building.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:20:41.870Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:24:30.691Z")
 public class PageNumber {
   @JsonProperty("Format")
   private String format = null;

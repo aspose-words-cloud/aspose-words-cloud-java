@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Response for \&quot;Replace text\&quot; action.
  */
 @ApiModel(description = "Response for \"Replace text\" action.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:20:41.870Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:24:30.691Z")
 public class ReplaceTextResponse {
   @JsonProperty("Code")
   private Integer code = null;

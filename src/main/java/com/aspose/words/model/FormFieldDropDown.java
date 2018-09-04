@@ -43,7 +43,7 @@ import java.util.List;
  * FormField dropdownlist element
  */
 @ApiModel(description = "FormField dropdownlist element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:20:41.870Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:24:30.691Z")
 public class FormFieldDropDown {
   @JsonProperty("link")
   private WordsApiLink link = null;
