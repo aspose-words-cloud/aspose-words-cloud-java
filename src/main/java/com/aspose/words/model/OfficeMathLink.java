@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * OfficeMath object link element
  */
 @ApiModel(description = "OfficeMath object link element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:14:42.822Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:18:23.497Z")
 public class OfficeMathLink {
   @JsonProperty("link")
   private WordsApiLink link = null;
