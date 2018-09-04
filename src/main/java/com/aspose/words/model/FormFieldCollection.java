@@ -44,7 +44,7 @@ import java.util.List;
  * Represents DTO for collection of formfields.
  */
 @ApiModel(description = "Represents DTO for collection of formfields.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:09:46.443Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:13:25.620Z")
 public class FormFieldCollection {
   @JsonProperty("link")
   private WordsApiLink link = null;

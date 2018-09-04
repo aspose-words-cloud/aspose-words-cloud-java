@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Response for the request of the document&#39;s statistical data
  */
 @ApiModel(description = "Response for the request of the document's statistical data")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:09:46.443Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:13:25.620Z")
 public class StatDataResponse {
   @JsonProperty("Code")
   private Integer code = null;

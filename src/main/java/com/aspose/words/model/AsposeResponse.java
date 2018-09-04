@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Base class for all responses.
  */
 @ApiModel(description = "Base class for all responses.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:09:46.443Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:13:25.620Z")
 public class AsposeResponse {
   @JsonProperty("Code")
   private Integer code = null;
