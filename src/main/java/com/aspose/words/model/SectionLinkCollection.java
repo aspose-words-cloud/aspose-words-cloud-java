@@ -44,7 +44,7 @@ import java.util.List;
  * Collection of links to sections
  */
 @ApiModel(description = "Collection of links to sections")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:36:10.439Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:39:50.697Z")
 public class SectionLinkCollection {
   @JsonProperty("link")
   private WordsApiLink link = null;

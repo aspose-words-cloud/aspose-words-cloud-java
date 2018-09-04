@@ -44,7 +44,7 @@ import java.util.List;
  * Represents DTO for collection of fields.
  */
 @ApiModel(description = "Represents DTO for collection of fields.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:36:10.439Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:39:50.697Z")
 public class FieldCollection {
   @JsonProperty("link")
   private WordsApiLink link = null;

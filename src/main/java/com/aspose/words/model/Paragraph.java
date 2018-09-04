@@ -43,7 +43,7 @@ import java.util.List;
  * Paragraph element
  */
 @ApiModel(description = "Paragraph element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:36:10.439Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:39:50.697Z")
 public class Paragraph {
   @JsonProperty("link")
   private WordsApiLink link = null;

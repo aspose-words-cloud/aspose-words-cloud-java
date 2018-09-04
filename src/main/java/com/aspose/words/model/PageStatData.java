@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container for the page&#39;s statistical data
  */
 @ApiModel(description = "Container for the page's statistical data")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:36:10.439Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:39:50.697Z")
 public class PageStatData {
   @JsonProperty("PageNumber")
   private Integer pageNumber = null;

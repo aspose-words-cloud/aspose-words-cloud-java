@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Save response.
  */
 @ApiModel(description = "Save response.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:36:10.439Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:39:50.697Z")
 public class SaveResponse {
   @JsonProperty("Code")
   private Integer code = null;
