@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for xaml flow save options
  */
 @ApiModel(description = "container class for xaml flow save options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:55:55.437Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:59:49.194Z")
 public class XamlFlowSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

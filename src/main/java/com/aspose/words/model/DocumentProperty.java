@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Words document property DTO.
  */
 @ApiModel(description = "Words document property DTO.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:55:55.437Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:59:49.194Z")
 public class DocumentProperty {
   @JsonProperty("link")
   private WordsApiLink link = null;

@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET {nodeWithBorders}/borders.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:55:55.437Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:59:49.194Z")
 public class BorderResponse {
   @JsonProperty("Code")
   private Integer code = null;

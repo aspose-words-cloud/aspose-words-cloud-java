@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Response for \&quot;drawingObjects/n\&quot; resource.
  */
 @ApiModel(description = "Response for \"drawingObjects/n\" resource.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:55:55.437Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T12:59:49.194Z")
 public class DrawingObjectResponse {
   @JsonProperty("Code")
   private Integer code = null;
