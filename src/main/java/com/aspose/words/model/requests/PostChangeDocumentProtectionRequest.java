@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostChangeDocumentProtectionRequest.java">
@@ -203,3 +202,4 @@ public class PostChangeDocumentProtectionRequest
     {
         DestFileName = value;
     }
+}

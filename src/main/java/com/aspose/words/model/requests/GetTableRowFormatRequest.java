@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetTableRowFormatRequest.java">
@@ -203,3 +202,4 @@ public class GetTableRowFormatRequest
     {
         Password = value;
     }
+}

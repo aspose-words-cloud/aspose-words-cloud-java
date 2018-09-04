@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteOfficeMathObjectRequest.java">
@@ -272,3 +271,4 @@ public class DeleteOfficeMathObjectRequest
     {
         NodePath = value;
     }
+}

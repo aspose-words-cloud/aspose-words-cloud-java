@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostLoadWebDocumentRequest.java">
@@ -88,3 +87,4 @@ public class PostLoadWebDocumentRequest
     {
         Storage = value;
     }
+}

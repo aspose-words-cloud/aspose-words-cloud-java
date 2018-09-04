@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostDocumentParagraphRunFontRequest.java">
@@ -295,3 +294,4 @@ public class PostDocumentParagraphRunFontRequest
     {
         RevisionDateTime = value;
     }
+}

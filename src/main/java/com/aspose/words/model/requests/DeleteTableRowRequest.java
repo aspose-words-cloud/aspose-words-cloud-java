@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteTableRowRequest.java">
@@ -272,3 +271,4 @@ public class DeleteTableRowRequest
     {
         RevisionDateTime = value;
     }
+}

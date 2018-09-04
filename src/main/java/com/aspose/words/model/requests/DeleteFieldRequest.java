@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteFieldRequest.java">
@@ -272,3 +271,4 @@ public class DeleteFieldRequest
     {
         NodePath = value;
     }
+}

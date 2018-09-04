@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostReplaceTextRequest.java">
@@ -249,3 +248,4 @@ public class PostReplaceTextRequest
     {
         RevisionDateTime = value;
     }
+}

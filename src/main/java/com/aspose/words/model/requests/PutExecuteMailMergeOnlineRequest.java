@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutExecuteMailMergeOnlineRequest.java">
@@ -157,3 +156,4 @@ public class PutExecuteMailMergeOnlineRequest
     {
         DocumentFileName = value;
     }
+}

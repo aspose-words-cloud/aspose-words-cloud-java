@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteBorderRequest.java">
@@ -272,3 +271,4 @@ public class DeleteBorderRequest
     {
         RevisionDateTime = value;
     }
+}

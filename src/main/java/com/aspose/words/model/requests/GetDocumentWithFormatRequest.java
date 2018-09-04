@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentWithFormatRequest.java">
@@ -226,3 +225,4 @@ public class GetDocumentWithFormatRequest
     {
         FontsLocation = value;
     }
+}

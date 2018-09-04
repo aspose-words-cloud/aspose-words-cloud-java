@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostInsertDocumentWatermarkTextRequest.java">
@@ -249,3 +248,4 @@ public class PostInsertDocumentWatermarkTextRequest
     {
         RevisionDateTime = value;
     }
+}

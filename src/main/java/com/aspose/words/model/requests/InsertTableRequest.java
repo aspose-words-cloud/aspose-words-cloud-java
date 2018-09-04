@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableRequest.java">
@@ -272,3 +271,4 @@ public class InsertTableRequest
     {
         NodePath = value;
     }
+}

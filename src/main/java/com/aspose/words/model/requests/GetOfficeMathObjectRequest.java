@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetOfficeMathObjectRequest.java">
@@ -203,3 +202,4 @@ public class GetOfficeMathObjectRequest
     {
         NodePath = value;
     }
+}

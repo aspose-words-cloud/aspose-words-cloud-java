@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PutDocumentSaveAsTiffRequest.java">
@@ -640,3 +639,4 @@ public class PutDocumentSaveAsTiffRequest
     {
         FontsLocation = value;
     }
+}

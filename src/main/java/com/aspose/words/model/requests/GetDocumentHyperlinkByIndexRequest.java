@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentHyperlinkByIndexRequest.java">
@@ -180,3 +179,4 @@ public class GetDocumentHyperlinkByIndexRequest
     {
         Password = value;
     }
+}

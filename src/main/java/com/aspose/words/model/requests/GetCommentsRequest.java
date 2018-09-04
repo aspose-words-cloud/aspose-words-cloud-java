@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetCommentsRequest.java">
@@ -157,3 +156,4 @@ public class GetCommentsRequest
     {
         Password = value;
     }
+}

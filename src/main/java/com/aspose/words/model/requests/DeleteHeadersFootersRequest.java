@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteHeadersFootersRequest.java">
@@ -272,3 +271,4 @@ public class DeleteHeadersFootersRequest
     {
         HeadersFootersTypes = value;
     }
+}

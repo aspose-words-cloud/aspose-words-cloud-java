@@ -42,7 +42,7 @@ import java.util.List;
  * Result of saving.
  */
 @ApiModel(description = "Result of saving.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:18:23.497Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
 public class SaveResult {
   @JsonProperty("SourceDocument")
   private FileLink sourceDocument = null;

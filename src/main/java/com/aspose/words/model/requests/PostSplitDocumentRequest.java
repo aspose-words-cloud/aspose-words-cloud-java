@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostSplitDocumentRequest.java">
@@ -295,3 +294,4 @@ public class PostSplitDocumentRequest
     {
         FontsLocation = value;
     }
+}

@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostAppendDocumentRequest.java">
@@ -249,3 +248,4 @@ public class PostAppendDocumentRequest
     {
         RevisionDateTime = value;
     }
+}

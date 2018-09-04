@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteDocumentPropertyRequest.java">
@@ -249,3 +248,4 @@ public class DeleteDocumentPropertyRequest
     {
         RevisionDateTime = value;
     }
+}

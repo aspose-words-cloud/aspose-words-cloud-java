@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ResetCacheRequest.java">
@@ -34,3 +33,4 @@ import java.io.File;
  */
 public class ResetCacheRequest
 {
+}

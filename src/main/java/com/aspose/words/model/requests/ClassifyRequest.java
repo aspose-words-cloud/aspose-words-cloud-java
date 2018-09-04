@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ClassifyRequest.java">
@@ -88,3 +87,4 @@ public class ClassifyRequest
     {
         BestClassesCount = value;
     }
+}

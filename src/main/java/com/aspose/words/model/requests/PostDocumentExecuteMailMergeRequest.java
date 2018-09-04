@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostDocumentExecuteMailMergeRequest.java">
@@ -295,3 +294,4 @@ public class PostDocumentExecuteMailMergeRequest
     {
         DestFileName = value;
     }
+}

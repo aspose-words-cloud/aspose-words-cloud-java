@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentBookmarkByNameRequest.java">
@@ -180,3 +179,4 @@ public class GetDocumentBookmarkByNameRequest
     {
         Password = value;
     }
+}

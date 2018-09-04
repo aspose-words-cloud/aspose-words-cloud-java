@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Provides information for the file link.
  */
 @ApiModel(description = "Provides information for the file link.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:18:23.497Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
 public class FileLink {
   @JsonProperty("Href")
   private String href = null;

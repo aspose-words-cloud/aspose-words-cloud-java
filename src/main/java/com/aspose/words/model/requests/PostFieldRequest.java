@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostFieldRequest.java">
@@ -295,3 +294,4 @@ public class PostFieldRequest
     {
         NodePath = value;
     }
+}

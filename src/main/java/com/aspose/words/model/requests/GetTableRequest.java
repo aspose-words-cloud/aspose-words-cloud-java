@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetTableRequest.java">
@@ -203,3 +202,4 @@ public class GetTableRequest
     {
         NodePath = value;
     }
+}

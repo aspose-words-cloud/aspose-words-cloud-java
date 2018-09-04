@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderMathObjectRequest.java">
@@ -249,3 +248,4 @@ public class RenderMathObjectRequest
     {
         FontsLocation = value;
     }
+}

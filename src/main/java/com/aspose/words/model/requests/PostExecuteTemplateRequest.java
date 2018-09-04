@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostExecuteTemplateRequest.java">
@@ -272,3 +271,4 @@ public class PostExecuteTemplateRequest
     {
         DestFileName = value;
     }
+}

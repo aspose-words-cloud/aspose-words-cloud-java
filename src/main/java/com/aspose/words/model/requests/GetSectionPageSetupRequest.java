@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetSectionPageSetupRequest.java">
@@ -180,3 +179,4 @@ public class GetSectionPageSetupRequest
     {
         Password = value;
     }
+}

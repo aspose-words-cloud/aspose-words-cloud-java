@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteTableRequest.java">
@@ -272,3 +271,4 @@ public class DeleteTableRequest
     {
         NodePath = value;
     }
+}

@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostCompareDocumentRequest.java">
@@ -203,3 +202,4 @@ public class PostCompareDocumentRequest
     {
         DestFileName = value;
     }
+}

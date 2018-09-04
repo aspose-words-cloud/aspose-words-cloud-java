@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentHyperlinksRequest.java">
@@ -157,3 +156,4 @@ public class GetDocumentHyperlinksRequest
     {
         Password = value;
     }
+}

@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Utility class for  serialization
  */
 @ApiModel(description = "Utility class for  serialization")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:18:23.497Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
 public class XmlColor {
   @JsonProperty("Web")
   private String web = null;

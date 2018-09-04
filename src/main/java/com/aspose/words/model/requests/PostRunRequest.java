@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PostRunRequest.java">
@@ -295,3 +294,4 @@ public class PostRunRequest
     {
         RevisionDateTime = value;
     }
+}

@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentFieldNamesRequest.java">
@@ -180,3 +179,4 @@ public class GetDocumentFieldNamesRequest
     {
         UseNonMergeFields = value;
     }
+}

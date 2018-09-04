@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="AcceptAllRevisionsRequest.java">
@@ -180,3 +179,4 @@ public class AcceptAllRevisionsRequest
     {
         DestFileName = value;
     }
+}

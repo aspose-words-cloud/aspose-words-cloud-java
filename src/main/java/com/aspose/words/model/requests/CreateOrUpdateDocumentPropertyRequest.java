@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CreateOrUpdateDocumentPropertyRequest.java">
@@ -272,3 +271,4 @@ public class CreateOrUpdateDocumentPropertyRequest
     {
         RevisionDateTime = value;
     }
+}

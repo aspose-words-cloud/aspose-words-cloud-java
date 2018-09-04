@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteUnprotectDocumentRequest.java">
@@ -203,3 +202,4 @@ public class DeleteUnprotectDocumentRequest
     {
         DestFileName = value;
     }
+}

@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTableCellFormatRequest.java">
@@ -295,3 +294,4 @@ public class UpdateTableCellFormatRequest
     {
         Format = value;
     }
+}

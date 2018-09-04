@@ -44,7 +44,7 @@ import java.util.List;
  * Collection of links to paragraphs
  */
 @ApiModel(description = "Collection of links to paragraphs")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:18:23.497Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
 public class ParagraphLinkCollection {
   @JsonProperty("link")
   private WordsApiLink link = null;

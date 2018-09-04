@@ -1,4 +1,3 @@
-}
 /*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetFootnotesRequest.java">
@@ -180,3 +179,4 @@ public class GetFootnotesRequest
     {
         NodePath = value;
     }
+}

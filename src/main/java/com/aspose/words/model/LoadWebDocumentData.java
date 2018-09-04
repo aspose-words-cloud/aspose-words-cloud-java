@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Contains data for load web document
  */
 @ApiModel(description = "Contains data for load web document")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:18:23.497Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:21:14.416Z")
 public class LoadWebDocumentData {
   @JsonProperty("LoadingDocumentUrl")
   private String loadingDocumentUrl = null;
