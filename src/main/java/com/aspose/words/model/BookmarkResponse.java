@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
 public class BookmarkResponse {
   @JsonProperty("Code")
   private Integer code = null;

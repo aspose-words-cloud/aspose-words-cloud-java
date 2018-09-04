@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Container for the footnotes statistical data
  */
 @ApiModel(description = "Container for the footnotes statistical data")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
 public class FootnotesStatData {
   @JsonProperty("WordCount")
   private Integer wordCount = null;

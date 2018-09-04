@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Response for Api error
  */
 @ApiModel(description = "Response for Api error")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
 public class WordsApiErrorResponse {
   @JsonProperty("Code")
   private Integer code = null;

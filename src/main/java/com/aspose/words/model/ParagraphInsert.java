@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Paragraph element
  */
 @ApiModel(description = "Paragraph element")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
 public class ParagraphInsert {
   @JsonProperty("Text")
   private String text = null;

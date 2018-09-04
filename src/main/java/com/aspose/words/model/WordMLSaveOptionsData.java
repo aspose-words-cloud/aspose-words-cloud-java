@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for wml save options
  */
 @ApiModel(description = "container class for wml save options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
 public class WordMLSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;

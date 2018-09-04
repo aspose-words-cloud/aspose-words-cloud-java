@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents the response with document description.
  */
 @ApiModel(description = "Represents the response with document description.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:03:27.428Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:07:04.469Z")
 public class DocumentResponse {
   @JsonProperty("Code")
   private Integer code = null;
