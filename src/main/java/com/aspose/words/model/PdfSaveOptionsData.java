@@ -45,7 +45,7 @@ import io.swagger.annotations.ApiModelProperty;
  * container class for pdf save options
  */
 @ApiModel(description = "container class for pdf save options")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-04T13:24:51.214Z")
 public class PdfSaveOptionsData {
   @JsonProperty("ColorMode")
   private String colorMode = null;
@@ -124,6 +124,46 @@ public class PdfSaveOptionsData {
 
   @JsonProperty("FontEmbeddingMode")
   private String fontEmbeddingMode = null;
+
+  /**
+   * Determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
+   */
+  public enum HeaderFooterBookmarksExportModeEnum {
+    NONE("None"),
+    
+    FIRST("First"),
+    
+    ALL("All");
+
+    private String value;
+
+    HeaderFooterBookmarksExportModeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static HeaderFooterBookmarksExportModeEnum fromValue(String text) {
+      for (HeaderFooterBookmarksExportModeEnum b : HeaderFooterBookmarksExportModeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  @JsonProperty("HeaderFooterBookmarksExportMode")
+  private HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode = null;
 
   @JsonProperty("ImageColorSpaceExportMode")
   private String imageColorSpaceExportMode = null;
@@ -629,6 +669,24 @@ public class PdfSaveOptionsData {
     this.fontEmbeddingMode = fontEmbeddingMode;
   }
 
+  public PdfSaveOptionsData headerFooterBookmarksExportMode(HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode) {
+    this.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
+    return this;
+  }
+
+   /**
+   * Determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
+   * @return headerFooterBookmarksExportMode
+  **/
+  @ApiModelProperty(value = "Determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.")
+  public HeaderFooterBookmarksExportModeEnum getHeaderFooterBookmarksExportMode() {
+    return headerFooterBookmarksExportMode;
+  }
+
+  public void setHeaderFooterBookmarksExportMode(HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode) {
+    this.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
+  }
+
   public PdfSaveOptionsData imageColorSpaceExportMode(String imageColorSpaceExportMode) {
     this.imageColorSpaceExportMode = imageColorSpaceExportMode;
     return this;
@@ -881,6 +939,7 @@ public class PdfSaveOptionsData {
         Objects.equals(this.escapeUri, pdfSaveOptionsData.escapeUri) &&
         Objects.equals(this.exportDocumentStructure, pdfSaveOptionsData.exportDocumentStructure) &&
         Objects.equals(this.fontEmbeddingMode, pdfSaveOptionsData.fontEmbeddingMode) &&
+        Objects.equals(this.headerFooterBookmarksExportMode, pdfSaveOptionsData.headerFooterBookmarksExportMode) &&
         Objects.equals(this.imageColorSpaceExportMode, pdfSaveOptionsData.imageColorSpaceExportMode) &&
         Objects.equals(this.imageCompression, pdfSaveOptionsData.imageCompression) &&
         Objects.equals(this.openHyperlinksInNewWindow, pdfSaveOptionsData.openHyperlinksInNewWindow) &&
@@ -897,7 +956,7 @@ public class PdfSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorMode, saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields, jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, escapeUri, exportDocumentStructure, fontEmbeddingMode, imageColorSpaceExportMode, imageCompression, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor);
+    return Objects.hash(colorMode, saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields, jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex, compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, escapeUri, exportDocumentStructure, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor);
   }
 
 
@@ -932,6 +991,7 @@ public class PdfSaveOptionsData {
     sb.append("    escapeUri: ").append(toIndentedString(escapeUri)).append("\n");
     sb.append("    exportDocumentStructure: ").append(toIndentedString(exportDocumentStructure)).append("\n");
     sb.append("    fontEmbeddingMode: ").append(toIndentedString(fontEmbeddingMode)).append("\n");
+    sb.append("    headerFooterBookmarksExportMode: ").append(toIndentedString(headerFooterBookmarksExportMode)).append("\n");
     sb.append("    imageColorSpaceExportMode: ").append(toIndentedString(imageColorSpaceExportMode)).append("\n");
     sb.append("    imageCompression: ").append(toIndentedString(imageCompression)).append("\n");
     sb.append("    openHyperlinksInNewWindow: ").append(toIndentedString(openHyperlinksInNewWindow)).append("\n");
