@@ -69,11 +69,11 @@ import com.aspose.words.auth.HttpBasicAuth;
 import com.aspose.words.auth.ApiKeyAuth;
 import com.aspose.words.auth.OAuth;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+
 public class ApiClient {
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   private String apiVersionV1 = "v1";
-  private String baseUrl = "https://api.aspose.com/";
+  private String baseUrl = "https://api.aspose.cloud/";
   private String basePath = baseUrl + apiVersionV1;
   private String clientVersion = "18.8";
   private String apiKey = "";
@@ -95,8 +95,10 @@ public class ApiClient {
     if (apiKey == null || appSid == null){
         throw new IllegalArgumentException("appKey and appSid couldn't be null values");
     }
-
-    if (baseUrl != null) this.baseUrl = baseUrl;
+	if (baseUrl != null) {
+      this.baseUrl = baseUrl;
+      this.basePath = this.baseUrl + apiVersionV1;
+    }
 
     this.apiKey = appKey;
     this.appSid = appSid;
@@ -615,7 +617,7 @@ public class ApiClient {
    */
   private String buildUrl(String path, List<Pair> queryParams, List<Pair> collectionQueryParams) {
     final StringBuilder url = new StringBuilder();
-    url.append(basePath).append(path);
+    url.append(path == "/oauth2/token" ? this.baseUrl : this.basePath).append(path);
 
     if (queryParams != null && !queryParams.isEmpty()) {
       // support (constant) query string in `path`, e.g. "/posts?draft=1"

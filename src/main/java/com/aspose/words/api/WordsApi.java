@@ -1640,7 +1640,7 @@ public class WordsApi {
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "oauth" };
         
         GenericType<DocumentResponse> localVarReturnType = new GenericType<DocumentResponse>() {};
         return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams,              localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType,   localVarAuthNames, localVarReturnType);

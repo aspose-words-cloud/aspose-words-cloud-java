@@ -24,20 +24,20 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.Document;
-
+package com.aspose.words.DocumentActions;
 import com.aspose.words.ApiException;
 import com.aspose.words.TestInitializer;
+import com.aspose.words.model.DocumentEntry;
+import com.aspose.words.model.DocumentEntryList;
 import com.aspose.words.model.DocumentResponse;
-import com.aspose.words.model.requests.GetDocumentRequest;
-import com.aspose.words.model.requests.PutCreateDocumentRequest;
+import com.aspose.words.model.requests.PostAppendDocumentRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
 import java.nio.file.Paths;
 
-public class TestDocument extends TestCase {
-    private String testFolder = "document";
+public class TestAppendDocument extends TestCase {
+    private String testFolder = "DocumentActions/AppendDocument";
 
     @Override
     protected void setUp() throws Exception {
@@ -46,36 +46,22 @@ public class TestDocument extends TestCase {
     }
 
     /*
-        Test for getting document
+        Test for appending document
      */
-    public void testGetDocument(){
+    public void testPostAppendDocument(){
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestGetDocument.docx";
+        String remoteName = "TestPostAppendDocument.docx";
+        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        DocumentEntry docEntry = new DocumentEntry()
+                .href(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString())
+                .importFormatMode("KeepSourceFormatting");
+        DocumentEntryList body = new DocumentEntryList().addDocumentEntriesItem(docEntry);
         TestInitializer.storageApi.PutCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
                 null, null, new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()));
-        GetDocumentRequest request = new GetDocumentRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
-                null, null, null);
+        PostAppendDocumentRequest request = new PostAppendDocumentRequest(remoteName, body,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null, null, destName, null, null);
         try {
-            DocumentResponse result = TestInitializer.wordApi.getDocument(request);
-            assertEquals(result.getCode(), Integer.valueOf(200));
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /*
-        Test for creating document
-    */
-    public void testPutCreateDocument(){
-        String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPutCreateDocument.docx";
-        TestInitializer.storageApi.PutCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                null, null, new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()));
-        PutCreateDocumentRequest request = new PutCreateDocumentRequest(null, remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString());
-        try {
-            DocumentResponse result = TestInitializer.wordApi.putCreateDocument(request);
+            DocumentResponse result = TestInitializer.wordApi.postAppendDocument(request);
             assertEquals(result.getCode(), Integer.valueOf(200));
         } catch (ApiException e) {
             e.printStackTrace();
