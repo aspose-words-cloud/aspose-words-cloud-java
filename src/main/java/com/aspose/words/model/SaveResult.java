@@ -30,11 +30,14 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FileLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,13 +47,13 @@ import java.util.List;
 @ApiModel(description = "Result of saving.")
 
 public class SaveResult {
-  @JsonProperty("SourceDocument")
+  @SerializedName("SourceDocument")
   private FileLink sourceDocument = null;
 
-  @JsonProperty("DestDocument")
+  @SerializedName("DestDocument")
   private FileLink destDocument = null;
 
-  @JsonProperty("AdditionalItems")
+  @SerializedName("AdditionalItems")
   private List<FileLink> additionalItems = null;
 
   public SaveResult sourceDocument(FileLink sourceDocument) {

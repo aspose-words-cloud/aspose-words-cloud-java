@@ -30,11 +30,14 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.HtmlSaveOptionsData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Container class for mhtml save options.
@@ -42,117 +45,118 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for mhtml save options.")
 
 public class MhtmlSaveOptionsData {
-  @JsonProperty("ColorMode")
+  @SerializedName("ColorMode")
   private String colorMode = null;
 
-  @JsonProperty("SaveFormat")
+  @SerializedName("SaveFormat")
   private String saveFormat = null;
 
-  @JsonProperty("FileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
-  @JsonProperty("DmlRenderingMode")
+  @SerializedName("DmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @JsonProperty("DmlEffectsRenderingMode")
+  @SerializedName("DmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @JsonProperty("ZipOutput")
+  @SerializedName("ZipOutput")
   private Boolean zipOutput = null;
 
-  @JsonProperty("UpdateLastSavedTimeProperty")
+  @SerializedName("UpdateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @JsonProperty("UpdateSdtContent")
+  @SerializedName("UpdateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @JsonProperty("UpdateFields")
+  @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
-  @JsonProperty("AllowNegativeIndent")
+  @SerializedName("AllowNegativeIndent")
   private Boolean allowNegativeIndent = null;
 
-  @JsonProperty("CssClassNamePrefix")
+  @SerializedName("CssClassNamePrefix")
   private String cssClassNamePrefix = null;
 
-  @JsonProperty("CssStyleSheetFileName")
+  @SerializedName("CssStyleSheetFileName")
   private String cssStyleSheetFileName = null;
 
-  @JsonProperty("CssStyleSheetType")
+  @SerializedName("CssStyleSheetType")
   private String cssStyleSheetType = null;
 
-  @JsonProperty("DocumentSplitCriteria")
+  @SerializedName("DocumentSplitCriteria")
   private String documentSplitCriteria = null;
 
-  @JsonProperty("DocumentSplitHeadingLevel")
+  @SerializedName("DocumentSplitHeadingLevel")
   private Integer documentSplitHeadingLevel = null;
 
-  @JsonProperty("Encoding")
+  @SerializedName("Encoding")
   private String encoding = null;
 
-  @JsonProperty("ExportDocumentProperties")
+  @SerializedName("ExportDocumentProperties")
   private Boolean exportDocumentProperties = null;
 
-  @JsonProperty("ExportDropDownFormFieldAsText")
+  @SerializedName("ExportDropDownFormFieldAsText")
   private Boolean exportDropDownFormFieldAsText = null;
 
-  @JsonProperty("ExportFontResources")
+  @SerializedName("ExportFontResources")
   private Boolean exportFontResources = null;
 
-  @JsonProperty("ExportFontsAsBase64")
+  @SerializedName("ExportFontsAsBase64")
   private Boolean exportFontsAsBase64 = null;
 
-  @JsonProperty("ExportHeadersFootersMode")
+  @SerializedName("ExportHeadersFootersMode")
   private String exportHeadersFootersMode = null;
 
-  @JsonProperty("ExportImagesAsBase64")
+  @SerializedName("ExportImagesAsBase64")
   private Boolean exportImagesAsBase64 = null;
 
-  @JsonProperty("ExportLanguageInformation")
+  @SerializedName("ExportLanguageInformation")
   private Boolean exportLanguageInformation = null;
 
-  @JsonProperty("ExportListLabels")
+  @SerializedName("ExportListLabels")
   private String exportListLabels = null;
 
-  @JsonProperty("ExportOriginalUrlForLinkedImages")
+  @SerializedName("ExportOriginalUrlForLinkedImages")
   private Boolean exportOriginalUrlForLinkedImages = null;
 
-  @JsonProperty("ExportPageMargins")
+  @SerializedName("ExportPageMargins")
   private Boolean exportPageMargins = null;
 
-  @JsonProperty("ExportPageSetup")
+  @SerializedName("ExportPageSetup")
   private Boolean exportPageSetup = null;
 
-  @JsonProperty("ExportRelativeFontSize")
+  @SerializedName("ExportRelativeFontSize")
   private Boolean exportRelativeFontSize = null;
 
-  @JsonProperty("ExportRoundtripInformation")
+  @SerializedName("ExportRoundtripInformation")
   private Boolean exportRoundtripInformation = null;
 
-  @JsonProperty("ExportTextBoxAsSvg")
+  @SerializedName("ExportTextBoxAsSvg")
   private Boolean exportTextBoxAsSvg = null;
 
-  @JsonProperty("ExportTextInputFormFieldAsText")
+  @SerializedName("ExportTextInputFormFieldAsText")
   private Boolean exportTextInputFormFieldAsText = null;
 
-  @JsonProperty("ExportTocPageNumbers")
+  @SerializedName("ExportTocPageNumbers")
   private Boolean exportTocPageNumbers = null;
 
-  @JsonProperty("ExportXhtmlTransitional")
+  @SerializedName("ExportXhtmlTransitional")
   private Boolean exportXhtmlTransitional = null;
 
-  @JsonProperty("FontResourcesSubsettingSizeThreshold")
+  @SerializedName("FontResourcesSubsettingSizeThreshold")
   private Integer fontResourcesSubsettingSizeThreshold = null;
 
-  @JsonProperty("FontsFolder")
+  @SerializedName("FontsFolder")
   private String fontsFolder = null;
 
-  @JsonProperty("FontsFolderAlias")
+  @SerializedName("FontsFolderAlias")
   private String fontsFolderAlias = null;
 
   /**
    * Specifies version of HTML standard that should be used when saving the document to HTML or MHTML.   Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
    */
+  @JsonAdapter(HtmlVersionEnum.Adapter.class)
   public enum HtmlVersionEnum {
     XHTML("Xhtml"),
     
@@ -164,7 +168,6 @@ public class MhtmlSaveOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -174,7 +177,6 @@ public class MhtmlSaveOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static HtmlVersionEnum fromValue(String text) {
       for (HtmlVersionEnum b : HtmlVersionEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -183,23 +185,37 @@ public class MhtmlSaveOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<HtmlVersionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HtmlVersionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HtmlVersionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return HtmlVersionEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("HtmlVersion")
+  @SerializedName("HtmlVersion")
   private HtmlVersionEnum htmlVersion = null;
 
-  @JsonProperty("ImageResolution")
+  @SerializedName("ImageResolution")
   private Integer imageResolution = null;
 
-  @JsonProperty("ImagesFolder")
+  @SerializedName("ImagesFolder")
   private String imagesFolder = null;
 
-  @JsonProperty("ImagesFolderAlias")
+  @SerializedName("ImagesFolderAlias")
   private String imagesFolderAlias = null;
 
   /**
    * Specifies in what format metafiles are saved when exporting to HTML, MHTML, or EPUB.  Default value is Aspose.Words.Saving.HtmlMetafileFormat.Png, meaning that metafiles are rendered to raster PNG images.  Metafiles are not natively displayed by HTML browsers. By default, Aspose.Words converts WMF and EMF images into PNG files when exporting to HTML.Other options are to convert metafiles to SVG images or to export them as is without conversion. Some image transforms, in particular image cropping, will not be applied to metafile images if they are exported to HTML without conversion.
    */
+  @JsonAdapter(MetafileFormatEnum.Adapter.class)
   public enum MetafileFormatEnum {
     PNG("Png"),
     
@@ -213,7 +229,6 @@ public class MhtmlSaveOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -223,7 +238,6 @@ public class MhtmlSaveOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static MetafileFormatEnum fromValue(String text) {
       for (MetafileFormatEnum b : MetafileFormatEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -232,14 +246,28 @@ public class MhtmlSaveOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<MetafileFormatEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MetafileFormatEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MetafileFormatEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MetafileFormatEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("MetafileFormat")
+  @SerializedName("MetafileFormat")
   private MetafileFormatEnum metafileFormat = null;
 
   /**
    * Controls how OfficeMath objects are exported to HTML, MHTML or EPUB.  Default value is HtmlOfficeMathOutputMode.Image.
    */
+  @JsonAdapter(OfficeMathOutputModeEnum.Adapter.class)
   public enum OfficeMathOutputModeEnum {
     IMAGE("Image"),
     
@@ -253,7 +281,6 @@ public class MhtmlSaveOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -263,7 +290,6 @@ public class MhtmlSaveOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static OfficeMathOutputModeEnum fromValue(String text) {
       for (OfficeMathOutputModeEnum b : OfficeMathOutputModeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -272,24 +298,37 @@ public class MhtmlSaveOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<OfficeMathOutputModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OfficeMathOutputModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OfficeMathOutputModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OfficeMathOutputModeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("OfficeMathOutputMode")
+  @SerializedName("OfficeMathOutputMode")
   private OfficeMathOutputModeEnum officeMathOutputMode = null;
 
-  @JsonProperty("PrettyFormat")
+  @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
 
-  @JsonProperty("ResourceFolder")
+  @SerializedName("ResourceFolder")
   private String resourceFolder = null;
 
-  @JsonProperty("ResourceFolderAlias")
+  @SerializedName("ResourceFolderAlias")
   private String resourceFolderAlias = null;
 
-  @JsonProperty("ScaleImageToShapeSize")
+  @SerializedName("ScaleImageToShapeSize")
   private Boolean scaleImageToShapeSize = null;
 
-  @JsonProperty("TableWidthOutputMode")
+  @SerializedName("TableWidthOutputMode")
   private String tableWidthOutputMode = null;
 
   public MhtmlSaveOptionsData colorMode(String colorMode) {

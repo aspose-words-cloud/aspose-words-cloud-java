@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Represents all formatting for a table row.
@@ -43,21 +46,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents all formatting for a table row.")
 
 public class TableRowFormat {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("AllowBreakAcrossPages")
+  @SerializedName("AllowBreakAcrossPages")
   private Boolean allowBreakAcrossPages = null;
 
-  @JsonProperty("HeadingFormat")
+  @SerializedName("HeadingFormat")
   private Boolean headingFormat = null;
 
-  @JsonProperty("Height")
+  @SerializedName("Height")
   private Double height = null;
 
   /**
    * Gets or sets the rule for determining the height of the table row.
    */
+  @JsonAdapter(HeightRuleEnum.Adapter.class)
   public enum HeightRuleEnum {
     ATLEAST("AtLeast"),
     
@@ -71,7 +75,6 @@ public class TableRowFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -81,7 +84,6 @@ public class TableRowFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static HeightRuleEnum fromValue(String text) {
       for (HeightRuleEnum b : HeightRuleEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -90,9 +92,22 @@ public class TableRowFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<HeightRuleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HeightRuleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HeightRuleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return HeightRuleEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("HeightRule")
+  @SerializedName("HeightRule")
   private HeightRuleEnum heightRule = null;
 
   public TableRowFormat link(WordsApiLink link) {

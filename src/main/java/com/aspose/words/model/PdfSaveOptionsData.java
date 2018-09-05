@@ -35,11 +35,14 @@ import com.aspose.words.model.MetafileRenderingOptionsData;
 import com.aspose.words.model.OutlineOptionsData;
 import com.aspose.words.model.PdfDigitalSignatureDetailsData;
 import com.aspose.words.model.PdfEncryptionDetailsData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * container class for pdf save options
@@ -47,87 +50,88 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "container class for pdf save options")
 
 public class PdfSaveOptionsData {
-  @JsonProperty("ColorMode")
+  @SerializedName("ColorMode")
   private String colorMode = null;
 
-  @JsonProperty("SaveFormat")
+  @SerializedName("SaveFormat")
   private String saveFormat = null;
 
-  @JsonProperty("FileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
-  @JsonProperty("DmlRenderingMode")
+  @SerializedName("DmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @JsonProperty("DmlEffectsRenderingMode")
+  @SerializedName("DmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @JsonProperty("ZipOutput")
+  @SerializedName("ZipOutput")
   private Boolean zipOutput = null;
 
-  @JsonProperty("UpdateLastSavedTimeProperty")
+  @SerializedName("UpdateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @JsonProperty("UpdateSdtContent")
+  @SerializedName("UpdateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @JsonProperty("UpdateFields")
+  @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
-  @JsonProperty("JpegQuality")
+  @SerializedName("JpegQuality")
   private Integer jpegQuality = null;
 
-  @JsonProperty("MetafileRenderingOptions")
+  @SerializedName("MetafileRenderingOptions")
   private MetafileRenderingOptionsData metafileRenderingOptions = null;
 
-  @JsonProperty("NumeralFormat")
+  @SerializedName("NumeralFormat")
   private String numeralFormat = null;
 
-  @JsonProperty("OptimizeOutput")
+  @SerializedName("OptimizeOutput")
   private Boolean optimizeOutput = null;
 
-  @JsonProperty("PageCount")
+  @SerializedName("PageCount")
   private Integer pageCount = null;
 
-  @JsonProperty("PageIndex")
+  @SerializedName("PageIndex")
   private Integer pageIndex = null;
 
-  @JsonProperty("Compliance")
+  @SerializedName("Compliance")
   private String compliance = null;
 
-  @JsonProperty("CreateNoteHyperlinks")
+  @SerializedName("CreateNoteHyperlinks")
   private Boolean createNoteHyperlinks = null;
 
-  @JsonProperty("CustomPropertiesExport")
+  @SerializedName("CustomPropertiesExport")
   private String customPropertiesExport = null;
 
-  @JsonProperty("DigitalSignatureDetails")
+  @SerializedName("DigitalSignatureDetails")
   private PdfDigitalSignatureDetailsData digitalSignatureDetails = null;
 
-  @JsonProperty("DisplayDocTitle")
+  @SerializedName("DisplayDocTitle")
   private Boolean displayDocTitle = null;
 
-  @JsonProperty("DownsampleOptions")
+  @SerializedName("DownsampleOptions")
   private DownsampleOptionsData downsampleOptions = null;
 
-  @JsonProperty("EmbedFullFonts")
+  @SerializedName("EmbedFullFonts")
   private Boolean embedFullFonts = null;
 
-  @JsonProperty("EncryptionDetails")
+  @SerializedName("EncryptionDetails")
   private PdfEncryptionDetailsData encryptionDetails = null;
 
-  @JsonProperty("EscapeUri")
+  @SerializedName("EscapeUri")
   private Boolean escapeUri = null;
 
-  @JsonProperty("ExportDocumentStructure")
+  @SerializedName("ExportDocumentStructure")
   private Boolean exportDocumentStructure = null;
 
-  @JsonProperty("FontEmbeddingMode")
+  @SerializedName("FontEmbeddingMode")
   private String fontEmbeddingMode = null;
 
   /**
    * Determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
    */
+  @JsonAdapter(HeaderFooterBookmarksExportModeEnum.Adapter.class)
   public enum HeaderFooterBookmarksExportModeEnum {
     NONE("None"),
     
@@ -141,7 +145,6 @@ public class PdfSaveOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -151,7 +154,6 @@ public class PdfSaveOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static HeaderFooterBookmarksExportModeEnum fromValue(String text) {
       for (HeaderFooterBookmarksExportModeEnum b : HeaderFooterBookmarksExportModeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -160,45 +162,58 @@ public class PdfSaveOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<HeaderFooterBookmarksExportModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HeaderFooterBookmarksExportModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HeaderFooterBookmarksExportModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return HeaderFooterBookmarksExportModeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("HeaderFooterBookmarksExportMode")
+  @SerializedName("HeaderFooterBookmarksExportMode")
   private HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode = null;
 
-  @JsonProperty("ImageColorSpaceExportMode")
+  @SerializedName("ImageColorSpaceExportMode")
   private String imageColorSpaceExportMode = null;
 
-  @JsonProperty("ImageCompression")
+  @SerializedName("ImageCompression")
   private String imageCompression = null;
 
-  @JsonProperty("OpenHyperlinksInNewWindow")
+  @SerializedName("OpenHyperlinksInNewWindow")
   private Boolean openHyperlinksInNewWindow = null;
 
-  @JsonProperty("OutlineOptions")
+  @SerializedName("OutlineOptions")
   private OutlineOptionsData outlineOptions = null;
 
-  @JsonProperty("PageMode")
+  @SerializedName("PageMode")
   private String pageMode = null;
 
-  @JsonProperty("PreblendImages")
+  @SerializedName("PreblendImages")
   private Boolean preblendImages = null;
 
-  @JsonProperty("PreserveFormFields")
+  @SerializedName("PreserveFormFields")
   private Boolean preserveFormFields = null;
 
-  @JsonProperty("TextCompression")
+  @SerializedName("TextCompression")
   private String textCompression = null;
 
-  @JsonProperty("UseBookFoldPrintingSettings")
+  @SerializedName("UseBookFoldPrintingSettings")
   private Boolean useBookFoldPrintingSettings = null;
 
-  @JsonProperty("UseCoreFonts")
+  @SerializedName("UseCoreFonts")
   private Boolean useCoreFonts = null;
 
-  @JsonProperty("ZoomBehavior")
+  @SerializedName("ZoomBehavior")
   private String zoomBehavior = null;
 
-  @JsonProperty("ZoomFactor")
+  @SerializedName("ZoomFactor")
   private Integer zoomFactor = null;
 
   public PdfSaveOptionsData colorMode(String colorMode) {

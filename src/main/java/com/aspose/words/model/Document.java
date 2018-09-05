@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.DocumentProperties;
 import com.aspose.words.model.Link;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,15 +48,16 @@ import java.util.List;
 @ApiModel(description = "Represents Words document DTO.")
 
 public class Document {
-  @JsonProperty("Links")
+  @SerializedName("Links")
   private List<Link> links = null;
 
-  @JsonProperty("FileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
   /**
    * Gets the original format of the document.
    */
+  @JsonAdapter(SourceFormatEnum.Adapter.class)
   public enum SourceFormatEnum {
     UNKNOWN("Unknown"),
     
@@ -103,7 +107,6 @@ public class Document {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -113,7 +116,6 @@ public class Document {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static SourceFormatEnum fromValue(String text) {
       for (SourceFormatEnum b : SourceFormatEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -122,18 +124,31 @@ public class Document {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<SourceFormatEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SourceFormatEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SourceFormatEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SourceFormatEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("SourceFormat")
+  @SerializedName("SourceFormat")
   private SourceFormatEnum sourceFormat = null;
 
-  @JsonProperty("IsEncrypted")
+  @SerializedName("IsEncrypted")
   private Boolean isEncrypted = null;
 
-  @JsonProperty("IsSigned")
+  @SerializedName("IsSigned")
   private Boolean isSigned = null;
 
-  @JsonProperty("DocumentProperties")
+  @SerializedName("DocumentProperties")
   private DocumentProperties documentProperties = null;
 
   public Document links(List<Link> links) {

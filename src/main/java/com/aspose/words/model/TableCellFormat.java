@@ -32,11 +32,14 @@ import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.PreferredWidth;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Represents all formatting for a table row.
@@ -44,18 +47,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents all formatting for a table row.")
 
 public class TableCellFormat {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("BottomPadding")
+  @SerializedName("BottomPadding")
   private Double bottomPadding = null;
 
-  @JsonProperty("FitText")
+  @SerializedName("FitText")
   private Boolean fitText = null;
 
   /**
    * Specifies how the cell is merged horizontally with other cells in the row.
    */
+  @JsonAdapter(HorizontalMergeEnum.Adapter.class)
   public enum HorizontalMergeEnum {
     NONE("None"),
     
@@ -69,7 +73,6 @@ public class TableCellFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -79,7 +82,6 @@ public class TableCellFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static HorizontalMergeEnum fromValue(String text) {
       for (HorizontalMergeEnum b : HorizontalMergeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -88,17 +90,31 @@ public class TableCellFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<HorizontalMergeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HorizontalMergeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HorizontalMergeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return HorizontalMergeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("HorizontalMerge")
+  @SerializedName("HorizontalMerge")
   private HorizontalMergeEnum horizontalMerge = null;
 
-  @JsonProperty("LeftPadding")
+  @SerializedName("LeftPadding")
   private Double leftPadding = null;
 
   /**
    * Returns or sets the orientation of text in a table cell.
    */
+  @JsonAdapter(OrientationEnum.Adapter.class)
   public enum OrientationEnum {
     HORIZONTAL("Horizontal"),
     
@@ -118,7 +134,6 @@ public class TableCellFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -128,7 +143,6 @@ public class TableCellFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static OrientationEnum fromValue(String text) {
       for (OrientationEnum b : OrientationEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -137,23 +151,37 @@ public class TableCellFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<OrientationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrientationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OrientationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OrientationEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Orientation")
+  @SerializedName("Orientation")
   private OrientationEnum orientation = null;
 
-  @JsonProperty("PreferredWidth")
+  @SerializedName("PreferredWidth")
   private PreferredWidth preferredWidth = null;
 
-  @JsonProperty("RightPadding")
+  @SerializedName("RightPadding")
   private Double rightPadding = null;
 
-  @JsonProperty("TopPadding")
+  @SerializedName("TopPadding")
   private Double topPadding = null;
 
   /**
    * Returns or sets the vertical alignment of text in the cell.
    */
+  @JsonAdapter(VerticalAlignmentEnum.Adapter.class)
   public enum VerticalAlignmentEnum {
     TOP("Top"),
     
@@ -167,7 +195,6 @@ public class TableCellFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -177,7 +204,6 @@ public class TableCellFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static VerticalAlignmentEnum fromValue(String text) {
       for (VerticalAlignmentEnum b : VerticalAlignmentEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -186,14 +212,28 @@ public class TableCellFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<VerticalAlignmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VerticalAlignmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VerticalAlignmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VerticalAlignmentEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("VerticalAlignment")
+  @SerializedName("VerticalAlignment")
   private VerticalAlignmentEnum verticalAlignment = null;
 
   /**
    * Specifies how the cell is merged with other cells vertically.
    */
+  @JsonAdapter(VerticalMergeEnum.Adapter.class)
   public enum VerticalMergeEnum {
     NONE("None"),
     
@@ -207,7 +247,6 @@ public class TableCellFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -217,7 +256,6 @@ public class TableCellFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static VerticalMergeEnum fromValue(String text) {
       for (VerticalMergeEnum b : VerticalMergeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -226,15 +264,28 @@ public class TableCellFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<VerticalMergeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VerticalMergeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VerticalMergeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VerticalMergeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("VerticalMerge")
+  @SerializedName("VerticalMerge")
   private VerticalMergeEnum verticalMerge = null;
 
-  @JsonProperty("Width")
+  @SerializedName("Width")
   private Double width = null;
 
-  @JsonProperty("WrapText")
+  @SerializedName("WrapText")
   private Boolean wrapText = null;
 
   public TableCellFormat link(WordsApiLink link) {

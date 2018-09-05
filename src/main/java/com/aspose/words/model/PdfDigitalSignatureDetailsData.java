@@ -29,11 +29,14 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
@@ -42,19 +45,19 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "container class for details of digital signature")
 
 public class PdfDigitalSignatureDetailsData {
-  @JsonProperty("CertificateFilename")
+  @SerializedName("CertificateFilename")
   private String certificateFilename = null;
 
-  @JsonProperty("HashAlgorithm")
+  @SerializedName("HashAlgorithm")
   private String hashAlgorithm = null;
 
-  @JsonProperty("Location")
+  @SerializedName("Location")
   private String location = null;
 
-  @JsonProperty("Reason")
+  @SerializedName("Reason")
   private String reason = null;
 
-  @JsonProperty("SignatureDate")
+  @SerializedName("SignatureDate")
   private OffsetDateTime signatureDate = null;
 
   public PdfDigitalSignatureDetailsData certificateFilename(String certificateFilename) {

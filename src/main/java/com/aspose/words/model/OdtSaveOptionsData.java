@@ -30,11 +30,14 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.SaveOptionsData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * container class for odt/ott save options
@@ -42,39 +45,40 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "container class for odt/ott save options")
 
 public class OdtSaveOptionsData {
-  @JsonProperty("ColorMode")
+  @SerializedName("ColorMode")
   private String colorMode = null;
 
-  @JsonProperty("SaveFormat")
+  @SerializedName("SaveFormat")
   private String saveFormat = null;
 
-  @JsonProperty("FileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
-  @JsonProperty("DmlRenderingMode")
+  @SerializedName("DmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @JsonProperty("DmlEffectsRenderingMode")
+  @SerializedName("DmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @JsonProperty("ZipOutput")
+  @SerializedName("ZipOutput")
   private Boolean zipOutput = null;
 
-  @JsonProperty("UpdateLastSavedTimeProperty")
+  @SerializedName("UpdateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @JsonProperty("UpdateSdtContent")
+  @SerializedName("UpdateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @JsonProperty("UpdateFields")
+  @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
-  @JsonProperty("IsStrictSchema11")
+  @SerializedName("IsStrictSchema11")
   private Boolean isStrictSchema11 = null;
 
   /**
    * Allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
    */
+  @JsonAdapter(MeasureUnitEnum.Adapter.class)
   public enum MeasureUnitEnum {
     CENTIMETERS("Centimeters"),
     
@@ -86,7 +90,6 @@ public class OdtSaveOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -96,7 +99,6 @@ public class OdtSaveOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static MeasureUnitEnum fromValue(String text) {
       for (MeasureUnitEnum b : MeasureUnitEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -105,12 +107,25 @@ public class OdtSaveOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<MeasureUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MeasureUnitEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MeasureUnitEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MeasureUnitEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("MeasureUnit")
+  @SerializedName("MeasureUnit")
   private MeasureUnitEnum measureUnit = null;
 
-  @JsonProperty("PrettyFormat")
+  @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
 
   public OdtSaveOptionsData colorMode(String colorMode) {

@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.Paragraph;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0} 
@@ -43,13 +46,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0} ")
 
 public class ParagraphResponse {
-  @JsonProperty("Code")
+  @SerializedName("Code")
   private Integer code = null;
 
-  @JsonProperty("Status")
+  @SerializedName("Status")
   private String status = null;
 
-  @JsonProperty("Paragraph")
+  @SerializedName("Paragraph")
   private Paragraph paragraph = null;
 
   public ParagraphResponse code(Integer code) {

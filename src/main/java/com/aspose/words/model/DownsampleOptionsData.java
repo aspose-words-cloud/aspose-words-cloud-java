@@ -29,11 +29,14 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Container class for Downsample options
@@ -41,13 +44,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container class for Downsample options")
 
 public class DownsampleOptionsData {
-  @JsonProperty("DownsampleImages")
+  @SerializedName("DownsampleImages")
   private Boolean downsampleImages = null;
 
-  @JsonProperty("Resolution")
+  @SerializedName("Resolution")
   private Integer resolution = null;
 
-  @JsonProperty("ResolutionThreshold")
+  @SerializedName("ResolutionThreshold")
   private Integer resolutionThreshold = null;
 
   public DownsampleOptionsData downsampleImages(Boolean downsampleImages) {

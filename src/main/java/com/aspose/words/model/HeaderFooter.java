@@ -32,11 +32,14 @@ import java.util.Arrays;
 import com.aspose.words.model.HeaderFooterLink;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Section element
@@ -44,12 +47,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Section element")
 
 public class HeaderFooter {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
   /**
    * Paragraph&#39;s text
    */
+  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     HEADEREVEN("HeaderEven"),
     
@@ -69,7 +73,6 @@ public class HeaderFooter {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -79,7 +82,6 @@ public class HeaderFooter {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static TypeEnum fromValue(String text) {
       for (TypeEnum b : TypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -88,15 +90,28 @@ public class HeaderFooter {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Type")
+  @SerializedName("Type")
   private TypeEnum type = null;
 
-  @JsonProperty("DrawingObjects")
+  @SerializedName("DrawingObjects")
   private LinkElement drawingObjects = null;
 
-  @JsonProperty("Paragraphs")
+  @SerializedName("Paragraphs")
   private LinkElement paragraphs = null;
 
   public HeaderFooter link(WordsApiLink link) {

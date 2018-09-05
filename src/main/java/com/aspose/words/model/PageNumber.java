@@ -29,11 +29,14 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Class is used for insert page number request building.
@@ -41,16 +44,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Class is used for insert page number request building.")
 
 public class PageNumber {
-  @JsonProperty("Format")
+  @SerializedName("Format")
   private String format = null;
 
-  @JsonProperty("Alignment")
+  @SerializedName("Alignment")
   private String alignment = null;
 
-  @JsonProperty("IsTop")
+  @SerializedName("IsTop")
   private Boolean isTop = null;
 
-  @JsonProperty("SetPageNumberOnFirstPage")
+  @SerializedName("SetPageNumberOnFirstPage")
   private Boolean setPageNumberOnFirstPage = null;
 
   public PageNumber format(String format) {

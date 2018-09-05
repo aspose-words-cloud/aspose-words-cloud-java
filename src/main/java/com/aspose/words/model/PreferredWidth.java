@@ -29,11 +29,14 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Preferred width.
@@ -44,6 +47,7 @@ public class PreferredWidth {
   /**
    * Gets the unit of measure used for this preferred width value.
    */
+  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     AUTO("Auto"),
     
@@ -57,7 +61,6 @@ public class PreferredWidth {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -67,7 +70,6 @@ public class PreferredWidth {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static TypeEnum fromValue(String text) {
       for (TypeEnum b : TypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -76,12 +78,25 @@ public class PreferredWidth {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Type")
+  @SerializedName("Type")
   private TypeEnum type = null;
 
-  @JsonProperty("Value")
+  @SerializedName("Value")
   private Double value = null;
 
   public PreferredWidth type(TypeEnum type) {

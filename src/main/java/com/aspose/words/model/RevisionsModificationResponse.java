@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.ModificationOperationResult;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)
@@ -43,13 +46,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)")
 
 public class RevisionsModificationResponse {
-  @JsonProperty("Code")
+  @SerializedName("Code")
   private Integer code = null;
 
-  @JsonProperty("Status")
+  @SerializedName("Status")
   private String status = null;
 
-  @JsonProperty("Result")
+  @SerializedName("Result")
   private ModificationOperationResult result = null;
 
   public RevisionsModificationResponse code(Integer code) {

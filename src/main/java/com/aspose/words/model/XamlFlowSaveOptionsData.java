@@ -30,11 +30,14 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.SaveOptionsData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * container class for xaml flow save options
@@ -42,37 +45,37 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "container class for xaml flow save options")
 
 public class XamlFlowSaveOptionsData {
-  @JsonProperty("ColorMode")
+  @SerializedName("ColorMode")
   private String colorMode = null;
 
-  @JsonProperty("SaveFormat")
+  @SerializedName("SaveFormat")
   private String saveFormat = null;
 
-  @JsonProperty("FileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
-  @JsonProperty("DmlRenderingMode")
+  @SerializedName("DmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @JsonProperty("DmlEffectsRenderingMode")
+  @SerializedName("DmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @JsonProperty("ZipOutput")
+  @SerializedName("ZipOutput")
   private Boolean zipOutput = null;
 
-  @JsonProperty("UpdateLastSavedTimeProperty")
+  @SerializedName("UpdateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @JsonProperty("UpdateSdtContent")
+  @SerializedName("UpdateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @JsonProperty("UpdateFields")
+  @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
-  @JsonProperty("ImagesFolder")
+  @SerializedName("ImagesFolder")
   private String imagesFolder = null;
 
-  @JsonProperty("ImagesFolderAlias")
+  @SerializedName("ImagesFolderAlias")
   private String imagesFolderAlias = null;
 
   public XamlFlowSaveOptionsData colorMode(String colorMode) {

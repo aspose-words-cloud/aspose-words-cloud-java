@@ -29,11 +29,14 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * container class for options of metafile rendering
@@ -41,16 +44,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "container class for options of metafile rendering")
 
 public class MetafileRenderingOptionsData {
-  @JsonProperty("EmfPlusDualRenderingMode")
+  @SerializedName("EmfPlusDualRenderingMode")
   private String emfPlusDualRenderingMode = null;
 
-  @JsonProperty("EmulateRasterOperations")
+  @SerializedName("EmulateRasterOperations")
   private Boolean emulateRasterOperations = null;
 
-  @JsonProperty("RenderingMode")
+  @SerializedName("RenderingMode")
   private String renderingMode = null;
 
-  @JsonProperty("UseEmfEmbeddedToWmf")
+  @SerializedName("UseEmfEmbeddedToWmf")
   private Boolean useEmfEmbeddedToWmf = null;
 
   public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {

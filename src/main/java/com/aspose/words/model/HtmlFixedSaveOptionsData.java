@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FixedPageSaveOptionsData;
 import com.aspose.words.model.MetafileRenderingOptionsData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * container class for fixed html save options
@@ -43,85 +46,85 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "container class for fixed html save options")
 
 public class HtmlFixedSaveOptionsData {
-  @JsonProperty("ColorMode")
+  @SerializedName("ColorMode")
   private String colorMode = null;
 
-  @JsonProperty("SaveFormat")
+  @SerializedName("SaveFormat")
   private String saveFormat = null;
 
-  @JsonProperty("FileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
-  @JsonProperty("DmlRenderingMode")
+  @SerializedName("DmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @JsonProperty("DmlEffectsRenderingMode")
+  @SerializedName("DmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @JsonProperty("ZipOutput")
+  @SerializedName("ZipOutput")
   private Boolean zipOutput = null;
 
-  @JsonProperty("UpdateLastSavedTimeProperty")
+  @SerializedName("UpdateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @JsonProperty("UpdateSdtContent")
+  @SerializedName("UpdateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @JsonProperty("UpdateFields")
+  @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
-  @JsonProperty("JpegQuality")
+  @SerializedName("JpegQuality")
   private Integer jpegQuality = null;
 
-  @JsonProperty("MetafileRenderingOptions")
+  @SerializedName("MetafileRenderingOptions")
   private MetafileRenderingOptionsData metafileRenderingOptions = null;
 
-  @JsonProperty("NumeralFormat")
+  @SerializedName("NumeralFormat")
   private String numeralFormat = null;
 
-  @JsonProperty("OptimizeOutput")
+  @SerializedName("OptimizeOutput")
   private Boolean optimizeOutput = null;
 
-  @JsonProperty("PageCount")
+  @SerializedName("PageCount")
   private Integer pageCount = null;
 
-  @JsonProperty("PageIndex")
+  @SerializedName("PageIndex")
   private Integer pageIndex = null;
 
-  @JsonProperty("CssClassNamesPrefix")
+  @SerializedName("CssClassNamesPrefix")
   private String cssClassNamesPrefix = null;
 
-  @JsonProperty("Encoding")
+  @SerializedName("Encoding")
   private String encoding = null;
 
-  @JsonProperty("ExportEmbeddedCss")
+  @SerializedName("ExportEmbeddedCss")
   private Boolean exportEmbeddedCss = null;
 
-  @JsonProperty("ExportEmbeddedFonts")
+  @SerializedName("ExportEmbeddedFonts")
   private Boolean exportEmbeddedFonts = null;
 
-  @JsonProperty("ExportEmbeddedImages")
+  @SerializedName("ExportEmbeddedImages")
   private Boolean exportEmbeddedImages = null;
 
-  @JsonProperty("ExportFormFields")
+  @SerializedName("ExportFormFields")
   private Boolean exportFormFields = null;
 
-  @JsonProperty("FontFormat")
+  @SerializedName("FontFormat")
   private String fontFormat = null;
 
-  @JsonProperty("PageHorizontalAlignment")
+  @SerializedName("PageHorizontalAlignment")
   private String pageHorizontalAlignment = null;
 
-  @JsonProperty("PageMargins")
+  @SerializedName("PageMargins")
   private Double pageMargins = null;
 
-  @JsonProperty("ResourcesFolder")
+  @SerializedName("ResourcesFolder")
   private String resourcesFolder = null;
 
-  @JsonProperty("ResourcesFolderAlias")
+  @SerializedName("ResourcesFolderAlias")
   private String resourcesFolderAlias = null;
 
-  @JsonProperty("ShowPageBorder")
+  @SerializedName("ShowPageBorder")
   private Boolean showPageBorder = null;
 
   public HtmlFixedSaveOptionsData colorMode(String colorMode) {

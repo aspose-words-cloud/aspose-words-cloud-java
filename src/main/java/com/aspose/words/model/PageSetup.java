@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Represents the page setup properties of a section.             
@@ -43,18 +46,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents the page setup properties of a section.             ")
 
 public class PageSetup {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("Bidi")
+  @SerializedName("Bidi")
   private Boolean bidi = null;
 
-  @JsonProperty("BorderAlwaysInFront")
+  @SerializedName("BorderAlwaysInFront")
   private Boolean borderAlwaysInFront = null;
 
   /**
    * Specifies which pages the page border is printed on.             
    */
+  @JsonAdapter(BorderAppliesToEnum.Adapter.class)
   public enum BorderAppliesToEnum {
     ALLPAGES("AllPages"),
     
@@ -68,7 +72,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -78,7 +81,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static BorderAppliesToEnum fromValue(String text) {
       for (BorderAppliesToEnum b : BorderAppliesToEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -87,14 +89,28 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<BorderAppliesToEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BorderAppliesToEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BorderAppliesToEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return BorderAppliesToEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("BorderAppliesTo")
+  @SerializedName("BorderAppliesTo")
   private BorderAppliesToEnum borderAppliesTo = null;
 
   /**
    * Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             
    */
+  @JsonAdapter(BorderDistanceFromEnum.Adapter.class)
   public enum BorderDistanceFromEnum {
     TEXT("Text"),
     
@@ -106,7 +122,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -116,7 +131,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static BorderDistanceFromEnum fromValue(String text) {
       for (BorderDistanceFromEnum b : BorderDistanceFromEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -125,41 +139,55 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<BorderDistanceFromEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BorderDistanceFromEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BorderDistanceFromEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return BorderDistanceFromEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("BorderDistanceFrom")
+  @SerializedName("BorderDistanceFrom")
   private BorderDistanceFromEnum borderDistanceFrom = null;
 
-  @JsonProperty("BottomMargin")
+  @SerializedName("BottomMargin")
   private Double bottomMargin = null;
 
-  @JsonProperty("DifferentFirstPageHeaderFooter")
+  @SerializedName("DifferentFirstPageHeaderFooter")
   private Boolean differentFirstPageHeaderFooter = null;
 
-  @JsonProperty("FirstPageTray")
+  @SerializedName("FirstPageTray")
   private Integer firstPageTray = null;
 
-  @JsonProperty("FooterDistance")
+  @SerializedName("FooterDistance")
   private Double footerDistance = null;
 
-  @JsonProperty("Gutter")
+  @SerializedName("Gutter")
   private Double gutter = null;
 
-  @JsonProperty("HeaderDistance")
+  @SerializedName("HeaderDistance")
   private Double headerDistance = null;
 
-  @JsonProperty("LeftMargin")
+  @SerializedName("LeftMargin")
   private Double leftMargin = null;
 
-  @JsonProperty("LineNumberCountBy")
+  @SerializedName("LineNumberCountBy")
   private Integer lineNumberCountBy = null;
 
-  @JsonProperty("LineNumberDistanceFromText")
+  @SerializedName("LineNumberDistanceFromText")
   private Double lineNumberDistanceFromText = null;
 
   /**
    * Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             
    */
+  @JsonAdapter(LineNumberRestartModeEnum.Adapter.class)
   public enum LineNumberRestartModeEnum {
     RESTARTPAGE("RestartPage"),
     
@@ -173,7 +201,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -183,7 +210,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static LineNumberRestartModeEnum fromValue(String text) {
       for (LineNumberRestartModeEnum b : LineNumberRestartModeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -192,17 +218,31 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<LineNumberRestartModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LineNumberRestartModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LineNumberRestartModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LineNumberRestartModeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("LineNumberRestartMode")
+  @SerializedName("LineNumberRestartMode")
   private LineNumberRestartModeEnum lineNumberRestartMode = null;
 
-  @JsonProperty("LineStartingNumber")
+  @SerializedName("LineStartingNumber")
   private Integer lineStartingNumber = null;
 
   /**
    * Returns or sets the orientation of the page.             
    */
+  @JsonAdapter(OrientationEnum.Adapter.class)
   public enum OrientationEnum {
     PORTRAIT("Portrait"),
     
@@ -214,7 +254,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -224,7 +263,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static OrientationEnum fromValue(String text) {
       for (OrientationEnum b : OrientationEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -233,20 +271,34 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<OrientationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrientationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OrientationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OrientationEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Orientation")
+  @SerializedName("Orientation")
   private OrientationEnum orientation = null;
 
-  @JsonProperty("OtherPagesTray")
+  @SerializedName("OtherPagesTray")
   private Integer otherPagesTray = null;
 
-  @JsonProperty("PageHeight")
+  @SerializedName("PageHeight")
   private Double pageHeight = null;
 
   /**
    * Gets or sets the page number format.             
    */
+  @JsonAdapter(PageNumberStyleEnum.Adapter.class)
   public enum PageNumberStyleEnum {
     ARABIC("Arabic"),
     
@@ -378,7 +430,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -388,7 +439,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static PageNumberStyleEnum fromValue(String text) {
       for (PageNumberStyleEnum b : PageNumberStyleEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -397,20 +447,34 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<PageNumberStyleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PageNumberStyleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PageNumberStyleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PageNumberStyleEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("PageNumberStyle")
+  @SerializedName("PageNumberStyle")
   private PageNumberStyleEnum pageNumberStyle = null;
 
-  @JsonProperty("PageStartingNumber")
+  @SerializedName("PageStartingNumber")
   private Integer pageStartingNumber = null;
 
-  @JsonProperty("PageWidth")
+  @SerializedName("PageWidth")
   private Double pageWidth = null;
 
   /**
    * Returns or sets the paper size.             
    */
+  @JsonAdapter(PaperSizeEnum.Adapter.class)
   public enum PaperSizeEnum {
     A3("A3"),
     
@@ -452,7 +516,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -462,7 +525,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static PaperSizeEnum fromValue(String text) {
       for (PaperSizeEnum b : PaperSizeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -471,23 +533,37 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<PaperSizeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PaperSizeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PaperSizeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PaperSizeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("PaperSize")
+  @SerializedName("PaperSize")
   private PaperSizeEnum paperSize = null;
 
-  @JsonProperty("RestartPageNumbering")
+  @SerializedName("RestartPageNumbering")
   private Boolean restartPageNumbering = null;
 
-  @JsonProperty("RightMargin")
+  @SerializedName("RightMargin")
   private Double rightMargin = null;
 
-  @JsonProperty("RtlGutter")
+  @SerializedName("RtlGutter")
   private Boolean rtlGutter = null;
 
   /**
    * Returns or sets the type of section break for the specified object.             
    */
+  @JsonAdapter(SectionStartEnum.Adapter.class)
   public enum SectionStartEnum {
     CONTINUOUS("Continuous"),
     
@@ -505,7 +581,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -515,7 +590,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static SectionStartEnum fromValue(String text) {
       for (SectionStartEnum b : SectionStartEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -524,20 +598,34 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<SectionStartEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SectionStartEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SectionStartEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SectionStartEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("SectionStart")
+  @SerializedName("SectionStart")
   private SectionStartEnum sectionStart = null;
 
-  @JsonProperty("SuppressEndnotes")
+  @SerializedName("SuppressEndnotes")
   private Boolean suppressEndnotes = null;
 
-  @JsonProperty("TopMargin")
+  @SerializedName("TopMargin")
   private Double topMargin = null;
 
   /**
    * Returns or sets the vertical alignment of text on each page in a document or section.             
    */
+  @JsonAdapter(VerticalAlignmentEnum.Adapter.class)
   public enum VerticalAlignmentEnum {
     TOP("Top"),
     
@@ -553,7 +641,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -563,7 +650,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static VerticalAlignmentEnum fromValue(String text) {
       for (VerticalAlignmentEnum b : VerticalAlignmentEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -572,9 +658,22 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<VerticalAlignmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VerticalAlignmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VerticalAlignmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VerticalAlignmentEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("VerticalAlignment")
+  @SerializedName("VerticalAlignment")
   private VerticalAlignmentEnum verticalAlignment = null;
 
   public PageSetup link(WordsApiLink link) {

@@ -33,11 +33,14 @@ import com.aspose.words.model.DocumentPosition;
 import com.aspose.words.model.FootnoteLink;
 import com.aspose.words.model.StoryChildNodes;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Footnote.
@@ -45,18 +48,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Footnote.")
 
 public class Footnote {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("NodeId")
+  @SerializedName("NodeId")
   private String nodeId = null;
 
-  @JsonProperty("Content")
+  @SerializedName("Content")
   private StoryChildNodes content = null;
 
   /**
    * Returns a value that specifies whether this is a footnote or endnote.
    */
+  @JsonAdapter(FootnoteTypeEnum.Adapter.class)
   public enum FootnoteTypeEnum {
     FOOTNOTE("Footnote"),
     
@@ -68,7 +72,6 @@ public class Footnote {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -78,7 +81,6 @@ public class Footnote {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static FootnoteTypeEnum fromValue(String text) {
       for (FootnoteTypeEnum b : FootnoteTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -87,18 +89,31 @@ public class Footnote {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<FootnoteTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FootnoteTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FootnoteTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return FootnoteTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("FootnoteType")
+  @SerializedName("FootnoteType")
   private FootnoteTypeEnum footnoteType = null;
 
-  @JsonProperty("Position")
+  @SerializedName("Position")
   private DocumentPosition position = null;
 
-  @JsonProperty("ReferenceMark")
+  @SerializedName("ReferenceMark")
   private String referenceMark = null;
 
-  @JsonProperty("Text")
+  @SerializedName("Text")
   private String text = null;
 
   public Footnote link(WordsApiLink link) {

@@ -29,11 +29,14 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
@@ -42,13 +45,13 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "Container class for compare documents")
 
 public class CompareData {
-  @JsonProperty("ComparingWithDocument")
+  @SerializedName("ComparingWithDocument")
   private String comparingWithDocument = null;
 
-  @JsonProperty("Author")
+  @SerializedName("Author")
   private String author = null;
 
-  @JsonProperty("DateTime")
+  @SerializedName("DateTime")
   private OffsetDateTime dateTime = null;
 
   public CompareData comparingWithDocument(String comparingWithDocument) {

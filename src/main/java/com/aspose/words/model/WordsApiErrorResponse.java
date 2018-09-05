@@ -30,11 +30,14 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Response for Api error
@@ -42,13 +45,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Response for Api error")
 
 public class WordsApiErrorResponse {
-  @JsonProperty("Code")
+  @SerializedName("Code")
   private Integer code = null;
 
-  @JsonProperty("Status")
+  @SerializedName("Status")
   private String status = null;
 
-  @JsonProperty("Message")
+  @SerializedName("Message")
   private String message = null;
 
   public WordsApiErrorResponse code(Integer code) {

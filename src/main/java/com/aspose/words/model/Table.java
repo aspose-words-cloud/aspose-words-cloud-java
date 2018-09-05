@@ -33,11 +33,14 @@ import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.TableProperties;
 import com.aspose.words.model.TableRow;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,16 +50,16 @@ import java.util.List;
 @ApiModel(description = "Table element")
 
 public class Table {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("NodeId")
+  @SerializedName("NodeId")
   private String nodeId = null;
 
-  @JsonProperty("TableProperties")
+  @SerializedName("TableProperties")
   private TableProperties tableProperties = null;
 
-  @JsonProperty("TableRowList")
+  @SerializedName("TableRowList")
   private List<TableRow> tableRowList = null;
 
   public Table link(WordsApiLink link) {

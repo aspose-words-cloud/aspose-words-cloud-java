@@ -30,11 +30,14 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FootnotesStatData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Container for the page&#39;s statistical data
@@ -42,16 +45,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container for the page's statistical data")
 
 public class PageStatData {
-  @JsonProperty("PageNumber")
+  @SerializedName("PageNumber")
   private Integer pageNumber = null;
 
-  @JsonProperty("WordCount")
+  @SerializedName("WordCount")
   private Integer wordCount = null;
 
-  @JsonProperty("ParagraphCount")
+  @SerializedName("ParagraphCount")
   private Integer paragraphCount = null;
 
-  @JsonProperty("FootnotesStatData")
+  @SerializedName("FootnotesStatData")
   private FootnotesStatData footnotesStatData = null;
 
   public PageStatData pageNumber(Integer pageNumber) {

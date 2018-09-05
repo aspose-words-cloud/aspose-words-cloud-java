@@ -33,11 +33,14 @@ import com.aspose.words.model.CommentLink;
 import com.aspose.words.model.DocumentPosition;
 import com.aspose.words.model.StoryChildNodes;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
@@ -46,28 +49,28 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "Comment.")
 
 public class Comment {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("Author")
+  @SerializedName("Author")
   private String author = null;
 
-  @JsonProperty("Content")
+  @SerializedName("Content")
   private StoryChildNodes content = null;
 
-  @JsonProperty("DateTime")
+  @SerializedName("DateTime")
   private OffsetDateTime dateTime = null;
 
-  @JsonProperty("Initial")
+  @SerializedName("Initial")
   private String initial = null;
 
-  @JsonProperty("RangeEnd")
+  @SerializedName("RangeEnd")
   private DocumentPosition rangeEnd = null;
 
-  @JsonProperty("RangeStart")
+  @SerializedName("RangeStart")
   private DocumentPosition rangeStart = null;
 
-  @JsonProperty("Text")
+  @SerializedName("Text")
   private String text = null;
 
   public Comment link(WordsApiLink link) {

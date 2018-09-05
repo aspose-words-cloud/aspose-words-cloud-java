@@ -32,11 +32,14 @@ import java.util.Arrays;
 import com.aspose.words.model.OfficeMathLink;
 import com.aspose.words.model.StoryChildNodes;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * OfficeMath object.
@@ -44,18 +47,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "OfficeMath object.")
 
 public class OfficeMathObject {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("NodeId")
+  @SerializedName("NodeId")
   private String nodeId = null;
 
-  @JsonProperty("Content")
+  @SerializedName("Content")
   private StoryChildNodes content = null;
 
   /**
    * Gets/sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
    */
+  @JsonAdapter(DisplayTypeEnum.Adapter.class)
   public enum DisplayTypeEnum {
     DISPLAY("Display"),
     
@@ -67,7 +71,6 @@ public class OfficeMathObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -77,7 +80,6 @@ public class OfficeMathObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static DisplayTypeEnum fromValue(String text) {
       for (DisplayTypeEnum b : DisplayTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -86,14 +88,28 @@ public class OfficeMathObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<DisplayTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DisplayTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DisplayTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DisplayTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("DisplayType")
+  @SerializedName("DisplayType")
   private DisplayTypeEnum displayType = null;
 
   /**
    * Gets/sets Office Math justification.
    */
+  @JsonAdapter(JustificationEnum.Adapter.class)
   public enum JustificationEnum {
     CENTERGROUP("CenterGroup"),
     
@@ -113,7 +129,6 @@ public class OfficeMathObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -123,7 +138,6 @@ public class OfficeMathObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static JustificationEnum fromValue(String text) {
       for (JustificationEnum b : JustificationEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -132,14 +146,28 @@ public class OfficeMathObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<JustificationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final JustificationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public JustificationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return JustificationEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Justification")
+  @SerializedName("Justification")
   private JustificationEnum justification = null;
 
   /**
    * Gets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
    */
+  @JsonAdapter(MathObjectTypeEnum.Adapter.class)
   public enum MathObjectTypeEnum {
     OMATH("OMath"),
     
@@ -207,7 +235,6 @@ public class OfficeMathObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -217,7 +244,6 @@ public class OfficeMathObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static MathObjectTypeEnum fromValue(String text) {
       for (MathObjectTypeEnum b : MathObjectTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -226,9 +252,22 @@ public class OfficeMathObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<MathObjectTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MathObjectTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MathObjectTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MathObjectTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("MathObjectType")
+  @SerializedName("MathObjectType")
   private MathObjectTypeEnum mathObjectType = null;
 
   public OfficeMathObject link(WordsApiLink link) {

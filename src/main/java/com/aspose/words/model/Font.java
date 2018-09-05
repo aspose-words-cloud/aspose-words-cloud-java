@@ -33,11 +33,14 @@ import com.aspose.words.model.Border;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
 import com.aspose.words.model.XmlColor;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Font element             
@@ -45,111 +48,112 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Font element             ")
 
 public class Font {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("AllCaps")
+  @SerializedName("AllCaps")
   private Boolean allCaps = null;
 
-  @JsonProperty("Bidi")
+  @SerializedName("Bidi")
   private Boolean bidi = null;
 
-  @JsonProperty("Bold")
+  @SerializedName("Bold")
   private Boolean bold = null;
 
-  @JsonProperty("BoldBi")
+  @SerializedName("BoldBi")
   private Boolean boldBi = null;
 
-  @JsonProperty("Border")
+  @SerializedName("Border")
   private Border border = null;
 
-  @JsonProperty("Color")
+  @SerializedName("Color")
   private XmlColor color = null;
 
-  @JsonProperty("ComplexScript")
+  @SerializedName("ComplexScript")
   private Boolean complexScript = null;
 
-  @JsonProperty("DoubleStrikeThrough")
+  @SerializedName("DoubleStrikeThrough")
   private Boolean doubleStrikeThrough = null;
 
-  @JsonProperty("Emboss")
+  @SerializedName("Emboss")
   private Boolean emboss = null;
 
-  @JsonProperty("Engrave")
+  @SerializedName("Engrave")
   private Boolean engrave = null;
 
-  @JsonProperty("Hidden")
+  @SerializedName("Hidden")
   private Boolean hidden = null;
 
-  @JsonProperty("HighlightColor")
+  @SerializedName("HighlightColor")
   private XmlColor highlightColor = null;
 
-  @JsonProperty("Italic")
+  @SerializedName("Italic")
   private Boolean italic = null;
 
-  @JsonProperty("ItalicBi")
+  @SerializedName("ItalicBi")
   private Boolean italicBi = null;
 
-  @JsonProperty("Kerning")
+  @SerializedName("Kerning")
   private Double kerning = null;
 
-  @JsonProperty("LocaleId")
+  @SerializedName("LocaleId")
   private Integer localeId = null;
 
-  @JsonProperty("LocaleIdBi")
+  @SerializedName("LocaleIdBi")
   private Integer localeIdBi = null;
 
-  @JsonProperty("LocaleIdFarEast")
+  @SerializedName("LocaleIdFarEast")
   private Integer localeIdFarEast = null;
 
-  @JsonProperty("Name")
+  @SerializedName("Name")
   private String name = null;
 
-  @JsonProperty("NameAscii")
+  @SerializedName("NameAscii")
   private String nameAscii = null;
 
-  @JsonProperty("NameBi")
+  @SerializedName("NameBi")
   private String nameBi = null;
 
-  @JsonProperty("NameFarEast")
+  @SerializedName("NameFarEast")
   private String nameFarEast = null;
 
-  @JsonProperty("NameOther")
+  @SerializedName("NameOther")
   private String nameOther = null;
 
-  @JsonProperty("NoProofing")
+  @SerializedName("NoProofing")
   private Boolean noProofing = null;
 
-  @JsonProperty("Outline")
+  @SerializedName("Outline")
   private Boolean outline = null;
 
-  @JsonProperty("Position")
+  @SerializedName("Position")
   private Double position = null;
 
-  @JsonProperty("Scaling")
+  @SerializedName("Scaling")
   private Integer scaling = null;
 
-  @JsonProperty("Shadow")
+  @SerializedName("Shadow")
   private Boolean shadow = null;
 
-  @JsonProperty("Size")
+  @SerializedName("Size")
   private Double size = null;
 
-  @JsonProperty("SizeBi")
+  @SerializedName("SizeBi")
   private Double sizeBi = null;
 
-  @JsonProperty("SmallCaps")
+  @SerializedName("SmallCaps")
   private Boolean smallCaps = null;
 
-  @JsonProperty("Spacing")
+  @SerializedName("Spacing")
   private Double spacing = null;
 
-  @JsonProperty("StrikeThrough")
+  @SerializedName("StrikeThrough")
   private Boolean strikeThrough = null;
 
   /**
    * Gets or sets the locale independent style identifier of the character style applied to this formatting.
    */
+  @JsonAdapter(StyleIdentifierEnum.Adapter.class)
   public enum StyleIdentifierEnum {
     NORMAL("Normal"),
     
@@ -903,7 +907,6 @@ public class Font {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -913,7 +916,6 @@ public class Font {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static StyleIdentifierEnum fromValue(String text) {
       for (StyleIdentifierEnum b : StyleIdentifierEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -922,23 +924,37 @@ public class Font {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<StyleIdentifierEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StyleIdentifierEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StyleIdentifierEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StyleIdentifierEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("StyleIdentifier")
+  @SerializedName("StyleIdentifier")
   private StyleIdentifierEnum styleIdentifier = null;
 
-  @JsonProperty("StyleName")
+  @SerializedName("StyleName")
   private String styleName = null;
 
-  @JsonProperty("Subscript")
+  @SerializedName("Subscript")
   private Boolean subscript = null;
 
-  @JsonProperty("Superscript")
+  @SerializedName("Superscript")
   private Boolean superscript = null;
 
   /**
    * Gets or sets the font animation effect.
    */
+  @JsonAdapter(TextEffectEnum.Adapter.class)
   public enum TextEffectEnum {
     NONE("None"),
     
@@ -960,7 +976,6 @@ public class Font {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -970,7 +985,6 @@ public class Font {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static TextEffectEnum fromValue(String text) {
       for (TextEffectEnum b : TextEffectEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -979,14 +993,28 @@ public class Font {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<TextEffectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TextEffectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TextEffectEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TextEffectEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("TextEffect")
+  @SerializedName("TextEffect")
   private TextEffectEnum textEffect = null;
 
   /**
    * Gets or sets the type of underline applied to the font.
    */
+  @JsonAdapter(UnderlineEnum.Adapter.class)
   public enum UnderlineEnum {
     NONE("None"),
     
@@ -1030,7 +1058,6 @@ public class Font {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -1040,7 +1067,6 @@ public class Font {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static UnderlineEnum fromValue(String text) {
       for (UnderlineEnum b : UnderlineEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -1049,12 +1075,25 @@ public class Font {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<UnderlineEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UnderlineEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UnderlineEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return UnderlineEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Underline")
+  @SerializedName("Underline")
   private UnderlineEnum underline = null;
 
-  @JsonProperty("UnderlineColor")
+  @SerializedName("UnderlineColor")
   private XmlColor underlineColor = null;
 
   public Font link(WordsApiLink link) {

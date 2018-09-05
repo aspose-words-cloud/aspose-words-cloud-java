@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FormField;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * FormField checkbox element
@@ -43,46 +46,46 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "FormField checkbox element")
 
 public class FormFieldCheckbox {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("NodeId")
+  @SerializedName("NodeId")
   private String nodeId = null;
 
-  @JsonProperty("CalculateOnExit")
+  @SerializedName("CalculateOnExit")
   private Boolean calculateOnExit = null;
 
-  @JsonProperty("Enabled")
+  @SerializedName("Enabled")
   private Boolean enabled = null;
 
-  @JsonProperty("EntryMacro")
+  @SerializedName("EntryMacro")
   private String entryMacro = null;
 
-  @JsonProperty("ExitMacro")
+  @SerializedName("ExitMacro")
   private String exitMacro = null;
 
-  @JsonProperty("HelpText")
+  @SerializedName("HelpText")
   private String helpText = null;
 
-  @JsonProperty("Name")
+  @SerializedName("Name")
   private String name = null;
 
-  @JsonProperty("OwnHelp")
+  @SerializedName("OwnHelp")
   private Boolean ownHelp = null;
 
-  @JsonProperty("OwnStatus")
+  @SerializedName("OwnStatus")
   private Boolean ownStatus = null;
 
-  @JsonProperty("StatusText")
+  @SerializedName("StatusText")
   private String statusText = null;
 
-  @JsonProperty("CheckBoxSize")
+  @SerializedName("CheckBoxSize")
   private Double checkBoxSize = null;
 
-  @JsonProperty("Checked")
+  @SerializedName("Checked")
   private Boolean checked = null;
 
-  @JsonProperty("IsCheckBoxExactSize")
+  @SerializedName("IsCheckBoxExactSize")
   private Boolean isCheckBoxExactSize = null;
 
   public FormFieldCheckbox link(WordsApiLink link) {

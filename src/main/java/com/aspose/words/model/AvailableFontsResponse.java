@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.FontInfo;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,19 +48,19 @@ import java.util.List;
 @ApiModel(description = "The list of fonts, available for document processing")
 
 public class AvailableFontsResponse {
-  @JsonProperty("Code")
+  @SerializedName("Code")
   private Integer code = null;
 
-  @JsonProperty("Status")
+  @SerializedName("Status")
   private String status = null;
 
-  @JsonProperty("AdditionalFonts")
+  @SerializedName("AdditionalFonts")
   private List<FontInfo> additionalFonts = null;
 
-  @JsonProperty("CustomFonts")
+  @SerializedName("CustomFonts")
   private List<FontInfo> customFonts = null;
 
-  @JsonProperty("SystemFonts")
+  @SerializedName("SystemFonts")
   private List<FontInfo> systemFonts = null;
 
   public AvailableFontsResponse code(Integer code) {

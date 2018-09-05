@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FormField;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * FormField text input element
@@ -43,51 +46,52 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "FormField text input element")
 
 public class FormFieldTextInput {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("NodeId")
+  @SerializedName("NodeId")
   private String nodeId = null;
 
-  @JsonProperty("CalculateOnExit")
+  @SerializedName("CalculateOnExit")
   private Boolean calculateOnExit = null;
 
-  @JsonProperty("Enabled")
+  @SerializedName("Enabled")
   private Boolean enabled = null;
 
-  @JsonProperty("EntryMacro")
+  @SerializedName("EntryMacro")
   private String entryMacro = null;
 
-  @JsonProperty("ExitMacro")
+  @SerializedName("ExitMacro")
   private String exitMacro = null;
 
-  @JsonProperty("HelpText")
+  @SerializedName("HelpText")
   private String helpText = null;
 
-  @JsonProperty("Name")
+  @SerializedName("Name")
   private String name = null;
 
-  @JsonProperty("OwnHelp")
+  @SerializedName("OwnHelp")
   private Boolean ownHelp = null;
 
-  @JsonProperty("OwnStatus")
+  @SerializedName("OwnStatus")
   private Boolean ownStatus = null;
 
-  @JsonProperty("StatusText")
+  @SerializedName("StatusText")
   private String statusText = null;
 
-  @JsonProperty("MaxLength")
+  @SerializedName("MaxLength")
   private Integer maxLength = null;
 
-  @JsonProperty("TextInputDefault")
+  @SerializedName("TextInputDefault")
   private String textInputDefault = null;
 
-  @JsonProperty("TextInputFormat")
+  @SerializedName("TextInputFormat")
   private String textInputFormat = null;
 
   /**
    * Gets or sets the type of a text form field.
    */
+  @JsonAdapter(TextInputTypeEnum.Adapter.class)
   public enum TextInputTypeEnum {
     REGULAR("Regular"),
     
@@ -107,7 +111,6 @@ public class FormFieldTextInput {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -117,7 +120,6 @@ public class FormFieldTextInput {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static TextInputTypeEnum fromValue(String text) {
       for (TextInputTypeEnum b : TextInputTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -126,9 +128,22 @@ public class FormFieldTextInput {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<TextInputTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TextInputTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TextInputTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TextInputTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("TextInputType")
+  @SerializedName("TextInputType")
   private TextInputTypeEnum textInputType = null;
 
   public FormFieldTextInput link(WordsApiLink link) {

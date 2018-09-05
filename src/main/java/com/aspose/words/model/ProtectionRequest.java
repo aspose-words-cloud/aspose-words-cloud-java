@@ -29,11 +29,14 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Request on changing of protection
@@ -41,13 +44,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Request on changing of protection")
 
 public class ProtectionRequest {
-  @JsonProperty("Password")
+  @SerializedName("Password")
   private String password = null;
 
-  @JsonProperty("NewPassword")
+  @SerializedName("NewPassword")
   private String newPassword = null;
 
-  @JsonProperty("ProtectionType")
+  @SerializedName("ProtectionType")
   private String protectionType = null;
 
   public ProtectionRequest password(String password) {

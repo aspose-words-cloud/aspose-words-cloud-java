@@ -30,11 +30,14 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.Link;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Provides information for the words api resource link.
@@ -42,16 +45,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Provides information for the words api resource link.")
 
 public class WordsApiLink {
-  @JsonProperty("Href")
+  @SerializedName("Href")
   private String href = null;
 
-  @JsonProperty("Rel")
+  @SerializedName("Rel")
   private String rel = null;
 
-  @JsonProperty("Type")
+  @SerializedName("Type")
   private String type = null;
 
-  @JsonProperty("Title")
+  @SerializedName("Title")
   private String title = null;
 
   public WordsApiLink href(String href) {

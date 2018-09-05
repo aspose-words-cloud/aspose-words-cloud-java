@@ -32,11 +32,14 @@ import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
 import com.aspose.words.model.XmlColor;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Represents a border of an object.
@@ -44,12 +47,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents a border of an object.")
 
 public class Border {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
   /**
    * Gets or sets the border type.             
    */
+  @JsonAdapter(BorderTypeEnum.Adapter.class)
   public enum BorderTypeEnum {
     BOTTOM("Bottom"),
     
@@ -75,7 +79,6 @@ public class Border {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -85,7 +88,6 @@ public class Border {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static BorderTypeEnum fromValue(String text) {
       for (BorderTypeEnum b : BorderTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -94,20 +96,34 @@ public class Border {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<BorderTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BorderTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BorderTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return BorderTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("BorderType")
+  @SerializedName("BorderType")
   private BorderTypeEnum borderType = null;
 
-  @JsonProperty("Color")
+  @SerializedName("Color")
   private XmlColor color = null;
 
-  @JsonProperty("DistanceFromText")
+  @SerializedName("DistanceFromText")
   private Double distanceFromText = null;
 
   /**
    * Gets or sets the border style.
    */
+  @JsonAdapter(LineStyleEnum.Adapter.class)
   public enum LineStyleEnum {
     NONE("None"),
     
@@ -169,7 +185,6 @@ public class Border {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -179,7 +194,6 @@ public class Border {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static LineStyleEnum fromValue(String text) {
       for (LineStyleEnum b : LineStyleEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -188,15 +202,28 @@ public class Border {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<LineStyleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LineStyleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LineStyleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LineStyleEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("LineStyle")
+  @SerializedName("LineStyle")
   private LineStyleEnum lineStyle = null;
 
-  @JsonProperty("LineWidth")
+  @SerializedName("LineWidth")
   private Double lineWidth = null;
 
-  @JsonProperty("Shadow")
+  @SerializedName("Shadow")
   private Boolean shadow = null;
 
   public Border link(WordsApiLink link) {

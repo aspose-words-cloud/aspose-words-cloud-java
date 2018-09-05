@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.DrawingObjectLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,27 +48,28 @@ import java.util.List;
 @ApiModel(description = "Represents Drawing Object DTO.")
 
 public class DrawingObject {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
-  @JsonProperty("NodeId")
+  @SerializedName("NodeId")
   private String nodeId = null;
 
-  @JsonProperty("Height")
+  @SerializedName("Height")
   private Double height = null;
 
-  @JsonProperty("ImageDataLink")
+  @SerializedName("ImageDataLink")
   private WordsApiLink imageDataLink = null;
 
-  @JsonProperty("Left")
+  @SerializedName("Left")
   private Double left = null;
 
-  @JsonProperty("OleDataLink")
+  @SerializedName("OleDataLink")
   private WordsApiLink oleDataLink = null;
 
   /**
    * Specifies where the distance to the image is measured from.             
    */
+  @JsonAdapter(RelativeHorizontalPositionEnum.Adapter.class)
   public enum RelativeHorizontalPositionEnum {
     MARGIN("Margin"),
     
@@ -91,7 +95,6 @@ public class DrawingObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -101,7 +104,6 @@ public class DrawingObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static RelativeHorizontalPositionEnum fromValue(String text) {
       for (RelativeHorizontalPositionEnum b : RelativeHorizontalPositionEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -110,14 +112,28 @@ public class DrawingObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<RelativeHorizontalPositionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RelativeHorizontalPositionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RelativeHorizontalPositionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RelativeHorizontalPositionEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("RelativeHorizontalPosition")
+  @SerializedName("RelativeHorizontalPosition")
   private RelativeHorizontalPositionEnum relativeHorizontalPosition = null;
 
   /**
    * Specifies where the distance to the image measured from.
    */
+  @JsonAdapter(RelativeVerticalPositionEnum.Adapter.class)
   public enum RelativeVerticalPositionEnum {
     MARGIN("Margin"),
     
@@ -145,7 +161,6 @@ public class DrawingObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -155,7 +170,6 @@ public class DrawingObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static RelativeVerticalPositionEnum fromValue(String text) {
       for (RelativeVerticalPositionEnum b : RelativeVerticalPositionEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -164,23 +178,37 @@ public class DrawingObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<RelativeVerticalPositionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RelativeVerticalPositionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RelativeVerticalPositionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RelativeVerticalPositionEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("RelativeVerticalPosition")
+  @SerializedName("RelativeVerticalPosition")
   private RelativeVerticalPositionEnum relativeVerticalPosition = null;
 
-  @JsonProperty("RenderLinks")
+  @SerializedName("RenderLinks")
   private List<WordsApiLink> renderLinks = null;
 
-  @JsonProperty("Top")
+  @SerializedName("Top")
   private Double top = null;
 
-  @JsonProperty("Width")
+  @SerializedName("Width")
   private Double width = null;
 
   /**
    * Specifies how to wrap text around the image.
    */
+  @JsonAdapter(WrapTypeEnum.Adapter.class)
   public enum WrapTypeEnum {
     INLINE("Inline"),
     
@@ -200,7 +228,6 @@ public class DrawingObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -210,7 +237,6 @@ public class DrawingObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static WrapTypeEnum fromValue(String text) {
       for (WrapTypeEnum b : WrapTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -219,9 +245,22 @@ public class DrawingObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<WrapTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final WrapTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public WrapTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return WrapTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("WrapType")
+  @SerializedName("WrapType")
   private WrapTypeEnum wrapType = null;
 
   public DrawingObject link(WordsApiLink link) {

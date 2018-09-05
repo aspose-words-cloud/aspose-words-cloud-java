@@ -32,11 +32,14 @@ import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.PreferredWidth;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Represents the table properties.             
@@ -44,12 +47,13 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents the table properties.             ")
 
 public class TableProperties {
-  @JsonProperty("link")
+  @SerializedName("link")
   private WordsApiLink link = null;
 
   /**
    * Specifies how an inline table is aligned in the document.
    */
+  @JsonAdapter(AlignmentEnum.Adapter.class)
   public enum AlignmentEnum {
     LEFT("Left"),
     
@@ -63,7 +67,6 @@ public class TableProperties {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -73,7 +76,6 @@ public class TableProperties {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static AlignmentEnum fromValue(String text) {
       for (AlignmentEnum b : AlignmentEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -82,38 +84,52 @@ public class TableProperties {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<AlignmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AlignmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AlignmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AlignmentEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Alignment")
+  @SerializedName("Alignment")
   private AlignmentEnum alignment = null;
 
-  @JsonProperty("AllowAutoFit")
+  @SerializedName("AllowAutoFit")
   private Boolean allowAutoFit = null;
 
-  @JsonProperty("Bidi")
+  @SerializedName("Bidi")
   private Boolean bidi = null;
 
-  @JsonProperty("BottomPadding")
+  @SerializedName("BottomPadding")
   private Double bottomPadding = null;
 
-  @JsonProperty("CellSpacing")
+  @SerializedName("CellSpacing")
   private Double cellSpacing = null;
 
-  @JsonProperty("LeftIndent")
+  @SerializedName("LeftIndent")
   private Double leftIndent = null;
 
-  @JsonProperty("LeftPadding")
+  @SerializedName("LeftPadding")
   private Double leftPadding = null;
 
-  @JsonProperty("PreferredWidth")
+  @SerializedName("PreferredWidth")
   private PreferredWidth preferredWidth = null;
 
-  @JsonProperty("RightPadding")
+  @SerializedName("RightPadding")
   private Double rightPadding = null;
 
   /**
    * Gets or sets the locale independent style identifier of the table style applied to this table.
    */
+  @JsonAdapter(StyleIdentifierEnum.Adapter.class)
   public enum StyleIdentifierEnum {
     NORMAL("Normal"),
     
@@ -867,7 +883,6 @@ public class TableProperties {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -877,7 +892,6 @@ public class TableProperties {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static StyleIdentifierEnum fromValue(String text) {
       for (StyleIdentifierEnum b : StyleIdentifierEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -886,17 +900,31 @@ public class TableProperties {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<StyleIdentifierEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StyleIdentifierEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StyleIdentifierEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StyleIdentifierEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("StyleIdentifier")
+  @SerializedName("StyleIdentifier")
   private StyleIdentifierEnum styleIdentifier = null;
 
-  @JsonProperty("StyleName")
+  @SerializedName("StyleName")
   private String styleName = null;
 
   /**
    * Gets or sets bit flags that specify how a table style is applied to this table.
    */
+  @JsonAdapter(StyleOptionsEnum.Adapter.class)
   public enum StyleOptionsEnum {
     NONE("None"),
     
@@ -922,7 +950,6 @@ public class TableProperties {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -932,7 +959,6 @@ public class TableProperties {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static StyleOptionsEnum fromValue(String text) {
       for (StyleOptionsEnum b : StyleOptionsEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -941,14 +967,28 @@ public class TableProperties {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<StyleOptionsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StyleOptionsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StyleOptionsEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StyleOptionsEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("StyleOptions")
+  @SerializedName("StyleOptions")
   private StyleOptionsEnum styleOptions = null;
 
   /**
    * Get or sets TextWrapping  for table.
    */
+  @JsonAdapter(TextWrappingEnum.Adapter.class)
   public enum TextWrappingEnum {
     DEFAULT("Default"),
     
@@ -962,7 +1002,6 @@ public class TableProperties {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -972,7 +1011,6 @@ public class TableProperties {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static TextWrappingEnum fromValue(String text) {
       for (TextWrappingEnum b : TextWrappingEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -981,12 +1019,25 @@ public class TableProperties {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<TextWrappingEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TextWrappingEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TextWrappingEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TextWrappingEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("TextWrapping")
+  @SerializedName("TextWrapping")
   private TextWrappingEnum textWrapping = null;
 
-  @JsonProperty("TopPadding")
+  @SerializedName("TopPadding")
   private Double topPadding = null;
 
   public TableProperties link(WordsApiLink link) {

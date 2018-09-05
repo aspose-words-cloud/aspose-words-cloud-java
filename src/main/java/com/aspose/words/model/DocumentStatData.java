@@ -31,11 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FootnotesStatData;
 import com.aspose.words.model.PageStatData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,19 +48,19 @@ import java.util.List;
 @ApiModel(description = "Container for the document's statistical data")
 
 public class DocumentStatData {
-  @JsonProperty("WordCount")
+  @SerializedName("WordCount")
   private Integer wordCount = null;
 
-  @JsonProperty("ParagraphCount")
+  @SerializedName("ParagraphCount")
   private Integer paragraphCount = null;
 
-  @JsonProperty("PageCount")
+  @SerializedName("PageCount")
   private Integer pageCount = null;
 
-  @JsonProperty("FootnotesStatData")
+  @SerializedName("FootnotesStatData")
   private FootnotesStatData footnotesStatData = null;
 
-  @JsonProperty("PageStatData")
+  @SerializedName("PageStatData")
   private List<PageStatData> pageStatData = null;
 
   public DocumentStatData wordCount(Integer wordCount) {

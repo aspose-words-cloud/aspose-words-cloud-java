@@ -32,11 +32,14 @@ import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.DocumentStatData;
 import com.aspose.words.model.FileLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Response for the request of the document&#39;s statistical data
@@ -44,16 +47,16 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Response for the request of the document's statistical data")
 
 public class StatDataResponse {
-  @JsonProperty("Code")
+  @SerializedName("Code")
   private Integer code = null;
 
-  @JsonProperty("Status")
+  @SerializedName("Status")
   private String status = null;
 
-  @JsonProperty("DocumentLink")
+  @SerializedName("DocumentLink")
   private FileLink documentLink = null;
 
-  @JsonProperty("StatData")
+  @SerializedName("StatData")
   private DocumentStatData statData = null;
 
   public StatDataResponse code(Integer code) {

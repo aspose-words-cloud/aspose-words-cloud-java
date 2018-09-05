@@ -32,11 +32,14 @@ import java.util.Arrays;
 import com.aspose.words.model.FixedPageSaveOptionsData;
 import com.aspose.words.model.GraphicsQualityOptionsData;
 import com.aspose.words.model.MetafileRenderingOptionsData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Container abstract class for image save options
@@ -44,88 +47,88 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Container abstract class for image save options")
 
 public class ImageSaveOptionsData {
-  @JsonProperty("ColorMode")
+  @SerializedName("ColorMode")
   private String colorMode = null;
 
-  @JsonProperty("SaveFormat")
+  @SerializedName("SaveFormat")
   private String saveFormat = null;
 
-  @JsonProperty("FileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
-  @JsonProperty("DmlRenderingMode")
+  @SerializedName("DmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @JsonProperty("DmlEffectsRenderingMode")
+  @SerializedName("DmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @JsonProperty("ZipOutput")
+  @SerializedName("ZipOutput")
   private Boolean zipOutput = null;
 
-  @JsonProperty("UpdateLastSavedTimeProperty")
+  @SerializedName("UpdateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @JsonProperty("UpdateSdtContent")
+  @SerializedName("UpdateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @JsonProperty("UpdateFields")
+  @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
-  @JsonProperty("JpegQuality")
+  @SerializedName("JpegQuality")
   private Integer jpegQuality = null;
 
-  @JsonProperty("MetafileRenderingOptions")
+  @SerializedName("MetafileRenderingOptions")
   private MetafileRenderingOptionsData metafileRenderingOptions = null;
 
-  @JsonProperty("NumeralFormat")
+  @SerializedName("NumeralFormat")
   private String numeralFormat = null;
 
-  @JsonProperty("OptimizeOutput")
+  @SerializedName("OptimizeOutput")
   private Boolean optimizeOutput = null;
 
-  @JsonProperty("PageCount")
+  @SerializedName("PageCount")
   private Integer pageCount = null;
 
-  @JsonProperty("PageIndex")
+  @SerializedName("PageIndex")
   private Integer pageIndex = null;
 
-  @JsonProperty("GraphicsQualityOptions")
+  @SerializedName("GraphicsQualityOptions")
   private GraphicsQualityOptionsData graphicsQualityOptions = null;
 
-  @JsonProperty("HorizontalResolution")
+  @SerializedName("HorizontalResolution")
   private Double horizontalResolution = null;
 
-  @JsonProperty("ImageBrightness")
+  @SerializedName("ImageBrightness")
   private Double imageBrightness = null;
 
-  @JsonProperty("ImageColorMode")
+  @SerializedName("ImageColorMode")
   private String imageColorMode = null;
 
-  @JsonProperty("ImageContrast")
+  @SerializedName("ImageContrast")
   private Double imageContrast = null;
 
-  @JsonProperty("PaperColor")
+  @SerializedName("PaperColor")
   private String paperColor = null;
 
-  @JsonProperty("PixelFormat")
+  @SerializedName("PixelFormat")
   private String pixelFormat = null;
 
-  @JsonProperty("Resolution")
+  @SerializedName("Resolution")
   private Double resolution = null;
 
-  @JsonProperty("Scale")
+  @SerializedName("Scale")
   private Double scale = null;
 
-  @JsonProperty("UseAntiAliasing")
+  @SerializedName("UseAntiAliasing")
   private Boolean useAntiAliasing = null;
 
-  @JsonProperty("UseGdiEmfRenderer")
+  @SerializedName("UseGdiEmfRenderer")
   private Boolean useGdiEmfRenderer = null;
 
-  @JsonProperty("UseHighQualityRendering")
+  @SerializedName("UseHighQualityRendering")
   private Boolean useHighQualityRendering = null;
 
-  @JsonProperty("VerticalResolution")
+  @SerializedName("VerticalResolution")
   private Double verticalResolution = null;
 
   public ImageSaveOptionsData colorMode(String colorMode) {
