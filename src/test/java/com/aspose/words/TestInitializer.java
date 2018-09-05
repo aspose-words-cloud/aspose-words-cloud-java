@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public final class TestInitializer {
-    public static WordsApi wordApi;
+    public static WordsApi wordsApi;
     public static String LocalTestFolder = "TestData";
     public static String LocalCommonFolder = Paths.get(LocalTestFolder, "Common").toString();
     public static String RemoteTestFolder = Paths.get("Temp", "SdkTests", "java").toString();
@@ -21,8 +21,8 @@ public final class TestInitializer {
             throw new FileNotFoundException("Please put your credentials into Settings/servercreds.json file");
         }
 
-        wordApi = new WordsApi(new ApiClient());
-        ApiClient client = wordApi.getApiClient();
+        wordsApi = new WordsApi(new ApiClient());
+        ApiClient client = wordsApi.getApiClient();
         client.setBaseUrl(creds.get("BaseUrl")).setAppKey(creds.get("AppKey")).setAppSid(creds.get("AppSid"));
     }
 }

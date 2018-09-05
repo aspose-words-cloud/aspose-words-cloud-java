@@ -31,39 +31,37 @@ import java.io.File;
 /*
  * Request model for getSectionPageSetup operation.
  */
-public class GetSectionPageSetupRequest
-{
+public class GetSectionPageSetupRequest {
     /*
      * The document name.
      */
     private String Name;
-	
+
     /*
      * Section index
      */
     private Integer SectionIndex;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
     
-	
     /*
      * Initializes a new instance of the getSectionPageSetupRequest class.
      *  
@@ -74,8 +72,7 @@ public class GetSectionPageSetupRequest
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetSectionPageSetupRequest(String name, Integer sectionIndex, String folder, String storage, String loadEncoding, String password)             
-    {
+    public GetSectionPageSetupRequest(String name,  Integer sectionIndex,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
         SectionIndex = sectionIndex;
         Folder = folder;
@@ -87,96 +84,84 @@ public class GetSectionPageSetupRequest
     /*
      *  Gets The document name.
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
      *  Gets Section index
      */
-    public Integer getSectionIndex()
-    {
+    public Integer getSectionIndex() {
         return SectionIndex;
     }
 
     /*
      * Sets Section index
      */
-    public void setSectionIndex(Integer value)
-    {
+    public void setSectionIndex(Integer value) {
         SectionIndex = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
 }

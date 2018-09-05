@@ -31,39 +31,37 @@ import java.io.File;
 /*
  * Request model for getDocumentBookmarkByName operation.
  */
-public class GetDocumentBookmarkByNameRequest
-{
+public class GetDocumentBookmarkByNameRequest {
     /*
      * The document name.
      */
     private String Name;
-	
+
     /*
      * The bookmark name.
      */
     private String BookmarkName;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
     
-	
     /*
      * Initializes a new instance of the getDocumentBookmarkByNameRequest class.
      *  
@@ -74,8 +72,7 @@ public class GetDocumentBookmarkByNameRequest
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetDocumentBookmarkByNameRequest(String name, String bookmarkName, String folder, String storage, String loadEncoding, String password)             
-    {
+    public GetDocumentBookmarkByNameRequest(String name,  String bookmarkName,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
         BookmarkName = bookmarkName;
         Folder = folder;
@@ -87,96 +84,84 @@ public class GetDocumentBookmarkByNameRequest
     /*
      *  Gets The document name.
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
      *  Gets The bookmark name.
      */
-    public String getBookmarkName()
-    {
+    public String getBookmarkName() {
         return BookmarkName;
     }
 
     /*
      * Sets The bookmark name.
      */
-    public void setBookmarkName(String value)
-    {
+    public void setBookmarkName(String value) {
         BookmarkName = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
 }

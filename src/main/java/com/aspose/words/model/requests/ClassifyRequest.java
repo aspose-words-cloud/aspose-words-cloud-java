@@ -31,27 +31,24 @@ import java.io.File;
 /*
  * Request model for classify operation.
  */
-public class ClassifyRequest
-{
+public class ClassifyRequest {
     /*
      * Text to classify.
      */
     private String Text;
-	
+
     /*
      * Count of the best classes to return.
      */
     private String BestClassesCount;
     
-	
     /*
      * Initializes a new instance of the classifyRequest class.
      *  
      * @param String text Text to classify.
      * @param String bestClassesCount Count of the best classes to return.
      */
-    public ClassifyRequest(String text, String bestClassesCount)             
-    {
+    public ClassifyRequest(String text,  String bestClassesCount) {
         Text = text;
         BestClassesCount = bestClassesCount;
     }
@@ -59,32 +56,28 @@ public class ClassifyRequest
     /*
      *  Gets Text to classify.
      */
-    public String getText()
-    {
+    public String getText() {
         return Text;
     }
 
     /*
      * Sets Text to classify.
      */
-    public void setText(String value)
-    {
+    public void setText(String value) {
         Text = value;
     }
-	
+
     /*
      *  Gets Count of the best classes to return.
      */
-    public String getBestClassesCount()
-    {
+    public String getBestClassesCount() {
         return BestClassesCount;
     }
 
     /*
      * Sets Count of the best classes to return.
      */
-    public void setBestClassesCount(String value)
-    {
+    public void setBestClassesCount(String value) {
         BestClassesCount = value;
     }
 }

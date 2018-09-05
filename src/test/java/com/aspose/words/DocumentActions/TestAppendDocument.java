@@ -46,9 +46,9 @@ public class TestAppendDocument extends TestCase {
     }
 
     /*
-        Test for appending document
+     * Test for appending document
      */
-    public void testPostAppendDocument(){
+    public void testPostAppendDocument() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostAppendDocument.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -56,20 +56,12 @@ public class TestAppendDocument extends TestCase {
                 .href(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString())
                 .importFormatMode("KeepSourceFormatting");
         DocumentEntryList body = new DocumentEntryList().addDocumentEntriesItem(docEntry);
-        try {
-            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                    null, null);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                null, null);
         PostAppendDocumentRequest request = new PostAppendDocumentRequest(remoteName, body,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null, null, destName, null, null);
-        try {
-            DocumentResponse result = TestInitializer.wordApi.postAppendDocument(request);
-            assertEquals(result.getCode(), Integer.valueOf(200));
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+        DocumentResponse result = TestInitializer.wordsApi.postAppendDocument(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
     }
 }

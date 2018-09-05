@@ -31,39 +31,37 @@ import java.io.File;
 /*
  * Request model for putExecuteTemplateOnline operation.
  */
-public class PutExecuteTemplateOnlineRequest
-{
+public class PutExecuteTemplateOnlineRequest {
     /*
      * File with template
      */
     private File Template;
-	
+
     /*
      * File with mailmerge data
      */
     private File Data;
-	
+
     /*
      * Clean up options.
      */
     private String Cleanup;
-	
+
     /*
      * Gets or sets a value indicating whether paragraph with TableStart or              TableEnd field should be fully included into mail merge region or particular range between TableStart and TableEnd fields.              The default value is true.
      */
     private Boolean UseWholeParagraphAsRegion;
-	
+
     /*
      * Merge with regions or not. True by default
      */
     private Boolean WithRegions;
-	
+
     /*
      * This file name will be used when resulting document has dynamic field for document file name {filename}.  If it is not setted, \"template\" will be used instead.  Note: if withRegions == true executeTemplate updates fields only inside regions
      */
     private String DocumentFileName;
     
-	
     /*
      * Initializes a new instance of the putExecuteTemplateOnlineRequest class.
      *  
@@ -74,8 +72,7 @@ public class PutExecuteTemplateOnlineRequest
      * @param Boolean withRegions Merge with regions or not. True by default
      * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}.  If it is not setted, \"template\" will be used instead.  Note: if withRegions == true executeTemplate updates fields only inside regions
      */
-    public PutExecuteTemplateOnlineRequest(File template, File data, String cleanup, Boolean useWholeParagraphAsRegion, Boolean withRegions, String documentFileName)             
-    {
+    public PutExecuteTemplateOnlineRequest(File template,  File data,  String cleanup,  Boolean useWholeParagraphAsRegion,  Boolean withRegions,  String documentFileName) {
         Template = template;
         Data = data;
         Cleanup = cleanup;
@@ -87,96 +84,84 @@ public class PutExecuteTemplateOnlineRequest
     /*
      *  Gets File with template
      */
-    public File getTemplate()
-    {
+    public File getTemplate() {
         return Template;
     }
 
     /*
      * Sets File with template
      */
-    public void setTemplate(File value)
-    {
+    public void setTemplate(File value) {
         Template = value;
     }
-	
+
     /*
      *  Gets File with mailmerge data
      */
-    public File getData()
-    {
+    public File getData() {
         return Data;
     }
 
     /*
      * Sets File with mailmerge data
      */
-    public void setData(File value)
-    {
+    public void setData(File value) {
         Data = value;
     }
-	
+
     /*
      *  Gets Clean up options.
      */
-    public String getCleanup()
-    {
+    public String getCleanup() {
         return Cleanup;
     }
 
     /*
      * Sets Clean up options.
      */
-    public void setCleanup(String value)
-    {
+    public void setCleanup(String value) {
         Cleanup = value;
     }
-	
+
     /*
      *  Gets Gets or sets a value indicating whether paragraph with TableStart or              TableEnd field should be fully included into mail merge region or particular range between TableStart and TableEnd fields.              The default value is true.
      */
-    public Boolean getUseWholeParagraphAsRegion()
-    {
+    public Boolean getUseWholeParagraphAsRegion() {
         return UseWholeParagraphAsRegion;
     }
 
     /*
      * Sets Gets or sets a value indicating whether paragraph with TableStart or              TableEnd field should be fully included into mail merge region or particular range between TableStart and TableEnd fields.              The default value is true.
      */
-    public void setUseWholeParagraphAsRegion(Boolean value)
-    {
+    public void setUseWholeParagraphAsRegion(Boolean value) {
         UseWholeParagraphAsRegion = value;
     }
-	
+
     /*
      *  Gets Merge with regions or not. True by default
      */
-    public Boolean getWithRegions()
-    {
+    public Boolean getWithRegions() {
         return WithRegions;
     }
 
     /*
      * Sets Merge with regions or not. True by default
      */
-    public void setWithRegions(Boolean value)
-    {
+    public void setWithRegions(Boolean value) {
         WithRegions = value;
     }
-	
+
     /*
      *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}.  If it is not setted, \"template\" will be used instead.  Note: if withRegions == true executeTemplate updates fields only inside regions
      */
-    public String getDocumentFileName()
-    {
+    public String getDocumentFileName() {
         return DocumentFileName;
     }
 
     /*
      * Sets This file name will be used when resulting document has dynamic field for document file name {filename}.  If it is not setted, \"template\" will be used instead.  Note: if withRegions == true executeTemplate updates fields only inside regions
      */
-    public void setDocumentFileName(String value)
-    {
+    public void setDocumentFileName(String value) {
         DocumentFileName = value;
     }
 }

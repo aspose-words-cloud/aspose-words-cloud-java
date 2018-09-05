@@ -46,63 +46,48 @@ public class TestClassification extends TestCase {
     }
 
     /*
-        Test for raw text classification
+     * Test for raw text classification
      */
-    public void testClassify(){
+    public void testClassify() throws ApiException {
         ClassifyRequest request = new ClassifyRequest("Try text classification", "3");
-        try {
-            ClassificationResponse result = TestInitializer.wordApi.classify(request);
-            assertEquals(result.getCode(), new Integer(200));
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+        ClassificationResponse result = TestInitializer.wordsApi.classify(request);
+        assertEquals(result.getCode(), new Integer(200));
     }
 
     /*
-        Test for document classification
+     * Test for document classification
      */
-    public void testClassifyDocument(){
+    public void testClassifyDocument() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "Source.docx";
-        try {
-            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                    null, null);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+
+        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                null, null);
+
         ClassifyDocumentRequest request = new ClassifyDocumentRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null);
-        try {
-            ClassificationResponse result = TestInitializer.wordApi.classifyDocument(request);
-            assertEquals(result.getCode(), Integer.valueOf(200));
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+
+        ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
     }
 
     /*
-        Test for document classification with taxonomy "documents"
+     * Test for document classification with taxonomy "documents"
      */
-    public void testClassifyTaxonomyDocument(){
+    public void testClassifyTaxonomyDocument()  throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "Source.docx";
-        try {
-            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                    null, null);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                null, null);
+
         ClassifyDocumentRequest request = new ClassifyDocumentRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, "documents");
-        try {
-            ClassificationResponse result = TestInitializer.wordApi.classifyDocument(request);
-            assertEquals(result.getCode(), Integer.valueOf(200));
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+
+        ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
     }
 }

@@ -31,24 +31,22 @@ import java.io.File;
 /*
  * Request model for putCreateDocument operation.
  */
-public class PutCreateDocumentRequest
-{
+public class PutCreateDocumentRequest {
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * The file name.
      */
     private String FileName;
-	
+
     /*
      * The document folder.
      */
     private String Folder;
     
-	
     /*
      * Initializes a new instance of the putCreateDocumentRequest class.
      *  
@@ -56,8 +54,7 @@ public class PutCreateDocumentRequest
      * @param String fileName The file name.
      * @param String folder The document folder.
      */
-    public PutCreateDocumentRequest(String storage, String fileName, String folder)             
-    {
+    public PutCreateDocumentRequest(String storage,  String fileName,  String folder) {
         Storage = storage;
         FileName = fileName;
         Folder = folder;
@@ -66,48 +63,42 @@ public class PutCreateDocumentRequest
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets The file name.
      */
-    public String getFileName()
-    {
+    public String getFileName() {
         return FileName;
     }
 
     /*
      * Sets The file name.
      */
-    public void setFileName(String value)
-    {
+    public void setFileName(String value) {
         FileName = value;
     }
-	
+
     /*
      *  Gets The document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets The document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
 }

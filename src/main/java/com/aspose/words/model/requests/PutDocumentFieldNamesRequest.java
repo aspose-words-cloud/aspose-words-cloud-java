@@ -31,27 +31,24 @@ import java.io.File;
 /*
  * Request model for putDocumentFieldNames operation.
  */
-public class PutDocumentFieldNamesRequest
-{
+public class PutDocumentFieldNamesRequest {
     /*
      * File with template
      */
     private File Template;
-	
+
     /*
      * Use non merge fields or not.
      */
     private Boolean UseNonMergeFields;
     
-	
     /*
      * Initializes a new instance of the putDocumentFieldNamesRequest class.
      *  
      * @param File template File with template
      * @param Boolean useNonMergeFields Use non merge fields or not.
      */
-    public PutDocumentFieldNamesRequest(File template, Boolean useNonMergeFields)             
-    {
+    public PutDocumentFieldNamesRequest(File template,  Boolean useNonMergeFields) {
         Template = template;
         UseNonMergeFields = useNonMergeFields;
     }
@@ -59,32 +56,28 @@ public class PutDocumentFieldNamesRequest
     /*
      *  Gets File with template
      */
-    public File getTemplate()
-    {
+    public File getTemplate() {
         return Template;
     }
 
     /*
      * Sets File with template
      */
-    public void setTemplate(File value)
-    {
+    public void setTemplate(File value) {
         Template = value;
     }
-	
+
     /*
      *  Gets Use non merge fields or not.
      */
-    public Boolean getUseNonMergeFields()
-    {
+    public Boolean getUseNonMergeFields() {
         return UseNonMergeFields;
     }
 
     /*
      * Sets Use non merge fields or not.
      */
-    public void setUseNonMergeFields(Boolean value)
-    {
+    public void setUseNonMergeFields(Boolean value) {
         UseNonMergeFields = value;
     }
 }

@@ -31,34 +31,32 @@ import java.io.File;
 /*
  * Request model for putExecuteMailMergeOnline operation.
  */
-public class PutExecuteMailMergeOnlineRequest
-{
+public class PutExecuteMailMergeOnlineRequest {
     /*
      * File with template
      */
     private File Template;
-	
+
     /*
      * File with mailmerge data
      */
     private File Data;
-	
+
     /*
      * With regions flag.
      */
     private Boolean WithRegions;
-	
+
     /*
      * Clean up options.
      */
     private String Cleanup;
-	
+
     /*
      * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
     private String DocumentFileName;
     
-	
     /*
      * Initializes a new instance of the putExecuteMailMergeOnlineRequest class.
      *  
@@ -68,8 +66,7 @@ public class PutExecuteMailMergeOnlineRequest
      * @param String cleanup Clean up options.
      * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
-    public PutExecuteMailMergeOnlineRequest(File template, File data, Boolean withRegions, String cleanup, String documentFileName)             
-    {
+    public PutExecuteMailMergeOnlineRequest(File template,  File data,  Boolean withRegions,  String cleanup,  String documentFileName) {
         Template = template;
         Data = data;
         WithRegions = withRegions;
@@ -80,80 +77,70 @@ public class PutExecuteMailMergeOnlineRequest
     /*
      *  Gets File with template
      */
-    public File getTemplate()
-    {
+    public File getTemplate() {
         return Template;
     }
 
     /*
      * Sets File with template
      */
-    public void setTemplate(File value)
-    {
+    public void setTemplate(File value) {
         Template = value;
     }
-	
+
     /*
      *  Gets File with mailmerge data
      */
-    public File getData()
-    {
+    public File getData() {
         return Data;
     }
 
     /*
      * Sets File with mailmerge data
      */
-    public void setData(File value)
-    {
+    public void setData(File value) {
         Data = value;
     }
-	
+
     /*
      *  Gets With regions flag.
      */
-    public Boolean getWithRegions()
-    {
+    public Boolean getWithRegions() {
         return WithRegions;
     }
 
     /*
      * Sets With regions flag.
      */
-    public void setWithRegions(Boolean value)
-    {
+    public void setWithRegions(Boolean value) {
         WithRegions = value;
     }
-	
+
     /*
      *  Gets Clean up options.
      */
-    public String getCleanup()
-    {
+    public String getCleanup() {
         return Cleanup;
     }
 
     /*
      * Sets Clean up options.
      */
-    public void setCleanup(String value)
-    {
+    public void setCleanup(String value) {
         Cleanup = value;
     }
-	
+
     /*
      *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
-    public String getDocumentFileName()
-    {
+    public String getDocumentFileName() {
         return DocumentFileName;
     }
 
     /*
      * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
-    public void setDocumentFileName(String value)
-    {
+    public void setDocumentFileName(String value) {
         DocumentFileName = value;
     }
 }

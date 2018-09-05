@@ -46,49 +46,37 @@ public class TestDocument extends TestCase {
     }
 
     /*
-        Test for getting document
+     * Test for getting document
      */
-    public void testGetDocument(){
+    public void testGetDocument() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocument.docx";
-        try {
-            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                    null, null);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+
+        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                null, null);
+
         GetDocumentRequest request = new GetDocumentRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null);
-        try {
-            DocumentResponse result = TestInitializer.wordApi.getDocument(request);
-            assertEquals(result.getCode(), Integer.valueOf(200));
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+
+        DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
     }
 
     /*
-        Test for creating document
+    * Test for creating document
     */
-    public void testPutCreateDocument(){
+    public void testPutCreateDocument() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutCreateDocument.docx";
-        try {
-            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                    null, null);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                null, null);
+
         PutCreateDocumentRequest request = new PutCreateDocumentRequest(null, remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString());
-        try {
-            DocumentResponse result = TestInitializer.wordApi.putCreateDocument(request);
-            assertEquals(result.getCode(), Integer.valueOf(200));
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+        DocumentResponse result = TestInitializer.wordsApi.putCreateDocument(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
     }
 }

@@ -31,49 +31,47 @@ import java.io.File;
 /*
  * Request model for getDocumentWithFormat operation.
  */
-public class GetDocumentWithFormatRequest
-{
+public class GetDocumentWithFormatRequest {
     /*
      * The file name.
      */
     private String Name;
-	
+
     /*
      * The destination format.
      */
     private String Format;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
-	
+
     /*
      * Path to save result
      */
     private String OutPath;
-	
+
     /*
      * Folder in filestorage with custom fonts.
      */
     private String FontsLocation;
     
-	
     /*
      * Initializes a new instance of the getDocumentWithFormatRequest class.
      *  
@@ -86,8 +84,7 @@ public class GetDocumentWithFormatRequest
      * @param String outPath Path to save result
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public GetDocumentWithFormatRequest(String name, String format, String folder, String storage, String loadEncoding, String password, String outPath, String fontsLocation)             
-    {
+    public GetDocumentWithFormatRequest(String name,  String format,  String folder,  String storage,  String loadEncoding,  String password,  String outPath,  String fontsLocation) {
         Name = name;
         Format = format;
         Folder = folder;
@@ -101,128 +98,112 @@ public class GetDocumentWithFormatRequest
     /*
      *  Gets The file name.
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
      * Sets The file name.
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
      *  Gets The destination format.
      */
-    public String getFormat()
-    {
+    public String getFormat() {
         return Format;
     }
 
     /*
      * Sets The destination format.
      */
-    public void setFormat(String value)
-    {
+    public void setFormat(String value) {
         Format = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
-	
+
     /*
      *  Gets Path to save result
      */
-    public String getOutPath()
-    {
+    public String getOutPath() {
         return OutPath;
     }
 
     /*
      * Sets Path to save result
      */
-    public void setOutPath(String value)
-    {
+    public void setOutPath(String value) {
         OutPath = value;
     }
-	
+
     /*
      *  Gets Folder in filestorage with custom fonts.
      */
-    public String getFontsLocation()
-    {
+    public String getFontsLocation() {
         return FontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
-    public void setFontsLocation(String value)
-    {
+    public void setFontsLocation(String value) {
         FontsLocation = value;
     }
 }

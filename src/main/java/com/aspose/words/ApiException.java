@@ -30,13 +30,13 @@ package com.aspose.words;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
 
-    public ApiException() {}
+    public ApiException() { }
 
     public ApiException(Throwable throwable) {
         super(throwable);
