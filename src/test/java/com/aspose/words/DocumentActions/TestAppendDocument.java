@@ -56,8 +56,13 @@ public class TestAppendDocument extends TestCase {
                 .href(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString())
                 .importFormatMode("KeepSourceFormatting");
         DocumentEntryList body = new DocumentEntryList().addDocumentEntriesItem(docEntry);
-        TestInitializer.storageApi.PutCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                null, null, new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()));
+        try {
+            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                    null, null);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
         PostAppendDocumentRequest request = new PostAppendDocumentRequest(remoteName, body,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null, null, destName, null, null);
         try {

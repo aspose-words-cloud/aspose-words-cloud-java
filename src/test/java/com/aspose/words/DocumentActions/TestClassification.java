@@ -64,8 +64,13 @@ public class TestClassification extends TestCase {
     public void testClassifyDocument(){
         String fileName = "test_multi_pages.docx";
         String remoteName = "Source.docx";
-        TestInitializer.storageApi.PutCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                null, null, new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()));
+        try {
+            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                    null, null);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
         ClassifyDocumentRequest request = new ClassifyDocumentRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null);
@@ -83,8 +88,13 @@ public class TestClassification extends TestCase {
     public void testClassifyTaxonomyDocument(){
         String fileName = "test_multi_pages.docx";
         String remoteName = "Source.docx";
-        TestInitializer.storageApi.PutCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                null, null, new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()));
+        try {
+            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                    null, null);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
         ClassifyDocumentRequest request = new ClassifyDocumentRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, "documents");

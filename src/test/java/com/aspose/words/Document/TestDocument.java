@@ -51,8 +51,13 @@ public class TestDocument extends TestCase {
     public void testGetDocument(){
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocument.docx";
-        TestInitializer.storageApi.PutCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                null, null, new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()));
+        try {
+            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                    null, null);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
         GetDocumentRequest request = new GetDocumentRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null);
@@ -70,8 +75,13 @@ public class TestDocument extends TestCase {
     public void testPutCreateDocument(){
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutCreateDocument.docx";
-        TestInitializer.storageApi.PutCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                null, null, new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()));
+        try {
+            TestInitializer.wordApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                    new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                    null, null);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
         PutCreateDocumentRequest request = new PutCreateDocumentRequest(null, remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString());
         try {

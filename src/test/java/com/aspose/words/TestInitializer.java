@@ -1,5 +1,4 @@
 package com.aspose.words;
-import com.aspose.storage.api.StorageApi;
 import com.aspose.words.api.WordsApi;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
@@ -9,7 +8,6 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public final class TestInitializer {
-    public static StorageApi storageApi;
     public static WordsApi wordApi;
     public static String LocalTestFolder = "TestData";
     public static String LocalCommonFolder = Paths.get(LocalTestFolder, "Common").toString();
@@ -23,7 +21,8 @@ public final class TestInitializer {
             throw new FileNotFoundException("Please put your credentials into Settings/servercreds.json file");
         }
 
-        storageApi = new StorageApi(creds.get("BaseUrl"), creds.get("AppKey"), creds.get("AppSid"));
-        wordApi = new WordsApi(new ApiClient(creds.get("AppKey"), creds.get("AppSid"), creds.get("BaseUrl")));
+        wordApi = new WordsApi(new ApiClient());
+        ApiClient client = wordApi.getApiClient();
+        client.setBaseUrl(creds.get("BaseUrl")).setAppKey(creds.get("AppKey")).setAppSid(creds.get("AppSid"));
     }
 }

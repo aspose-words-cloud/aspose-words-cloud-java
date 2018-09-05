@@ -6321,34 +6321,34 @@ if (request.getData() != null)
      */
     public TableRowFormatResponse updateTableRowFormat(UpdateTableRowFormatRequest request) throws ApiException {
         Object localVarPostBody = request.getFormat();
-        
+
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
-          throw new ApiException(400, "Missing the required parameter 'Name' when calling updateTableRowFormat");
+            throw new ApiException(400, "Missing the required parameter 'Name' when calling updateTableRowFormat");
         }
-        
+
         // verify the required parameter 'TablePath' is set
         if (request.getTablePath() == null) {
-          throw new ApiException(400, "Missing the required parameter 'TablePath' when calling updateTableRowFormat");
+            throw new ApiException(400, "Missing the required parameter 'TablePath' when calling updateTableRowFormat");
         }
-        
+
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
-          throw new ApiException(400, "Missing the required parameter 'Index' when calling updateTableRowFormat");
+            throw new ApiException(400, "Missing the required parameter 'Index' when calling updateTableRowFormat");
         }
-        
+
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
-          .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-          .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
-          .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-        
+                .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+                .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
+                .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
         // query params
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        
+
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "Folder", request.getFolder());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "Storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "LoadEncoding", request.getLoadEncoding());
@@ -6356,24 +6356,61 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "DestFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "RevisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "RevisionDateTime", request.getRevisionDateTime());
-        
-                
-                
+
+
         final String[] localVarAccepts = {
-          "application/xml", "application/json"
+                "application/xml", "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        
+
         final String[] localVarContentTypes = {
-          "application/xml", "application/json"
+                "application/xml", "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        
-        String[] localVarAuthNames = new String[] {  };
-        
-        GenericType<TableRowFormatResponse> localVarReturnType = new GenericType<TableRowFormatResponse>() {};
-        return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams,              localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType,   localVarAuthNames, localVarReturnType);
-            }
+
+        String[] localVarAuthNames = new String[]{};
+
+        GenericType<TableRowFormatResponse> localVarReturnType = new GenericType<TableRowFormatResponse>() {
+        };
+        return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
+    public AsposeResponse putCreateFile(String path, File file, String versionId, String storage) throws ApiException {
+        Object localVarPostBody = null;
+        // verify required params are set
+        if (path == null || file == null) {
+            throw new com.aspose.storage.client.ApiException(400, "missing required params");
+        }
+        // create path and map variables
+        String localVarPath = "/storage/file";
+        localVarPath = localVarPath.replaceAll("\\*", "").replace("&amp;", "&").replace("/?", "?").replace("toFormat={toFormat}", "format={format}");
+        // query params
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        localVarFormParams.put("file", file);
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "path", path);
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", versionId);
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", storage);
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "appSid", apiClient.getAppSid());
+        final String[] localVarAccepts = {
+                "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+        final String[] localVarContentTypes = {
+                "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[]{ "oauth"};
+
+        GenericType<AsposeResponse> localVarReturnType = new GenericType<AsposeResponse>() {
+        };
+        return apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
     private String addParameterToQuery(List<Pair> queryParams, String path, String paramName, Object paramValue){
         if (path.contains("{" + paramName + "}")){
             if (paramValue == null || paramValue == ""){

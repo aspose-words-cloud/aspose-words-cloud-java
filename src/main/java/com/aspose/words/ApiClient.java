@@ -26,6 +26,10 @@
  */
 package com.aspose.words;
 
+import com.aspose.storage.client.ApiInvoker;
+import com.aspose.storage.model.ResponseMessage;
+import com.aspose.words.model.AsposeResponse;
+import org.apache.commons.codec.binary.Base64;
 import org.threeten.bp.*;
 
 import com.fasterxml.jackson.annotation.*;
@@ -44,9 +48,13 @@ import com.sun.jersey.api.client.WebResource.Builder;
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import javax.ws.rs.core.Response.Status.Family;
 import javax.ws.rs.core.MediaType;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
@@ -176,6 +184,10 @@ public class ApiClient {
     // Need to rebuild the Client as it depends on object mapper.
     rebuildHttpClient();
     return this;
+  }
+
+  public String getAppSid(){
+      return this.appSid;
   }
 
   public Client getHttpClient() {
@@ -615,7 +627,7 @@ public class ApiClient {
    * @param collectionQueryParams The collection query parameters
    * @return The full URL
    */
-  private String buildUrl(String path, List<Pair> queryParams, List<Pair> collectionQueryParams) {
+  private String buildUrl(String path, List<Pair> queryParams, List<Pair> collectionQueryParams, String authNames) {
     final StringBuilder url = new StringBuilder();
     url.append(path == "/oauth2/token" ? this.baseUrl : this.basePath).append(path);
 
@@ -653,6 +665,12 @@ public class ApiClient {
       }
     }
 
+    if (authNames != null && authNames.equals("signature")){
+         String signature = "";
+        signature = Sign(url.toString(), apiKey);
+        return url.append("&signature=").append(signature).toString();
+    }
+
     return url.toString();
   }
 
@@ -663,7 +681,7 @@ public class ApiClient {
 
     updateParamsForAuth(authNames, queryParams, headerParams);
 
-    final String url = buildUrl(path, queryParams, collectionQueryParams);
+    final String url = buildUrl(path, queryParams, collectionQueryParams, authNames.length > 0 ? authNames[0] : null);
     Builder builder;
     if (accept == null) {
       builder = httpClient.resource(url).getRequestBuilder();
@@ -750,6 +768,28 @@ public class ApiClient {
         respBody);
     }
   }
+
+    private static String Sign(String unsignedURL, String privateKey) {
+
+        try {
+            Mac mac = Mac.getInstance("HmacSHA1");
+            mac.init(new SecretKeySpec(privateKey.getBytes(), "HmacSHA1"));
+
+            String signature = new String(Base64.encodeBase64(mac.doFinal(unsignedURL.getBytes())));
+
+            if (signature.endsWith("=")) {
+                signature = signature.substring(0, signature.length() - 1);
+            }
+
+            return URLEncoder.encode(signature, "UTF-8");
+
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeyException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 
   /**
    * Update query and header parameters based on authentication settings.
