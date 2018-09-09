@@ -52,7 +52,7 @@ public class ApiClient {
     private String apiVersion = "v1";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "18.8";
+    private String clientVersion = "18.9";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -78,7 +78,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-         setUserAgent("Swagger-Codegen/18.8/java");
+        setUserAgent("Swagger-Codegen/18.9/java");
         addDefaultHeader("x-aspose-client", "java sdk");
         addDefaultHeader("x-aspose-client-version", clientVersion);
         setConnectTimeout(5 * 60 * 1000);

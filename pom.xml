@@ -2,32 +2,32 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.aspose.words</groupId>
-    <artifactId>AsposeWordsCloud</artifactId>
+    <artifactId>aspose-words-cloud</artifactId>
     <packaging>jar</packaging>
     <name>AsposeWordsCloud</name>
-    <version>18.8</version>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
-    <description>Swagger Java</description>
+    <version>18.9</version>
+    <url>https://www.aspose.cloud/</url>
+    <description>Aspose Words Java SDK</description>
     <scm>
-        <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
-        <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-        <url>https://github.com/swagger-api/swagger-codegen</url>
+        <connection>scm:git@github.com:aspose-words-cloud/aspose-words-cloud-java.git</connection>
+        <developerConnection>scm:git@github.com:aspose-words-cloud/aspose-words-cloud-java.git</developerConnection>
+        <url>https://github.com/aspose-words-cloud/aspose-words-cloud-java</url>
     </scm>
 
     <licenses>
         <license>
-            <name>Unlicense</name>
-            <url>http://unlicense.org</url>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <developers>
         <developer>
-            <name>Swagger</name>
-            <email>apiteam@swagger.io</email>
-            <organization>Swagger</organization>
-            <organizationUrl>http://swagger.io</organizationUrl>
+            <name>Yaroslaw Ekimov</name>
+            <email>yaroslaw.ekimov@aspose.com</email>
+            <organization>Aspose</organization>
+            <organizationUrl>https://www.aspose.cloud/</organizationUrl>
         </developer>
     </developers>
 
