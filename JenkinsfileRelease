@@ -6,17 +6,15 @@ node('billing-qa-ubuntu-16.04.4') {
 			  sh 'git checkout master'
               sh 'mkdir -p Settings'
               sh 'echo "{\\"AppSid\\": \\"$AppSid\\",\\"AppKey\\": \\"$AppKey\\", \\"BaseUrl\\": \\"https://auckland-words-cloud-staging.dynabic.com\\"}" > Settings/servercreds.json'
+			  sh "git config user.email \"jenkins.aspose@gmail.com\""
+			  sh "git config user.name \"jenkins\""
+			  docker.image('maven').inside{
+					stage('build package'){
+						sh "mvn release:prepare -DcheckModificationExcludeList=Settings/servercreds.json -DreleaseVersion=18.9.0 -DdevelopmentVersion=18.9.0-SNAPSHOT -Dtag=v18.9.0"				
+					}
+				}
            }
-		
-		sh "git config user.email \"jenkins.aspose@gmail.com\""
-		sh "git config user.name \"jenkins\""
        }
-       
-       docker.image('maven').inside{
-           stage('build package'){
-            sh "mvn release:prepare -DcheckModificationExcludeList=Settings/servercreds.json -DreleaseVersion=18.9.0 -DdevelopmentVersion=18.9.0-SNAPSHOT -Dtag=v18.9.0"				
-           }
-		}
 		    			                
     } finally {                       
         deleteDir()
