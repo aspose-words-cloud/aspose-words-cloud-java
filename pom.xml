@@ -9,8 +9,8 @@
     <url>https://www.aspose.cloud/</url>
     <description>Aspose Words Java SDK</description>
     <scm>
-        <connection>scm:git:https://github.com/aspose-words-cloud/aspose-words-cloud-java.git</connection>
-        <developerConnection>scm:git:https://github.com/aspose-words-cloud/aspose-words-cloud-java.git</developerConnection>
+        <connection>scm:git:https://${env.gitUsername}:${env.gitPass}@github.com/aspose-words-cloud/aspose-words-cloud-java.git</connection>
+        <developerConnection>scm:git:https://${env.gitUsername}:${env.gitPass}@github.com/aspose-words-cloud/aspose-words-cloud-java.git</developerConnection>
         <url>https://github.com/aspose-words-cloud/aspose-words-cloud-java</url>
     </scm>
 
