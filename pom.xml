@@ -10,7 +10,7 @@
     <description>Aspose Words Java SDK</description>
     <scm>
         <connection>scm:git:git://github.com/aspose-words-cloud/aspose-words-cloud-java.git</connection>
-        <developerConnection>scm:git:git@github.com:aspose-words-cloud/aspose-words-cloud-java.git</developerConnection>
+        <developerConnection>scm:git:git://github.com/aspose-words-cloud/aspose-words-cloud-java.git</developerConnection>
         <url>https://github.com/aspose-words-cloud/aspose-words-cloud-java</url>
     </scm>
 
