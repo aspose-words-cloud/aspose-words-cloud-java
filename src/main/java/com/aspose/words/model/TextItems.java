@@ -32,43 +32,24 @@ import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.TextItem;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents text items DTO.
+ * TextItems
  */
-@ApiModel(description = "Represents text items DTO.")
 
-public class TextItems {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("List")
+public class TextItems extends LinkElement {
+  @SerializedName("List")
   private List<TextItem> list = null;
-
-  public TextItems link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public TextItems list(List<TextItem> list) {
     this.list = list;
@@ -84,10 +65,10 @@ public class TextItems {
   }
 
    /**
-   * Collection of text items.
+   * Get list
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of text items.")
+  @ApiModelProperty(value = "")
   public List<TextItem> getList() {
     return list;
   }
@@ -106,13 +87,13 @@ public class TextItems {
       return false;
     }
     TextItems textItems = (TextItems) o;
-    return Objects.equals(this.link, textItems.link) &&
-        Objects.equals(this.list, textItems.list);
+    return Objects.equals(this.list, textItems.list) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, list);
+    return Objects.hash(list, super.hashCode());
   }
 
 
@@ -120,8 +101,7 @@ public class TextItems {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextItems {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -31,47 +31,28 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Words document property DTO.
+ * DocumentProperty
  */
-@ApiModel(description = "Words document property DTO.")
 
-public class DocumentProperty {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("BuiltIn")
+public class DocumentProperty extends LinkElement {
+  @SerializedName("BuiltIn")
   private Boolean builtIn = null;
 
-  @JsonProperty("Name")
+  @SerializedName("Name")
   private String name = null;
 
-  @JsonProperty("Value")
+  @SerializedName("Value")
   private String value = null;
-
-  public DocumentProperty link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public DocumentProperty builtIn(Boolean builtIn) {
     this.builtIn = builtIn;
@@ -79,11 +60,11 @@ public class DocumentProperty {
   }
 
    /**
-   * Flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+   * Get builtIn
    * @return builtIn
   **/
-  @ApiModelProperty(value = "Flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.")
-  public Boolean isBuiltIn() {
+  @ApiModelProperty(value = "")
+  public Boolean isisBuiltIn() {
     return builtIn;
   }
 
@@ -97,10 +78,10 @@ public class DocumentProperty {
   }
 
    /**
-   * Name of the document property.
+   * Get name
    * @return name
   **/
-  @ApiModelProperty(value = "Name of the document property.")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -115,10 +96,10 @@ public class DocumentProperty {
   }
 
    /**
-   * string value of the document property. 
+   * Get value
    * @return value
   **/
-  @ApiModelProperty(value = "string value of the document property. ")
+  @ApiModelProperty(value = "")
   public String getValue() {
     return value;
   }
@@ -137,15 +118,15 @@ public class DocumentProperty {
       return false;
     }
     DocumentProperty documentProperty = (DocumentProperty) o;
-    return Objects.equals(this.link, documentProperty.link) &&
-        Objects.equals(this.builtIn, documentProperty.builtIn) &&
+    return Objects.equals(this.builtIn, documentProperty.builtIn) &&
         Objects.equals(this.name, documentProperty.name) &&
-        Objects.equals(this.value, documentProperty.value);
+        Objects.equals(this.value, documentProperty.value) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, builtIn, name, value);
+    return Objects.hash(builtIn, name, value, super.hashCode());
   }
 
 
@@ -153,8 +134,7 @@ public class DocumentProperty {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentProperty {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    builtIn: ").append(toIndentedString(builtIn)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

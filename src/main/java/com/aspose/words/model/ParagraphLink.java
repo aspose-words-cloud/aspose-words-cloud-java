@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Paragraph link element
+ * ParagraphLink
  */
-@ApiModel(description = "Paragraph link element")
 
-public class ParagraphLink {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("Text")
+public class ParagraphLink extends NodeLink {
+  @SerializedName("Text")
   private String text = null;
-
-  public ParagraphLink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public ParagraphLink nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public ParagraphLink text(String text) {
     this.text = text;
@@ -94,10 +54,10 @@ public class ParagraphLink {
   }
 
    /**
-   * Paragraph&#39;s text
+   * Get text
    * @return text
   **/
-  @ApiModelProperty(value = "Paragraph's text")
+  @ApiModelProperty(value = "")
   public String getText() {
     return text;
   }
@@ -116,14 +76,13 @@ public class ParagraphLink {
       return false;
     }
     ParagraphLink paragraphLink = (ParagraphLink) o;
-    return Objects.equals(this.link, paragraphLink.link) &&
-        Objects.equals(this.nodeId, paragraphLink.nodeId) &&
-        Objects.equals(this.text, paragraphLink.text);
+    return Objects.equals(this.text, paragraphLink.text) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, text);
+    return Objects.hash(text, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class ParagraphLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphLink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();

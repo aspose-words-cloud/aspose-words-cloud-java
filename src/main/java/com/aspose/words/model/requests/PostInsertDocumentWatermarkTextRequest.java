@@ -31,59 +31,57 @@ import java.io.File;
 /*
  * Request model for postInsertDocumentWatermarkText operation.
  */
-public class PostInsertDocumentWatermarkTextRequest
-{
+public class PostInsertDocumentWatermarkTextRequest {
     /*
-     * The document name.
+     * 
      */
     private String Name;
-	
+
     /*
-     * with the watermark data.            
+     * 
      */
     private WatermarkText WatermarkText;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
-	
+
     /*
      * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String DestFileName;
-	
+
     /*
      * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
     private String RevisionAuthor;
-	
+
     /*
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
     
-	
     /*
      * Initializes a new instance of the postInsertDocumentWatermarkTextRequest class.
      *  
-     * @param String name The document name.
-     * @param WatermarkText watermarkText with the watermark data.            
+     * @param String name 
+     * @param WatermarkText watermarkText 
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -92,8 +90,7 @@ public class PostInsertDocumentWatermarkTextRequest
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public PostInsertDocumentWatermarkTextRequest(String name, WatermarkText watermarkText, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime)             
-    {
+    public PostInsertDocumentWatermarkTextRequest(String name,  WatermarkText watermarkText,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         WatermarkText = watermarkText;
         Folder = folder;
@@ -106,146 +103,128 @@ public class PostInsertDocumentWatermarkTextRequest
     }
 
     /*
-     *  Gets The document name.
+     * 
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
-     * Sets The document name.
+     * 
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
-     *  Gets with the watermark data.            
+     * 
      */
-    public WatermarkText getWatermarkText()
-    {
+    public WatermarkText getWatermarkText() {
         return WatermarkText;
     }
 
     /*
-     * Sets with the watermark data.            
+     * 
      */
-    public void setWatermarkText(WatermarkText value)
-    {
+    public void setWatermarkText(WatermarkText value) {
         WatermarkText = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
-	
+
     /*
      *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getDestFileName()
-    {
+    public String getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName(String value)
-    {
+    public void setDestFileName(String value) {
         DestFileName = value;
     }
-	
+
     /*
      *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public String getRevisionAuthor()
-    {
+    public String getRevisionAuthor() {
         return RevisionAuthor;
     }
 
     /*
      * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public void setRevisionAuthor(String value)
-    {
+    public void setRevisionAuthor(String value) {
         RevisionAuthor = value;
     }
-	
+
     /*
      *  Gets The date and time to use for revisions.
      */
-    public String getRevisionDateTime()
-    {
+    public String getRevisionDateTime() {
         return RevisionDateTime;
     }
 
     /*
      * Sets The date and time to use for revisions.
      */
-    public void setRevisionDateTime(String value)
-    {
+    public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
     }
 }

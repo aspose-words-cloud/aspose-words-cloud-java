@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.SaveResult;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Save response.
+ * SaveResponse
  */
-@ApiModel(description = "Save response.")
 
-public class SaveResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("SaveResult")
+public class SaveResponse extends AsposeResponse {
+  @SerializedName("SaveResult")
   private SaveResult saveResult = null;
-
-  public SaveResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public SaveResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public SaveResponse saveResult(SaveResult saveResult) {
     this.saveResult = saveResult;
@@ -94,10 +54,10 @@ public class SaveResponse {
   }
 
    /**
-   * Save result.
+   * Get saveResult
    * @return saveResult
   **/
-  @ApiModelProperty(value = "Save result.")
+  @ApiModelProperty(value = "")
   public SaveResult getSaveResult() {
     return saveResult;
   }
@@ -116,14 +76,13 @@ public class SaveResponse {
       return false;
     }
     SaveResponse saveResponse = (SaveResponse) o;
-    return Objects.equals(this.code, saveResponse.code) &&
-        Objects.equals(this.status, saveResponse.status) &&
-        Objects.equals(this.saveResult, saveResponse.saveResult);
+    return Objects.equals(this.saveResult, saveResponse.saveResult) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, saveResult);
+    return Objects.hash(saveResult, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class SaveResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    saveResult: ").append(toIndentedString(saveResult)).append("\n");
     sb.append("}");
     return sb.toString();

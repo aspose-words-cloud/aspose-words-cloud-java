@@ -31,70 +31,30 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.ClassificationResult;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify
+ * ClassificationResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify")
 
-public class ClassificationResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("BestClassName")
+public class ClassificationResponse extends AsposeResponse {
+  @SerializedName("BestClassName")
   private String bestClassName = null;
 
-  @JsonProperty("BestClassProbability")
+  @SerializedName("BestClassProbability")
   private Double bestClassProbability = null;
 
-  @JsonProperty("BestResults")
+  @SerializedName("BestResults")
   private List<ClassificationResult> bestResults = null;
-
-  public ClassificationResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public ClassificationResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public ClassificationResponse bestClassName(String bestClassName) {
     this.bestClassName = bestClassName;
@@ -102,10 +62,10 @@ public class ClassificationResponse {
   }
 
    /**
-   * Best class name.        
+   * Get bestClassName
    * @return bestClassName
   **/
-  @ApiModelProperty(value = "Best class name.        ")
+  @ApiModelProperty(value = "")
   public String getBestClassName() {
     return bestClassName;
   }
@@ -120,10 +80,10 @@ public class ClassificationResponse {
   }
 
    /**
-   * Best class probability.
+   * Get bestClassProbability
    * @return bestClassProbability
   **/
-  @ApiModelProperty(value = "Best class probability.")
+  @ApiModelProperty(value = "")
   public Double getBestClassProbability() {
     return bestClassProbability;
   }
@@ -146,10 +106,10 @@ public class ClassificationResponse {
   }
 
    /**
-   * Array of best classes results.
+   * Get bestResults
    * @return bestResults
   **/
-  @ApiModelProperty(value = "Array of best classes results.")
+  @ApiModelProperty(value = "")
   public List<ClassificationResult> getBestResults() {
     return bestResults;
   }
@@ -168,16 +128,15 @@ public class ClassificationResponse {
       return false;
     }
     ClassificationResponse classificationResponse = (ClassificationResponse) o;
-    return Objects.equals(this.code, classificationResponse.code) &&
-        Objects.equals(this.status, classificationResponse.status) &&
-        Objects.equals(this.bestClassName, classificationResponse.bestClassName) &&
+    return Objects.equals(this.bestClassName, classificationResponse.bestClassName) &&
         Objects.equals(this.bestClassProbability, classificationResponse.bestClassProbability) &&
-        Objects.equals(this.bestResults, classificationResponse.bestResults);
+        Objects.equals(this.bestResults, classificationResponse.bestResults) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, bestClassName, bestClassProbability, bestResults);
+    return Objects.hash(bestClassName, bestClassProbability, bestResults, super.hashCode());
   }
 
 
@@ -185,9 +144,7 @@ public class ClassificationResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassificationResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bestClassName: ").append(toIndentedString(bestClassName)).append("\n");
     sb.append("    bestClassProbability: ").append(toIndentedString(bestClassProbability)).append("\n");
     sb.append("    bestResults: ").append(toIndentedString(bestResults)).append("\n");

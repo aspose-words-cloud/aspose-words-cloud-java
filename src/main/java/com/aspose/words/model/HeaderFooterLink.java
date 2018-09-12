@@ -31,24 +31,24 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * HeaderFooter link element
+ * HeaderFooterLink
  */
-@ApiModel(description = "HeaderFooter link element")
 
-public class HeaderFooterLink {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
+public class HeaderFooterLink extends LinkElement {
   /**
-   * Paragraph&#39;s text
+   * Gets or Sets type
    */
+  @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     HEADEREVEN("HeaderEven"),
     
@@ -68,7 +68,6 @@ public class HeaderFooterLink {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -78,7 +77,6 @@ public class HeaderFooterLink {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static TypeEnum fromValue(String text) {
       for (TypeEnum b : TypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -87,28 +85,23 @@ public class HeaderFooterLink {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Type")
+  @SerializedName("Type")
   private TypeEnum type = null;
-
-  public HeaderFooterLink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public HeaderFooterLink type(TypeEnum type) {
     this.type = type;
@@ -116,10 +109,10 @@ public class HeaderFooterLink {
   }
 
    /**
-   * Paragraph&#39;s text
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(value = "Paragraph's text")
+  @ApiModelProperty(value = "")
   public TypeEnum getType() {
     return type;
   }
@@ -138,13 +131,13 @@ public class HeaderFooterLink {
       return false;
     }
     HeaderFooterLink headerFooterLink = (HeaderFooterLink) o;
-    return Objects.equals(this.link, headerFooterLink.link) &&
-        Objects.equals(this.type, headerFooterLink.type);
+    return Objects.equals(this.type, headerFooterLink.type) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, type);
+    return Objects.hash(type, super.hashCode());
   }
 
 
@@ -152,8 +145,7 @@ public class HeaderFooterLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooterLink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

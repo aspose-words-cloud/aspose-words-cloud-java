@@ -31,69 +31,72 @@ import java.io.File;
 /*
  * Request model for renderDrawingObject operation.
  */
-public class RenderDrawingObjectRequest
-{
+public class RenderDrawingObjectRequest {
     /*
-     * The file name.
+     * 
      */
     private String Name;
-	
+
     /*
-     * The destination format.
+     * 
      */
     private String Format;
-	
+
     /*
      * Object's index
      */
     private Integer Index;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
-	
+
     /*
-     * Path to node, which contains drawing objects.
+     * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    private String DestFileName;
+
+    /*
+     * 
      */
     private String NodePath;
-	
+
     /*
      * Folder in filestorage with custom fonts.
      */
     private String FontsLocation;
     
-	
     /*
      * Initializes a new instance of the renderDrawingObjectRequest class.
      *  
-     * @param String name The file name.
-     * @param String format The destination format.
+     * @param String name 
+     * @param String format 
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String nodePath Path to node, which contains drawing objects.
+     * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String nodePath 
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderDrawingObjectRequest(String name, String format, Integer index, String folder, String storage, String loadEncoding, String password, String nodePath, String fontsLocation)             
-    {
+    public RenderDrawingObjectRequest(String name,  String format,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String nodePath,  String fontsLocation) {
         Name = name;
         Format = format;
         Index = index;
@@ -101,151 +104,148 @@ public class RenderDrawingObjectRequest
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
+        DestFileName = destFileName;
         NodePath = nodePath;
         FontsLocation = fontsLocation;
     }
 
     /*
-     *  Gets The file name.
+     * 
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
-     * Sets The file name.
+     * 
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
-     *  Gets The destination format.
+     * 
      */
-    public String getFormat()
-    {
+    public String getFormat() {
         return Format;
     }
 
     /*
-     * Sets The destination format.
+     * 
      */
-    public void setFormat(String value)
-    {
+    public void setFormat(String value) {
         Format = value;
     }
-	
+
     /*
      *  Gets Object's index
      */
-    public Integer getIndex()
-    {
+    public Integer getIndex() {
         return Index;
     }
 
     /*
      * Sets Object's index
      */
-    public void setIndex(Integer value)
-    {
+    public void setIndex(Integer value) {
         Index = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
-	
+
     /*
-     *  Gets Path to node, which contains drawing objects.
+     *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getNodePath()
-    {
+    public String getDestFileName() {
+        return DestFileName;
+    }
+
+    /*
+     * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    public void setDestFileName(String value) {
+        DestFileName = value;
+    }
+
+    /*
+     * 
+     */
+    public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * Sets Path to node, which contains drawing objects.
+     * 
      */
-    public void setNodePath(String value)
-    {
+    public void setNodePath(String value) {
         NodePath = value;
     }
-	
+
     /*
      *  Gets Folder in filestorage with custom fonts.
      */
-    public String getFontsLocation()
-    {
+    public String getFontsLocation() {
         return FontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
-    public void setFontsLocation(String value)
-    {
+    public void setFontsLocation(String value) {
         FontsLocation = value;
     }
 }

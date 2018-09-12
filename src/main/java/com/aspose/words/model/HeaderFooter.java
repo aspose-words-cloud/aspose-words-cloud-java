@@ -32,108 +32,25 @@ import java.util.Arrays;
 import com.aspose.words.model.HeaderFooterLink;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Section element
+ * HeaderFooter
  */
-@ApiModel(description = "Section element")
 
-public class HeaderFooter {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  /**
-   * Paragraph&#39;s text
-   */
-  public enum TypeEnum {
-    HEADEREVEN("HeaderEven"),
-    
-    HEADERPRIMARY("HeaderPrimary"),
-    
-    FOOTEREVEN("FooterEven"),
-    
-    FOOTERPRIMARY("FooterPrimary"),
-    
-    HEADERFIRST("HeaderFirst"),
-    
-    FOOTERFIRST("FooterFirst");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String text) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-
-  @JsonProperty("Type")
-  private TypeEnum type = null;
-
-  @JsonProperty("DrawingObjects")
+public class HeaderFooter extends HeaderFooterLink {
+  @SerializedName("DrawingObjects")
   private LinkElement drawingObjects = null;
 
-  @JsonProperty("Paragraphs")
+  @SerializedName("Paragraphs")
   private LinkElement paragraphs = null;
-
-  public HeaderFooter link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public HeaderFooter type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Paragraph&#39;s text
-   * @return type
-  **/
-  @ApiModelProperty(value = "Paragraph's text")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
 
   public HeaderFooter drawingObjects(LinkElement drawingObjects) {
     this.drawingObjects = drawingObjects;
@@ -141,10 +58,10 @@ public class HeaderFooter {
   }
 
    /**
-   * Link to DrawingObjects resource
+   * Get drawingObjects
    * @return drawingObjects
   **/
-  @ApiModelProperty(value = "Link to DrawingObjects resource")
+  @ApiModelProperty(value = "")
   public LinkElement getDrawingObjects() {
     return drawingObjects;
   }
@@ -159,10 +76,10 @@ public class HeaderFooter {
   }
 
    /**
-   * Link to Paragraphs resource
+   * Get paragraphs
    * @return paragraphs
   **/
-  @ApiModelProperty(value = "Link to Paragraphs resource")
+  @ApiModelProperty(value = "")
   public LinkElement getParagraphs() {
     return paragraphs;
   }
@@ -181,15 +98,14 @@ public class HeaderFooter {
       return false;
     }
     HeaderFooter headerFooter = (HeaderFooter) o;
-    return Objects.equals(this.link, headerFooter.link) &&
-        Objects.equals(this.type, headerFooter.type) &&
-        Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
-        Objects.equals(this.paragraphs, headerFooter.paragraphs);
+    return Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
+        Objects.equals(this.paragraphs, headerFooter.paragraphs) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, type, drawingObjects, paragraphs);
+    return Objects.hash(drawingObjects, paragraphs, super.hashCode());
   }
 
 
@@ -197,9 +113,7 @@ public class HeaderFooter {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooter {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    drawingObjects: ").append(toIndentedString(drawingObjects)).append("\n");
     sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
     sb.append("}");

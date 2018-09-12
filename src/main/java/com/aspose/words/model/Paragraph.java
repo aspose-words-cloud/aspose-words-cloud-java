@@ -31,64 +31,24 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Paragraph element
+ * Paragraph
  */
-@ApiModel(description = "Paragraph element")
 
-public class Paragraph {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("ChildNodes")
+public class Paragraph extends NodeLink {
+  @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;
-
-  public Paragraph link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public Paragraph nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public Paragraph childNodes(List<NodeLink> childNodes) {
     this.childNodes = childNodes;
@@ -104,10 +64,10 @@ public class Paragraph {
   }
 
    /**
-   * Child nodes
+   * Get childNodes
    * @return childNodes
   **/
-  @ApiModelProperty(value = "Child nodes")
+  @ApiModelProperty(value = "")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }
@@ -126,14 +86,13 @@ public class Paragraph {
       return false;
     }
     Paragraph paragraph = (Paragraph) o;
-    return Objects.equals(this.link, paragraph.link) &&
-        Objects.equals(this.nodeId, paragraph.nodeId) &&
-        Objects.equals(this.childNodes, paragraph.childNodes);
+    return Objects.equals(this.childNodes, paragraph.childNodes) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, childNodes);
+    return Objects.hash(childNodes, super.hashCode());
   }
 
 
@@ -141,9 +100,7 @@ public class Paragraph {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Paragraph {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
     sb.append("}");
     return sb.toString();

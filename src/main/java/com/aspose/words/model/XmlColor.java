@@ -29,22 +29,24 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Utility class for  serialization
+ * XmlColor
  */
-@ApiModel(description = "Utility class for  serialization")
 
 public class XmlColor {
-  @JsonProperty("Web")
+  @SerializedName("Web")
   private String web = null;
 
-  @JsonProperty("Alpha")
+  @SerializedName("Alpha")
   private Integer alpha = null;
 
   public XmlColor web(String web) {
@@ -53,10 +55,10 @@ public class XmlColor {
   }
 
    /**
-   * HTML string color representation
+   * Get web
    * @return web
   **/
-  @ApiModelProperty(value = "HTML string color representation")
+  @ApiModelProperty(value = "")
   public String getWeb() {
     return web;
   }
@@ -71,10 +73,10 @@ public class XmlColor {
   }
 
    /**
-   * Alpha component of color structure
+   * Get alpha
    * @return alpha
   **/
-  @ApiModelProperty(required = true, value = "Alpha component of color structure")
+  @ApiModelProperty(required = true, value = "")
   public Integer getAlpha() {
     return alpha;
   }

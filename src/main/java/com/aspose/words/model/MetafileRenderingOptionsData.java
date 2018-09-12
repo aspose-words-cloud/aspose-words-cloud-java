@@ -29,28 +29,30 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * container class for options of metafile rendering
+ * MetafileRenderingOptionsData
  */
-@ApiModel(description = "container class for options of metafile rendering")
 
 public class MetafileRenderingOptionsData {
-  @JsonProperty("EmfPlusDualRenderingMode")
+  @SerializedName("EmfPlusDualRenderingMode")
   private String emfPlusDualRenderingMode = null;
 
-  @JsonProperty("EmulateRasterOperations")
+  @SerializedName("EmulateRasterOperations")
   private Boolean emulateRasterOperations = null;
 
-  @JsonProperty("RenderingMode")
+  @SerializedName("RenderingMode")
   private String renderingMode = null;
 
-  @JsonProperty("UseEmfEmbeddedToWmf")
+  @SerializedName("UseEmfEmbeddedToWmf")
   private Boolean useEmfEmbeddedToWmf = null;
 
   public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
@@ -59,10 +61,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Determines how EMF+ Dual metafiles should be rendered
+   * Get emfPlusDualRenderingMode
    * @return emfPlusDualRenderingMode
   **/
-  @ApiModelProperty(value = "Determines how EMF+ Dual metafiles should be rendered")
+  @ApiModelProperty(value = "")
   public String getEmfPlusDualRenderingMode() {
     return emfPlusDualRenderingMode;
   }
@@ -77,11 +79,11 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Gets or sets a value determining whether or not the raster operations should be emulated.             
+   * Get emulateRasterOperations
    * @return emulateRasterOperations
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining whether or not the raster operations should be emulated.             ")
-  public Boolean isEmulateRasterOperations() {
+  @ApiModelProperty(value = "")
+  public Boolean isisEmulateRasterOperations() {
     return emulateRasterOperations;
   }
 
@@ -95,10 +97,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Determines how metafile images should be rendered
+   * Get renderingMode
    * @return renderingMode
   **/
-  @ApiModelProperty(value = "Determines how metafile images should be rendered")
+  @ApiModelProperty(value = "")
   public String getRenderingMode() {
     return renderingMode;
   }
@@ -113,11 +115,11 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Determines how WMF metafiles with embedded EMF metafiles should be rendered
+   * Get useEmfEmbeddedToWmf
    * @return useEmfEmbeddedToWmf
   **/
-  @ApiModelProperty(value = "Determines how WMF metafiles with embedded EMF metafiles should be rendered")
-  public Boolean isUseEmfEmbeddedToWmf() {
+  @ApiModelProperty(value = "")
+  public Boolean isisUseEmfEmbeddedToWmf() {
     return useEmfEmbeddedToWmf;
   }
 

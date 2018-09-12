@@ -29,26 +29,28 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * Container class for compare documents
+ * CompareData
  */
-@ApiModel(description = "Container class for compare documents")
 
 public class CompareData {
-  @JsonProperty("ComparingWithDocument")
+  @SerializedName("ComparingWithDocument")
   private String comparingWithDocument = null;
 
-  @JsonProperty("Author")
+  @SerializedName("Author")
   private String author = null;
 
-  @JsonProperty("DateTime")
+  @SerializedName("DateTime")
   private OffsetDateTime dateTime = null;
 
   public CompareData comparingWithDocument(String comparingWithDocument) {
@@ -57,10 +59,10 @@ public class CompareData {
   }
 
    /**
-   * Path to document to compare at the server.
+   * Get comparingWithDocument
    * @return comparingWithDocument
   **/
-  @ApiModelProperty(value = "Path to document to compare at the server.")
+  @ApiModelProperty(value = "")
   public String getComparingWithDocument() {
     return comparingWithDocument;
   }
@@ -75,10 +77,10 @@ public class CompareData {
   }
 
    /**
-   * Initials of the author to use for revisions.
+   * Get author
    * @return author
   **/
-  @ApiModelProperty(value = "Initials of the author to use for revisions.")
+  @ApiModelProperty(value = "")
   public String getAuthor() {
     return author;
   }
@@ -93,10 +95,10 @@ public class CompareData {
   }
 
    /**
-   * The date and time to use for revisions.             
+   * Get dateTime
    * @return dateTime
   **/
-  @ApiModelProperty(value = "The date and time to use for revisions.             ")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getDateTime() {
     return dateTime;
   }

@@ -31,41 +31,38 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.DrawingObjectLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents Drawing Object DTO.
+ * DrawingObject
  */
-@ApiModel(description = "Represents Drawing Object DTO.")
 
-public class DrawingObject {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("Height")
+public class DrawingObject extends DrawingObjectLink {
+  @SerializedName("Height")
   private Double height = null;
 
-  @JsonProperty("ImageDataLink")
+  @SerializedName("ImageDataLink")
   private WordsApiLink imageDataLink = null;
 
-  @JsonProperty("Left")
+  @SerializedName("Left")
   private Double left = null;
 
-  @JsonProperty("OleDataLink")
+  @SerializedName("OleDataLink")
   private WordsApiLink oleDataLink = null;
 
   /**
-   * Specifies where the distance to the image is measured from.             
+   * Gets or Sets relativeHorizontalPosition
    */
+  @JsonAdapter(RelativeHorizontalPositionEnum.Adapter.class)
   public enum RelativeHorizontalPositionEnum {
     MARGIN("Margin"),
     
@@ -91,7 +88,6 @@ public class DrawingObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -101,7 +97,6 @@ public class DrawingObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static RelativeHorizontalPositionEnum fromValue(String text) {
       for (RelativeHorizontalPositionEnum b : RelativeHorizontalPositionEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -110,14 +105,28 @@ public class DrawingObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<RelativeHorizontalPositionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RelativeHorizontalPositionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RelativeHorizontalPositionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RelativeHorizontalPositionEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("RelativeHorizontalPosition")
+  @SerializedName("RelativeHorizontalPosition")
   private RelativeHorizontalPositionEnum relativeHorizontalPosition = null;
 
   /**
-   * Specifies where the distance to the image measured from.
+   * Gets or Sets relativeVerticalPosition
    */
+  @JsonAdapter(RelativeVerticalPositionEnum.Adapter.class)
   public enum RelativeVerticalPositionEnum {
     MARGIN("Margin"),
     
@@ -145,7 +154,6 @@ public class DrawingObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -155,7 +163,6 @@ public class DrawingObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static RelativeVerticalPositionEnum fromValue(String text) {
       for (RelativeVerticalPositionEnum b : RelativeVerticalPositionEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -164,23 +171,37 @@ public class DrawingObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<RelativeVerticalPositionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RelativeVerticalPositionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RelativeVerticalPositionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RelativeVerticalPositionEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("RelativeVerticalPosition")
+  @SerializedName("RelativeVerticalPosition")
   private RelativeVerticalPositionEnum relativeVerticalPosition = null;
 
-  @JsonProperty("RenderLinks")
+  @SerializedName("RenderLinks")
   private List<WordsApiLink> renderLinks = null;
 
-  @JsonProperty("Top")
+  @SerializedName("Top")
   private Double top = null;
 
-  @JsonProperty("Width")
+  @SerializedName("Width")
   private Double width = null;
 
   /**
-   * Specifies how to wrap text around the image.
+   * Gets or Sets wrapType
    */
+  @JsonAdapter(WrapTypeEnum.Adapter.class)
   public enum WrapTypeEnum {
     INLINE("Inline"),
     
@@ -200,7 +221,6 @@ public class DrawingObject {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -210,7 +230,6 @@ public class DrawingObject {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static WrapTypeEnum fromValue(String text) {
       for (WrapTypeEnum b : WrapTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -219,46 +238,23 @@ public class DrawingObject {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<WrapTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final WrapTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public WrapTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return WrapTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("WrapType")
+  @SerializedName("WrapType")
   private WrapTypeEnum wrapType = null;
-
-  public DrawingObject link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public DrawingObject nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public DrawingObject height(Double height) {
     this.height = height;
@@ -266,10 +262,10 @@ public class DrawingObject {
   }
 
    /**
-   * Height of the drawing object in points.
+   * Get height
    * @return height
   **/
-  @ApiModelProperty(value = "Height of the drawing object in points.")
+  @ApiModelProperty(value = "")
   public Double getHeight() {
     return height;
   }
@@ -284,10 +280,10 @@ public class DrawingObject {
   }
 
    /**
-   * Link to image data. Can be null if shape does not have an image.
+   * Get imageDataLink
    * @return imageDataLink
   **/
-  @ApiModelProperty(value = "Link to image data. Can be null if shape does not have an image.")
+  @ApiModelProperty(value = "")
   public WordsApiLink getImageDataLink() {
     return imageDataLink;
   }
@@ -302,10 +298,10 @@ public class DrawingObject {
   }
 
    /**
-   * Distance in points from the origin to the left side of the image.             
+   * Get left
    * @return left
   **/
-  @ApiModelProperty(value = "Distance in points from the origin to the left side of the image.             ")
+  @ApiModelProperty(value = "")
   public Double getLeft() {
     return left;
   }
@@ -320,10 +316,10 @@ public class DrawingObject {
   }
 
    /**
-   * Link to ole object. Can be null if shape does not have ole data.
+   * Get oleDataLink
    * @return oleDataLink
   **/
-  @ApiModelProperty(value = "Link to ole object. Can be null if shape does not have ole data.")
+  @ApiModelProperty(value = "")
   public WordsApiLink getOleDataLink() {
     return oleDataLink;
   }
@@ -338,10 +334,10 @@ public class DrawingObject {
   }
 
    /**
-   * Specifies where the distance to the image is measured from.             
+   * Get relativeHorizontalPosition
    * @return relativeHorizontalPosition
   **/
-  @ApiModelProperty(value = "Specifies where the distance to the image is measured from.             ")
+  @ApiModelProperty(value = "")
   public RelativeHorizontalPositionEnum getRelativeHorizontalPosition() {
     return relativeHorizontalPosition;
   }
@@ -356,10 +352,10 @@ public class DrawingObject {
   }
 
    /**
-   * Specifies where the distance to the image measured from.
+   * Get relativeVerticalPosition
    * @return relativeVerticalPosition
   **/
-  @ApiModelProperty(value = "Specifies where the distance to the image measured from.")
+  @ApiModelProperty(value = "")
   public RelativeVerticalPositionEnum getRelativeVerticalPosition() {
     return relativeVerticalPosition;
   }
@@ -382,10 +378,10 @@ public class DrawingObject {
   }
 
    /**
-   * A list of links that originate from this .
+   * Get renderLinks
    * @return renderLinks
   **/
-  @ApiModelProperty(value = "A list of links that originate from this .")
+  @ApiModelProperty(value = "")
   public List<WordsApiLink> getRenderLinks() {
     return renderLinks;
   }
@@ -400,10 +396,10 @@ public class DrawingObject {
   }
 
    /**
-   * Distance in points from the origin to the top side of the image.
+   * Get top
    * @return top
   **/
-  @ApiModelProperty(value = "Distance in points from the origin to the top side of the image.")
+  @ApiModelProperty(value = "")
   public Double getTop() {
     return top;
   }
@@ -418,10 +414,10 @@ public class DrawingObject {
   }
 
    /**
-   * Width of the drawing objects in points.
+   * Get width
    * @return width
   **/
-  @ApiModelProperty(value = "Width of the drawing objects in points.")
+  @ApiModelProperty(value = "")
   public Double getWidth() {
     return width;
   }
@@ -436,10 +432,10 @@ public class DrawingObject {
   }
 
    /**
-   * Specifies how to wrap text around the image.
+   * Get wrapType
    * @return wrapType
   **/
-  @ApiModelProperty(value = "Specifies how to wrap text around the image.")
+  @ApiModelProperty(value = "")
   public WrapTypeEnum getWrapType() {
     return wrapType;
   }
@@ -458,9 +454,7 @@ public class DrawingObject {
       return false;
     }
     DrawingObject drawingObject = (DrawingObject) o;
-    return Objects.equals(this.link, drawingObject.link) &&
-        Objects.equals(this.nodeId, drawingObject.nodeId) &&
-        Objects.equals(this.height, drawingObject.height) &&
+    return Objects.equals(this.height, drawingObject.height) &&
         Objects.equals(this.imageDataLink, drawingObject.imageDataLink) &&
         Objects.equals(this.left, drawingObject.left) &&
         Objects.equals(this.oleDataLink, drawingObject.oleDataLink) &&
@@ -469,12 +463,13 @@ public class DrawingObject {
         Objects.equals(this.renderLinks, drawingObject.renderLinks) &&
         Objects.equals(this.top, drawingObject.top) &&
         Objects.equals(this.width, drawingObject.width) &&
-        Objects.equals(this.wrapType, drawingObject.wrapType);
+        Objects.equals(this.wrapType, drawingObject.wrapType) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, height, imageDataLink, left, oleDataLink, relativeHorizontalPosition, relativeVerticalPosition, renderLinks, top, width, wrapType);
+    return Objects.hash(height, imageDataLink, left, oleDataLink, relativeHorizontalPosition, relativeVerticalPosition, renderLinks, top, width, wrapType, super.hashCode());
   }
 
 
@@ -482,9 +477,7 @@ public class DrawingObject {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObject {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    imageDataLink: ").append(toIndentedString(imageDataLink)).append("\n");
     sb.append("    left: ").append(toIndentedString(left)).append("\n");

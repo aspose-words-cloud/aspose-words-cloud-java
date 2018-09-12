@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Field link
+ * FieldLink
  */
-@ApiModel(description = "Field link")
 
-public class FieldLink {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("FieldCode")
+public class FieldLink extends NodeLink {
+  @SerializedName("FieldCode")
   private String fieldCode = null;
-
-  public FieldLink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public FieldLink nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public FieldLink fieldCode(String fieldCode) {
     this.fieldCode = fieldCode;
@@ -94,10 +54,10 @@ public class FieldLink {
   }
 
    /**
-   * Field code
+   * Get fieldCode
    * @return fieldCode
   **/
-  @ApiModelProperty(value = "Field code")
+  @ApiModelProperty(value = "")
   public String getFieldCode() {
     return fieldCode;
   }
@@ -116,14 +76,13 @@ public class FieldLink {
       return false;
     }
     FieldLink fieldLink = (FieldLink) o;
-    return Objects.equals(this.link, fieldLink.link) &&
-        Objects.equals(this.nodeId, fieldLink.nodeId) &&
-        Objects.equals(this.fieldCode, fieldLink.fieldCode);
+    return Objects.equals(this.fieldCode, fieldLink.fieldCode) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, fieldCode);
+    return Objects.hash(fieldCode, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class FieldLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldLink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    fieldCode: ").append(toIndentedString(fieldCode)).append("\n");
     sb.append("}");
     return sb.toString();

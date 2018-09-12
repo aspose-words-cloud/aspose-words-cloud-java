@@ -32,43 +32,24 @@ import java.util.Arrays;
 import com.aspose.words.model.Bookmark;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents an array of bookmarks.
+ * Bookmarks
  */
-@ApiModel(description = "Represents an array of bookmarks.")
 
-public class Bookmarks {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("BookmarkList")
+public class Bookmarks extends LinkElement {
+  @SerializedName("BookmarkList")
   private List<Bookmark> bookmarkList = null;
-
-  public Bookmarks link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Bookmarks bookmarkList(List<Bookmark> bookmarkList) {
     this.bookmarkList = bookmarkList;
@@ -84,10 +65,10 @@ public class Bookmarks {
   }
 
    /**
-   * Array of bookmarks.
+   * Get bookmarkList
    * @return bookmarkList
   **/
-  @ApiModelProperty(value = "Array of bookmarks.")
+  @ApiModelProperty(value = "")
   public List<Bookmark> getBookmarkList() {
     return bookmarkList;
   }
@@ -106,13 +87,13 @@ public class Bookmarks {
       return false;
     }
     Bookmarks bookmarks = (Bookmarks) o;
-    return Objects.equals(this.link, bookmarks.link) &&
-        Objects.equals(this.bookmarkList, bookmarks.bookmarkList);
+    return Objects.equals(this.bookmarkList, bookmarks.bookmarkList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, bookmarkList);
+    return Objects.hash(bookmarkList, super.hashCode());
   }
 
 
@@ -120,8 +101,7 @@ public class Bookmarks {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Bookmarks {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bookmarkList: ").append(toIndentedString(bookmarkList)).append("\n");
     sb.append("}");
     return sb.toString();

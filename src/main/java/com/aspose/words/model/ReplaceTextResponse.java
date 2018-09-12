@@ -31,65 +31,25 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.FileLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Response for \&quot;Replace text\&quot; action.
+ * ReplaceTextResponse
  */
-@ApiModel(description = "Response for \"Replace text\" action.")
 
-public class ReplaceTextResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("DocumentLink")
+public class ReplaceTextResponse extends AsposeResponse {
+  @SerializedName("DocumentLink")
   private FileLink documentLink = null;
 
-  @JsonProperty("Matches")
+  @SerializedName("Matches")
   private Integer matches = null;
-
-  public ReplaceTextResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public ReplaceTextResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public ReplaceTextResponse documentLink(FileLink documentLink) {
     this.documentLink = documentLink;
@@ -97,10 +57,10 @@ public class ReplaceTextResponse {
   }
 
    /**
-   * Link to the document.
+   * Get documentLink
    * @return documentLink
   **/
-  @ApiModelProperty(value = "Link to the document.")
+  @ApiModelProperty(value = "")
   public FileLink getDocumentLink() {
     return documentLink;
   }
@@ -115,10 +75,10 @@ public class ReplaceTextResponse {
   }
 
    /**
-   * Number of occurrences of the captured text in the document.
+   * Get matches
    * @return matches
   **/
-  @ApiModelProperty(value = "Number of occurrences of the captured text in the document.")
+  @ApiModelProperty(value = "")
   public Integer getMatches() {
     return matches;
   }
@@ -137,15 +97,14 @@ public class ReplaceTextResponse {
       return false;
     }
     ReplaceTextResponse replaceTextResponse = (ReplaceTextResponse) o;
-    return Objects.equals(this.code, replaceTextResponse.code) &&
-        Objects.equals(this.status, replaceTextResponse.status) &&
-        Objects.equals(this.documentLink, replaceTextResponse.documentLink) &&
-        Objects.equals(this.matches, replaceTextResponse.matches);
+    return Objects.equals(this.documentLink, replaceTextResponse.documentLink) &&
+        Objects.equals(this.matches, replaceTextResponse.matches) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, documentLink, matches);
+    return Objects.hash(documentLink, matches, super.hashCode());
   }
 
 
@@ -153,9 +112,7 @@ public class ReplaceTextResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceTextResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    documentLink: ").append(toIndentedString(documentLink)).append("\n");
     sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
     sb.append("}");

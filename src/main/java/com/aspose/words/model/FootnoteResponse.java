@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.Footnote;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/footnote/0 
+ * FootnoteResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/footnote/0 ")
 
-public class FootnoteResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("Footnote")
+public class FootnoteResponse extends AsposeResponse {
+  @SerializedName("Footnote")
   private Footnote footnote = null;
-
-  public FootnoteResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public FootnoteResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public FootnoteResponse footnote(Footnote footnote) {
     this.footnote = footnote;
@@ -94,10 +54,10 @@ public class FootnoteResponse {
   }
 
    /**
-   * Footnote information
+   * Get footnote
    * @return footnote
   **/
-  @ApiModelProperty(value = "Footnote information")
+  @ApiModelProperty(value = "")
   public Footnote getFootnote() {
     return footnote;
   }
@@ -116,14 +76,13 @@ public class FootnoteResponse {
       return false;
     }
     FootnoteResponse footnoteResponse = (FootnoteResponse) o;
-    return Objects.equals(this.code, footnoteResponse.code) &&
-        Objects.equals(this.status, footnoteResponse.status) &&
-        Objects.equals(this.footnote, footnoteResponse.footnote);
+    return Objects.equals(this.footnote, footnoteResponse.footnote) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, footnote);
+    return Objects.hash(footnote, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class FootnoteResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    footnote: ").append(toIndentedString(footnote)).append("\n");
     sb.append("}");
     return sb.toString();

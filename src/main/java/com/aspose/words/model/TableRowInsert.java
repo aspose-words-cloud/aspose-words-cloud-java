@@ -29,22 +29,24 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Table row element
+ * TableRowInsert
  */
-@ApiModel(description = "Table row element")
 
 public class TableRowInsert {
-  @JsonProperty("InsertAfter")
+  @SerializedName("InsertAfter")
   private Integer insertAfter = null;
 
-  @JsonProperty("ColumnsCount")
+  @SerializedName("ColumnsCount")
   private Integer columnsCount = null;
 
   public TableRowInsert insertAfter(Integer insertAfter) {
@@ -53,10 +55,10 @@ public class TableRowInsert {
   }
 
    /**
-   * Table row will be inserted after row with specified 0-based index.
+   * Get insertAfter
    * @return insertAfter
   **/
-  @ApiModelProperty(value = "Table row will be inserted after row with specified 0-based index.")
+  @ApiModelProperty(value = "")
   public Integer getInsertAfter() {
     return insertAfter;
   }
@@ -71,10 +73,10 @@ public class TableRowInsert {
   }
 
    /**
-   * Count of columns. Default is 1.
+   * Get columnsCount
    * @return columnsCount
   **/
-  @ApiModelProperty(required = true, value = "Count of columns. Default is 1.")
+  @ApiModelProperty(required = true, value = "")
   public Integer getColumnsCount() {
     return columnsCount;
   }

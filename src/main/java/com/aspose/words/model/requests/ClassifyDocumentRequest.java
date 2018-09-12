@@ -31,175 +31,179 @@ import java.io.File;
 /*
  * Request model for classifyDocument operation.
  */
-public class ClassifyDocumentRequest
-{
+public class ClassifyDocumentRequest {
     /*
-     * The document name.
+     * 
      */
     private String DocumentName;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
-	
+
     /*
-     * Count of the best classes to return.
+     * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    private String DestFileName;
+
+    /*
+     * 
      */
     private String BestClassesCount;
-	
+
     /*
-     * Taxonomy to use for classification return.
+     * 
      */
     private String Taxonomy;
     
-	
     /*
      * Initializes a new instance of the classifyDocumentRequest class.
      *  
-     * @param String documentName The document name.
+     * @param String documentName 
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String bestClassesCount Count of the best classes to return.
-     * @param String taxonomy Taxonomy to use for classification return.
+     * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String bestClassesCount 
+     * @param String taxonomy 
      */
-    public ClassifyDocumentRequest(String documentName, String folder, String storage, String loadEncoding, String password, String bestClassesCount, String taxonomy)             
-    {
+    public ClassifyDocumentRequest(String documentName,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String bestClassesCount,  String taxonomy) {
         DocumentName = documentName;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
+        DestFileName = destFileName;
         BestClassesCount = bestClassesCount;
         Taxonomy = taxonomy;
     }
 
     /*
-     *  Gets The document name.
+     * 
      */
-    public String getDocumentName()
-    {
+    public String getDocumentName() {
         return DocumentName;
     }
 
     /*
-     * Sets The document name.
+     * 
      */
-    public void setDocumentName(String value)
-    {
+    public void setDocumentName(String value) {
         DocumentName = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
-	
+
     /*
-     *  Gets Count of the best classes to return.
+     *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getBestClassesCount()
-    {
+    public String getDestFileName() {
+        return DestFileName;
+    }
+
+    /*
+     * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    public void setDestFileName(String value) {
+        DestFileName = value;
+    }
+
+    /*
+     * 
+     */
+    public String getBestClassesCount() {
         return BestClassesCount;
     }
 
     /*
-     * Sets Count of the best classes to return.
+     * 
      */
-    public void setBestClassesCount(String value)
-    {
+    public void setBestClassesCount(String value) {
         BestClassesCount = value;
     }
-	
+
     /*
-     *  Gets Taxonomy to use for classification return.
+     * 
      */
-    public String getTaxonomy()
-    {
+    public String getTaxonomy() {
         return Taxonomy;
     }
 
     /*
-     * Sets Taxonomy to use for classification return.
+     * 
      */
-    public void setTaxonomy(String value)
-    {
+    public void setTaxonomy(String value) {
         Taxonomy = value;
     }
 }

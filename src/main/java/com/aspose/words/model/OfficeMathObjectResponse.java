@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.OfficeMathObject;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/officeMathObjects/0 
+ * OfficeMathObjectResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/officeMathObjects/0 ")
 
-public class OfficeMathObjectResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("OfficeMathObject")
+public class OfficeMathObjectResponse extends AsposeResponse {
+  @SerializedName("OfficeMathObject")
   private OfficeMathObject officeMathObject = null;
-
-  public OfficeMathObjectResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public OfficeMathObjectResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public OfficeMathObjectResponse officeMathObject(OfficeMathObject officeMathObject) {
     this.officeMathObject = officeMathObject;
@@ -94,10 +54,10 @@ public class OfficeMathObjectResponse {
   }
 
    /**
-   * OfficeMathObject information
+   * Get officeMathObject
    * @return officeMathObject
   **/
-  @ApiModelProperty(value = "OfficeMathObject information")
+  @ApiModelProperty(value = "")
   public OfficeMathObject getOfficeMathObject() {
     return officeMathObject;
   }
@@ -116,14 +76,13 @@ public class OfficeMathObjectResponse {
       return false;
     }
     OfficeMathObjectResponse officeMathObjectResponse = (OfficeMathObjectResponse) o;
-    return Objects.equals(this.code, officeMathObjectResponse.code) &&
-        Objects.equals(this.status, officeMathObjectResponse.status) &&
-        Objects.equals(this.officeMathObject, officeMathObjectResponse.officeMathObject);
+    return Objects.equals(this.officeMathObject, officeMathObjectResponse.officeMathObject) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, officeMathObject);
+    return Objects.hash(officeMathObject, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class OfficeMathObjectResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OfficeMathObjectResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    officeMathObject: ").append(toIndentedString(officeMathObject)).append("\n");
     sb.append("}");
     return sb.toString();

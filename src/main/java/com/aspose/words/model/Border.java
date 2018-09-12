@@ -32,24 +32,24 @@ import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
 import com.aspose.words.model.XmlColor;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Represents a border of an object.
+ * Border
  */
-@ApiModel(description = "Represents a border of an object.")
 
-public class Border {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
+public class Border extends LinkElement {
   /**
-   * Gets or sets the border type.             
+   * Gets or Sets borderType
    */
+  @JsonAdapter(BorderTypeEnum.Adapter.class)
   public enum BorderTypeEnum {
     BOTTOM("Bottom"),
     
@@ -75,7 +75,6 @@ public class Border {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -85,7 +84,6 @@ public class Border {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static BorderTypeEnum fromValue(String text) {
       for (BorderTypeEnum b : BorderTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -94,20 +92,34 @@ public class Border {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<BorderTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BorderTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BorderTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return BorderTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("BorderType")
+  @SerializedName("BorderType")
   private BorderTypeEnum borderType = null;
 
-  @JsonProperty("Color")
+  @SerializedName("Color")
   private XmlColor color = null;
 
-  @JsonProperty("DistanceFromText")
+  @SerializedName("DistanceFromText")
   private Double distanceFromText = null;
 
   /**
-   * Gets or sets the border style.
+   * Gets or Sets lineStyle
    */
+  @JsonAdapter(LineStyleEnum.Adapter.class)
   public enum LineStyleEnum {
     NONE("None"),
     
@@ -169,7 +181,6 @@ public class Border {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -179,7 +190,6 @@ public class Border {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static LineStyleEnum fromValue(String text) {
       for (LineStyleEnum b : LineStyleEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -188,34 +198,29 @@ public class Border {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<LineStyleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LineStyleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LineStyleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LineStyleEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("LineStyle")
+  @SerializedName("LineStyle")
   private LineStyleEnum lineStyle = null;
 
-  @JsonProperty("LineWidth")
+  @SerializedName("LineWidth")
   private Double lineWidth = null;
 
-  @JsonProperty("Shadow")
+  @SerializedName("Shadow")
   private Boolean shadow = null;
-
-  public Border link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Border borderType(BorderTypeEnum borderType) {
     this.borderType = borderType;
@@ -223,10 +228,10 @@ public class Border {
   }
 
    /**
-   * Gets or sets the border type.             
+   * Get borderType
    * @return borderType
   **/
-  @ApiModelProperty(value = "Gets or sets the border type.             ")
+  @ApiModelProperty(value = "")
   public BorderTypeEnum getBorderType() {
     return borderType;
   }
@@ -241,10 +246,10 @@ public class Border {
   }
 
    /**
-   * Gets or sets the border color.             
+   * Get color
    * @return color
   **/
-  @ApiModelProperty(value = "Gets or sets the border color.             ")
+  @ApiModelProperty(value = "")
   public XmlColor getColor() {
     return color;
   }
@@ -259,10 +264,10 @@ public class Border {
   }
 
    /**
-   * Gets or sets distance of the border from text or from the page edge in points.
+   * Get distanceFromText
    * @return distanceFromText
   **/
-  @ApiModelProperty(value = "Gets or sets distance of the border from text or from the page edge in points.")
+  @ApiModelProperty(value = "")
   public Double getDistanceFromText() {
     return distanceFromText;
   }
@@ -277,10 +282,10 @@ public class Border {
   }
 
    /**
-   * Gets or sets the border style.
+   * Get lineStyle
    * @return lineStyle
   **/
-  @ApiModelProperty(value = "Gets or sets the border style.")
+  @ApiModelProperty(value = "")
   public LineStyleEnum getLineStyle() {
     return lineStyle;
   }
@@ -295,10 +300,10 @@ public class Border {
   }
 
    /**
-   * Gets or sets the border width in points.
+   * Get lineWidth
    * @return lineWidth
   **/
-  @ApiModelProperty(value = "Gets or sets the border width in points.")
+  @ApiModelProperty(value = "")
   public Double getLineWidth() {
     return lineWidth;
   }
@@ -313,11 +318,11 @@ public class Border {
   }
 
    /**
-   * Gets or sets a value indicating whether the border has a shadow.
+   * Get shadow
    * @return shadow
   **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether the border has a shadow.")
-  public Boolean isShadow() {
+  @ApiModelProperty(value = "")
+  public Boolean isisShadow() {
     return shadow;
   }
 
@@ -335,18 +340,18 @@ public class Border {
       return false;
     }
     Border border = (Border) o;
-    return Objects.equals(this.link, border.link) &&
-        Objects.equals(this.borderType, border.borderType) &&
+    return Objects.equals(this.borderType, border.borderType) &&
         Objects.equals(this.color, border.color) &&
         Objects.equals(this.distanceFromText, border.distanceFromText) &&
         Objects.equals(this.lineStyle, border.lineStyle) &&
         Objects.equals(this.lineWidth, border.lineWidth) &&
-        Objects.equals(this.shadow, border.shadow);
+        Objects.equals(this.shadow, border.shadow) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, borderType, color, distanceFromText, lineStyle, lineWidth, shadow);
+    return Objects.hash(borderType, color, distanceFromText, lineStyle, lineWidth, shadow, super.hashCode());
   }
 
 
@@ -354,8 +359,7 @@ public class Border {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Border {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    borderType: ").append(toIndentedString(borderType)).append("\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    distanceFromText: ").append(toIndentedString(distanceFromText)).append("\n");

@@ -29,19 +29,21 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Table cell element
+ * TableCellInsert
  */
-@ApiModel(description = "Table cell element")
 
 public class TableCellInsert {
-  @JsonProperty("InsertAfter")
+  @SerializedName("InsertAfter")
   private Integer insertAfter = null;
 
   public TableCellInsert insertAfter(Integer insertAfter) {
@@ -50,10 +52,10 @@ public class TableCellInsert {
   }
 
    /**
-   * Table cell will be inserted after cell with specified 0-based index.
+   * Get insertAfter
    * @return insertAfter
   **/
-  @ApiModelProperty(value = "Table cell will be inserted after cell with specified 0-based index.")
+  @ApiModelProperty(value = "")
   public Integer getInsertAfter() {
     return insertAfter;
   }

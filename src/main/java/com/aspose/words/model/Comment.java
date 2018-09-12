@@ -33,60 +33,41 @@ import com.aspose.words.model.CommentLink;
 import com.aspose.words.model.DocumentPosition;
 import com.aspose.words.model.StoryChildNodes;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * Comment.
+ * Comment
  */
-@ApiModel(description = "Comment.")
 
-public class Comment {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("Author")
+public class Comment extends CommentLink {
+  @SerializedName("Author")
   private String author = null;
 
-  @JsonProperty("Content")
+  @SerializedName("Content")
   private StoryChildNodes content = null;
 
-  @JsonProperty("DateTime")
+  @SerializedName("DateTime")
   private OffsetDateTime dateTime = null;
 
-  @JsonProperty("Initial")
+  @SerializedName("Initial")
   private String initial = null;
 
-  @JsonProperty("RangeEnd")
+  @SerializedName("RangeEnd")
   private DocumentPosition rangeEnd = null;
 
-  @JsonProperty("RangeStart")
+  @SerializedName("RangeStart")
   private DocumentPosition rangeStart = null;
 
-  @JsonProperty("Text")
+  @SerializedName("Text")
   private String text = null;
-
-  public Comment link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Comment author(String author) {
     this.author = author;
@@ -94,10 +75,10 @@ public class Comment {
   }
 
    /**
-   * Returns or sets the author name for a comment.
+   * Get author
    * @return author
   **/
-  @ApiModelProperty(value = "Returns or sets the author name for a comment.")
+  @ApiModelProperty(value = "")
   public String getAuthor() {
     return author;
   }
@@ -112,10 +93,10 @@ public class Comment {
   }
 
    /**
-   * Content of comment
+   * Get content
    * @return content
   **/
-  @ApiModelProperty(value = "Content of comment")
+  @ApiModelProperty(value = "")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -130,10 +111,10 @@ public class Comment {
   }
 
    /**
-   * Gets the date and time that the comment was made.
+   * Get dateTime
    * @return dateTime
   **/
-  @ApiModelProperty(value = "Gets the date and time that the comment was made.")
+  @ApiModelProperty(value = "")
   public OffsetDateTime getDateTime() {
     return dateTime;
   }
@@ -148,10 +129,10 @@ public class Comment {
   }
 
    /**
-   * Returns or sets the initials of the user associated with a specific comment.
+   * Get initial
    * @return initial
   **/
-  @ApiModelProperty(value = "Returns or sets the initials of the user associated with a specific comment.")
+  @ApiModelProperty(value = "")
   public String getInitial() {
     return initial;
   }
@@ -166,10 +147,10 @@ public class Comment {
   }
 
    /**
-   * Link to comment range end node.
+   * Get rangeEnd
    * @return rangeEnd
   **/
-  @ApiModelProperty(value = "Link to comment range end node.")
+  @ApiModelProperty(value = "")
   public DocumentPosition getRangeEnd() {
     return rangeEnd;
   }
@@ -184,10 +165,10 @@ public class Comment {
   }
 
    /**
-   * Link to comment range start node.
+   * Get rangeStart
    * @return rangeStart
   **/
-  @ApiModelProperty(value = "Link to comment range start node.")
+  @ApiModelProperty(value = "")
   public DocumentPosition getRangeStart() {
     return rangeStart;
   }
@@ -202,10 +183,10 @@ public class Comment {
   }
 
    /**
-   * This is a convenience property that allows to easily get or set text of the comment.
+   * Get text
    * @return text
   **/
-  @ApiModelProperty(value = "This is a convenience property that allows to easily get or set text of the comment.")
+  @ApiModelProperty(value = "")
   public String getText() {
     return text;
   }
@@ -224,19 +205,19 @@ public class Comment {
       return false;
     }
     Comment comment = (Comment) o;
-    return Objects.equals(this.link, comment.link) &&
-        Objects.equals(this.author, comment.author) &&
+    return Objects.equals(this.author, comment.author) &&
         Objects.equals(this.content, comment.content) &&
         Objects.equals(this.dateTime, comment.dateTime) &&
         Objects.equals(this.initial, comment.initial) &&
         Objects.equals(this.rangeEnd, comment.rangeEnd) &&
         Objects.equals(this.rangeStart, comment.rangeStart) &&
-        Objects.equals(this.text, comment.text);
+        Objects.equals(this.text, comment.text) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, author, content, dateTime, initial, rangeEnd, rangeStart, text);
+    return Objects.hash(author, content, dateTime, initial, rangeEnd, rangeStart, text, super.hashCode());
   }
 
 
@@ -244,8 +225,7 @@ public class Comment {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Comment {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");

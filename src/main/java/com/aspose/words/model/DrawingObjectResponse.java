@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.DrawingObject;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Response for \&quot;drawingObjects/n\&quot; resource.
+ * DrawingObjectResponse
  */
-@ApiModel(description = "Response for \"drawingObjects/n\" resource.")
 
-public class DrawingObjectResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("DrawingObject")
+public class DrawingObjectResponse extends AsposeResponse {
+  @SerializedName("DrawingObject")
   private DrawingObject drawingObject = null;
-
-  public DrawingObjectResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public DrawingObjectResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public DrawingObjectResponse drawingObject(DrawingObject drawingObject) {
     this.drawingObject = drawingObject;
@@ -94,10 +54,10 @@ public class DrawingObjectResponse {
   }
 
    /**
-   * Drawing object.
+   * Get drawingObject
    * @return drawingObject
   **/
-  @ApiModelProperty(value = "Drawing object.")
+  @ApiModelProperty(value = "")
   public DrawingObject getDrawingObject() {
     return drawingObject;
   }
@@ -116,14 +76,13 @@ public class DrawingObjectResponse {
       return false;
     }
     DrawingObjectResponse drawingObjectResponse = (DrawingObjectResponse) o;
-    return Objects.equals(this.code, drawingObjectResponse.code) &&
-        Objects.equals(this.status, drawingObjectResponse.status) &&
-        Objects.equals(this.drawingObject, drawingObjectResponse.drawingObject);
+    return Objects.equals(this.drawingObject, drawingObjectResponse.drawingObject) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, drawingObject);
+    return Objects.hash(drawingObject, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class DrawingObjectResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    drawingObject: ").append(toIndentedString(drawingObject)).append("\n");
     sb.append("}");
     return sb.toString();

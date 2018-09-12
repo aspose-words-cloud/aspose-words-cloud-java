@@ -32,30 +32,30 @@ import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.PreferredWidth;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Represents all formatting for a table row.
+ * TableCellFormat
  */
-@ApiModel(description = "Represents all formatting for a table row.")
 
-public class TableCellFormat {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("BottomPadding")
+public class TableCellFormat extends LinkElement {
+  @SerializedName("BottomPadding")
   private Double bottomPadding = null;
 
-  @JsonProperty("FitText")
+  @SerializedName("FitText")
   private Boolean fitText = null;
 
   /**
-   * Specifies how the cell is merged horizontally with other cells in the row.
+   * Gets or Sets horizontalMerge
    */
+  @JsonAdapter(HorizontalMergeEnum.Adapter.class)
   public enum HorizontalMergeEnum {
     NONE("None"),
     
@@ -69,7 +69,6 @@ public class TableCellFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -79,7 +78,6 @@ public class TableCellFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static HorizontalMergeEnum fromValue(String text) {
       for (HorizontalMergeEnum b : HorizontalMergeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -88,17 +86,31 @@ public class TableCellFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<HorizontalMergeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HorizontalMergeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HorizontalMergeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return HorizontalMergeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("HorizontalMerge")
+  @SerializedName("HorizontalMerge")
   private HorizontalMergeEnum horizontalMerge = null;
 
-  @JsonProperty("LeftPadding")
+  @SerializedName("LeftPadding")
   private Double leftPadding = null;
 
   /**
-   * Returns or sets the orientation of text in a table cell.
+   * Gets or Sets orientation
    */
+  @JsonAdapter(OrientationEnum.Adapter.class)
   public enum OrientationEnum {
     HORIZONTAL("Horizontal"),
     
@@ -118,7 +130,6 @@ public class TableCellFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -128,7 +139,6 @@ public class TableCellFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static OrientationEnum fromValue(String text) {
       for (OrientationEnum b : OrientationEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -137,23 +147,37 @@ public class TableCellFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<OrientationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrientationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OrientationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OrientationEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Orientation")
+  @SerializedName("Orientation")
   private OrientationEnum orientation = null;
 
-  @JsonProperty("PreferredWidth")
+  @SerializedName("PreferredWidth")
   private PreferredWidth preferredWidth = null;
 
-  @JsonProperty("RightPadding")
+  @SerializedName("RightPadding")
   private Double rightPadding = null;
 
-  @JsonProperty("TopPadding")
+  @SerializedName("TopPadding")
   private Double topPadding = null;
 
   /**
-   * Returns or sets the vertical alignment of text in the cell.
+   * Gets or Sets verticalAlignment
    */
+  @JsonAdapter(VerticalAlignmentEnum.Adapter.class)
   public enum VerticalAlignmentEnum {
     TOP("Top"),
     
@@ -167,7 +191,6 @@ public class TableCellFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -177,7 +200,6 @@ public class TableCellFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static VerticalAlignmentEnum fromValue(String text) {
       for (VerticalAlignmentEnum b : VerticalAlignmentEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -186,14 +208,28 @@ public class TableCellFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<VerticalAlignmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VerticalAlignmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VerticalAlignmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VerticalAlignmentEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("VerticalAlignment")
+  @SerializedName("VerticalAlignment")
   private VerticalAlignmentEnum verticalAlignment = null;
 
   /**
-   * Specifies how the cell is merged with other cells vertically.
+   * Gets or Sets verticalMerge
    */
+  @JsonAdapter(VerticalMergeEnum.Adapter.class)
   public enum VerticalMergeEnum {
     NONE("None"),
     
@@ -207,7 +243,6 @@ public class TableCellFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -217,7 +252,6 @@ public class TableCellFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static VerticalMergeEnum fromValue(String text) {
       for (VerticalMergeEnum b : VerticalMergeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -226,34 +260,29 @@ public class TableCellFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<VerticalMergeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VerticalMergeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VerticalMergeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VerticalMergeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("VerticalMerge")
+  @SerializedName("VerticalMerge")
   private VerticalMergeEnum verticalMerge = null;
 
-  @JsonProperty("Width")
+  @SerializedName("Width")
   private Double width = null;
 
-  @JsonProperty("WrapText")
+  @SerializedName("WrapText")
   private Boolean wrapText = null;
-
-  public TableCellFormat link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public TableCellFormat bottomPadding(Double bottomPadding) {
     this.bottomPadding = bottomPadding;
@@ -261,10 +290,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Returns or sets the amount of space (in points) to add below the contents of cell.
+   * Get bottomPadding
    * @return bottomPadding
   **/
-  @ApiModelProperty(value = "Returns or sets the amount of space (in points) to add below the contents of cell.")
+  @ApiModelProperty(value = "")
   public Double getBottomPadding() {
     return bottomPadding;
   }
@@ -279,11 +308,11 @@ public class TableCellFormat {
   }
 
    /**
-   * If true, fits text in the cell, compressing each paragraph to the width of the cell.
+   * Get fitText
    * @return fitText
   **/
-  @ApiModelProperty(value = "If true, fits text in the cell, compressing each paragraph to the width of the cell.")
-  public Boolean isFitText() {
+  @ApiModelProperty(value = "")
+  public Boolean isisFitText() {
     return fitText;
   }
 
@@ -297,10 +326,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Specifies how the cell is merged horizontally with other cells in the row.
+   * Get horizontalMerge
    * @return horizontalMerge
   **/
-  @ApiModelProperty(value = "Specifies how the cell is merged horizontally with other cells in the row.")
+  @ApiModelProperty(value = "")
   public HorizontalMergeEnum getHorizontalMerge() {
     return horizontalMerge;
   }
@@ -315,10 +344,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Returns or sets the amount of space (in points) to add to the left of the contents of cell.
+   * Get leftPadding
    * @return leftPadding
   **/
-  @ApiModelProperty(value = "Returns or sets the amount of space (in points) to add to the left of the contents of cell.")
+  @ApiModelProperty(value = "")
   public Double getLeftPadding() {
     return leftPadding;
   }
@@ -333,10 +362,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Returns or sets the orientation of text in a table cell.
+   * Get orientation
    * @return orientation
   **/
-  @ApiModelProperty(value = "Returns or sets the orientation of text in a table cell.")
+  @ApiModelProperty(value = "")
   public OrientationEnum getOrientation() {
     return orientation;
   }
@@ -351,10 +380,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Returns or sets the preferred width of the cell.
+   * Get preferredWidth
    * @return preferredWidth
   **/
-  @ApiModelProperty(value = "Returns or sets the preferred width of the cell.")
+  @ApiModelProperty(value = "")
   public PreferredWidth getPreferredWidth() {
     return preferredWidth;
   }
@@ -369,10 +398,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Returns or sets the amount of space (in points) to add to the right of the contents of cell.
+   * Get rightPadding
    * @return rightPadding
   **/
-  @ApiModelProperty(value = "Returns or sets the amount of space (in points) to add to the right of the contents of cell.")
+  @ApiModelProperty(value = "")
   public Double getRightPadding() {
     return rightPadding;
   }
@@ -387,10 +416,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Returns or sets the amount of space (in points) to add above the contents of cell.
+   * Get topPadding
    * @return topPadding
   **/
-  @ApiModelProperty(value = "Returns or sets the amount of space (in points) to add above the contents of cell.")
+  @ApiModelProperty(value = "")
   public Double getTopPadding() {
     return topPadding;
   }
@@ -405,10 +434,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Returns or sets the vertical alignment of text in the cell.
+   * Get verticalAlignment
    * @return verticalAlignment
   **/
-  @ApiModelProperty(value = "Returns or sets the vertical alignment of text in the cell.")
+  @ApiModelProperty(value = "")
   public VerticalAlignmentEnum getVerticalAlignment() {
     return verticalAlignment;
   }
@@ -423,10 +452,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Specifies how the cell is merged with other cells vertically.
+   * Get verticalMerge
    * @return verticalMerge
   **/
-  @ApiModelProperty(value = "Specifies how the cell is merged with other cells vertically.")
+  @ApiModelProperty(value = "")
   public VerticalMergeEnum getVerticalMerge() {
     return verticalMerge;
   }
@@ -441,10 +470,10 @@ public class TableCellFormat {
   }
 
    /**
-   * Gets the width of the cell in points.
+   * Get width
    * @return width
   **/
-  @ApiModelProperty(value = "Gets the width of the cell in points.")
+  @ApiModelProperty(value = "")
   public Double getWidth() {
     return width;
   }
@@ -459,11 +488,11 @@ public class TableCellFormat {
   }
 
    /**
-   * If true, wrap text for the cell.
+   * Get wrapText
    * @return wrapText
   **/
-  @ApiModelProperty(value = "If true, wrap text for the cell.")
-  public Boolean isWrapText() {
+  @ApiModelProperty(value = "")
+  public Boolean isisWrapText() {
     return wrapText;
   }
 
@@ -481,8 +510,7 @@ public class TableCellFormat {
       return false;
     }
     TableCellFormat tableCellFormat = (TableCellFormat) o;
-    return Objects.equals(this.link, tableCellFormat.link) &&
-        Objects.equals(this.bottomPadding, tableCellFormat.bottomPadding) &&
+    return Objects.equals(this.bottomPadding, tableCellFormat.bottomPadding) &&
         Objects.equals(this.fitText, tableCellFormat.fitText) &&
         Objects.equals(this.horizontalMerge, tableCellFormat.horizontalMerge) &&
         Objects.equals(this.leftPadding, tableCellFormat.leftPadding) &&
@@ -493,12 +521,13 @@ public class TableCellFormat {
         Objects.equals(this.verticalAlignment, tableCellFormat.verticalAlignment) &&
         Objects.equals(this.verticalMerge, tableCellFormat.verticalMerge) &&
         Objects.equals(this.width, tableCellFormat.width) &&
-        Objects.equals(this.wrapText, tableCellFormat.wrapText);
+        Objects.equals(this.wrapText, tableCellFormat.wrapText) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, bottomPadding, fitText, horizontalMerge, leftPadding, orientation, preferredWidth, rightPadding, topPadding, verticalAlignment, verticalMerge, width, wrapText);
+    return Objects.hash(bottomPadding, fitText, horizontalMerge, leftPadding, orientation, preferredWidth, rightPadding, topPadding, verticalAlignment, verticalMerge, width, wrapText, super.hashCode());
   }
 
 
@@ -506,8 +535,7 @@ public class TableCellFormat {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCellFormat {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bottomPadding: ").append(toIndentedString(bottomPadding)).append("\n");
     sb.append("    fitText: ").append(toIndentedString(fitText)).append("\n");
     sb.append("    horizontalMerge: ").append(toIndentedString(horizontalMerge)).append("\n");

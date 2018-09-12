@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.ModificationOperationResult;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)
+ * RevisionsModificationResponse
  */
-@ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)")
 
-public class RevisionsModificationResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("Result")
+public class RevisionsModificationResponse extends AsposeResponse {
+  @SerializedName("Result")
   private ModificationOperationResult result = null;
-
-  public RevisionsModificationResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public RevisionsModificationResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public RevisionsModificationResponse result(ModificationOperationResult result) {
     this.result = result;
@@ -94,10 +54,10 @@ public class RevisionsModificationResponse {
   }
 
    /**
-   * result of the modification operations for the revisions collection
+   * Get result
    * @return result
   **/
-  @ApiModelProperty(value = "result of the modification operations for the revisions collection")
+  @ApiModelProperty(value = "")
   public ModificationOperationResult getResult() {
     return result;
   }
@@ -116,14 +76,13 @@ public class RevisionsModificationResponse {
       return false;
     }
     RevisionsModificationResponse revisionsModificationResponse = (RevisionsModificationResponse) o;
-    return Objects.equals(this.code, revisionsModificationResponse.code) &&
-        Objects.equals(this.status, revisionsModificationResponse.status) &&
-        Objects.equals(this.result, revisionsModificationResponse.result);
+    return Objects.equals(this.result, revisionsModificationResponse.result) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, result);
+    return Objects.hash(result, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class RevisionsModificationResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RevisionsModificationResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();

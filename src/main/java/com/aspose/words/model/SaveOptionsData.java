@@ -29,55 +29,61 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * base container class for save options data
+ * SaveOptionsData
  */
-@ApiModel(description = "base container class for save options data")
+
 
 public class SaveOptionsData {
-  @JsonProperty("ColorMode")
+  @SerializedName("ColorMode")
   private String colorMode = null;
 
-  @JsonProperty("SaveFormat")
+  @SerializedName("SaveFormat")
   private String saveFormat = null;
 
-  @JsonProperty("FileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
-  @JsonProperty("DmlRenderingMode")
+  @SerializedName("DmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @JsonProperty("DmlEffectsRenderingMode")
+  @SerializedName("DmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @JsonProperty("ZipOutput")
+  @SerializedName("ZipOutput")
   private Boolean zipOutput = null;
 
-  @JsonProperty("UpdateLastSavedTimeProperty")
+  @SerializedName("UpdateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @JsonProperty("UpdateSdtContent")
+  @SerializedName("UpdateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @JsonProperty("UpdateFields")
+  @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
+  public SaveOptionsData() {
+    this.Type = this.getClass().getSimpleName();
+  }
   public SaveOptionsData colorMode(String colorMode) {
     this.colorMode = colorMode;
     return this;
   }
 
    /**
-   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}
+   * Get colorMode
    * @return colorMode
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}")
+  @ApiModelProperty(value = "")
   public String getColorMode() {
     return colorMode;
   }
@@ -92,10 +98,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * format of save
+   * Get saveFormat
    * @return saveFormat
   **/
-  @ApiModelProperty(value = "format of save")
+  @ApiModelProperty(value = "")
   public String getSaveFormat() {
     return saveFormat;
   }
@@ -110,10 +116,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * name of destination file
+   * Get fileName
    * @return fileName
   **/
-  @ApiModelProperty(value = "name of destination file")
+  @ApiModelProperty(value = "")
   public String getFileName() {
     return fileName;
   }
@@ -128,10 +134,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }
+   * Get dmlRenderingMode
    * @return dmlRenderingMode
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }")
+  @ApiModelProperty(value = "")
   public String getDmlRenderingMode() {
     return dmlRenderingMode;
   }
@@ -146,10 +152,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }
+   * Get dmlEffectsRenderingMode
    * @return dmlEffectsRenderingMode
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }")
+  @ApiModelProperty(value = "")
   public String getDmlEffectsRenderingMode() {
     return dmlEffectsRenderingMode;
   }
@@ -164,11 +170,11 @@ public class SaveOptionsData {
   }
 
    /**
-   * Controls zip output or not. Default value is false.
+   * Get zipOutput
    * @return zipOutput
   **/
-  @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
-  public Boolean isZipOutput() {
+  @ApiModelProperty(value = "")
+  public Boolean isisZipOutput() {
     return zipOutput;
   }
 
@@ -182,11 +188,11 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+   * Get updateLastSavedTimeProperty
    * @return updateLastSavedTimeProperty
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
-  public Boolean isUpdateLastSavedTimeProperty() {
+  @ApiModelProperty(value = "")
+  public Boolean isisUpdateLastSavedTimeProperty() {
     return updateLastSavedTimeProperty;
   }
 
@@ -200,11 +206,11 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets value determining whether content of  is updated before saving.
+   * Get updateSdtContent
    * @return updateSdtContent
   **/
-  @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
-  public Boolean isUpdateSdtContent() {
+  @ApiModelProperty(value = "")
+  public Boolean isisUpdateSdtContent() {
     return updateSdtContent;
   }
 
@@ -218,11 +224,11 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true
+   * Get updateFields
    * @return updateFields
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
-  public Boolean isUpdateFields() {
+  @ApiModelProperty(value = "")
+  public Boolean isisUpdateFields() {
     return updateFields;
   }
 

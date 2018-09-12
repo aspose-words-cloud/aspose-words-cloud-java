@@ -33,30 +33,27 @@ import com.aspose.words.model.DocumentPosition;
 import com.aspose.words.model.FootnoteLink;
 import com.aspose.words.model.StoryChildNodes;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Footnote.
+ * Footnote
  */
-@ApiModel(description = "Footnote.")
 
-public class Footnote {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("Content")
+public class Footnote extends FootnoteLink {
+  @SerializedName("Content")
   private StoryChildNodes content = null;
 
   /**
-   * Returns a value that specifies whether this is a footnote or endnote.
+   * Gets or Sets footnoteType
    */
+  @JsonAdapter(FootnoteTypeEnum.Adapter.class)
   public enum FootnoteTypeEnum {
     FOOTNOTE("Footnote"),
     
@@ -68,7 +65,6 @@ public class Footnote {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -78,7 +74,6 @@ public class Footnote {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static FootnoteTypeEnum fromValue(String text) {
       for (FootnoteTypeEnum b : FootnoteTypeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -87,55 +82,32 @@ public class Footnote {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<FootnoteTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FootnoteTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FootnoteTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return FootnoteTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("FootnoteType")
+  @SerializedName("FootnoteType")
   private FootnoteTypeEnum footnoteType = null;
 
-  @JsonProperty("Position")
+  @SerializedName("Position")
   private DocumentPosition position = null;
 
-  @JsonProperty("ReferenceMark")
+  @SerializedName("ReferenceMark")
   private String referenceMark = null;
 
-  @JsonProperty("Text")
+  @SerializedName("Text")
   private String text = null;
-
-  public Footnote link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public Footnote nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public Footnote content(StoryChildNodes content) {
     this.content = content;
@@ -143,10 +115,10 @@ public class Footnote {
   }
 
    /**
-   * Content of footnote.
+   * Get content
    * @return content
   **/
-  @ApiModelProperty(value = "Content of footnote.")
+  @ApiModelProperty(value = "")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -161,10 +133,10 @@ public class Footnote {
   }
 
    /**
-   * Returns a value that specifies whether this is a footnote or endnote.
+   * Get footnoteType
    * @return footnoteType
   **/
-  @ApiModelProperty(value = "Returns a value that specifies whether this is a footnote or endnote.")
+  @ApiModelProperty(value = "")
   public FootnoteTypeEnum getFootnoteType() {
     return footnoteType;
   }
@@ -179,10 +151,10 @@ public class Footnote {
   }
 
    /**
-   * Link to comment range start node.
+   * Get position
    * @return position
   **/
-  @ApiModelProperty(value = "Link to comment range start node.")
+  @ApiModelProperty(value = "")
   public DocumentPosition getPosition() {
     return position;
   }
@@ -197,10 +169,10 @@ public class Footnote {
   }
 
    /**
-   * Gets/sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.
+   * Get referenceMark
    * @return referenceMark
   **/
-  @ApiModelProperty(value = "Gets/sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.")
+  @ApiModelProperty(value = "")
   public String getReferenceMark() {
     return referenceMark;
   }
@@ -215,10 +187,10 @@ public class Footnote {
   }
 
    /**
-   * This is a convenience property that allows to easily get or set text of the footnote.
+   * Get text
    * @return text
   **/
-  @ApiModelProperty(value = "This is a convenience property that allows to easily get or set text of the footnote.")
+  @ApiModelProperty(value = "")
   public String getText() {
     return text;
   }
@@ -237,18 +209,17 @@ public class Footnote {
       return false;
     }
     Footnote footnote = (Footnote) o;
-    return Objects.equals(this.link, footnote.link) &&
-        Objects.equals(this.nodeId, footnote.nodeId) &&
-        Objects.equals(this.content, footnote.content) &&
+    return Objects.equals(this.content, footnote.content) &&
         Objects.equals(this.footnoteType, footnote.footnoteType) &&
         Objects.equals(this.position, footnote.position) &&
         Objects.equals(this.referenceMark, footnote.referenceMark) &&
-        Objects.equals(this.text, footnote.text);
+        Objects.equals(this.text, footnote.text) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, content, footnoteType, position, referenceMark, text);
+    return Objects.hash(content, footnoteType, position, referenceMark, text, super.hashCode());
   }
 
 
@@ -256,9 +227,7 @@ public class Footnote {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Footnote {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    footnoteType: ").append(toIndentedString(footnoteType)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");

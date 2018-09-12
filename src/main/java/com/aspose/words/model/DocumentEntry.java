@@ -29,22 +29,24 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Represents a document which will be appended to the original resource document.
+ * DocumentEntry
  */
-@ApiModel(description = "Represents a document which will be appended to the original resource document.")
 
 public class DocumentEntry {
-  @JsonProperty("Href")
+  @SerializedName("Href")
   private String href = null;
 
-  @JsonProperty("ImportFormatMode")
+  @SerializedName("ImportFormatMode")
   private String importFormatMode = null;
 
   public DocumentEntry href(String href) {
@@ -53,10 +55,10 @@ public class DocumentEntry {
   }
 
    /**
-   * Path to document to append at the server.
+   * Get href
    * @return href
   **/
-  @ApiModelProperty(value = "Path to document to append at the server.")
+  @ApiModelProperty(value = "")
   public String getHref() {
     return href;
   }
@@ -71,10 +73,10 @@ public class DocumentEntry {
   }
 
    /**
-   * Defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
+   * Get importFormatMode
    * @return importFormatMode
   **/
-  @ApiModelProperty(value = "Defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.")
+  @ApiModelProperty(value = "")
   public String getImportFormatMode() {
     return importFormatMode;
   }

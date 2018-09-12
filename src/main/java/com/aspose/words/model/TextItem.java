@@ -31,41 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Represents text DTO.
+ * TextItem
  */
-@ApiModel(description = "Represents text DTO.")
 
-public class TextItem {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("Text")
+public class TextItem extends LinkElement {
+  @SerializedName("Text")
   private String text = null;
-
-  public TextItem link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public TextItem text(String text) {
     this.text = text;
@@ -73,10 +54,10 @@ public class TextItem {
   }
 
    /**
-   * Text.
+   * Get text
    * @return text
   **/
-  @ApiModelProperty(value = "Text.")
+  @ApiModelProperty(value = "")
   public String getText() {
     return text;
   }
@@ -95,13 +76,13 @@ public class TextItem {
       return false;
     }
     TextItem textItem = (TextItem) o;
-    return Objects.equals(this.link, textItem.link) &&
-        Objects.equals(this.text, textItem.text);
+    return Objects.equals(this.text, textItem.text) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, text);
+    return Objects.hash(text, super.hashCode());
   }
 
 
@@ -109,8 +90,7 @@ public class TextItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextItem {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();

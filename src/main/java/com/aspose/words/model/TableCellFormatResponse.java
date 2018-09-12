@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.TableCellFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat
+ * TableCellFormatResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat")
 
-public class TableCellFormatResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("CellFormat")
+public class TableCellFormatResponse extends AsposeResponse {
+  @SerializedName("CellFormat")
   private TableCellFormat cellFormat = null;
-
-  public TableCellFormatResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public TableCellFormatResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public TableCellFormatResponse cellFormat(TableCellFormat cellFormat) {
     this.cellFormat = cellFormat;
@@ -94,10 +54,10 @@ public class TableCellFormatResponse {
   }
 
    /**
-   * Table.
+   * Get cellFormat
    * @return cellFormat
   **/
-  @ApiModelProperty(value = "Table.")
+  @ApiModelProperty(value = "")
   public TableCellFormat getCellFormat() {
     return cellFormat;
   }
@@ -116,14 +76,13 @@ public class TableCellFormatResponse {
       return false;
     }
     TableCellFormatResponse tableCellFormatResponse = (TableCellFormatResponse) o;
-    return Objects.equals(this.code, tableCellFormatResponse.code) &&
-        Objects.equals(this.status, tableCellFormatResponse.status) &&
-        Objects.equals(this.cellFormat, tableCellFormatResponse.cellFormat);
+    return Objects.equals(this.cellFormat, tableCellFormatResponse.cellFormat) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, cellFormat);
+    return Objects.hash(cellFormat, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class TableCellFormatResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCellFormatResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    cellFormat: ").append(toIndentedString(cellFormat)).append("\n");
     sb.append("}");
     return sb.toString();

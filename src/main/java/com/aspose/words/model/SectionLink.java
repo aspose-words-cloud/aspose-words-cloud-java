@@ -31,39 +31,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Section link element
+ * SectionLink
  */
-@ApiModel(description = "Section link element")
 
-public class SectionLink {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  public SectionLink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
+public class SectionLink extends LinkElement {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,13 +46,12 @@ public class SectionLink {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SectionLink sectionLink = (SectionLink) o;
-    return Objects.equals(this.link, sectionLink.link);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link);
+    return Objects.hash(super.hashCode());
   }
 
 
@@ -87,8 +59,7 @@ public class SectionLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionLink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

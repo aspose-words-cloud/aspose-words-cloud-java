@@ -32,43 +32,24 @@ import java.util.Arrays;
 import com.aspose.words.model.Footnote;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of footnotes.
+ * FootnoteCollection
  */
-@ApiModel(description = "Collection of footnotes.")
 
-public class FootnoteCollection {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("List")
+public class FootnoteCollection extends LinkElement {
+  @SerializedName("List")
   private List<Footnote> list = null;
-
-  public FootnoteCollection link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public FootnoteCollection list(List<Footnote> list) {
     this.list = list;
@@ -84,10 +65,10 @@ public class FootnoteCollection {
   }
 
    /**
-   * Collection of foonotes links 
+   * Get list
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of foonotes links ")
+  @ApiModelProperty(value = "")
   public List<Footnote> getList() {
     return list;
   }
@@ -106,13 +87,13 @@ public class FootnoteCollection {
       return false;
     }
     FootnoteCollection footnoteCollection = (FootnoteCollection) o;
-    return Objects.equals(this.link, footnoteCollection.link) &&
-        Objects.equals(this.list, footnoteCollection.list);
+    return Objects.equals(this.list, footnoteCollection.list) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, list);
+    return Objects.hash(list, super.hashCode());
   }
 
 
@@ -120,8 +101,7 @@ public class FootnoteCollection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteCollection {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

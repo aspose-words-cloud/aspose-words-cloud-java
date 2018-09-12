@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.Section;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/sections/{0} 
+ * SectionResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/sections/{0} ")
 
-public class SectionResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("Section")
+public class SectionResponse extends AsposeResponse {
+  @SerializedName("Section")
   private Section section = null;
-
-  public SectionResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public SectionResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public SectionResponse section(Section section) {
     this.section = section;
@@ -94,10 +54,10 @@ public class SectionResponse {
   }
 
    /**
-   * Section
+   * Get section
    * @return section
   **/
-  @ApiModelProperty(value = "Section")
+  @ApiModelProperty(value = "")
   public Section getSection() {
     return section;
   }
@@ -116,14 +76,13 @@ public class SectionResponse {
       return false;
     }
     SectionResponse sectionResponse = (SectionResponse) o;
-    return Objects.equals(this.code, sectionResponse.code) &&
-        Objects.equals(this.status, sectionResponse.status) &&
-        Objects.equals(this.section, sectionResponse.section);
+    return Objects.equals(this.section, sectionResponse.section) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, section);
+    return Objects.hash(section, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class SectionResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    section: ").append(toIndentedString(section)).append("\n");
     sb.append("}");
     return sb.toString();

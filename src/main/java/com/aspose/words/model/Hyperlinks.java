@@ -32,43 +32,24 @@ import java.util.Arrays;
 import com.aspose.words.model.Hyperlink;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of .
+ * Hyperlinks
  */
-@ApiModel(description = "Collection of .")
 
-public class Hyperlinks {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("HyperlinkList")
+public class Hyperlinks extends LinkElement {
+  @SerializedName("HyperlinkList")
   private List<Hyperlink> hyperlinkList = null;
-
-  public Hyperlinks link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Hyperlinks hyperlinkList(List<Hyperlink> hyperlinkList) {
     this.hyperlinkList = hyperlinkList;
@@ -84,10 +65,10 @@ public class Hyperlinks {
   }
 
    /**
-   * Array of .
+   * Get hyperlinkList
    * @return hyperlinkList
   **/
-  @ApiModelProperty(value = "Array of .")
+  @ApiModelProperty(value = "")
   public List<Hyperlink> getHyperlinkList() {
     return hyperlinkList;
   }
@@ -106,13 +87,13 @@ public class Hyperlinks {
       return false;
     }
     Hyperlinks hyperlinks = (Hyperlinks) o;
-    return Objects.equals(this.link, hyperlinks.link) &&
-        Objects.equals(this.hyperlinkList, hyperlinks.hyperlinkList);
+    return Objects.equals(this.hyperlinkList, hyperlinks.hyperlinkList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, hyperlinkList);
+    return Objects.hash(hyperlinkList, super.hashCode());
   }
 
 
@@ -120,8 +101,7 @@ public class Hyperlinks {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Hyperlinks {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    hyperlinkList: ").append(toIndentedString(hyperlinkList)).append("\n");
     sb.append("}");
     return sb.toString();

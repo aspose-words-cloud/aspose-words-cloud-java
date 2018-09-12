@@ -29,22 +29,24 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Class for insert watermark text request building. 
+ * WatermarkText
  */
-@ApiModel(description = "Class for insert watermark text request building. ")
 
 public class WatermarkText {
-  @JsonProperty("Text")
+  @SerializedName("Text")
   private String text = null;
 
-  @JsonProperty("RotationAngle")
+  @SerializedName("RotationAngle")
   private Double rotationAngle = null;
 
   public WatermarkText text(String text) {
@@ -53,10 +55,10 @@ public class WatermarkText {
   }
 
    /**
-   * The watermark text.
+   * Get text
    * @return text
   **/
-  @ApiModelProperty(value = "The watermark text.")
+  @ApiModelProperty(value = "")
   public String getText() {
     return text;
   }
@@ -71,10 +73,10 @@ public class WatermarkText {
   }
 
    /**
-   * The watermark rotation angle.
+   * Get rotationAngle
    * @return rotationAngle
   **/
-  @ApiModelProperty(required = true, value = "The watermark rotation angle.")
+  @ApiModelProperty(required = true, value = "")
   public Double getRotationAngle() {
     return rotationAngle;
   }

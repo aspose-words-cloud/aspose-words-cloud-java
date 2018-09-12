@@ -31,57 +31,54 @@ import java.io.File;
 /*
  * Request model for getHeaderFooters operation.
  */
-public class GetHeaderFootersRequest
-{
+public class GetHeaderFootersRequest {
     /*
-     * The document name.
+     * 
      */
     private String Name;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
-	
+
     /*
-     * Path to parent section.
+     * 
      */
     private String SectionPath;
-	
+
     /*
-     * List of types of headers and footers.
+     * 
      */
     private String FilterByType;
     
-	
     /*
      * Initializes a new instance of the getHeaderFootersRequest class.
      *  
-     * @param String name The document name.
+     * @param String name 
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String sectionPath Path to parent section.
-     * @param String filterByType List of types of headers and footers.
+     * @param String sectionPath 
+     * @param String filterByType 
      */
-    public GetHeaderFootersRequest(String name, String folder, String storage, String loadEncoding, String password, String sectionPath, String filterByType)             
-    {
+    public GetHeaderFootersRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String sectionPath,  String filterByType) {
         Name = name;
         Folder = folder;
         Storage = storage;
@@ -92,114 +89,100 @@ public class GetHeaderFootersRequest
     }
 
     /*
-     *  Gets The document name.
+     * 
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
-     * Sets The document name.
+     * 
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
-	
+
     /*
-     *  Gets Path to parent section.
+     * 
      */
-    public String getSectionPath()
-    {
+    public String getSectionPath() {
         return SectionPath;
     }
 
     /*
-     * Sets Path to parent section.
+     * 
      */
-    public void setSectionPath(String value)
-    {
+    public void setSectionPath(String value) {
         SectionPath = value;
     }
-	
+
     /*
-     *  Gets List of types of headers and footers.
+     * 
      */
-    public String getFilterByType()
-    {
+    public String getFilterByType() {
         return FilterByType;
     }
 
     /*
-     * Sets List of types of headers and footers.
+     * 
      */
-    public void setFilterByType(String value)
-    {
+    public void setFilterByType(String value) {
         FilterByType = value;
     }
 }

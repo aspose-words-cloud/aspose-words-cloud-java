@@ -32,65 +32,25 @@ import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.FileLink;
 import com.aspose.words.model.ProtectionData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Response for the request of data about protection
+ * ProtectionDataResponse
  */
-@ApiModel(description = "Response for the request of data about protection")
 
-public class ProtectionDataResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("DocumentLink")
+public class ProtectionDataResponse extends AsposeResponse {
+  @SerializedName("DocumentLink")
   private FileLink documentLink = null;
 
-  @JsonProperty("ProtectionData")
+  @SerializedName("ProtectionData")
   private ProtectionData protectionData = null;
-
-  public ProtectionDataResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public ProtectionDataResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public ProtectionDataResponse documentLink(FileLink documentLink) {
     this.documentLink = documentLink;
@@ -98,10 +58,10 @@ public class ProtectionDataResponse {
   }
 
    /**
-   * Link to the document
+   * Get documentLink
    * @return documentLink
   **/
-  @ApiModelProperty(value = "Link to the document")
+  @ApiModelProperty(value = "")
   public FileLink getDocumentLink() {
     return documentLink;
   }
@@ -116,10 +76,10 @@ public class ProtectionDataResponse {
   }
 
    /**
-   * Protection&#39;s data of the document
+   * Get protectionData
    * @return protectionData
   **/
-  @ApiModelProperty(value = "Protection's data of the document")
+  @ApiModelProperty(value = "")
   public ProtectionData getProtectionData() {
     return protectionData;
   }
@@ -138,15 +98,14 @@ public class ProtectionDataResponse {
       return false;
     }
     ProtectionDataResponse protectionDataResponse = (ProtectionDataResponse) o;
-    return Objects.equals(this.code, protectionDataResponse.code) &&
-        Objects.equals(this.status, protectionDataResponse.status) &&
-        Objects.equals(this.documentLink, protectionDataResponse.documentLink) &&
-        Objects.equals(this.protectionData, protectionDataResponse.protectionData);
+    return Objects.equals(this.documentLink, protectionDataResponse.documentLink) &&
+        Objects.equals(this.protectionData, protectionDataResponse.protectionData) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, documentLink, protectionData);
+    return Objects.hash(documentLink, protectionData, super.hashCode());
   }
 
 
@@ -154,9 +113,7 @@ public class ProtectionDataResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProtectionDataResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    documentLink: ").append(toIndentedString(documentLink)).append("\n");
     sb.append("    protectionData: ").append(toIndentedString(protectionData)).append("\n");
     sb.append("}");

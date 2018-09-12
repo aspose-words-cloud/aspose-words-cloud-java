@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.Bookmark;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.
+ * BookmarkResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.")
 
-public class BookmarkResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("Bookmark")
+public class BookmarkResponse extends AsposeResponse {
+  @SerializedName("Bookmark")
   private Bookmark bookmark = null;
-
-  public BookmarkResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public BookmarkResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public BookmarkResponse bookmark(Bookmark bookmark) {
     this.bookmark = bookmark;
@@ -94,10 +54,10 @@ public class BookmarkResponse {
   }
 
    /**
-   * Bookmark.
+   * Get bookmark
    * @return bookmark
   **/
-  @ApiModelProperty(value = "Bookmark.")
+  @ApiModelProperty(value = "")
   public Bookmark getBookmark() {
     return bookmark;
   }
@@ -116,14 +76,13 @@ public class BookmarkResponse {
       return false;
     }
     BookmarkResponse bookmarkResponse = (BookmarkResponse) o;
-    return Objects.equals(this.code, bookmarkResponse.code) &&
-        Objects.equals(this.status, bookmarkResponse.status) &&
-        Objects.equals(this.bookmark, bookmarkResponse.bookmark);
+    return Objects.equals(this.bookmark, bookmarkResponse.bookmark) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, bookmark);
+    return Objects.hash(bookmark, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class BookmarkResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BookmarkResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bookmark: ").append(toIndentedString(bookmark)).append("\n");
     sb.append("}");
     return sb.toString();

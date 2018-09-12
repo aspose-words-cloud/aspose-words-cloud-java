@@ -31,54 +31,52 @@ import java.io.File;
 /*
  * Request model for postDocumentSaveAs operation.
  */
-public class PostDocumentSaveAsRequest
-{
+public class PostDocumentSaveAsRequest {
     /*
-     * The document name.
+     * 
      */
     private String Name;
-	
+
     /*
-     * Save options.
+     * 
      */
     private SaveOptionsData SaveOptionsData;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
-	
+
     /*
      * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String DestFileName;
-	
+
     /*
      * Folder in filestorage with custom fonts.
      */
     private String FontsLocation;
     
-	
     /*
      * Initializes a new instance of the postDocumentSaveAsRequest class.
      *  
-     * @param String name The document name.
-     * @param SaveOptionsData saveOptionsData Save options.
+     * @param String name 
+     * @param SaveOptionsData saveOptionsData 
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -86,8 +84,7 @@ public class PostDocumentSaveAsRequest
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public PostDocumentSaveAsRequest(String name, SaveOptionsData saveOptionsData, String folder, String storage, String loadEncoding, String password, String destFileName, String fontsLocation)             
-    {
+    public PostDocumentSaveAsRequest(String name,  SaveOptionsData saveOptionsData,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String fontsLocation) {
         Name = name;
         SaveOptionsData = saveOptionsData;
         Folder = folder;
@@ -99,130 +96,114 @@ public class PostDocumentSaveAsRequest
     }
 
     /*
-     *  Gets The document name.
+     * 
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
-     * Sets The document name.
+     * 
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
-     *  Gets Save options.
+     * 
      */
-    public SaveOptionsData getSaveOptionsData()
-    {
+    public SaveOptionsData getSaveOptionsData() {
         return SaveOptionsData;
     }
 
     /*
-     * Sets Save options.
+     * 
      */
-    public void setSaveOptionsData(SaveOptionsData value)
-    {
+    public void setSaveOptionsData(SaveOptionsData value) {
         SaveOptionsData = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
-	
+
     /*
      *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getDestFileName()
-    {
+    public String getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName(String value)
-    {
+    public void setDestFileName(String value) {
         DestFileName = value;
     }
-	
+
     /*
      *  Gets Folder in filestorage with custom fonts.
      */
-    public String getFontsLocation()
-    {
+    public String getFontsLocation() {
         return FontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
-    public void setFontsLocation(String value)
-    {
+    public void setFontsLocation(String value) {
         FontsLocation = value;
     }
 }

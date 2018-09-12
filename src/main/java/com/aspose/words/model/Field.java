@@ -31,86 +31,25 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FieldLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Field
  */
-@ApiModel(description = "Field")
 
-public class Field {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("FieldCode")
-  private String fieldCode = null;
-
-  @JsonProperty("LocaleId")
+public class Field extends FieldLink {
+  @SerializedName("LocaleId")
   private String localeId = null;
 
-  @JsonProperty("Result")
+  @SerializedName("Result")
   private String result = null;
-
-  public Field link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public Field nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
-  public Field fieldCode(String fieldCode) {
-    this.fieldCode = fieldCode;
-    return this;
-  }
-
-   /**
-   * Field code
-   * @return fieldCode
-  **/
-  @ApiModelProperty(value = "Field code")
-  public String getFieldCode() {
-    return fieldCode;
-  }
-
-  public void setFieldCode(String fieldCode) {
-    this.fieldCode = fieldCode;
-  }
 
   public Field localeId(String localeId) {
     this.localeId = localeId;
@@ -118,10 +57,10 @@ public class Field {
   }
 
    /**
-   * Gets or sets LCID of the field.
+   * Get localeId
    * @return localeId
   **/
-  @ApiModelProperty(value = "Gets or sets LCID of the field.")
+  @ApiModelProperty(value = "")
   public String getLocaleId() {
     return localeId;
   }
@@ -136,10 +75,10 @@ public class Field {
   }
 
    /**
-   * Field result
+   * Get result
    * @return result
   **/
-  @ApiModelProperty(value = "Field result")
+  @ApiModelProperty(value = "")
   public String getResult() {
     return result;
   }
@@ -158,16 +97,14 @@ public class Field {
       return false;
     }
     Field field = (Field) o;
-    return Objects.equals(this.link, field.link) &&
-        Objects.equals(this.nodeId, field.nodeId) &&
-        Objects.equals(this.fieldCode, field.fieldCode) &&
-        Objects.equals(this.localeId, field.localeId) &&
-        Objects.equals(this.result, field.result);
+    return Objects.equals(this.localeId, field.localeId) &&
+        Objects.equals(this.result, field.result) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, fieldCode, localeId, result);
+    return Objects.hash(localeId, result, super.hashCode());
   }
 
 
@@ -175,10 +112,7 @@ public class Field {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Field {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
-    sb.append("    fieldCode: ").append(toIndentedString(fieldCode)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    localeId: ").append(toIndentedString(localeId)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");

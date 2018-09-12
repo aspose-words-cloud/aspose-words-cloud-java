@@ -32,43 +32,24 @@ import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.ParagraphLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of links to paragraphs
+ * ParagraphLinkCollection
  */
-@ApiModel(description = "Collection of links to paragraphs")
 
-public class ParagraphLinkCollection {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("ParagraphLinkList")
+public class ParagraphLinkCollection extends LinkElement {
+  @SerializedName("ParagraphLinkList")
   private List<ParagraphLink> paragraphLinkList = null;
-
-  public ParagraphLinkCollection link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public ParagraphLinkCollection paragraphLinkList(List<ParagraphLink> paragraphLinkList) {
     this.paragraphLinkList = paragraphLinkList;
@@ -84,10 +65,10 @@ public class ParagraphLinkCollection {
   }
 
    /**
-   * Collection of paragraph&#39;s links
+   * Get paragraphLinkList
    * @return paragraphLinkList
   **/
-  @ApiModelProperty(value = "Collection of paragraph's links")
+  @ApiModelProperty(value = "")
   public List<ParagraphLink> getParagraphLinkList() {
     return paragraphLinkList;
   }
@@ -106,13 +87,13 @@ public class ParagraphLinkCollection {
       return false;
     }
     ParagraphLinkCollection paragraphLinkCollection = (ParagraphLinkCollection) o;
-    return Objects.equals(this.link, paragraphLinkCollection.link) &&
-        Objects.equals(this.paragraphLinkList, paragraphLinkCollection.paragraphLinkList);
+    return Objects.equals(this.paragraphLinkList, paragraphLinkCollection.paragraphLinkList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, paragraphLinkList);
+    return Objects.hash(paragraphLinkList, super.hashCode());
   }
 
 
@@ -120,8 +101,7 @@ public class ParagraphLinkCollection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphLinkCollection {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    paragraphLinkList: ").append(toIndentedString(paragraphLinkList)).append("\n");
     sb.append("}");
     return sb.toString();

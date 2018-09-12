@@ -31,43 +31,24 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents drawing objects collection DTO.
+ * DrawingObjectCollection
  */
-@ApiModel(description = "Represents drawing objects collection DTO.")
 
-public class DrawingObjectCollection {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("List")
+public class DrawingObjectCollection extends LinkElement {
+  @SerializedName("List")
   private List<LinkElement> list = null;
-
-  public DrawingObjectCollection link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public DrawingObjectCollection list(List<LinkElement> list) {
     this.list = list;
@@ -83,10 +64,10 @@ public class DrawingObjectCollection {
   }
 
    /**
-   * Collection of DrawingObjects links 
+   * Get list
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of DrawingObjects links ")
+  @ApiModelProperty(value = "")
   public List<LinkElement> getList() {
     return list;
   }
@@ -105,13 +86,13 @@ public class DrawingObjectCollection {
       return false;
     }
     DrawingObjectCollection drawingObjectCollection = (DrawingObjectCollection) o;
-    return Objects.equals(this.link, drawingObjectCollection.link) &&
-        Objects.equals(this.list, drawingObjectCollection.list);
+    return Objects.equals(this.list, drawingObjectCollection.list) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, list);
+    return Objects.hash(list, super.hashCode());
   }
 
 
@@ -119,8 +100,7 @@ public class DrawingObjectCollection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectCollection {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

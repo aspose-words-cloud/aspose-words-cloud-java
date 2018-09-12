@@ -31,57 +31,54 @@ import java.io.File;
 /*
  * Request model for postCompareDocument operation.
  */
-public class PostCompareDocumentRequest
-{
+public class PostCompareDocumentRequest {
     /*
-     * Original document name.
+     * 
      */
     private String Name;
-	
+
     /*
-     * with a document to compare.            
+     * 
      */
     private CompareData CompareData;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
-	
+
     /*
      * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String DestFileName;
     
-	
     /*
      * Initializes a new instance of the postCompareDocumentRequest class.
      *  
-     * @param String name Original document name.
-     * @param CompareData compareData with a document to compare.            
+     * @param String name 
+     * @param CompareData compareData 
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public PostCompareDocumentRequest(String name, CompareData compareData, String folder, String storage, String loadEncoding, String password, String destFileName)             
-    {
+    public PostCompareDocumentRequest(String name,  CompareData compareData,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
         Name = name;
         CompareData = compareData;
         Folder = folder;
@@ -92,114 +89,100 @@ public class PostCompareDocumentRequest
     }
 
     /*
-     *  Gets Original document name.
+     * 
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
-     * Sets Original document name.
+     * 
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
-     *  Gets with a document to compare.            
+     * 
      */
-    public CompareData getCompareData()
-    {
+    public CompareData getCompareData() {
         return CompareData;
     }
 
     /*
-     * Sets with a document to compare.            
+     * 
      */
-    public void setCompareData(CompareData value)
-    {
+    public void setCompareData(CompareData value) {
         CompareData = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
-	
+
     /*
      *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getDestFileName()
-    {
+    public String getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName(String value)
-    {
+    public void setDestFileName(String value) {
         DestFileName = value;
     }
 }

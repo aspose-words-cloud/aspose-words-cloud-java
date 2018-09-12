@@ -30,22 +30,24 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.SaveOptionsData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Contains data for load web document
+ * LoadWebDocumentData
  */
-@ApiModel(description = "Contains data for load web document")
 
 public class LoadWebDocumentData {
-  @JsonProperty("LoadingDocumentUrl")
+  @SerializedName("LoadingDocumentUrl")
   private String loadingDocumentUrl = null;
 
-  @JsonProperty("SaveOptions")
+  @SerializedName("SaveOptions")
   private SaveOptionsData saveOptions = null;
 
   public LoadWebDocumentData loadingDocumentUrl(String loadingDocumentUrl) {
@@ -54,10 +56,10 @@ public class LoadWebDocumentData {
   }
 
    /**
-   * Web document url
+   * Get loadingDocumentUrl
    * @return loadingDocumentUrl
   **/
-  @ApiModelProperty(value = "Web document url")
+  @ApiModelProperty(value = "")
   public String getLoadingDocumentUrl() {
     return loadingDocumentUrl;
   }
@@ -72,10 +74,10 @@ public class LoadWebDocumentData {
   }
 
    /**
-   * Save options
+   * Get saveOptions
    * @return saveOptions
   **/
-  @ApiModelProperty(value = "Save options")
+  @ApiModelProperty(value = "")
   public SaveOptionsData getSaveOptions() {
     return saveOptions;
   }

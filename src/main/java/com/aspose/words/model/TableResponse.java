@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.Table;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}
+ * TableResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}")
 
-public class TableResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("Table")
+public class TableResponse extends AsposeResponse {
+  @SerializedName("Table")
   private Table table = null;
-
-  public TableResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public TableResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public TableResponse table(Table table) {
     this.table = table;
@@ -94,10 +54,10 @@ public class TableResponse {
   }
 
    /**
-   * Table.
+   * Get table
    * @return table
   **/
-  @ApiModelProperty(value = "Table.")
+  @ApiModelProperty(value = "")
   public Table getTable() {
     return table;
   }
@@ -116,14 +76,13 @@ public class TableResponse {
       return false;
     }
     TableResponse tableResponse = (TableResponse) o;
-    return Objects.equals(this.code, tableResponse.code) &&
-        Objects.equals(this.status, tableResponse.status) &&
-        Objects.equals(this.table, tableResponse.table);
+    return Objects.equals(this.table, tableResponse.table) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, table);
+    return Objects.hash(table, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class TableResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("}");
     return sb.toString();

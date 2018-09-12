@@ -31,30 +31,30 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Represents the page setup properties of a section.             
+ * PageSetup
  */
-@ApiModel(description = "Represents the page setup properties of a section.             ")
 
-public class PageSetup {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("Bidi")
+public class PageSetup extends LinkElement {
+  @SerializedName("Bidi")
   private Boolean bidi = null;
 
-  @JsonProperty("BorderAlwaysInFront")
+  @SerializedName("BorderAlwaysInFront")
   private Boolean borderAlwaysInFront = null;
 
   /**
-   * Specifies which pages the page border is printed on.             
+   * Gets or Sets borderAppliesTo
    */
+  @JsonAdapter(BorderAppliesToEnum.Adapter.class)
   public enum BorderAppliesToEnum {
     ALLPAGES("AllPages"),
     
@@ -68,7 +68,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -78,7 +77,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static BorderAppliesToEnum fromValue(String text) {
       for (BorderAppliesToEnum b : BorderAppliesToEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -87,14 +85,28 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<BorderAppliesToEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BorderAppliesToEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BorderAppliesToEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return BorderAppliesToEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("BorderAppliesTo")
+  @SerializedName("BorderAppliesTo")
   private BorderAppliesToEnum borderAppliesTo = null;
 
   /**
-   * Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             
+   * Gets or Sets borderDistanceFrom
    */
+  @JsonAdapter(BorderDistanceFromEnum.Adapter.class)
   public enum BorderDistanceFromEnum {
     TEXT("Text"),
     
@@ -106,7 +118,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -116,7 +127,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static BorderDistanceFromEnum fromValue(String text) {
       for (BorderDistanceFromEnum b : BorderDistanceFromEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -125,41 +135,55 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<BorderDistanceFromEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final BorderDistanceFromEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public BorderDistanceFromEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return BorderDistanceFromEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("BorderDistanceFrom")
+  @SerializedName("BorderDistanceFrom")
   private BorderDistanceFromEnum borderDistanceFrom = null;
 
-  @JsonProperty("BottomMargin")
+  @SerializedName("BottomMargin")
   private Double bottomMargin = null;
 
-  @JsonProperty("DifferentFirstPageHeaderFooter")
+  @SerializedName("DifferentFirstPageHeaderFooter")
   private Boolean differentFirstPageHeaderFooter = null;
 
-  @JsonProperty("FirstPageTray")
+  @SerializedName("FirstPageTray")
   private Integer firstPageTray = null;
 
-  @JsonProperty("FooterDistance")
+  @SerializedName("FooterDistance")
   private Double footerDistance = null;
 
-  @JsonProperty("Gutter")
+  @SerializedName("Gutter")
   private Double gutter = null;
 
-  @JsonProperty("HeaderDistance")
+  @SerializedName("HeaderDistance")
   private Double headerDistance = null;
 
-  @JsonProperty("LeftMargin")
+  @SerializedName("LeftMargin")
   private Double leftMargin = null;
 
-  @JsonProperty("LineNumberCountBy")
+  @SerializedName("LineNumberCountBy")
   private Integer lineNumberCountBy = null;
 
-  @JsonProperty("LineNumberDistanceFromText")
+  @SerializedName("LineNumberDistanceFromText")
   private Double lineNumberDistanceFromText = null;
 
   /**
-   * Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             
+   * Gets or Sets lineNumberRestartMode
    */
+  @JsonAdapter(LineNumberRestartModeEnum.Adapter.class)
   public enum LineNumberRestartModeEnum {
     RESTARTPAGE("RestartPage"),
     
@@ -173,7 +197,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -183,7 +206,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static LineNumberRestartModeEnum fromValue(String text) {
       for (LineNumberRestartModeEnum b : LineNumberRestartModeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -192,17 +214,31 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<LineNumberRestartModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LineNumberRestartModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LineNumberRestartModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LineNumberRestartModeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("LineNumberRestartMode")
+  @SerializedName("LineNumberRestartMode")
   private LineNumberRestartModeEnum lineNumberRestartMode = null;
 
-  @JsonProperty("LineStartingNumber")
+  @SerializedName("LineStartingNumber")
   private Integer lineStartingNumber = null;
 
   /**
-   * Returns or sets the orientation of the page.             
+   * Gets or Sets orientation
    */
+  @JsonAdapter(OrientationEnum.Adapter.class)
   public enum OrientationEnum {
     PORTRAIT("Portrait"),
     
@@ -214,7 +250,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -224,7 +259,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static OrientationEnum fromValue(String text) {
       for (OrientationEnum b : OrientationEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -233,20 +267,34 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<OrientationEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OrientationEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OrientationEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OrientationEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Orientation")
+  @SerializedName("Orientation")
   private OrientationEnum orientation = null;
 
-  @JsonProperty("OtherPagesTray")
+  @SerializedName("OtherPagesTray")
   private Integer otherPagesTray = null;
 
-  @JsonProperty("PageHeight")
+  @SerializedName("PageHeight")
   private Double pageHeight = null;
 
   /**
-   * Gets or sets the page number format.             
+   * Gets or Sets pageNumberStyle
    */
+  @JsonAdapter(PageNumberStyleEnum.Adapter.class)
   public enum PageNumberStyleEnum {
     ARABIC("Arabic"),
     
@@ -378,7 +426,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -388,7 +435,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static PageNumberStyleEnum fromValue(String text) {
       for (PageNumberStyleEnum b : PageNumberStyleEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -397,20 +443,34 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<PageNumberStyleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PageNumberStyleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PageNumberStyleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PageNumberStyleEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("PageNumberStyle")
+  @SerializedName("PageNumberStyle")
   private PageNumberStyleEnum pageNumberStyle = null;
 
-  @JsonProperty("PageStartingNumber")
+  @SerializedName("PageStartingNumber")
   private Integer pageStartingNumber = null;
 
-  @JsonProperty("PageWidth")
+  @SerializedName("PageWidth")
   private Double pageWidth = null;
 
   /**
-   * Returns or sets the paper size.             
+   * Gets or Sets paperSize
    */
+  @JsonAdapter(PaperSizeEnum.Adapter.class)
   public enum PaperSizeEnum {
     A3("A3"),
     
@@ -452,7 +512,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -462,7 +521,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static PaperSizeEnum fromValue(String text) {
       for (PaperSizeEnum b : PaperSizeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -471,23 +529,37 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<PaperSizeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PaperSizeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PaperSizeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PaperSizeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("PaperSize")
+  @SerializedName("PaperSize")
   private PaperSizeEnum paperSize = null;
 
-  @JsonProperty("RestartPageNumbering")
+  @SerializedName("RestartPageNumbering")
   private Boolean restartPageNumbering = null;
 
-  @JsonProperty("RightMargin")
+  @SerializedName("RightMargin")
   private Double rightMargin = null;
 
-  @JsonProperty("RtlGutter")
+  @SerializedName("RtlGutter")
   private Boolean rtlGutter = null;
 
   /**
-   * Returns or sets the type of section break for the specified object.             
+   * Gets or Sets sectionStart
    */
+  @JsonAdapter(SectionStartEnum.Adapter.class)
   public enum SectionStartEnum {
     CONTINUOUS("Continuous"),
     
@@ -505,7 +577,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -515,7 +586,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static SectionStartEnum fromValue(String text) {
       for (SectionStartEnum b : SectionStartEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -524,20 +594,34 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<SectionStartEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SectionStartEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SectionStartEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SectionStartEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("SectionStart")
+  @SerializedName("SectionStart")
   private SectionStartEnum sectionStart = null;
 
-  @JsonProperty("SuppressEndnotes")
+  @SerializedName("SuppressEndnotes")
   private Boolean suppressEndnotes = null;
 
-  @JsonProperty("TopMargin")
+  @SerializedName("TopMargin")
   private Double topMargin = null;
 
   /**
-   * Returns or sets the vertical alignment of text on each page in a document or section.             
+   * Gets or Sets verticalAlignment
    */
+  @JsonAdapter(VerticalAlignmentEnum.Adapter.class)
   public enum VerticalAlignmentEnum {
     TOP("Top"),
     
@@ -553,7 +637,6 @@ public class PageSetup {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -563,7 +646,6 @@ public class PageSetup {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static VerticalAlignmentEnum fromValue(String text) {
       for (VerticalAlignmentEnum b : VerticalAlignmentEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -572,28 +654,23 @@ public class PageSetup {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<VerticalAlignmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VerticalAlignmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VerticalAlignmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return VerticalAlignmentEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("VerticalAlignment")
+  @SerializedName("VerticalAlignment")
   private VerticalAlignmentEnum verticalAlignment = null;
-
-  public PageSetup link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public PageSetup bidi(Boolean bidi) {
     this.bidi = bidi;
@@ -601,11 +678,11 @@ public class PageSetup {
   }
 
    /**
-   * Specifies that this section contains bidirectional (complex scripts) text.             
+   * Get bidi
    * @return bidi
   **/
-  @ApiModelProperty(value = "Specifies that this section contains bidirectional (complex scripts) text.             ")
-  public Boolean isBidi() {
+  @ApiModelProperty(value = "")
+  public Boolean isisBidi() {
     return bidi;
   }
 
@@ -619,11 +696,11 @@ public class PageSetup {
   }
 
    /**
-   * Specifies where the page border is positioned relative to intersecting texts and objects.             
+   * Get borderAlwaysInFront
    * @return borderAlwaysInFront
   **/
-  @ApiModelProperty(value = "Specifies where the page border is positioned relative to intersecting texts and objects.             ")
-  public Boolean isBorderAlwaysInFront() {
+  @ApiModelProperty(value = "")
+  public Boolean isisBorderAlwaysInFront() {
     return borderAlwaysInFront;
   }
 
@@ -637,10 +714,10 @@ public class PageSetup {
   }
 
    /**
-   * Specifies which pages the page border is printed on.             
+   * Get borderAppliesTo
    * @return borderAppliesTo
   **/
-  @ApiModelProperty(value = "Specifies which pages the page border is printed on.             ")
+  @ApiModelProperty(value = "")
   public BorderAppliesToEnum getBorderAppliesTo() {
     return borderAppliesTo;
   }
@@ -655,10 +732,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             
+   * Get borderDistanceFrom
    * @return borderDistanceFrom
   **/
-  @ApiModelProperty(value = "Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             ")
+  @ApiModelProperty(value = "")
   public BorderDistanceFromEnum getBorderDistanceFrom() {
     return borderDistanceFrom;
   }
@@ -673,10 +750,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.             
+   * Get bottomMargin
    * @return bottomMargin
   **/
-  @ApiModelProperty(value = "Returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.             ")
+  @ApiModelProperty(value = "")
   public Double getBottomMargin() {
     return bottomMargin;
   }
@@ -691,11 +768,11 @@ public class PageSetup {
   }
 
    /**
-   * True if a different header or footer is used on the first page.             
+   * Get differentFirstPageHeaderFooter
    * @return differentFirstPageHeaderFooter
   **/
-  @ApiModelProperty(value = "True if a different header or footer is used on the first page.             ")
-  public Boolean isDifferentFirstPageHeaderFooter() {
+  @ApiModelProperty(value = "")
+  public Boolean isisDifferentFirstPageHeaderFooter() {
     return differentFirstPageHeaderFooter;
   }
 
@@ -709,10 +786,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.             
+   * Get firstPageTray
    * @return firstPageTray
   **/
-  @ApiModelProperty(value = "Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.             ")
+  @ApiModelProperty(value = "")
   public Integer getFirstPageTray() {
     return firstPageTray;
   }
@@ -727,10 +804,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the distance (in points) between the footer and the bottom of the page.             
+   * Get footerDistance
    * @return footerDistance
   **/
-  @ApiModelProperty(value = "Returns or sets the distance (in points) between the footer and the bottom of the page.             ")
+  @ApiModelProperty(value = "")
   public Double getFooterDistance() {
     return footerDistance;
   }
@@ -745,10 +822,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets the amount of extra space added to the margin for document binding.             
+   * Get gutter
    * @return gutter
   **/
-  @ApiModelProperty(value = "Gets or sets the amount of extra space added to the margin for document binding.             ")
+  @ApiModelProperty(value = "")
   public Double getGutter() {
     return gutter;
   }
@@ -763,10 +840,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the distance (in points) between the header and the top of the page.             
+   * Get headerDistance
    * @return headerDistance
   **/
-  @ApiModelProperty(value = "Returns or sets the distance (in points) between the header and the top of the page.             ")
+  @ApiModelProperty(value = "")
   public Double getHeaderDistance() {
     return headerDistance;
   }
@@ -781,10 +858,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.             
+   * Get leftMargin
    * @return leftMargin
   **/
-  @ApiModelProperty(value = "Returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.             ")
+  @ApiModelProperty(value = "")
   public Double getLeftMargin() {
     return leftMargin;
   }
@@ -799,10 +876,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the numeric increment for line numbers.             
+   * Get lineNumberCountBy
    * @return lineNumberCountBy
   **/
-  @ApiModelProperty(value = "Returns or sets the numeric increment for line numbers.             ")
+  @ApiModelProperty(value = "")
   public Integer getLineNumberCountBy() {
     return lineNumberCountBy;
   }
@@ -817,10 +894,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets distance between the right edge of line numbers and the left edge of the document.             
+   * Get lineNumberDistanceFromText
    * @return lineNumberDistanceFromText
   **/
-  @ApiModelProperty(value = "Gets or sets distance between the right edge of line numbers and the left edge of the document.             ")
+  @ApiModelProperty(value = "")
   public Double getLineNumberDistanceFromText() {
     return lineNumberDistanceFromText;
   }
@@ -835,10 +912,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             
+   * Get lineNumberRestartMode
    * @return lineNumberRestartMode
   **/
-  @ApiModelProperty(value = "Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             ")
+  @ApiModelProperty(value = "")
   public LineNumberRestartModeEnum getLineNumberRestartMode() {
     return lineNumberRestartMode;
   }
@@ -853,10 +930,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets the starting line number.             
+   * Get lineStartingNumber
    * @return lineStartingNumber
   **/
-  @ApiModelProperty(value = "Gets or sets the starting line number.             ")
+  @ApiModelProperty(value = "")
   public Integer getLineStartingNumber() {
     return lineStartingNumber;
   }
@@ -871,10 +948,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the orientation of the page.             
+   * Get orientation
    * @return orientation
   **/
-  @ApiModelProperty(value = "Returns or sets the orientation of the page.             ")
+  @ApiModelProperty(value = "")
   public OrientationEnum getOrientation() {
     return orientation;
   }
@@ -889,10 +966,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.             
+   * Get otherPagesTray
    * @return otherPagesTray
   **/
-  @ApiModelProperty(value = "Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.             ")
+  @ApiModelProperty(value = "")
   public Integer getOtherPagesTray() {
     return otherPagesTray;
   }
@@ -907,10 +984,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the height of the page in points.             
+   * Get pageHeight
    * @return pageHeight
   **/
-  @ApiModelProperty(value = "Returns or sets the height of the page in points.             ")
+  @ApiModelProperty(value = "")
   public Double getPageHeight() {
     return pageHeight;
   }
@@ -925,10 +1002,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets the page number format.             
+   * Get pageNumberStyle
    * @return pageNumberStyle
   **/
-  @ApiModelProperty(value = "Gets or sets the page number format.             ")
+  @ApiModelProperty(value = "")
   public PageNumberStyleEnum getPageNumberStyle() {
     return pageNumberStyle;
   }
@@ -943,10 +1020,10 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets the starting page number of the section.             
+   * Get pageStartingNumber
    * @return pageStartingNumber
   **/
-  @ApiModelProperty(value = "Gets or sets the starting page number of the section.             ")
+  @ApiModelProperty(value = "")
   public Integer getPageStartingNumber() {
     return pageStartingNumber;
   }
@@ -961,10 +1038,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the width of the page in points.             
+   * Get pageWidth
    * @return pageWidth
   **/
-  @ApiModelProperty(value = "Returns or sets the width of the page in points.             ")
+  @ApiModelProperty(value = "")
   public Double getPageWidth() {
     return pageWidth;
   }
@@ -979,10 +1056,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the paper size.             
+   * Get paperSize
    * @return paperSize
   **/
-  @ApiModelProperty(value = "Returns or sets the paper size.             ")
+  @ApiModelProperty(value = "")
   public PaperSizeEnum getPaperSize() {
     return paperSize;
   }
@@ -997,11 +1074,11 @@ public class PageSetup {
   }
 
    /**
-   * True if page numbering restarts at the beginning of the section.             
+   * Get restartPageNumbering
    * @return restartPageNumbering
   **/
-  @ApiModelProperty(value = "True if page numbering restarts at the beginning of the section.             ")
-  public Boolean isRestartPageNumbering() {
+  @ApiModelProperty(value = "")
+  public Boolean isisRestartPageNumbering() {
     return restartPageNumbering;
   }
 
@@ -1015,10 +1092,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.             
+   * Get rightMargin
    * @return rightMargin
   **/
-  @ApiModelProperty(value = "Returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.             ")
+  @ApiModelProperty(value = "")
   public Double getRightMargin() {
     return rightMargin;
   }
@@ -1033,11 +1110,11 @@ public class PageSetup {
   }
 
    /**
-   * Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.             
+   * Get rtlGutter
    * @return rtlGutter
   **/
-  @ApiModelProperty(value = "Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.             ")
-  public Boolean isRtlGutter() {
+  @ApiModelProperty(value = "")
+  public Boolean isisRtlGutter() {
     return rtlGutter;
   }
 
@@ -1051,10 +1128,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the type of section break for the specified object.             
+   * Get sectionStart
    * @return sectionStart
   **/
-  @ApiModelProperty(value = "Returns or sets the type of section break for the specified object.             ")
+  @ApiModelProperty(value = "")
   public SectionStartEnum getSectionStart() {
     return sectionStart;
   }
@@ -1069,11 +1146,11 @@ public class PageSetup {
   }
 
    /**
-   * True if endnotes are printed at the end of the next section that doesn&#39;t suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.             
+   * Get suppressEndnotes
    * @return suppressEndnotes
   **/
-  @ApiModelProperty(value = "True if endnotes are printed at the end of the next section that doesn't suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.             ")
-  public Boolean isSuppressEndnotes() {
+  @ApiModelProperty(value = "")
+  public Boolean isisSuppressEndnotes() {
     return suppressEndnotes;
   }
 
@@ -1087,10 +1164,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.             
+   * Get topMargin
    * @return topMargin
   **/
-  @ApiModelProperty(value = "Returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.             ")
+  @ApiModelProperty(value = "")
   public Double getTopMargin() {
     return topMargin;
   }
@@ -1105,10 +1182,10 @@ public class PageSetup {
   }
 
    /**
-   * Returns or sets the vertical alignment of text on each page in a document or section.             
+   * Get verticalAlignment
    * @return verticalAlignment
   **/
-  @ApiModelProperty(value = "Returns or sets the vertical alignment of text on each page in a document or section.             ")
+  @ApiModelProperty(value = "")
   public VerticalAlignmentEnum getVerticalAlignment() {
     return verticalAlignment;
   }
@@ -1127,8 +1204,7 @@ public class PageSetup {
       return false;
     }
     PageSetup pageSetup = (PageSetup) o;
-    return Objects.equals(this.link, pageSetup.link) &&
-        Objects.equals(this.bidi, pageSetup.bidi) &&
+    return Objects.equals(this.bidi, pageSetup.bidi) &&
         Objects.equals(this.borderAlwaysInFront, pageSetup.borderAlwaysInFront) &&
         Objects.equals(this.borderAppliesTo, pageSetup.borderAppliesTo) &&
         Objects.equals(this.borderDistanceFrom, pageSetup.borderDistanceFrom) &&
@@ -1156,12 +1232,13 @@ public class PageSetup {
         Objects.equals(this.sectionStart, pageSetup.sectionStart) &&
         Objects.equals(this.suppressEndnotes, pageSetup.suppressEndnotes) &&
         Objects.equals(this.topMargin, pageSetup.topMargin) &&
-        Objects.equals(this.verticalAlignment, pageSetup.verticalAlignment);
+        Objects.equals(this.verticalAlignment, pageSetup.verticalAlignment) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, bidi, borderAlwaysInFront, borderAppliesTo, borderDistanceFrom, bottomMargin, differentFirstPageHeaderFooter, firstPageTray, footerDistance, gutter, headerDistance, leftMargin, lineNumberCountBy, lineNumberDistanceFromText, lineNumberRestartMode, lineStartingNumber, orientation, otherPagesTray, pageHeight, pageNumberStyle, pageStartingNumber, pageWidth, paperSize, restartPageNumbering, rightMargin, rtlGutter, sectionStart, suppressEndnotes, topMargin, verticalAlignment);
+    return Objects.hash(bidi, borderAlwaysInFront, borderAppliesTo, borderDistanceFrom, bottomMargin, differentFirstPageHeaderFooter, firstPageTray, footerDistance, gutter, headerDistance, leftMargin, lineNumberCountBy, lineNumberDistanceFromText, lineNumberRestartMode, lineStartingNumber, orientation, otherPagesTray, pageHeight, pageNumberStyle, pageStartingNumber, pageWidth, paperSize, restartPageNumbering, rightMargin, rtlGutter, sectionStart, suppressEndnotes, topMargin, verticalAlignment, super.hashCode());
   }
 
 
@@ -1169,8 +1246,7 @@ public class PageSetup {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageSetup {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
     sb.append("    borderAlwaysInFront: ").append(toIndentedString(borderAlwaysInFront)).append("\n");
     sb.append("    borderAppliesTo: ").append(toIndentedString(borderAppliesTo)).append("\n");

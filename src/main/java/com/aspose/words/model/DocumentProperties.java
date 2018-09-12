@@ -32,43 +32,24 @@ import java.util.Arrays;
 import com.aspose.words.model.DocumentProperty;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of document properties.
+ * DocumentProperties
  */
-@ApiModel(description = "Collection of document properties.")
 
-public class DocumentProperties {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("List")
+public class DocumentProperties extends LinkElement {
+  @SerializedName("List")
   private List<DocumentProperty> list = null;
-
-  public DocumentProperties link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public DocumentProperties list(List<DocumentProperty> list) {
     this.list = list;
@@ -84,10 +65,10 @@ public class DocumentProperties {
   }
 
    /**
-   * Collection of document properties.
+   * Get list
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of document properties.")
+  @ApiModelProperty(value = "")
   public List<DocumentProperty> getList() {
     return list;
   }
@@ -106,13 +87,13 @@ public class DocumentProperties {
       return false;
     }
     DocumentProperties documentProperties = (DocumentProperties) o;
-    return Objects.equals(this.link, documentProperties.link) &&
-        Objects.equals(this.list, documentProperties.list);
+    return Objects.equals(this.list, documentProperties.list) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, list);
+    return Objects.hash(list, super.hashCode());
   }
 
 
@@ -120,8 +101,7 @@ public class DocumentProperties {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentProperties {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -29,34 +29,40 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Base class for all responses.
+ * AsposeResponse
  */
-@ApiModel(description = "Base class for all responses.")
+
 
 public class AsposeResponse {
-  @JsonProperty("Code")
+  @SerializedName("Code")
   private Integer code = null;
 
-  @JsonProperty("Status")
+  @SerializedName("Status")
   private String status = null;
 
+  public AsposeResponse() {
+    this.Type = this.getClass().getSimpleName();
+  }
   public AsposeResponse code(Integer code) {
     this.code = code;
     return this;
   }
 
    /**
-   * Response status code.
+   * Get code
    * @return code
   **/
-  @ApiModelProperty(required = true, value = "Response status code.")
+  @ApiModelProperty(required = true, value = "")
   public Integer getCode() {
     return code;
   }
@@ -71,10 +77,10 @@ public class AsposeResponse {
   }
 
    /**
-   * Response status.
+   * Get status
    * @return status
   **/
-  @ApiModelProperty(value = "Response status.")
+  @ApiModelProperty(value = "")
   public String getStatus() {
     return status;
   }

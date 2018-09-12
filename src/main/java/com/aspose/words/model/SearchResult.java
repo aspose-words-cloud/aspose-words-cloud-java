@@ -30,22 +30,24 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.DocumentPosition;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Result of search operation.
+ * SearchResult
  */
-@ApiModel(description = "Result of search operation.")
 
 public class SearchResult {
-  @JsonProperty("RangeStart")
+  @SerializedName("RangeStart")
   private DocumentPosition rangeStart = null;
 
-  @JsonProperty("RangeEnd")
+  @SerializedName("RangeEnd")
   private DocumentPosition rangeEnd = null;
 
   public SearchResult rangeStart(DocumentPosition rangeStart) {
@@ -54,10 +56,10 @@ public class SearchResult {
   }
 
    /**
-   * Link to result range start node.
+   * Get rangeStart
    * @return rangeStart
   **/
-  @ApiModelProperty(value = "Link to result range start node.")
+  @ApiModelProperty(value = "")
   public DocumentPosition getRangeStart() {
     return rangeStart;
   }
@@ -72,10 +74,10 @@ public class SearchResult {
   }
 
    /**
-   * Link to result range end node.
+   * Get rangeEnd
    * @return rangeEnd
   **/
-  @ApiModelProperty(value = "Link to result range end node.")
+  @ApiModelProperty(value = "")
   public DocumentPosition getRangeEnd() {
     return rangeEnd;
   }

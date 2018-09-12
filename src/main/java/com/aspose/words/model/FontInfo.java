@@ -29,28 +29,30 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Font info
+ * FontInfo
  */
-@ApiModel(description = "Font info")
 
 public class FontInfo {
-  @JsonProperty("FontFamilyName")
+  @SerializedName("FontFamilyName")
   private String fontFamilyName = null;
 
-  @JsonProperty("FullFontName")
+  @SerializedName("FullFontName")
   private String fullFontName = null;
 
-  @JsonProperty("Version")
+  @SerializedName("Version")
   private String version = null;
 
-  @JsonProperty("FilePath")
+  @SerializedName("FilePath")
   private String filePath = null;
 
   public FontInfo fontFamilyName(String fontFamilyName) {
@@ -59,10 +61,10 @@ public class FontInfo {
   }
 
    /**
-   * Family name of the font.
+   * Get fontFamilyName
    * @return fontFamilyName
   **/
-  @ApiModelProperty(value = "Family name of the font.")
+  @ApiModelProperty(value = "")
   public String getFontFamilyName() {
     return fontFamilyName;
   }
@@ -77,10 +79,10 @@ public class FontInfo {
   }
 
    /**
-   * Full name of the font.
+   * Get fullFontName
    * @return fullFontName
   **/
-  @ApiModelProperty(value = "Full name of the font.")
+  @ApiModelProperty(value = "")
   public String getFullFontName() {
     return fullFontName;
   }
@@ -95,10 +97,10 @@ public class FontInfo {
   }
 
    /**
-   * Version string of the font.
+   * Get version
    * @return version
   **/
-  @ApiModelProperty(value = "Version string of the font.")
+  @ApiModelProperty(value = "")
   public String getVersion() {
     return version;
   }
@@ -113,10 +115,10 @@ public class FontInfo {
   }
 
    /**
-   * Path to the font file if any.
+   * Get filePath
    * @return filePath
   **/
-  @ApiModelProperty(value = "Path to the font file if any.")
+  @ApiModelProperty(value = "")
   public String getFilePath() {
     return filePath;
   }

@@ -30,21 +30,24 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.StringFormatData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Allows to specify additional System.Drawing.Graphics quality options.
+ * GraphicsQualityOptionsData
  */
-@ApiModel(description = "Allows to specify additional System.Drawing.Graphics quality options.")
 
 public class GraphicsQualityOptionsData {
   /**
-   * Gets or sets a value that specifies how composited images are drawn to this Graphics.
+   * Gets or Sets compositingMode
    */
+  @JsonAdapter(CompositingModeEnum.Adapter.class)
   public enum CompositingModeEnum {
     SOURCEOVER("SourceOver"),
     
@@ -56,7 +59,6 @@ public class GraphicsQualityOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -66,7 +68,6 @@ public class GraphicsQualityOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static CompositingModeEnum fromValue(String text) {
       for (CompositingModeEnum b : CompositingModeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -75,14 +76,28 @@ public class GraphicsQualityOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<CompositingModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CompositingModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CompositingModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return CompositingModeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("CompositingMode")
+  @SerializedName("CompositingMode")
   private CompositingModeEnum compositingMode = null;
 
   /**
-   * Gets or sets the rendering quality of composited images drawn to this Graphics.
+   * Gets or Sets compositingQuality
    */
+  @JsonAdapter(CompositingQualityEnum.Adapter.class)
   public enum CompositingQualityEnum {
     DEFAULT("Default"),
     
@@ -102,7 +117,6 @@ public class GraphicsQualityOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -112,7 +126,6 @@ public class GraphicsQualityOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static CompositingQualityEnum fromValue(String text) {
       for (CompositingQualityEnum b : CompositingQualityEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -121,14 +134,28 @@ public class GraphicsQualityOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<CompositingQualityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CompositingQualityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CompositingQualityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return CompositingQualityEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("CompositingQuality")
+  @SerializedName("CompositingQuality")
   private CompositingQualityEnum compositingQuality = null;
 
   /**
-   * Gets or sets the interpolation mode associated with this Graphics.
+   * Gets or Sets interpolationMode
    */
+  @JsonAdapter(InterpolationModeEnum.Adapter.class)
   public enum InterpolationModeEnum {
     DEFAULT("Default"),
     
@@ -154,7 +181,6 @@ public class GraphicsQualityOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -164,7 +190,6 @@ public class GraphicsQualityOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static InterpolationModeEnum fromValue(String text) {
       for (InterpolationModeEnum b : InterpolationModeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -173,14 +198,28 @@ public class GraphicsQualityOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<InterpolationModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final InterpolationModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public InterpolationModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return InterpolationModeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("InterpolationMode")
+  @SerializedName("InterpolationMode")
   private InterpolationModeEnum interpolationMode = null;
 
   /**
-   * Gets or sets the rendering quality for this Graphics.
+   * Gets or Sets smoothingMode
    */
+  @JsonAdapter(SmoothingModeEnum.Adapter.class)
   public enum SmoothingModeEnum {
     DEFAULT("Default"),
     
@@ -200,7 +239,6 @@ public class GraphicsQualityOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -210,7 +248,6 @@ public class GraphicsQualityOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static SmoothingModeEnum fromValue(String text) {
       for (SmoothingModeEnum b : SmoothingModeEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -219,17 +256,31 @@ public class GraphicsQualityOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<SmoothingModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SmoothingModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SmoothingModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SmoothingModeEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("SmoothingMode")
+  @SerializedName("SmoothingMode")
   private SmoothingModeEnum smoothingMode = null;
 
-  @JsonProperty("StringFormat")
+  @SerializedName("StringFormat")
   private StringFormatData stringFormat = null;
 
   /**
-   * Gets or sets the rendering mode for text associated with this Graphics.
+   * Gets or Sets textRenderingHint
    */
+  @JsonAdapter(TextRenderingHintEnum.Adapter.class)
   public enum TextRenderingHintEnum {
     SYSTEMDEFAULT("SystemDefault"),
     
@@ -249,7 +300,6 @@ public class GraphicsQualityOptionsData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -259,7 +309,6 @@ public class GraphicsQualityOptionsData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static TextRenderingHintEnum fromValue(String text) {
       for (TextRenderingHintEnum b : TextRenderingHintEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -268,9 +317,22 @@ public class GraphicsQualityOptionsData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<TextRenderingHintEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TextRenderingHintEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TextRenderingHintEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TextRenderingHintEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("TextRenderingHint")
+  @SerializedName("TextRenderingHint")
   private TextRenderingHintEnum textRenderingHint = null;
 
   public GraphicsQualityOptionsData compositingMode(CompositingModeEnum compositingMode) {
@@ -279,10 +341,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Gets or sets a value that specifies how composited images are drawn to this Graphics.
+   * Get compositingMode
    * @return compositingMode
   **/
-  @ApiModelProperty(value = "Gets or sets a value that specifies how composited images are drawn to this Graphics.")
+  @ApiModelProperty(value = "")
   public CompositingModeEnum getCompositingMode() {
     return compositingMode;
   }
@@ -297,10 +359,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Gets or sets the rendering quality of composited images drawn to this Graphics.
+   * Get compositingQuality
    * @return compositingQuality
   **/
-  @ApiModelProperty(value = "Gets or sets the rendering quality of composited images drawn to this Graphics.")
+  @ApiModelProperty(value = "")
   public CompositingQualityEnum getCompositingQuality() {
     return compositingQuality;
   }
@@ -315,10 +377,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Gets or sets the interpolation mode associated with this Graphics.
+   * Get interpolationMode
    * @return interpolationMode
   **/
-  @ApiModelProperty(value = "Gets or sets the interpolation mode associated with this Graphics.")
+  @ApiModelProperty(value = "")
   public InterpolationModeEnum getInterpolationMode() {
     return interpolationMode;
   }
@@ -333,10 +395,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Gets or sets the rendering quality for this Graphics.
+   * Get smoothingMode
    * @return smoothingMode
   **/
-  @ApiModelProperty(value = "Gets or sets the rendering quality for this Graphics.")
+  @ApiModelProperty(value = "")
   public SmoothingModeEnum getSmoothingMode() {
     return smoothingMode;
   }
@@ -351,10 +413,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.
+   * Get stringFormat
    * @return stringFormat
   **/
-  @ApiModelProperty(value = "Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.")
+  @ApiModelProperty(value = "")
   public StringFormatData getStringFormat() {
     return stringFormat;
   }
@@ -369,10 +431,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Gets or sets the rendering mode for text associated with this Graphics.
+   * Get textRenderingHint
    * @return textRenderingHint
   **/
-  @ApiModelProperty(value = "Gets or sets the rendering mode for text associated with this Graphics.")
+  @ApiModelProperty(value = "")
   public TextRenderingHintEnum getTextRenderingHint() {
     return textRenderingHint;
   }

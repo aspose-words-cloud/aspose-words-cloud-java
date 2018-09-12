@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.TableRow;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}
+ * TableRowResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}")
 
-public class TableRowResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("Row")
+public class TableRowResponse extends AsposeResponse {
+  @SerializedName("Row")
   private TableRow row = null;
-
-  public TableRowResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public TableRowResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public TableRowResponse row(TableRow row) {
     this.row = row;
@@ -94,10 +54,10 @@ public class TableRowResponse {
   }
 
    /**
-   * Table row.
+   * Get row
    * @return row
   **/
-  @ApiModelProperty(value = "Table row.")
+  @ApiModelProperty(value = "")
   public TableRow getRow() {
     return row;
   }
@@ -116,14 +76,13 @@ public class TableRowResponse {
       return false;
     }
     TableRowResponse tableRowResponse = (TableRowResponse) o;
-    return Objects.equals(this.code, tableRowResponse.code) &&
-        Objects.equals(this.status, tableRowResponse.status) &&
-        Objects.equals(this.row, tableRowResponse.row);
+    return Objects.equals(this.row, tableRowResponse.row) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, row);
+    return Objects.hash(row, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class TableRowResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    row: ").append(toIndentedString(row)).append("\n");
     sb.append("}");
     return sb.toString();

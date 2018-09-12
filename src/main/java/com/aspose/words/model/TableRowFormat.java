@@ -31,33 +31,33 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Represents all formatting for a table row.
+ * TableRowFormat
  */
-@ApiModel(description = "Represents all formatting for a table row.")
 
-public class TableRowFormat {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("AllowBreakAcrossPages")
+public class TableRowFormat extends LinkElement {
+  @SerializedName("AllowBreakAcrossPages")
   private Boolean allowBreakAcrossPages = null;
 
-  @JsonProperty("HeadingFormat")
+  @SerializedName("HeadingFormat")
   private Boolean headingFormat = null;
 
-  @JsonProperty("Height")
+  @SerializedName("Height")
   private Double height = null;
 
   /**
-   * Gets or sets the rule for determining the height of the table row.
+   * Gets or Sets heightRule
    */
+  @JsonAdapter(HeightRuleEnum.Adapter.class)
   public enum HeightRuleEnum {
     ATLEAST("AtLeast"),
     
@@ -71,7 +71,6 @@ public class TableRowFormat {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -81,7 +80,6 @@ public class TableRowFormat {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static HeightRuleEnum fromValue(String text) {
       for (HeightRuleEnum b : HeightRuleEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -90,28 +88,23 @@ public class TableRowFormat {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<HeightRuleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HeightRuleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HeightRuleEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return HeightRuleEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("HeightRule")
+  @SerializedName("HeightRule")
   private HeightRuleEnum heightRule = null;
-
-  public TableRowFormat link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {
     this.allowBreakAcrossPages = allowBreakAcrossPages;
@@ -119,11 +112,11 @@ public class TableRowFormat {
   }
 
    /**
-   * True if the text in a table row is allowed to split across a page break.
+   * Get allowBreakAcrossPages
    * @return allowBreakAcrossPages
   **/
-  @ApiModelProperty(value = "True if the text in a table row is allowed to split across a page break.")
-  public Boolean isAllowBreakAcrossPages() {
+  @ApiModelProperty(value = "")
+  public Boolean isisAllowBreakAcrossPages() {
     return allowBreakAcrossPages;
   }
 
@@ -137,11 +130,11 @@ public class TableRowFormat {
   }
 
    /**
-   * True if the row is repeated as a table heading on every page when the table spans more than one page.
+   * Get headingFormat
    * @return headingFormat
   **/
-  @ApiModelProperty(value = "True if the row is repeated as a table heading on every page when the table spans more than one page.")
-  public Boolean isHeadingFormat() {
+  @ApiModelProperty(value = "")
+  public Boolean isisHeadingFormat() {
     return headingFormat;
   }
 
@@ -155,10 +148,10 @@ public class TableRowFormat {
   }
 
    /**
-   * Gets or sets the height of the table row in points.
+   * Get height
    * @return height
   **/
-  @ApiModelProperty(value = "Gets or sets the height of the table row in points.")
+  @ApiModelProperty(value = "")
   public Double getHeight() {
     return height;
   }
@@ -173,10 +166,10 @@ public class TableRowFormat {
   }
 
    /**
-   * Gets or sets the rule for determining the height of the table row.
+   * Get heightRule
    * @return heightRule
   **/
-  @ApiModelProperty(value = "Gets or sets the rule for determining the height of the table row.")
+  @ApiModelProperty(value = "")
   public HeightRuleEnum getHeightRule() {
     return heightRule;
   }
@@ -195,16 +188,16 @@ public class TableRowFormat {
       return false;
     }
     TableRowFormat tableRowFormat = (TableRowFormat) o;
-    return Objects.equals(this.link, tableRowFormat.link) &&
-        Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
+    return Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
         Objects.equals(this.headingFormat, tableRowFormat.headingFormat) &&
         Objects.equals(this.height, tableRowFormat.height) &&
-        Objects.equals(this.heightRule, tableRowFormat.heightRule);
+        Objects.equals(this.heightRule, tableRowFormat.heightRule) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, allowBreakAcrossPages, headingFormat, height, heightRule);
+    return Objects.hash(allowBreakAcrossPages, headingFormat, height, heightRule, super.hashCode());
   }
 
 
@@ -212,8 +205,7 @@ public class TableRowFormat {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowFormat {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    allowBreakAcrossPages: ").append(toIndentedString(allowBreakAcrossPages)).append("\n");
     sb.append("    headingFormat: ").append(toIndentedString(headingFormat)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");

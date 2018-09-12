@@ -31,51 +31,48 @@ import java.io.File;
 /*
  * Request model for getDocumentHyperlinkByIndex operation.
  */
-public class GetDocumentHyperlinkByIndexRequest
-{
+public class GetDocumentHyperlinkByIndexRequest {
     /*
-     * The document name.
+     * 
      */
     private String Name;
-	
+
     /*
-     * The hyperlink index.
+     * 
      */
     private Integer HyperlinkIndex;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
     
-	
     /*
      * Initializes a new instance of the getDocumentHyperlinkByIndexRequest class.
      *  
-     * @param String name The document name.
-     * @param Integer hyperlinkIndex The hyperlink index.
+     * @param String name 
+     * @param Integer hyperlinkIndex 
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetDocumentHyperlinkByIndexRequest(String name, Integer hyperlinkIndex, String folder, String storage, String loadEncoding, String password)             
-    {
+    public GetDocumentHyperlinkByIndexRequest(String name,  Integer hyperlinkIndex,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
         HyperlinkIndex = hyperlinkIndex;
         Folder = folder;
@@ -85,98 +82,86 @@ public class GetDocumentHyperlinkByIndexRequest
     }
 
     /*
-     *  Gets The document name.
+     * 
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
-     * Sets The document name.
+     * 
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
-     *  Gets The hyperlink index.
+     * 
      */
-    public Integer getHyperlinkIndex()
-    {
+    public Integer getHyperlinkIndex() {
         return HyperlinkIndex;
     }
 
     /*
-     * Sets The hyperlink index.
+     * 
      */
-    public void setHyperlinkIndex(Integer value)
-    {
+    public void setHyperlinkIndex(Integer value) {
         HyperlinkIndex = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
 }

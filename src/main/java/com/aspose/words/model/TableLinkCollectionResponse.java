@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.TableLinkCollection;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables.
+ * TableLinkCollectionResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables.")
 
-public class TableLinkCollectionResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("Tables")
+public class TableLinkCollectionResponse extends AsposeResponse {
+  @SerializedName("Tables")
   private TableLinkCollection tables = null;
-
-  public TableLinkCollectionResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public TableLinkCollectionResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public TableLinkCollectionResponse tables(TableLinkCollection tables) {
     this.tables = tables;
@@ -94,10 +54,10 @@ public class TableLinkCollectionResponse {
   }
 
    /**
-   * Collection of tables.
+   * Get tables
    * @return tables
   **/
-  @ApiModelProperty(value = "Collection of tables.")
+  @ApiModelProperty(value = "")
   public TableLinkCollection getTables() {
     return tables;
   }
@@ -116,14 +76,13 @@ public class TableLinkCollectionResponse {
       return false;
     }
     TableLinkCollectionResponse tableLinkCollectionResponse = (TableLinkCollectionResponse) o;
-    return Objects.equals(this.code, tableLinkCollectionResponse.code) &&
-        Objects.equals(this.status, tableLinkCollectionResponse.status) &&
-        Objects.equals(this.tables, tableLinkCollectionResponse.tables);
+    return Objects.equals(this.tables, tableLinkCollectionResponse.tables) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, tables);
+    return Objects.hash(tables, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class TableLinkCollectionResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableLinkCollectionResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    tables: ").append(toIndentedString(tables)).append("\n");
     sb.append("}");
     return sb.toString();

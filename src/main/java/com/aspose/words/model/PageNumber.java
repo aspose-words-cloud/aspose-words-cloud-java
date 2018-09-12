@@ -29,28 +29,30 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Class is used for insert page number request building.
+ * PageNumber
  */
-@ApiModel(description = "Class is used for insert page number request building.")
 
 public class PageNumber {
-  @JsonProperty("Format")
+  @SerializedName("Format")
   private String format = null;
 
-  @JsonProperty("Alignment")
+  @SerializedName("Alignment")
   private String alignment = null;
 
-  @JsonProperty("IsTop")
+  @SerializedName("IsTop")
   private Boolean isTop = null;
 
-  @JsonProperty("SetPageNumberOnFirstPage")
+  @SerializedName("SetPageNumberOnFirstPage")
   private Boolean setPageNumberOnFirstPage = null;
 
   public PageNumber format(String format) {
@@ -59,10 +61,10 @@ public class PageNumber {
   }
 
    /**
-   * Page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
+   * Get format
    * @return format
   **/
-  @ApiModelProperty(value = "Page number format, e.g. \"{PAGE} of {NUMPAGES}\".")
+  @ApiModelProperty(value = "")
   public String getFormat() {
     return format;
   }
@@ -77,10 +79,10 @@ public class PageNumber {
   }
 
    /**
-   * Text alignment, possible values are left, right, center or justify.
+   * Get alignment
    * @return alignment
   **/
-  @ApiModelProperty(value = "Text alignment, possible values are left, right, center or justify.")
+  @ApiModelProperty(value = "")
   public String getAlignment() {
     return alignment;
   }
@@ -95,11 +97,11 @@ public class PageNumber {
   }
 
    /**
-   * If true the page number is added at the top of the page, else at the bottom.
+   * Get isTop
    * @return isTop
   **/
-  @ApiModelProperty(required = true, value = "If true the page number is added at the top of the page, else at the bottom.")
-  public Boolean isIsTop() {
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isisIsTop() {
     return isTop;
   }
 
@@ -113,11 +115,11 @@ public class PageNumber {
   }
 
    /**
-   * If true the page number is added on first page too.
+   * Get setPageNumberOnFirstPage
    * @return setPageNumberOnFirstPage
   **/
-  @ApiModelProperty(required = true, value = "If true the page number is added on first page too.")
-  public Boolean isSetPageNumberOnFirstPage() {
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isisSetPageNumberOnFirstPage() {
     return setPageNumberOnFirstPage;
   }
 

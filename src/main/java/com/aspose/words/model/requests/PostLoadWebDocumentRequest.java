@@ -31,60 +31,53 @@ import java.io.File;
 /*
  * Request model for postLoadWebDocument operation.
  */
-public class PostLoadWebDocumentRequest
-{
+public class PostLoadWebDocumentRequest {
     /*
-     * Parameters of loading.
+     * 
      */
     private LoadWebDocumentData Data;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
     
-	
     /*
      * Initializes a new instance of the postLoadWebDocumentRequest class.
      *  
-     * @param LoadWebDocumentData data Parameters of loading.
+     * @param LoadWebDocumentData data 
      * @param String storage File storage, which have to be used.
      */
-    public PostLoadWebDocumentRequest(LoadWebDocumentData data, String storage)             
-    {
+    public PostLoadWebDocumentRequest(LoadWebDocumentData data,  String storage) {
         Data = data;
         Storage = storage;
     }
 
     /*
-     *  Gets Parameters of loading.
+     * 
      */
-    public LoadWebDocumentData getData()
-    {
+    public LoadWebDocumentData getData() {
         return Data;
     }
 
     /*
-     * Sets Parameters of loading.
+     * 
      */
-    public void setData(LoadWebDocumentData value)
-    {
+    public void setData(LoadWebDocumentData value) {
         Data = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
 }

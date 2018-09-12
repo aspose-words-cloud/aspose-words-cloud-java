@@ -31,41 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Reference to node
+ * NodeLink
  */
-@ApiModel(description = "Reference to node")
 
-public class NodeLink {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
+public class NodeLink extends LinkElement {
+  @SerializedName("NodeId")
   private String nodeId = null;
-
-  public NodeLink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public NodeLink nodeId(String nodeId) {
     this.nodeId = nodeId;
@@ -73,10 +54,10 @@ public class NodeLink {
   }
 
    /**
-   * Node id
+   * Get nodeId
    * @return nodeId
   **/
-  @ApiModelProperty(value = "Node id")
+  @ApiModelProperty(value = "")
   public String getNodeId() {
     return nodeId;
   }
@@ -95,13 +76,13 @@ public class NodeLink {
       return false;
     }
     NodeLink nodeLink = (NodeLink) o;
-    return Objects.equals(this.link, nodeLink.link) &&
-        Objects.equals(this.nodeId, nodeLink.nodeId);
+    return Objects.equals(this.nodeId, nodeLink.nodeId) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId);
+    return Objects.hash(nodeId, super.hashCode());
   }
 
 
@@ -109,8 +90,7 @@ public class NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NodeLink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");
     return sb.toString();

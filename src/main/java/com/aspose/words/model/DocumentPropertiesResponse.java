@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.DocumentProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling:  GET /documentProperties.
+ * DocumentPropertiesResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling:  GET /documentProperties.")
 
-public class DocumentPropertiesResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("DocumentProperties")
+public class DocumentPropertiesResponse extends AsposeResponse {
+  @SerializedName("DocumentProperties")
   private DocumentProperties documentProperties = null;
-
-  public DocumentPropertiesResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public DocumentPropertiesResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public DocumentPropertiesResponse documentProperties(DocumentProperties documentProperties) {
     this.documentProperties = documentProperties;
@@ -94,10 +54,10 @@ public class DocumentPropertiesResponse {
   }
 
    /**
-   * Collection of document properties.
+   * Get documentProperties
    * @return documentProperties
   **/
-  @ApiModelProperty(value = "Collection of document properties.")
+  @ApiModelProperty(value = "")
   public DocumentProperties getDocumentProperties() {
     return documentProperties;
   }
@@ -116,14 +76,13 @@ public class DocumentPropertiesResponse {
       return false;
     }
     DocumentPropertiesResponse documentPropertiesResponse = (DocumentPropertiesResponse) o;
-    return Objects.equals(this.code, documentPropertiesResponse.code) &&
-        Objects.equals(this.status, documentPropertiesResponse.status) &&
-        Objects.equals(this.documentProperties, documentPropertiesResponse.documentProperties);
+    return Objects.equals(this.documentProperties, documentPropertiesResponse.documentProperties) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, documentProperties);
+    return Objects.hash(documentProperties, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class DocumentPropertiesResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentPropertiesResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    documentProperties: ").append(toIndentedString(documentProperties)).append("\n");
     sb.append("}");
     return sb.toString();

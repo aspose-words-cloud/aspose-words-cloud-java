@@ -29,21 +29,24 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Allows to specify System.Drawing.StringFormat options.
+ * StringFormatData
  */
-@ApiModel(description = "Allows to specify System.Drawing.StringFormat options.")
 
 public class StringFormatData {
   /**
-   * Gets or sets horizontal alignment of the string.
+   * Gets or Sets alignment
    */
+  @JsonAdapter(AlignmentEnum.Adapter.class)
   public enum AlignmentEnum {
     NEAR("Near"),
     
@@ -57,7 +60,6 @@ public class StringFormatData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -67,7 +69,6 @@ public class StringFormatData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static AlignmentEnum fromValue(String text) {
       for (AlignmentEnum b : AlignmentEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -76,14 +77,28 @@ public class StringFormatData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<AlignmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AlignmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AlignmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AlignmentEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Alignment")
+  @SerializedName("Alignment")
   private AlignmentEnum alignment = null;
 
   /**
-   * Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+   * Gets or Sets formatFlags
    */
+  @JsonAdapter(FormatFlagsEnum.Adapter.class)
   public enum FormatFlagsEnum {
     DIRECTIONRIGHTTOLEFT("DirectionRightToLeft"),
     
@@ -109,7 +124,6 @@ public class StringFormatData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -119,7 +133,6 @@ public class StringFormatData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static FormatFlagsEnum fromValue(String text) {
       for (FormatFlagsEnum b : FormatFlagsEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -128,14 +141,28 @@ public class StringFormatData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<FormatFlagsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FormatFlagsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FormatFlagsEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return FormatFlagsEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("FormatFlags")
+  @SerializedName("FormatFlags")
   private FormatFlagsEnum formatFlags = null;
 
   /**
-   * Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
+   * Gets or Sets hotkeyPrefix
    */
+  @JsonAdapter(HotkeyPrefixEnum.Adapter.class)
   public enum HotkeyPrefixEnum {
     NONE("None"),
     
@@ -149,7 +176,6 @@ public class StringFormatData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -159,7 +185,6 @@ public class StringFormatData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static HotkeyPrefixEnum fromValue(String text) {
       for (HotkeyPrefixEnum b : HotkeyPrefixEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -168,14 +193,28 @@ public class StringFormatData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<HotkeyPrefixEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final HotkeyPrefixEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public HotkeyPrefixEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return HotkeyPrefixEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("HotkeyPrefix")
+  @SerializedName("HotkeyPrefix")
   private HotkeyPrefixEnum hotkeyPrefix = null;
 
   /**
-   * Gets or sets the vertical alignment of the string.
+   * Gets or Sets lineAlignment
    */
+  @JsonAdapter(LineAlignmentEnum.Adapter.class)
   public enum LineAlignmentEnum {
     NEAR("Near"),
     
@@ -189,7 +228,6 @@ public class StringFormatData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -199,7 +237,6 @@ public class StringFormatData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static LineAlignmentEnum fromValue(String text) {
       for (LineAlignmentEnum b : LineAlignmentEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -208,14 +245,28 @@ public class StringFormatData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<LineAlignmentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LineAlignmentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LineAlignmentEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return LineAlignmentEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("LineAlignment")
+  @SerializedName("LineAlignment")
   private LineAlignmentEnum lineAlignment = null;
 
   /**
-   * Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
+   * Gets or Sets trimming
    */
+  @JsonAdapter(TrimmingEnum.Adapter.class)
   public enum TrimmingEnum {
     NONE("None"),
     
@@ -235,7 +286,6 @@ public class StringFormatData {
       this.value = value;
     }
 
-    @JsonValue
     public String getValue() {
       return value;
     }
@@ -245,7 +295,6 @@ public class StringFormatData {
       return String.valueOf(value);
     }
 
-    @JsonCreator
     public static TrimmingEnum fromValue(String text) {
       for (TrimmingEnum b : TrimmingEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -254,9 +303,22 @@ public class StringFormatData {
       }
       return null;
     }
+
+    public static class Adapter extends TypeAdapter<TrimmingEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TrimmingEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TrimmingEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TrimmingEnum.fromValue(String.valueOf(value));
+      }
+    }
   }
 
-  @JsonProperty("Trimming")
+  @SerializedName("Trimming")
   private TrimmingEnum trimming = null;
 
   public StringFormatData alignment(AlignmentEnum alignment) {
@@ -265,10 +327,10 @@ public class StringFormatData {
   }
 
    /**
-   * Gets or sets horizontal alignment of the string.
+   * Get alignment
    * @return alignment
   **/
-  @ApiModelProperty(value = "Gets or sets horizontal alignment of the string.")
+  @ApiModelProperty(value = "")
   public AlignmentEnum getAlignment() {
     return alignment;
   }
@@ -283,10 +345,10 @@ public class StringFormatData {
   }
 
    /**
-   * Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+   * Get formatFlags
    * @return formatFlags
   **/
-  @ApiModelProperty(value = "Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.")
+  @ApiModelProperty(value = "")
   public FormatFlagsEnum getFormatFlags() {
     return formatFlags;
   }
@@ -301,10 +363,10 @@ public class StringFormatData {
   }
 
    /**
-   * Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
+   * Get hotkeyPrefix
    * @return hotkeyPrefix
   **/
-  @ApiModelProperty(value = "Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.")
+  @ApiModelProperty(value = "")
   public HotkeyPrefixEnum getHotkeyPrefix() {
     return hotkeyPrefix;
   }
@@ -319,10 +381,10 @@ public class StringFormatData {
   }
 
    /**
-   * Gets or sets the vertical alignment of the string.
+   * Get lineAlignment
    * @return lineAlignment
   **/
-  @ApiModelProperty(value = "Gets or sets the vertical alignment of the string.")
+  @ApiModelProperty(value = "")
   public LineAlignmentEnum getLineAlignment() {
     return lineAlignment;
   }
@@ -337,10 +399,10 @@ public class StringFormatData {
   }
 
    /**
-   * Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
+   * Get trimming
    * @return trimming
   **/
-  @ApiModelProperty(value = "Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.")
+  @ApiModelProperty(value = "")
   public TrimmingEnum getTrimming() {
     return trimming;
   }

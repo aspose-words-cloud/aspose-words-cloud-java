@@ -31,60 +31,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents link for Drawing Object DTO.
+ * DrawingObjectLink
  */
-@ApiModel(description = "Represents link for Drawing Object DTO.")
 
-public class DrawingObjectLink {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  public DrawingObjectLink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public DrawingObjectLink nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
+public class DrawingObjectLink extends NodeLink {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -94,14 +46,12 @@ public class DrawingObjectLink {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DrawingObjectLink drawingObjectLink = (DrawingObjectLink) o;
-    return Objects.equals(this.link, drawingObjectLink.link) &&
-        Objects.equals(this.nodeId, drawingObjectLink.nodeId);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId);
+    return Objects.hash(super.hashCode());
   }
 
 
@@ -109,9 +59,7 @@ public class DrawingObjectLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectLink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

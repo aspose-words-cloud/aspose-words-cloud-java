@@ -31,81 +31,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.RunLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Run element
+ * Run
  */
-@ApiModel(description = "Run element")
 
-public class Run {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("Text")
-  private String text = null;
-
-  public Run link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public Run nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
-  public Run text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Run&#39;s text
-   * @return text
-  **/
-  @ApiModelProperty(value = "Run's text")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
+public class Run extends RunLink {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,15 +46,12 @@ public class Run {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Run run = (Run) o;
-    return Objects.equals(this.link, run.link) &&
-        Objects.equals(this.nodeId, run.nodeId) &&
-        Objects.equals(this.text, run.text);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, text);
+    return Objects.hash(super.hashCode());
   }
 
 
@@ -131,10 +59,7 @@ public class Run {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Run {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

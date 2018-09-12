@@ -30,25 +30,27 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.DocumentPosition;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Table element
+ * TableInsert
  */
-@ApiModel(description = "Table element")
 
 public class TableInsert {
-  @JsonProperty("Postion")
+  @SerializedName("Postion")
   private DocumentPosition postion = null;
 
-  @JsonProperty("ColumnsCount")
+  @SerializedName("ColumnsCount")
   private Integer columnsCount = null;
 
-  @JsonProperty("RowsCount")
+  @SerializedName("RowsCount")
   private Integer rowsCount = null;
 
   public TableInsert postion(DocumentPosition postion) {
@@ -57,10 +59,10 @@ public class TableInsert {
   }
 
    /**
-   * Table will be inserted before specified position.
+   * Get postion
    * @return postion
   **/
-  @ApiModelProperty(value = "Table will be inserted before specified position.")
+  @ApiModelProperty(value = "")
   public DocumentPosition getPostion() {
     return postion;
   }
@@ -75,10 +77,10 @@ public class TableInsert {
   }
 
    /**
-   * Count of columns. Default is 2.
+   * Get columnsCount
    * @return columnsCount
   **/
-  @ApiModelProperty(required = true, value = "Count of columns. Default is 2.")
+  @ApiModelProperty(required = true, value = "")
   public Integer getColumnsCount() {
     return columnsCount;
   }
@@ -93,10 +95,10 @@ public class TableInsert {
   }
 
    /**
-   * Count of rows. Default is 2.
+   * Get rowsCount
    * @return rowsCount
   **/
-  @ApiModelProperty(required = true, value = "Count of rows. Default is 2.")
+  @ApiModelProperty(required = true, value = "")
   public Integer getRowsCount() {
     return rowsCount;
   }

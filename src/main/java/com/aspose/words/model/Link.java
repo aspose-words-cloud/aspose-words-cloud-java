@@ -29,40 +29,46 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7
+ * Link
  */
-@ApiModel(description = "Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7")
+
 
 public class Link {
-  @JsonProperty("Href")
+  @SerializedName("Href")
   private String href = null;
 
-  @JsonProperty("Rel")
+  @SerializedName("Rel")
   private String rel = null;
 
-  @JsonProperty("Type")
+  @SerializedName("Type")
   private String type = null;
 
-  @JsonProperty("Title")
+  @SerializedName("Title")
   private String title = null;
 
+  public Link() {
+    this.Type = this.getClass().getSimpleName();
+  }
   public Link href(String href) {
     this.href = href;
     return this;
   }
 
    /**
-   * The \&quot;href\&quot; attribute contains the link&#39;s IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference
+   * Get href
    * @return href
   **/
-  @ApiModelProperty(value = "The \"href\" attribute contains the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference")
+  @ApiModelProperty(value = "")
   public String getHref() {
     return href;
   }
@@ -77,10 +83,10 @@ public class Link {
   }
 
    /**
-   * atom:link elements MAY have a \&quot;rel\&quot; attribute that indicates the link relation type.  If the \&quot;rel\&quot; attribute is not present, the link element MUST be interpreted as if the link relation type is \&quot;alternate\&quot;.
+   * Get rel
    * @return rel
   **/
-  @ApiModelProperty(value = "atom:link elements MAY have a \"rel\" attribute that indicates the link relation type.  If the \"rel\" attribute is not present, the link element MUST be interpreted as if the link relation type is \"alternate\".")
+  @ApiModelProperty(value = "")
   public String getRel() {
     return rel;
   }
@@ -95,10 +101,10 @@ public class Link {
   }
 
    /**
-   * On the link element, the \&quot;type\&quot; attribute&#39;s value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(value = "On the link element, the \"type\" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.")
+  @ApiModelProperty(value = "")
   public String getType() {
     return type;
   }
@@ -113,10 +119,10 @@ public class Link {
   }
 
    /**
-   * The \&quot;title\&quot; attribute conveys human-readable information about the link.  The content of the \&quot;title\&quot; attribute is Language-Sensitive.
+   * Get title
    * @return title
   **/
-  @ApiModelProperty(value = "The \"title\" attribute conveys human-readable information about the link.  The content of the \"title\" attribute is Language-Sensitive.")
+  @ApiModelProperty(value = "")
   public String getTitle() {
     return title;
   }

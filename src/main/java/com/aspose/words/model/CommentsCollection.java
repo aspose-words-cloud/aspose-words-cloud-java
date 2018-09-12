@@ -32,43 +32,24 @@ import java.util.Arrays;
 import com.aspose.words.model.Comment;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of comments.
+ * CommentsCollection
  */
-@ApiModel(description = "Collection of comments.")
 
-public class CommentsCollection {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("CommentList")
+public class CommentsCollection extends LinkElement {
+  @SerializedName("CommentList")
   private List<Comment> commentList = null;
-
-  public CommentsCollection link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public CommentsCollection commentList(List<Comment> commentList) {
     this.commentList = commentList;
@@ -84,10 +65,10 @@ public class CommentsCollection {
   }
 
    /**
-   * Collection of comments
+   * Get commentList
    * @return commentList
   **/
-  @ApiModelProperty(value = "Collection of comments")
+  @ApiModelProperty(value = "")
   public List<Comment> getCommentList() {
     return commentList;
   }
@@ -106,13 +87,13 @@ public class CommentsCollection {
       return false;
     }
     CommentsCollection commentsCollection = (CommentsCollection) o;
-    return Objects.equals(this.link, commentsCollection.link) &&
-        Objects.equals(this.commentList, commentsCollection.commentList);
+    return Objects.equals(this.commentList, commentsCollection.commentList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, commentList);
+    return Objects.hash(commentList, super.hashCode());
   }
 
 
@@ -120,8 +101,7 @@ public class CommentsCollection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentsCollection {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    commentList: ").append(toIndentedString(commentList)).append("\n");
     sb.append("}");
     return sb.toString();

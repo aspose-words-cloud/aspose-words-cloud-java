@@ -29,19 +29,21 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Container for the data about protection of the document
+ * ProtectionData
  */
-@ApiModel(description = "Container for the data about protection of the document")
 
 public class ProtectionData {
-  @JsonProperty("ProtectionType")
+  @SerializedName("ProtectionType")
   private String protectionType = null;
 
   public ProtectionData protectionType(String protectionType) {
@@ -50,10 +52,10 @@ public class ProtectionData {
   }
 
    /**
-   * Type of the protection
+   * Get protectionType
    * @return protectionType
   **/
-  @ApiModelProperty(value = "Type of the protection")
+  @ApiModelProperty(value = "")
   public String getProtectionType() {
     return protectionType;
   }

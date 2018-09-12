@@ -33,67 +33,27 @@ import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.TableProperties;
 import com.aspose.words.model.TableRow;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Table element
+ * Table
  */
-@ApiModel(description = "Table element")
 
-public class Table {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("TableProperties")
+public class Table extends NodeLink {
+  @SerializedName("TableProperties")
   private TableProperties tableProperties = null;
 
-  @JsonProperty("TableRowList")
+  @SerializedName("TableRowList")
   private List<TableRow> tableRowList = null;
-
-  public Table link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public Table nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public Table tableProperties(TableProperties tableProperties) {
     this.tableProperties = tableProperties;
@@ -101,10 +61,10 @@ public class Table {
   }
 
    /**
-   * Table properties.
+   * Get tableProperties
    * @return tableProperties
   **/
-  @ApiModelProperty(value = "Table properties.")
+  @ApiModelProperty(value = "")
   public TableProperties getTableProperties() {
     return tableProperties;
   }
@@ -127,10 +87,10 @@ public class Table {
   }
 
    /**
-   * Collection of table&#39;s rows.
+   * Get tableRowList
    * @return tableRowList
   **/
-  @ApiModelProperty(value = "Collection of table's rows.")
+  @ApiModelProperty(value = "")
   public List<TableRow> getTableRowList() {
     return tableRowList;
   }
@@ -149,15 +109,14 @@ public class Table {
       return false;
     }
     Table table = (Table) o;
-    return Objects.equals(this.link, table.link) &&
-        Objects.equals(this.nodeId, table.nodeId) &&
-        Objects.equals(this.tableProperties, table.tableProperties) &&
-        Objects.equals(this.tableRowList, table.tableRowList);
+    return Objects.equals(this.tableProperties, table.tableProperties) &&
+        Objects.equals(this.tableRowList, table.tableRowList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, tableProperties, tableRowList);
+    return Objects.hash(tableProperties, tableRowList, super.hashCode());
   }
 
 
@@ -165,9 +124,7 @@ public class Table {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Table {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    tableProperties: ").append(toIndentedString(tableProperties)).append("\n");
     sb.append("    tableRowList: ").append(toIndentedString(tableRowList)).append("\n");
     sb.append("}");

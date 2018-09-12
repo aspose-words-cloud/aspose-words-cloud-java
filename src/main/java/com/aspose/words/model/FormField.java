@@ -31,86 +31,46 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * FromField
+ * FormField
  */
-@ApiModel(description = "FromField")
 
-public class FormField {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("NodeId")
-  private String nodeId = null;
-
-  @JsonProperty("CalculateOnExit")
+public class FormField extends NodeLink {
+  @SerializedName("CalculateOnExit")
   private Boolean calculateOnExit = null;
 
-  @JsonProperty("Enabled")
+  @SerializedName("Enabled")
   private Boolean enabled = null;
 
-  @JsonProperty("EntryMacro")
+  @SerializedName("EntryMacro")
   private String entryMacro = null;
 
-  @JsonProperty("ExitMacro")
+  @SerializedName("ExitMacro")
   private String exitMacro = null;
 
-  @JsonProperty("HelpText")
+  @SerializedName("HelpText")
   private String helpText = null;
 
-  @JsonProperty("Name")
+  @SerializedName("Name")
   private String name = null;
 
-  @JsonProperty("OwnHelp")
+  @SerializedName("OwnHelp")
   private Boolean ownHelp = null;
 
-  @JsonProperty("OwnStatus")
+  @SerializedName("OwnStatus")
   private Boolean ownStatus = null;
 
-  @JsonProperty("StatusText")
+  @SerializedName("StatusText")
   private String statusText = null;
-
-  public FormField link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public FormField nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public FormField calculateOnExit(Boolean calculateOnExit) {
     this.calculateOnExit = calculateOnExit;
@@ -118,11 +78,11 @@ public class FormField {
   }
 
    /**
-   * True if references to the specified form field are automatically updated whenever the field is exited.
+   * Get calculateOnExit
    * @return calculateOnExit
   **/
-  @ApiModelProperty(value = "True if references to the specified form field are automatically updated whenever the field is exited.")
-  public Boolean isCalculateOnExit() {
+  @ApiModelProperty(value = "")
+  public Boolean isisCalculateOnExit() {
     return calculateOnExit;
   }
 
@@ -136,11 +96,11 @@ public class FormField {
   }
 
    /**
-   * True if a form field is enabled.
+   * Get enabled
    * @return enabled
   **/
-  @ApiModelProperty(value = "True if a form field is enabled.")
-  public Boolean isEnabled() {
+  @ApiModelProperty(value = "")
+  public Boolean isisEnabled() {
     return enabled;
   }
 
@@ -154,10 +114,10 @@ public class FormField {
   }
 
    /**
-   * Returns or sets an entry macro name for the form field.
+   * Get entryMacro
    * @return entryMacro
   **/
-  @ApiModelProperty(value = "Returns or sets an entry macro name for the form field.")
+  @ApiModelProperty(value = "")
   public String getEntryMacro() {
     return entryMacro;
   }
@@ -172,10 +132,10 @@ public class FormField {
   }
 
    /**
-   * Returns or sets an exit macro name for the form field.
+   * Get exitMacro
    * @return exitMacro
   **/
-  @ApiModelProperty(value = "Returns or sets an exit macro name for the form field.")
+  @ApiModelProperty(value = "")
   public String getExitMacro() {
     return exitMacro;
   }
@@ -190,10 +150,10 @@ public class FormField {
   }
 
    /**
-   * Returns or sets the text that&#39;s displayed in a message box when the form field has the focus and the user presses F1.
+   * Get helpText
    * @return helpText
   **/
-  @ApiModelProperty(value = "Returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.")
+  @ApiModelProperty(value = "")
   public String getHelpText() {
     return helpText;
   }
@@ -208,10 +168,10 @@ public class FormField {
   }
 
    /**
-   * Gets or sets the form field name.
+   * Get name
    * @return name
   **/
-  @ApiModelProperty(value = "Gets or sets the form field name.")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -226,11 +186,11 @@ public class FormField {
   }
 
    /**
-   * Specifies the source of the text that&#39;s displayed in a message box when a form field has the focus and the user presses F1.
+   * Get ownHelp
    * @return ownHelp
   **/
-  @ApiModelProperty(value = "Specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.")
-  public Boolean isOwnHelp() {
+  @ApiModelProperty(value = "")
+  public Boolean isisOwnHelp() {
     return ownHelp;
   }
 
@@ -244,11 +204,11 @@ public class FormField {
   }
 
    /**
-   * Specifies the source of the text that&#39;s displayed in the status bar when a form field has the focus.
+   * Get ownStatus
    * @return ownStatus
   **/
-  @ApiModelProperty(value = "Specifies the source of the text that's displayed in the status bar when a form field has the focus.")
-  public Boolean isOwnStatus() {
+  @ApiModelProperty(value = "")
+  public Boolean isisOwnStatus() {
     return ownStatus;
   }
 
@@ -262,10 +222,10 @@ public class FormField {
   }
 
    /**
-   * Returns or sets the text that&#39;s displayed in the status bar when a form field has the focus.
+   * Get statusText
    * @return statusText
   **/
-  @ApiModelProperty(value = "Returns or sets the text that's displayed in the status bar when a form field has the focus.")
+  @ApiModelProperty(value = "")
   public String getStatusText() {
     return statusText;
   }
@@ -284,9 +244,7 @@ public class FormField {
       return false;
     }
     FormField formField = (FormField) o;
-    return Objects.equals(this.link, formField.link) &&
-        Objects.equals(this.nodeId, formField.nodeId) &&
-        Objects.equals(this.calculateOnExit, formField.calculateOnExit) &&
+    return Objects.equals(this.calculateOnExit, formField.calculateOnExit) &&
         Objects.equals(this.enabled, formField.enabled) &&
         Objects.equals(this.entryMacro, formField.entryMacro) &&
         Objects.equals(this.exitMacro, formField.exitMacro) &&
@@ -294,12 +252,13 @@ public class FormField {
         Objects.equals(this.name, formField.name) &&
         Objects.equals(this.ownHelp, formField.ownHelp) &&
         Objects.equals(this.ownStatus, formField.ownStatus) &&
-        Objects.equals(this.statusText, formField.statusText);
+        Objects.equals(this.statusText, formField.statusText) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, calculateOnExit, enabled, entryMacro, exitMacro, helpText, name, ownHelp, ownStatus, statusText);
+    return Objects.hash(calculateOnExit, enabled, entryMacro, exitMacro, helpText, name, ownHelp, ownStatus, statusText, super.hashCode());
   }
 
 
@@ -307,9 +266,7 @@ public class FormField {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormField {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    calculateOnExit: ").append(toIndentedString(calculateOnExit)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    entryMacro: ").append(toIndentedString(entryMacro)).append("\n");

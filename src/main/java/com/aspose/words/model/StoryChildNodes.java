@@ -30,21 +30,23 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Child nodes of  or 
+ * StoryChildNodes
  */
-@ApiModel(description = "Child nodes of  or ")
 
 public class StoryChildNodes {
-  @JsonProperty("ChildNodes")
+  @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;
 
   public StoryChildNodes childNodes(List<NodeLink> childNodes) {
@@ -61,10 +63,10 @@ public class StoryChildNodes {
   }
 
    /**
-   * Child nodes.
+   * Get childNodes
    * @return childNodes
   **/
-  @ApiModelProperty(value = "Child nodes.")
+  @ApiModelProperty(value = "")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }

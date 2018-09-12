@@ -30,22 +30,24 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FileLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * result of the operation which modifies the original document and saves the result
+ * ModificationOperationResult
  */
-@ApiModel(description = "result of the operation which modifies the original document and saves the result")
 
 public class ModificationOperationResult {
-  @JsonProperty("Source")
+  @SerializedName("Source")
   private FileLink source = null;
 
-  @JsonProperty("Dest")
+  @SerializedName("Dest")
   private FileLink dest = null;
 
   public ModificationOperationResult source(FileLink source) {
@@ -54,10 +56,10 @@ public class ModificationOperationResult {
   }
 
    /**
-   * Link to the source document (source for the modification operation)
+   * Get source
    * @return source
   **/
-  @ApiModelProperty(value = "Link to the source document (source for the modification operation)")
+  @ApiModelProperty(value = "")
   public FileLink getSource() {
     return source;
   }
@@ -72,10 +74,10 @@ public class ModificationOperationResult {
   }
 
    /**
-   * Link to the dest document (result of the modification operation)
+   * Get dest
    * @return dest
   **/
-  @ApiModelProperty(value = "Link to the dest document (result of the modification operation)")
+  @ApiModelProperty(value = "")
   public FileLink getDest() {
     return dest;
   }

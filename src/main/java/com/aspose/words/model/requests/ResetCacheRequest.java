@@ -31,6 +31,5 @@ import java.io.File;
 /*
  * Request model for resetCache operation.
  */
-public class ResetCacheRequest
-{
+public class ResetCacheRequest {
 }

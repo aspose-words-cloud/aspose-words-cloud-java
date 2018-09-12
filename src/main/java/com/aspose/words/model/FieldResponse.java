@@ -31,62 +31,22 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.Field;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/fields/{1} 
+ * FieldResponse
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/fields/{1} ")
 
-public class FieldResponse {
-  @JsonProperty("Code")
-  private Integer code = null;
-
-  @JsonProperty("Status")
-  private String status = null;
-
-  @JsonProperty("Field")
+public class FieldResponse extends AsposeResponse {
+  @SerializedName("Field")
   private Field field = null;
-
-  public FieldResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public FieldResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public FieldResponse field(Field field) {
     this.field = field;
@@ -94,10 +54,10 @@ public class FieldResponse {
   }
 
    /**
-   * Field information
+   * Get field
    * @return field
   **/
-  @ApiModelProperty(value = "Field information")
+  @ApiModelProperty(value = "")
   public Field getField() {
     return field;
   }
@@ -116,14 +76,13 @@ public class FieldResponse {
       return false;
     }
     FieldResponse fieldResponse = (FieldResponse) o;
-    return Objects.equals(this.code, fieldResponse.code) &&
-        Objects.equals(this.status, fieldResponse.status) &&
-        Objects.equals(this.field, fieldResponse.field);
+    return Objects.equals(this.field, fieldResponse.field) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, field);
+    return Objects.hash(field, super.hashCode());
   }
 
 
@@ -131,9 +90,7 @@ public class FieldResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("}");
     return sb.toString();

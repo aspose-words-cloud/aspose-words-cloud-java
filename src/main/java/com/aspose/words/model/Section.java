@@ -32,55 +32,36 @@ import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Section element
+ * Section
  */
-@ApiModel(description = "Section element")
 
-public class Section {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("ChildNodes")
+public class Section extends LinkElement {
+  @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;
 
-  @JsonProperty("HeaderFooters")
+  @SerializedName("HeaderFooters")
   private LinkElement headerFooters = null;
 
-  @JsonProperty("PageSetup")
+  @SerializedName("PageSetup")
   private LinkElement pageSetup = null;
 
-  @JsonProperty("Paragraphs")
+  @SerializedName("Paragraphs")
   private LinkElement paragraphs = null;
 
-  @JsonProperty("Tables")
+  @SerializedName("Tables")
   private LinkElement tables = null;
-
-  public Section link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Section childNodes(List<NodeLink> childNodes) {
     this.childNodes = childNodes;
@@ -96,10 +77,10 @@ public class Section {
   }
 
    /**
-   * Child nodes.
+   * Get childNodes
    * @return childNodes
   **/
-  @ApiModelProperty(value = "Child nodes.")
+  @ApiModelProperty(value = "")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }
@@ -114,10 +95,10 @@ public class Section {
   }
 
    /**
-   * Link to HeaderFooters resource
+   * Get headerFooters
    * @return headerFooters
   **/
-  @ApiModelProperty(value = "Link to HeaderFooters resource")
+  @ApiModelProperty(value = "")
   public LinkElement getHeaderFooters() {
     return headerFooters;
   }
@@ -132,10 +113,10 @@ public class Section {
   }
 
    /**
-   * Link to PageSetup resource
+   * Get pageSetup
    * @return pageSetup
   **/
-  @ApiModelProperty(value = "Link to PageSetup resource")
+  @ApiModelProperty(value = "")
   public LinkElement getPageSetup() {
     return pageSetup;
   }
@@ -150,10 +131,10 @@ public class Section {
   }
 
    /**
-   * Link to Paragraphs resource
+   * Get paragraphs
    * @return paragraphs
   **/
-  @ApiModelProperty(value = "Link to Paragraphs resource")
+  @ApiModelProperty(value = "")
   public LinkElement getParagraphs() {
     return paragraphs;
   }
@@ -168,10 +149,10 @@ public class Section {
   }
 
    /**
-   * Link to Tables resource
+   * Get tables
    * @return tables
   **/
-  @ApiModelProperty(value = "Link to Tables resource")
+  @ApiModelProperty(value = "")
   public LinkElement getTables() {
     return tables;
   }
@@ -190,17 +171,17 @@ public class Section {
       return false;
     }
     Section section = (Section) o;
-    return Objects.equals(this.link, section.link) &&
-        Objects.equals(this.childNodes, section.childNodes) &&
+    return Objects.equals(this.childNodes, section.childNodes) &&
         Objects.equals(this.headerFooters, section.headerFooters) &&
         Objects.equals(this.pageSetup, section.pageSetup) &&
         Objects.equals(this.paragraphs, section.paragraphs) &&
-        Objects.equals(this.tables, section.tables);
+        Objects.equals(this.tables, section.tables) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, childNodes, headerFooters, pageSetup, paragraphs, tables);
+    return Objects.hash(childNodes, headerFooters, pageSetup, paragraphs, tables, super.hashCode());
   }
 
 
@@ -208,8 +189,7 @@ public class Section {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Section {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
     sb.append("    headerFooters: ").append(toIndentedString(headerFooters)).append("\n");
     sb.append("    pageSetup: ").append(toIndentedString(pageSetup)).append("\n");

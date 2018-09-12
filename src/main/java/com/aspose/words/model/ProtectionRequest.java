@@ -29,25 +29,27 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Request on changing of protection
+ * ProtectionRequest
  */
-@ApiModel(description = "Request on changing of protection")
 
 public class ProtectionRequest {
-  @JsonProperty("Password")
+  @SerializedName("Password")
   private String password = null;
 
-  @JsonProperty("NewPassword")
+  @SerializedName("NewPassword")
   private String newPassword = null;
 
-  @JsonProperty("ProtectionType")
+  @SerializedName("ProtectionType")
   private String protectionType = null;
 
   public ProtectionRequest password(String password) {
@@ -56,10 +58,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * Current password
+   * Get password
    * @return password
   **/
-  @ApiModelProperty(value = "Current password")
+  @ApiModelProperty(value = "")
   public String getPassword() {
     return password;
   }
@@ -74,10 +76,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * New password
+   * Get newPassword
    * @return newPassword
   **/
-  @ApiModelProperty(value = "New password")
+  @ApiModelProperty(value = "")
   public String getNewPassword() {
     return newPassword;
   }
@@ -92,10 +94,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * New type of protection
+   * Get protectionType
    * @return protectionType
   **/
-  @ApiModelProperty(value = "New type of protection")
+  @ApiModelProperty(value = "")
   public String getProtectionType() {
     return protectionType;
   }

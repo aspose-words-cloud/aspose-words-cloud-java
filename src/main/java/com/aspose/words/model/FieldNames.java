@@ -31,43 +31,24 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a collection of merge fields within a document. 
+ * FieldNames
  */
-@ApiModel(description = "Represents a collection of merge fields within a document. ")
 
-public class FieldNames {
-  @JsonProperty("link")
-  private WordsApiLink link = null;
-
-  @JsonProperty("Names")
+public class FieldNames extends LinkElement {
+  @SerializedName("Names")
   private List<String> names = null;
-
-  public FieldNames link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public FieldNames names(List<String> names) {
     this.names = names;
@@ -83,10 +64,10 @@ public class FieldNames {
   }
 
    /**
-   * Collection of fields names.
+   * Get names
    * @return names
   **/
-  @ApiModelProperty(value = "Collection of fields names.")
+  @ApiModelProperty(value = "")
   public List<String> getNames() {
     return names;
   }
@@ -105,13 +86,13 @@ public class FieldNames {
       return false;
     }
     FieldNames fieldNames = (FieldNames) o;
-    return Objects.equals(this.link, fieldNames.link) &&
-        Objects.equals(this.names, fieldNames.names);
+    return Objects.equals(this.names, fieldNames.names) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, names);
+    return Objects.hash(names, super.hashCode());
   }
 
 
@@ -119,8 +100,7 @@ public class FieldNames {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldNames {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("}");
     return sb.toString();

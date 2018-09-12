@@ -31,69 +31,67 @@ import java.io.File;
 /*
  * Request model for putParagraph operation.
  */
-public class PutParagraphRequest
-{
+public class PutParagraphRequest {
     /*
-     * The document name.
+     * 
      */
     private String Name;
-	
+
     /*
-     * Paragraph data.
+     * 
      */
     private ParagraphInsert Paragraph;
-	
+
     /*
      * Original document folder.
      */
     private String Folder;
-	
+
     /*
      * File storage, which have to be used.
      */
     private String Storage;
-	
+
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     private String LoadEncoding;
-	
+
     /*
      * Password for opening an encrypted document.
      */
     private String Password;
-	
+
     /*
      * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String DestFileName;
-	
+
     /*
      * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
     private String RevisionAuthor;
-	
+
     /*
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
-	
+
     /*
-     * Path to node which contains paragraphs.
+     * 
      */
     private String NodePath;
-	
+
     /*
-     * Paragraph will be inserted before node with index.
+     * 
      */
     private String InsertBeforeNode;
     
-	
     /*
      * Initializes a new instance of the putParagraphRequest class.
      *  
-     * @param String name The document name.
-     * @param ParagraphInsert paragraph Paragraph data.
+     * @param String name 
+     * @param ParagraphInsert paragraph 
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -101,11 +99,10 @@ public class PutParagraphRequest
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath Path to node which contains paragraphs.
-     * @param String insertBeforeNode Paragraph will be inserted before node with index.
+     * @param String nodePath 
+     * @param String insertBeforeNode 
      */
-    public PutParagraphRequest(String name, ParagraphInsert paragraph, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, String nodePath, String insertBeforeNode)             
-    {
+    public PutParagraphRequest(String name,  ParagraphInsert paragraph,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath,  String insertBeforeNode) {
         Name = name;
         Paragraph = paragraph;
         Folder = folder;
@@ -120,178 +117,156 @@ public class PutParagraphRequest
     }
 
     /*
-     *  Gets The document name.
+     * 
      */
-    public String getName()
-    {
+    public String getName() {
         return Name;
     }
 
     /*
-     * Sets The document name.
+     * 
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         Name = value;
     }
-	
+
     /*
-     *  Gets Paragraph data.
+     * 
      */
-    public ParagraphInsert getParagraph()
-    {
+    public ParagraphInsert getParagraph() {
         return Paragraph;
     }
 
     /*
-     * Sets Paragraph data.
+     * 
      */
-    public void setParagraph(ParagraphInsert value)
-    {
+    public void setParagraph(ParagraphInsert value) {
         Paragraph = value;
     }
-	
+
     /*
      *  Gets Original document folder.
      */
-    public String getFolder()
-    {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value)
-    {
+    public void setFolder(String value) {
         Folder = value;
     }
-	
+
     /*
      *  Gets File storage, which have to be used.
      */
-    public String getStorage()
-    {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets File storage, which have to be used.
      */
-    public void setStorage(String value)
-    {
+    public void setStorage(String value) {
         Storage = value;
     }
-	
+
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding()
-    {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value)
-    {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
-	
+
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value)
-    {
+    public void setPassword(String value) {
         Password = value;
     }
-	
+
     /*
      *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getDestFileName()
-    {
+    public String getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName(String value)
-    {
+    public void setDestFileName(String value) {
         DestFileName = value;
     }
-	
+
     /*
      *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public String getRevisionAuthor()
-    {
+    public String getRevisionAuthor() {
         return RevisionAuthor;
     }
 
     /*
      * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public void setRevisionAuthor(String value)
-    {
+    public void setRevisionAuthor(String value) {
         RevisionAuthor = value;
     }
-	
+
     /*
      *  Gets The date and time to use for revisions.
      */
-    public String getRevisionDateTime()
-    {
+    public String getRevisionDateTime() {
         return RevisionDateTime;
     }
 
     /*
      * Sets The date and time to use for revisions.
      */
-    public void setRevisionDateTime(String value)
-    {
+    public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
     }
-	
+
     /*
-     *  Gets Path to node which contains paragraphs.
+     * 
      */
-    public String getNodePath()
-    {
+    public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * Sets Path to node which contains paragraphs.
+     * 
      */
-    public void setNodePath(String value)
-    {
+    public void setNodePath(String value) {
         NodePath = value;
     }
-	
+
     /*
-     *  Gets Paragraph will be inserted before node with index.
+     * 
      */
-    public String getInsertBeforeNode()
-    {
+    public String getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
-     * Sets Paragraph will be inserted before node with index.
+     * 
      */
-    public void setInsertBeforeNode(String value)
-    {
+    public void setInsertBeforeNode(String value) {
         InsertBeforeNode = value;
     }
 }

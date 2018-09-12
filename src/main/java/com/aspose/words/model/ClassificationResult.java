@@ -29,22 +29,24 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * Represents a single classification result.
+ * ClassificationResult
  */
-@ApiModel(description = "Represents a single classification result.")
 
 public class ClassificationResult {
-  @JsonProperty("ClassName")
+  @SerializedName("ClassName")
   private String className = null;
 
-  @JsonProperty("ClassProbability")
+  @SerializedName("ClassProbability")
   private Double classProbability = null;
 
   public ClassificationResult className(String className) {
@@ -53,10 +55,10 @@ public class ClassificationResult {
   }
 
    /**
-   * Gets or sets the name of the class.
+   * Get className
    * @return className
   **/
-  @ApiModelProperty(value = "Gets or sets the name of the class.")
+  @ApiModelProperty(value = "")
   public String getClassName() {
     return className;
   }
@@ -71,10 +73,10 @@ public class ClassificationResult {
   }
 
    /**
-   * Gets or sets the probability of class.
+   * Get classProbability
    * @return classProbability
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets the probability of class.")
+  @ApiModelProperty(required = true, value = "")
   public Double getClassProbability() {
     return classProbability;
   }

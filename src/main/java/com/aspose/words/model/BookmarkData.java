@@ -29,22 +29,24 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
- * DTO for bookmark updating.
+ * BookmarkData
  */
-@ApiModel(description = "DTO for bookmark updating.")
 
 public class BookmarkData {
-  @JsonProperty("Name")
+  @SerializedName("Name")
   private String name = null;
 
-  @JsonProperty("Text")
+  @SerializedName("Text")
   private String text = null;
 
   public BookmarkData name(String name) {
@@ -53,10 +55,10 @@ public class BookmarkData {
   }
 
    /**
-   * Gets or sets the name of the bookmark.
+   * Get name
    * @return name
   **/
-  @ApiModelProperty(value = "Gets or sets the name of the bookmark.")
+  @ApiModelProperty(value = "")
   public String getName() {
     return name;
   }
@@ -71,10 +73,10 @@ public class BookmarkData {
   }
 
    /**
-   * Gets or sets the text enclosed in the bookmark.
+   * Get text
    * @return text
   **/
-  @ApiModelProperty(value = "Gets or sets the text enclosed in the bookmark.")
+  @ApiModelProperty(value = "")
   public String getText() {
     return text;
   }

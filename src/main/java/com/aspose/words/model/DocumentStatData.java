@@ -31,33 +31,35 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.FootnotesStatData;
 import com.aspose.words.model.PageStatData;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Container for the document&#39;s statistical data
+ * DocumentStatData
  */
-@ApiModel(description = "Container for the document's statistical data")
 
 public class DocumentStatData {
-  @JsonProperty("WordCount")
+  @SerializedName("WordCount")
   private Integer wordCount = null;
 
-  @JsonProperty("ParagraphCount")
+  @SerializedName("ParagraphCount")
   private Integer paragraphCount = null;
 
-  @JsonProperty("PageCount")
+  @SerializedName("PageCount")
   private Integer pageCount = null;
 
-  @JsonProperty("FootnotesStatData")
+  @SerializedName("FootnotesStatData")
   private FootnotesStatData footnotesStatData = null;
 
-  @JsonProperty("PageStatData")
+  @SerializedName("PageStatData")
   private List<PageStatData> pageStatData = null;
 
   public DocumentStatData wordCount(Integer wordCount) {
@@ -66,10 +68,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Total count of words in the document
+   * Get wordCount
    * @return wordCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of words in the document")
+  @ApiModelProperty(required = true, value = "")
   public Integer getWordCount() {
     return wordCount;
   }
@@ -84,10 +86,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Total count of paragraphs in the document
+   * Get paragraphCount
    * @return paragraphCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of paragraphs in the document")
+  @ApiModelProperty(required = true, value = "")
   public Integer getParagraphCount() {
     return paragraphCount;
   }
@@ -102,10 +104,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Total count of pages in the document
+   * Get pageCount
    * @return pageCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of pages in the document")
+  @ApiModelProperty(required = true, value = "")
   public Integer getPageCount() {
     return pageCount;
   }
@@ -120,10 +122,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Detailed statistics of footnotes
+   * Get footnotesStatData
    * @return footnotesStatData
   **/
-  @ApiModelProperty(value = "Detailed statistics of footnotes")
+  @ApiModelProperty(value = "")
   public FootnotesStatData getFootnotesStatData() {
     return footnotesStatData;
   }
@@ -146,10 +148,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Detailed statistics of all pages
+   * Get pageStatData
    * @return pageStatData
   **/
-  @ApiModelProperty(value = "Detailed statistics of all pages")
+  @ApiModelProperty(value = "")
   public List<PageStatData> getPageStatData() {
     return pageStatData;
   }
