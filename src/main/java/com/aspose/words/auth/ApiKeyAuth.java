@@ -32,7 +32,7 @@ import com.aspose.words.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
@@ -77,12 +77,14 @@ public class ApiKeyAuth implements Authentication {
     String value;
     if (apiKeyPrefix != null) {
       value = apiKeyPrefix + " " + apiKey;
-    } else {
+    }
+    else {
       value = apiKey;
     }
     if ("query".equals(location)) {
       queryParams.add(new Pair(paramName, value));
-    } else if ("header".equals(location)) {
+    }
+    else if ("header".equals(location)) {
       headerParams.put(paramName, value);
     }
   }

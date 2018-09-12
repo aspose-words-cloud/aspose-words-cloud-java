@@ -27,7 +27,7 @@
 
 package com.aspose.words;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+
 public class Configuration {
     private static ApiClient defaultApiClient;
 
@@ -38,11 +38,7 @@ public class Configuration {
      * @return Default API client
      */
     public static ApiClient getDefaultApiClient() {
-        try {
-            defaultApiClient = new ApiClient("","");
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
+        defaultApiClient = new ApiClient();
         return defaultApiClient;
     }
 

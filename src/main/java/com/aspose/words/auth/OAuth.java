@@ -32,7 +32,7 @@ import com.aspose.words.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+
 public class OAuth implements Authentication {
   private String accessToken;
 

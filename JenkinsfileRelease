@@ -1,0 +1,27 @@
+node('billing-qa-ubuntu-16.04.4') {         
+    try {
+       stage('checkout'){
+           checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', url: 'https://github.com/aspose-words-cloud/aspose-words-cloud-java.git/']]])
+           withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'AppKey', usernameVariable: 'AppSid')]) {
+			  sh 'git checkout master'
+              sh 'mkdir -p Settings'
+              sh 'echo "{\\"AppSid\\": \\"$AppSid\\",\\"AppKey\\": \\"$AppKey\\", \\"BaseUrl\\": \\"https://auckland-words-cloud-staging.dynabic.com\\"}" > Settings/servercreds.json'
+			  sh "git config user.email \"jenkins.aspose@gmail.com\""
+			  sh "git config user.name \"jenkins\""
+           }
+       }
+	   
+	   stage('release:prepare'){
+	   withCredentials([usernamePassword(credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', passwordVariable: 'gitPass', usernameVariable: 'gitUsername')]) {
+	    		docker.image('maven').inside{
+					stage('build package'){
+						sh "mvn release:prepare -DcheckModificationExcludeList=Settings/servercreds.json -DreleaseVersion=18.9.0 -DdevelopmentVersion=18.9.0-SNAPSHOT -Dtag=v18.9.0"				
+					}
+				}
+	    	}
+	   }
+		    			                
+    } finally {                       
+        deleteDir()
+    }
+}   

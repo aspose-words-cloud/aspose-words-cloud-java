@@ -27,7 +27,7 @@
 
 package com.aspose.words;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-24T08:31:47.592+07:00")
+
 public class Pair {
     private String name = "";
     private String value = "";
