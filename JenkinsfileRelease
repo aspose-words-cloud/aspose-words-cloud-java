@@ -1,7 +1,12 @@
+parameters {		
+		string(name: 'version', defaultValue: '18.8.0', description: 'version of sdk')	
+		string(name: 'StartFromStep', defaultValue: '0', description: 'start step')	
+}
 node('billing-qa-ubuntu-16.04.4') {         
     try {
-       stage('checkout'){
-           checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', url: 'https://github.com/aspose-words-cloud/aspose-words-cloud-java.git/']]])
+       stage('0:checkout'){
+		if (params.StartFromStep.toInteger() < 1) {
+		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', url: 'https://github.com/aspose-words-cloud/aspose-words-cloud-java.git/']]])
            withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'AppKey', usernameVariable: 'AppSid')]) {
 			  sh 'git checkout master'
               sh 'mkdir -p Settings'
@@ -9,20 +14,29 @@ node('billing-qa-ubuntu-16.04.4') {
 			  sh "git config user.email \"jenkins.aspose@gmail.com\""
 			  sh "git config user.name \"jenkins\""
            }
+		}
        }
 	   
-	   stage('release:prepare'){
-	   withCredentials([usernamePassword(credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', passwordVariable: 'gitPass', usernameVariable: 'gitUsername')]) {
-	    		docker.image('maven').inside{
-					stage('build package'){
-						sh "mvn -DskipTests -Darguments=-DskipTests release:prepare -DcheckModificationExcludeList=Settings/servercreds.json -DreleaseVersion=18.8.0 -DdevelopmentVersion=18.8.0-SNAPSHOT -Dtag=v18.8.0"				
-					}
-					
-					stage('package deploy') {
-						sh 'mvn clean release:perform'
+	   stage('1:release:prepare'){
+		if (params.StartFromStep.toInteger() < 2) {
+			withCredentials([usernamePassword(credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', passwordVariable: 'gitPass', usernameVariable: 'gitUsername')]) {
+					docker.image('maven').inside{
+						stage('build package'){
+							sh "mvn -DskipTests -Darguments=-DskipTests release:prepare -DcheckModificationExcludeList=Settings/servercreds.json -DreleaseVersion=${version} -DdevelopmentVersion=${version}-SNAPSHOT -Dtag=v${version}"				
+						}
 					}
 				}
-	    	}
+			}
+	   }
+	   
+	   stage('2:deploy') {
+		if (params.StartFromStep.toInteger() < 3) {
+			docker.image('maven').inside{
+				stage('release'){
+					sh "mvn release:perform"				
+				}
+			}
+		}
 	   }
 		    			                
     } finally {                       
