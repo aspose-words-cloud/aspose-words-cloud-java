@@ -4,7 +4,7 @@
     <artifactId>aspose-words-cloud</artifactId>
     <packaging>jar</packaging>
     <name>AsposeWordsCloud</name>
-    <version>18.9.0-SNAPSHOT</version>
+    <version>18.8.0-SNAPSHOT</version>
     <url>https://www.aspose.cloud/</url>
     <description>Aspose Words Java SDK</description>
     <scm>
