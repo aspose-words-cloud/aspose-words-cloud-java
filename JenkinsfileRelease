@@ -31,9 +31,11 @@ node('billing-qa-ubuntu-16.04.4') {
 	   
 	   stage('2:deploy') {
 		if (params.StartFromStep.toInteger() < 3) {
-			docker.image('maven').inside{
-				stage('release'){
-					sh "mvn release:perform"				
+			withCredentials([usernamePassword(credentialsId: '07663A4C-471A-4DD9-A712-94D85879631D', passwordVariable: 'mavenPass', usernameVariable: 'mavenUser')]) {
+				docker.image('maven').inside{
+					stage('release'){
+						sh "mvn --settings wordsSettings.xml release:perform"				
+					}
 				}
 			}
 		}
