@@ -25,7 +25,7 @@ node('billing-qa-ubuntu-16.04.4') {
 			withCredentials([usernamePassword(credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', passwordVariable: 'gitPass', usernameVariable: 'gitUsername')]) {
 					docker.image('maven').inside{
 						stage('build package'){
-							sh "mvn release:prepare -DcheckModificationExcludeList=Settings/servercreds.json -DreleaseVersion=${version} -DdevelopmentVersion=${version}-SNAPSHOT -Dtag=v${version}"
+							sh "mvn release:prepare -DcheckModificationExcludeList=Settings/servercreds.json, wordsSettings.xml -DreleaseVersion=${version} -DdevelopmentVersion=${version}-SNAPSHOT -Dtag=v${version}"
 							sh "mvn --settings wordsSettings.xml deploy"							
 						}
 					}
