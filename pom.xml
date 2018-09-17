@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.aspose.words</groupId>
+    <groupId>com.aspose</groupId>
     <artifactId>aspose-words-cloud</artifactId>
     <packaging>jar</packaging>
     <name>AsposeWordsCloud</name>
@@ -17,7 +17,7 @@
     <distributionManagement>
         <repository>
             <id>aspose</id>
-            <url>https://artifact.aspose.com/repo/</url>
+            <url>https://artifact.aspose.cloud/repo/</url>
         </repository>
     </distributionManagement>
 
