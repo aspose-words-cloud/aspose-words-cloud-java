@@ -27,6 +27,7 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.ReplaceTextRequest;
 import com.aspose.words.model.ReplaceTextResponse;
@@ -37,8 +38,6 @@ import com.aspose.words.model.requests.PostReplaceTextRequest;
 import com.aspose.words.model.requests.SearchRequest;
 import junit.framework.TestCase;
 
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestText extends TestCase {
     private String testFolder = "DocumentElements/Text";
@@ -56,12 +55,11 @@ public class TestText extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentTextItems.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentTextItemsRequest request = new GetDocumentTextItemsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         TextItemsResponse result = TestInitializer.wordsApi.getDocumentTextItems(request);
@@ -74,15 +72,14 @@ public class TestText extends TestCase {
     public void testPostReplaceText() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostReplaceText.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         ReplaceTextRequest body = new ReplaceTextRequest().oldValue("aspose").newValue("aspose new");
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PostReplaceTextRequest request = new PostReplaceTextRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, destName, null, null);
 
         ReplaceTextResponse result = TestInitializer.wordsApi.postReplaceText(request);
@@ -97,12 +94,11 @@ public class TestText extends TestCase {
         String remoteName = "TestSearch.docx";
         String pattern = "aspose";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         SearchRequest request = new SearchRequest(remoteName, pattern,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SearchResponse result = TestInitializer.wordsApi.search(request);

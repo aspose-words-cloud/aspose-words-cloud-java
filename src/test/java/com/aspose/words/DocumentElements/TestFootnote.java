@@ -27,13 +27,11 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.*;
 import com.aspose.words.model.requests.*;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestFootnote extends TestCase {
     private String testFolder = "DocumentElements/Footnotes";
@@ -52,12 +50,11 @@ public class TestFootnote extends TestCase {
         String remoteName = "TestGetFootnote.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetFootnoteRequest request = new GetFootnoteRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.getFootnote(request);
@@ -71,12 +68,11 @@ public class TestFootnote extends TestCase {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnotes.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetFootnotesRequest request = new GetFootnotesRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         FootnotesResponse result = TestInitializer.wordsApi.getFootnotes(request);
@@ -91,12 +87,11 @@ public class TestFootnote extends TestCase {
         String remoteName = "TestDeleteFootnote.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         DeleteFootnoteRequest request = new DeleteFootnoteRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null, null);
 
         AsposeResponse result = TestInitializer.wordsApi.deleteFootnote(request);
@@ -112,12 +107,11 @@ public class TestFootnote extends TestCase {
         Integer index = 0;
         Footnote body = new Footnote().text("new text is here");
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PostFootnoteRequest request = new PostFootnoteRequest(remoteName, body, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.postFootnote(request);
@@ -132,12 +126,11 @@ public class TestFootnote extends TestCase {
         String remoteName = "TestPutFootnote.docx";
         Footnote body = new Footnote().text("new text is here").footnoteType(Footnote.FootnoteTypeEnum.ENDNOTE);
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PutFootnoteRequest request = new PutFootnoteRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.putFootnote(request);

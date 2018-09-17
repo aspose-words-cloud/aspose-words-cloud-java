@@ -27,13 +27,11 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.*;
 import com.aspose.words.model.requests.*;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestFormFields extends TestCase {
     private String testFolder = "DocumentElements/FormFields";
@@ -50,7 +48,7 @@ public class TestFormFields extends TestCase {
     public void testPostFormField() throws ApiException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestPostFormField.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         Integer index = 0;
         FormFieldTextInput body = new FormFieldTextInput()
                 .name("FullName")
@@ -59,12 +57,12 @@ public class TestFormFields extends TestCase {
                 .statusText("")
                 .textInputFormat("UPPERCASE")
                 .textInputDefault("123");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PostFormFieldRequest request = new PostFormFieldRequest(remoteName, body, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, destName, null, null, null);
 
         FormFieldResponse result = TestInitializer.wordsApi.postFormField(request);
@@ -77,7 +75,7 @@ public class TestFormFields extends TestCase {
     public void testPutFormField() throws ApiException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestPutFormField.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         FormFieldTextInput body = new FormFieldTextInput()
                 .name("FullName")
                 .enabled(true)
@@ -85,12 +83,12 @@ public class TestFormFields extends TestCase {
                 .statusText("")
                 .textInputFormat("UPPERCASE")
                 .textInputDefault("123");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PutFormFieldRequest request = new PutFormFieldRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, destName, null, null, "sections/0", null);
 
         FormFieldResponse result = TestInitializer.wordsApi.putFormField(request);
@@ -104,12 +102,12 @@ public class TestFormFields extends TestCase {
         String fileName = "FormFilled.docx";
         String remoteName = "TestDeleteFormField.docx";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         DeleteFormFieldRequest request = new DeleteFormFieldRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, "sections/0");
 
         AsposeResponse result = TestInitializer.wordsApi.deleteFormField(request);
@@ -123,12 +121,12 @@ public class TestFormFields extends TestCase {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormField.docx";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetFormFieldRequest request = new GetFormFieldRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, "sections/0");
 
         FormFieldResponse result = TestInitializer.wordsApi.getFormField(request);
@@ -141,12 +139,12 @@ public class TestFormFields extends TestCase {
     public void testGetFormFields() throws ApiException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormFields.docx";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetFormFieldsRequest request = new GetFormFieldsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, "sections/0");
 
         FormFieldsResponse result = TestInitializer.wordsApi.getFormFields(request);

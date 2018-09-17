@@ -26,15 +26,13 @@
  */
 package com.aspose.words.DocumentActions;
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.DocumentEntry;
 import com.aspose.words.model.DocumentEntryList;
 import com.aspose.words.model.DocumentResponse;
 import com.aspose.words.model.requests.PostAppendDocumentRequest;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestAppendDocument extends TestCase {
     private String testFolder = "DocumentActions/AppendDocument";
@@ -51,16 +49,17 @@ public class TestAppendDocument extends TestCase {
     public void testPostAppendDocument() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostAppendDocument.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut,remoteName);
         DocumentEntry docEntry = new DocumentEntry()
-                .href(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString())
+                .href(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName))
                 .importFormatMode("KeepSourceFormatting");
         DocumentEntryList body = new DocumentEntryList().addDocumentEntriesItem(docEntry);
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+
         PostAppendDocumentRequest request = new PostAppendDocumentRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null, null, destName, null, null);
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null, null, destName, null, null);
         DocumentResponse result = TestInitializer.wordsApi.postAppendDocument(request);
         assertEquals(result.getCode(), Integer.valueOf(200));
     }

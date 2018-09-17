@@ -1,11 +1,14 @@
 apply plugin: 'idea'
 
-group = 'com.aspose.words'
+group = 'com.aspose'
 version = '18.8.0'
 
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url "https://artifact.aspose.cloud/repo/"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
@@ -82,7 +85,7 @@ if(hasProperty('target') && target == 'android') {
 
     install {
         repositories.mavenInstaller {
-            pom.artifactId = 'aspose-words-cloud'
+            pom.artifactId = 'aspose-words-cloud-android'
         }
     }
 

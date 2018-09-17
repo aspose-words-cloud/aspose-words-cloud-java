@@ -27,16 +27,16 @@
 package com.aspose.words.DocumentActions;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.DocumentResponse;
 import com.aspose.words.model.requests.PostDocumentExecuteMailMergeRequest;
 import com.aspose.words.model.requests.PutExecuteMailMergeOnlineRequest;
+
 import junit.framework.TestCase;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class TestExecuteMailMerge extends TestCase {
     private String testFolder = "DocumentActions/MailMerge";
@@ -53,14 +53,15 @@ public class TestExecuteMailMerge extends TestCase {
     public void testPostDocumentExecuteMailMerge() throws ApiException, IOException {
         String fileName = "SampleMailMergeTemplate.docx";
         String remoteName = "TestPostDocumentExecuteMailMerge.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
-        String data = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt")), "utf8");
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
+
+        String data = StringUtil.readFileToString(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt"));
 
         PostDocumentExecuteMailMergeRequest request = new PostDocumentExecuteMailMergeRequest(remoteName, data,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null,
                 null, destName);
 
@@ -73,8 +74,8 @@ public class TestExecuteMailMerge extends TestCase {
      */
     public void testPutExecuteMailMergeOnline() throws ApiException {
         String fileName = "SampleMailMergeTemplate.docx";
-        File file = Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toFile();
-        File data = Paths.get(TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt").toFile();
+        File file = new File(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
+        File data = new File(StringUtil.join("/",TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt"));
 
         PutExecuteMailMergeOnlineRequest request = new PutExecuteMailMergeOnlineRequest(file, data,
                 null, null, null);

@@ -27,13 +27,13 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.*;
 import com.aspose.words.model.requests.*;
 import junit.framework.TestCase;
 
 import java.io.File;
-import java.nio.file.Paths;
 
 public class TestParagraphs extends TestCase {
     private String testFolder = "DocumentElements/Paragraphs";
@@ -51,12 +51,12 @@ public class TestParagraphs extends TestCase {
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteParagraph.doc";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         DeleteParagraphRequest request = new DeleteParagraphRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, null);
 
         AsposeResponse result = TestInitializer.wordsApi.deleteParagraph(request);
@@ -70,12 +70,12 @@ public class TestParagraphs extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentParagraph.doc";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentParagraphRequest request = new GetDocumentParagraphRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null);
 
         ParagraphResponse result = TestInitializer.wordsApi.getDocumentParagraph(request);
@@ -90,12 +90,12 @@ public class TestParagraphs extends TestCase {
         String remoteName = "TestGetDocumentParagraphRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/0";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentParagraphRunRequest request = new GetDocumentParagraphRunRequest(remoteName, paragraphPath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         RunResponse result = TestInitializer.wordsApi.getDocumentParagraphRun(request);
@@ -110,12 +110,12 @@ public class TestParagraphs extends TestCase {
         String remoteName = "TestGetDocumentParagraphRunFont.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/0";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentParagraphRunFontRequest request = new GetDocumentParagraphRunFontRequest(remoteName, paragraphPath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         FontResponse result = TestInitializer.wordsApi.getDocumentParagraphRunFont(request);
@@ -129,12 +129,12 @@ public class TestParagraphs extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentParagraphRuns.doc";
         String paragraphPath = "sections/0/paragraphs/0";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentParagraphRunsRequest request = new GetDocumentParagraphRunsRequest(remoteName, paragraphPath,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         RunsResponse result = TestInitializer.wordsApi.getDocumentParagraphRuns(request);
@@ -148,12 +148,12 @@ public class TestParagraphs extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentParagraphRuns.doc";
         String paragraphPath = "sections/0";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentParagraphsRequest request = new GetDocumentParagraphsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, paragraphPath);
 
         ParagraphLinkCollectionResponse result = TestInitializer.wordsApi.getDocumentParagraphs(request);
@@ -168,14 +168,14 @@ public class TestParagraphs extends TestCase {
         String remoteName = "TestPostDocumentParagraphRunFont.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/0";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         Font body = new Font().bold(true);
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PostDocumentParagraphRunFontRequest request = new PostDocumentParagraphRunFontRequest(remoteName, body, paragraphPath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, destName, null, null);
 
         FontResponse result = TestInitializer.wordsApi.postDocumentParagraphRunFont(request);
@@ -189,14 +189,14 @@ public class TestParagraphs extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutParagraph.doc";
         String paragraphPath = "sections/0";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         ParagraphInsert body = new ParagraphInsert().text("This is a new paragraph for your document");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PutParagraphRequest request = new PutParagraphRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, destName, null, null, paragraphPath, null);
 
         ParagraphResponse result = TestInitializer.wordsApi.putParagraph(request);
@@ -211,12 +211,12 @@ public class TestParagraphs extends TestCase {
         String remoteName = "TestRenderParagraph.doc";
         Integer index = 0;
         String format = "png";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         RenderParagraphRequest request = new RenderParagraphRequest(remoteName, format, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null,null, null);
 
         File result = TestInitializer.wordsApi.renderParagraph(request);

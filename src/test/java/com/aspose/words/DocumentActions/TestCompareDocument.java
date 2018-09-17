@@ -27,15 +27,13 @@
 package com.aspose.words.DocumentActions;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.CompareData;
 import com.aspose.words.model.DocumentResponse;
 import com.aspose.words.model.requests.PostCompareDocumentRequest;
 import junit.framework.TestCase;
 import org.threeten.bp.OffsetDateTime;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestCompareDocument extends TestCase {
     private String testFolder = "DocumentActions/CompareDocument";
@@ -54,20 +52,20 @@ public class TestCompareDocument extends TestCase {
         String fileName2 = "compareTestDoc2.doc";
         String remoteName1 = "TestPostCompareDocument1.doc";
         String remoteName2 = "TestPostCompareDocument2.doc";
-        String dest_name = Paths.get(TestInitializer.RemoteTestOut, "TestCompareOut.doc").toString();
+        String dest_name = StringUtil.join("/",TestInitializer.RemoteTestOut, "TestCompareOut.doc");
         CompareData compareData = new CompareData()
                 .author("author")
-                .comparingWithDocument(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName2).toString())
+                .comparingWithDocument(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName2))
                 .dateTime(OffsetDateTime.now());
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName1).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName1).toString()),
-                null, null);
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName2).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName2).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName1).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName1));
+
+        TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName2).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName2));
 
         PostCompareDocumentRequest request = new PostCompareDocumentRequest(remoteName1, compareData,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, dest_name);
         DocumentResponse result = TestInitializer.wordsApi.postCompareDocument(request);
         assertEquals(result.getCode(), Integer.valueOf(200));

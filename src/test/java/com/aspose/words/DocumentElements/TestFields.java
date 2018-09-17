@@ -27,13 +27,11 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.*;
 import com.aspose.words.model.requests.*;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestFields extends TestCase {
     private String testFolder = "DocumentElements/Fields";
@@ -51,12 +49,11 @@ public class TestFields extends TestCase {
         String fileName = "GetField.docx";
         String remoteName = "TestGetFields.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetFieldsRequest request = new GetFieldsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, "sections/0");
 
         FieldsResponse result = TestInitializer.wordsApi.getFields(request);
@@ -71,12 +68,11 @@ public class TestFields extends TestCase {
         String remoteName = "TestGetField.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetFieldRequest request = new GetFieldRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, "sections/0");
 
         FieldResponse result = TestInitializer.wordsApi.getField(request);
@@ -91,12 +87,12 @@ public class TestFields extends TestCase {
         String remoteName = "TestPostField.docx";
         Integer index = 0;
         Field body = new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PostFieldRequest request = new PostFieldRequest(remoteName, body, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null,
                 null, "sections/0/paragraphs/0");
 
@@ -111,12 +107,12 @@ public class TestFields extends TestCase {
         String fileName = "GetField.docx";
         String remoteName = "TestPutField.docx";
         Field body = new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PutFieldRequest request = new PutFieldRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null,
                 null, "sections/0/paragraphs/0", null);
 
@@ -130,12 +126,12 @@ public class TestFields extends TestCase {
     public void testPostUpdateDocumentFields() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostUpdateDocumentFields.docx";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PostUpdateDocumentFieldsRequest request = new PostUpdateDocumentFieldsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         DocumentResponse result = TestInitializer.wordsApi.postUpdateDocumentFields(request);
@@ -148,14 +144,14 @@ public class TestFields extends TestCase {
     public void testPostInsertPageNumbers() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostInsertPageNumbers.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         PageNumber body = new PageNumber().format("{PAGE} of { NUMPAGES }").alignment("center").isTop(false);
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PostInsertPageNumbersRequest request = new PostInsertPageNumbersRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, destName, null, null);
 
         DocumentResponse result = TestInitializer.wordsApi.postInsertPageNumbers(request);
@@ -170,12 +166,11 @@ public class TestFields extends TestCase {
         String remoteName = "TestDeleteField.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         DeleteFieldRequest request = new DeleteFieldRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null,
                 null, "sections/0/paragraphs/0");
 
@@ -190,12 +185,11 @@ public class TestFields extends TestCase {
         String fileName = "GetField.docx";
         String remoteName = "TestDeleteFields.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         DeleteFieldsRequest request = new DeleteFieldsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null,
                 null, "sections/0");
 

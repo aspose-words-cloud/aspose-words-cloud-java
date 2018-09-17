@@ -27,6 +27,7 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.PageSetup;
 import com.aspose.words.model.SectionPageSetupResponse;
@@ -36,7 +37,6 @@ import com.aspose.words.model.requests.UpdateSectionPageSetupRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
-import java.nio.file.Paths;
 
 public class TestPages extends TestCase {
     private String testFolder = "DocumentElements/Pages";
@@ -55,12 +55,12 @@ public class TestPages extends TestCase {
         String remoteName = "TestRenderPage.doc";
         Integer pageNumber = 1;
         String format = "png";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         RenderPageRequest request = new RenderPageRequest(remoteName, pageNumber, format,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null);
 
         File result = TestInitializer.wordsApi.renderPage(request);
@@ -75,12 +75,11 @@ public class TestPages extends TestCase {
         String remoteName = "TestGetSectionPageSetup.doc";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetSectionPageSetupRequest request = new GetSectionPageSetupRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.getSectionPageSetup(request);
@@ -97,12 +96,11 @@ public class TestPages extends TestCase {
         PageSetup body = new PageSetup().rtlGutter(true).leftMargin(10.0)
                 .orientation(PageSetup.OrientationEnum.LANDSCAPE).paperSize(PageSetup.PaperSizeEnum.A5);
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         UpdateSectionPageSetupRequest request = new UpdateSectionPageSetupRequest(remoteName, index, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.updateSectionPageSetup(request);

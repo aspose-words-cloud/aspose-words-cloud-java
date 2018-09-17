@@ -1,11 +1,41 @@
 package com.aspose.words.Common;
 
 import com.aspose.words.Document.TestDocument;
-import com.aspose.words.DocumentActions.*;
-import com.aspose.words.DocumentElements.*;
+import com.aspose.words.DocumentActions.TestAppendDocument;
+import com.aspose.words.DocumentActions.TestClassification;
+import com.aspose.words.DocumentActions.TestCompareDocument;
+import com.aspose.words.DocumentActions.TestConvertDocument;
+import com.aspose.words.DocumentActions.TestDocumentProtection;
+import com.aspose.words.DocumentActions.TestDocumentStatistics;
+import com.aspose.words.DocumentActions.TestExecuteMailMerge;
+import com.aspose.words.DocumentActions.TestExecuteTemplate;
+import com.aspose.words.DocumentActions.TestLoadWebDocument;
+import com.aspose.words.DocumentActions.TestMailMergeFields;
+import com.aspose.words.DocumentActions.TestRevisions;
+import com.aspose.words.DocumentActions.TestSplitDocument;
+import com.aspose.words.DocumentElements.TestBookmarks;
+import com.aspose.words.DocumentElements.TestComments;
+import com.aspose.words.DocumentElements.TestDocumentProperties;
+import com.aspose.words.DocumentElements.TestDrawingObjects;
+import com.aspose.words.DocumentElements.TestFields;
+import com.aspose.words.DocumentElements.TestFootnote;
+import com.aspose.words.DocumentElements.TestFormFields;
+import com.aspose.words.DocumentElements.TestHeaderFooter;
+import com.aspose.words.DocumentElements.TestHyperlinks;
+import com.aspose.words.DocumentElements.TestMacros;
+import com.aspose.words.DocumentElements.TestMathObjects;
+import com.aspose.words.DocumentElements.TestPages;
+import com.aspose.words.DocumentElements.TestParagraphs;
+import com.aspose.words.DocumentElements.TestRuns;
+import com.aspose.words.DocumentElements.TestSections;
+import com.aspose.words.DocumentElements.TestTables;
+import com.aspose.words.DocumentElements.TestText;
+import com.aspose.words.DocumentElements.TestWatermarks;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.api.WordsApi;
 import com.squareup.okhttp.Call;
+
 import junit.framework.TestCase;
 
 import java.lang.reflect.Method;
@@ -58,6 +88,6 @@ public class TestApiCoverage extends TestCase {
             }
         }
 
-        assertEquals("You have to cover these methods with tests " + String.join("\n", uncoveredMethods), 0, uncoveredMethods.size());
+        assertEquals("You have to cover these methods with tests " + StringUtil.join("\n", uncoveredMethods.toArray(new String[0])), 0, uncoveredMethods.size());
     }
 }

@@ -27,14 +27,12 @@
 package com.aspose.words.Document;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.DocumentResponse;
 import com.aspose.words.model.requests.GetDocumentRequest;
 import com.aspose.words.model.requests.PutCreateDocumentRequest;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestDocument extends TestCase {
     private String testFolder = "document";
@@ -52,12 +50,11 @@ public class TestDocument extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocument.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentRequest request = new GetDocumentRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
@@ -70,12 +67,12 @@ public class TestDocument extends TestCase {
     public void testPutCreateDocument() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutCreateDocument.docx";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PutCreateDocumentRequest request = new PutCreateDocumentRequest(null, remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString());
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder));
         DocumentResponse result = TestInitializer.wordsApi.putCreateDocument(request);
         assertEquals(result.getCode(), Integer.valueOf(200));
     }

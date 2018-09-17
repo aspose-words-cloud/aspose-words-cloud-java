@@ -27,6 +27,7 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.DrawingObjectResponse;
@@ -35,7 +36,6 @@ import com.aspose.words.model.requests.*;
 import junit.framework.TestCase;
 
 import java.io.File;
-import java.nio.file.Paths;
 
 public class TestDrawingObjects extends TestCase {
     private String testFolder = "DocumentElements/DrawingObjects";
@@ -54,12 +54,11 @@ public class TestDrawingObjects extends TestCase {
         String remoteName = "TestGetDocumentDrawingObjectByIndex.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentDrawingObjectByIndexRequest request = new GetDocumentDrawingObjectByIndexRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, "sections/0");
 
         DrawingObjectResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectByIndex(request);
@@ -74,12 +73,11 @@ public class TestDrawingObjects extends TestCase {
         String remoteName = "TestGetDocumentDrawingObjectImageData.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentDrawingObjectImageDataRequest request = new GetDocumentDrawingObjectImageDataRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, "sections/0");
 
         File result = TestInitializer.wordsApi.getDocumentDrawingObjectImageData(request);
@@ -94,12 +92,11 @@ public class TestDrawingObjects extends TestCase {
         String remoteName = "TestGetDocumentDrawingObjectOleData.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetDocumentDrawingObjectOleDataRequest request = new GetDocumentDrawingObjectOleDataRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, "sections/0");
 
         File result = TestInitializer.wordsApi.getDocumentDrawingObjectOleData(request);
@@ -113,12 +110,11 @@ public class TestDrawingObjects extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjects.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentDrawingObjectsRequest request = new GetDocumentDrawingObjectsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, "sections/0");
 
         DrawingObjectsResponse result = TestInitializer.wordsApi.getDocumentDrawingObjects(request);
@@ -131,15 +127,14 @@ public class TestDrawingObjects extends TestCase {
     public void testPostDrawingObject() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostDrawingObject.docx";
-        File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
+        File data = new File(StringUtil.join("/",TestInitializer.LocalCommonFolder, "aspose-cloud.png"));
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PostDrawingObjectRequest request = new PostDrawingObjectRequest(remoteName, "{\"Left\": 0}", data,
-                index, Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                index, StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null, null);
 
         DrawingObjectResponse result = TestInitializer.wordsApi.postDrawingObject(request);
@@ -152,14 +147,13 @@ public class TestDrawingObjects extends TestCase {
     public void testPutDrawingObject() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutDrawingObject.docx";
-        File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
+        File data = new File(StringUtil.join("/",TestInitializer.LocalCommonFolder, "aspose-cloud.png"));
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PutDrawingObjectRequest request = new PutDrawingObjectRequest(remoteName, "{\"Left\": 0}", data,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, null);
 
         DrawingObjectResponse result = TestInitializer.wordsApi.putDrawingObject(request);
@@ -175,12 +169,11 @@ public class TestDrawingObjects extends TestCase {
         String format = "png";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         RenderDrawingObjectRequest request = new RenderDrawingObjectRequest(remoteName, format, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, "sections/0", null);
 
         File result = TestInitializer.wordsApi.renderDrawingObject(request);
@@ -195,12 +188,11 @@ public class TestDrawingObjects extends TestCase {
         String remoteName = "TestDeleteDrawingObject.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         DeleteDrawingObjectRequest request = new DeleteDrawingObjectRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null, null);
 
         AsposeResponse result = TestInitializer.wordsApi.deleteDrawingObject(request);

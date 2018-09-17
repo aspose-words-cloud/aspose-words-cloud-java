@@ -27,13 +27,11 @@
 package com.aspose.words.DocumentActions;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.StatDataResponse;
 import com.aspose.words.model.requests.GetDocumentStatisticsRequest;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestDocumentStatistics extends TestCase {
     private String testFolder = "DocumentActions/DocumentStatistics";
@@ -51,12 +49,11 @@ public class TestDocumentStatistics extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentStatistics.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentStatisticsRequest request = new GetDocumentStatisticsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         StatDataResponse result = TestInitializer.wordsApi.getDocumentStatistics(request);

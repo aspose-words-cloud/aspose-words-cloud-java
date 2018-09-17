@@ -28,6 +28,11 @@
 package com.aspose.words;
 
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
@@ -55,7 +60,7 @@ public class StringUtil {
    * @param separator The separator
    * @return the resulting string
    */
-  public static String join(String[] array, String separator) {
+  public static String join(String separator, String... array) {
     int len = array.length;
     if (len == 0) return "";
 
@@ -65,5 +70,17 @@ public class StringUtil {
       out.append(separator).append(array[i]);
     }
     return out.toString();
+  }
+  
+  public static String readFileToString(String fileName) throws IOException {
+      StringBuilder builder = new StringBuilder();
+      FileReader reader = new FileReader(fileName);
+      Scanner scanner = new Scanner(reader);
+      while (scanner.hasNextLine()) {
+          builder.append(scanner.nextLine());
+      }
+      reader.close();
+
+      return builder.toString();
   }
 }

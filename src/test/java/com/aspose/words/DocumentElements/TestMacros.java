@@ -27,13 +27,11 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.requests.DeleteDocumentMacrosRequest;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestMacros extends TestCase {
     private String testFolder = "DocumentElements/Macros";
@@ -50,12 +48,12 @@ public class TestMacros extends TestCase {
     public void testDeleteDocumentMacros() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteDocumentMacros.doc";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         DeleteDocumentMacrosRequest request = new DeleteDocumentMacrosRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
         AsposeResponse result = TestInitializer.wordsApi.deleteDocumentMacros(request);

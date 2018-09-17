@@ -27,6 +27,7 @@
 package com.aspose.words.DocumentActions;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.FieldNamesResponse;
 import com.aspose.words.model.requests.GetDocumentFieldNamesRequest;
@@ -34,7 +35,6 @@ import com.aspose.words.model.requests.PutDocumentFieldNamesRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
-import java.nio.file.Paths;
 
 public class TestMailMergeFields extends TestCase {
     private String testFolder = "DocumentActions/MailMerge";
@@ -51,12 +51,12 @@ public class TestMailMergeFields extends TestCase {
     public void testGetDocumentFieldNames() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentFieldNames.docx";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentFieldNamesRequest request = new GetDocumentFieldNamesRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNames(request);
@@ -68,7 +68,7 @@ public class TestMailMergeFields extends TestCase {
      */
     public void testPutDocumentFieldNames() throws ApiException {
         String fileName = "SampleExecuteTemplate.docx";
-        File file = Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toFile();
+        File file = new File(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PutDocumentFieldNamesRequest request = new PutDocumentFieldNamesRequest(file, true);
 

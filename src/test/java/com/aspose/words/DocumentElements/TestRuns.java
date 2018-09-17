@@ -27,6 +27,7 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.Run;
@@ -35,9 +36,6 @@ import com.aspose.words.model.requests.DeleteRunRequest;
 import com.aspose.words.model.requests.PostRunRequest;
 import com.aspose.words.model.requests.PutRunRequest;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestRuns extends TestCase {
     private String testFolder = "DocumentElements/Runs";
@@ -56,12 +54,12 @@ public class TestRuns extends TestCase {
         String remoteName = "TestDeleteRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         DeleteRunRequest request = new DeleteRunRequest(remoteName, paragraphPath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
         AsposeResponse result = TestInitializer.wordsApi.deleteRun(request);
@@ -77,12 +75,12 @@ public class TestRuns extends TestCase {
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
         Run body = new Run().text("Run with text");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PostRunRequest request = new PostRunRequest(remoteName, body, paragraphPath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
         RunResponse result = TestInitializer.wordsApi.postRun(request);
@@ -97,12 +95,12 @@ public class TestRuns extends TestCase {
         String remoteName = "TestPutRun.doc";
         String paragraphPath = "paragraphs/1";
         Run body = new Run().text("Run with text");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PutRunRequest request = new PutRunRequest(remoteName, paragraphPath, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, null);
 
         RunResponse result = TestInitializer.wordsApi.putRun(request);

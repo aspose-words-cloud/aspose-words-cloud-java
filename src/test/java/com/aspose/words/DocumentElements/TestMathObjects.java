@@ -27,6 +27,7 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.AsposeResponse;
 import com.aspose.words.model.OfficeMathObjectResponse;
@@ -35,7 +36,6 @@ import com.aspose.words.model.requests.*;
 import junit.framework.TestCase;
 
 import java.io.File;
-import java.nio.file.Paths;
 
 public class TestMathObjects extends TestCase {
     private String testFolder = "DocumentElements/MathObjects";
@@ -53,12 +53,12 @@ public class TestMathObjects extends TestCase {
         String fileName = "MathObjects.docx";
         String remoteName = "TestDeleteOfficeMathObject.doc";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         DeleteOfficeMathObjectRequest request = new DeleteOfficeMathObjectRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, null);
 
         AsposeResponse result = TestInitializer.wordsApi.deleteOfficeMathObject(request);
@@ -72,12 +72,12 @@ public class TestMathObjects extends TestCase {
         String fileName = "MathObjects.docx";
         String remoteName = "TestGetOfficeMathObject.doc";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetOfficeMathObjectRequest request = new GetOfficeMathObjectRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null);
 
         OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObject(request);
@@ -90,12 +90,12 @@ public class TestMathObjects extends TestCase {
     public void testGetOfficeMathObjects() throws ApiException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestGetOfficeMathObjects.doc";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetOfficeMathObjectsRequest request = new GetOfficeMathObjectsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null);
 
         OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjects(request);
@@ -110,12 +110,12 @@ public class TestMathObjects extends TestCase {
         String remoteName = "TestRenderMathObject.doc";
         Integer index = 0;
         String format = "png";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         RenderMathObjectRequest request = new RenderMathObjectRequest(remoteName, format, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null);
 
         File result = TestInitializer.wordsApi.renderMathObject(request);

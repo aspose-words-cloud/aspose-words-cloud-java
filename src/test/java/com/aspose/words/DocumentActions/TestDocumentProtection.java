@@ -27,6 +27,7 @@
 package com.aspose.words.DocumentActions;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.ProtectionDataResponse;
 import com.aspose.words.model.ProtectionRequest;
@@ -35,9 +36,6 @@ import com.aspose.words.model.requests.GetDocumentProtectionRequest;
 import com.aspose.words.model.requests.PostChangeDocumentProtectionRequest;
 import com.aspose.words.model.requests.PutProtectDocumentRequest;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestDocumentProtection extends TestCase {
     private String testFolder = "DocumentActions/DocumentProtection";
@@ -54,12 +52,12 @@ public class TestDocumentProtection extends TestCase {
     public void testGetDocumentProtection() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentProtection.docx";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetDocumentProtectionRequest request = new GetDocumentProtectionRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         ProtectionDataResponse result = TestInitializer.wordsApi.getDocumentProtection(request);
@@ -73,12 +71,12 @@ public class TestDocumentProtection extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutProtectDocument.docx";
         ProtectionRequest body = new ProtectionRequest().newPassword("123");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PutProtectDocumentRequest request = new PutProtectDocumentRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
         ProtectionDataResponse result = TestInitializer.wordsApi.putProtectDocument(request);
         assertEquals(result.getCode(), Integer.valueOf(200));
@@ -91,12 +89,12 @@ public class TestDocumentProtection extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostChangeDocumentProtection.docx";
         ProtectionRequest body = new ProtectionRequest().newPassword("");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PostChangeDocumentProtectionRequest request = new PostChangeDocumentProtectionRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         ProtectionDataResponse result = TestInitializer.wordsApi.postChangeDocumentProtection(request);
@@ -110,11 +108,12 @@ public class TestDocumentProtection extends TestCase {
         String fileName = "SampleProtectedBlankWordDocument.docx";
         String remoteName = "TestDeleteUnprotectDocument.docx";
         ProtectionRequest body = new ProtectionRequest().password("aspose");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
+
         DeleteUnprotectDocumentRequest request = new DeleteUnprotectDocumentRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
         ProtectionDataResponse result = TestInitializer.wordsApi.deleteUnprotectDocument(request);
         assertEquals(result.getCode(), Integer.valueOf(200));

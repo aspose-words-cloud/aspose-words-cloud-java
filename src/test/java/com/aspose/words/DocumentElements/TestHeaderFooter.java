@@ -27,13 +27,11 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.*;
 import com.aspose.words.model.requests.*;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestHeaderFooter extends TestCase {
     private String testFolder = "DocumentElements/HeaderFooters";
@@ -51,12 +49,12 @@ public class TestHeaderFooter extends TestCase {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestPutHeaderFooter.doc";
         String footerType = "FooterEven";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         PutHeaderFooterRequest request = new PutHeaderFooterRequest(remoteName, footerType,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, null);
 
         HeaderFooterResponse result = TestInitializer.wordsApi.putHeaderFooter(request);
@@ -70,12 +68,12 @@ public class TestHeaderFooter extends TestCase {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestGetHeaderFooter.doc";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetHeaderFooterRequest request = new GetHeaderFooterRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null);
 
         HeaderFooterResponse result = TestInitializer.wordsApi.getHeaderFooter(request);
@@ -88,12 +86,12 @@ public class TestHeaderFooter extends TestCase {
     public void testGetHeaderFooters() throws ApiException {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestGetHeaderFooters.doc";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetHeaderFootersRequest request = new GetHeaderFootersRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null);
 
         HeaderFootersResponse result = TestInitializer.wordsApi.getHeaderFooters(request);
@@ -108,12 +106,12 @@ public class TestHeaderFooter extends TestCase {
         String remoteName = "TestGetHeaderFooterOfSection.doc";
         Integer index = 0;
         Integer sectionIndex = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         GetHeaderFooterOfSectionRequest request = new GetHeaderFooterOfSectionRequest(remoteName, index, sectionIndex,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null);
 
         HeaderFooterResponse result = TestInitializer.wordsApi.getHeaderFooterOfSection(request);
@@ -127,12 +125,12 @@ public class TestHeaderFooter extends TestCase {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestDeleteHeaderFooter.doc";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         DeleteHeaderFooterRequest request = new DeleteHeaderFooterRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, null);
 
         AsposeResponse result = TestInitializer.wordsApi.deleteHeaderFooter(request);
@@ -146,12 +144,12 @@ public class TestHeaderFooter extends TestCase {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestDeleteHeadersFooters.doc";
         Integer index = 0;
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
         DeleteHeaderFooterRequest request = new DeleteHeaderFooterRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, null);
 
         AsposeResponse result = TestInitializer.wordsApi.deleteHeaderFooter(request);

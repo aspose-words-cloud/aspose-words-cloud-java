@@ -529,7 +529,7 @@ public class ApiClient {
                 return accept;
             }
         }
-        return StringUtil.join(accepts, ",");
+        return StringUtil.join(",", accepts);
     }
 
     /**

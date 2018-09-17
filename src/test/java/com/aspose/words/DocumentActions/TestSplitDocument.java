@@ -27,13 +27,13 @@
 package com.aspose.words.DocumentActions;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.SplitDocumentResponse;
 import com.aspose.words.model.requests.PostSplitDocumentRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
-import java.nio.file.Paths;
 
 public class TestSplitDocument extends TestCase {
     private String testFolder = "DocumentActions/SplitDocument";
@@ -50,17 +50,16 @@ public class TestSplitDocument extends TestCase {
     public void testPostSplitDocument() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostSplitDocument.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         String format = "text";
         Integer from = 1;
         Integer to = 2;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         PostSplitDocumentRequest request = new PostSplitDocumentRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, destName, format, from, to, null, null);
 
         SplitDocumentResponse result = TestInitializer.wordsApi.postSplitDocument(request);

@@ -27,15 +27,13 @@
 package com.aspose.words.DocumentElements;
 
 import com.aspose.words.ApiException;
+import com.aspose.words.StringUtil;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.SectionLinkCollectionResponse;
 import com.aspose.words.model.SectionResponse;
 import com.aspose.words.model.requests.GetSectionRequest;
 import com.aspose.words.model.requests.GetSectionsRequest;
 import junit.framework.TestCase;
-
-import java.io.File;
-import java.nio.file.Paths;
 
 public class TestSections extends TestCase {
     private String testFolder = "DocumentElements/Sections";
@@ -54,12 +52,11 @@ public class TestSections extends TestCase {
         String remoteName = "TestGetSection.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetSectionRequest request = new GetSectionRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SectionResponse result = TestInitializer.wordsApi.getSection(request);
@@ -73,12 +70,11 @@ public class TestSections extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSections.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
 
         GetSectionsRequest request = new GetSectionsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSections(request);
