@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetHeaderFootersRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
@@ -58,25 +58,25 @@ public class GetHeaderFootersRequest {
     private String Password;
 
     /*
-     * 
+     * Path to parent section.
      */
     private String SectionPath;
 
     /*
-     * 
+     * List of types of headers and footers.
      */
     private String FilterByType;
     
     /*
      * Initializes a new instance of the getHeaderFootersRequest class.
      *  
-     * @param String name 
+     * @param String name The document name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String sectionPath 
-     * @param String filterByType 
+     * @param String sectionPath Path to parent section.
+     * @param String filterByType List of types of headers and footers.
      */
     public GetHeaderFootersRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String sectionPath,  String filterByType) {
         Name = name;
@@ -89,14 +89,14 @@ public class GetHeaderFootersRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -159,28 +159,28 @@ public class GetHeaderFootersRequest {
     }
 
     /*
-     * 
+     *  Gets Path to parent section.
      */
     public String getSectionPath() {
         return SectionPath;
     }
 
     /*
-     * 
+     * Sets Path to parent section.
      */
     public void setSectionPath(String value) {
         SectionPath = value;
     }
 
     /*
-     * 
+     *  Gets List of types of headers and footers.
      */
     public String getFilterByType() {
         return FilterByType;
     }
 
     /*
-     * 
+     * Sets List of types of headers and footers.
      */
     public void setFilterByType(String value) {
         FilterByType = value;

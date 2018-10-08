@@ -31,10 +31,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.RunLink;
 import com.aspose.words.model.WordsApiLink;
+import io.swagger.annotations.ApiModel;
 
 /**
- * Run
+ * Run element
  */
+@ApiModel(description = "Run element")
 
 public class Run extends RunLink {
 

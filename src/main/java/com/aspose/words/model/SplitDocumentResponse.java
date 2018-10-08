@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SplitDocumentResponse
+ * This response should be returned by the service when handling:  POST /{name}/split .
  */
+@ApiModel(description = "This response should be returned by the service when handling:  POST /{name}/split .")
 
 public class SplitDocumentResponse extends AsposeResponse {
   @SerializedName("SplitResult")
@@ -54,10 +55,10 @@ public class SplitDocumentResponse extends AsposeResponse {
   }
 
    /**
-   * Get splitResult
+   * Resylt of splitting document.
    * @return splitResult
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Resylt of splitting document.")
   public SplitDocumentResult getSplitResult() {
     return splitResult;
   }

@@ -40,8 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ModificationOperationResult
+ * result of the operation which modifies the original document and saves the result
  */
+@ApiModel(description = "result of the operation which modifies the original document and saves the result")
 
 public class ModificationOperationResult {
   @SerializedName("Source")
@@ -56,10 +57,10 @@ public class ModificationOperationResult {
   }
 
    /**
-   * Get source
+   * Link to the source document (source for the modification operation)
    * @return source
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to the source document (source for the modification operation)")
   public FileLink getSource() {
     return source;
   }
@@ -74,10 +75,10 @@ public class ModificationOperationResult {
   }
 
    /**
-   * Get dest
+   * Link to the dest document (result of the modification operation)
    * @return dest
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to the dest document (result of the modification operation)")
   public FileLink getDest() {
     return dest;
   }

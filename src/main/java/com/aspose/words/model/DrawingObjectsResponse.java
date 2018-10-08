@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DrawingObjectsResponse
+ * This response should be returned by the service when handling:  GET /drawingObjects.
  */
+@ApiModel(description = "This response should be returned by the service when handling:  GET /drawingObjects.")
 
 public class DrawingObjectsResponse extends AsposeResponse {
   @SerializedName("DrawingObjects")
@@ -54,10 +55,10 @@ public class DrawingObjectsResponse extends AsposeResponse {
   }
 
    /**
-   * Get drawingObjects
+   * Collection of drawing objects.
    * @return drawingObjects
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of drawing objects.")
   public DrawingObjectCollection getDrawingObjects() {
     return drawingObjects;
   }

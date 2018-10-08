@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class PostDrawingObjectRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
@@ -88,14 +88,14 @@ public class PostDrawingObjectRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Path to node, which contains collection of drawing objects.
      */
     private String NodePath;
     
     /*
      * Initializes a new instance of the postDrawingObjectRequest class.
      *  
-     * @param String name 
+     * @param String name The document name.
      * @param String drawingObject Drawing object parameters
      * @param File imageFile File with image
      * @param Integer index Object's index
@@ -106,7 +106,7 @@ public class PostDrawingObjectRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath 
+     * @param String nodePath Path to node, which contains collection of drawing objects.
      */
     public PostDrawingObjectRequest(String name,  String drawingObject,  File imageFile,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
         Name = name;
@@ -124,14 +124,14 @@ public class PostDrawingObjectRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -278,14 +278,14 @@ public class PostDrawingObjectRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node, which contains collection of drawing objects.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node, which contains collection of drawing objects.
      */
     public void setNodePath(String value) {
         NodePath = value;

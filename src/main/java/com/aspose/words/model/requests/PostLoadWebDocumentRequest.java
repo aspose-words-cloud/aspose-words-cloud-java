@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class PostLoadWebDocumentRequest {
     /*
-     * 
+     * Parameters of loading.
      */
     private LoadWebDocumentData Data;
 
@@ -45,7 +45,7 @@ public class PostLoadWebDocumentRequest {
     /*
      * Initializes a new instance of the postLoadWebDocumentRequest class.
      *  
-     * @param LoadWebDocumentData data 
+     * @param LoadWebDocumentData data Parameters of loading.
      * @param String storage File storage, which have to be used.
      */
     public PostLoadWebDocumentRequest(LoadWebDocumentData data,  String storage) {
@@ -54,14 +54,14 @@ public class PostLoadWebDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets Parameters of loading.
      */
     public LoadWebDocumentData getData() {
         return Data;
     }
 
     /*
-     * 
+     * Sets Parameters of loading.
      */
     public void setData(LoadWebDocumentData value) {
         Data = value;

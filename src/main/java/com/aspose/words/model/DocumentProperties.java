@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DocumentProperties
+ * Collection of document properties.
  */
+@ApiModel(description = "Collection of document properties.")
 
 public class DocumentProperties extends LinkElement {
   @SerializedName("List")
@@ -65,10 +66,10 @@ public class DocumentProperties extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of document properties.
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of document properties.")
   public List<DocumentProperty> getList() {
     return list;
   }

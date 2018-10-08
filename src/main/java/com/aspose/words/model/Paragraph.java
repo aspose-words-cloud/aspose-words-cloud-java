@@ -43,8 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Paragraph
+ * Paragraph element
  */
+@ApiModel(description = "Paragraph element")
 
 public class Paragraph extends NodeLink {
   @SerializedName("ChildNodes")
@@ -64,10 +65,10 @@ public class Paragraph extends NodeLink {
   }
 
    /**
-   * Get childNodes
+   * Child nodes
    * @return childNodes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Child nodes")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }

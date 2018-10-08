@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DocumentProperty
+ * Words document property DTO.
  */
+@ApiModel(description = "Words document property DTO.")
 
 public class DocumentProperty extends LinkElement {
   @SerializedName("BuiltIn")
@@ -60,10 +61,10 @@ public class DocumentProperty extends LinkElement {
   }
 
    /**
-   * Get builtIn
+   * Flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
    * @return builtIn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.")
   public Boolean isisBuiltIn() {
     return builtIn;
   }
@@ -78,10 +79,10 @@ public class DocumentProperty extends LinkElement {
   }
 
    /**
-   * Get name
+   * Name of the document property.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Name of the document property.")
   public String getName() {
     return name;
   }
@@ -96,10 +97,10 @@ public class DocumentProperty extends LinkElement {
   }
 
    /**
-   * Get value
+   * string value of the document property. 
    * @return value
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "string value of the document property. ")
   public String getValue() {
     return value;
   }

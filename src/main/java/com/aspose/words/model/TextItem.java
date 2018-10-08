@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TextItem
+ * Represents text DTO.
  */
+@ApiModel(description = "Represents text DTO.")
 
 public class TextItem extends LinkElement {
   @SerializedName("Text")
@@ -54,10 +55,10 @@ public class TextItem extends LinkElement {
   }
 
    /**
-   * Get text
+   * Text.
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Text.")
   public String getText() {
     return text;
   }

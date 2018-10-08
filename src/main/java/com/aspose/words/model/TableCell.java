@@ -43,8 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TableCell
+ * Table cell element.
  */
+@ApiModel(description = "Table cell element.")
 
 public class TableCell extends NodeLink {
   @SerializedName("ChildNodes")
@@ -64,10 +65,10 @@ public class TableCell extends NodeLink {
   }
 
    /**
-   * Get childNodes
+   * Child nodes.
    * @return childNodes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Child nodes.")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }

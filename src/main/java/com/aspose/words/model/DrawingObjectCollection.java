@@ -43,8 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DrawingObjectCollection
+ * Represents drawing objects collection DTO.
  */
+@ApiModel(description = "Represents drawing objects collection DTO.")
 
 public class DrawingObjectCollection extends LinkElement {
   @SerializedName("List")
@@ -64,10 +65,10 @@ public class DrawingObjectCollection extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of DrawingObjects links 
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of DrawingObjects links ")
   public List<LinkElement> getList() {
     return list;
   }

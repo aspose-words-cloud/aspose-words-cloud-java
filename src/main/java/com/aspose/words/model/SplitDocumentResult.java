@@ -42,8 +42,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SplitDocumentResult
+ * Result of splitting document.
  */
+@ApiModel(description = "Result of splitting document.")
 
 public class SplitDocumentResult {
   @SerializedName("SourceDocument")
@@ -61,10 +62,10 @@ public class SplitDocumentResult {
   }
 
    /**
-   * Get sourceDocument
+   * Linkt to the source document.
    * @return sourceDocument
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Linkt to the source document.")
   public FileLink getSourceDocument() {
     return sourceDocument;
   }
@@ -87,10 +88,10 @@ public class SplitDocumentResult {
   }
 
    /**
-   * Get pages
+   * Array of pages.
    * @return pages
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of pages.")
   public List<FileLink> getPages() {
     return pages;
   }
@@ -105,10 +106,10 @@ public class SplitDocumentResult {
   }
 
    /**
-   * Get zippedPages
+   * Link to the file archive with pages.
    * @return zippedPages
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to the file archive with pages.")
   public FileLink getZippedPages() {
     return zippedPages;
   }

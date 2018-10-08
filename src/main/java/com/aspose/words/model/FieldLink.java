@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FieldLink
+ * Field link
  */
+@ApiModel(description = "Field link")
 
 public class FieldLink extends NodeLink {
   @SerializedName("FieldCode")
@@ -54,10 +55,10 @@ public class FieldLink extends NodeLink {
   }
 
    /**
-   * Get fieldCode
+   * Field code
    * @return fieldCode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Field code")
   public String getFieldCode() {
     return fieldCode;
   }

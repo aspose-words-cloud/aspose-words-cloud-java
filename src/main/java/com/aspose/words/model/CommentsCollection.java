@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CommentsCollection
+ * Collection of comments.
  */
+@ApiModel(description = "Collection of comments.")
 
 public class CommentsCollection extends LinkElement {
   @SerializedName("CommentList")
@@ -65,10 +66,10 @@ public class CommentsCollection extends LinkElement {
   }
 
    /**
-   * Get commentList
+   * Collection of comments
    * @return commentList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of comments")
   public List<Comment> getCommentList() {
     return commentList;
   }

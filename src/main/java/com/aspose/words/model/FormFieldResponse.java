@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FormFieldResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/formfields/{1} 
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/formfields/{1} ")
 
 public class FormFieldResponse extends AsposeResponse {
   @SerializedName("FormField")
@@ -54,10 +55,10 @@ public class FormFieldResponse extends AsposeResponse {
   }
 
    /**
-   * Get formField
+   * Field information
    * @return formField
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Field information")
   public FormField getFormField() {
     return formField;
   }

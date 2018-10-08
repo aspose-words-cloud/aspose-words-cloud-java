@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableCellResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}")
 
 public class TableCellResponse extends AsposeResponse {
   @SerializedName("Cell")
@@ -54,10 +55,10 @@ public class TableCellResponse extends AsposeResponse {
   }
 
    /**
-   * Get cell
+   * Table cell.
    * @return cell
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Table cell.")
   public TableCell getCell() {
     return cell;
   }

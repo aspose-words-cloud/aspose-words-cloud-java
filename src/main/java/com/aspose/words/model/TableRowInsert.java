@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableRowInsert
+ * Table row element
  */
+@ApiModel(description = "Table row element")
 
 public class TableRowInsert {
   @SerializedName("InsertAfter")
@@ -55,10 +56,10 @@ public class TableRowInsert {
   }
 
    /**
-   * Get insertAfter
+   * Table row will be inserted after row with specified 0-based index.
    * @return insertAfter
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Table row will be inserted after row with specified 0-based index.")
   public Integer getInsertAfter() {
     return insertAfter;
   }
@@ -73,10 +74,10 @@ public class TableRowInsert {
   }
 
    /**
-   * Get columnsCount
+   * Count of columns. Default is 1.
    * @return columnsCount
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Count of columns. Default is 1.")
   public Integer getColumnsCount() {
     return columnsCount;
   }

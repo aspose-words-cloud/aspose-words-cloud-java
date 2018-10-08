@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class InsertTableRowRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to table.
      */
     private String TablePath;
 
@@ -78,15 +78,15 @@ public class InsertTableRowRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Table row parameters/
      */
     private TableRowInsert Row;
     
     /*
      * Initializes a new instance of the insertTableRowRequest class.
      *  
-     * @param String name 
-     * @param String tablePath 
+     * @param String name The document name.
+     * @param String tablePath Path to table.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -94,7 +94,7 @@ public class InsertTableRowRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableRowInsert row 
+     * @param TableRowInsert row Table row parameters/
      */
     public InsertTableRowRequest(String name,  String tablePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableRowInsert row) {
         Name = name;
@@ -110,28 +110,28 @@ public class InsertTableRowRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to table.
      */
     public String getTablePath() {
         return TablePath;
     }
 
     /*
-     * 
+     * Sets Path to table.
      */
     public void setTablePath(String value) {
         TablePath = value;
@@ -236,14 +236,14 @@ public class InsertTableRowRequest {
     }
 
     /*
-     * 
+     *  Gets Table row parameters/
      */
     public TableRowInsert getRow() {
         return Row;
     }
 
     /*
-     * 
+     * Sets Table row parameters/
      */
     public void setRow(TableRowInsert value) {
         Row = value;

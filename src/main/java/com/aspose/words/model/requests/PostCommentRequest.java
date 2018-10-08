@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class PostCommentRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Comment index
      */
     private Integer CommentIndex;
 
     /*
-     * 
+     * Comment data.
      */
     private Comment Comment;
 
@@ -85,9 +85,9 @@ public class PostCommentRequest {
     /*
      * Initializes a new instance of the postCommentRequest class.
      *  
-     * @param String name 
-     * @param Integer commentIndex 
-     * @param Comment comment 
+     * @param String name The document name.
+     * @param Integer commentIndex Comment index
+     * @param Comment comment Comment data.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -110,42 +110,42 @@ public class PostCommentRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Comment index
      */
     public Integer getCommentIndex() {
         return CommentIndex;
     }
 
     /*
-     * 
+     * Sets Comment index
      */
     public void setCommentIndex(Integer value) {
         CommentIndex = value;
     }
 
     /*
-     * 
+     *  Gets Comment data.
      */
     public Comment getComment() {
         return Comment;
     }
 
     /*
-     * 
+     * Sets Comment data.
      */
     public void setComment(Comment value) {
         Comment = value;

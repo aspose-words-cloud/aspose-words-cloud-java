@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PutProtectDocumentRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * with protection settings.            
      */
     private ProtectionRequest ProtectionRequest;
 
@@ -70,8 +70,8 @@ public class PutProtectDocumentRequest {
     /*
      * Initializes a new instance of the putProtectDocumentRequest class.
      *  
-     * @param String name 
-     * @param ProtectionRequest protectionRequest 
+     * @param String name The document name.
+     * @param ProtectionRequest protectionRequest with protection settings.            
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -89,28 +89,28 @@ public class PutProtectDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets with protection settings.            
      */
     public ProtectionRequest getProtectionRequest() {
         return ProtectionRequest;
     }
 
     /*
-     * 
+     * Sets with protection settings.            
      */
     public void setProtectionRequest(ProtectionRequest value) {
         ProtectionRequest = value;

@@ -39,12 +39,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * StringFormatData
+ * Allows to specify System.Drawing.StringFormat options.
  */
+@ApiModel(description = "Allows to specify System.Drawing.StringFormat options.")
 
 public class StringFormatData {
   /**
-   * Gets or Sets alignment
+   * Gets or sets horizontal alignment of the string.
    */
   @JsonAdapter(AlignmentEnum.Adapter.class)
   public enum AlignmentEnum {
@@ -96,7 +97,7 @@ public class StringFormatData {
   private AlignmentEnum alignment = null;
 
   /**
-   * Gets or Sets formatFlags
+   * Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
    */
   @JsonAdapter(FormatFlagsEnum.Adapter.class)
   public enum FormatFlagsEnum {
@@ -160,7 +161,7 @@ public class StringFormatData {
   private FormatFlagsEnum formatFlags = null;
 
   /**
-   * Gets or Sets hotkeyPrefix
+   * Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
    */
   @JsonAdapter(HotkeyPrefixEnum.Adapter.class)
   public enum HotkeyPrefixEnum {
@@ -212,7 +213,7 @@ public class StringFormatData {
   private HotkeyPrefixEnum hotkeyPrefix = null;
 
   /**
-   * Gets or Sets lineAlignment
+   * Gets or sets the vertical alignment of the string.
    */
   @JsonAdapter(LineAlignmentEnum.Adapter.class)
   public enum LineAlignmentEnum {
@@ -264,7 +265,7 @@ public class StringFormatData {
   private LineAlignmentEnum lineAlignment = null;
 
   /**
-   * Gets or Sets trimming
+   * Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
    */
   @JsonAdapter(TrimmingEnum.Adapter.class)
   public enum TrimmingEnum {
@@ -327,10 +328,10 @@ public class StringFormatData {
   }
 
    /**
-   * Get alignment
+   * Gets or sets horizontal alignment of the string.
    * @return alignment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets horizontal alignment of the string.")
   public AlignmentEnum getAlignment() {
     return alignment;
   }
@@ -345,10 +346,10 @@ public class StringFormatData {
   }
 
    /**
-   * Get formatFlags
+   * Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
    * @return formatFlags
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.")
   public FormatFlagsEnum getFormatFlags() {
     return formatFlags;
   }
@@ -363,10 +364,10 @@ public class StringFormatData {
   }
 
    /**
-   * Get hotkeyPrefix
+   * Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
    * @return hotkeyPrefix
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.")
   public HotkeyPrefixEnum getHotkeyPrefix() {
     return hotkeyPrefix;
   }
@@ -381,10 +382,10 @@ public class StringFormatData {
   }
 
    /**
-   * Get lineAlignment
+   * Gets or sets the vertical alignment of the string.
    * @return lineAlignment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the vertical alignment of the string.")
   public LineAlignmentEnum getLineAlignment() {
     return lineAlignment;
   }
@@ -399,10 +400,10 @@ public class StringFormatData {
   }
 
    /**
-   * Get trimming
+   * Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
    * @return trimming
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.")
   public TrimmingEnum getTrimming() {
     return trimming;
   }

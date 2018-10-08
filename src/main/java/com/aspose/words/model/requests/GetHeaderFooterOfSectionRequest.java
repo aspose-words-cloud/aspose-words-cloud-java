@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class GetHeaderFooterOfSectionRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Header/footer index.
      */
     private Integer HeaderFooterIndex;
 
     /*
-     * 
+     * Section index.
      */
     private Integer SectionIndex;
 
@@ -68,21 +68,21 @@ public class GetHeaderFooterOfSectionRequest {
     private String Password;
 
     /*
-     * 
+     * List of types of headers and footers.
      */
     private String FilterByType;
     
     /*
      * Initializes a new instance of the getHeaderFooterOfSectionRequest class.
      *  
-     * @param String name 
-     * @param Integer headerFooterIndex 
-     * @param Integer sectionIndex 
+     * @param String name The document name.
+     * @param Integer headerFooterIndex Header/footer index.
+     * @param Integer sectionIndex Section index.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String filterByType 
+     * @param String filterByType List of types of headers and footers.
      */
     public GetHeaderFooterOfSectionRequest(String name,  Integer headerFooterIndex,  Integer sectionIndex,  String folder,  String storage,  String loadEncoding,  String password,  String filterByType) {
         Name = name;
@@ -96,42 +96,42 @@ public class GetHeaderFooterOfSectionRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Header/footer index.
      */
     public Integer getHeaderFooterIndex() {
         return HeaderFooterIndex;
     }
 
     /*
-     * 
+     * Sets Header/footer index.
      */
     public void setHeaderFooterIndex(Integer value) {
         HeaderFooterIndex = value;
     }
 
     /*
-     * 
+     *  Gets Section index.
      */
     public Integer getSectionIndex() {
         return SectionIndex;
     }
 
     /*
-     * 
+     * Sets Section index.
      */
     public void setSectionIndex(Integer value) {
         SectionIndex = value;
@@ -194,14 +194,14 @@ public class GetHeaderFooterOfSectionRequest {
     }
 
     /*
-     * 
+     *  Gets List of types of headers and footers.
      */
     public String getFilterByType() {
         return FilterByType;
     }
 
     /*
-     * 
+     * Sets List of types of headers and footers.
      */
     public void setFilterByType(String value) {
         FilterByType = value;

@@ -43,8 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Document
+ * Represents Words document DTO.
  */
+@ApiModel(description = "Represents Words document DTO.")
 
 public class Document {
   @SerializedName("Links")
@@ -54,7 +55,7 @@ public class Document {
   private String fileName = null;
 
   /**
-   * Gets or Sets sourceFormat
+   * Gets the original format of the document.
    */
   @JsonAdapter(SourceFormatEnum.Adapter.class)
   public enum SourceFormatEnum {
@@ -164,10 +165,10 @@ public class Document {
   }
 
    /**
-   * Get links
+   * A list of links that originate from this document.
    * @return links
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of links that originate from this document.")
   public List<Link> getLinks() {
     return links;
   }
@@ -182,10 +183,10 @@ public class Document {
   }
 
    /**
-   * Get fileName
+   * Gets the name of the file.
    * @return fileName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets the name of the file.")
   public String getFileName() {
     return fileName;
   }
@@ -200,10 +201,10 @@ public class Document {
   }
 
    /**
-   * Get sourceFormat
+   * Gets the original format of the document.
    * @return sourceFormat
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Gets the original format of the document.")
   public SourceFormatEnum getSourceFormat() {
     return sourceFormat;
   }
@@ -218,10 +219,10 @@ public class Document {
   }
 
    /**
-   * Get isEncrypted
+   * Returns true if the document is encrypted and requires a password to open. 
    * @return isEncrypted
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Returns true if the document is encrypted and requires a password to open. ")
   public Boolean isisIsEncrypted() {
     return isEncrypted;
   }
@@ -236,10 +237,10 @@ public class Document {
   }
 
    /**
-   * Get isSigned
+   * Returns true if the document contains a digital signature. This property merely informs that a  digital signature is present on a document, but it does not specify whether the signature is valid or not. 
    * @return isSigned
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Returns true if the document contains a digital signature. This property merely informs that a  digital signature is present on a document, but it does not specify whether the signature is valid or not. ")
   public Boolean isisIsSigned() {
     return isSigned;
   }
@@ -254,10 +255,10 @@ public class Document {
   }
 
    /**
-   * Get documentProperties
+   * Returns document properties.
    * @return documentProperties
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns document properties.")
   public DocumentProperties getDocumentProperties() {
     return documentProperties;
   }

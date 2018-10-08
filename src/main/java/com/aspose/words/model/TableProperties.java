@@ -42,12 +42,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableProperties
+ * Represents the table properties.             
  */
+@ApiModel(description = "Represents the table properties.             ")
 
 public class TableProperties extends LinkElement {
   /**
-   * Gets or Sets alignment
+   * Specifies how an inline table is aligned in the document.
    */
   @JsonAdapter(AlignmentEnum.Adapter.class)
   public enum AlignmentEnum {
@@ -123,7 +124,7 @@ public class TableProperties extends LinkElement {
   private Double rightPadding = null;
 
   /**
-   * Gets or Sets styleIdentifier
+   * Gets or sets the locale independent style identifier of the table style applied to this table.
    */
   @JsonAdapter(StyleIdentifierEnum.Adapter.class)
   public enum StyleIdentifierEnum {
@@ -918,7 +919,7 @@ public class TableProperties extends LinkElement {
   private String styleName = null;
 
   /**
-   * Gets or Sets styleOptions
+   * Gets or sets bit flags that specify how a table style is applied to this table.
    */
   @JsonAdapter(StyleOptionsEnum.Adapter.class)
   public enum StyleOptionsEnum {
@@ -982,7 +983,7 @@ public class TableProperties extends LinkElement {
   private StyleOptionsEnum styleOptions = null;
 
   /**
-   * Gets or Sets textWrapping
+   * Get or sets TextWrapping  for table.
    */
   @JsonAdapter(TextWrappingEnum.Adapter.class)
   public enum TextWrappingEnum {
@@ -1042,10 +1043,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get alignment
+   * Specifies how an inline table is aligned in the document.
    * @return alignment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Specifies how an inline table is aligned in the document.")
   public AlignmentEnum getAlignment() {
     return alignment;
   }
@@ -1060,10 +1061,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get allowAutoFit
+   * Allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
    * @return allowAutoFit
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.")
   public Boolean isisAllowAutoFit() {
     return allowAutoFit;
   }
@@ -1078,10 +1079,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get bidi
+   * Gets or sets whether this is a right-to-left table.
    * @return bidi
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets whether this is a right-to-left table.")
   public Boolean isisBidi() {
     return bidi;
   }
@@ -1096,10 +1097,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get bottomPadding
+   * Gets or sets the amount of space (in points) to add below the contents of cells.
    * @return bottomPadding
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the amount of space (in points) to add below the contents of cells.")
   public Double getBottomPadding() {
     return bottomPadding;
   }
@@ -1114,10 +1115,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get cellSpacing
+   * Gets or sets the amount of space (in points) between the cells.
    * @return cellSpacing
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the amount of space (in points) between the cells.")
   public Double getCellSpacing() {
     return cellSpacing;
   }
@@ -1132,10 +1133,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get leftIndent
+   * Gets or sets the value that represents the left indent of the table.
    * @return leftIndent
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the value that represents the left indent of the table.")
   public Double getLeftIndent() {
     return leftIndent;
   }
@@ -1150,10 +1151,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get leftPadding
+   * Gets or sets the amount of space (in points) to add to the left of the contents of cells.
    * @return leftPadding
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the amount of space (in points) to add to the left of the contents of cells.")
   public Double getLeftPadding() {
     return leftPadding;
   }
@@ -1168,10 +1169,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get preferredWidth
+   * Gets or sets the table preferred width.  Preferred width can be specified as a percentage, number of points or a special \&quot;auto\&quot; value.
    * @return preferredWidth
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the table preferred width.  Preferred width can be specified as a percentage, number of points or a special \"auto\" value.")
   public PreferredWidth getPreferredWidth() {
     return preferredWidth;
   }
@@ -1186,10 +1187,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get rightPadding
+   * Gets or sets the amount of space (in points) to add to the right of the contents of cells.
    * @return rightPadding
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the amount of space (in points) to add to the right of the contents of cells.")
   public Double getRightPadding() {
     return rightPadding;
   }
@@ -1204,10 +1205,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get styleIdentifier
+   * Gets or sets the locale independent style identifier of the table style applied to this table.
    * @return styleIdentifier
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the locale independent style identifier of the table style applied to this table.")
   public StyleIdentifierEnum getStyleIdentifier() {
     return styleIdentifier;
   }
@@ -1222,10 +1223,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get styleName
+   * Gets or sets the name of the table style applied to this table.
    * @return styleName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the name of the table style applied to this table.")
   public String getStyleName() {
     return styleName;
   }
@@ -1240,10 +1241,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get styleOptions
+   * Gets or sets bit flags that specify how a table style is applied to this table.
    * @return styleOptions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets bit flags that specify how a table style is applied to this table.")
   public StyleOptionsEnum getStyleOptions() {
     return styleOptions;
   }
@@ -1258,10 +1259,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get textWrapping
+   * Get or sets TextWrapping  for table.
    * @return textWrapping
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Get or sets TextWrapping  for table.")
   public TextWrappingEnum getTextWrapping() {
     return textWrapping;
   }
@@ -1276,10 +1277,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get topPadding
+   * Gets or sets the amount of space (in points) to add above the contents of cells.
    * @return topPadding
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the amount of space (in points) to add above the contents of cells.")
   public Double getTopPadding() {
     return topPadding;
   }

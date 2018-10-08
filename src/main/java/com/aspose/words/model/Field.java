@@ -43,6 +43,7 @@ import java.io.IOException;
 /**
  * Field
  */
+@ApiModel(description = "Field")
 
 public class Field extends FieldLink {
   @SerializedName("LocaleId")
@@ -57,10 +58,10 @@ public class Field extends FieldLink {
   }
 
    /**
-   * Get localeId
+   * Gets or sets LCID of the field.
    * @return localeId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets LCID of the field.")
   public String getLocaleId() {
     return localeId;
   }
@@ -75,10 +76,10 @@ public class Field extends FieldLink {
   }
 
    /**
-   * Get result
+   * Field result
    * @return result
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Field result")
   public String getResult() {
     return result;
   }

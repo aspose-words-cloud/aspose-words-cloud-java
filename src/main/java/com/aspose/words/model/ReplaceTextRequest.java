@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ReplaceTextRequest
+ * Class for document replace text request building.
  */
+@ApiModel(description = "Class for document replace text request building.")
 
 public class ReplaceTextRequest {
   @SerializedName("OldValue")
@@ -64,10 +65,10 @@ public class ReplaceTextRequest {
   }
 
    /**
-   * Get oldValue
+   * Old text value (or regex pattern ) to replace.
    * @return oldValue
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Old text value (or regex pattern ) to replace.")
   public String getOldValue() {
     return oldValue;
   }
@@ -82,10 +83,10 @@ public class ReplaceTextRequest {
   }
 
    /**
-   * Get newValue
+   * New text value to replace by.
    * @return newValue
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "New text value to replace by.")
   public String getNewValue() {
     return newValue;
   }
@@ -100,10 +101,10 @@ public class ReplaceTextRequest {
   }
 
    /**
-   * Get isMatchCase
+   * Flag, true means the search is case-sensitive; false means the search is not case-sensitive.
    * @return isMatchCase
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
   public Boolean isisIsMatchCase() {
     return isMatchCase;
   }
@@ -118,10 +119,10 @@ public class ReplaceTextRequest {
   }
 
    /**
-   * Get isMatchWholeWord
+   * Flag, means that only whole word matched are replaced.
    * @return isMatchWholeWord
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Flag, means that only whole word matched are replaced.")
   public Boolean isisIsMatchWholeWord() {
     return isMatchWholeWord;
   }
@@ -136,10 +137,10 @@ public class ReplaceTextRequest {
   }
 
    /**
-   * Get isOldValueRegex
+   * Flag, means that  contains regex expression.
    * @return isOldValueRegex
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Flag, means that  contains regex expression.")
   public Boolean isisIsOldValueRegex() {
     return isOldValueRegex;
   }

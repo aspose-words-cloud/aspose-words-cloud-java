@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * BordersResponse
+ * This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET {nodeWithBorders}/borders.")
 
 public class BordersResponse extends AsposeResponse {
   @SerializedName("Borders")
@@ -54,10 +55,10 @@ public class BordersResponse extends AsposeResponse {
   }
 
    /**
-   * Get borders
+   * Table.
    * @return borders
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Table.")
   public BordersCollection getBorders() {
     return borders;
   }

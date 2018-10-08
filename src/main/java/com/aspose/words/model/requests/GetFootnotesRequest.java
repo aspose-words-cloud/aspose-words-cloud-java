@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetFootnotesRequest {
     /*
-     * 
+     * The file name.
      */
     private String Name;
 
@@ -58,19 +58,19 @@ public class GetFootnotesRequest {
     private String Password;
 
     /*
-     * 
+     * Path to node, which contains collection of footnotes.
      */
     private String NodePath;
     
     /*
      * Initializes a new instance of the getFootnotesRequest class.
      *  
-     * @param String name 
+     * @param String name The file name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String nodePath 
+     * @param String nodePath Path to node, which contains collection of footnotes.
      */
     public GetFootnotesRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath) {
         Name = name;
@@ -82,14 +82,14 @@ public class GetFootnotesRequest {
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setName(String value) {
         Name = value;
@@ -152,14 +152,14 @@ public class GetFootnotesRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node, which contains collection of footnotes.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node, which contains collection of footnotes.
      */
     public void setNodePath(String value) {
         NodePath = value;

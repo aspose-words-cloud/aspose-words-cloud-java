@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TableLinkCollection
+ * Collection of links to tables
  */
+@ApiModel(description = "Collection of links to tables")
 
 public class TableLinkCollection extends LinkElement {
   @SerializedName("TableLinkList")
@@ -65,10 +66,10 @@ public class TableLinkCollection extends LinkElement {
   }
 
    /**
-   * Get tableLinkList
+   * Collection of table&#39;s links
    * @return tableLinkList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of table's links")
   public List<TableLink> getTableLinkList() {
     return tableLinkList;
   }

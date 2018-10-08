@@ -39,12 +39,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PreferredWidth
+ * Preferred width.
  */
+@ApiModel(description = "Preferred width.")
 
 public class PreferredWidth {
   /**
-   * Gets or Sets type
+   * Gets the unit of measure used for this preferred width value.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -104,10 +105,10 @@ public class PreferredWidth {
   }
 
    /**
-   * Get type
+   * Gets the unit of measure used for this preferred width value.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Gets the unit of measure used for this preferred width value.")
   public TypeEnum getType() {
     return type;
   }
@@ -122,10 +123,10 @@ public class PreferredWidth {
   }
 
    /**
-   * Get value
+   * Gets or sets the preferred width value. The unit of measure is specified in the  property.
    * @return value
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the preferred width value. The unit of measure is specified in the  property.")
   public Double getValue() {
     return value;
   }

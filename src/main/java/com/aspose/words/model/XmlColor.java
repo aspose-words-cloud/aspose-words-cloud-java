@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * XmlColor
+ * Utility class for  serialization
  */
+@ApiModel(description = "Utility class for  serialization")
 
 public class XmlColor {
   @SerializedName("Web")
@@ -55,10 +56,10 @@ public class XmlColor {
   }
 
    /**
-   * Get web
+   * HTML string color representation
    * @return web
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "HTML string color representation")
   public String getWeb() {
     return web;
   }
@@ -73,10 +74,10 @@ public class XmlColor {
   }
 
    /**
-   * Get alpha
+   * Alpha component of color structure
    * @return alpha
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Alpha component of color structure")
   public Integer getAlpha() {
     return alpha;
   }

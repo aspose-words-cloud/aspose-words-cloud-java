@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetDocumentDrawingObjectsRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
@@ -58,19 +58,19 @@ public class GetDocumentDrawingObjectsRequest {
     private String Password;
 
     /*
-     * 
+     * Path to node, which contains collection of drawing objects.
      */
     private String NodePath;
     
     /*
      * Initializes a new instance of the getDocumentDrawingObjectsRequest class.
      *  
-     * @param String name 
+     * @param String name The document name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String nodePath 
+     * @param String nodePath Path to node, which contains collection of drawing objects.
      */
     public GetDocumentDrawingObjectsRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath) {
         Name = name;
@@ -82,14 +82,14 @@ public class GetDocumentDrawingObjectsRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -152,14 +152,14 @@ public class GetDocumentDrawingObjectsRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node, which contains collection of drawing objects.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node, which contains collection of drawing objects.
      */
     public void setNodePath(String value) {
         NodePath = value;

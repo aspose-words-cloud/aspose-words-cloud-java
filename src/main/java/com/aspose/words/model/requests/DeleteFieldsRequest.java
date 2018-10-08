@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class DeleteFieldsRequest {
     /*
-     * 
+     * The file name.
      */
     private String Name;
 
@@ -73,14 +73,14 @@ public class DeleteFieldsRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Path to node, which contains collection of fields.
      */
     private String NodePath;
     
     /*
      * Initializes a new instance of the deleteFieldsRequest class.
      *  
-     * @param String name 
+     * @param String name The file name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -88,7 +88,7 @@ public class DeleteFieldsRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath 
+     * @param String nodePath Path to node, which contains collection of fields.
      */
     public DeleteFieldsRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
         Name = name;
@@ -103,14 +103,14 @@ public class DeleteFieldsRequest {
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setName(String value) {
         Name = value;
@@ -215,14 +215,14 @@ public class DeleteFieldsRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node, which contains collection of fields.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node, which contains collection of fields.
      */
     public void setNodePath(String value) {
         NodePath = value;

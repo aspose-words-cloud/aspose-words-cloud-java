@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ProtectionData
+ * Container for the data about protection of the document
  */
+@ApiModel(description = "Container for the data about protection of the document")
 
 public class ProtectionData {
   @SerializedName("ProtectionType")
@@ -52,10 +53,10 @@ public class ProtectionData {
   }
 
    /**
-   * Get protectionType
+   * Type of the protection
    * @return protectionType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of the protection")
   public String getProtectionType() {
     return protectionType;
   }

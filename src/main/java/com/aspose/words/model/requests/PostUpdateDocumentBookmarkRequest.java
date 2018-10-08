@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class PostUpdateDocumentBookmarkRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * with new bookmark data.            
      */
     private BookmarkData BookmarkData;
 
     /*
-     * 
+     * The bookmark name.
      */
     private String BookmarkName;
 
@@ -85,9 +85,9 @@ public class PostUpdateDocumentBookmarkRequest {
     /*
      * Initializes a new instance of the postUpdateDocumentBookmarkRequest class.
      *  
-     * @param String name 
-     * @param BookmarkData bookmarkData 
-     * @param String bookmarkName 
+     * @param String name The document name.
+     * @param BookmarkData bookmarkData with new bookmark data.            
+     * @param String bookmarkName The bookmark name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -110,42 +110,42 @@ public class PostUpdateDocumentBookmarkRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets with new bookmark data.            
      */
     public BookmarkData getBookmarkData() {
         return BookmarkData;
     }
 
     /*
-     * 
+     * Sets with new bookmark data.            
      */
     public void setBookmarkData(BookmarkData value) {
         BookmarkData = value;
     }
 
     /*
-     * 
+     *  Gets The bookmark name.
      */
     public String getBookmarkName() {
         return BookmarkName;
     }
 
     /*
-     * 
+     * Sets The bookmark name.
      */
     public void setBookmarkName(String value) {
         BookmarkName = value;

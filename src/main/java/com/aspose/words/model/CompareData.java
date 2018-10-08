@@ -40,8 +40,9 @@ import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * CompareData
+ * Container class for compare documents
  */
+@ApiModel(description = "Container class for compare documents")
 
 public class CompareData {
   @SerializedName("ComparingWithDocument")
@@ -59,10 +60,10 @@ public class CompareData {
   }
 
    /**
-   * Get comparingWithDocument
+   * Path to document to compare at the server.
    * @return comparingWithDocument
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to document to compare at the server.")
   public String getComparingWithDocument() {
     return comparingWithDocument;
   }
@@ -77,10 +78,10 @@ public class CompareData {
   }
 
    /**
-   * Get author
+   * Initials of the author to use for revisions.
    * @return author
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Initials of the author to use for revisions.")
   public String getAuthor() {
     return author;
   }
@@ -95,10 +96,10 @@ public class CompareData {
   }
 
    /**
-   * Get dateTime
+   * The date and time to use for revisions.             
    * @return dateTime
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time to use for revisions.             ")
   public OffsetDateTime getDateTime() {
     return dateTime;
   }

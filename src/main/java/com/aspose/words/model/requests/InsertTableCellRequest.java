@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class InsertTableCellRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to table row.
      */
     private String TableRowPath;
 
@@ -78,15 +78,15 @@ public class InsertTableCellRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Table cell parameters/
      */
     private TableCellInsert Cell;
     
     /*
      * Initializes a new instance of the insertTableCellRequest class.
      *  
-     * @param String name 
-     * @param String tableRowPath 
+     * @param String name The document name.
+     * @param String tableRowPath Path to table row.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -94,7 +94,7 @@ public class InsertTableCellRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableCellInsert cell 
+     * @param TableCellInsert cell Table cell parameters/
      */
     public InsertTableCellRequest(String name,  String tableRowPath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableCellInsert cell) {
         Name = name;
@@ -110,28 +110,28 @@ public class InsertTableCellRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to table row.
      */
     public String getTableRowPath() {
         return TableRowPath;
     }
 
     /*
-     * 
+     * Sets Path to table row.
      */
     public void setTableRowPath(String value) {
         TableRowPath = value;
@@ -236,14 +236,14 @@ public class InsertTableCellRequest {
     }
 
     /*
-     * 
+     *  Gets Table cell parameters/
      */
     public TableCellInsert getCell() {
         return Cell;
     }
 
     /*
-     * 
+     * Sets Table cell parameters/
      */
     public void setCell(TableCellInsert value) {
         Cell = value;

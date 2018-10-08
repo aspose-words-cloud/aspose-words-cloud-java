@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FixedPageSaveOptionsData
+ * Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
  */
+@ApiModel(description = "Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).")
 
 public class FixedPageSaveOptionsData extends SaveOptionsData {
   @SerializedName("JpegQuality")
@@ -69,10 +70,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Get jpegQuality
+   * Determines the quality of the JPEG images inside PDF document.
    * @return jpegQuality
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Determines the quality of the JPEG images inside PDF document.")
   public Integer getJpegQuality() {
     return jpegQuality;
   }
@@ -87,10 +88,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Get metafileRenderingOptions
+   * Allows to specify metafile rendering options.
    * @return metafileRenderingOptions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Allows to specify metafile rendering options.")
   public MetafileRenderingOptionsData getMetafileRenderingOptions() {
     return metafileRenderingOptions;
   }
@@ -105,10 +106,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Get numeralFormat
+   * Indicates the symbol set that is used to represent numbers while rendering to fixed page formats
    * @return numeralFormat
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates the symbol set that is used to represent numbers while rendering to fixed page formats")
   public String getNumeralFormat() {
     return numeralFormat;
   }
@@ -123,10 +124,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Get optimizeOutput
+   * Flag indicates whether it is required to optimize output of XPS.  If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.  Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
    * @return optimizeOutput
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Flag indicates whether it is required to optimize output of XPS.  If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.  Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.")
   public Boolean isisOptimizeOutput() {
     return optimizeOutput;
   }
@@ -141,10 +142,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Get pageCount
+   * Determines number of pages to render
    * @return pageCount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Determines number of pages to render")
   public Integer getPageCount() {
     return pageCount;
   }
@@ -159,10 +160,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Get pageIndex
+   * Determines 0-based index of the first page to render
    * @return pageIndex
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Determines 0-based index of the first page to render")
   public Integer getPageIndex() {
     return pageIndex;
   }

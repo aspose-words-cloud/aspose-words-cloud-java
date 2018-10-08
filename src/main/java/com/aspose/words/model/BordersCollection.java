@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * BordersCollection
+ * Collection of borders.
  */
+@ApiModel(description = "Collection of borders.")
 
 public class BordersCollection extends LinkElement {
   @SerializedName("List")
@@ -65,10 +66,10 @@ public class BordersCollection extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of comments
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of comments")
   public List<Border> getList() {
     return list;
   }

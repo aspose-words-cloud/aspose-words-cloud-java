@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PostAppendDocumentRequest {
     /*
-     * 
+     * Original document name.
      */
     private String Name;
 
     /*
-     * 
+     * with a list of documents to append.            
      */
     private DocumentEntryList DocumentList;
 
@@ -80,8 +80,8 @@ public class PostAppendDocumentRequest {
     /*
      * Initializes a new instance of the postAppendDocumentRequest class.
      *  
-     * @param String name 
-     * @param DocumentEntryList documentList 
+     * @param String name Original document name.
+     * @param DocumentEntryList documentList with a list of documents to append.            
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -103,28 +103,28 @@ public class PostAppendDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets Original document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets Original document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets with a list of documents to append.            
      */
     public DocumentEntryList getDocumentList() {
         return DocumentList;
     }
 
     /*
-     * 
+     * Sets with a list of documents to append.            
      */
     public void setDocumentList(DocumentEntryList value) {
         DocumentList = value;

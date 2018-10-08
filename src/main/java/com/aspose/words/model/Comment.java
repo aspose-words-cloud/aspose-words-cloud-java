@@ -44,8 +44,9 @@ import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * Comment
+ * Comment.
  */
+@ApiModel(description = "Comment.")
 
 public class Comment extends CommentLink {
   @SerializedName("Author")
@@ -75,10 +76,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Get author
+   * Returns or sets the author name for a comment.
    * @return author
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the author name for a comment.")
   public String getAuthor() {
     return author;
   }
@@ -93,10 +94,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Get content
+   * Content of comment
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Content of comment")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -111,10 +112,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Get dateTime
+   * Gets the date and time that the comment was made.
    * @return dateTime
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets the date and time that the comment was made.")
   public OffsetDateTime getDateTime() {
     return dateTime;
   }
@@ -129,10 +130,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Get initial
+   * Returns or sets the initials of the user associated with a specific comment.
    * @return initial
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the initials of the user associated with a specific comment.")
   public String getInitial() {
     return initial;
   }
@@ -147,10 +148,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Get rangeEnd
+   * Link to comment range end node.
    * @return rangeEnd
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to comment range end node.")
   public DocumentPosition getRangeEnd() {
     return rangeEnd;
   }
@@ -165,10 +166,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Get rangeStart
+   * Link to comment range start node.
    * @return rangeStart
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to comment range start node.")
   public DocumentPosition getRangeStart() {
     return rangeStart;
   }
@@ -183,10 +184,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Get text
+   * This is a convenience property that allows to easily get or set text of the comment.
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "This is a convenience property that allows to easily get or set text of the comment.")
   public String getText() {
     return text;
   }

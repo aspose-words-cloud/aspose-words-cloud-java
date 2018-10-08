@@ -43,8 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * FieldNames
+ * Represents a collection of merge fields within a document. 
  */
+@ApiModel(description = "Represents a collection of merge fields within a document. ")
 
 public class FieldNames extends LinkElement {
   @SerializedName("Names")
@@ -64,10 +65,10 @@ public class FieldNames extends LinkElement {
   }
 
    /**
-   * Get names
+   * Collection of fields names.
    * @return names
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of fields names.")
   public List<String> getNames() {
     return names;
   }

@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DrawingObjectResponse
+ * Response for \&quot;drawingObjects/n\&quot; resource.
  */
+@ApiModel(description = "Response for \"drawingObjects/n\" resource.")
 
 public class DrawingObjectResponse extends AsposeResponse {
   @SerializedName("DrawingObject")
@@ -54,10 +55,10 @@ public class DrawingObjectResponse extends AsposeResponse {
   }
 
    /**
-   * Get drawingObject
+   * Drawing object.
    * @return drawingObject
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Drawing object.")
   public DrawingObject getDrawingObject() {
     return drawingObject;
   }

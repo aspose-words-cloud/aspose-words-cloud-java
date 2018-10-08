@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableRowFormatResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}/rows/{1}/rowformat
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}/rows/{1}/rowformat")
 
 public class TableRowFormatResponse extends AsposeResponse {
   @SerializedName("RowFormat")
@@ -54,10 +55,10 @@ public class TableRowFormatResponse extends AsposeResponse {
   }
 
    /**
-   * Get rowFormat
+   * Table.
    * @return rowFormat
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Table.")
   public TableRowFormat getRowFormat() {
     return rowFormat;
   }

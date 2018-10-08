@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class GetDocumentBookmarkByNameRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * The bookmark name.
      */
     private String BookmarkName;
 
@@ -65,8 +65,8 @@ public class GetDocumentBookmarkByNameRequest {
     /*
      * Initializes a new instance of the getDocumentBookmarkByNameRequest class.
      *  
-     * @param String name 
-     * @param String bookmarkName 
+     * @param String name The document name.
+     * @param String bookmarkName The bookmark name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -82,28 +82,28 @@ public class GetDocumentBookmarkByNameRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets The bookmark name.
      */
     public String getBookmarkName() {
         return BookmarkName;
     }
 
     /*
-     * 
+     * Sets The bookmark name.
      */
     public void setBookmarkName(String value) {
         BookmarkName = value;

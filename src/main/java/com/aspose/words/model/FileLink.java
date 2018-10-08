@@ -30,10 +30,12 @@ package com.aspose.words.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.Link;
+import io.swagger.annotations.ApiModel;
 
 /**
- * FileLink
+ * Provides information for the file link.
  */
+@ApiModel(description = "Provides information for the file link.")
 
 public class FileLink extends Link {
 

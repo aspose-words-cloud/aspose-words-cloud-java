@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetCommentsRequest {
     /*
-     * 
+     * The file name.
      */
     private String Name;
 
@@ -60,7 +60,7 @@ public class GetCommentsRequest {
     /*
      * Initializes a new instance of the getCommentsRequest class.
      *  
-     * @param String name 
+     * @param String name The file name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -75,14 +75,14 @@ public class GetCommentsRequest {
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setName(String value) {
         Name = value;

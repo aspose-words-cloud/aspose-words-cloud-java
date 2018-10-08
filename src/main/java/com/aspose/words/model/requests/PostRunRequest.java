@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class PostRunRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Run data.
      */
     private Run Run;
 
     /*
-     * 
+     * Path to parent paragraph.
      */
     private String ParagraphPath;
 
@@ -90,9 +90,9 @@ public class PostRunRequest {
     /*
      * Initializes a new instance of the postRunRequest class.
      *  
-     * @param String name 
-     * @param Run run 
-     * @param String paragraphPath 
+     * @param String name The document name.
+     * @param Run run Run data.
+     * @param String paragraphPath Path to parent paragraph.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -117,42 +117,42 @@ public class PostRunRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Run data.
      */
     public Run getRun() {
         return Run;
     }
 
     /*
-     * 
+     * Sets Run data.
      */
     public void setRun(Run value) {
         Run = value;
     }
 
     /*
-     * 
+     *  Gets Path to parent paragraph.
      */
     public String getParagraphPath() {
         return ParagraphPath;
     }
 
     /*
-     * 
+     * Sets Path to parent paragraph.
      */
     public void setParagraphPath(String value) {
         ParagraphPath = value;

@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PostInsertDocumentWatermarkTextRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * with the watermark data.            
      */
     private WatermarkText WatermarkText;
 
@@ -80,8 +80,8 @@ public class PostInsertDocumentWatermarkTextRequest {
     /*
      * Initializes a new instance of the postInsertDocumentWatermarkTextRequest class.
      *  
-     * @param String name 
-     * @param WatermarkText watermarkText 
+     * @param String name The document name.
+     * @param WatermarkText watermarkText with the watermark data.            
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -103,28 +103,28 @@ public class PostInsertDocumentWatermarkTextRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets with the watermark data.            
      */
     public WatermarkText getWatermarkText() {
         return WatermarkText;
     }
 
     /*
-     * 
+     * Sets with the watermark data.            
      */
     public void setWatermarkText(WatermarkText value) {
         WatermarkText = value;

@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Bookmarks
+ * Represents an array of bookmarks.
  */
+@ApiModel(description = "Represents an array of bookmarks.")
 
 public class Bookmarks extends LinkElement {
   @SerializedName("BookmarkList")
@@ -65,10 +66,10 @@ public class Bookmarks extends LinkElement {
   }
 
    /**
-   * Get bookmarkList
+   * Array of bookmarks.
    * @return bookmarkList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of bookmarks.")
   public List<Bookmark> getBookmarkList() {
     return bookmarkList;
   }

@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ParagraphLinkCollection
+ * Collection of links to paragraphs
  */
+@ApiModel(description = "Collection of links to paragraphs")
 
 public class ParagraphLinkCollection extends LinkElement {
   @SerializedName("ParagraphLinkList")
@@ -65,10 +66,10 @@ public class ParagraphLinkCollection extends LinkElement {
   }
 
    /**
-   * Get paragraphLinkList
+   * Collection of paragraph&#39;s links
    * @return paragraphLinkList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of paragraph's links")
   public List<ParagraphLink> getParagraphLinkList() {
     return paragraphLinkList;
   }

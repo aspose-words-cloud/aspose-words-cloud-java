@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class PostDocumentParagraphRunFontRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Font dto object
      */
     private Font FontDto;
 
     /*
-     * 
+     * Path to parent paragraph.
      */
     private String ParagraphPath;
 
@@ -90,9 +90,9 @@ public class PostDocumentParagraphRunFontRequest {
     /*
      * Initializes a new instance of the postDocumentParagraphRunFontRequest class.
      *  
-     * @param String name 
-     * @param Font fontDto 
-     * @param String paragraphPath 
+     * @param String name The document name.
+     * @param Font fontDto Font dto object
+     * @param String paragraphPath Path to parent paragraph.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -117,42 +117,42 @@ public class PostDocumentParagraphRunFontRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Font dto object
      */
     public Font getFontDto() {
         return FontDto;
     }
 
     /*
-     * 
+     * Sets Font dto object
      */
     public void setFontDto(Font value) {
         FontDto = value;
     }
 
     /*
-     * 
+     *  Gets Path to parent paragraph.
      */
     public String getParagraphPath() {
         return ParagraphPath;
     }
 
     /*
-     * 
+     * Sets Path to parent paragraph.
      */
     public void setParagraphPath(String value) {
         ParagraphPath = value;

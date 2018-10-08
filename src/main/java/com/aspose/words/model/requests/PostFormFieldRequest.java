@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PostFormFieldRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * From field data.
      */
     private FormField FormField;
 
@@ -83,15 +83,15 @@ public class PostFormFieldRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Path to node that contains collection of formfields.
      */
     private String NodePath;
     
     /*
      * Initializes a new instance of the postFormFieldRequest class.
      *  
-     * @param String name 
-     * @param FormField formField 
+     * @param String name The document name.
+     * @param FormField formField From field data.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -100,7 +100,7 @@ public class PostFormFieldRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath 
+     * @param String nodePath Path to node that contains collection of formfields.
      */
     public PostFormFieldRequest(String name,  FormField formField,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
         Name = name;
@@ -117,28 +117,28 @@ public class PostFormFieldRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets From field data.
      */
     public FormField getFormField() {
         return FormField;
     }
 
     /*
-     * 
+     * Sets From field data.
      */
     public void setFormField(FormField value) {
         FormField = value;
@@ -257,14 +257,14 @@ public class PostFormFieldRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node that contains collection of formfields.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node that contains collection of formfields.
      */
     public void setNodePath(String value) {
         NodePath = value;

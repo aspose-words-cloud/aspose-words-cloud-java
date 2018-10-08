@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PostCompareDocumentRequest {
     /*
-     * 
+     * Original document name.
      */
     private String Name;
 
     /*
-     * 
+     * with a document to compare.            
      */
     private CompareData CompareData;
 
@@ -70,8 +70,8 @@ public class PostCompareDocumentRequest {
     /*
      * Initializes a new instance of the postCompareDocumentRequest class.
      *  
-     * @param String name 
-     * @param CompareData compareData 
+     * @param String name Original document name.
+     * @param CompareData compareData with a document to compare.            
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -89,28 +89,28 @@ public class PostCompareDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets Original document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets Original document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets with a document to compare.            
      */
     public CompareData getCompareData() {
         return CompareData;
     }
 
     /*
-     * 
+     * Sets with a document to compare.            
      */
     public void setCompareData(CompareData value) {
         CompareData = value;

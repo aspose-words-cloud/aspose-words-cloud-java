@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FootnoteResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/footnote/0 
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/footnote/0 ")
 
 public class FootnoteResponse extends AsposeResponse {
   @SerializedName("Footnote")
@@ -54,10 +55,10 @@ public class FootnoteResponse extends AsposeResponse {
   }
 
    /**
-   * Get footnote
+   * Footnote information
    * @return footnote
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Footnote information")
   public Footnote getFootnote() {
     return footnote;
   }

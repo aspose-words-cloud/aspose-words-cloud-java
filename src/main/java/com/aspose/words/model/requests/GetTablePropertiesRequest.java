@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetTablePropertiesRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
@@ -63,20 +63,20 @@ public class GetTablePropertiesRequest {
     private String Password;
 
     /*
-     * 
+     * Path to node, which contains tables.
      */
     private String NodePath;
     
     /*
      * Initializes a new instance of the getTablePropertiesRequest class.
      *  
-     * @param String name 
+     * @param String name The document name.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String nodePath 
+     * @param String nodePath Path to node, which contains tables.
      */
     public GetTablePropertiesRequest(String name,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath) {
         Name = name;
@@ -89,14 +89,14 @@ public class GetTablePropertiesRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -173,14 +173,14 @@ public class GetTablePropertiesRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node, which contains tables.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node, which contains tables.
      */
     public void setNodePath(String value) {
         NodePath = value;

@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class PostInsertDocumentWatermarkImageRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
@@ -78,19 +78,19 @@ public class PostInsertDocumentWatermarkImageRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * The watermark rotation angle.
      */
     private Double RotationAngle;
 
     /*
-     * 
+     * The image file server full name. If the name is empty the image is expected in request content.
      */
     private String Image;
     
     /*
      * Initializes a new instance of the postInsertDocumentWatermarkImageRequest class.
      *  
-     * @param String name 
+     * @param String name The document name.
      * @param File imageFile File with image
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -99,8 +99,8 @@ public class PostInsertDocumentWatermarkImageRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param Double rotationAngle 
-     * @param String image 
+     * @param Double rotationAngle The watermark rotation angle.
+     * @param String image The image file server full name. If the name is empty the image is expected in request content.
      */
     public PostInsertDocumentWatermarkImageRequest(String name,  File imageFile,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  Double rotationAngle,  String image) {
         Name = name;
@@ -117,14 +117,14 @@ public class PostInsertDocumentWatermarkImageRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -243,28 +243,28 @@ public class PostInsertDocumentWatermarkImageRequest {
     }
 
     /*
-     * 
+     *  Gets The watermark rotation angle.
      */
     public Double getRotationAngle() {
         return RotationAngle;
     }
 
     /*
-     * 
+     * Sets The watermark rotation angle.
      */
     public void setRotationAngle(Double value) {
         RotationAngle = value;
     }
 
     /*
-     * 
+     *  Gets The image file server full name. If the name is empty the image is expected in request content.
      */
     public String getImage() {
         return Image;
     }
 
     /*
-     * 
+     * Sets The image file server full name. If the name is empty the image is expected in request content.
      */
     public void setImage(String value) {
         Image = value;

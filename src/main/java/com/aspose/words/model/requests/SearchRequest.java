@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class SearchRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * The regular expression used to find matches.
      */
     private String Pattern;
 
@@ -61,56 +61,49 @@ public class SearchRequest {
      * Password for opening an encrypted document.
      */
     private String Password;
-
-    /*
-     * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
     
     /*
      * Initializes a new instance of the searchRequest class.
      *  
-     * @param String name 
-     * @param String pattern 
+     * @param String name The document name.
+     * @param String pattern The regular expression used to find matches.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public SearchRequest(String name,  String pattern,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
+    public SearchRequest(String name,  String pattern,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
         Pattern = pattern;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        DestFileName = destFileName;
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets The regular expression used to find matches.
      */
     public String getPattern() {
         return Pattern;
     }
 
     /*
-     * 
+     * Sets The regular expression used to find matches.
      */
     public void setPattern(String value) {
         Pattern = value;
@@ -170,19 +163,5 @@ public class SearchRequest {
      */
     public void setPassword(String value) {
         Password = value;
-    }
-
-    /*
-     *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
     }
 }

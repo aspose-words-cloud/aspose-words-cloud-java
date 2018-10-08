@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ProtectionRequest
+ * Request on changing of protection
  */
+@ApiModel(description = "Request on changing of protection")
 
 public class ProtectionRequest {
   @SerializedName("Password")
@@ -58,10 +59,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * Get password
+   * Current password
    * @return password
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Current password")
   public String getPassword() {
     return password;
   }
@@ -76,10 +77,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * Get newPassword
+   * New password
    * @return newPassword
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "New password")
   public String getNewPassword() {
     return newPassword;
   }
@@ -94,10 +95,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * Get protectionType
+   * New type of protection
    * @return protectionType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "New type of protection")
   public String getProtectionType() {
     return protectionType;
   }

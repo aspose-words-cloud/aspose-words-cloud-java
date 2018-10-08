@@ -42,8 +42,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DocumentEntryList
+ * Represents a list of documents which will be appended to the original resource document.
  */
+@ApiModel(description = "Represents a list of documents which will be appended to the original resource document.")
 
 public class DocumentEntryList {
   @SerializedName("DocumentEntries")
@@ -63,10 +64,10 @@ public class DocumentEntryList {
   }
 
    /**
-   * Get documentEntries
+   * List of documents.
    * @return documentEntries
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of documents.")
   public List<DocumentEntry> getDocumentEntries() {
     return documentEntries;
   }

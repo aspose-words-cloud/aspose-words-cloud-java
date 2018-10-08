@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PutFormFieldRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * From field data.
      */
     private FormField FormField;
 
@@ -78,20 +78,20 @@ public class PutFormFieldRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Path to node that contains collection of formfields.
      */
     private String NodePath;
 
     /*
-     * 
+     * Form field will be inserted before node with index.
      */
     private String InsertBeforeNode;
     
     /*
      * Initializes a new instance of the putFormFieldRequest class.
      *  
-     * @param String name 
-     * @param FormField formField 
+     * @param String name The document name.
+     * @param FormField formField From field data.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -99,8 +99,8 @@ public class PutFormFieldRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath 
-     * @param String insertBeforeNode 
+     * @param String nodePath Path to node that contains collection of formfields.
+     * @param String insertBeforeNode Form field will be inserted before node with index.
      */
     public PutFormFieldRequest(String name,  FormField formField,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath,  String insertBeforeNode) {
         Name = name;
@@ -117,28 +117,28 @@ public class PutFormFieldRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets From field data.
      */
     public FormField getFormField() {
         return FormField;
     }
 
     /*
-     * 
+     * Sets From field data.
      */
     public void setFormField(FormField value) {
         FormField = value;
@@ -243,28 +243,28 @@ public class PutFormFieldRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node that contains collection of formfields.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node that contains collection of formfields.
      */
     public void setNodePath(String value) {
         NodePath = value;
     }
 
     /*
-     * 
+     *  Gets Form field will be inserted before node with index.
      */
     public String getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
-     * 
+     * Sets Form field will be inserted before node with index.
      */
     public void setInsertBeforeNode(String value) {
         InsertBeforeNode = value;

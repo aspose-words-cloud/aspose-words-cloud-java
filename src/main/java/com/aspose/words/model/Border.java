@@ -42,12 +42,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Border
+ * Represents a border of an object.
  */
+@ApiModel(description = "Represents a border of an object.")
 
 public class Border extends LinkElement {
   /**
-   * Gets or Sets borderType
+   * Gets or sets the border type.             
    */
   @JsonAdapter(BorderTypeEnum.Adapter.class)
   public enum BorderTypeEnum {
@@ -117,7 +118,7 @@ public class Border extends LinkElement {
   private Double distanceFromText = null;
 
   /**
-   * Gets or Sets lineStyle
+   * Gets or sets the border style.
    */
   @JsonAdapter(LineStyleEnum.Adapter.class)
   public enum LineStyleEnum {
@@ -228,10 +229,10 @@ public class Border extends LinkElement {
   }
 
    /**
-   * Get borderType
+   * Gets or sets the border type.             
    * @return borderType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the border type.             ")
   public BorderTypeEnum getBorderType() {
     return borderType;
   }
@@ -246,10 +247,10 @@ public class Border extends LinkElement {
   }
 
    /**
-   * Get color
+   * Gets or sets the border color.             
    * @return color
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the border color.             ")
   public XmlColor getColor() {
     return color;
   }
@@ -264,10 +265,10 @@ public class Border extends LinkElement {
   }
 
    /**
-   * Get distanceFromText
+   * Gets or sets distance of the border from text or from the page edge in points.
    * @return distanceFromText
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets distance of the border from text or from the page edge in points.")
   public Double getDistanceFromText() {
     return distanceFromText;
   }
@@ -282,10 +283,10 @@ public class Border extends LinkElement {
   }
 
    /**
-   * Get lineStyle
+   * Gets or sets the border style.
    * @return lineStyle
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the border style.")
   public LineStyleEnum getLineStyle() {
     return lineStyle;
   }
@@ -300,10 +301,10 @@ public class Border extends LinkElement {
   }
 
    /**
-   * Get lineWidth
+   * Gets or sets the border width in points.
    * @return lineWidth
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the border width in points.")
   public Double getLineWidth() {
     return lineWidth;
   }
@@ -318,10 +319,10 @@ public class Border extends LinkElement {
   }
 
    /**
-   * Get shadow
+   * Gets or sets a value indicating whether the border has a shadow.
    * @return shadow
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a value indicating whether the border has a shadow.")
   public Boolean isisShadow() {
     return shadow;
   }

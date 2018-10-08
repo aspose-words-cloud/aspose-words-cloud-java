@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PostDocumentSaveAsRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Save options.
      */
     private SaveOptionsData SaveOptionsData;
 
@@ -75,8 +75,8 @@ public class PostDocumentSaveAsRequest {
     /*
      * Initializes a new instance of the postDocumentSaveAsRequest class.
      *  
-     * @param String name 
-     * @param SaveOptionsData saveOptionsData 
+     * @param String name The document name.
+     * @param SaveOptionsData saveOptionsData Save options.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -96,28 +96,28 @@ public class PostDocumentSaveAsRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Save options.
      */
     public SaveOptionsData getSaveOptionsData() {
         return SaveOptionsData;
     }
 
     /*
-     * 
+     * Sets Save options.
      */
     public void setSaveOptionsData(SaveOptionsData value) {
         SaveOptionsData = value;

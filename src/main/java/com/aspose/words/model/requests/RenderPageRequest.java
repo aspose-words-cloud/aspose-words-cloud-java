@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class RenderPageRequest {
     /*
-     * 
+     * The file name.
      */
     private String Name;
 
     /*
-     * 
+     * Comment index
      */
     private Integer PageIndex;
 
     /*
-     * 
+     * The destination format.
      */
     private String Format;
 
@@ -68,11 +68,6 @@ public class RenderPageRequest {
     private String Password;
 
     /*
-     * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
-
-    /*
      * Folder in filestorage with custom fonts.
      */
     private String FontsLocation;
@@ -80,17 +75,16 @@ public class RenderPageRequest {
     /*
      * Initializes a new instance of the renderPageRequest class.
      *  
-     * @param String name 
-     * @param Integer pageIndex 
-     * @param String format 
+     * @param String name The file name.
+     * @param Integer pageIndex Comment index
+     * @param String format The destination format.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderPageRequest(String name,  Integer pageIndex,  String format,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String fontsLocation) {
+    public RenderPageRequest(String name,  Integer pageIndex,  String format,  String folder,  String storage,  String loadEncoding,  String password,  String fontsLocation) {
         Name = name;
         PageIndex = pageIndex;
         Format = format;
@@ -98,47 +92,46 @@ public class RenderPageRequest {
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        DestFileName = destFileName;
         FontsLocation = fontsLocation;
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Comment index
      */
     public Integer getPageIndex() {
         return PageIndex;
     }
 
     /*
-     * 
+     * Sets Comment index
      */
     public void setPageIndex(Integer value) {
         PageIndex = value;
     }
 
     /*
-     * 
+     *  Gets The destination format.
      */
     public String getFormat() {
         return Format;
     }
 
     /*
-     * 
+     * Sets The destination format.
      */
     public void setFormat(String value) {
         Format = value;
@@ -198,20 +191,6 @@ public class RenderPageRequest {
      */
     public void setPassword(String value) {
         Password = value;
-    }
-
-    /*
-     *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
     }
 
     /*

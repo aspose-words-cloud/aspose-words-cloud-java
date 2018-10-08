@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * BookmarkData
+ * DTO for bookmark updating.
  */
+@ApiModel(description = "DTO for bookmark updating.")
 
 public class BookmarkData {
   @SerializedName("Name")
@@ -55,10 +56,10 @@ public class BookmarkData {
   }
 
    /**
-   * Get name
+   * Gets or sets the name of the bookmark.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the name of the bookmark.")
   public String getName() {
     return name;
   }
@@ -73,10 +74,10 @@ public class BookmarkData {
   }
 
    /**
-   * Get text
+   * Gets or sets the text enclosed in the bookmark.
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the text enclosed in the bookmark.")
   public String getText() {
     return text;
   }

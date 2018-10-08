@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class DeleteHeadersFootersRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
@@ -73,19 +73,19 @@ public class DeleteHeadersFootersRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Path to parent section.
      */
     private String SectionPath;
 
     /*
-     * 
+     * List of types of headers and footers.
      */
     private String HeadersFootersTypes;
     
     /*
      * Initializes a new instance of the deleteHeadersFootersRequest class.
      *  
-     * @param String name 
+     * @param String name The document name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -93,8 +93,8 @@ public class DeleteHeadersFootersRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String sectionPath 
-     * @param String headersFootersTypes 
+     * @param String sectionPath Path to parent section.
+     * @param String headersFootersTypes List of types of headers and footers.
      */
     public DeleteHeadersFootersRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String sectionPath,  String headersFootersTypes) {
         Name = name;
@@ -110,14 +110,14 @@ public class DeleteHeadersFootersRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -222,28 +222,28 @@ public class DeleteHeadersFootersRequest {
     }
 
     /*
-     * 
+     *  Gets Path to parent section.
      */
     public String getSectionPath() {
         return SectionPath;
     }
 
     /*
-     * 
+     * Sets Path to parent section.
      */
     public void setSectionPath(String value) {
         SectionPath = value;
     }
 
     /*
-     * 
+     *  Gets List of types of headers and footers.
      */
     public String getHeadersFootersTypes() {
         return HeadersFootersTypes;
     }
 
     /*
-     * 
+     * Sets List of types of headers and footers.
      */
     public void setHeadersFootersTypes(String value) {
         HeadersFootersTypes = value;

@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SaveResponse
+ * Save response.
  */
+@ApiModel(description = "Save response.")
 
 public class SaveResponse extends AsposeResponse {
   @SerializedName("SaveResult")
@@ -54,10 +55,10 @@ public class SaveResponse extends AsposeResponse {
   }
 
    /**
-   * Get saveResult
+   * Save result.
    * @return saveResult
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Save result.")
   public SaveResult getSaveResult() {
     return saveResult;
   }

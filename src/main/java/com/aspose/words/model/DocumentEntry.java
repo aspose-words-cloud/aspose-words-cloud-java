@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DocumentEntry
+ * Represents a document which will be appended to the original resource document.
  */
+@ApiModel(description = "Represents a document which will be appended to the original resource document.")
 
 public class DocumentEntry {
   @SerializedName("Href")
@@ -55,10 +56,10 @@ public class DocumentEntry {
   }
 
    /**
-   * Get href
+   * Path to document to append at the server.
    * @return href
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to document to append at the server.")
   public String getHref() {
     return href;
   }
@@ -73,10 +74,10 @@ public class DocumentEntry {
   }
 
    /**
-   * Get importFormatMode
+   * Defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
    * @return importFormatMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.")
   public String getImportFormatMode() {
     return importFormatMode;
   }

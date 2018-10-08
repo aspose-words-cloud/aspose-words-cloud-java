@@ -38,7 +38,7 @@ public class PutDocumentFieldNamesRequest {
     private File Template;
 
     /*
-     * 
+     * Use non merge fields or not.
      */
     private Boolean UseNonMergeFields;
     
@@ -46,7 +46,7 @@ public class PutDocumentFieldNamesRequest {
      * Initializes a new instance of the putDocumentFieldNamesRequest class.
      *  
      * @param File template File with template
-     * @param Boolean useNonMergeFields 
+     * @param Boolean useNonMergeFields Use non merge fields or not.
      */
     public PutDocumentFieldNamesRequest(File template,  Boolean useNonMergeFields) {
         Template = template;
@@ -68,14 +68,14 @@ public class PutDocumentFieldNamesRequest {
     }
 
     /*
-     * 
+     *  Gets Use non merge fields or not.
      */
     public Boolean getUseNonMergeFields() {
         return UseNonMergeFields;
     }
 
     /*
-     * 
+     * Sets Use non merge fields or not.
      */
     public void setUseNonMergeFields(Boolean value) {
         UseNonMergeFields = value;

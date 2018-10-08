@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableCellInsert
+ * Table cell element
  */
+@ApiModel(description = "Table cell element")
 
 public class TableCellInsert {
   @SerializedName("InsertAfter")
@@ -52,10 +53,10 @@ public class TableCellInsert {
   }
 
    /**
-   * Get insertAfter
+   * Table cell will be inserted after cell with specified 0-based index.
    * @return insertAfter
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Table cell will be inserted after cell with specified 0-based index.")
   public Integer getInsertAfter() {
     return insertAfter;
   }

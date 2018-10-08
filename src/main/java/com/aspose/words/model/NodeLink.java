@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * NodeLink
+ * Reference to node
  */
+@ApiModel(description = "Reference to node")
 
 public class NodeLink extends LinkElement {
   @SerializedName("NodeId")
@@ -54,10 +55,10 @@ public class NodeLink extends LinkElement {
   }
 
    /**
-   * Get nodeId
+   * Node id
    * @return nodeId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Node id")
   public String getNodeId() {
     return nodeId;
   }

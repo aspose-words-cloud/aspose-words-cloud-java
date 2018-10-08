@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class PostSplitDocumentRequest {
     /*
-     * 
+     * Original document name.
      */
     private String Name;
 
@@ -63,22 +63,22 @@ public class PostSplitDocumentRequest {
     private String DestFileName;
 
     /*
-     * 
+     * Format to split.
      */
     private String Format;
 
     /*
-     * 
+     * Start page.
      */
     private Integer From;
 
     /*
-     * 
+     * End page.
      */
     private Integer To;
 
     /*
-     * 
+     * ZipOutput or not.
      */
     private Boolean ZipOutput;
 
@@ -90,16 +90,16 @@ public class PostSplitDocumentRequest {
     /*
      * Initializes a new instance of the postSplitDocumentRequest class.
      *  
-     * @param String name 
+     * @param String name Original document name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String format 
-     * @param Integer from 
-     * @param Integer to 
-     * @param Boolean zipOutput 
+     * @param String format Format to split.
+     * @param Integer from Start page.
+     * @param Integer to End page.
+     * @param Boolean zipOutput ZipOutput or not.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public PostSplitDocumentRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String format,  Integer from,  Integer to,  Boolean zipOutput,  String fontsLocation) {
@@ -117,14 +117,14 @@ public class PostSplitDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets Original document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets Original document name.
      */
     public void setName(String value) {
         Name = value;
@@ -201,56 +201,56 @@ public class PostSplitDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets Format to split.
      */
     public String getFormat() {
         return Format;
     }
 
     /*
-     * 
+     * Sets Format to split.
      */
     public void setFormat(String value) {
         Format = value;
     }
 
     /*
-     * 
+     *  Gets Start page.
      */
     public Integer getFrom() {
         return From;
     }
 
     /*
-     * 
+     * Sets Start page.
      */
     public void setFrom(Integer value) {
         From = value;
     }
 
     /*
-     * 
+     *  Gets End page.
      */
     public Integer getTo() {
         return To;
     }
 
     /*
-     * 
+     * Sets End page.
      */
     public void setTo(Integer value) {
         To = value;
     }
 
     /*
-     * 
+     *  Gets ZipOutput or not.
      */
     public Boolean getZipOutput() {
         return ZipOutput;
     }
 
     /*
-     * 
+     * Sets ZipOutput or not.
      */
     public void setZipOutput(Boolean value) {
         ZipOutput = value;

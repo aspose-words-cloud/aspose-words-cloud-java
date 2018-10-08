@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class DeleteTableRowRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to table.
      */
     private String TablePath;
 
@@ -85,8 +85,8 @@ public class DeleteTableRowRequest {
     /*
      * Initializes a new instance of the deleteTableRowRequest class.
      *  
-     * @param String name 
-     * @param String tablePath 
+     * @param String name The document name.
+     * @param String tablePath Path to table.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -110,28 +110,28 @@ public class DeleteTableRowRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to table.
      */
     public String getTablePath() {
         return TablePath;
     }
 
     /*
-     * 
+     * Sets Path to table.
      */
     public void setTablePath(String value) {
         TablePath = value;

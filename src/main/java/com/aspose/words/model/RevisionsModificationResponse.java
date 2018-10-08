@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * RevisionsModificationResponse
+ * response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)
  */
+@ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)")
 
 public class RevisionsModificationResponse extends AsposeResponse {
   @SerializedName("Result")
@@ -54,10 +55,10 @@ public class RevisionsModificationResponse extends AsposeResponse {
   }
 
    /**
-   * Get result
+   * result of the modification operations for the revisions collection
    * @return result
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "result of the modification operations for the revisions collection")
   public ModificationOperationResult getResult() {
     return result;
   }

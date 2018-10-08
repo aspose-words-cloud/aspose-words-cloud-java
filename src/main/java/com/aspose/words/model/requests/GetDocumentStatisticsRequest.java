@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetDocumentStatisticsRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
@@ -58,31 +58,31 @@ public class GetDocumentStatisticsRequest {
     private String Password;
 
     /*
-     * 
+     * Support including/excluding comments from the WordCount. Default value is \"true\".
      */
     private Boolean IncludeComments;
 
     /*
-     * 
+     * Support including/excluding footnotes from the WordCount. Default value is \"false\".
      */
     private Boolean IncludeFootnotes;
 
     /*
-     * 
+     * Support including/excluding shape's text from the WordCount. Default value is \"false\"
      */
     private Boolean IncludeTextInShapes;
     
     /*
      * Initializes a new instance of the getDocumentStatisticsRequest class.
      *  
-     * @param String name 
+     * @param String name The document name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean includeComments 
-     * @param Boolean includeFootnotes 
-     * @param Boolean includeTextInShapes 
+     * @param Boolean includeComments Support including/excluding comments from the WordCount. Default value is \"true\".
+     * @param Boolean includeFootnotes Support including/excluding footnotes from the WordCount. Default value is \"false\".
+     * @param Boolean includeTextInShapes Support including/excluding shape's text from the WordCount. Default value is \"false\"
      */
     public GetDocumentStatisticsRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  Boolean includeComments,  Boolean includeFootnotes,  Boolean includeTextInShapes) {
         Name = name;
@@ -96,14 +96,14 @@ public class GetDocumentStatisticsRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -166,42 +166,42 @@ public class GetDocumentStatisticsRequest {
     }
 
     /*
-     * 
+     *  Gets Support including/excluding comments from the WordCount. Default value is \"true\".
      */
     public Boolean getIncludeComments() {
         return IncludeComments;
     }
 
     /*
-     * 
+     * Sets Support including/excluding comments from the WordCount. Default value is \"true\".
      */
     public void setIncludeComments(Boolean value) {
         IncludeComments = value;
     }
 
     /*
-     * 
+     *  Gets Support including/excluding footnotes from the WordCount. Default value is \"false\".
      */
     public Boolean getIncludeFootnotes() {
         return IncludeFootnotes;
     }
 
     /*
-     * 
+     * Sets Support including/excluding footnotes from the WordCount. Default value is \"false\".
      */
     public void setIncludeFootnotes(Boolean value) {
         IncludeFootnotes = value;
     }
 
     /*
-     * 
+     *  Gets Support including/excluding shape's text from the WordCount. Default value is \"false\"
      */
     public Boolean getIncludeTextInShapes() {
         return IncludeTextInShapes;
     }
 
     /*
-     * 
+     * Sets Support including/excluding shape's text from the WordCount. Default value is \"false\"
      */
     public void setIncludeTextInShapes(Boolean value) {
         IncludeTextInShapes = value;

@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class UpdateTableCellFormatRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to table row.
      */
     private String TableRowPath;
 
@@ -83,15 +83,15 @@ public class UpdateTableCellFormatRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * The properties.
      */
     private TableCellFormat Format;
     
     /*
      * Initializes a new instance of the updateTableCellFormatRequest class.
      *  
-     * @param String name 
-     * @param String tableRowPath 
+     * @param String name The document name.
+     * @param String tableRowPath Path to table row.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -100,7 +100,7 @@ public class UpdateTableCellFormatRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableCellFormat format 
+     * @param TableCellFormat format The properties.
      */
     public UpdateTableCellFormatRequest(String name,  String tableRowPath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableCellFormat format) {
         Name = name;
@@ -117,28 +117,28 @@ public class UpdateTableCellFormatRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to table row.
      */
     public String getTableRowPath() {
         return TableRowPath;
     }
 
     /*
-     * 
+     * Sets Path to table row.
      */
     public void setTableRowPath(String value) {
         TableRowPath = value;
@@ -257,14 +257,14 @@ public class UpdateTableCellFormatRequest {
     }
 
     /*
-     * 
+     *  Gets The properties.
      */
     public TableCellFormat getFormat() {
         return Format;
     }
 
     /*
-     * 
+     * Sets The properties.
      */
     public void setFormat(TableCellFormat value) {
         Format = value;

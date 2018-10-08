@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SaveOptionsData
+ * base container class for save options data
  */
+@ApiModel(description = "base container class for save options data")
 
 
 public class SaveOptionsData {
@@ -80,10 +81,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get colorMode
+   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}
    * @return colorMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}")
   public String getColorMode() {
     return colorMode;
   }
@@ -98,10 +99,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get saveFormat
+   * format of save
    * @return saveFormat
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "format of save")
   public String getSaveFormat() {
     return saveFormat;
   }
@@ -116,10 +117,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get fileName
+   * name of destination file
    * @return fileName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "name of destination file")
   public String getFileName() {
     return fileName;
   }
@@ -134,10 +135,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get dmlRenderingMode
+   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }
    * @return dmlRenderingMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }")
   public String getDmlRenderingMode() {
     return dmlRenderingMode;
   }
@@ -152,10 +153,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get dmlEffectsRenderingMode
+   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }
    * @return dmlEffectsRenderingMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }")
   public String getDmlEffectsRenderingMode() {
     return dmlEffectsRenderingMode;
   }
@@ -170,10 +171,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get zipOutput
+   * Controls zip output or not. Default value is false.
    * @return zipOutput
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
   public Boolean isisZipOutput() {
     return zipOutput;
   }
@@ -188,10 +189,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get updateLastSavedTimeProperty
+   * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
    * @return updateLastSavedTimeProperty
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
   public Boolean isisUpdateLastSavedTimeProperty() {
     return updateLastSavedTimeProperty;
   }
@@ -206,10 +207,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get updateSdtContent
+   * Gets or sets value determining whether content of  is updated before saving.
    * @return updateSdtContent
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
   public Boolean isisUpdateSdtContent() {
     return updateSdtContent;
   }
@@ -224,10 +225,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Get updateFields
+   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true
    * @return updateFields
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
   public Boolean isisUpdateFields() {
     return updateFields;
   }

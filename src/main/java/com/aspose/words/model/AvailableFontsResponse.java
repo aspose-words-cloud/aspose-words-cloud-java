@@ -43,8 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * AvailableFontsResponse
+ * The list of fonts, available for document processing
  */
+@ApiModel(description = "The list of fonts, available for document processing")
 
 public class AvailableFontsResponse extends AsposeResponse {
   @SerializedName("AdditionalFonts")
@@ -70,10 +71,10 @@ public class AvailableFontsResponse extends AsposeResponse {
   }
 
    /**
-   * Get additionalFonts
+   * The list of addititional fonts, provided by aspose team
    * @return additionalFonts
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The list of addititional fonts, provided by aspose team")
   public List<FontInfo> getAdditionalFonts() {
     return additionalFonts;
   }
@@ -96,10 +97,10 @@ public class AvailableFontsResponse extends AsposeResponse {
   }
 
    /**
-   * Get customFonts
+   * Custom user fonts (from user file storage). To use them, you should specify \&quot;fontsLocation\&quot; parameter in any request
    * @return customFonts
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request")
   public List<FontInfo> getCustomFonts() {
     return customFonts;
   }
@@ -122,10 +123,10 @@ public class AvailableFontsResponse extends AsposeResponse {
   }
 
    /**
-   * Get systemFonts
+   * The list of system fonts, availiable on the server
    * @return systemFonts
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The list of system fonts, availiable on the server")
   public List<FontInfo> getSystemFonts() {
     return systemFonts;
   }

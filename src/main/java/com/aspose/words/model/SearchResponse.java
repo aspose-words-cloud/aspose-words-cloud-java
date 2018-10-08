@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SearchResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/search 
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/search ")
 
 public class SearchResponse extends AsposeResponse {
   @SerializedName("SearchingPattern")
@@ -57,10 +58,10 @@ public class SearchResponse extends AsposeResponse {
   }
 
    /**
-   * Get searchingPattern
+   * A regular expression pattern used to find matches.
    * @return searchingPattern
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A regular expression pattern used to find matches.")
   public String getSearchingPattern() {
     return searchingPattern;
   }
@@ -75,10 +76,10 @@ public class SearchResponse extends AsposeResponse {
   }
 
    /**
-   * Get searchResults
+   * Collection of search results.
    * @return searchResults
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of search results.")
   public SearchResultsCollection getSearchResults() {
     return searchResults;
   }

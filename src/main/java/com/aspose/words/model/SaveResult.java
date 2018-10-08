@@ -42,8 +42,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SaveResult
+ * Result of saving.
  */
+@ApiModel(description = "Result of saving.")
 
 public class SaveResult {
   @SerializedName("SourceDocument")
@@ -61,10 +62,10 @@ public class SaveResult {
   }
 
    /**
-   * Get sourceDocument
+   * Link to source document.
    * @return sourceDocument
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to source document.")
   public FileLink getSourceDocument() {
     return sourceDocument;
   }
@@ -79,10 +80,10 @@ public class SaveResult {
   }
 
    /**
-   * Get destDocument
+   * Link to destination document.
    * @return destDocument
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to destination document.")
   public FileLink getDestDocument() {
     return destDocument;
   }
@@ -105,10 +106,10 @@ public class SaveResult {
   }
 
    /**
-   * Get additionalItems
+   * Links to additional items (css, images etc).
    * @return additionalItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Links to additional items (css, images etc).")
   public List<FileLink> getAdditionalItems() {
     return additionalItems;
   }

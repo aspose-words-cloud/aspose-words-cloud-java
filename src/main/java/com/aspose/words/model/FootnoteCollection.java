@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * FootnoteCollection
+ * Collection of footnotes.
  */
+@ApiModel(description = "Collection of footnotes.")
 
 public class FootnoteCollection extends LinkElement {
   @SerializedName("List")
@@ -65,10 +66,10 @@ public class FootnoteCollection extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of foonotes links 
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of foonotes links ")
   public List<Footnote> getList() {
     return list;
   }

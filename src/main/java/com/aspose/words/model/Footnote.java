@@ -43,15 +43,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Footnote
+ * Footnote.
  */
+@ApiModel(description = "Footnote.")
 
 public class Footnote extends FootnoteLink {
   @SerializedName("Content")
   private StoryChildNodes content = null;
 
   /**
-   * Gets or Sets footnoteType
+   * Returns a value that specifies whether this is a footnote or endnote.
    */
   @JsonAdapter(FootnoteTypeEnum.Adapter.class)
   public enum FootnoteTypeEnum {
@@ -115,10 +116,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Get content
+   * Content of footnote.
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Content of footnote.")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -133,10 +134,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Get footnoteType
+   * Returns a value that specifies whether this is a footnote or endnote.
    * @return footnoteType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns a value that specifies whether this is a footnote or endnote.")
   public FootnoteTypeEnum getFootnoteType() {
     return footnoteType;
   }
@@ -151,10 +152,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Get position
+   * Link to comment range start node.
    * @return position
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to comment range start node.")
   public DocumentPosition getPosition() {
     return position;
   }
@@ -169,10 +170,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Get referenceMark
+   * Gets/sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.
    * @return referenceMark
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets/sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.")
   public String getReferenceMark() {
     return referenceMark;
   }
@@ -187,10 +188,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Get text
+   * This is a convenience property that allows to easily get or set text of the footnote.
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "This is a convenience property that allows to easily get or set text of the footnote.")
   public String getText() {
     return text;
   }

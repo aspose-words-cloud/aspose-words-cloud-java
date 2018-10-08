@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class DeleteCommentRequest {
     /*
-     * 
+     * The file name.
      */
     private String Name;
 
     /*
-     * 
+     * Comment index
      */
     private Integer CommentIndex;
 
@@ -80,8 +80,8 @@ public class DeleteCommentRequest {
     /*
      * Initializes a new instance of the deleteCommentRequest class.
      *  
-     * @param String name 
-     * @param Integer commentIndex 
+     * @param String name The file name.
+     * @param Integer commentIndex Comment index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -103,28 +103,28 @@ public class DeleteCommentRequest {
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Comment index
      */
     public Integer getCommentIndex() {
         return CommentIndex;
     }
 
     /*
-     * 
+     * Sets Comment index
      */
     public void setCommentIndex(Integer value) {
         CommentIndex = value;

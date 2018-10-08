@@ -42,8 +42,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * StoryChildNodes
+ * Child nodes of  or 
  */
+@ApiModel(description = "Child nodes of  or ")
 
 public class StoryChildNodes {
   @SerializedName("ChildNodes")
@@ -63,10 +64,10 @@ public class StoryChildNodes {
   }
 
    /**
-   * Get childNodes
+   * Child nodes.
    * @return childNodes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Child nodes.")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }

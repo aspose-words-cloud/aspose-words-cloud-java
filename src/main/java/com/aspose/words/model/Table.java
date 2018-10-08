@@ -45,8 +45,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Table
+ * Table element
  */
+@ApiModel(description = "Table element")
 
 public class Table extends NodeLink {
   @SerializedName("TableProperties")
@@ -61,10 +62,10 @@ public class Table extends NodeLink {
   }
 
    /**
-   * Get tableProperties
+   * Table properties.
    * @return tableProperties
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Table properties.")
   public TableProperties getTableProperties() {
     return tableProperties;
   }
@@ -87,10 +88,10 @@ public class Table extends NodeLink {
   }
 
    /**
-   * Get tableRowList
+   * Collection of table&#39;s rows.
    * @return tableRowList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of table's rows.")
   public List<TableRow> getTableRowList() {
     return tableRowList;
   }

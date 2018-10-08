@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CommentResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/comments/0 
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/comments/0 ")
 
 public class CommentResponse extends AsposeResponse {
   @SerializedName("Comment")
@@ -54,10 +55,10 @@ public class CommentResponse extends AsposeResponse {
   }
 
    /**
-   * Get comment
+   * Comment information
    * @return comment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Comment information")
   public Comment getComment() {
     return comment;
   }

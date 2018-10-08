@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SectionLinkCollection
+ * Collection of links to sections
  */
+@ApiModel(description = "Collection of links to sections")
 
 public class SectionLinkCollection extends LinkElement {
   @SerializedName("SectionLinkList")
@@ -65,10 +66,10 @@ public class SectionLinkCollection extends LinkElement {
   }
 
    /**
-   * Get sectionLinkList
+   * Collection of section&#39;s links
    * @return sectionLinkList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of section's links")
   public List<SectionLink> getSectionLinkList() {
     return sectionLinkList;
   }

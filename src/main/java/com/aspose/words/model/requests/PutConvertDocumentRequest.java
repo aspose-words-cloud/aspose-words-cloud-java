@@ -38,7 +38,7 @@ public class PutConvertDocumentRequest {
     private File Document;
 
     /*
-     * 
+     * Format to convert.
      */
     private String Format;
 
@@ -48,12 +48,12 @@ public class PutConvertDocumentRequest {
     private String Storage;
 
     /*
-     * 
+     * Path for saving operation result to the local storage.
      */
     private String OutPath;
 
     /*
-     * 
+     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"sourceFilename\" will be used instead. 
      */
     private String DocumentFileName;
 
@@ -66,10 +66,10 @@ public class PutConvertDocumentRequest {
      * Initializes a new instance of the putConvertDocumentRequest class.
      *  
      * @param File document Converting document
-     * @param String format 
+     * @param String format Format to convert.
      * @param String storage File storage, which have to be used.
-     * @param String outPath 
-     * @param String documentFileName 
+     * @param String outPath Path for saving operation result to the local storage.
+     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"sourceFilename\" will be used instead. 
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public PutConvertDocumentRequest(File document,  String format,  String storage,  String outPath,  String documentFileName,  String fontsLocation) {
@@ -96,14 +96,14 @@ public class PutConvertDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets Format to convert.
      */
     public String getFormat() {
         return Format;
     }
 
     /*
-     * 
+     * Sets Format to convert.
      */
     public void setFormat(String value) {
         Format = value;
@@ -124,28 +124,28 @@ public class PutConvertDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets Path for saving operation result to the local storage.
      */
     public String getOutPath() {
         return OutPath;
     }
 
     /*
-     * 
+     * Sets Path for saving operation result to the local storage.
      */
     public void setOutPath(String value) {
         OutPath = value;
     }
 
     /*
-     * 
+     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"sourceFilename\" will be used instead. 
      */
     public String getDocumentFileName() {
         return DocumentFileName;
     }
 
     /*
-     * 
+     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"sourceFilename\" will be used instead. 
      */
     public void setDocumentFileName(String value) {
         DocumentFileName = value;

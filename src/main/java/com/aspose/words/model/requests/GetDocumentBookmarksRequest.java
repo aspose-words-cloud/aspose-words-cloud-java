@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetDocumentBookmarksRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
@@ -60,7 +60,7 @@ public class GetDocumentBookmarksRequest {
     /*
      * Initializes a new instance of the getDocumentBookmarksRequest class.
      *  
-     * @param String name 
+     * @param String name The document name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -75,14 +75,14 @@ public class GetDocumentBookmarksRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;

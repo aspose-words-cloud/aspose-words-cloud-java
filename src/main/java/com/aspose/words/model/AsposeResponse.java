@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * AsposeResponse
+ * Base class for all responses.
  */
+@ApiModel(description = "Base class for all responses.")
 
 
 public class AsposeResponse {
@@ -59,10 +60,10 @@ public class AsposeResponse {
   }
 
    /**
-   * Get code
+   * Response status code.
    * @return code
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Response status code.")
   public Integer getCode() {
     return code;
   }
@@ -77,10 +78,10 @@ public class AsposeResponse {
   }
 
    /**
-   * Get status
+   * Response status.
    * @return status
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Response status.")
   public String getStatus() {
     return status;
   }

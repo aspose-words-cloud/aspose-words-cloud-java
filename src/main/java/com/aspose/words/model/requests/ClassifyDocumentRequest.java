@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class ClassifyDocumentRequest {
     /*
-     * 
+     * The document name.
      */
     private String DocumentName;
 
@@ -58,52 +58,45 @@ public class ClassifyDocumentRequest {
     private String Password;
 
     /*
-     * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
-
-    /*
-     * 
+     * Count of the best classes to return.
      */
     private String BestClassesCount;
 
     /*
-     * 
+     * Taxonomy to use for classification return.
      */
     private String Taxonomy;
     
     /*
      * Initializes a new instance of the classifyDocumentRequest class.
      *  
-     * @param String documentName 
+     * @param String documentName The document name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String bestClassesCount 
-     * @param String taxonomy 
+     * @param String bestClassesCount Count of the best classes to return.
+     * @param String taxonomy Taxonomy to use for classification return.
      */
-    public ClassifyDocumentRequest(String documentName,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String bestClassesCount,  String taxonomy) {
+    public ClassifyDocumentRequest(String documentName,  String folder,  String storage,  String loadEncoding,  String password,  String bestClassesCount,  String taxonomy) {
         DocumentName = documentName;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        DestFileName = destFileName;
         BestClassesCount = bestClassesCount;
         Taxonomy = taxonomy;
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getDocumentName() {
         return DocumentName;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setDocumentName(String value) {
         DocumentName = value;
@@ -166,42 +159,28 @@ public class ClassifyDocumentRequest {
     }
 
     /*
-     *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
-    }
-
-    /*
-     * 
+     *  Gets Count of the best classes to return.
      */
     public String getBestClassesCount() {
         return BestClassesCount;
     }
 
     /*
-     * 
+     * Sets Count of the best classes to return.
      */
     public void setBestClassesCount(String value) {
         BestClassesCount = value;
     }
 
     /*
-     * 
+     *  Gets Taxonomy to use for classification return.
      */
     public String getTaxonomy() {
         return Taxonomy;
     }
 
     /*
-     * 
+     * Sets Taxonomy to use for classification return.
      */
     public void setTaxonomy(String value) {
         Taxonomy = value;

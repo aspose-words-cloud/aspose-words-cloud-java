@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * OfficeMathObjectsCollection
+ * Collection of OfficeMath objects.
  */
+@ApiModel(description = "Collection of OfficeMath objects.")
 
 public class OfficeMathObjectsCollection extends LinkElement {
   @SerializedName("List")
@@ -65,10 +66,10 @@ public class OfficeMathObjectsCollection extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of OfficeMath objects.
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of OfficeMath objects.")
   public List<OfficeMathObject> getList() {
     return list;
   }

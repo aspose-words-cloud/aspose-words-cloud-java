@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * FieldCollection
+ * Represents DTO for collection of fields.
  */
+@ApiModel(description = "Represents DTO for collection of fields.")
 
 public class FieldCollection extends LinkElement {
   @SerializedName("List")
@@ -65,10 +66,10 @@ public class FieldCollection extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of fields
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of fields")
   public List<Field> getList() {
     return list;
   }

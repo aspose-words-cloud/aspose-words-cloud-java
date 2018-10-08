@@ -127,7 +127,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Accept all revisions in document
      * 
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -139,7 +139,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RevisionsModificationResponse> resp = acceptAllRevisionsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -148,7 +148,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Accept all revisions in document
      * 
      * @return ApiResponse&lt;RevisionsModificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -160,7 +160,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Accept all revisions in document (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -200,14 +200,13 @@ public class WordsApi {
      * @throws ApiException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call classifyCall(ClassifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        Object localVarPostBody = request.getText();
 
         // create path and map variables
         String localVarPath = "/words/classify";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "text", request.getText());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "bestClassesCount", request.getBestClassesCount());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -239,7 +238,7 @@ public class WordsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -257,7 +256,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Classify raw text.
      * 
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -269,7 +268,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ClassificationResponse> resp = classifyWithHttpInfo(request);
                 return resp.getData();
             }
@@ -278,7 +277,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Classify raw text.
      * 
      * @return ApiResponse&lt;ClassificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -290,7 +289,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Classify raw text. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -342,7 +341,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "bestClassesCount", request.getBestClassesCount());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "taxonomy", request.getTaxonomy());
 
@@ -375,7 +373,7 @@ public class WordsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -393,7 +391,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Classify document.
      * 
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -405,7 +403,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ClassificationResponse> resp = classifyDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -414,7 +412,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Classify document.
      * 
      * @return ApiResponse&lt;ClassificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -426,7 +424,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Classify document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -540,7 +538,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Add new or update existing document property.
      * 
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -552,7 +550,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentPropertyResponse> resp = createOrUpdateDocumentPropertyWithHttpInfo(request);
                 return resp.getData();
             }
@@ -561,7 +559,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Add new or update existing document property.
      * 
      * @return ApiResponse&lt;DocumentPropertyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -573,7 +571,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Add new or update existing document property. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -688,8 +686,8 @@ public class WordsApi {
     }
 
     /**
-     * 
-     * 
+     * Resets border properties to default values.             
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -700,7 +698,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BorderResponse> resp = deleteBorderWithHttpInfo(request);
                 return resp.getData();
             }
@@ -709,8 +707,8 @@ public class WordsApi {
     }
 
     /**
-     * 
-     * 
+     * Resets border properties to default values.             
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -721,8 +719,8 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
+     * Resets border properties to default values.              (asynchronously)
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -830,8 +828,8 @@ public class WordsApi {
     }
 
     /**
-     * 
-     * 
+     * Resets borders properties to default values.             
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -842,7 +840,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BordersResponse> resp = deleteBordersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -851,8 +849,8 @@ public class WordsApi {
     }
 
     /**
-     * 
-     * 
+     * Resets borders properties to default values.             
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -863,8 +861,8 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
+     * Resets borders properties to default values.              (asynchronously)
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -972,7 +970,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Remove comment from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -984,7 +982,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteCommentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -993,7 +991,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Remove comment from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1005,7 +1003,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Remove comment from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1108,7 +1106,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Remove macros from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1120,7 +1118,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteDocumentMacrosWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1129,7 +1127,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Remove macros from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1141,7 +1139,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Remove macros from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1250,7 +1248,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete document property.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1262,7 +1260,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteDocumentPropertyWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1271,7 +1269,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete document property.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1283,7 +1281,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Delete document property. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1386,7 +1384,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete watermark (for deleting last watermark from the document).
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1398,7 +1396,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = deleteDocumentWatermarkWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1407,7 +1405,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete watermark (for deleting last watermark from the document).
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1419,7 +1417,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Delete watermark (for deleting last watermark from the document). (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1529,7 +1527,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes drawing object from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1541,7 +1539,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1550,7 +1548,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes drawing object from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1562,7 +1560,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes drawing object from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1672,7 +1670,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete field from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1684,7 +1682,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1693,7 +1691,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete field from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1705,7 +1703,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Delete field from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1809,7 +1807,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Remove fields from section paragraph.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1821,7 +1819,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteFieldsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1830,7 +1828,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Remove fields from section paragraph.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1842,7 +1840,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Remove fields from section paragraph. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1952,7 +1950,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes footnote from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1964,7 +1962,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteFootnoteWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1973,7 +1971,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes footnote from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1985,7 +1983,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes footnote from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2095,7 +2093,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes form field from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2107,7 +2105,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteFormFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2116,7 +2114,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes form field from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2128,7 +2126,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes form field from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2238,7 +2236,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete header/footer from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2250,7 +2248,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteHeaderFooterWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2259,7 +2257,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete header/footer from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2271,7 +2269,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Delete header/footer from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2376,7 +2374,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete document headers and footers.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2388,7 +2386,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteHeadersFootersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2397,7 +2395,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete document headers and footers.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2409,7 +2407,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Delete document headers and footers. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2519,7 +2517,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes OfficeMath object from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2531,7 +2529,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteOfficeMathObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2540,7 +2538,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes OfficeMath object from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2552,7 +2550,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes OfficeMath object from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2662,7 +2660,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Remove paragraph from section.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2674,7 +2672,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteParagraphWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2683,7 +2681,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Remove paragraph from section.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2695,7 +2693,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Remove paragraph from section. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2810,7 +2808,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes run from document.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2822,7 +2820,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteRunWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2831,7 +2829,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes run from document.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2843,7 +2841,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes run from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2953,7 +2951,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete a table.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2965,7 +2963,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteTableWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2974,7 +2972,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete a table.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2986,7 +2984,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Delete a table. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3101,7 +3099,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete a table cell.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3113,7 +3111,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteTableCellWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3122,7 +3120,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete a table cell.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3134,7 +3132,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Delete a table cell. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3249,7 +3247,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete a table row.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3261,7 +3259,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteTableRowWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3270,7 +3268,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Delete a table row.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3282,7 +3280,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Delete a table row. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3388,7 +3386,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Unprotect document.
      * 
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3400,7 +3398,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ProtectionDataResponse> resp = deleteUnprotectDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3409,7 +3407,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Unprotect document.
      * 
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3421,7 +3419,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Unprotect document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3512,7 +3510,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Gets the list of fonts, available for document processing
      * 
      * @return AvailableFontsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3524,7 +3522,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AvailableFontsResponse> resp = getAvailableFontsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3533,7 +3531,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Gets the list of fonts, available for document processing
      * 
      * @return ApiResponse&lt;AvailableFontsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3545,7 +3543,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Gets the list of fonts, available for document processing (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3657,8 +3655,8 @@ public class WordsApi {
     }
 
     /**
-     * 
-     * 
+     * Return a border.
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3669,7 +3667,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BorderResponse> resp = getBorderWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3678,8 +3676,8 @@ public class WordsApi {
     }
 
     /**
-     * 
-     * 
+     * Return a border.
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3690,8 +3688,8 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
+     * Return a border. (asynchronously)
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3796,8 +3794,8 @@ public class WordsApi {
     }
 
     /**
-     * 
-     * 
+     * Return a collection of borders.
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3808,7 +3806,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BordersResponse> resp = getBordersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3817,8 +3815,8 @@ public class WordsApi {
     }
 
     /**
-     * 
-     * 
+     * Return a collection of borders.
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3829,8 +3827,8 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
-     * 
+     * Return a collection of borders. (asynchronously)
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3935,7 +3933,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get comment from document.
      * 
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3947,7 +3945,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<CommentResponse> resp = getCommentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3956,7 +3954,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get comment from document.
      * 
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3968,7 +3966,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get comment from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4068,7 +4066,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get comments from document.
      * 
      * @return CommentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4080,7 +4078,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<CommentsResponse> resp = getCommentsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4089,7 +4087,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get comments from document.
      * 
      * @return ApiResponse&lt;CommentsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4101,7 +4099,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get comments from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4201,7 +4199,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document common info.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4213,7 +4211,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = getDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4222,7 +4220,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document common info.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4234,7 +4232,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4340,7 +4338,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document bookmark data by its name.
      * 
      * @return BookmarkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4352,7 +4350,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BookmarkResponse> resp = getDocumentBookmarkByNameWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4361,7 +4359,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document bookmark data by its name.
      * 
      * @return ApiResponse&lt;BookmarkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4373,7 +4371,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document bookmark data by its name. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4473,7 +4471,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document bookmarks common info.
      * 
      * @return BookmarksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4485,7 +4483,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BookmarksResponse> resp = getDocumentBookmarksWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4494,7 +4492,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document bookmarks common info.
      * 
      * @return ApiResponse&lt;BookmarksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4506,7 +4504,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document bookmarks common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4613,7 +4611,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document drawing object common info by its index or convert to format specified.
      * 
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4625,7 +4623,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DrawingObjectResponse> resp = getDocumentDrawingObjectByIndexWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4634,7 +4632,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document drawing object common info by its index or convert to format specified.
      * 
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4646,7 +4644,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document drawing object common info by its index or convert to format specified. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4753,7 +4751,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read drawing object image data.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4765,7 +4763,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4774,7 +4772,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read drawing object image data.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4786,7 +4784,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read drawing object image data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4893,7 +4891,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get drawing object OLE data.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4905,7 +4903,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4914,7 +4912,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get drawing object OLE data.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4926,7 +4924,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get drawing object OLE data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5027,7 +5025,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document drawing objects common info.
      * 
      * @return DrawingObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5039,7 +5037,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DrawingObjectsResponse> resp = getDocumentDrawingObjectsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5048,7 +5046,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document drawing objects common info.
      * 
      * @return ApiResponse&lt;DrawingObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5060,7 +5058,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document drawing objects common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5161,7 +5159,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document field names.
      * 
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5173,7 +5171,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldNamesResponse> resp = getDocumentFieldNamesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5182,7 +5180,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document field names.
      * 
      * @return ApiResponse&lt;FieldNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5194,7 +5192,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document field names. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5300,7 +5298,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document hyperlink by its index.
      * 
      * @return HyperlinkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5312,7 +5310,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HyperlinkResponse> resp = getDocumentHyperlinkByIndexWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5321,7 +5319,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document hyperlink by its index.
      * 
      * @return ApiResponse&lt;HyperlinkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5333,7 +5331,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document hyperlink by its index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5433,7 +5431,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document hyperlinks common info.
      * 
      * @return HyperlinksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5445,7 +5443,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HyperlinksResponse> resp = getDocumentHyperlinksWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5454,7 +5452,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document hyperlinks common info.
      * 
      * @return ApiResponse&lt;HyperlinksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5466,7 +5464,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document hyperlinks common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5573,7 +5571,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * This resource represents one of the paragraphs contained in the document.
      * 
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5585,7 +5583,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ParagraphResponse> resp = getDocumentParagraphWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5594,7 +5592,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * This resource represents one of the paragraphs contained in the document.
      * 
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5606,7 +5604,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * This resource represents one of the paragraphs contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5635,6 +5633,146 @@ public class WordsApi {
 
         com.squareup.okhttp.Call call = getDocumentParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getDocumentParagraphFormat
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getDocumentParagraphFormatCall(GetDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDocumentParagraphFormatValidateBeforeCall(GetDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentParagraphFormat");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentParagraphFormat");
+        }
+        
+
+        com.squareup.okhttp.Call call = getDocumentParagraphFormatCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Represents all the formatting for a paragraph.
+     * 
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphFormatResponse getDocumentParagraphFormat(GetDocumentParagraphFormatRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphFormatResponse> resp = getDocumentParagraphFormatWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphFormatResponse> resp = getDocumentParagraphFormatWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Represents all the formatting for a paragraph.
+     * 
+     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphFormatResponse> getDocumentParagraphFormatWithHttpInfo(GetDocumentParagraphFormatRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getDocumentParagraphFormatValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Represents all the formatting for a paragraph. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getDocumentParagraphFormatAsync(GetDocumentParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDocumentParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -5718,7 +5856,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * This resource represents run of text contained in the document.
      * 
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5730,7 +5868,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RunResponse> resp = getDocumentParagraphRunWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5739,7 +5877,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * This resource represents run of text contained in the document.
      * 
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5751,7 +5889,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * This resource represents run of text contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5863,7 +6001,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * This resource represents font of run.
      * 
      * @return FontResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5875,7 +6013,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FontResponse> resp = getDocumentParagraphRunFontWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5884,7 +6022,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * This resource represents font of run.
      * 
      * @return ApiResponse&lt;FontResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5896,7 +6034,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * This resource represents font of run. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6002,7 +6140,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * This resource represents collection of runs in the paragraph.
      * 
      * @return RunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6014,7 +6152,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RunsResponse> resp = getDocumentParagraphRunsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6023,7 +6161,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * This resource represents collection of runs in the paragraph.
      * 
      * @return ApiResponse&lt;RunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6035,7 +6173,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * This resource represents collection of runs in the paragraph. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6136,7 +6274,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a list of paragraphs that are contained in the document.
      * 
      * @return ParagraphLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6148,7 +6286,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ParagraphLinkCollectionResponse> resp = getDocumentParagraphsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6157,7 +6295,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a list of paragraphs that are contained in the document.
      * 
      * @return ApiResponse&lt;ParagraphLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6169,7 +6307,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a list of paragraphs that are contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6269,7 +6407,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document properties info.
      * 
      * @return DocumentPropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6281,7 +6419,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentPropertiesResponse> resp = getDocumentPropertiesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6290,7 +6428,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document properties info.
      * 
      * @return ApiResponse&lt;DocumentPropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6302,7 +6440,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document properties info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6408,7 +6546,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document property info by the property name.
      * 
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6420,7 +6558,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentPropertyResponse> resp = getDocumentPropertyWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6429,7 +6567,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document property info by the property name.
      * 
      * @return ApiResponse&lt;DocumentPropertyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6441,7 +6579,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document property info by the property name. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6541,7 +6679,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document protection common info.
      * 
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6553,7 +6691,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ProtectionDataResponse> resp = getDocumentProtectionWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6562,7 +6700,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document protection common info.
      * 
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6574,7 +6712,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document protection common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6677,7 +6815,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document statistics.
      * 
      * @return StatDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6689,7 +6827,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<StatDataResponse> resp = getDocumentStatisticsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6698,7 +6836,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document statistics.
      * 
      * @return ApiResponse&lt;StatDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6710,7 +6848,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document statistics. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6813,7 +6951,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document text items.
      * 
      * @return TextItemsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6827,7 +6965,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TextItemsResponse> resp = getDocumentTextItemsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6836,7 +6974,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read document text items.
      * 
      * @return ApiResponse&lt;TextItemsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6850,7 +6988,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read document text items. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6960,7 +7098,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Export the document into the specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6972,7 +7110,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = getDocumentWithFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6981,7 +7119,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Export the document into the specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6993,7 +7131,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Export the document into the specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7100,7 +7238,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get field from document.
      * 
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7112,7 +7250,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldResponse> resp = getFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7121,7 +7259,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get field from document.
      * 
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7133,7 +7271,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get field from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7234,7 +7372,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get fields from document.
      * 
      * @return FieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7246,7 +7384,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldsResponse> resp = getFieldsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7255,7 +7393,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get fields from document.
      * 
      * @return ApiResponse&lt;FieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7267,7 +7405,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get fields from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7374,7 +7512,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read footnote by index.
      * 
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7386,7 +7524,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FootnoteResponse> resp = getFootnoteWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7395,7 +7533,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read footnote by index.
      * 
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7407,7 +7545,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read footnote by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7508,7 +7646,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get footnotes from document.
      * 
      * @return FootnotesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7520,7 +7658,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FootnotesResponse> resp = getFootnotesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7529,7 +7667,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get footnotes from document.
      * 
      * @return ApiResponse&lt;FootnotesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7541,7 +7679,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get footnotes from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7648,7 +7786,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Returns representation of an one of the form field.
      * 
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7660,7 +7798,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FormFieldResponse> resp = getFormFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7669,7 +7807,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Returns representation of an one of the form field.
      * 
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7681,7 +7819,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Returns representation of an one of the form field. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7782,7 +7920,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get form fields from document.
      * 
      * @return FormFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7794,7 +7932,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FormFieldsResponse> resp = getFormFieldsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7803,7 +7941,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get form fields from document.
      * 
      * @return ApiResponse&lt;FormFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7815,7 +7953,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get form fields from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7922,7 +8060,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a header/footer that is contained in the document.
      * 
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7934,7 +8072,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HeaderFooterResponse> resp = getHeaderFooterWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7943,7 +8081,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a header/footer that is contained in the document.
      * 
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7955,7 +8093,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a header/footer that is contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8068,7 +8206,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a header/footer that is contained in the document.
      * 
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8080,7 +8218,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HeaderFooterResponse> resp = getHeaderFooterOfSectionWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8089,7 +8227,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a header/footer that is contained in the document.
      * 
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8101,7 +8239,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a header/footer that is contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8203,7 +8341,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a list of header/footers that are contained in the document.
      * 
      * @return HeaderFootersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8215,7 +8353,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HeaderFootersResponse> resp = getHeaderFootersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8224,7 +8362,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a list of header/footers that are contained in the document.
      * 
      * @return ApiResponse&lt;HeaderFootersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8236,7 +8374,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a list of header/footers that are contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8343,7 +8481,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read OfficeMath object by index.
      * 
      * @return OfficeMathObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8355,7 +8493,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<OfficeMathObjectResponse> resp = getOfficeMathObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8364,7 +8502,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Read OfficeMath object by index.
      * 
      * @return ApiResponse&lt;OfficeMathObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8376,7 +8514,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Read OfficeMath object by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8477,7 +8615,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get OfficeMath objects from document.
      * 
      * @return OfficeMathObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8489,7 +8627,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<OfficeMathObjectsResponse> resp = getOfficeMathObjectsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8498,7 +8636,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get OfficeMath objects from document.
      * 
      * @return ApiResponse&lt;OfficeMathObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8510,7 +8648,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get OfficeMath objects from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8616,7 +8754,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get document section by index.
      * 
      * @return SectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8628,7 +8766,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SectionResponse> resp = getSectionWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8637,7 +8775,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get document section by index.
      * 
      * @return ApiResponse&lt;SectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8649,7 +8787,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get document section by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8755,7 +8893,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get page setup of section.
      * 
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8767,7 +8905,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SectionPageSetupResponse> resp = getSectionPageSetupWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8776,7 +8914,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Get page setup of section.
      * 
      * @return ApiResponse&lt;SectionPageSetupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8788,7 +8926,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Get page setup of section. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8888,7 +9026,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a list of sections that are contained in the document.
      * 
      * @return SectionLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8900,7 +9038,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SectionLinkCollectionResponse> resp = getSectionsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8909,7 +9047,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a list of sections that are contained in the document.
      * 
      * @return ApiResponse&lt;SectionLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8921,7 +9059,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a list of sections that are contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9028,7 +9166,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table.
      * 
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9040,7 +9178,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableResponse> resp = getTableWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9049,7 +9187,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table.
      * 
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9061,7 +9199,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a table. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9173,7 +9311,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table cell.
      * 
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9185,7 +9323,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableCellResponse> resp = getTableCellWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9194,7 +9332,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table cell.
      * 
      * @return ApiResponse&lt;TableCellResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9206,7 +9344,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a table cell. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9318,7 +9456,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table cell format.
      * 
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9330,7 +9468,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableCellFormatResponse> resp = getTableCellFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9339,7 +9477,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table cell format.
      * 
      * @return ApiResponse&lt;TableCellFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9351,7 +9489,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a table cell format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9458,7 +9596,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table properties.
      * 
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9470,7 +9608,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TablePropertiesResponse> resp = getTablePropertiesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9479,7 +9617,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table properties.
      * 
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9491,7 +9629,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a table properties. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9603,7 +9741,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table row.
      * 
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9615,7 +9753,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableRowResponse> resp = getTableRowWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9624,7 +9762,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table row.
      * 
      * @return ApiResponse&lt;TableRowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9636,7 +9774,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a table row. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9748,7 +9886,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table row format.
      * 
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9760,7 +9898,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableRowFormatResponse> resp = getTableRowFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9769,7 +9907,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a table row format.
      * 
      * @return ApiResponse&lt;TableRowFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9781,7 +9919,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a table row format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9882,7 +10020,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a list of tables that are contained in the document.
      * 
      * @return TableLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9894,7 +10032,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableLinkCollectionResponse> resp = getTablesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9903,7 +10041,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Return a list of tables that are contained in the document.
      * 
      * @return ApiResponse&lt;TableLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9915,7 +10053,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Return a list of tables that are contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10001,7 +10139,7 @@ public class WordsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -10019,7 +10157,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Adds table to document, returns added table&#39;s data.             
      * 
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10031,7 +10169,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableResponse> resp = insertTableWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10040,7 +10178,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Adds table to document, returns added table&#39;s data.             
      * 
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10052,7 +10190,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Adds table to document, returns added table&#39;s data.              (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10138,7 +10276,7 @@ public class WordsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -10161,7 +10299,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Adds table cell to table, returns added cell&#39;s data.             
      * 
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10173,7 +10311,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableCellResponse> resp = insertTableCellWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10182,7 +10320,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Adds table cell to table, returns added cell&#39;s data.             
      * 
      * @return ApiResponse&lt;TableCellResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10194,7 +10332,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Adds table cell to table, returns added cell&#39;s data.              (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10280,7 +10418,7 @@ public class WordsApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -10303,7 +10441,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Adds table row to table, returns added row&#39;s data.             
      * 
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10315,7 +10453,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableRowResponse> resp = insertTableRowWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10324,7 +10462,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Adds table row to table, returns added row&#39;s data.             
      * 
      * @return ApiResponse&lt;TableRowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10336,7 +10474,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Adds table row to table, returns added row&#39;s data.              (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10444,7 +10582,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Append documents to original document.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10456,7 +10594,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postAppendDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10465,7 +10603,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Append documents to original document.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10477,7 +10615,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Append documents to original document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10583,7 +10721,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Change document protection.
      * 
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10595,7 +10733,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ProtectionDataResponse> resp = postChangeDocumentProtectionWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10604,7 +10742,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Change document protection.
      * 
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10616,7 +10754,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Change document protection. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10730,7 +10868,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Updates the comment, returns updated comment&#39;s data.
      * 
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10742,7 +10880,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<CommentResponse> resp = postCommentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10751,7 +10889,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Updates the comment, returns updated comment&#39;s data.
      * 
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10763,7 +10901,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Updates the comment, returns updated comment&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10869,7 +11007,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Compare document with original document.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10881,7 +11019,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postCompareDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10890,7 +11028,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Compare document with original document.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10902,7 +11040,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Compare document with original document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11009,7 +11147,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Execute document mail merge operation.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11021,7 +11159,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postDocumentExecuteMailMergeWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11030,7 +11168,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Execute document mail merge operation.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11042,7 +11180,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Execute document mail merge operation. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11071,6 +11209,159 @@ public class WordsApi {
 
         com.squareup.okhttp.Call call = postDocumentExecuteMailMergeValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for postDocumentParagraphFormat
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call postDocumentParagraphFormatCall(PostDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call postDocumentParagraphFormatValidateBeforeCall(PostDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postDocumentParagraphFormat");
+        }
+        
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling postDocumentParagraphFormat");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling postDocumentParagraphFormat");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postDocumentParagraphFormat");
+        }
+        
+
+        com.squareup.okhttp.Call call = postDocumentParagraphFormatCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates paragrpaph format properties, returns updated format properties.
+     * 
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphFormatResponse postDocumentParagraphFormat(PostDocumentParagraphFormatRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphFormatResponse> resp = postDocumentParagraphFormatWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphFormatResponse> resp = postDocumentParagraphFormatWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates paragrpaph format properties, returns updated format properties.
+     * 
+     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphFormatResponse> postDocumentParagraphFormatWithHttpInfo(PostDocumentParagraphFormatRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = postDocumentParagraphFormatValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates paragrpaph format properties, returns updated format properties. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postDocumentParagraphFormatAsync(PostDocumentParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postDocumentParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -11162,7 +11453,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Updates font properties, returns updated font data.
      * 
      * @return FontResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11174,7 +11465,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FontResponse> resp = postDocumentParagraphRunFontWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11183,7 +11474,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Updates font properties, returns updated font data.
      * 
      * @return ApiResponse&lt;FontResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11195,7 +11486,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Updates font properties, returns updated font data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11302,7 +11593,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Convert document to destination format with detailed settings and save result to storage.
      * 
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11314,7 +11605,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SaveResponse> resp = postDocumentSaveAsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11323,7 +11614,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Convert document to destination format with detailed settings and save result to storage.
      * 
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11335,7 +11626,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Convert document to destination format with detailed settings and save result to storage. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11459,7 +11750,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates drawing object, returns updated  drawing object&#39;s data.
      * 
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11471,7 +11762,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DrawingObjectResponse> resp = postDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11480,7 +11771,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates drawing object, returns updated  drawing object&#39;s data.
      * 
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11492,7 +11783,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates drawing object, returns updated  drawing object&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11603,7 +11894,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Populate document template with data.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11615,7 +11906,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postExecuteTemplateWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11624,7 +11915,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Populate document template with data.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11636,7 +11927,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Populate document template with data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11751,7 +12042,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates field&#39;s properties, returns updated field&#39;s data.
      * 
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11763,7 +12054,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldResponse> resp = postFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11772,7 +12063,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates field&#39;s properties, returns updated field&#39;s data.
      * 
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11784,7 +12075,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates field&#39;s properties, returns updated field&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11899,7 +12190,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates footnote&#39;s properties, returns updated run&#39;s data.
      * 
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11911,7 +12202,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FootnoteResponse> resp = postFootnoteWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11920,7 +12211,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates footnote&#39;s properties, returns updated run&#39;s data.
      * 
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11932,7 +12223,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates footnote&#39;s properties, returns updated run&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12047,7 +12338,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates properties of form field, returns updated form field.
      * 
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12059,7 +12350,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FormFieldResponse> resp = postFormFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12068,7 +12359,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates properties of form field, returns updated form field.
      * 
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12080,7 +12371,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates properties of form field, returns updated form field. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12187,7 +12478,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Insert document watermark image.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12199,7 +12490,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postInsertDocumentWatermarkImageWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12208,7 +12499,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Insert document watermark image.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12220,7 +12511,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Insert document watermark image. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12328,7 +12619,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Insert document watermark text.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12340,7 +12631,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postInsertDocumentWatermarkTextWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12349,7 +12640,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Insert document watermark text.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12361,7 +12652,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Insert document watermark text. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12469,7 +12760,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Insert document page numbers.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12481,7 +12772,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postInsertPageNumbersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12490,7 +12781,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Insert document page numbers.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12502,7 +12793,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Insert document page numbers. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12598,7 +12889,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Loads new document from web into the file with any supported format of data.
      * 
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12610,7 +12901,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SaveResponse> resp = postLoadWebDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12619,7 +12910,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Loads new document from web into the file with any supported format of data.
      * 
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12631,7 +12922,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Loads new document from web into the file with any supported format of data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12739,7 +13030,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Replace document text.
      * 
      * @return ReplaceTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12751,7 +13042,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ReplaceTextResponse> resp = postReplaceTextWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12760,7 +13051,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Replace document text.
      * 
      * @return ApiResponse&lt;ReplaceTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12772,7 +13063,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Replace document text. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12892,7 +13183,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates run&#39;s properties, returns updated run&#39;s data.
      * 
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12904,7 +13195,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RunResponse> resp = postRunWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12913,7 +13204,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates run&#39;s properties, returns updated run&#39;s data.
      * 
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12925,7 +13216,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates run&#39;s properties, returns updated run&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13031,7 +13322,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Split document.
      * 
      * @return SplitDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13043,7 +13334,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SplitDocumentResponse> resp = postSplitDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13052,7 +13343,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Split document.
      * 
      * @return ApiResponse&lt;SplitDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13064,7 +13355,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Split document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13178,7 +13469,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Update document bookmark.
      * 
      * @return BookmarkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13190,7 +13481,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BookmarkResponse> resp = postUpdateDocumentBookmarkWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13199,7 +13490,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Update document bookmark.
      * 
      * @return ApiResponse&lt;BookmarkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13211,7 +13502,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Update document bookmark. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13312,7 +13603,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Update (reevaluate) fields in document.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13324,7 +13615,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postUpdateDocumentFieldsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13333,7 +13624,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Update (reevaluate) fields in document.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13345,7 +13636,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Update (reevaluate) fields in document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13453,7 +13744,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds comment to document, returns inserted comment&#39;s data.
      * 
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13465,7 +13756,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<CommentResponse> resp = putCommentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13474,7 +13765,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds comment to document, returns inserted comment&#39;s data.
      * 
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13486,7 +13777,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds comment to document, returns inserted comment&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13593,7 +13884,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Convert document from request content to format specified.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13605,7 +13896,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = putConvertDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13614,7 +13905,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Convert document from request content to format specified.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13626,7 +13917,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Convert document from request content to format specified. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13719,7 +14010,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extentions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13731,7 +14022,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = putCreateDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13740,7 +14031,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extentions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13752,7 +14043,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extentions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot; (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13850,7 +14141,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Read document field names.
      * 
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13862,7 +14153,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldNamesResponse> resp = putDocumentFieldNamesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13871,7 +14162,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Read document field names.
      * 
      * @return ApiResponse&lt;FieldNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13883,7 +14174,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Read document field names. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -14008,7 +14299,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Convert document to tiff with detailed settings and save result to storage.
      * 
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14020,7 +14311,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SaveResponse> resp = putDocumentSaveAsTiffWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14029,7 +14320,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Convert document to tiff with detailed settings and save result to storage.
      * 
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14041,7 +14332,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Convert document to tiff with detailed settings and save result to storage. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -14159,7 +14450,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds  drawing object to document, returns added  drawing object&#39;s data.
      * 
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14171,7 +14462,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DrawingObjectResponse> resp = putDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14180,7 +14471,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds  drawing object to document, returns added  drawing object&#39;s data.
      * 
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14192,7 +14483,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds  drawing object to document, returns added  drawing object&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -14299,7 +14590,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Execute document mail merge online.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14311,7 +14602,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = putExecuteMailMergeOnlineWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14320,7 +14611,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Execute document mail merge online.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14332,7 +14623,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Execute document mail merge online. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -14440,7 +14731,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Populate document template with data online.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14452,7 +14743,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = putExecuteTemplateOnlineWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14461,7 +14752,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Populate document template with data online.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14473,7 +14764,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Populate document template with data online. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -14583,7 +14874,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds field to document, returns inserted field&#39;s data.
      * 
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14595,7 +14886,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldResponse> resp = putFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14604,7 +14895,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds field to document, returns inserted field&#39;s data.
      * 
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14616,7 +14907,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds field to document, returns inserted field&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -14725,7 +15016,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds footnote to document, returns added footnote&#39;s data.
      * 
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14737,7 +15028,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FootnoteResponse> resp = putFootnoteWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14746,7 +15037,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds footnote to document, returns added footnote&#39;s data.
      * 
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14758,7 +15049,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds footnote to document, returns added footnote&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -14868,7 +15159,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds form field to paragraph, returns added form field&#39;s data.
      * 
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14880,7 +15171,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FormFieldResponse> resp = putFormFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14889,7 +15180,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds form field to paragraph, returns added form field&#39;s data.
      * 
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14901,7 +15192,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds form field to paragraph, returns added form field&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -14941,7 +15232,7 @@ if (request.getData() != null)
      * @throws ApiException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call putHeaderFooterCall(PutHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        Object localVarPostBody = request.getHeaderFooterType();
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
@@ -14949,7 +15240,6 @@ if (request.getData() != null)
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "headerFooterType", request.getHeaderFooterType());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
@@ -15011,7 +15301,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Insert to document header or footer.
      * 
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15023,7 +15313,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HeaderFooterResponse> resp = putHeaderFooterWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15032,7 +15322,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Insert to document header or footer.
      * 
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15044,7 +15334,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Insert to document header or footer. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15154,7 +15444,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds paragraph to document, returns added paragraph&#39;s data.
      * 
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15166,7 +15456,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ParagraphResponse> resp = putParagraphWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15175,7 +15465,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds paragraph to document, returns added paragraph&#39;s data.
      * 
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15187,7 +15477,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds paragraph to document, returns added paragraph&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15293,7 +15583,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Protect document.
      * 
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15305,7 +15595,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ProtectionDataResponse> resp = putProtectDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15314,7 +15604,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Protect document.
      * 
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15326,7 +15616,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Protect document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15441,7 +15731,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds run to document, returns added paragraph&#39;s data.
      * 
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15453,7 +15743,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RunResponse> resp = putRunWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15462,7 +15752,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Adds run to document, returns added paragraph&#39;s data.
      * 
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15474,7 +15764,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds run to document, returns added paragraph&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15575,7 +15865,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reject all revisions in document
      * 
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15587,7 +15877,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RevisionsModificationResponse> resp = rejectAllRevisionsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15596,7 +15886,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reject all revisions in document
      * 
      * @return ApiResponse&lt;RevisionsModificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15608,7 +15898,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Reject all revisions in document (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15662,7 +15952,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
@@ -15695,7 +15984,7 @@ if (request.getData() != null)
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -15723,7 +16012,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders drawing object to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15735,7 +16024,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15744,7 +16033,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders drawing object to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15756,7 +16045,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders drawing object to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15810,7 +16099,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
@@ -15843,7 +16131,7 @@ if (request.getData() != null)
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -15871,7 +16159,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders math object to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15883,7 +16171,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderMathObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15892,7 +16180,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders math object to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15904,7 +16192,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders math object to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15958,7 +16246,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -15990,7 +16277,7 @@ if (request.getData() != null)
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -16018,7 +16305,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders page to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16030,7 +16317,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderPageWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16039,7 +16326,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders page to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16051,7 +16338,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders page to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16105,7 +16392,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
@@ -16138,7 +16424,7 @@ if (request.getData() != null)
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -16166,7 +16452,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders paragraph to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16178,7 +16464,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderParagraphWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16187,7 +16473,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders paragraph to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16199,7 +16485,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders paragraph to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16253,7 +16539,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
@@ -16286,7 +16571,7 @@ if (request.getData() != null)
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -16314,7 +16599,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders table to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16326,7 +16611,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderTableWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16335,7 +16620,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Renders table to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16347,7 +16632,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders table to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16424,7 +16709,7 @@ if (request.getData() != null)
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -16437,7 +16722,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Resets font&#39;s cache.
      * 
      * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16449,7 +16734,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = resetCacheWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16458,7 +16743,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Resets font&#39;s cache.
      * 
      * @return ApiResponse&lt;AsposeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16470,7 +16755,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Resets font&#39;s cache. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16523,7 +16808,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -16554,7 +16838,7 @@ if (request.getData() != null)
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -16577,7 +16861,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Search text in document.
      * 
      * @return SearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16589,7 +16873,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SearchResponse> resp = searchWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16598,7 +16882,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Search text in document.
      * 
      * @return ApiResponse&lt;SearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16610,7 +16894,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Search text in document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16730,8 +17014,8 @@ if (request.getData() != null)
     }
 
     /**
-     * 
-     * 
+     * Updates border properties.             
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16742,7 +17026,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BorderResponse> resp = updateBorderWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16751,8 +17035,8 @@ if (request.getData() != null)
     }
 
     /**
-     * 
-     * 
+     * Updates border properties.             
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16763,8 +17047,8 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
-     * 
+     * Updates border properties.              (asynchronously)
+     * &#39;nodePath&#39; should refer to node with cell or row
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -16877,7 +17161,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Update page setup of section.
      * 
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16889,7 +17173,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SectionPageSetupResponse> resp = updateSectionPageSetupWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16898,7 +17182,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Update page setup of section.
      * 
      * @return ApiResponse&lt;SectionPageSetupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16910,7 +17194,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Update page setup of section. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -17025,7 +17309,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Updates a table cell format.
      * 
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17037,7 +17321,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableCellFormatResponse> resp = updateTableCellFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -17046,7 +17330,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Updates a table cell format.
      * 
      * @return ApiResponse&lt;TableCellFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17058,7 +17342,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates a table cell format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -17168,7 +17452,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Updates a table properties.
      * 
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17180,7 +17464,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TablePropertiesResponse> resp = updateTablePropertiesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -17189,7 +17473,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Updates a table properties.
      * 
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17201,7 +17485,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates a table properties. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -17316,7 +17600,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Updates a table row format.
      * 
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17328,7 +17612,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableRowFormatResponse> resp = updateTableRowFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -17337,7 +17621,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Updates a table row format.
      * 
      * @return ApiResponse&lt;TableRowFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17349,7 +17633,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates a table row format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

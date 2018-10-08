@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ClassificationResult
+ * Represents a single classification result.
  */
+@ApiModel(description = "Represents a single classification result.")
 
 public class ClassificationResult {
   @SerializedName("ClassName")
@@ -55,10 +56,10 @@ public class ClassificationResult {
   }
 
    /**
-   * Get className
+   * Gets or sets the name of the class.
    * @return className
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the name of the class.")
   public String getClassName() {
     return className;
   }
@@ -73,10 +74,10 @@ public class ClassificationResult {
   }
 
    /**
-   * Get classProbability
+   * Gets or sets the probability of class.
    * @return classProbability
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Gets or sets the probability of class.")
   public Double getClassProbability() {
     return classProbability;
   }

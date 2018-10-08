@@ -40,8 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * LinkElement
+ * Reference to document.
  */
+@ApiModel(description = "Reference to document.")
 
 
 public class LinkElement {
@@ -57,10 +58,10 @@ public class LinkElement {
   }
 
    /**
-   * Get link
+   * Link to the document.
    * @return link
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to the document.")
   public WordsApiLink getLink() {
     return link;
   }

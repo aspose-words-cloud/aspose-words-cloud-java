@@ -40,8 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SearchResult
+ * Result of search operation.
  */
+@ApiModel(description = "Result of search operation.")
 
 public class SearchResult {
   @SerializedName("RangeStart")
@@ -56,10 +57,10 @@ public class SearchResult {
   }
 
    /**
-   * Get rangeStart
+   * Link to result range start node.
    * @return rangeStart
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to result range start node.")
   public DocumentPosition getRangeStart() {
     return rangeStart;
   }
@@ -74,10 +75,10 @@ public class SearchResult {
   }
 
    /**
-   * Get rangeEnd
+   * Link to result range end node.
    * @return rangeEnd
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to result range end node.")
   public DocumentPosition getRangeEnd() {
     return rangeEnd;
   }

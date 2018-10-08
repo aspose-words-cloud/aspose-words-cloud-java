@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class GetBorderRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to node with border(node should be cell or row).
      */
     private String NodePath;
 
@@ -70,8 +70,8 @@ public class GetBorderRequest {
     /*
      * Initializes a new instance of the getBorderRequest class.
      *  
-     * @param String name 
-     * @param String nodePath 
+     * @param String name The document name.
+     * @param String nodePath Path to node with border(node should be cell or row).
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -89,28 +89,28 @@ public class GetBorderRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to node with border(node should be cell or row).
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node with border(node should be cell or row).
      */
     public void setNodePath(String value) {
         NodePath = value;

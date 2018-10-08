@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * BookmarksResponse
+ * This response should be returned by the service when handling:  GET bookmarks.
  */
+@ApiModel(description = "This response should be returned by the service when handling:  GET bookmarks.")
 
 public class BookmarksResponse extends AsposeResponse {
   @SerializedName("Bookmarks")
@@ -54,10 +55,10 @@ public class BookmarksResponse extends AsposeResponse {
   }
 
    /**
-   * Get bookmarks
+   * Bookmarks which are contained in document.
    * @return bookmarks
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Bookmarks which are contained in document.")
   public Bookmarks getBookmarks() {
     return bookmarks;
   }

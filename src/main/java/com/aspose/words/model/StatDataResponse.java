@@ -42,8 +42,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * StatDataResponse
+ * Response for the request of the document&#39;s statistical data
  */
+@ApiModel(description = "Response for the request of the document's statistical data")
 
 public class StatDataResponse extends AsposeResponse {
   @SerializedName("DocumentLink")
@@ -58,10 +59,10 @@ public class StatDataResponse extends AsposeResponse {
   }
 
    /**
-   * Get documentLink
+   * Link to the document
    * @return documentLink
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to the document")
   public FileLink getDocumentLink() {
     return documentLink;
   }
@@ -76,10 +77,10 @@ public class StatDataResponse extends AsposeResponse {
   }
 
    /**
-   * Get statData
+   * Statistical data of the document
    * @return statData
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Statistical data of the document")
   public DocumentStatData getStatData() {
     return statData;
   }

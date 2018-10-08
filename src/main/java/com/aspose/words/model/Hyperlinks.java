@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Hyperlinks
+ * Collection of .
  */
+@ApiModel(description = "Collection of .")
 
 public class Hyperlinks extends LinkElement {
   @SerializedName("HyperlinkList")
@@ -65,10 +66,10 @@ public class Hyperlinks extends LinkElement {
   }
 
    /**
-   * Get hyperlinkList
+   * Array of .
    * @return hyperlinkList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of .")
   public List<Hyperlink> getHyperlinkList() {
     return hyperlinkList;
   }

@@ -40,12 +40,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * GraphicsQualityOptionsData
+ * Allows to specify additional System.Drawing.Graphics quality options.
  */
+@ApiModel(description = "Allows to specify additional System.Drawing.Graphics quality options.")
 
 public class GraphicsQualityOptionsData {
   /**
-   * Gets or Sets compositingMode
+   * Gets or sets a value that specifies how composited images are drawn to this Graphics.
    */
   @JsonAdapter(CompositingModeEnum.Adapter.class)
   public enum CompositingModeEnum {
@@ -95,7 +96,7 @@ public class GraphicsQualityOptionsData {
   private CompositingModeEnum compositingMode = null;
 
   /**
-   * Gets or Sets compositingQuality
+   * Gets or sets the rendering quality of composited images drawn to this Graphics.
    */
   @JsonAdapter(CompositingQualityEnum.Adapter.class)
   public enum CompositingQualityEnum {
@@ -153,7 +154,7 @@ public class GraphicsQualityOptionsData {
   private CompositingQualityEnum compositingQuality = null;
 
   /**
-   * Gets or Sets interpolationMode
+   * Gets or sets the interpolation mode associated with this Graphics.
    */
   @JsonAdapter(InterpolationModeEnum.Adapter.class)
   public enum InterpolationModeEnum {
@@ -217,7 +218,7 @@ public class GraphicsQualityOptionsData {
   private InterpolationModeEnum interpolationMode = null;
 
   /**
-   * Gets or Sets smoothingMode
+   * Gets or sets the rendering quality for this Graphics.
    */
   @JsonAdapter(SmoothingModeEnum.Adapter.class)
   public enum SmoothingModeEnum {
@@ -278,7 +279,7 @@ public class GraphicsQualityOptionsData {
   private StringFormatData stringFormat = null;
 
   /**
-   * Gets or Sets textRenderingHint
+   * Gets or sets the rendering mode for text associated with this Graphics.
    */
   @JsonAdapter(TextRenderingHintEnum.Adapter.class)
   public enum TextRenderingHintEnum {
@@ -341,10 +342,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Get compositingMode
+   * Gets or sets a value that specifies how composited images are drawn to this Graphics.
    * @return compositingMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a value that specifies how composited images are drawn to this Graphics.")
   public CompositingModeEnum getCompositingMode() {
     return compositingMode;
   }
@@ -359,10 +360,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Get compositingQuality
+   * Gets or sets the rendering quality of composited images drawn to this Graphics.
    * @return compositingQuality
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the rendering quality of composited images drawn to this Graphics.")
   public CompositingQualityEnum getCompositingQuality() {
     return compositingQuality;
   }
@@ -377,10 +378,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Get interpolationMode
+   * Gets or sets the interpolation mode associated with this Graphics.
    * @return interpolationMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the interpolation mode associated with this Graphics.")
   public InterpolationModeEnum getInterpolationMode() {
     return interpolationMode;
   }
@@ -395,10 +396,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Get smoothingMode
+   * Gets or sets the rendering quality for this Graphics.
    * @return smoothingMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the rendering quality for this Graphics.")
   public SmoothingModeEnum getSmoothingMode() {
     return smoothingMode;
   }
@@ -413,10 +414,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Get stringFormat
+   * Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.
    * @return stringFormat
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.")
   public StringFormatData getStringFormat() {
     return stringFormat;
   }
@@ -431,10 +432,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Get textRenderingHint
+   * Gets or sets the rendering mode for text associated with this Graphics.
    * @return textRenderingHint
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the rendering mode for text associated with this Graphics.")
   public TextRenderingHintEnum getTextRenderingHint() {
     return textRenderingHint;
   }

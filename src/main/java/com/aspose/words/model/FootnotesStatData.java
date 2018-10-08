@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FootnotesStatData
+ * Container for the footnotes statistical data
  */
+@ApiModel(description = "Container for the footnotes statistical data")
 
 public class FootnotesStatData {
   @SerializedName("WordCount")
@@ -55,10 +56,10 @@ public class FootnotesStatData {
   }
 
    /**
-   * Get wordCount
+   * Total count of words in footnotes
    * @return wordCount
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Total count of words in footnotes")
   public Integer getWordCount() {
     return wordCount;
   }
@@ -73,10 +74,10 @@ public class FootnotesStatData {
   }
 
    /**
-   * Get paragraphCount
+   * Total count of paragraphs in footnotes
    * @return paragraphCount
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Total count of paragraphs in footnotes")
   public Integer getParagraphCount() {
     return paragraphCount;
   }

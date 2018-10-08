@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class DeleteOfficeMathObjectRequest {
     /*
-     * 
+     * The file name.
      */
     private String Name;
 
@@ -78,14 +78,14 @@ public class DeleteOfficeMathObjectRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Path to node, which contains collection of OfficeMath objects.
      */
     private String NodePath;
     
     /*
      * Initializes a new instance of the deleteOfficeMathObjectRequest class.
      *  
-     * @param String name 
+     * @param String name The file name.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -94,7 +94,7 @@ public class DeleteOfficeMathObjectRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath 
+     * @param String nodePath Path to node, which contains collection of OfficeMath objects.
      */
     public DeleteOfficeMathObjectRequest(String name,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
         Name = name;
@@ -110,14 +110,14 @@ public class DeleteOfficeMathObjectRequest {
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setName(String value) {
         Name = value;
@@ -236,14 +236,14 @@ public class DeleteOfficeMathObjectRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node, which contains collection of OfficeMath objects.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node, which contains collection of OfficeMath objects.
      */
     public void setNodePath(String value) {
         NodePath = value;

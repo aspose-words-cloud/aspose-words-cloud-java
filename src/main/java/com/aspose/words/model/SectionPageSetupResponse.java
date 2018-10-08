@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SectionPageSetupResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/sections/{0}/PageSetup 
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/sections/{0}/PageSetup ")
 
 public class SectionPageSetupResponse extends AsposeResponse {
   @SerializedName("PageSetup")
@@ -54,10 +55,10 @@ public class SectionPageSetupResponse extends AsposeResponse {
   }
 
    /**
-   * Get pageSetup
+   * Section
    * @return pageSetup
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Section")
   public PageSetup getPageSetup() {
     return pageSetup;
   }

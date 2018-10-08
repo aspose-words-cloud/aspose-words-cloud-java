@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * HyperlinksResponse
+ * This response should be returned by the service when handling:  GET /{name}/hyperlinks .
  */
+@ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/hyperlinks .")
 
 public class HyperlinksResponse extends AsposeResponse {
   @SerializedName("Hyperlinks")
@@ -54,10 +55,10 @@ public class HyperlinksResponse extends AsposeResponse {
   }
 
    /**
-   * Get hyperlinks
+   * Collection of hyperlinks.
    * @return hyperlinks
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of hyperlinks.")
   public Hyperlinks getHyperlinks() {
     return hyperlinks;
   }

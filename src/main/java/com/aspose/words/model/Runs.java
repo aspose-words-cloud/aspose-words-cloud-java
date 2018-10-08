@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Runs
+ * Represents DTO for collection of runs.
  */
+@ApiModel(description = "Represents DTO for collection of runs.")
 
 public class Runs extends LinkElement {
   @SerializedName("List")
@@ -65,10 +66,10 @@ public class Runs extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of fields
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of fields")
   public List<Run> getList() {
     return list;
   }

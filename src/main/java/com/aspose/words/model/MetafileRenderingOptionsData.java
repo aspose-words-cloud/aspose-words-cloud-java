@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * MetafileRenderingOptionsData
+ * container class for options of metafile rendering
  */
+@ApiModel(description = "container class for options of metafile rendering")
 
 public class MetafileRenderingOptionsData {
   @SerializedName("EmfPlusDualRenderingMode")
@@ -61,10 +62,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Get emfPlusDualRenderingMode
+   * Determines how EMF+ Dual metafiles should be rendered
    * @return emfPlusDualRenderingMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Determines how EMF+ Dual metafiles should be rendered")
   public String getEmfPlusDualRenderingMode() {
     return emfPlusDualRenderingMode;
   }
@@ -79,10 +80,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Get emulateRasterOperations
+   * Gets or sets a value determining whether or not the raster operations should be emulated.             
    * @return emulateRasterOperations
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets a value determining whether or not the raster operations should be emulated.             ")
   public Boolean isisEmulateRasterOperations() {
     return emulateRasterOperations;
   }
@@ -97,10 +98,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Get renderingMode
+   * Determines how metafile images should be rendered
    * @return renderingMode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Determines how metafile images should be rendered")
   public String getRenderingMode() {
     return renderingMode;
   }
@@ -115,10 +116,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Get useEmfEmbeddedToWmf
+   * Determines how WMF metafiles with embedded EMF metafiles should be rendered
    * @return useEmfEmbeddedToWmf
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Determines how WMF metafiles with embedded EMF metafiles should be rendered")
   public Boolean isisUseEmfEmbeddedToWmf() {
     return useEmfEmbeddedToWmf;
   }

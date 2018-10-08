@@ -42,8 +42,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ProtectionDataResponse
+ * Response for the request of data about protection
  */
+@ApiModel(description = "Response for the request of data about protection")
 
 public class ProtectionDataResponse extends AsposeResponse {
   @SerializedName("DocumentLink")
@@ -58,10 +59,10 @@ public class ProtectionDataResponse extends AsposeResponse {
   }
 
    /**
-   * Get documentLink
+   * Link to the document
    * @return documentLink
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to the document")
   public FileLink getDocumentLink() {
     return documentLink;
   }
@@ -76,10 +77,10 @@ public class ProtectionDataResponse extends AsposeResponse {
   }
 
    /**
-   * Get protectionData
+   * Protection&#39;s data of the document
    * @return protectionData
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Protection's data of the document")
   public ProtectionData getProtectionData() {
     return protectionData;
   }

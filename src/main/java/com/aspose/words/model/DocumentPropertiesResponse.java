@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DocumentPropertiesResponse
+ * This response should be returned by the service when handling:  GET /documentProperties.
  */
+@ApiModel(description = "This response should be returned by the service when handling:  GET /documentProperties.")
 
 public class DocumentPropertiesResponse extends AsposeResponse {
   @SerializedName("DocumentProperties")
@@ -54,10 +55,10 @@ public class DocumentPropertiesResponse extends AsposeResponse {
   }
 
    /**
-   * Get documentProperties
+   * Collection of document properties.
    * @return documentProperties
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of document properties.")
   public DocumentProperties getDocumentProperties() {
     return documentProperties;
   }

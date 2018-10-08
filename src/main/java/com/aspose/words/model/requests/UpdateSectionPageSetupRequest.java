@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class UpdateSectionPageSetupRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Section index
      */
     private Integer SectionIndex;
 
     /*
-     * 
+     * Page setup properties dto
      */
     private PageSetup PageSetup;
 
@@ -85,9 +85,9 @@ public class UpdateSectionPageSetupRequest {
     /*
      * Initializes a new instance of the updateSectionPageSetupRequest class.
      *  
-     * @param String name 
-     * @param Integer sectionIndex 
-     * @param PageSetup pageSetup 
+     * @param String name The document name.
+     * @param Integer sectionIndex Section index
+     * @param PageSetup pageSetup Page setup properties dto
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -110,42 +110,42 @@ public class UpdateSectionPageSetupRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Section index
      */
     public Integer getSectionIndex() {
         return SectionIndex;
     }
 
     /*
-     * 
+     * Sets Section index
      */
     public void setSectionIndex(Integer value) {
         SectionIndex = value;
     }
 
     /*
-     * 
+     *  Gets Page setup properties dto
      */
     public PageSetup getPageSetup() {
         return PageSetup;
     }
 
     /*
-     * 
+     * Sets Page setup properties dto
      */
     public void setPageSetup(PageSetup value) {
         PageSetup = value;

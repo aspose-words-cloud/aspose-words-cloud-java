@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SearchResultsCollection
+ * Collection of search results.
  */
+@ApiModel(description = "Collection of search results.")
 
 public class SearchResultsCollection extends LinkElement {
   @SerializedName("ResultsList")
@@ -65,10 +66,10 @@ public class SearchResultsCollection extends LinkElement {
   }
 
    /**
-   * Get resultsList
+   * Collection of comments
    * @return resultsList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of comments")
   public List<SearchResult> getResultsList() {
     return resultsList;
   }

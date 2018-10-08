@@ -41,12 +41,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * HeaderFooterLink
+ * HeaderFooter link element
  */
+@ApiModel(description = "HeaderFooter link element")
 
 public class HeaderFooterLink extends LinkElement {
   /**
-   * Gets or Sets type
+   * Paragraph&#39;s text
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -109,10 +110,10 @@ public class HeaderFooterLink extends LinkElement {
   }
 
    /**
-   * Get type
+   * Paragraph&#39;s text
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Paragraph's text")
   public TypeEnum getType() {
     return type;
   }

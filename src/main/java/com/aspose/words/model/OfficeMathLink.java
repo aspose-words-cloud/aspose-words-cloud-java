@@ -31,10 +31,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
+import io.swagger.annotations.ApiModel;
 
 /**
- * OfficeMathLink
+ * OfficeMath object link element
  */
+@ApiModel(description = "OfficeMath object link element")
 
 public class OfficeMathLink extends NodeLink {
 

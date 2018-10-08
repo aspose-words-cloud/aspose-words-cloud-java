@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PutCommentRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Comment data.
      */
     private Comment Comment;
 
@@ -80,8 +80,8 @@ public class PutCommentRequest {
     /*
      * Initializes a new instance of the putCommentRequest class.
      *  
-     * @param String name 
-     * @param Comment comment 
+     * @param String name The document name.
+     * @param Comment comment Comment data.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -103,28 +103,28 @@ public class PutCommentRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Comment data.
      */
     public Comment getComment() {
         return Comment;
     }
 
     /*
-     * 
+     * Sets Comment data.
      */
     public void setComment(Comment value) {
         Comment = value;

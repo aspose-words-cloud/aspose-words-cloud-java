@@ -31,10 +31,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
+import io.swagger.annotations.ApiModel;
 
 /**
- * TableLink
+ * Table link element
  */
+@ApiModel(description = "Table link element")
 
 public class TableLink extends NodeLink {
 

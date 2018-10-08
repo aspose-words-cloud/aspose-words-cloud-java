@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TextItemsResponse
+ * This response should be returned by the service when handling:  GET /{name}/textItems .
  */
+@ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/textItems .")
 
 public class TextItemsResponse extends AsposeResponse {
   @SerializedName("TextItems")
@@ -54,10 +55,10 @@ public class TextItemsResponse extends AsposeResponse {
   }
 
    /**
-   * Get textItems
+   * Collection of text items.
    * @return textItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of text items.")
   public TextItems getTextItems() {
     return textItems;
   }

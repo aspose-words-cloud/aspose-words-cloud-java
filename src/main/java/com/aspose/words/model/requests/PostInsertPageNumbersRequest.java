@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PostInsertPageNumbersRequest {
     /*
-     * 
+     * A document name.
      */
     private String Name;
 
     /*
-     * 
+     * with the page numbers settings.
      */
     private PageNumber PageNumber;
 
@@ -80,8 +80,8 @@ public class PostInsertPageNumbersRequest {
     /*
      * Initializes a new instance of the postInsertPageNumbersRequest class.
      *  
-     * @param String name 
-     * @param PageNumber pageNumber 
+     * @param String name A document name.
+     * @param PageNumber pageNumber with the page numbers settings.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -103,28 +103,28 @@ public class PostInsertPageNumbersRequest {
     }
 
     /*
-     * 
+     *  Gets A document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets A document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets with the page numbers settings.
      */
     public PageNumber getPageNumber() {
         return PageNumber;
     }
 
     /*
-     * 
+     * Sets with the page numbers settings.
      */
     public void setPageNumber(PageNumber value) {
         PageNumber = value;

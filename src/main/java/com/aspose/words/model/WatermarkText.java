@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * WatermarkText
+ * Class for insert watermark text request building. 
  */
+@ApiModel(description = "Class for insert watermark text request building. ")
 
 public class WatermarkText {
   @SerializedName("Text")
@@ -55,10 +56,10 @@ public class WatermarkText {
   }
 
    /**
-   * Get text
+   * The watermark text.
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The watermark text.")
   public String getText() {
     return text;
   }
@@ -73,10 +74,10 @@ public class WatermarkText {
   }
 
    /**
-   * Get rotationAngle
+   * The watermark rotation angle.
    * @return rotationAngle
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The watermark rotation angle.")
   public Double getRotationAngle() {
     return rotationAngle;
   }

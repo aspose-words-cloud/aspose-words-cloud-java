@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class GetDocumentParagraphRunsRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to parent paragraph.
      */
     private String ParagraphPath;
 
@@ -65,8 +65,8 @@ public class GetDocumentParagraphRunsRequest {
     /*
      * Initializes a new instance of the getDocumentParagraphRunsRequest class.
      *  
-     * @param String name 
-     * @param String paragraphPath 
+     * @param String name The document name.
+     * @param String paragraphPath Path to parent paragraph.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -82,28 +82,28 @@ public class GetDocumentParagraphRunsRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to parent paragraph.
      */
     public String getParagraphPath() {
         return ParagraphPath;
     }
 
     /*
-     * 
+     * Sets Path to parent paragraph.
      */
     public void setParagraphPath(String value) {
         ParagraphPath = value;

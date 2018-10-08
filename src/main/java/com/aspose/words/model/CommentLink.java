@@ -31,10 +31,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.LinkElement;
 import com.aspose.words.model.WordsApiLink;
+import io.swagger.annotations.ApiModel;
 
 /**
- * CommentLink
+ * Comment link.
  */
+@ApiModel(description = "Comment link.")
 
 public class CommentLink extends LinkElement {
 

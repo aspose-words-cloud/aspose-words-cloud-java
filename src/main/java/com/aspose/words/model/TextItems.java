@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TextItems
+ * Represents text items DTO.
  */
+@ApiModel(description = "Represents text items DTO.")
 
 public class TextItems extends LinkElement {
   @SerializedName("List")
@@ -65,10 +66,10 @@ public class TextItems extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of text items.
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of text items.")
   public List<TextItem> getList() {
     return list;
   }

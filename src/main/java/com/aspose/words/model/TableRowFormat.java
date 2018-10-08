@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableRowFormat
+ * Represents all formatting for a table row.
  */
+@ApiModel(description = "Represents all formatting for a table row.")
 
 public class TableRowFormat extends LinkElement {
   @SerializedName("AllowBreakAcrossPages")
@@ -55,7 +56,7 @@ public class TableRowFormat extends LinkElement {
   private Double height = null;
 
   /**
-   * Gets or Sets heightRule
+   * Gets or sets the rule for determining the height of the table row.
    */
   @JsonAdapter(HeightRuleEnum.Adapter.class)
   public enum HeightRuleEnum {
@@ -112,10 +113,10 @@ public class TableRowFormat extends LinkElement {
   }
 
    /**
-   * Get allowBreakAcrossPages
+   * True if the text in a table row is allowed to split across a page break.
    * @return allowBreakAcrossPages
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the text in a table row is allowed to split across a page break.")
   public Boolean isisAllowBreakAcrossPages() {
     return allowBreakAcrossPages;
   }
@@ -130,10 +131,10 @@ public class TableRowFormat extends LinkElement {
   }
 
    /**
-   * Get headingFormat
+   * True if the row is repeated as a table heading on every page when the table spans more than one page.
    * @return headingFormat
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "True if the row is repeated as a table heading on every page when the table spans more than one page.")
   public Boolean isisHeadingFormat() {
     return headingFormat;
   }
@@ -148,10 +149,10 @@ public class TableRowFormat extends LinkElement {
   }
 
    /**
-   * Get height
+   * Gets or sets the height of the table row in points.
    * @return height
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the height of the table row in points.")
   public Double getHeight() {
     return height;
   }
@@ -166,10 +167,10 @@ public class TableRowFormat extends LinkElement {
   }
 
    /**
-   * Get heightRule
+   * Gets or sets the rule for determining the height of the table row.
    * @return heightRule
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the rule for determining the height of the table row.")
   public HeightRuleEnum getHeightRule() {
     return heightRule;
   }

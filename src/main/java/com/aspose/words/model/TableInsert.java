@@ -40,8 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableInsert
+ * Table element
  */
+@ApiModel(description = "Table element")
 
 public class TableInsert {
   @SerializedName("Postion")
@@ -59,10 +60,10 @@ public class TableInsert {
   }
 
    /**
-   * Get postion
+   * Table will be inserted before specified position.
    * @return postion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Table will be inserted before specified position.")
   public DocumentPosition getPostion() {
     return postion;
   }
@@ -77,10 +78,10 @@ public class TableInsert {
   }
 
    /**
-   * Get columnsCount
+   * Count of columns. Default is 2.
    * @return columnsCount
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Count of columns. Default is 2.")
   public Integer getColumnsCount() {
     return columnsCount;
   }
@@ -95,10 +96,10 @@ public class TableInsert {
   }
 
    /**
-   * Get rowsCount
+   * Count of rows. Default is 2.
    * @return rowsCount
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Count of rows. Default is 2.")
   public Integer getRowsCount() {
     return rowsCount;
   }

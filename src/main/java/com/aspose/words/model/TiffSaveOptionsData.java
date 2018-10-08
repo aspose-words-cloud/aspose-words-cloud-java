@@ -42,8 +42,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TiffSaveOptionsData
+ * Container class for tiff save options.
  */
+@ApiModel(description = "Container class for tiff save options.")
 
 public class TiffSaveOptionsData extends ImageSaveOptionsData {
   @SerializedName("TiffBinarizationMethod")
@@ -58,10 +59,10 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
   }
 
    /**
-   * Get tiffBinarizationMethod
+   * Specifies method used while converting images to 1 bpp format.
    * @return tiffBinarizationMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Specifies method used while converting images to 1 bpp format.")
   public String getTiffBinarizationMethod() {
     return tiffBinarizationMethod;
   }
@@ -76,10 +77,10 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
   }
 
    /**
-   * Get tiffCompression
+   * Type of compression.
    * @return tiffCompression
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Type of compression.")
   public String getTiffCompression() {
     return tiffCompression;
   }

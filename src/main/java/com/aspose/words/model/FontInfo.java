@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FontInfo
+ * Font info
  */
+@ApiModel(description = "Font info")
 
 public class FontInfo {
   @SerializedName("FontFamilyName")
@@ -61,10 +62,10 @@ public class FontInfo {
   }
 
    /**
-   * Get fontFamilyName
+   * Family name of the font.
    * @return fontFamilyName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Family name of the font.")
   public String getFontFamilyName() {
     return fontFamilyName;
   }
@@ -79,10 +80,10 @@ public class FontInfo {
   }
 
    /**
-   * Get fullFontName
+   * Full name of the font.
    * @return fullFontName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Full name of the font.")
   public String getFullFontName() {
     return fullFontName;
   }
@@ -97,10 +98,10 @@ public class FontInfo {
   }
 
    /**
-   * Get version
+   * Version string of the font.
    * @return version
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Version string of the font.")
   public String getVersion() {
     return version;
   }
@@ -115,10 +116,10 @@ public class FontInfo {
   }
 
    /**
-   * Get filePath
+   * Path to the font file if any.
    * @return filePath
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Path to the font file if any.")
   public String getFilePath() {
     return filePath;
   }

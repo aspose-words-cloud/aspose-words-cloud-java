@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Hyperlink
+ * Hyperlink element.
  */
+@ApiModel(description = "Hyperlink element.")
 
 public class Hyperlink extends LinkElement {
   @SerializedName("DisplayText")
@@ -57,10 +58,10 @@ public class Hyperlink extends LinkElement {
   }
 
    /**
-   * Get displayText
+   * Hypelink&#39;s display text
    * @return displayText
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Hypelink's display text")
   public String getDisplayText() {
     return displayText;
   }
@@ -75,10 +76,10 @@ public class Hyperlink extends LinkElement {
   }
 
    /**
-   * Get value
+   * Value
    * @return value
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value")
   public String getValue() {
     return value;
   }

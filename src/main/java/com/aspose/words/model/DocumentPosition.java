@@ -40,8 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DocumentPosition
+ * Represents a position in the document tree.
  */
+@ApiModel(description = "Represents a position in the document tree.")
 
 public class DocumentPosition {
   @SerializedName("Node")
@@ -56,10 +57,10 @@ public class DocumentPosition {
   }
 
    /**
-   * Get node
+   * Link to  node.
    * @return node
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to  node.")
   public NodeLink getNode() {
     return node;
   }
@@ -74,10 +75,10 @@ public class DocumentPosition {
   }
 
    /**
-   * Get offset
+   * Offset into the node.
    * @return offset
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Offset into the node.")
   public Integer getOffset() {
     return offset;
   }

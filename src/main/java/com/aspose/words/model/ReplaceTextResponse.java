@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ReplaceTextResponse
+ * Response for \&quot;Replace text\&quot; action.
  */
+@ApiModel(description = "Response for \"Replace text\" action.")
 
 public class ReplaceTextResponse extends AsposeResponse {
   @SerializedName("DocumentLink")
@@ -57,10 +58,10 @@ public class ReplaceTextResponse extends AsposeResponse {
   }
 
    /**
-   * Get documentLink
+   * Link to the document.
    * @return documentLink
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to the document.")
   public FileLink getDocumentLink() {
     return documentLink;
   }
@@ -75,10 +76,10 @@ public class ReplaceTextResponse extends AsposeResponse {
   }
 
    /**
-   * Get matches
+   * Number of occurrences of the captured text in the document.
    * @return matches
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Number of occurrences of the captured text in the document.")
   public Integer getMatches() {
     return matches;
   }

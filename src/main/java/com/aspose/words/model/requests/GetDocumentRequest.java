@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetDocumentRequest {
     /*
-     * 
+     * The file name.
      */
     private String DocumentName;
 
@@ -60,7 +60,7 @@ public class GetDocumentRequest {
     /*
      * Initializes a new instance of the getDocumentRequest class.
      *  
-     * @param String documentName 
+     * @param String documentName The file name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -75,14 +75,14 @@ public class GetDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getDocumentName() {
         return DocumentName;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setDocumentName(String value) {
         DocumentName = value;

@@ -42,8 +42,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * HeaderFooter
+ * Section element
  */
+@ApiModel(description = "Section element")
 
 public class HeaderFooter extends HeaderFooterLink {
   @SerializedName("DrawingObjects")
@@ -58,10 +59,10 @@ public class HeaderFooter extends HeaderFooterLink {
   }
 
    /**
-   * Get drawingObjects
+   * Link to DrawingObjects resource
    * @return drawingObjects
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to DrawingObjects resource")
   public LinkElement getDrawingObjects() {
     return drawingObjects;
   }
@@ -76,10 +77,10 @@ public class HeaderFooter extends HeaderFooterLink {
   }
 
    /**
-   * Get paragraphs
+   * Link to Paragraphs resource
    * @return paragraphs
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Link to Paragraphs resource")
   public LinkElement getParagraphs() {
     return paragraphs;
   }

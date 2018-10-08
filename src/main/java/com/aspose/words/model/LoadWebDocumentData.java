@@ -40,8 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * LoadWebDocumentData
+ * Contains data for load web document
  */
+@ApiModel(description = "Contains data for load web document")
 
 public class LoadWebDocumentData {
   @SerializedName("LoadingDocumentUrl")
@@ -56,10 +57,10 @@ public class LoadWebDocumentData {
   }
 
    /**
-   * Get loadingDocumentUrl
+   * Web document url
    * @return loadingDocumentUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Web document url")
   public String getLoadingDocumentUrl() {
     return loadingDocumentUrl;
   }
@@ -74,10 +75,10 @@ public class LoadWebDocumentData {
   }
 
    /**
-   * Get saveOptions
+   * Save options
    * @return saveOptions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Save options")
   public SaveOptionsData getSaveOptions() {
     return saveOptions;
   }

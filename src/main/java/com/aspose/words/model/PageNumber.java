@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PageNumber
+ * Class is used for insert page number request building.
  */
+@ApiModel(description = "Class is used for insert page number request building.")
 
 public class PageNumber {
   @SerializedName("Format")
@@ -61,10 +62,10 @@ public class PageNumber {
   }
 
    /**
-   * Get format
+   * Page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
    * @return format
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Page number format, e.g. \"{PAGE} of {NUMPAGES}\".")
   public String getFormat() {
     return format;
   }
@@ -79,10 +80,10 @@ public class PageNumber {
   }
 
    /**
-   * Get alignment
+   * Text alignment, possible values are left, right, center or justify.
    * @return alignment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Text alignment, possible values are left, right, center or justify.")
   public String getAlignment() {
     return alignment;
   }
@@ -97,10 +98,10 @@ public class PageNumber {
   }
 
    /**
-   * Get isTop
+   * If true the page number is added at the top of the page, else at the bottom.
    * @return isTop
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "If true the page number is added at the top of the page, else at the bottom.")
   public Boolean isisIsTop() {
     return isTop;
   }
@@ -115,10 +116,10 @@ public class PageNumber {
   }
 
    /**
-   * Get setPageNumberOnFirstPage
+   * If true the page number is added on first page too.
    * @return setPageNumberOnFirstPage
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "If true the page number is added on first page too.")
   public Boolean isisSetPageNumberOnFirstPage() {
     return setPageNumberOnFirstPage;
   }

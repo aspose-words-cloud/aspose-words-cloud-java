@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class PutRunRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to parent paragraph.
      */
     private String ParagraphPath;
 
     /*
-     * 
+     * Run data.
      */
     private Run Run;
 
@@ -83,16 +83,16 @@ public class PutRunRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Paragraph will be inserted before node with index.
      */
     private String InsertBeforeNode;
     
     /*
      * Initializes a new instance of the putRunRequest class.
      *  
-     * @param String name 
-     * @param String paragraphPath 
-     * @param Run run 
+     * @param String name The document name.
+     * @param String paragraphPath Path to parent paragraph.
+     * @param Run run Run data.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -100,7 +100,7 @@ public class PutRunRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String insertBeforeNode 
+     * @param String insertBeforeNode Paragraph will be inserted before node with index.
      */
     public PutRunRequest(String name,  String paragraphPath,  Run run,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
         Name = name;
@@ -117,42 +117,42 @@ public class PutRunRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to parent paragraph.
      */
     public String getParagraphPath() {
         return ParagraphPath;
     }
 
     /*
-     * 
+     * Sets Path to parent paragraph.
      */
     public void setParagraphPath(String value) {
         ParagraphPath = value;
     }
 
     /*
-     * 
+     *  Gets Run data.
      */
     public Run getRun() {
         return Run;
     }
 
     /*
-     * 
+     * Sets Run data.
      */
     public void setRun(Run value) {
         Run = value;
@@ -257,14 +257,14 @@ public class PutRunRequest {
     }
 
     /*
-     * 
+     *  Gets Paragraph will be inserted before node with index.
      */
     public String getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
-     * 
+     * Sets Paragraph will be inserted before node with index.
      */
     public void setInsertBeforeNode(String value) {
         InsertBeforeNode = value;

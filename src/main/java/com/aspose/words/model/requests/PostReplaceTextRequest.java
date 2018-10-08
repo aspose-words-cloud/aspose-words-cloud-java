@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PostReplaceTextRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * with the replace operation settings.            
      */
     private ReplaceTextRequest ReplaceText;
 
@@ -80,8 +80,8 @@ public class PostReplaceTextRequest {
     /*
      * Initializes a new instance of the postReplaceTextRequest class.
      *  
-     * @param String name 
-     * @param ReplaceTextRequest replaceText 
+     * @param String name The document name.
+     * @param ReplaceTextRequest replaceText with the replace operation settings.            
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -103,28 +103,28 @@ public class PostReplaceTextRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets with the replace operation settings.            
      */
     public ReplaceTextRequest getReplaceText() {
         return ReplaceText;
     }
 
     /*
-     * 
+     * Sets with the replace operation settings.            
      */
     public void setReplaceText(ReplaceTextRequest value) {
         ReplaceText = value;

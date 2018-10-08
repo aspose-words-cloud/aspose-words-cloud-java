@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * RunLink
+ * Run link element
  */
+@ApiModel(description = "Run link element")
 
 public class RunLink extends NodeLink {
   @SerializedName("Text")
@@ -54,10 +55,10 @@ public class RunLink extends NodeLink {
   }
 
    /**
-   * Get text
+   * Run&#39;s text
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Run's text")
   public String getText() {
     return text;
   }

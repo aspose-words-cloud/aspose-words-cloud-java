@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Bookmark
+ * Represents a single bookmark.
  */
+@ApiModel(description = "Represents a single bookmark.")
 
 public class Bookmark extends LinkElement {
   @SerializedName("Name")
@@ -57,10 +58,10 @@ public class Bookmark extends LinkElement {
   }
 
    /**
-   * Get name
+   * Gets or sets the name of the bookmark.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the name of the bookmark.")
   public String getName() {
     return name;
   }
@@ -75,10 +76,10 @@ public class Bookmark extends LinkElement {
   }
 
    /**
-   * Get text
+   * Gets or sets the text enclosed in the bookmark.
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the text enclosed in the bookmark.")
   public String getText() {
     return text;
   }

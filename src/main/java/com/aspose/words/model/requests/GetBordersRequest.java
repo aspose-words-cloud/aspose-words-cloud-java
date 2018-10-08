@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class GetBordersRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to node with borders(node should be cell or row).
      */
     private String NodePath;
 
@@ -65,8 +65,8 @@ public class GetBordersRequest {
     /*
      * Initializes a new instance of the getBordersRequest class.
      *  
-     * @param String name 
-     * @param String nodePath 
+     * @param String name The document name.
+     * @param String nodePath Path to node with borders(node should be cell or row).
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -82,28 +82,28 @@ public class GetBordersRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to node with borders(node should be cell or row).
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node with borders(node should be cell or row).
      */
     public void setNodePath(String value) {
         NodePath = value;

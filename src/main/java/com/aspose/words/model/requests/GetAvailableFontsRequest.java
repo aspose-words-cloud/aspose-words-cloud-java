@@ -33,28 +33,28 @@ import java.io.File;
  */
 public class GetAvailableFontsRequest {
     /*
-     * 
+     * Folder in filestorage with custom fonts.
      */
     private String FontsLocation;
     
     /*
      * Initializes a new instance of the getAvailableFontsRequest class.
      *  
-     * @param String fontsLocation 
+     * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public GetAvailableFontsRequest(String fontsLocation) {
         FontsLocation = fontsLocation;
     }
 
     /*
-     * 
+     *  Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
         return FontsLocation;
     }
 
     /*
-     * 
+     * Sets Folder in filestorage with custom fonts.
      */
     public void setFontsLocation(String value) {
         FontsLocation = value;

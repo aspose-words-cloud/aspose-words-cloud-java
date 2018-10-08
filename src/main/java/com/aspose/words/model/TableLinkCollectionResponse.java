@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableLinkCollectionResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables.
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables.")
 
 public class TableLinkCollectionResponse extends AsposeResponse {
   @SerializedName("Tables")
@@ -54,10 +55,10 @@ public class TableLinkCollectionResponse extends AsposeResponse {
   }
 
    /**
-   * Get tables
+   * Collection of tables.
    * @return tables
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of tables.")
   public TableLinkCollection getTables() {
     return tables;
   }

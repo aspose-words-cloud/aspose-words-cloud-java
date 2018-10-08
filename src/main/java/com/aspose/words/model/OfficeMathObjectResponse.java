@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * OfficeMathObjectResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/officeMathObjects/0 
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/officeMathObjects/0 ")
 
 public class OfficeMathObjectResponse extends AsposeResponse {
   @SerializedName("OfficeMathObject")
@@ -54,10 +55,10 @@ public class OfficeMathObjectResponse extends AsposeResponse {
   }
 
    /**
-   * Get officeMathObject
+   * OfficeMathObject information
    * @return officeMathObject
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "OfficeMathObject information")
   public OfficeMathObject getOfficeMathObject() {
     return officeMathObject;
   }

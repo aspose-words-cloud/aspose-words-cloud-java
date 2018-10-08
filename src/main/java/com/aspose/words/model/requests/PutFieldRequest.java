@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PutFieldRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Field data.
      */
     private Field Field;
 
@@ -78,20 +78,20 @@ public class PutFieldRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Path to node, which contains collection of fields.
      */
     private String NodePath;
 
     /*
-     * 
+     * Field will be inserted before node with id=\"nodeId\".
      */
     private String InsertBeforeNode;
     
     /*
      * Initializes a new instance of the putFieldRequest class.
      *  
-     * @param String name 
-     * @param Field field 
+     * @param String name The document name.
+     * @param Field field Field data.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -99,8 +99,8 @@ public class PutFieldRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath 
-     * @param String insertBeforeNode 
+     * @param String nodePath Path to node, which contains collection of fields.
+     * @param String insertBeforeNode Field will be inserted before node with id=\"nodeId\".
      */
     public PutFieldRequest(String name,  Field field,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath,  String insertBeforeNode) {
         Name = name;
@@ -117,28 +117,28 @@ public class PutFieldRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Field data.
      */
     public Field getField() {
         return Field;
     }
 
     /*
-     * 
+     * Sets Field data.
      */
     public void setField(Field value) {
         Field = value;
@@ -243,28 +243,28 @@ public class PutFieldRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node, which contains collection of fields.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node, which contains collection of fields.
      */
     public void setNodePath(String value) {
         NodePath = value;
     }
 
     /*
-     * 
+     *  Gets Field will be inserted before node with id=\"nodeId\".
      */
     public String getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
-     * 
+     * Sets Field will be inserted before node with id=\"nodeId\".
      */
     public void setInsertBeforeNode(String value) {
         InsertBeforeNode = value;

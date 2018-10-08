@@ -45,8 +45,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TableRow
+ * Table row element.
  */
+@ApiModel(description = "Table row element.")
 
 public class TableRow extends NodeLink {
   @SerializedName("RowFormat")
@@ -61,10 +62,10 @@ public class TableRow extends NodeLink {
   }
 
    /**
-   * Get rowFormat
+   * Provides access to the formatting properties of the row.
    * @return rowFormat
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Provides access to the formatting properties of the row.")
   public TableRowFormat getRowFormat() {
     return rowFormat;
   }
@@ -87,10 +88,10 @@ public class TableRow extends NodeLink {
   }
 
    /**
-   * Get tableCellList
+   * Collection of table&#39;s rows.
    * @return tableCellList
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of table's rows.")
   public List<TableCell> getTableCellList() {
     return tableCellList;
   }

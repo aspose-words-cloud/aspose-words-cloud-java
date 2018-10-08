@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FieldNamesResponse
+ * This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
  */
+@ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.")
 
 public class FieldNamesResponse extends AsposeResponse {
   @SerializedName("FieldNames")
@@ -54,10 +55,10 @@ public class FieldNamesResponse extends AsposeResponse {
   }
 
    /**
-   * Get fieldNames
+   * Collection of mail merge fields.
    * @return fieldNames
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of mail merge fields.")
   public FieldNames getFieldNames() {
     return fieldNames;
   }

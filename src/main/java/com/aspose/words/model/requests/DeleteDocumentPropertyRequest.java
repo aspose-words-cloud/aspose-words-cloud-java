@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class DeleteDocumentPropertyRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * The property name.
      */
     private String PropertyName;
 
@@ -80,8 +80,8 @@ public class DeleteDocumentPropertyRequest {
     /*
      * Initializes a new instance of the deleteDocumentPropertyRequest class.
      *  
-     * @param String name 
-     * @param String propertyName 
+     * @param String name The document name.
+     * @param String propertyName The property name.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -103,28 +103,28 @@ public class DeleteDocumentPropertyRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets The property name.
      */
     public String getPropertyName() {
         return PropertyName;
     }
 
     /*
-     * 
+     * Sets The property name.
      */
     public void setPropertyName(String value) {
         PropertyName = value;

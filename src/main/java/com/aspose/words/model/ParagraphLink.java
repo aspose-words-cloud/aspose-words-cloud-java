@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ParagraphLink
+ * Paragraph link element
  */
+@ApiModel(description = "Paragraph link element")
 
 public class ParagraphLink extends NodeLink {
   @SerializedName("Text")
@@ -54,10 +55,10 @@ public class ParagraphLink extends NodeLink {
   }
 
    /**
-   * Get text
+   * Paragraph&#39;s text
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Paragraph's text")
   public String getText() {
     return text;
   }

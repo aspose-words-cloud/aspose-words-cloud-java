@@ -43,8 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ClassificationResponse
+ * This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify
  */
+@ApiModel(description = "This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify")
 
 public class ClassificationResponse extends AsposeResponse {
   @SerializedName("BestClassName")
@@ -62,10 +63,10 @@ public class ClassificationResponse extends AsposeResponse {
   }
 
    /**
-   * Get bestClassName
+   * Best class name.        
    * @return bestClassName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Best class name.        ")
   public String getBestClassName() {
     return bestClassName;
   }
@@ -80,10 +81,10 @@ public class ClassificationResponse extends AsposeResponse {
   }
 
    /**
-   * Get bestClassProbability
+   * Best class probability.
    * @return bestClassProbability
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Best class probability.")
   public Double getBestClassProbability() {
     return bestClassProbability;
   }
@@ -106,10 +107,10 @@ public class ClassificationResponse extends AsposeResponse {
   }
 
    /**
-   * Get bestResults
+   * Array of best classes results.
    * @return bestResults
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Array of best classes results.")
   public List<ClassificationResult> getBestResults() {
     return bestResults;
   }

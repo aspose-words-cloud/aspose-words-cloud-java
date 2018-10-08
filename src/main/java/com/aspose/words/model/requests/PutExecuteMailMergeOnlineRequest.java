@@ -43,17 +43,17 @@ public class PutExecuteMailMergeOnlineRequest {
     private File Data;
 
     /*
-     * 
+     * With regions flag.
      */
     private Boolean WithRegions;
 
     /*
-     * 
+     * Clean up options.
      */
     private String Cleanup;
 
     /*
-     * 
+     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
     private String DocumentFileName;
     
@@ -62,9 +62,9 @@ public class PutExecuteMailMergeOnlineRequest {
      *  
      * @param File template File with template
      * @param File data File with mailmerge data
-     * @param Boolean withRegions 
-     * @param String cleanup 
-     * @param String documentFileName 
+     * @param Boolean withRegions With regions flag.
+     * @param String cleanup Clean up options.
+     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
     public PutExecuteMailMergeOnlineRequest(File template,  File data,  Boolean withRegions,  String cleanup,  String documentFileName) {
         Template = template;
@@ -103,42 +103,42 @@ public class PutExecuteMailMergeOnlineRequest {
     }
 
     /*
-     * 
+     *  Gets With regions flag.
      */
     public Boolean getWithRegions() {
         return WithRegions;
     }
 
     /*
-     * 
+     * Sets With regions flag.
      */
     public void setWithRegions(Boolean value) {
         WithRegions = value;
     }
 
     /*
-     * 
+     *  Gets Clean up options.
      */
     public String getCleanup() {
         return Cleanup;
     }
 
     /*
-     * 
+     * Sets Clean up options.
      */
     public void setCleanup(String value) {
         Cleanup = value;
     }
 
     /*
-     * 
+     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
     public String getDocumentFileName() {
         return DocumentFileName;
     }
 
     /*
-     * 
+     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
     public void setDocumentFileName(String value) {
         DocumentFileName = value;

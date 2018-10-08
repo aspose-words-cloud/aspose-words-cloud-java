@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FieldsResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/{nodePath}/fields
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/{nodePath}/fields")
 
 public class FieldsResponse extends AsposeResponse {
   @SerializedName("Fields")
@@ -54,10 +55,10 @@ public class FieldsResponse extends AsposeResponse {
   }
 
    /**
-   * Get fields
+   * Collection of fields.
    * @return fields
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of fields.")
   public FieldCollection getFields() {
     return fields;
   }

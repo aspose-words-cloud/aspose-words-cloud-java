@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * HeaderFooterLinkCollection
+ * Collection of links to header/footers
  */
+@ApiModel(description = "Collection of links to header/footers")
 
 public class HeaderFooterLinkCollection extends LinkElement {
   @SerializedName("List")
@@ -65,10 +66,10 @@ public class HeaderFooterLinkCollection extends LinkElement {
   }
 
    /**
-   * Get list
+   * Collection of section&#39;s links
    * @return list
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of section's links")
   public List<HeaderFooterLink> getList() {
     return list;
   }

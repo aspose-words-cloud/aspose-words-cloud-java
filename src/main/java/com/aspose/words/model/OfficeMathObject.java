@@ -42,15 +42,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * OfficeMathObject
+ * OfficeMath object.
  */
+@ApiModel(description = "OfficeMath object.")
 
 public class OfficeMathObject extends OfficeMathLink {
   @SerializedName("Content")
   private StoryChildNodes content = null;
 
   /**
-   * Gets or Sets displayType
+   * Gets/sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
    */
   @JsonAdapter(DisplayTypeEnum.Adapter.class)
   public enum DisplayTypeEnum {
@@ -100,7 +101,7 @@ public class OfficeMathObject extends OfficeMathLink {
   private DisplayTypeEnum displayType = null;
 
   /**
-   * Gets or Sets justification
+   * Gets/sets Office Math justification.
    */
   @JsonAdapter(JustificationEnum.Adapter.class)
   public enum JustificationEnum {
@@ -158,7 +159,7 @@ public class OfficeMathObject extends OfficeMathLink {
   private JustificationEnum justification = null;
 
   /**
-   * Gets or Sets mathObjectType
+   * Gets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
    */
   @JsonAdapter(MathObjectTypeEnum.Adapter.class)
   public enum MathObjectTypeEnum {
@@ -269,10 +270,10 @@ public class OfficeMathObject extends OfficeMathLink {
   }
 
    /**
-   * Get content
+   * Content of footnote.
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Content of footnote.")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -287,10 +288,10 @@ public class OfficeMathObject extends OfficeMathLink {
   }
 
    /**
-   * Get displayType
+   * Gets/sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
    * @return displayType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets/sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.")
   public DisplayTypeEnum getDisplayType() {
     return displayType;
   }
@@ -305,10 +306,10 @@ public class OfficeMathObject extends OfficeMathLink {
   }
 
    /**
-   * Get justification
+   * Gets/sets Office Math justification.
    * @return justification
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets/sets Office Math justification.")
   public JustificationEnum getJustification() {
     return justification;
   }
@@ -323,10 +324,10 @@ public class OfficeMathObject extends OfficeMathLink {
   }
 
    /**
-   * Get mathObjectType
+   * Gets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
    * @return mathObjectType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.")
   public MathObjectTypeEnum getMathObjectType() {
     return mathObjectType;
   }

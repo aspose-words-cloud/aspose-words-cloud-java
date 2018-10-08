@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class GetDocumentHyperlinkByIndexRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * The hyperlink index.
      */
     private Integer HyperlinkIndex;
 
@@ -65,8 +65,8 @@ public class GetDocumentHyperlinkByIndexRequest {
     /*
      * Initializes a new instance of the getDocumentHyperlinkByIndexRequest class.
      *  
-     * @param String name 
-     * @param Integer hyperlinkIndex 
+     * @param String name The document name.
+     * @param Integer hyperlinkIndex The hyperlink index.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -82,28 +82,28 @@ public class GetDocumentHyperlinkByIndexRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets The hyperlink index.
      */
     public Integer getHyperlinkIndex() {
         return HyperlinkIndex;
     }
 
     /*
-     * 
+     * Sets The hyperlink index.
      */
     public void setHyperlinkIndex(Integer value) {
         HyperlinkIndex = value;

@@ -39,8 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ParagraphInsert
+ * Paragraph element
  */
+@ApiModel(description = "Paragraph element")
 
 public class ParagraphInsert {
   @SerializedName("Text")
@@ -52,10 +53,10 @@ public class ParagraphInsert {
   }
 
    /**
-   * Get text
+   * Paragraph&#39;s text
    * @return text
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Paragraph's text")
   public String getText() {
     return text;
   }

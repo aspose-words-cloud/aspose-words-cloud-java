@@ -31,10 +31,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
+import io.swagger.annotations.ApiModel;
 
 /**
- * DrawingObjectLink
+ * Represents link for Drawing Object DTO.
  */
+@ApiModel(description = "Represents link for Drawing Object DTO.")
 
 public class DrawingObjectLink extends NodeLink {
 

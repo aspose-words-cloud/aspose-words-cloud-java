@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class GetDocumentWithFormatRequest {
     /*
-     * 
+     * The file name.
      */
     private String Name;
 
     /*
-     * 
+     * The destination format.
      */
     private String Format;
 
@@ -63,7 +63,7 @@ public class GetDocumentWithFormatRequest {
     private String Password;
 
     /*
-     * 
+     * Path to save result
      */
     private String OutPath;
 
@@ -75,13 +75,13 @@ public class GetDocumentWithFormatRequest {
     /*
      * Initializes a new instance of the getDocumentWithFormatRequest class.
      *  
-     * @param String name 
-     * @param String format 
+     * @param String name The file name.
+     * @param String format The destination format.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String outPath 
+     * @param String outPath Path to save result
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public GetDocumentWithFormatRequest(String name,  String format,  String folder,  String storage,  String loadEncoding,  String password,  String outPath,  String fontsLocation) {
@@ -96,28 +96,28 @@ public class GetDocumentWithFormatRequest {
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets The destination format.
      */
     public String getFormat() {
         return Format;
     }
 
     /*
-     * 
+     * Sets The destination format.
      */
     public void setFormat(String value) {
         Format = value;
@@ -180,14 +180,14 @@ public class GetDocumentWithFormatRequest {
     }
 
     /*
-     * 
+     *  Gets Path to save result
      */
     public String getOutPath() {
         return OutPath;
     }
 
     /*
-     * 
+     * Sets Path to save result
      */
     public void setOutPath(String value) {
         OutPath = value;

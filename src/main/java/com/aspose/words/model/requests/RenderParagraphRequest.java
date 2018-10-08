@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class RenderParagraphRequest {
     /*
-     * 
+     * The file name.
      */
     private String Name;
 
     /*
-     * 
+     * The destination format.
      */
     private String Format;
 
@@ -68,12 +68,7 @@ public class RenderParagraphRequest {
     private String Password;
 
     /*
-     * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
-
-    /*
-     * 
+     * Path to node, which contains paragraphs.
      */
     private String NodePath;
 
@@ -85,18 +80,17 @@ public class RenderParagraphRequest {
     /*
      * Initializes a new instance of the renderParagraphRequest class.
      *  
-     * @param String name 
-     * @param String format 
+     * @param String name The file name.
+     * @param String format The destination format.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String nodePath 
+     * @param String nodePath Path to node, which contains paragraphs.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderParagraphRequest(String name,  String format,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String nodePath,  String fontsLocation) {
+    public RenderParagraphRequest(String name,  String format,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath,  String fontsLocation) {
         Name = name;
         Format = format;
         Index = index;
@@ -104,34 +98,33 @@ public class RenderParagraphRequest {
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        DestFileName = destFileName;
         NodePath = nodePath;
         FontsLocation = fontsLocation;
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets The destination format.
      */
     public String getFormat() {
         return Format;
     }
 
     /*
-     * 
+     * Sets The destination format.
      */
     public void setFormat(String value) {
         Format = value;
@@ -208,28 +201,14 @@ public class RenderParagraphRequest {
     }
 
     /*
-     *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
-    }
-
-    /*
-     * 
+     *  Gets Path to node, which contains paragraphs.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node, which contains paragraphs.
      */
     public void setNodePath(String value) {
         NodePath = value;

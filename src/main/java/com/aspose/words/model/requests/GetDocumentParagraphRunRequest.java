@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class GetDocumentParagraphRunRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Path to parent paragraph.
      */
     private String ParagraphPath;
 
@@ -70,8 +70,8 @@ public class GetDocumentParagraphRunRequest {
     /*
      * Initializes a new instance of the getDocumentParagraphRunRequest class.
      *  
-     * @param String name 
-     * @param String paragraphPath 
+     * @param String name The document name.
+     * @param String paragraphPath Path to parent paragraph.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -89,28 +89,28 @@ public class GetDocumentParagraphRunRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Path to parent paragraph.
      */
     public String getParagraphPath() {
         return ParagraphPath;
     }
 
     /*
-     * 
+     * Sets Path to parent paragraph.
      */
     public void setParagraphPath(String value) {
         ParagraphPath = value;

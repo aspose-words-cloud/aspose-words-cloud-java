@@ -38,12 +38,12 @@ public class PutCreateDocumentRequest {
     private String Storage;
 
     /*
-     * 
+     * The file name.
      */
     private String FileName;
 
     /*
-     * 
+     * The document folder.
      */
     private String Folder;
     
@@ -51,8 +51,8 @@ public class PutCreateDocumentRequest {
      * Initializes a new instance of the putCreateDocumentRequest class.
      *  
      * @param String storage File storage, which have to be used.
-     * @param String fileName 
-     * @param String folder 
+     * @param String fileName The file name.
+     * @param String folder The document folder.
      */
     public PutCreateDocumentRequest(String storage,  String fileName,  String folder) {
         Storage = storage;
@@ -75,28 +75,28 @@ public class PutCreateDocumentRequest {
     }
 
     /*
-     * 
+     *  Gets The file name.
      */
     public String getFileName() {
         return FileName;
     }
 
     /*
-     * 
+     * Sets The file name.
      */
     public void setFileName(String value) {
         FileName = value;
     }
 
     /*
-     * 
+     *  Gets The document folder.
      */
     public String getFolder() {
         return Folder;
     }
 
     /*
-     * 
+     * Sets The document folder.
      */
     public void setFolder(String value) {
         Folder = value;

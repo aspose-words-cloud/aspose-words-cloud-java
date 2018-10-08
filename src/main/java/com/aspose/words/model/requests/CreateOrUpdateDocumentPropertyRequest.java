@@ -33,17 +33,17 @@ import java.io.File;
  */
 public class CreateOrUpdateDocumentPropertyRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * The property name.
      */
     private String PropertyName;
 
     /*
-     * 
+     * The property with new value.
      */
     private DocumentProperty Property;
 
@@ -85,9 +85,9 @@ public class CreateOrUpdateDocumentPropertyRequest {
     /*
      * Initializes a new instance of the createOrUpdateDocumentPropertyRequest class.
      *  
-     * @param String name 
-     * @param String propertyName 
-     * @param DocumentProperty property 
+     * @param String name The document name.
+     * @param String propertyName The property name.
+     * @param DocumentProperty property The property with new value.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -110,42 +110,42 @@ public class CreateOrUpdateDocumentPropertyRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets The property name.
      */
     public String getPropertyName() {
         return PropertyName;
     }
 
     /*
-     * 
+     * Sets The property name.
      */
     public void setPropertyName(String value) {
         PropertyName = value;
     }
 
     /*
-     * 
+     *  Gets The property with new value.
      */
     public DocumentProperty getProperty() {
         return Property;
     }
 
     /*
-     * 
+     * Sets The property with new value.
      */
     public void setProperty(DocumentProperty value) {
         Property = value;

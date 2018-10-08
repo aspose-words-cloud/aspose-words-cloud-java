@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * DocumentResponse
+ * Represents the response with document description.
  */
+@ApiModel(description = "Represents the response with document description.")
 
 public class DocumentResponse extends AsposeResponse {
   @SerializedName("Document")
@@ -54,10 +55,10 @@ public class DocumentResponse extends AsposeResponse {
   }
 
    /**
-   * Get document
+   * Document description.
    * @return document
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Document description.")
   public Document getDocument() {
     return document;
   }

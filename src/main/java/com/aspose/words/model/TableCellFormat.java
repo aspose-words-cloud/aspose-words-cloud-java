@@ -42,8 +42,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * TableCellFormat
+ * Represents all formatting for a table row.
  */
+@ApiModel(description = "Represents all formatting for a table row.")
 
 public class TableCellFormat extends LinkElement {
   @SerializedName("BottomPadding")
@@ -53,7 +54,7 @@ public class TableCellFormat extends LinkElement {
   private Boolean fitText = null;
 
   /**
-   * Gets or Sets horizontalMerge
+   * Specifies how the cell is merged horizontally with other cells in the row.
    */
   @JsonAdapter(HorizontalMergeEnum.Adapter.class)
   public enum HorizontalMergeEnum {
@@ -108,7 +109,7 @@ public class TableCellFormat extends LinkElement {
   private Double leftPadding = null;
 
   /**
-   * Gets or Sets orientation
+   * Returns or sets the orientation of text in a table cell.
    */
   @JsonAdapter(OrientationEnum.Adapter.class)
   public enum OrientationEnum {
@@ -175,7 +176,7 @@ public class TableCellFormat extends LinkElement {
   private Double topPadding = null;
 
   /**
-   * Gets or Sets verticalAlignment
+   * Returns or sets the vertical alignment of text in the cell.
    */
   @JsonAdapter(VerticalAlignmentEnum.Adapter.class)
   public enum VerticalAlignmentEnum {
@@ -227,7 +228,7 @@ public class TableCellFormat extends LinkElement {
   private VerticalAlignmentEnum verticalAlignment = null;
 
   /**
-   * Gets or Sets verticalMerge
+   * Specifies how the cell is merged with other cells vertically.
    */
   @JsonAdapter(VerticalMergeEnum.Adapter.class)
   public enum VerticalMergeEnum {
@@ -290,10 +291,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get bottomPadding
+   * Returns or sets the amount of space (in points) to add below the contents of cell.
    * @return bottomPadding
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the amount of space (in points) to add below the contents of cell.")
   public Double getBottomPadding() {
     return bottomPadding;
   }
@@ -308,10 +309,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get fitText
+   * If true, fits text in the cell, compressing each paragraph to the width of the cell.
    * @return fitText
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "If true, fits text in the cell, compressing each paragraph to the width of the cell.")
   public Boolean isisFitText() {
     return fitText;
   }
@@ -326,10 +327,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get horizontalMerge
+   * Specifies how the cell is merged horizontally with other cells in the row.
    * @return horizontalMerge
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Specifies how the cell is merged horizontally with other cells in the row.")
   public HorizontalMergeEnum getHorizontalMerge() {
     return horizontalMerge;
   }
@@ -344,10 +345,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get leftPadding
+   * Returns or sets the amount of space (in points) to add to the left of the contents of cell.
    * @return leftPadding
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the amount of space (in points) to add to the left of the contents of cell.")
   public Double getLeftPadding() {
     return leftPadding;
   }
@@ -362,10 +363,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get orientation
+   * Returns or sets the orientation of text in a table cell.
    * @return orientation
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the orientation of text in a table cell.")
   public OrientationEnum getOrientation() {
     return orientation;
   }
@@ -380,10 +381,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get preferredWidth
+   * Returns or sets the preferred width of the cell.
    * @return preferredWidth
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the preferred width of the cell.")
   public PreferredWidth getPreferredWidth() {
     return preferredWidth;
   }
@@ -398,10 +399,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get rightPadding
+   * Returns or sets the amount of space (in points) to add to the right of the contents of cell.
    * @return rightPadding
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the amount of space (in points) to add to the right of the contents of cell.")
   public Double getRightPadding() {
     return rightPadding;
   }
@@ -416,10 +417,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get topPadding
+   * Returns or sets the amount of space (in points) to add above the contents of cell.
    * @return topPadding
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the amount of space (in points) to add above the contents of cell.")
   public Double getTopPadding() {
     return topPadding;
   }
@@ -434,10 +435,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get verticalAlignment
+   * Returns or sets the vertical alignment of text in the cell.
    * @return verticalAlignment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Returns or sets the vertical alignment of text in the cell.")
   public VerticalAlignmentEnum getVerticalAlignment() {
     return verticalAlignment;
   }
@@ -452,10 +453,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get verticalMerge
+   * Specifies how the cell is merged with other cells vertically.
    * @return verticalMerge
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Specifies how the cell is merged with other cells vertically.")
   public VerticalMergeEnum getVerticalMerge() {
     return verticalMerge;
   }
@@ -470,10 +471,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get width
+   * Gets the width of the cell in points.
    * @return width
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets the width of the cell in points.")
   public Double getWidth() {
     return width;
   }
@@ -488,10 +489,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Get wrapText
+   * If true, wrap text for the cell.
    * @return wrapText
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "If true, wrap text for the cell.")
   public Boolean isisWrapText() {
     return wrapText;
   }

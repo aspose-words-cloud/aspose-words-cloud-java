@@ -41,8 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * HeaderFootersResponse
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/headersfooters 
  */
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/headersfooters ")
 
 public class HeaderFootersResponse extends AsposeResponse {
   @SerializedName("HeaderFooters")
@@ -54,10 +55,10 @@ public class HeaderFootersResponse extends AsposeResponse {
   }
 
    /**
-   * Get headerFooters
+   * Collection of headers/footers
    * @return headerFooters
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Collection of headers/footers")
   public HeaderFooterLinkCollection getHeaderFooters() {
     return headerFooters;
   }

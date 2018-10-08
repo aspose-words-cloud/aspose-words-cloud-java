@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class PutParagraphRequest {
     /*
-     * 
+     * The document name.
      */
     private String Name;
 
     /*
-     * 
+     * Paragraph data.
      */
     private ParagraphInsert Paragraph;
 
@@ -78,20 +78,20 @@ public class PutParagraphRequest {
     private String RevisionDateTime;
 
     /*
-     * 
+     * Path to node which contains paragraphs.
      */
     private String NodePath;
 
     /*
-     * 
+     * Paragraph will be inserted before node with index.
      */
     private String InsertBeforeNode;
     
     /*
      * Initializes a new instance of the putParagraphRequest class.
      *  
-     * @param String name 
-     * @param ParagraphInsert paragraph 
+     * @param String name The document name.
+     * @param ParagraphInsert paragraph Paragraph data.
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -99,8 +99,8 @@ public class PutParagraphRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath 
-     * @param String insertBeforeNode 
+     * @param String nodePath Path to node which contains paragraphs.
+     * @param String insertBeforeNode Paragraph will be inserted before node with index.
      */
     public PutParagraphRequest(String name,  ParagraphInsert paragraph,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath,  String insertBeforeNode) {
         Name = name;
@@ -117,28 +117,28 @@ public class PutParagraphRequest {
     }
 
     /*
-     * 
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * 
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     * 
+     *  Gets Paragraph data.
      */
     public ParagraphInsert getParagraph() {
         return Paragraph;
     }
 
     /*
-     * 
+     * Sets Paragraph data.
      */
     public void setParagraph(ParagraphInsert value) {
         Paragraph = value;
@@ -243,28 +243,28 @@ public class PutParagraphRequest {
     }
 
     /*
-     * 
+     *  Gets Path to node which contains paragraphs.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * 
+     * Sets Path to node which contains paragraphs.
      */
     public void setNodePath(String value) {
         NodePath = value;
     }
 
     /*
-     * 
+     *  Gets Paragraph will be inserted before node with index.
      */
     public String getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
-     * 
+     * Sets Paragraph will be inserted before node with index.
      */
     public void setInsertBeforeNode(String value) {
         InsertBeforeNode = value;
