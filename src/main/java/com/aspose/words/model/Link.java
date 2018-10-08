@@ -57,9 +57,6 @@ public class Link {
   @SerializedName("Title")
   private String title = null;
 
-  public Link() {
-    this.Type = this.getClass().getSimpleName();
-  }
   public Link href(String href) {
     this.href = href;
     return this;

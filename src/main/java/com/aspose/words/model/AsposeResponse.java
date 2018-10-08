@@ -51,9 +51,6 @@ public class AsposeResponse {
   @SerializedName("Status")
   private String status = null;
 
-  public AsposeResponse() {
-    this.Type = this.getClass().getSimpleName();
-  }
   public AsposeResponse code(Integer code) {
     this.code = code;
     return this;

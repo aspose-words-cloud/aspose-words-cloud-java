@@ -72,9 +72,6 @@ public class SaveOptionsData {
   @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
-  public SaveOptionsData() {
-    this.Type = this.getClass().getSimpleName();
-  }
   public SaveOptionsData colorMode(String colorMode) {
     this.colorMode = colorMode;
     return this;
