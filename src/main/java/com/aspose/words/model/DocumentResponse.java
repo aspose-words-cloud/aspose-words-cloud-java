@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents the response with document description.")
 
-public class DocumentResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class DocumentResponse extends AsposeResponse {
   @SerializedName("Document")
   private Document document = null;
-
-  public DocumentResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public DocumentResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public DocumentResponse document(Document document) {
     this.document = document;
@@ -119,14 +77,13 @@ public class DocumentResponse {
       return false;
     }
     DocumentResponse documentResponse = (DocumentResponse) o;
-    return Objects.equals(this.code, documentResponse.code) &&
-        Objects.equals(this.status, documentResponse.status) &&
-        Objects.equals(this.document, documentResponse.document);
+    return Objects.equals(this.document, documentResponse.document) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, document);
+    return Objects.hash(document, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class DocumentResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    document: ").append(toIndentedString(document)).append("\n");
     sb.append("}");
     return sb.toString();

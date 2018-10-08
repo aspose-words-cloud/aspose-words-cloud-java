@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/{nodePath}/formfields")
 
-public class FormFieldsResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class FormFieldsResponse extends AsposeResponse {
   @SerializedName("FormFields")
   private FormFieldCollection formFields = null;
-
-  public FormFieldsResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public FormFieldsResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public FormFieldsResponse formFields(FormFieldCollection formFields) {
     this.formFields = formFields;
@@ -119,14 +77,13 @@ public class FormFieldsResponse {
       return false;
     }
     FormFieldsResponse formFieldsResponse = (FormFieldsResponse) o;
-    return Objects.equals(this.code, formFieldsResponse.code) &&
-        Objects.equals(this.status, formFieldsResponse.status) &&
-        Objects.equals(this.formFields, formFieldsResponse.formFields);
+    return Objects.equals(this.formFields, formFieldsResponse.formFields) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, formFields);
+    return Objects.hash(formFields, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class FormFieldsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormFieldsResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    formFields: ").append(toIndentedString(formFields)).append("\n");
     sb.append("}");
     return sb.toString();

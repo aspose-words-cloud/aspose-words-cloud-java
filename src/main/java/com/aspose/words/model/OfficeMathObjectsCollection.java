@@ -48,30 +48,9 @@ import java.util.List;
  */
 @ApiModel(description = "Collection of OfficeMath objects.")
 
-public class OfficeMathObjectsCollection {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class OfficeMathObjectsCollection extends LinkElement {
   @SerializedName("List")
   private List<OfficeMathObject> list = null;
-
-  public OfficeMathObjectsCollection link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public OfficeMathObjectsCollection list(List<OfficeMathObject> list) {
     this.list = list;
@@ -109,13 +88,13 @@ public class OfficeMathObjectsCollection {
       return false;
     }
     OfficeMathObjectsCollection officeMathObjectsCollection = (OfficeMathObjectsCollection) o;
-    return Objects.equals(this.link, officeMathObjectsCollection.link) &&
-        Objects.equals(this.list, officeMathObjectsCollection.list);
+    return Objects.equals(this.list, officeMathObjectsCollection.list) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, list);
+    return Objects.hash(list, super.hashCode());
   }
 
 
@@ -123,8 +102,7 @@ public class OfficeMathObjectsCollection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OfficeMathObjectsCollection {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

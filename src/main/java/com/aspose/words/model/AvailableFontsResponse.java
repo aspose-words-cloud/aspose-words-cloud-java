@@ -47,13 +47,7 @@ import java.util.List;
  */
 @ApiModel(description = "The list of fonts, available for document processing")
 
-public class AvailableFontsResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class AvailableFontsResponse extends AsposeResponse {
   @SerializedName("AdditionalFonts")
   private List<FontInfo> additionalFonts = null;
 
@@ -62,42 +56,6 @@ public class AvailableFontsResponse {
 
   @SerializedName("SystemFonts")
   private List<FontInfo> systemFonts = null;
-
-  public AvailableFontsResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public AvailableFontsResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public AvailableFontsResponse additionalFonts(List<FontInfo> additionalFonts) {
     this.additionalFonts = additionalFonts;
@@ -187,16 +145,15 @@ public class AvailableFontsResponse {
       return false;
     }
     AvailableFontsResponse availableFontsResponse = (AvailableFontsResponse) o;
-    return Objects.equals(this.code, availableFontsResponse.code) &&
-        Objects.equals(this.status, availableFontsResponse.status) &&
-        Objects.equals(this.additionalFonts, availableFontsResponse.additionalFonts) &&
+    return Objects.equals(this.additionalFonts, availableFontsResponse.additionalFonts) &&
         Objects.equals(this.customFonts, availableFontsResponse.customFonts) &&
-        Objects.equals(this.systemFonts, availableFontsResponse.systemFonts);
+        Objects.equals(this.systemFonts, availableFontsResponse.systemFonts) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, additionalFonts, customFonts, systemFonts);
+    return Objects.hash(additionalFonts, customFonts, systemFonts, super.hashCode());
   }
 
 
@@ -204,9 +161,7 @@ public class AvailableFontsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AvailableFontsResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    additionalFonts: ").append(toIndentedString(additionalFonts)).append("\n");
     sb.append("    customFonts: ").append(toIndentedString(customFonts)).append("\n");
     sb.append("    systemFonts: ").append(toIndentedString(systemFonts)).append("\n");

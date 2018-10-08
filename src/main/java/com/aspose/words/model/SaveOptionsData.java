@@ -43,6 +43,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "base container class for save options data")
 
+
 public class SaveOptionsData {
   @SerializedName("ColorMode")
   private String colorMode = null;
@@ -71,6 +72,9 @@ public class SaveOptionsData {
   @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
+  public SaveOptionsData() {
+    this.Type = this.getClass().getSimpleName();
+  }
   public SaveOptionsData colorMode(String colorMode) {
     this.colorMode = colorMode;
     return this;

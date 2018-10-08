@@ -47,13 +47,7 @@ import java.util.List;
  */
 @ApiModel(description = "Represents Drawing Object DTO.")
 
-public class DrawingObject {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
+public class DrawingObject extends DrawingObjectLink {
   @SerializedName("Height")
   private Double height = null;
 
@@ -263,42 +257,6 @@ public class DrawingObject {
   @SerializedName("WrapType")
   private WrapTypeEnum wrapType = null;
 
-  public DrawingObject link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public DrawingObject nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
   public DrawingObject height(Double height) {
     this.height = height;
     return this;
@@ -497,9 +455,7 @@ public class DrawingObject {
       return false;
     }
     DrawingObject drawingObject = (DrawingObject) o;
-    return Objects.equals(this.link, drawingObject.link) &&
-        Objects.equals(this.nodeId, drawingObject.nodeId) &&
-        Objects.equals(this.height, drawingObject.height) &&
+    return Objects.equals(this.height, drawingObject.height) &&
         Objects.equals(this.imageDataLink, drawingObject.imageDataLink) &&
         Objects.equals(this.left, drawingObject.left) &&
         Objects.equals(this.oleDataLink, drawingObject.oleDataLink) &&
@@ -508,12 +464,13 @@ public class DrawingObject {
         Objects.equals(this.renderLinks, drawingObject.renderLinks) &&
         Objects.equals(this.top, drawingObject.top) &&
         Objects.equals(this.width, drawingObject.width) &&
-        Objects.equals(this.wrapType, drawingObject.wrapType);
+        Objects.equals(this.wrapType, drawingObject.wrapType) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, height, imageDataLink, left, oleDataLink, relativeHorizontalPosition, relativeVerticalPosition, renderLinks, top, width, wrapType);
+    return Objects.hash(height, imageDataLink, left, oleDataLink, relativeHorizontalPosition, relativeVerticalPosition, renderLinks, top, width, wrapType, super.hashCode());
   }
 
 
@@ -521,9 +478,7 @@ public class DrawingObject {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObject {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    imageDataLink: ").append(toIndentedString(imageDataLink)).append("\n");
     sb.append("    left: ").append(toIndentedString(left)).append("\n");

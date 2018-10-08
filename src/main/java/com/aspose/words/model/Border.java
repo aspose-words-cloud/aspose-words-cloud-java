@@ -46,10 +46,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents a border of an object.")
 
-public class Border {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class Border extends LinkElement {
   /**
    * Gets or sets the border type.             
    */
@@ -226,24 +223,6 @@ public class Border {
   @SerializedName("Shadow")
   private Boolean shadow = null;
 
-  public Border link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
   public Border borderType(BorderTypeEnum borderType) {
     this.borderType = borderType;
     return this;
@@ -362,18 +341,18 @@ public class Border {
       return false;
     }
     Border border = (Border) o;
-    return Objects.equals(this.link, border.link) &&
-        Objects.equals(this.borderType, border.borderType) &&
+    return Objects.equals(this.borderType, border.borderType) &&
         Objects.equals(this.color, border.color) &&
         Objects.equals(this.distanceFromText, border.distanceFromText) &&
         Objects.equals(this.lineStyle, border.lineStyle) &&
         Objects.equals(this.lineWidth, border.lineWidth) &&
-        Objects.equals(this.shadow, border.shadow);
+        Objects.equals(this.shadow, border.shadow) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, borderType, color, distanceFromText, lineStyle, lineWidth, shadow);
+    return Objects.hash(borderType, color, distanceFromText, lineStyle, lineWidth, shadow, super.hashCode());
   }
 
 
@@ -381,8 +360,7 @@ public class Border {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Border {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    borderType: ").append(toIndentedString(borderType)).append("\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    distanceFromText: ").append(toIndentedString(distanceFromText)).append("\n");

@@ -46,13 +46,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "OfficeMath object.")
 
-public class OfficeMathObject {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
+public class OfficeMathObject extends OfficeMathLink {
   @SerializedName("Content")
   private StoryChildNodes content = null;
 
@@ -270,42 +264,6 @@ public class OfficeMathObject {
   @SerializedName("MathObjectType")
   private MathObjectTypeEnum mathObjectType = null;
 
-  public OfficeMathObject link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public OfficeMathObject nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
   public OfficeMathObject content(StoryChildNodes content) {
     this.content = content;
     return this;
@@ -388,17 +346,16 @@ public class OfficeMathObject {
       return false;
     }
     OfficeMathObject officeMathObject = (OfficeMathObject) o;
-    return Objects.equals(this.link, officeMathObject.link) &&
-        Objects.equals(this.nodeId, officeMathObject.nodeId) &&
-        Objects.equals(this.content, officeMathObject.content) &&
+    return Objects.equals(this.content, officeMathObject.content) &&
         Objects.equals(this.displayType, officeMathObject.displayType) &&
         Objects.equals(this.justification, officeMathObject.justification) &&
-        Objects.equals(this.mathObjectType, officeMathObject.mathObjectType);
+        Objects.equals(this.mathObjectType, officeMathObject.mathObjectType) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, content, displayType, justification, mathObjectType);
+    return Objects.hash(content, displayType, justification, mathObjectType, super.hashCode());
   }
 
 
@@ -406,9 +363,7 @@ public class OfficeMathObject {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OfficeMathObject {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    displayType: ").append(toIndentedString(displayType)).append("\n");
     sb.append("    justification: ").append(toIndentedString(justification)).append("\n");

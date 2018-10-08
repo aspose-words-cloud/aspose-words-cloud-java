@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/comments ")
 
-public class CommentsResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class CommentsResponse extends AsposeResponse {
   @SerializedName("Comments")
   private CommentsCollection comments = null;
-
-  public CommentsResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public CommentsResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public CommentsResponse comments(CommentsCollection comments) {
     this.comments = comments;
@@ -119,14 +77,13 @@ public class CommentsResponse {
       return false;
     }
     CommentsResponse commentsResponse = (CommentsResponse) o;
-    return Objects.equals(this.code, commentsResponse.code) &&
-        Objects.equals(this.status, commentsResponse.status) &&
-        Objects.equals(this.comments, commentsResponse.comments);
+    return Objects.equals(this.comments, commentsResponse.comments) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, comments);
+    return Objects.hash(comments, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class CommentsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentsResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("}");
     return sb.toString();

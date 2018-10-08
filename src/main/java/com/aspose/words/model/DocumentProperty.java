@@ -45,10 +45,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Words document property DTO.")
 
-public class DocumentProperty {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class DocumentProperty extends LinkElement {
   @SerializedName("BuiltIn")
   private Boolean builtIn = null;
 
@@ -57,24 +54,6 @@ public class DocumentProperty {
 
   @SerializedName("Value")
   private String value = null;
-
-  public DocumentProperty link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public DocumentProperty builtIn(Boolean builtIn) {
     this.builtIn = builtIn;
@@ -140,15 +119,15 @@ public class DocumentProperty {
       return false;
     }
     DocumentProperty documentProperty = (DocumentProperty) o;
-    return Objects.equals(this.link, documentProperty.link) &&
-        Objects.equals(this.builtIn, documentProperty.builtIn) &&
+    return Objects.equals(this.builtIn, documentProperty.builtIn) &&
         Objects.equals(this.name, documentProperty.name) &&
-        Objects.equals(this.value, documentProperty.value);
+        Objects.equals(this.value, documentProperty.value) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, builtIn, name, value);
+    return Objects.hash(builtIn, name, value, super.hashCode());
   }
 
 
@@ -156,8 +135,7 @@ public class DocumentProperty {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentProperty {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    builtIn: ").append(toIndentedString(builtIn)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");

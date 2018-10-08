@@ -45,13 +45,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "FromField")
 
-public class FormField {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
+public class FormField extends NodeLink {
   @SerializedName("CalculateOnExit")
   private Boolean calculateOnExit = null;
 
@@ -78,42 +72,6 @@ public class FormField {
 
   @SerializedName("StatusText")
   private String statusText = null;
-
-  public FormField link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public FormField nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public FormField calculateOnExit(Boolean calculateOnExit) {
     this.calculateOnExit = calculateOnExit;
@@ -287,9 +245,7 @@ public class FormField {
       return false;
     }
     FormField formField = (FormField) o;
-    return Objects.equals(this.link, formField.link) &&
-        Objects.equals(this.nodeId, formField.nodeId) &&
-        Objects.equals(this.calculateOnExit, formField.calculateOnExit) &&
+    return Objects.equals(this.calculateOnExit, formField.calculateOnExit) &&
         Objects.equals(this.enabled, formField.enabled) &&
         Objects.equals(this.entryMacro, formField.entryMacro) &&
         Objects.equals(this.exitMacro, formField.exitMacro) &&
@@ -297,12 +253,13 @@ public class FormField {
         Objects.equals(this.name, formField.name) &&
         Objects.equals(this.ownHelp, formField.ownHelp) &&
         Objects.equals(this.ownStatus, formField.ownStatus) &&
-        Objects.equals(this.statusText, formField.statusText);
+        Objects.equals(this.statusText, formField.statusText) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, calculateOnExit, enabled, entryMacro, exitMacro, helpText, name, ownHelp, ownStatus, statusText);
+    return Objects.hash(calculateOnExit, enabled, entryMacro, exitMacro, helpText, name, ownHelp, ownStatus, statusText, super.hashCode());
   }
 
 
@@ -310,9 +267,7 @@ public class FormField {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormField {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    calculateOnExit: ").append(toIndentedString(calculateOnExit)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    entryMacro: ").append(toIndentedString(entryMacro)).append("\n");

@@ -46,54 +46,12 @@ import java.io.IOException;
  */
 @ApiModel(description = "Response for the request of data about protection")
 
-public class ProtectionDataResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class ProtectionDataResponse extends AsposeResponse {
   @SerializedName("DocumentLink")
   private FileLink documentLink = null;
 
   @SerializedName("ProtectionData")
   private ProtectionData protectionData = null;
-
-  public ProtectionDataResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public ProtectionDataResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public ProtectionDataResponse documentLink(FileLink documentLink) {
     this.documentLink = documentLink;
@@ -141,15 +99,14 @@ public class ProtectionDataResponse {
       return false;
     }
     ProtectionDataResponse protectionDataResponse = (ProtectionDataResponse) o;
-    return Objects.equals(this.code, protectionDataResponse.code) &&
-        Objects.equals(this.status, protectionDataResponse.status) &&
-        Objects.equals(this.documentLink, protectionDataResponse.documentLink) &&
-        Objects.equals(this.protectionData, protectionDataResponse.protectionData);
+    return Objects.equals(this.documentLink, protectionDataResponse.documentLink) &&
+        Objects.equals(this.protectionData, protectionDataResponse.protectionData) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, documentLink, protectionData);
+    return Objects.hash(documentLink, protectionData, super.hashCode());
   }
 
 
@@ -157,9 +114,7 @@ public class ProtectionDataResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProtectionDataResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    documentLink: ").append(toIndentedString(documentLink)).append("\n");
     sb.append("    protectionData: ").append(toIndentedString(protectionData)).append("\n");
     sb.append("}");

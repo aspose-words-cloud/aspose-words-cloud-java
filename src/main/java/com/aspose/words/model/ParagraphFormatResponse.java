@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/format")
 
-public class ParagraphFormatResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class ParagraphFormatResponse extends AsposeResponse {
   @SerializedName("ParagraphFormat")
   private ParagraphFormat paragraphFormat = null;
-
-  public ParagraphFormatResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public ParagraphFormatResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public ParagraphFormatResponse paragraphFormat(ParagraphFormat paragraphFormat) {
     this.paragraphFormat = paragraphFormat;
@@ -119,14 +77,13 @@ public class ParagraphFormatResponse {
       return false;
     }
     ParagraphFormatResponse paragraphFormatResponse = (ParagraphFormatResponse) o;
-    return Objects.equals(this.code, paragraphFormatResponse.code) &&
-        Objects.equals(this.status, paragraphFormatResponse.status) &&
-        Objects.equals(this.paragraphFormat, paragraphFormatResponse.paragraphFormat);
+    return Objects.equals(this.paragraphFormat, paragraphFormatResponse.paragraphFormat) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, paragraphFormat);
+    return Objects.hash(paragraphFormat, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class ParagraphFormatResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphFormatResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    paragraphFormat: ").append(toIndentedString(paragraphFormat)).append("\n");
     sb.append("}");
     return sb.toString();

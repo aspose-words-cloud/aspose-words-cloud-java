@@ -31,63 +31,14 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Table link element
  */
 @ApiModel(description = "Table link element")
 
-public class TableLink {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
-  public TableLink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public TableLink nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
+public class TableLink extends NodeLink {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,14 +48,12 @@ public class TableLink {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TableLink tableLink = (TableLink) o;
-    return Objects.equals(this.link, tableLink.link) &&
-        Objects.equals(this.nodeId, tableLink.nodeId);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId);
+    return Objects.hash(super.hashCode());
   }
 
 
@@ -112,9 +61,7 @@ public class TableLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableLink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

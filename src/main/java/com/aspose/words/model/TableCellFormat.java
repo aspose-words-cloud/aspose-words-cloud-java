@@ -46,10 +46,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents all formatting for a table row.")
 
-public class TableCellFormat {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class TableCellFormat extends LinkElement {
   @SerializedName("BottomPadding")
   private Double bottomPadding = null;
 
@@ -288,24 +285,6 @@ public class TableCellFormat {
   @SerializedName("WrapText")
   private Boolean wrapText = null;
 
-  public TableCellFormat link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
   public TableCellFormat bottomPadding(Double bottomPadding) {
     this.bottomPadding = bottomPadding;
     return this;
@@ -532,8 +511,7 @@ public class TableCellFormat {
       return false;
     }
     TableCellFormat tableCellFormat = (TableCellFormat) o;
-    return Objects.equals(this.link, tableCellFormat.link) &&
-        Objects.equals(this.bottomPadding, tableCellFormat.bottomPadding) &&
+    return Objects.equals(this.bottomPadding, tableCellFormat.bottomPadding) &&
         Objects.equals(this.fitText, tableCellFormat.fitText) &&
         Objects.equals(this.horizontalMerge, tableCellFormat.horizontalMerge) &&
         Objects.equals(this.leftPadding, tableCellFormat.leftPadding) &&
@@ -544,12 +522,13 @@ public class TableCellFormat {
         Objects.equals(this.verticalAlignment, tableCellFormat.verticalAlignment) &&
         Objects.equals(this.verticalMerge, tableCellFormat.verticalMerge) &&
         Objects.equals(this.width, tableCellFormat.width) &&
-        Objects.equals(this.wrapText, tableCellFormat.wrapText);
+        Objects.equals(this.wrapText, tableCellFormat.wrapText) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, bottomPadding, fitText, horizontalMerge, leftPadding, orientation, preferredWidth, rightPadding, topPadding, verticalAlignment, verticalMerge, width, wrapText);
+    return Objects.hash(bottomPadding, fitText, horizontalMerge, leftPadding, orientation, preferredWidth, rightPadding, topPadding, verticalAlignment, verticalMerge, width, wrapText, super.hashCode());
   }
 
 
@@ -557,8 +536,7 @@ public class TableCellFormat {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCellFormat {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bottomPadding: ").append(toIndentedString(bottomPadding)).append("\n");
     sb.append("    fitText: ").append(toIndentedString(fitText)).append("\n");
     sb.append("    horizontalMerge: ").append(toIndentedString(horizontalMerge)).append("\n");

@@ -47,30 +47,9 @@ import java.util.List;
  */
 @ApiModel(description = "Represents drawing objects collection DTO.")
 
-public class DrawingObjectCollection {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class DrawingObjectCollection extends LinkElement {
   @SerializedName("List")
   private List<LinkElement> list = null;
-
-  public DrawingObjectCollection link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public DrawingObjectCollection list(List<LinkElement> list) {
     this.list = list;
@@ -108,13 +87,13 @@ public class DrawingObjectCollection {
       return false;
     }
     DrawingObjectCollection drawingObjectCollection = (DrawingObjectCollection) o;
-    return Objects.equals(this.link, drawingObjectCollection.link) &&
-        Objects.equals(this.list, drawingObjectCollection.list);
+    return Objects.equals(this.list, drawingObjectCollection.list) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, list);
+    return Objects.hash(list, super.hashCode());
   }
 
 
@@ -122,8 +101,7 @@ public class DrawingObjectCollection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectCollection {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

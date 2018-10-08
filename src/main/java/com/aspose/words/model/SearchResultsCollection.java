@@ -48,30 +48,9 @@ import java.util.List;
  */
 @ApiModel(description = "Collection of search results.")
 
-public class SearchResultsCollection {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class SearchResultsCollection extends LinkElement {
   @SerializedName("ResultsList")
   private List<SearchResult> resultsList = null;
-
-  public SearchResultsCollection link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public SearchResultsCollection resultsList(List<SearchResult> resultsList) {
     this.resultsList = resultsList;
@@ -109,13 +88,13 @@ public class SearchResultsCollection {
       return false;
     }
     SearchResultsCollection searchResultsCollection = (SearchResultsCollection) o;
-    return Objects.equals(this.link, searchResultsCollection.link) &&
-        Objects.equals(this.resultsList, searchResultsCollection.resultsList);
+    return Objects.equals(this.resultsList, searchResultsCollection.resultsList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, resultsList);
+    return Objects.hash(resultsList, super.hashCode());
   }
 
 
@@ -123,8 +102,7 @@ public class SearchResultsCollection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResultsCollection {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    resultsList: ").append(toIndentedString(resultsList)).append("\n");
     sb.append("}");
     return sb.toString();

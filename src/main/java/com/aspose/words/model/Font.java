@@ -47,10 +47,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Font element             ")
 
-public class Font {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class Font extends LinkElement {
   @SerializedName("AllCaps")
   private Boolean allCaps = null;
 
@@ -1096,24 +1093,6 @@ public class Font {
   @SerializedName("UnderlineColor")
   private XmlColor underlineColor = null;
 
-  public Font link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
   public Font allCaps(Boolean allCaps) {
     this.allCaps = allCaps;
     return this;
@@ -1844,8 +1823,7 @@ public class Font {
       return false;
     }
     Font font = (Font) o;
-    return Objects.equals(this.link, font.link) &&
-        Objects.equals(this.allCaps, font.allCaps) &&
+    return Objects.equals(this.allCaps, font.allCaps) &&
         Objects.equals(this.bidi, font.bidi) &&
         Objects.equals(this.bold, font.bold) &&
         Objects.equals(this.boldBi, font.boldBi) &&
@@ -1884,12 +1862,13 @@ public class Font {
         Objects.equals(this.superscript, font.superscript) &&
         Objects.equals(this.textEffect, font.textEffect) &&
         Objects.equals(this.underline, font.underline) &&
-        Objects.equals(this.underlineColor, font.underlineColor);
+        Objects.equals(this.underlineColor, font.underlineColor) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, allCaps, bidi, bold, boldBi, border, color, complexScript, doubleStrikeThrough, emboss, engrave, hidden, highlightColor, italic, italicBi, kerning, localeId, localeIdBi, localeIdFarEast, name, nameAscii, nameBi, nameFarEast, nameOther, noProofing, outline, position, scaling, shadow, size, sizeBi, smallCaps, spacing, strikeThrough, styleIdentifier, styleName, subscript, superscript, textEffect, underline, underlineColor);
+    return Objects.hash(allCaps, bidi, bold, boldBi, border, color, complexScript, doubleStrikeThrough, emboss, engrave, hidden, highlightColor, italic, italicBi, kerning, localeId, localeIdBi, localeIdFarEast, name, nameAscii, nameBi, nameFarEast, nameOther, noProofing, outline, position, scaling, shadow, size, sizeBi, smallCaps, spacing, strikeThrough, styleIdentifier, styleName, subscript, superscript, textEffect, underline, underlineColor, super.hashCode());
   }
 
 
@@ -1897,8 +1876,7 @@ public class Font {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Font {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    allCaps: ").append(toIndentedString(allCaps)).append("\n");
     sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
     sb.append("    bold: ").append(toIndentedString(bold)).append("\n");

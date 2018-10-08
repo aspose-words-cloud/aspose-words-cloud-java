@@ -47,51 +47,9 @@ import java.util.List;
  */
 @ApiModel(description = "Table cell element.")
 
-public class TableCell {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
+public class TableCell extends NodeLink {
   @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;
-
-  public TableCell link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public TableCell nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public TableCell childNodes(List<NodeLink> childNodes) {
     this.childNodes = childNodes;
@@ -129,14 +87,13 @@ public class TableCell {
       return false;
     }
     TableCell tableCell = (TableCell) o;
-    return Objects.equals(this.link, tableCell.link) &&
-        Objects.equals(this.nodeId, tableCell.nodeId) &&
-        Objects.equals(this.childNodes, tableCell.childNodes);
+    return Objects.equals(this.childNodes, tableCell.childNodes) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, childNodes);
+    return Objects.hash(childNodes, super.hashCode());
   }
 
 
@@ -144,9 +101,7 @@ public class TableCell {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCell {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
     sb.append("}");
     return sb.toString();
