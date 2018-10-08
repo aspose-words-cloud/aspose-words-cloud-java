@@ -44,7 +44,34 @@ import java.io.IOException;
  */
 @ApiModel(description = "container class for odt/ott save options")
 
-public class OdtSaveOptionsData extends SaveOptionsData {
+public class OdtSaveOptionsData {
+  @SerializedName("ColorMode")
+  private String colorMode = null;
+
+  @SerializedName("SaveFormat")
+  private String saveFormat = null;
+
+  @SerializedName("FileName")
+  private String fileName = null;
+
+  @SerializedName("DmlRenderingMode")
+  private String dmlRenderingMode = null;
+
+  @SerializedName("DmlEffectsRenderingMode")
+  private String dmlEffectsRenderingMode = null;
+
+  @SerializedName("ZipOutput")
+  private Boolean zipOutput = null;
+
+  @SerializedName("UpdateLastSavedTimeProperty")
+  private Boolean updateLastSavedTimeProperty = null;
+
+  @SerializedName("UpdateSdtContent")
+  private Boolean updateSdtContent = null;
+
+  @SerializedName("UpdateFields")
+  private Boolean updateFields = null;
+
   @SerializedName("IsStrictSchema11")
   private Boolean isStrictSchema11 = null;
 
@@ -100,6 +127,168 @@ public class OdtSaveOptionsData extends SaveOptionsData {
 
   @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
+
+  public OdtSaveOptionsData colorMode(String colorMode) {
+    this.colorMode = colorMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}
+   * @return colorMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}")
+  public String getColorMode() {
+    return colorMode;
+  }
+
+  public void setColorMode(String colorMode) {
+    this.colorMode = colorMode;
+  }
+
+  public OdtSaveOptionsData saveFormat(String saveFormat) {
+    this.saveFormat = saveFormat;
+    return this;
+  }
+
+   /**
+   * format of save
+   * @return saveFormat
+  **/
+  @ApiModelProperty(value = "format of save")
+  public String getSaveFormat() {
+    return saveFormat;
+  }
+
+  public void setSaveFormat(String saveFormat) {
+    this.saveFormat = saveFormat;
+  }
+
+  public OdtSaveOptionsData fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * name of destination file
+   * @return fileName
+  **/
+  @ApiModelProperty(value = "name of destination file")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public OdtSaveOptionsData dmlRenderingMode(String dmlRenderingMode) {
+    this.dmlRenderingMode = dmlRenderingMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }
+   * @return dmlRenderingMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }")
+  public String getDmlRenderingMode() {
+    return dmlRenderingMode;
+  }
+
+  public void setDmlRenderingMode(String dmlRenderingMode) {
+    this.dmlRenderingMode = dmlRenderingMode;
+  }
+
+  public OdtSaveOptionsData dmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }
+   * @return dmlEffectsRenderingMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }")
+  public String getDmlEffectsRenderingMode() {
+    return dmlEffectsRenderingMode;
+  }
+
+  public void setDmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+  }
+
+  public OdtSaveOptionsData zipOutput(Boolean zipOutput) {
+    this.zipOutput = zipOutput;
+    return this;
+  }
+
+   /**
+   * Controls zip output or not. Default value is false.
+   * @return zipOutput
+  **/
+  @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
+  public Boolean isisZipOutput() {
+    return zipOutput;
+  }
+
+  public void setZipOutput(Boolean zipOutput) {
+    this.zipOutput = zipOutput;
+  }
+
+  public OdtSaveOptionsData updateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
+    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+   * @return updateLastSavedTimeProperty
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
+  public Boolean isisUpdateLastSavedTimeProperty() {
+    return updateLastSavedTimeProperty;
+  }
+
+  public void setUpdateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
+    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+  }
+
+  public OdtSaveOptionsData updateSdtContent(Boolean updateSdtContent) {
+    this.updateSdtContent = updateSdtContent;
+    return this;
+  }
+
+   /**
+   * Gets or sets value determining whether content of  is updated before saving.
+   * @return updateSdtContent
+  **/
+  @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
+  public Boolean isisUpdateSdtContent() {
+    return updateSdtContent;
+  }
+
+  public void setUpdateSdtContent(Boolean updateSdtContent) {
+    this.updateSdtContent = updateSdtContent;
+  }
+
+  public OdtSaveOptionsData updateFields(Boolean updateFields) {
+    this.updateFields = updateFields;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true
+   * @return updateFields
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
+  public Boolean isisUpdateFields() {
+    return updateFields;
+  }
+
+  public void setUpdateFields(Boolean updateFields) {
+    this.updateFields = updateFields;
+  }
 
   public OdtSaveOptionsData isStrictSchema11(Boolean isStrictSchema11) {
     this.isStrictSchema11 = isStrictSchema11;
@@ -165,15 +354,23 @@ public class OdtSaveOptionsData extends SaveOptionsData {
       return false;
     }
     OdtSaveOptionsData odtSaveOptionsData = (OdtSaveOptionsData) o;
-    return Objects.equals(this.isStrictSchema11, odtSaveOptionsData.isStrictSchema11) &&
+    return Objects.equals(this.colorMode, odtSaveOptionsData.colorMode) &&
+        Objects.equals(this.saveFormat, odtSaveOptionsData.saveFormat) &&
+        Objects.equals(this.fileName, odtSaveOptionsData.fileName) &&
+        Objects.equals(this.dmlRenderingMode, odtSaveOptionsData.dmlRenderingMode) &&
+        Objects.equals(this.dmlEffectsRenderingMode, odtSaveOptionsData.dmlEffectsRenderingMode) &&
+        Objects.equals(this.zipOutput, odtSaveOptionsData.zipOutput) &&
+        Objects.equals(this.updateLastSavedTimeProperty, odtSaveOptionsData.updateLastSavedTimeProperty) &&
+        Objects.equals(this.updateSdtContent, odtSaveOptionsData.updateSdtContent) &&
+        Objects.equals(this.updateFields, odtSaveOptionsData.updateFields) &&
+        Objects.equals(this.isStrictSchema11, odtSaveOptionsData.isStrictSchema11) &&
         Objects.equals(this.measureUnit, odtSaveOptionsData.measureUnit) &&
-        Objects.equals(this.prettyFormat, odtSaveOptionsData.prettyFormat) &&
-        super.equals(o);
+        Objects.equals(this.prettyFormat, odtSaveOptionsData.prettyFormat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isStrictSchema11, measureUnit, prettyFormat, super.hashCode());
+    return Objects.hash(colorMode, saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields, isStrictSchema11, measureUnit, prettyFormat);
   }
 
 
@@ -181,7 +378,16 @@ public class OdtSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OdtSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(zipOutput)).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(updateLastSavedTimeProperty)).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(updateSdtContent)).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
     sb.append("    isStrictSchema11: ").append(toIndentedString(isStrictSchema11)).append("\n");
     sb.append("    measureUnit: ").append(toIndentedString(measureUnit)).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");

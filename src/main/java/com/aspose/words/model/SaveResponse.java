@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "Save response.")
 
-public class SaveResponse extends AsposeResponse {
+public class SaveResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("SaveResult")
   private SaveResult saveResult = null;
+
+  public SaveResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public SaveResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public SaveResponse saveResult(SaveResult saveResult) {
     this.saveResult = saveResult;
@@ -77,13 +119,14 @@ public class SaveResponse extends AsposeResponse {
       return false;
     }
     SaveResponse saveResponse = (SaveResponse) o;
-    return Objects.equals(this.saveResult, saveResponse.saveResult) &&
-        super.equals(o);
+    return Objects.equals(this.code, saveResponse.code) &&
+        Objects.equals(this.status, saveResponse.status) &&
+        Objects.equals(this.saveResult, saveResponse.saveResult);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(saveResult, super.hashCode());
+    return Objects.hash(code, status, saveResult);
   }
 
 
@@ -91,7 +134,9 @@ public class SaveResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    saveResult: ").append(toIndentedString(saveResult)).append("\n");
     sb.append("}");
     return sb.toString();

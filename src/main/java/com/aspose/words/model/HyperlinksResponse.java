@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/hyperlinks .")
 
-public class HyperlinksResponse extends AsposeResponse {
+public class HyperlinksResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("Hyperlinks")
   private Hyperlinks hyperlinks = null;
+
+  public HyperlinksResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public HyperlinksResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public HyperlinksResponse hyperlinks(Hyperlinks hyperlinks) {
     this.hyperlinks = hyperlinks;
@@ -77,13 +119,14 @@ public class HyperlinksResponse extends AsposeResponse {
       return false;
     }
     HyperlinksResponse hyperlinksResponse = (HyperlinksResponse) o;
-    return Objects.equals(this.hyperlinks, hyperlinksResponse.hyperlinks) &&
-        super.equals(o);
+    return Objects.equals(this.code, hyperlinksResponse.code) &&
+        Objects.equals(this.status, hyperlinksResponse.status) &&
+        Objects.equals(this.hyperlinks, hyperlinksResponse.hyperlinks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hyperlinks, super.hashCode());
+    return Objects.hash(code, status, hyperlinks);
   }
 
 
@@ -91,7 +134,9 @@ public class HyperlinksResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HyperlinksResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    hyperlinks: ").append(toIndentedString(hyperlinks)).append("\n");
     sb.append("}");
     return sb.toString();

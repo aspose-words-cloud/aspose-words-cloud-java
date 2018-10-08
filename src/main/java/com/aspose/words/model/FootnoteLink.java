@@ -31,14 +31,63 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.words.model.NodeLink;
 import com.aspose.words.model.WordsApiLink;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Footnote link.
  */
 @ApiModel(description = "Footnote link.")
 
-public class FootnoteLink extends NodeLink {
+public class FootnoteLink {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
+  @SerializedName("NodeId")
+  private String nodeId = null;
+
+  public FootnoteLink link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
+
+  public FootnoteLink nodeId(String nodeId) {
+    this.nodeId = nodeId;
+    return this;
+  }
+
+   /**
+   * Node id
+   * @return nodeId
+  **/
+  @ApiModelProperty(value = "Node id")
+  public String getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -48,12 +97,14 @@ public class FootnoteLink extends NodeLink {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    FootnoteLink footnoteLink = (FootnoteLink) o;
+    return Objects.equals(this.link, footnoteLink.link) &&
+        Objects.equals(this.nodeId, footnoteLink.nodeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(link, nodeId);
   }
 
 
@@ -61,7 +112,9 @@ public class FootnoteLink extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

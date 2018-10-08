@@ -48,9 +48,30 @@ import java.util.List;
  */
 @ApiModel(description = "Represents DTO for collection of fields.")
 
-public class FieldCollection extends LinkElement {
+public class FieldCollection {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("List")
   private List<Field> list = null;
+
+  public FieldCollection link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public FieldCollection list(List<Field> list) {
     this.list = list;
@@ -88,13 +109,13 @@ public class FieldCollection extends LinkElement {
       return false;
     }
     FieldCollection fieldCollection = (FieldCollection) o;
-    return Objects.equals(this.list, fieldCollection.list) &&
-        super.equals(o);
+    return Objects.equals(this.link, fieldCollection.link) &&
+        Objects.equals(this.list, fieldCollection.list);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(list, super.hashCode());
+    return Objects.hash(link, list);
   }
 
 
@@ -102,7 +123,8 @@ public class FieldCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

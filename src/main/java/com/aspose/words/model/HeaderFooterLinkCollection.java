@@ -48,9 +48,30 @@ import java.util.List;
  */
 @ApiModel(description = "Collection of links to header/footers")
 
-public class HeaderFooterLinkCollection extends LinkElement {
+public class HeaderFooterLinkCollection {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("List")
   private List<HeaderFooterLink> list = null;
+
+  public HeaderFooterLinkCollection link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public HeaderFooterLinkCollection list(List<HeaderFooterLink> list) {
     this.list = list;
@@ -88,13 +109,13 @@ public class HeaderFooterLinkCollection extends LinkElement {
       return false;
     }
     HeaderFooterLinkCollection headerFooterLinkCollection = (HeaderFooterLinkCollection) o;
-    return Objects.equals(this.list, headerFooterLinkCollection.list) &&
-        super.equals(o);
+    return Objects.equals(this.link, headerFooterLinkCollection.link) &&
+        Objects.equals(this.list, headerFooterLinkCollection.list);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(list, super.hashCode());
+    return Objects.hash(link, list);
   }
 
 
@@ -102,7 +123,8 @@ public class HeaderFooterLinkCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooterLinkCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

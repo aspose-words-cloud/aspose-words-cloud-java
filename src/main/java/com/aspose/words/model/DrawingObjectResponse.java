@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "Response for \"drawingObjects/n\" resource.")
 
-public class DrawingObjectResponse extends AsposeResponse {
+public class DrawingObjectResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("DrawingObject")
   private DrawingObject drawingObject = null;
+
+  public DrawingObjectResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public DrawingObjectResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public DrawingObjectResponse drawingObject(DrawingObject drawingObject) {
     this.drawingObject = drawingObject;
@@ -77,13 +119,14 @@ public class DrawingObjectResponse extends AsposeResponse {
       return false;
     }
     DrawingObjectResponse drawingObjectResponse = (DrawingObjectResponse) o;
-    return Objects.equals(this.drawingObject, drawingObjectResponse.drawingObject) &&
-        super.equals(o);
+    return Objects.equals(this.code, drawingObjectResponse.code) &&
+        Objects.equals(this.status, drawingObjectResponse.status) &&
+        Objects.equals(this.drawingObject, drawingObjectResponse.drawingObject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(drawingObject, super.hashCode());
+    return Objects.hash(code, status, drawingObject);
   }
 
 
@@ -91,7 +134,9 @@ public class DrawingObjectResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DrawingObjectResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    drawingObject: ").append(toIndentedString(drawingObject)).append("\n");
     sb.append("}");
     return sb.toString();

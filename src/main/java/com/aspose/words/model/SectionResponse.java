@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/sections/{0} ")
 
-public class SectionResponse extends AsposeResponse {
+public class SectionResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("Section")
   private Section section = null;
+
+  public SectionResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public SectionResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public SectionResponse section(Section section) {
     this.section = section;
@@ -77,13 +119,14 @@ public class SectionResponse extends AsposeResponse {
       return false;
     }
     SectionResponse sectionResponse = (SectionResponse) o;
-    return Objects.equals(this.section, sectionResponse.section) &&
-        super.equals(o);
+    return Objects.equals(this.code, sectionResponse.code) &&
+        Objects.equals(this.status, sectionResponse.status) &&
+        Objects.equals(this.section, sectionResponse.section);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(section, super.hashCode());
+    return Objects.hash(code, status, section);
   }
 
 
@@ -91,7 +134,9 @@ public class SectionResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    section: ").append(toIndentedString(section)).append("\n");
     sb.append("}");
     return sb.toString();

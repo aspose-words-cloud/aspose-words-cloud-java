@@ -45,7 +45,10 @@ import java.io.IOException;
  */
 @ApiModel(description = "Paragraph format element             ")
 
-public class ParagraphFormat extends LinkElement {
+public class ParagraphFormat {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("AddSpaceBetweenFarEastAndAlpha")
   private Boolean addSpaceBetweenFarEastAndAlpha = null;
 
@@ -1132,6 +1135,24 @@ public class ParagraphFormat extends LinkElement {
   @SerializedName("WidowControl")
   private Boolean widowControl = null;
 
+  public ParagraphFormat link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
+
   public ParagraphFormat addSpaceBetweenFarEastAndAlpha(Boolean addSpaceBetweenFarEastAndAlpha) {
     this.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
     return this;
@@ -1592,7 +1613,8 @@ public class ParagraphFormat extends LinkElement {
       return false;
     }
     ParagraphFormat paragraphFormat = (ParagraphFormat) o;
-    return Objects.equals(this.addSpaceBetweenFarEastAndAlpha, paragraphFormat.addSpaceBetweenFarEastAndAlpha) &&
+    return Objects.equals(this.link, paragraphFormat.link) &&
+        Objects.equals(this.addSpaceBetweenFarEastAndAlpha, paragraphFormat.addSpaceBetweenFarEastAndAlpha) &&
         Objects.equals(this.addSpaceBetweenFarEastAndDigit, paragraphFormat.addSpaceBetweenFarEastAndDigit) &&
         Objects.equals(this.alignment, paragraphFormat.alignment) &&
         Objects.equals(this.bidi, paragraphFormat.bidi) &&
@@ -1616,13 +1638,12 @@ public class ParagraphFormat extends LinkElement {
         Objects.equals(this.styleName, paragraphFormat.styleName) &&
         Objects.equals(this.suppressAutoHyphens, paragraphFormat.suppressAutoHyphens) &&
         Objects.equals(this.suppressLineNumbers, paragraphFormat.suppressLineNumbers) &&
-        Objects.equals(this.widowControl, paragraphFormat.widowControl) &&
-        super.equals(o);
+        Objects.equals(this.widowControl, paragraphFormat.widowControl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl, super.hashCode());
+    return Objects.hash(link, addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl);
   }
 
 
@@ -1630,7 +1651,8 @@ public class ParagraphFormat extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphFormat {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    addSpaceBetweenFarEastAndAlpha: ").append(toIndentedString(addSpaceBetweenFarEastAndAlpha)).append("\n");
     sb.append("    addSpaceBetweenFarEastAndDigit: ").append(toIndentedString(addSpaceBetweenFarEastAndDigit)).append("\n");
     sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");

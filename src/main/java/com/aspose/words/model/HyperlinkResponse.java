@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/hyperlinks/{hyperlinkIndex} .")
 
-public class HyperlinkResponse extends AsposeResponse {
+public class HyperlinkResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("Hyperlink")
   private Hyperlink hyperlink = null;
+
+  public HyperlinkResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public HyperlinkResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public HyperlinkResponse hyperlink(Hyperlink hyperlink) {
     this.hyperlink = hyperlink;
@@ -77,13 +119,14 @@ public class HyperlinkResponse extends AsposeResponse {
       return false;
     }
     HyperlinkResponse hyperlinkResponse = (HyperlinkResponse) o;
-    return Objects.equals(this.hyperlink, hyperlinkResponse.hyperlink) &&
-        super.equals(o);
+    return Objects.equals(this.code, hyperlinkResponse.code) &&
+        Objects.equals(this.status, hyperlinkResponse.status) &&
+        Objects.equals(this.hyperlink, hyperlinkResponse.hyperlink);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hyperlink, super.hashCode());
+    return Objects.hash(code, status, hyperlink);
   }
 
 
@@ -91,7 +134,9 @@ public class HyperlinkResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HyperlinkResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    hyperlink: ").append(toIndentedString(hyperlink)).append("\n");
     sb.append("}");
     return sb.toString();

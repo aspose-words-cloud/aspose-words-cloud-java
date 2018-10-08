@@ -45,7 +45,10 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents all formatting for a table row.")
 
-public class TableRowFormat extends LinkElement {
+public class TableRowFormat {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("AllowBreakAcrossPages")
   private Boolean allowBreakAcrossPages = null;
 
@@ -106,6 +109,24 @@ public class TableRowFormat extends LinkElement {
 
   @SerializedName("HeightRule")
   private HeightRuleEnum heightRule = null;
+
+  public TableRowFormat link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {
     this.allowBreakAcrossPages = allowBreakAcrossPages;
@@ -189,16 +210,16 @@ public class TableRowFormat extends LinkElement {
       return false;
     }
     TableRowFormat tableRowFormat = (TableRowFormat) o;
-    return Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
+    return Objects.equals(this.link, tableRowFormat.link) &&
+        Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
         Objects.equals(this.headingFormat, tableRowFormat.headingFormat) &&
         Objects.equals(this.height, tableRowFormat.height) &&
-        Objects.equals(this.heightRule, tableRowFormat.heightRule) &&
-        super.equals(o);
+        Objects.equals(this.heightRule, tableRowFormat.heightRule);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowBreakAcrossPages, headingFormat, height, heightRule, super.hashCode());
+    return Objects.hash(link, allowBreakAcrossPages, headingFormat, height, heightRule);
   }
 
 
@@ -206,7 +227,8 @@ public class TableRowFormat extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRowFormat {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    allowBreakAcrossPages: ").append(toIndentedString(allowBreakAcrossPages)).append("\n");
     sb.append("    headingFormat: ").append(toIndentedString(headingFormat)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");

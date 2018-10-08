@@ -47,7 +47,13 @@ import java.util.List;
  */
 @ApiModel(description = "This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify")
 
-public class ClassificationResponse extends AsposeResponse {
+public class ClassificationResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("BestClassName")
   private String bestClassName = null;
 
@@ -56,6 +62,42 @@ public class ClassificationResponse extends AsposeResponse {
 
   @SerializedName("BestResults")
   private List<ClassificationResult> bestResults = null;
+
+  public ClassificationResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public ClassificationResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public ClassificationResponse bestClassName(String bestClassName) {
     this.bestClassName = bestClassName;
@@ -129,15 +171,16 @@ public class ClassificationResponse extends AsposeResponse {
       return false;
     }
     ClassificationResponse classificationResponse = (ClassificationResponse) o;
-    return Objects.equals(this.bestClassName, classificationResponse.bestClassName) &&
+    return Objects.equals(this.code, classificationResponse.code) &&
+        Objects.equals(this.status, classificationResponse.status) &&
+        Objects.equals(this.bestClassName, classificationResponse.bestClassName) &&
         Objects.equals(this.bestClassProbability, classificationResponse.bestClassProbability) &&
-        Objects.equals(this.bestResults, classificationResponse.bestResults) &&
-        super.equals(o);
+        Objects.equals(this.bestResults, classificationResponse.bestResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bestClassName, bestClassProbability, bestResults, super.hashCode());
+    return Objects.hash(code, status, bestClassName, bestClassProbability, bestResults);
   }
 
 
@@ -145,7 +188,9 @@ public class ClassificationResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassificationResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    bestClassName: ").append(toIndentedString(bestClassName)).append("\n");
     sb.append("    bestClassProbability: ").append(toIndentedString(bestClassProbability)).append("\n");
     sb.append("    bestResults: ").append(toIndentedString(bestResults)).append("\n");

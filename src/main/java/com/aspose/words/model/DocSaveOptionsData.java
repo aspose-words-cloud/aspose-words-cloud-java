@@ -44,12 +44,201 @@ import java.io.IOException;
  */
 @ApiModel(description = "container class for doc/dot save options")
 
-public class DocSaveOptionsData extends SaveOptionsData {
+public class DocSaveOptionsData {
+  @SerializedName("ColorMode")
+  private String colorMode = null;
+
+  @SerializedName("SaveFormat")
+  private String saveFormat = null;
+
+  @SerializedName("FileName")
+  private String fileName = null;
+
+  @SerializedName("DmlRenderingMode")
+  private String dmlRenderingMode = null;
+
+  @SerializedName("DmlEffectsRenderingMode")
+  private String dmlEffectsRenderingMode = null;
+
+  @SerializedName("ZipOutput")
+  private Boolean zipOutput = null;
+
+  @SerializedName("UpdateLastSavedTimeProperty")
+  private Boolean updateLastSavedTimeProperty = null;
+
+  @SerializedName("UpdateSdtContent")
+  private Boolean updateSdtContent = null;
+
+  @SerializedName("UpdateFields")
+  private Boolean updateFields = null;
+
   @SerializedName("Password")
   private String password = null;
 
   @SerializedName("SaveRoutingSlip")
   private Boolean saveRoutingSlip = null;
+
+  public DocSaveOptionsData colorMode(String colorMode) {
+    this.colorMode = colorMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}
+   * @return colorMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}")
+  public String getColorMode() {
+    return colorMode;
+  }
+
+  public void setColorMode(String colorMode) {
+    this.colorMode = colorMode;
+  }
+
+  public DocSaveOptionsData saveFormat(String saveFormat) {
+    this.saveFormat = saveFormat;
+    return this;
+  }
+
+   /**
+   * format of save
+   * @return saveFormat
+  **/
+  @ApiModelProperty(value = "format of save")
+  public String getSaveFormat() {
+    return saveFormat;
+  }
+
+  public void setSaveFormat(String saveFormat) {
+    this.saveFormat = saveFormat;
+  }
+
+  public DocSaveOptionsData fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * name of destination file
+   * @return fileName
+  **/
+  @ApiModelProperty(value = "name of destination file")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public DocSaveOptionsData dmlRenderingMode(String dmlRenderingMode) {
+    this.dmlRenderingMode = dmlRenderingMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }
+   * @return dmlRenderingMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }")
+  public String getDmlRenderingMode() {
+    return dmlRenderingMode;
+  }
+
+  public void setDmlRenderingMode(String dmlRenderingMode) {
+    this.dmlRenderingMode = dmlRenderingMode;
+  }
+
+  public DocSaveOptionsData dmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }
+   * @return dmlEffectsRenderingMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }")
+  public String getDmlEffectsRenderingMode() {
+    return dmlEffectsRenderingMode;
+  }
+
+  public void setDmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+  }
+
+  public DocSaveOptionsData zipOutput(Boolean zipOutput) {
+    this.zipOutput = zipOutput;
+    return this;
+  }
+
+   /**
+   * Controls zip output or not. Default value is false.
+   * @return zipOutput
+  **/
+  @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
+  public Boolean isisZipOutput() {
+    return zipOutput;
+  }
+
+  public void setZipOutput(Boolean zipOutput) {
+    this.zipOutput = zipOutput;
+  }
+
+  public DocSaveOptionsData updateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
+    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+   * @return updateLastSavedTimeProperty
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
+  public Boolean isisUpdateLastSavedTimeProperty() {
+    return updateLastSavedTimeProperty;
+  }
+
+  public void setUpdateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
+    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+  }
+
+  public DocSaveOptionsData updateSdtContent(Boolean updateSdtContent) {
+    this.updateSdtContent = updateSdtContent;
+    return this;
+  }
+
+   /**
+   * Gets or sets value determining whether content of  is updated before saving.
+   * @return updateSdtContent
+  **/
+  @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
+  public Boolean isisUpdateSdtContent() {
+    return updateSdtContent;
+  }
+
+  public void setUpdateSdtContent(Boolean updateSdtContent) {
+    this.updateSdtContent = updateSdtContent;
+  }
+
+  public DocSaveOptionsData updateFields(Boolean updateFields) {
+    this.updateFields = updateFields;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true
+   * @return updateFields
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
+  public Boolean isisUpdateFields() {
+    return updateFields;
+  }
+
+  public void setUpdateFields(Boolean updateFields) {
+    this.updateFields = updateFields;
+  }
 
   public DocSaveOptionsData password(String password) {
     this.password = password;
@@ -97,14 +286,22 @@ public class DocSaveOptionsData extends SaveOptionsData {
       return false;
     }
     DocSaveOptionsData docSaveOptionsData = (DocSaveOptionsData) o;
-    return Objects.equals(this.password, docSaveOptionsData.password) &&
-        Objects.equals(this.saveRoutingSlip, docSaveOptionsData.saveRoutingSlip) &&
-        super.equals(o);
+    return Objects.equals(this.colorMode, docSaveOptionsData.colorMode) &&
+        Objects.equals(this.saveFormat, docSaveOptionsData.saveFormat) &&
+        Objects.equals(this.fileName, docSaveOptionsData.fileName) &&
+        Objects.equals(this.dmlRenderingMode, docSaveOptionsData.dmlRenderingMode) &&
+        Objects.equals(this.dmlEffectsRenderingMode, docSaveOptionsData.dmlEffectsRenderingMode) &&
+        Objects.equals(this.zipOutput, docSaveOptionsData.zipOutput) &&
+        Objects.equals(this.updateLastSavedTimeProperty, docSaveOptionsData.updateLastSavedTimeProperty) &&
+        Objects.equals(this.updateSdtContent, docSaveOptionsData.updateSdtContent) &&
+        Objects.equals(this.updateFields, docSaveOptionsData.updateFields) &&
+        Objects.equals(this.password, docSaveOptionsData.password) &&
+        Objects.equals(this.saveRoutingSlip, docSaveOptionsData.saveRoutingSlip);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, saveRoutingSlip, super.hashCode());
+    return Objects.hash(colorMode, saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields, password, saveRoutingSlip);
   }
 
 
@@ -112,7 +309,16 @@ public class DocSaveOptionsData extends SaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(zipOutput)).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(updateLastSavedTimeProperty)).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(updateSdtContent)).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    saveRoutingSlip: ").append(toIndentedString(saveRoutingSlip)).append("\n");
     sb.append("}");

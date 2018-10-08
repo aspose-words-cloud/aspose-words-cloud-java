@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/footnotes ")
 
-public class FootnotesResponse extends AsposeResponse {
+public class FootnotesResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("Footnotes")
   private FootnoteCollection footnotes = null;
+
+  public FootnotesResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public FootnotesResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public FootnotesResponse footnotes(FootnoteCollection footnotes) {
     this.footnotes = footnotes;
@@ -77,13 +119,14 @@ public class FootnotesResponse extends AsposeResponse {
       return false;
     }
     FootnotesResponse footnotesResponse = (FootnotesResponse) o;
-    return Objects.equals(this.footnotes, footnotesResponse.footnotes) &&
-        super.equals(o);
+    return Objects.equals(this.code, footnotesResponse.code) &&
+        Objects.equals(this.status, footnotesResponse.status) &&
+        Objects.equals(this.footnotes, footnotesResponse.footnotes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(footnotes, super.hashCode());
+    return Objects.hash(code, status, footnotes);
   }
 
 
@@ -91,7 +134,9 @@ public class FootnotesResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnotesResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    footnotes: ").append(toIndentedString(footnotes)).append("\n");
     sb.append("}");
     return sb.toString();

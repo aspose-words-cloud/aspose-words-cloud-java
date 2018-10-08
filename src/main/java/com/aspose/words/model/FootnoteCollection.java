@@ -48,9 +48,30 @@ import java.util.List;
  */
 @ApiModel(description = "Collection of footnotes.")
 
-public class FootnoteCollection extends LinkElement {
+public class FootnoteCollection {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("List")
   private List<Footnote> list = null;
+
+  public FootnoteCollection link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public FootnoteCollection list(List<Footnote> list) {
     this.list = list;
@@ -88,13 +109,13 @@ public class FootnoteCollection extends LinkElement {
       return false;
     }
     FootnoteCollection footnoteCollection = (FootnoteCollection) o;
-    return Objects.equals(this.list, footnoteCollection.list) &&
-        super.equals(o);
+    return Objects.equals(this.link, footnoteCollection.link) &&
+        Objects.equals(this.list, footnoteCollection.list);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(list, super.hashCode());
+    return Objects.hash(link, list);
   }
 
 
@@ -102,7 +123,8 @@ public class FootnoteCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnoteCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

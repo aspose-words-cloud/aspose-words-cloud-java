@@ -32,14 +32,609 @@ import java.util.Arrays;
 import com.aspose.words.model.GraphicsQualityOptionsData;
 import com.aspose.words.model.ImageSaveOptionsData;
 import com.aspose.words.model.MetafileRenderingOptionsData;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Container class for emf save options.
  */
 @ApiModel(description = "Container class for emf save options.")
 
-public class EmfSaveOptionsData extends ImageSaveOptionsData {
+public class EmfSaveOptionsData {
+  @SerializedName("ColorMode")
+  private String colorMode = null;
+
+  @SerializedName("SaveFormat")
+  private String saveFormat = null;
+
+  @SerializedName("FileName")
+  private String fileName = null;
+
+  @SerializedName("DmlRenderingMode")
+  private String dmlRenderingMode = null;
+
+  @SerializedName("DmlEffectsRenderingMode")
+  private String dmlEffectsRenderingMode = null;
+
+  @SerializedName("ZipOutput")
+  private Boolean zipOutput = null;
+
+  @SerializedName("UpdateLastSavedTimeProperty")
+  private Boolean updateLastSavedTimeProperty = null;
+
+  @SerializedName("UpdateSdtContent")
+  private Boolean updateSdtContent = null;
+
+  @SerializedName("UpdateFields")
+  private Boolean updateFields = null;
+
+  @SerializedName("JpegQuality")
+  private Integer jpegQuality = null;
+
+  @SerializedName("MetafileRenderingOptions")
+  private MetafileRenderingOptionsData metafileRenderingOptions = null;
+
+  @SerializedName("NumeralFormat")
+  private String numeralFormat = null;
+
+  @SerializedName("OptimizeOutput")
+  private Boolean optimizeOutput = null;
+
+  @SerializedName("PageCount")
+  private Integer pageCount = null;
+
+  @SerializedName("PageIndex")
+  private Integer pageIndex = null;
+
+  @SerializedName("GraphicsQualityOptions")
+  private GraphicsQualityOptionsData graphicsQualityOptions = null;
+
+  @SerializedName("HorizontalResolution")
+  private Double horizontalResolution = null;
+
+  @SerializedName("ImageBrightness")
+  private Double imageBrightness = null;
+
+  @SerializedName("ImageColorMode")
+  private String imageColorMode = null;
+
+  @SerializedName("ImageContrast")
+  private Double imageContrast = null;
+
+  @SerializedName("PaperColor")
+  private String paperColor = null;
+
+  @SerializedName("PixelFormat")
+  private String pixelFormat = null;
+
+  @SerializedName("Resolution")
+  private Double resolution = null;
+
+  @SerializedName("Scale")
+  private Double scale = null;
+
+  @SerializedName("UseAntiAliasing")
+  private Boolean useAntiAliasing = null;
+
+  @SerializedName("UseGdiEmfRenderer")
+  private Boolean useGdiEmfRenderer = null;
+
+  @SerializedName("UseHighQualityRendering")
+  private Boolean useHighQualityRendering = null;
+
+  @SerializedName("VerticalResolution")
+  private Double verticalResolution = null;
+
+  public EmfSaveOptionsData colorMode(String colorMode) {
+    this.colorMode = colorMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}
+   * @return colorMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}")
+  public String getColorMode() {
+    return colorMode;
+  }
+
+  public void setColorMode(String colorMode) {
+    this.colorMode = colorMode;
+  }
+
+  public EmfSaveOptionsData saveFormat(String saveFormat) {
+    this.saveFormat = saveFormat;
+    return this;
+  }
+
+   /**
+   * format of save
+   * @return saveFormat
+  **/
+  @ApiModelProperty(value = "format of save")
+  public String getSaveFormat() {
+    return saveFormat;
+  }
+
+  public void setSaveFormat(String saveFormat) {
+    this.saveFormat = saveFormat;
+  }
+
+  public EmfSaveOptionsData fileName(String fileName) {
+    this.fileName = fileName;
+    return this;
+  }
+
+   /**
+   * name of destination file
+   * @return fileName
+  **/
+  @ApiModelProperty(value = "name of destination file")
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public EmfSaveOptionsData dmlRenderingMode(String dmlRenderingMode) {
+    this.dmlRenderingMode = dmlRenderingMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }
+   * @return dmlRenderingMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }")
+  public String getDmlRenderingMode() {
+    return dmlRenderingMode;
+  }
+
+  public void setDmlRenderingMode(String dmlRenderingMode) {
+    this.dmlRenderingMode = dmlRenderingMode;
+  }
+
+  public EmfSaveOptionsData dmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }
+   * @return dmlEffectsRenderingMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }")
+  public String getDmlEffectsRenderingMode() {
+    return dmlEffectsRenderingMode;
+  }
+
+  public void setDmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
+    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+  }
+
+  public EmfSaveOptionsData zipOutput(Boolean zipOutput) {
+    this.zipOutput = zipOutput;
+    return this;
+  }
+
+   /**
+   * Controls zip output or not. Default value is false.
+   * @return zipOutput
+  **/
+  @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
+  public Boolean isisZipOutput() {
+    return zipOutput;
+  }
+
+  public void setZipOutput(Boolean zipOutput) {
+    this.zipOutput = zipOutput;
+  }
+
+  public EmfSaveOptionsData updateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
+    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+   * @return updateLastSavedTimeProperty
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
+  public Boolean isisUpdateLastSavedTimeProperty() {
+    return updateLastSavedTimeProperty;
+  }
+
+  public void setUpdateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
+    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+  }
+
+  public EmfSaveOptionsData updateSdtContent(Boolean updateSdtContent) {
+    this.updateSdtContent = updateSdtContent;
+    return this;
+  }
+
+   /**
+   * Gets or sets value determining whether content of  is updated before saving.
+   * @return updateSdtContent
+  **/
+  @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
+  public Boolean isisUpdateSdtContent() {
+    return updateSdtContent;
+  }
+
+  public void setUpdateSdtContent(Boolean updateSdtContent) {
+    this.updateSdtContent = updateSdtContent;
+  }
+
+  public EmfSaveOptionsData updateFields(Boolean updateFields) {
+    this.updateFields = updateFields;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true
+   * @return updateFields
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
+  public Boolean isisUpdateFields() {
+    return updateFields;
+  }
+
+  public void setUpdateFields(Boolean updateFields) {
+    this.updateFields = updateFields;
+  }
+
+  public EmfSaveOptionsData jpegQuality(Integer jpegQuality) {
+    this.jpegQuality = jpegQuality;
+    return this;
+  }
+
+   /**
+   * Determines the quality of the JPEG images inside PDF document.
+   * @return jpegQuality
+  **/
+  @ApiModelProperty(value = "Determines the quality of the JPEG images inside PDF document.")
+  public Integer getJpegQuality() {
+    return jpegQuality;
+  }
+
+  public void setJpegQuality(Integer jpegQuality) {
+    this.jpegQuality = jpegQuality;
+  }
+
+  public EmfSaveOptionsData metafileRenderingOptions(MetafileRenderingOptionsData metafileRenderingOptions) {
+    this.metafileRenderingOptions = metafileRenderingOptions;
+    return this;
+  }
+
+   /**
+   * Allows to specify metafile rendering options.
+   * @return metafileRenderingOptions
+  **/
+  @ApiModelProperty(value = "Allows to specify metafile rendering options.")
+  public MetafileRenderingOptionsData getMetafileRenderingOptions() {
+    return metafileRenderingOptions;
+  }
+
+  public void setMetafileRenderingOptions(MetafileRenderingOptionsData metafileRenderingOptions) {
+    this.metafileRenderingOptions = metafileRenderingOptions;
+  }
+
+  public EmfSaveOptionsData numeralFormat(String numeralFormat) {
+    this.numeralFormat = numeralFormat;
+    return this;
+  }
+
+   /**
+   * Indicates the symbol set that is used to represent numbers while rendering to fixed page formats
+   * @return numeralFormat
+  **/
+  @ApiModelProperty(value = "Indicates the symbol set that is used to represent numbers while rendering to fixed page formats")
+  public String getNumeralFormat() {
+    return numeralFormat;
+  }
+
+  public void setNumeralFormat(String numeralFormat) {
+    this.numeralFormat = numeralFormat;
+  }
+
+  public EmfSaveOptionsData optimizeOutput(Boolean optimizeOutput) {
+    this.optimizeOutput = optimizeOutput;
+    return this;
+  }
+
+   /**
+   * Flag indicates whether it is required to optimize output of XPS.  If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.  Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
+   * @return optimizeOutput
+  **/
+  @ApiModelProperty(value = "Flag indicates whether it is required to optimize output of XPS.  If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated.  Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.")
+  public Boolean isisOptimizeOutput() {
+    return optimizeOutput;
+  }
+
+  public void setOptimizeOutput(Boolean optimizeOutput) {
+    this.optimizeOutput = optimizeOutput;
+  }
+
+  public EmfSaveOptionsData pageCount(Integer pageCount) {
+    this.pageCount = pageCount;
+    return this;
+  }
+
+   /**
+   * Determines number of pages to render
+   * @return pageCount
+  **/
+  @ApiModelProperty(value = "Determines number of pages to render")
+  public Integer getPageCount() {
+    return pageCount;
+  }
+
+  public void setPageCount(Integer pageCount) {
+    this.pageCount = pageCount;
+  }
+
+  public EmfSaveOptionsData pageIndex(Integer pageIndex) {
+    this.pageIndex = pageIndex;
+    return this;
+  }
+
+   /**
+   * Determines 0-based index of the first page to render
+   * @return pageIndex
+  **/
+  @ApiModelProperty(value = "Determines 0-based index of the first page to render")
+  public Integer getPageIndex() {
+    return pageIndex;
+  }
+
+  public void setPageIndex(Integer pageIndex) {
+    this.pageIndex = pageIndex;
+  }
+
+  public EmfSaveOptionsData graphicsQualityOptions(GraphicsQualityOptionsData graphicsQualityOptions) {
+    this.graphicsQualityOptions = graphicsQualityOptions;
+    return this;
+  }
+
+   /**
+   * Allows to specify additional System.Drawing.Graphics quality options.
+   * @return graphicsQualityOptions
+  **/
+  @ApiModelProperty(value = "Allows to specify additional System.Drawing.Graphics quality options.")
+  public GraphicsQualityOptionsData getGraphicsQualityOptions() {
+    return graphicsQualityOptions;
+  }
+
+  public void setGraphicsQualityOptions(GraphicsQualityOptionsData graphicsQualityOptions) {
+    this.graphicsQualityOptions = graphicsQualityOptions;
+  }
+
+  public EmfSaveOptionsData horizontalResolution(Double horizontalResolution) {
+    this.horizontalResolution = horizontalResolution;
+    return this;
+  }
+
+   /**
+   * Gets or sets the horizontal resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
+   * @return horizontalResolution
+  **/
+  @ApiModelProperty(value = "Gets or sets the horizontal resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.")
+  public Double getHorizontalResolution() {
+    return horizontalResolution;
+  }
+
+  public void setHorizontalResolution(Double horizontalResolution) {
+    this.horizontalResolution = horizontalResolution;
+  }
+
+  public EmfSaveOptionsData imageBrightness(Double imageBrightness) {
+    this.imageBrightness = imageBrightness;
+    return this;
+  }
+
+   /**
+   * Brightness of image
+   * @return imageBrightness
+  **/
+  @ApiModelProperty(value = "Brightness of image")
+  public Double getImageBrightness() {
+    return imageBrightness;
+  }
+
+  public void setImageBrightness(Double imageBrightness) {
+    this.imageBrightness = imageBrightness;
+  }
+
+  public EmfSaveOptionsData imageColorMode(String imageColorMode) {
+    this.imageColorMode = imageColorMode;
+    return this;
+  }
+
+   /**
+   * Color mode of image
+   * @return imageColorMode
+  **/
+  @ApiModelProperty(value = "Color mode of image")
+  public String getImageColorMode() {
+    return imageColorMode;
+  }
+
+  public void setImageColorMode(String imageColorMode) {
+    this.imageColorMode = imageColorMode;
+  }
+
+  public EmfSaveOptionsData imageContrast(Double imageContrast) {
+    this.imageContrast = imageContrast;
+    return this;
+  }
+
+   /**
+   * Contrast of image
+   * @return imageContrast
+  **/
+  @ApiModelProperty(value = "Contrast of image")
+  public Double getImageContrast() {
+    return imageContrast;
+  }
+
+  public void setImageContrast(Double imageContrast) {
+    this.imageContrast = imageContrast;
+  }
+
+  public EmfSaveOptionsData paperColor(String paperColor) {
+    this.paperColor = paperColor;
+    return this;
+  }
+
+   /**
+   * Background (paper) color of image
+   * @return paperColor
+  **/
+  @ApiModelProperty(value = "Background (paper) color of image")
+  public String getPaperColor() {
+    return paperColor;
+  }
+
+  public void setPaperColor(String paperColor) {
+    this.paperColor = paperColor;
+  }
+
+  public EmfSaveOptionsData pixelFormat(String pixelFormat) {
+    this.pixelFormat = pixelFormat;
+    return this;
+  }
+
+   /**
+   * Pixel format of image
+   * @return pixelFormat
+  **/
+  @ApiModelProperty(value = "Pixel format of image")
+  public String getPixelFormat() {
+    return pixelFormat;
+  }
+
+  public void setPixelFormat(String pixelFormat) {
+    this.pixelFormat = pixelFormat;
+  }
+
+  public EmfSaveOptionsData resolution(Double resolution) {
+    this.resolution = resolution;
+    return this;
+  }
+
+   /**
+   * Sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
+   * @return resolution
+  **/
+  @ApiModelProperty(value = "Sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.")
+  public Double getResolution() {
+    return resolution;
+  }
+
+  public void setResolution(Double resolution) {
+    this.resolution = resolution;
+  }
+
+  public EmfSaveOptionsData scale(Double scale) {
+    this.scale = scale;
+    return this;
+  }
+
+   /**
+   * Zoom factor of image
+   * @return scale
+  **/
+  @ApiModelProperty(value = "Zoom factor of image")
+  public Double getScale() {
+    return scale;
+  }
+
+  public void setScale(Double scale) {
+    this.scale = scale;
+  }
+
+  public EmfSaveOptionsData useAntiAliasing(Boolean useAntiAliasing) {
+    this.useAntiAliasing = useAntiAliasing;
+    return this;
+  }
+
+   /**
+   * Determine whether or not to use anti-aliasing for rendering
+   * @return useAntiAliasing
+  **/
+  @ApiModelProperty(value = "Determine whether or not to use anti-aliasing for rendering")
+  public Boolean isisUseAntiAliasing() {
+    return useAntiAliasing;
+  }
+
+  public void setUseAntiAliasing(Boolean useAntiAliasing) {
+    this.useAntiAliasing = useAntiAliasing;
+  }
+
+  public EmfSaveOptionsData useGdiEmfRenderer(Boolean useGdiEmfRenderer) {
+    this.useGdiEmfRenderer = useGdiEmfRenderer;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+   * @return useGdiEmfRenderer
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.")
+  public Boolean isisUseGdiEmfRenderer() {
+    return useGdiEmfRenderer;
+  }
+
+  public void setUseGdiEmfRenderer(Boolean useGdiEmfRenderer) {
+    this.useGdiEmfRenderer = useGdiEmfRenderer;
+  }
+
+  public EmfSaveOptionsData useHighQualityRendering(Boolean useHighQualityRendering) {
+    this.useHighQualityRendering = useHighQualityRendering;
+    return this;
+  }
+
+   /**
+   * Determine whether or not to use high quality (i.e. slow) rendering algorithms
+   * @return useHighQualityRendering
+  **/
+  @ApiModelProperty(value = "Determine whether or not to use high quality (i.e. slow) rendering algorithms")
+  public Boolean isisUseHighQualityRendering() {
+    return useHighQualityRendering;
+  }
+
+  public void setUseHighQualityRendering(Boolean useHighQualityRendering) {
+    this.useHighQualityRendering = useHighQualityRendering;
+  }
+
+  public EmfSaveOptionsData verticalResolution(Double verticalResolution) {
+    this.verticalResolution = verticalResolution;
+    return this;
+  }
+
+   /**
+   * Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
+   * @return verticalResolution
+  **/
+  @ApiModelProperty(value = "Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.")
+  public Double getVerticalResolution() {
+    return verticalResolution;
+  }
+
+  public void setVerticalResolution(Double verticalResolution) {
+    this.verticalResolution = verticalResolution;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -49,12 +644,40 @@ public class EmfSaveOptionsData extends ImageSaveOptionsData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    EmfSaveOptionsData emfSaveOptionsData = (EmfSaveOptionsData) o;
+    return Objects.equals(this.colorMode, emfSaveOptionsData.colorMode) &&
+        Objects.equals(this.saveFormat, emfSaveOptionsData.saveFormat) &&
+        Objects.equals(this.fileName, emfSaveOptionsData.fileName) &&
+        Objects.equals(this.dmlRenderingMode, emfSaveOptionsData.dmlRenderingMode) &&
+        Objects.equals(this.dmlEffectsRenderingMode, emfSaveOptionsData.dmlEffectsRenderingMode) &&
+        Objects.equals(this.zipOutput, emfSaveOptionsData.zipOutput) &&
+        Objects.equals(this.updateLastSavedTimeProperty, emfSaveOptionsData.updateLastSavedTimeProperty) &&
+        Objects.equals(this.updateSdtContent, emfSaveOptionsData.updateSdtContent) &&
+        Objects.equals(this.updateFields, emfSaveOptionsData.updateFields) &&
+        Objects.equals(this.jpegQuality, emfSaveOptionsData.jpegQuality) &&
+        Objects.equals(this.metafileRenderingOptions, emfSaveOptionsData.metafileRenderingOptions) &&
+        Objects.equals(this.numeralFormat, emfSaveOptionsData.numeralFormat) &&
+        Objects.equals(this.optimizeOutput, emfSaveOptionsData.optimizeOutput) &&
+        Objects.equals(this.pageCount, emfSaveOptionsData.pageCount) &&
+        Objects.equals(this.pageIndex, emfSaveOptionsData.pageIndex) &&
+        Objects.equals(this.graphicsQualityOptions, emfSaveOptionsData.graphicsQualityOptions) &&
+        Objects.equals(this.horizontalResolution, emfSaveOptionsData.horizontalResolution) &&
+        Objects.equals(this.imageBrightness, emfSaveOptionsData.imageBrightness) &&
+        Objects.equals(this.imageColorMode, emfSaveOptionsData.imageColorMode) &&
+        Objects.equals(this.imageContrast, emfSaveOptionsData.imageContrast) &&
+        Objects.equals(this.paperColor, emfSaveOptionsData.paperColor) &&
+        Objects.equals(this.pixelFormat, emfSaveOptionsData.pixelFormat) &&
+        Objects.equals(this.resolution, emfSaveOptionsData.resolution) &&
+        Objects.equals(this.scale, emfSaveOptionsData.scale) &&
+        Objects.equals(this.useAntiAliasing, emfSaveOptionsData.useAntiAliasing) &&
+        Objects.equals(this.useGdiEmfRenderer, emfSaveOptionsData.useGdiEmfRenderer) &&
+        Objects.equals(this.useHighQualityRendering, emfSaveOptionsData.useHighQualityRendering) &&
+        Objects.equals(this.verticalResolution, emfSaveOptionsData.verticalResolution);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(colorMode, saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields, jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex, graphicsQualityOptions, horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useGdiEmfRenderer, useHighQualityRendering, verticalResolution);
   }
 
 
@@ -62,7 +685,35 @@ public class EmfSaveOptionsData extends ImageSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmfSaveOptionsData {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
+    sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
+    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
+    sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
+    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
+    sb.append("    zipOutput: ").append(toIndentedString(zipOutput)).append("\n");
+    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(updateLastSavedTimeProperty)).append("\n");
+    sb.append("    updateSdtContent: ").append(toIndentedString(updateSdtContent)).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
+    sb.append("    jpegQuality: ").append(toIndentedString(jpegQuality)).append("\n");
+    sb.append("    metafileRenderingOptions: ").append(toIndentedString(metafileRenderingOptions)).append("\n");
+    sb.append("    numeralFormat: ").append(toIndentedString(numeralFormat)).append("\n");
+    sb.append("    optimizeOutput: ").append(toIndentedString(optimizeOutput)).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
+    sb.append("    pageIndex: ").append(toIndentedString(pageIndex)).append("\n");
+    sb.append("    graphicsQualityOptions: ").append(toIndentedString(graphicsQualityOptions)).append("\n");
+    sb.append("    horizontalResolution: ").append(toIndentedString(horizontalResolution)).append("\n");
+    sb.append("    imageBrightness: ").append(toIndentedString(imageBrightness)).append("\n");
+    sb.append("    imageColorMode: ").append(toIndentedString(imageColorMode)).append("\n");
+    sb.append("    imageContrast: ").append(toIndentedString(imageContrast)).append("\n");
+    sb.append("    paperColor: ").append(toIndentedString(paperColor)).append("\n");
+    sb.append("    pixelFormat: ").append(toIndentedString(pixelFormat)).append("\n");
+    sb.append("    resolution: ").append(toIndentedString(resolution)).append("\n");
+    sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
+    sb.append("    useAntiAliasing: ").append(toIndentedString(useAntiAliasing)).append("\n");
+    sb.append("    useGdiEmfRenderer: ").append(toIndentedString(useGdiEmfRenderer)).append("\n");
+    sb.append("    useHighQualityRendering: ").append(toIndentedString(useHighQualityRendering)).append("\n");
+    sb.append("    verticalResolution: ").append(toIndentedString(verticalResolution)).append("\n");
     sb.append("}");
     return sb.toString();
   }

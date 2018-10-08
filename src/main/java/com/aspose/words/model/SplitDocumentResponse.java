@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  POST /{name}/split .")
 
-public class SplitDocumentResponse extends AsposeResponse {
+public class SplitDocumentResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("SplitResult")
   private SplitDocumentResult splitResult = null;
+
+  public SplitDocumentResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public SplitDocumentResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public SplitDocumentResponse splitResult(SplitDocumentResult splitResult) {
     this.splitResult = splitResult;
@@ -77,13 +119,14 @@ public class SplitDocumentResponse extends AsposeResponse {
       return false;
     }
     SplitDocumentResponse splitDocumentResponse = (SplitDocumentResponse) o;
-    return Objects.equals(this.splitResult, splitDocumentResponse.splitResult) &&
-        super.equals(o);
+    return Objects.equals(this.code, splitDocumentResponse.code) &&
+        Objects.equals(this.status, splitDocumentResponse.status) &&
+        Objects.equals(this.splitResult, splitDocumentResponse.splitResult);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(splitResult, super.hashCode());
+    return Objects.hash(code, status, splitResult);
   }
 
 
@@ -91,7 +134,9 @@ public class SplitDocumentResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplitDocumentResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    splitResult: ").append(toIndentedString(splitResult)).append("\n");
     sb.append("}");
     return sb.toString();

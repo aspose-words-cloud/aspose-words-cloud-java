@@ -45,12 +45,75 @@ import java.io.IOException;
  */
 @ApiModel(description = "Field")
 
-public class Field extends FieldLink {
+public class Field {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
+  @SerializedName("NodeId")
+  private String nodeId = null;
+
+  @SerializedName("FieldCode")
+  private String fieldCode = null;
+
   @SerializedName("LocaleId")
   private String localeId = null;
 
   @SerializedName("Result")
   private String result = null;
+
+  public Field link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
+
+  public Field nodeId(String nodeId) {
+    this.nodeId = nodeId;
+    return this;
+  }
+
+   /**
+   * Node id
+   * @return nodeId
+  **/
+  @ApiModelProperty(value = "Node id")
+  public String getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public Field fieldCode(String fieldCode) {
+    this.fieldCode = fieldCode;
+    return this;
+  }
+
+   /**
+   * Field code
+   * @return fieldCode
+  **/
+  @ApiModelProperty(value = "Field code")
+  public String getFieldCode() {
+    return fieldCode;
+  }
+
+  public void setFieldCode(String fieldCode) {
+    this.fieldCode = fieldCode;
+  }
 
   public Field localeId(String localeId) {
     this.localeId = localeId;
@@ -98,14 +161,16 @@ public class Field extends FieldLink {
       return false;
     }
     Field field = (Field) o;
-    return Objects.equals(this.localeId, field.localeId) &&
-        Objects.equals(this.result, field.result) &&
-        super.equals(o);
+    return Objects.equals(this.link, field.link) &&
+        Objects.equals(this.nodeId, field.nodeId) &&
+        Objects.equals(this.fieldCode, field.fieldCode) &&
+        Objects.equals(this.localeId, field.localeId) &&
+        Objects.equals(this.result, field.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(localeId, result, super.hashCode());
+    return Objects.hash(link, nodeId, fieldCode, localeId, result);
   }
 
 
@@ -113,7 +178,10 @@ public class Field extends FieldLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Field {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    fieldCode: ").append(toIndentedString(fieldCode)).append("\n");
     sb.append("    localeId: ").append(toIndentedString(localeId)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");

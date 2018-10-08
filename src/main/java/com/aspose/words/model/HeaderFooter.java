@@ -46,12 +46,109 @@ import java.io.IOException;
  */
 @ApiModel(description = "Section element")
 
-public class HeaderFooter extends HeaderFooterLink {
+public class HeaderFooter {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
+  /**
+   * Paragraph&#39;s text
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    HEADEREVEN("HeaderEven"),
+    
+    HEADERPRIMARY("HeaderPrimary"),
+    
+    FOOTEREVEN("FooterEven"),
+    
+    FOOTERPRIMARY("FooterPrimary"),
+    
+    HEADERFIRST("HeaderFirst"),
+    
+    FOOTERFIRST("FooterFirst");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String text) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("Type")
+  private TypeEnum type = null;
+
   @SerializedName("DrawingObjects")
   private LinkElement drawingObjects = null;
 
   @SerializedName("Paragraphs")
   private LinkElement paragraphs = null;
+
+  public HeaderFooter link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
+
+  public HeaderFooter type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Paragraph&#39;s text
+   * @return type
+  **/
+  @ApiModelProperty(value = "Paragraph's text")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
 
   public HeaderFooter drawingObjects(LinkElement drawingObjects) {
     this.drawingObjects = drawingObjects;
@@ -99,14 +196,15 @@ public class HeaderFooter extends HeaderFooterLink {
       return false;
     }
     HeaderFooter headerFooter = (HeaderFooter) o;
-    return Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
-        Objects.equals(this.paragraphs, headerFooter.paragraphs) &&
-        super.equals(o);
+    return Objects.equals(this.link, headerFooter.link) &&
+        Objects.equals(this.type, headerFooter.type) &&
+        Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
+        Objects.equals(this.paragraphs, headerFooter.paragraphs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(drawingObjects, paragraphs, super.hashCode());
+    return Objects.hash(link, type, drawingObjects, paragraphs);
   }
 
 
@@ -114,7 +212,9 @@ public class HeaderFooter extends HeaderFooterLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooter {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    drawingObjects: ").append(toIndentedString(drawingObjects)).append("\n");
     sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
     sb.append("}");

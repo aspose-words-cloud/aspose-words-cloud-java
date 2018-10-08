@@ -45,7 +45,40 @@ import java.io.IOException;
  */
 @ApiModel(description = "FormField text input element")
 
-public class FormFieldTextInput extends FormField {
+public class FormFieldTextInput {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
+  @SerializedName("NodeId")
+  private String nodeId = null;
+
+  @SerializedName("CalculateOnExit")
+  private Boolean calculateOnExit = null;
+
+  @SerializedName("Enabled")
+  private Boolean enabled = null;
+
+  @SerializedName("EntryMacro")
+  private String entryMacro = null;
+
+  @SerializedName("ExitMacro")
+  private String exitMacro = null;
+
+  @SerializedName("HelpText")
+  private String helpText = null;
+
+  @SerializedName("Name")
+  private String name = null;
+
+  @SerializedName("OwnHelp")
+  private Boolean ownHelp = null;
+
+  @SerializedName("OwnStatus")
+  private Boolean ownStatus = null;
+
+  @SerializedName("StatusText")
+  private String statusText = null;
+
   @SerializedName("MaxLength")
   private Integer maxLength = null;
 
@@ -112,6 +145,204 @@ public class FormFieldTextInput extends FormField {
 
   @SerializedName("TextInputType")
   private TextInputTypeEnum textInputType = null;
+
+  public FormFieldTextInput link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
+
+  public FormFieldTextInput nodeId(String nodeId) {
+    this.nodeId = nodeId;
+    return this;
+  }
+
+   /**
+   * Node id
+   * @return nodeId
+  **/
+  @ApiModelProperty(value = "Node id")
+  public String getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public FormFieldTextInput calculateOnExit(Boolean calculateOnExit) {
+    this.calculateOnExit = calculateOnExit;
+    return this;
+  }
+
+   /**
+   * True if references to the specified form field are automatically updated whenever the field is exited.
+   * @return calculateOnExit
+  **/
+  @ApiModelProperty(value = "True if references to the specified form field are automatically updated whenever the field is exited.")
+  public Boolean isisCalculateOnExit() {
+    return calculateOnExit;
+  }
+
+  public void setCalculateOnExit(Boolean calculateOnExit) {
+    this.calculateOnExit = calculateOnExit;
+  }
+
+  public FormFieldTextInput enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * True if a form field is enabled.
+   * @return enabled
+  **/
+  @ApiModelProperty(value = "True if a form field is enabled.")
+  public Boolean isisEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public FormFieldTextInput entryMacro(String entryMacro) {
+    this.entryMacro = entryMacro;
+    return this;
+  }
+
+   /**
+   * Returns or sets an entry macro name for the form field.
+   * @return entryMacro
+  **/
+  @ApiModelProperty(value = "Returns or sets an entry macro name for the form field.")
+  public String getEntryMacro() {
+    return entryMacro;
+  }
+
+  public void setEntryMacro(String entryMacro) {
+    this.entryMacro = entryMacro;
+  }
+
+  public FormFieldTextInput exitMacro(String exitMacro) {
+    this.exitMacro = exitMacro;
+    return this;
+  }
+
+   /**
+   * Returns or sets an exit macro name for the form field.
+   * @return exitMacro
+  **/
+  @ApiModelProperty(value = "Returns or sets an exit macro name for the form field.")
+  public String getExitMacro() {
+    return exitMacro;
+  }
+
+  public void setExitMacro(String exitMacro) {
+    this.exitMacro = exitMacro;
+  }
+
+  public FormFieldTextInput helpText(String helpText) {
+    this.helpText = helpText;
+    return this;
+  }
+
+   /**
+   * Returns or sets the text that&#39;s displayed in a message box when the form field has the focus and the user presses F1.
+   * @return helpText
+  **/
+  @ApiModelProperty(value = "Returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.")
+  public String getHelpText() {
+    return helpText;
+  }
+
+  public void setHelpText(String helpText) {
+    this.helpText = helpText;
+  }
+
+  public FormFieldTextInput name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Gets or sets the form field name.
+   * @return name
+  **/
+  @ApiModelProperty(value = "Gets or sets the form field name.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FormFieldTextInput ownHelp(Boolean ownHelp) {
+    this.ownHelp = ownHelp;
+    return this;
+  }
+
+   /**
+   * Specifies the source of the text that&#39;s displayed in a message box when a form field has the focus and the user presses F1.
+   * @return ownHelp
+  **/
+  @ApiModelProperty(value = "Specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.")
+  public Boolean isisOwnHelp() {
+    return ownHelp;
+  }
+
+  public void setOwnHelp(Boolean ownHelp) {
+    this.ownHelp = ownHelp;
+  }
+
+  public FormFieldTextInput ownStatus(Boolean ownStatus) {
+    this.ownStatus = ownStatus;
+    return this;
+  }
+
+   /**
+   * Specifies the source of the text that&#39;s displayed in the status bar when a form field has the focus.
+   * @return ownStatus
+  **/
+  @ApiModelProperty(value = "Specifies the source of the text that's displayed in the status bar when a form field has the focus.")
+  public Boolean isisOwnStatus() {
+    return ownStatus;
+  }
+
+  public void setOwnStatus(Boolean ownStatus) {
+    this.ownStatus = ownStatus;
+  }
+
+  public FormFieldTextInput statusText(String statusText) {
+    this.statusText = statusText;
+    return this;
+  }
+
+   /**
+   * Returns or sets the text that&#39;s displayed in the status bar when a form field has the focus.
+   * @return statusText
+  **/
+  @ApiModelProperty(value = "Returns or sets the text that's displayed in the status bar when a form field has the focus.")
+  public String getStatusText() {
+    return statusText;
+  }
+
+  public void setStatusText(String statusText) {
+    this.statusText = statusText;
+  }
 
   public FormFieldTextInput maxLength(Integer maxLength) {
     this.maxLength = maxLength;
@@ -195,16 +426,26 @@ public class FormFieldTextInput extends FormField {
       return false;
     }
     FormFieldTextInput formFieldTextInput = (FormFieldTextInput) o;
-    return Objects.equals(this.maxLength, formFieldTextInput.maxLength) &&
+    return Objects.equals(this.link, formFieldTextInput.link) &&
+        Objects.equals(this.nodeId, formFieldTextInput.nodeId) &&
+        Objects.equals(this.calculateOnExit, formFieldTextInput.calculateOnExit) &&
+        Objects.equals(this.enabled, formFieldTextInput.enabled) &&
+        Objects.equals(this.entryMacro, formFieldTextInput.entryMacro) &&
+        Objects.equals(this.exitMacro, formFieldTextInput.exitMacro) &&
+        Objects.equals(this.helpText, formFieldTextInput.helpText) &&
+        Objects.equals(this.name, formFieldTextInput.name) &&
+        Objects.equals(this.ownHelp, formFieldTextInput.ownHelp) &&
+        Objects.equals(this.ownStatus, formFieldTextInput.ownStatus) &&
+        Objects.equals(this.statusText, formFieldTextInput.statusText) &&
+        Objects.equals(this.maxLength, formFieldTextInput.maxLength) &&
         Objects.equals(this.textInputDefault, formFieldTextInput.textInputDefault) &&
         Objects.equals(this.textInputFormat, formFieldTextInput.textInputFormat) &&
-        Objects.equals(this.textInputType, formFieldTextInput.textInputType) &&
-        super.equals(o);
+        Objects.equals(this.textInputType, formFieldTextInput.textInputType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxLength, textInputDefault, textInputFormat, textInputType, super.hashCode());
+    return Objects.hash(link, nodeId, calculateOnExit, enabled, entryMacro, exitMacro, helpText, name, ownHelp, ownStatus, statusText, maxLength, textInputDefault, textInputFormat, textInputType);
   }
 
 
@@ -212,7 +453,18 @@ public class FormFieldTextInput extends FormField {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormFieldTextInput {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    calculateOnExit: ").append(toIndentedString(calculateOnExit)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    entryMacro: ").append(toIndentedString(entryMacro)).append("\n");
+    sb.append("    exitMacro: ").append(toIndentedString(exitMacro)).append("\n");
+    sb.append("    helpText: ").append(toIndentedString(helpText)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ownHelp: ").append(toIndentedString(ownHelp)).append("\n");
+    sb.append("    ownStatus: ").append(toIndentedString(ownStatus)).append("\n");
+    sb.append("    statusText: ").append(toIndentedString(statusText)).append("\n");
     sb.append("    maxLength: ").append(toIndentedString(maxLength)).append("\n");
     sb.append("    textInputDefault: ").append(toIndentedString(textInputDefault)).append("\n");
     sb.append("    textInputFormat: ").append(toIndentedString(textInputFormat)).append("\n");

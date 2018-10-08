@@ -48,7 +48,10 @@ import org.threeten.bp.OffsetDateTime;
  */
 @ApiModel(description = "Comment.")
 
-public class Comment extends CommentLink {
+public class Comment {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("Author")
   private String author = null;
 
@@ -69,6 +72,24 @@ public class Comment extends CommentLink {
 
   @SerializedName("Text")
   private String text = null;
+
+  public Comment link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public Comment author(String author) {
     this.author = author;
@@ -206,19 +227,19 @@ public class Comment extends CommentLink {
       return false;
     }
     Comment comment = (Comment) o;
-    return Objects.equals(this.author, comment.author) &&
+    return Objects.equals(this.link, comment.link) &&
+        Objects.equals(this.author, comment.author) &&
         Objects.equals(this.content, comment.content) &&
         Objects.equals(this.dateTime, comment.dateTime) &&
         Objects.equals(this.initial, comment.initial) &&
         Objects.equals(this.rangeEnd, comment.rangeEnd) &&
         Objects.equals(this.rangeStart, comment.rangeStart) &&
-        Objects.equals(this.text, comment.text) &&
-        super.equals(o);
+        Objects.equals(this.text, comment.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, content, dateTime, initial, rangeEnd, rangeStart, text, super.hashCode());
+    return Objects.hash(link, author, content, dateTime, initial, rangeEnd, rangeStart, text);
   }
 
 
@@ -226,7 +247,8 @@ public class Comment extends CommentLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Comment {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");

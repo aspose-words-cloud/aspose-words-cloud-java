@@ -43,7 +43,6 @@ import java.io.IOException;
  */
 @ApiModel(description = "Base class for all responses.")
 
-
 public class AsposeResponse {
   @SerializedName("Code")
   private Integer code = null;
@@ -51,8 +50,6 @@ public class AsposeResponse {
   @SerializedName("Status")
   private String status = null;
 
-  public AsposeResponse() {
-  }
   public AsposeResponse code(Integer code) {
     this.code = code;
     return this;

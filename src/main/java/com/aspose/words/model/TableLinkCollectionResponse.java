@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables.")
 
-public class TableLinkCollectionResponse extends AsposeResponse {
+public class TableLinkCollectionResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("Tables")
   private TableLinkCollection tables = null;
+
+  public TableLinkCollectionResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public TableLinkCollectionResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public TableLinkCollectionResponse tables(TableLinkCollection tables) {
     this.tables = tables;
@@ -77,13 +119,14 @@ public class TableLinkCollectionResponse extends AsposeResponse {
       return false;
     }
     TableLinkCollectionResponse tableLinkCollectionResponse = (TableLinkCollectionResponse) o;
-    return Objects.equals(this.tables, tableLinkCollectionResponse.tables) &&
-        super.equals(o);
+    return Objects.equals(this.code, tableLinkCollectionResponse.code) &&
+        Objects.equals(this.status, tableLinkCollectionResponse.status) &&
+        Objects.equals(this.tables, tableLinkCollectionResponse.tables);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tables, super.hashCode());
+    return Objects.hash(code, status, tables);
   }
 
 
@@ -91,7 +134,9 @@ public class TableLinkCollectionResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableLinkCollectionResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tables: ").append(toIndentedString(tables)).append("\n");
     sb.append("}");
     return sb.toString();

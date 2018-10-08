@@ -43,7 +43,6 @@ import java.io.IOException;
  */
 @ApiModel(description = "Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7")
 
-
 public class Link {
   @SerializedName("Href")
   private String href = null;
@@ -57,8 +56,6 @@ public class Link {
   @SerializedName("Title")
   private String title = null;
 
-  public Link() {
-  }
   public Link href(String href) {
     this.href = href;
     return this;

@@ -47,9 +47,30 @@ import java.util.List;
  */
 @ApiModel(description = "Represents a collection of merge fields within a document. ")
 
-public class FieldNames extends LinkElement {
+public class FieldNames {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("Names")
   private List<String> names = null;
+
+  public FieldNames link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public FieldNames names(List<String> names) {
     this.names = names;
@@ -87,13 +108,13 @@ public class FieldNames extends LinkElement {
       return false;
     }
     FieldNames fieldNames = (FieldNames) o;
-    return Objects.equals(this.names, fieldNames.names) &&
-        super.equals(o);
+    return Objects.equals(this.link, fieldNames.link) &&
+        Objects.equals(this.names, fieldNames.names);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(names, super.hashCode());
+    return Objects.hash(link, names);
   }
 
 
@@ -101,7 +122,8 @@ public class FieldNames extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldNames {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    names: ").append(toIndentedString(names)).append("\n");
     sb.append("}");
     return sb.toString();

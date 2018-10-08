@@ -46,7 +46,10 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents the table properties.             ")
 
-public class TableProperties extends LinkElement {
+public class TableProperties {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   /**
    * Specifies how an inline table is aligned in the document.
    */
@@ -1037,6 +1040,24 @@ public class TableProperties extends LinkElement {
   @SerializedName("TopPadding")
   private Double topPadding = null;
 
+  public TableProperties link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
+
   public TableProperties alignment(AlignmentEnum alignment) {
     this.alignment = alignment;
     return this;
@@ -1299,7 +1320,8 @@ public class TableProperties extends LinkElement {
       return false;
     }
     TableProperties tableProperties = (TableProperties) o;
-    return Objects.equals(this.alignment, tableProperties.alignment) &&
+    return Objects.equals(this.link, tableProperties.link) &&
+        Objects.equals(this.alignment, tableProperties.alignment) &&
         Objects.equals(this.allowAutoFit, tableProperties.allowAutoFit) &&
         Objects.equals(this.bidi, tableProperties.bidi) &&
         Objects.equals(this.bottomPadding, tableProperties.bottomPadding) &&
@@ -1312,13 +1334,12 @@ public class TableProperties extends LinkElement {
         Objects.equals(this.styleName, tableProperties.styleName) &&
         Objects.equals(this.styleOptions, tableProperties.styleOptions) &&
         Objects.equals(this.textWrapping, tableProperties.textWrapping) &&
-        Objects.equals(this.topPadding, tableProperties.topPadding) &&
-        super.equals(o);
+        Objects.equals(this.topPadding, tableProperties.topPadding);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alignment, allowAutoFit, bidi, bottomPadding, cellSpacing, leftIndent, leftPadding, preferredWidth, rightPadding, styleIdentifier, styleName, styleOptions, textWrapping, topPadding, super.hashCode());
+    return Objects.hash(link, alignment, allowAutoFit, bidi, bottomPadding, cellSpacing, leftIndent, leftPadding, preferredWidth, rightPadding, styleIdentifier, styleName, styleOptions, textWrapping, topPadding);
   }
 
 
@@ -1326,7 +1347,8 @@ public class TableProperties extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableProperties {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
     sb.append("    allowAutoFit: ").append(toIndentedString(allowAutoFit)).append("\n");
     sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");

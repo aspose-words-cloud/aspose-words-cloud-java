@@ -45,12 +45,54 @@ import java.io.IOException;
  */
 @ApiModel(description = "Response for \"Replace text\" action.")
 
-public class ReplaceTextResponse extends AsposeResponse {
+public class ReplaceTextResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("DocumentLink")
   private FileLink documentLink = null;
 
   @SerializedName("Matches")
   private Integer matches = null;
+
+  public ReplaceTextResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public ReplaceTextResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public ReplaceTextResponse documentLink(FileLink documentLink) {
     this.documentLink = documentLink;
@@ -98,14 +140,15 @@ public class ReplaceTextResponse extends AsposeResponse {
       return false;
     }
     ReplaceTextResponse replaceTextResponse = (ReplaceTextResponse) o;
-    return Objects.equals(this.documentLink, replaceTextResponse.documentLink) &&
-        Objects.equals(this.matches, replaceTextResponse.matches) &&
-        super.equals(o);
+    return Objects.equals(this.code, replaceTextResponse.code) &&
+        Objects.equals(this.status, replaceTextResponse.status) &&
+        Objects.equals(this.documentLink, replaceTextResponse.documentLink) &&
+        Objects.equals(this.matches, replaceTextResponse.matches);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentLink, matches, super.hashCode());
+    return Objects.hash(code, status, documentLink, matches);
   }
 
 
@@ -113,7 +156,9 @@ public class ReplaceTextResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceTextResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    documentLink: ").append(toIndentedString(documentLink)).append("\n");
     sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
     sb.append("}");

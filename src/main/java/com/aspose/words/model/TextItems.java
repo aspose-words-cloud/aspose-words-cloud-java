@@ -48,9 +48,30 @@ import java.util.List;
  */
 @ApiModel(description = "Represents text items DTO.")
 
-public class TextItems extends LinkElement {
+public class TextItems {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("List")
   private List<TextItem> list = null;
+
+  public TextItems link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public TextItems list(List<TextItem> list) {
     this.list = list;
@@ -88,13 +109,13 @@ public class TextItems extends LinkElement {
       return false;
     }
     TextItems textItems = (TextItems) o;
-    return Objects.equals(this.list, textItems.list) &&
-        super.equals(o);
+    return Objects.equals(this.link, textItems.link) &&
+        Objects.equals(this.list, textItems.list);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(list, super.hashCode());
+    return Objects.hash(link, list);
   }
 
 
@@ -102,7 +123,8 @@ public class TextItems extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextItems {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

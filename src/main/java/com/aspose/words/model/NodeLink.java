@@ -45,9 +45,30 @@ import java.io.IOException;
  */
 @ApiModel(description = "Reference to node")
 
-public class NodeLink extends LinkElement {
+public class NodeLink {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("NodeId")
   private String nodeId = null;
+
+  public NodeLink link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public NodeLink nodeId(String nodeId) {
     this.nodeId = nodeId;
@@ -77,13 +98,13 @@ public class NodeLink extends LinkElement {
       return false;
     }
     NodeLink nodeLink = (NodeLink) o;
-    return Objects.equals(this.nodeId, nodeLink.nodeId) &&
-        super.equals(o);
+    return Objects.equals(this.link, nodeLink.link) &&
+        Objects.equals(this.nodeId, nodeLink.nodeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeId, super.hashCode());
+    return Objects.hash(link, nodeId);
   }
 
 
@@ -91,7 +112,8 @@ public class NodeLink extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NodeLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("}");
     return sb.toString();

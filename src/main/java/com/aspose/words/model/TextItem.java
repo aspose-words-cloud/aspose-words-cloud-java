@@ -45,9 +45,30 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents text DTO.")
 
-public class TextItem extends LinkElement {
+public class TextItem {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("Text")
   private String text = null;
+
+  public TextItem link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public TextItem text(String text) {
     this.text = text;
@@ -77,13 +98,13 @@ public class TextItem extends LinkElement {
       return false;
     }
     TextItem textItem = (TextItem) o;
-    return Objects.equals(this.text, textItem.text) &&
-        super.equals(o);
+    return Objects.equals(this.link, textItem.link) &&
+        Objects.equals(this.text, textItem.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, super.hashCode());
+    return Objects.hash(link, text);
   }
 
 
@@ -91,7 +112,8 @@ public class TextItem extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextItem {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();

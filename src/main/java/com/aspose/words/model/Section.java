@@ -48,7 +48,10 @@ import java.util.List;
  */
 @ApiModel(description = "Section element")
 
-public class Section extends LinkElement {
+public class Section {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;
 
@@ -63,6 +66,24 @@ public class Section extends LinkElement {
 
   @SerializedName("Tables")
   private LinkElement tables = null;
+
+  public Section link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public Section childNodes(List<NodeLink> childNodes) {
     this.childNodes = childNodes;
@@ -172,17 +193,17 @@ public class Section extends LinkElement {
       return false;
     }
     Section section = (Section) o;
-    return Objects.equals(this.childNodes, section.childNodes) &&
+    return Objects.equals(this.link, section.link) &&
+        Objects.equals(this.childNodes, section.childNodes) &&
         Objects.equals(this.headerFooters, section.headerFooters) &&
         Objects.equals(this.pageSetup, section.pageSetup) &&
         Objects.equals(this.paragraphs, section.paragraphs) &&
-        Objects.equals(this.tables, section.tables) &&
-        super.equals(o);
+        Objects.equals(this.tables, section.tables);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(childNodes, headerFooters, pageSetup, paragraphs, tables, super.hashCode());
+    return Objects.hash(link, childNodes, headerFooters, pageSetup, paragraphs, tables);
   }
 
 
@@ -190,7 +211,8 @@ public class Section extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Section {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
     sb.append("    headerFooters: ").append(toIndentedString(headerFooters)).append("\n");
     sb.append("    pageSetup: ").append(toIndentedString(pageSetup)).append("\n");

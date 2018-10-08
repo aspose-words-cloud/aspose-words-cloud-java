@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "Run link element")
 
-public class RunLink extends NodeLink {
+public class RunLink {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
+  @SerializedName("NodeId")
+  private String nodeId = null;
+
   @SerializedName("Text")
   private String text = null;
+
+  public RunLink link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
+
+  public RunLink nodeId(String nodeId) {
+    this.nodeId = nodeId;
+    return this;
+  }
+
+   /**
+   * Node id
+   * @return nodeId
+  **/
+  @ApiModelProperty(value = "Node id")
+  public String getNodeId() {
+    return nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
 
   public RunLink text(String text) {
     this.text = text;
@@ -77,13 +119,14 @@ public class RunLink extends NodeLink {
       return false;
     }
     RunLink runLink = (RunLink) o;
-    return Objects.equals(this.text, runLink.text) &&
-        super.equals(o);
+    return Objects.equals(this.link, runLink.link) &&
+        Objects.equals(this.nodeId, runLink.nodeId) &&
+        Objects.equals(this.text, runLink.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, super.hashCode());
+    return Objects.hash(link, nodeId, text);
   }
 
 
@@ -91,7 +134,9 @@ public class RunLink extends NodeLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RunLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();

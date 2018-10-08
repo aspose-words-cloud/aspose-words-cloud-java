@@ -45,9 +45,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET /documentProperties.")
 
-public class DocumentPropertiesResponse extends AsposeResponse {
+public class DocumentPropertiesResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("DocumentProperties")
   private DocumentProperties documentProperties = null;
+
+  public DocumentPropertiesResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public DocumentPropertiesResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public DocumentPropertiesResponse documentProperties(DocumentProperties documentProperties) {
     this.documentProperties = documentProperties;
@@ -77,13 +119,14 @@ public class DocumentPropertiesResponse extends AsposeResponse {
       return false;
     }
     DocumentPropertiesResponse documentPropertiesResponse = (DocumentPropertiesResponse) o;
-    return Objects.equals(this.documentProperties, documentPropertiesResponse.documentProperties) &&
-        super.equals(o);
+    return Objects.equals(this.code, documentPropertiesResponse.code) &&
+        Objects.equals(this.status, documentPropertiesResponse.status) &&
+        Objects.equals(this.documentProperties, documentPropertiesResponse.documentProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentProperties, super.hashCode());
+    return Objects.hash(code, status, documentProperties);
   }
 
 
@@ -91,7 +134,9 @@ public class DocumentPropertiesResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentPropertiesResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    documentProperties: ").append(toIndentedString(documentProperties)).append("\n");
     sb.append("}");
     return sb.toString();

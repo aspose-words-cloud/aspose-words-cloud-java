@@ -44,9 +44,51 @@ import java.io.IOException;
  */
 @ApiModel(description = "Response for Api error")
 
-public class WordsApiErrorResponse extends AsposeResponse {
+public class WordsApiErrorResponse {
+  @SerializedName("Code")
+  private Integer code = null;
+
+  @SerializedName("Status")
+  private String status = null;
+
   @SerializedName("Message")
   private String message = null;
+
+  public WordsApiErrorResponse code(Integer code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Response status code.
+   * @return code
+  **/
+  @ApiModelProperty(required = true, value = "Response status code.")
+  public Integer getCode() {
+    return code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public WordsApiErrorResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Response status.
+   * @return status
+  **/
+  @ApiModelProperty(value = "Response status.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public WordsApiErrorResponse message(String message) {
     this.message = message;
@@ -76,13 +118,14 @@ public class WordsApiErrorResponse extends AsposeResponse {
       return false;
     }
     WordsApiErrorResponse wordsApiErrorResponse = (WordsApiErrorResponse) o;
-    return Objects.equals(this.message, wordsApiErrorResponse.message) &&
-        super.equals(o);
+    return Objects.equals(this.code, wordsApiErrorResponse.code) &&
+        Objects.equals(this.status, wordsApiErrorResponse.status) &&
+        Objects.equals(this.message, wordsApiErrorResponse.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, super.hashCode());
+    return Objects.hash(code, status, message);
   }
 
 
@@ -90,7 +133,9 @@ public class WordsApiErrorResponse extends AsposeResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WordsApiErrorResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -48,9 +48,30 @@ import java.util.List;
  */
 @ApiModel(description = "Collection of links to sections")
 
-public class SectionLinkCollection extends LinkElement {
+public class SectionLinkCollection {
+  @SerializedName("link")
+  private WordsApiLink link = null;
+
   @SerializedName("SectionLinkList")
   private List<SectionLink> sectionLinkList = null;
+
+  public SectionLinkCollection link(WordsApiLink link) {
+    this.link = link;
+    return this;
+  }
+
+   /**
+   * Link to the document.
+   * @return link
+  **/
+  @ApiModelProperty(value = "Link to the document.")
+  public WordsApiLink getLink() {
+    return link;
+  }
+
+  public void setLink(WordsApiLink link) {
+    this.link = link;
+  }
 
   public SectionLinkCollection sectionLinkList(List<SectionLink> sectionLinkList) {
     this.sectionLinkList = sectionLinkList;
@@ -88,13 +109,13 @@ public class SectionLinkCollection extends LinkElement {
       return false;
     }
     SectionLinkCollection sectionLinkCollection = (SectionLinkCollection) o;
-    return Objects.equals(this.sectionLinkList, sectionLinkCollection.sectionLinkList) &&
-        super.equals(o);
+    return Objects.equals(this.link, sectionLinkCollection.link) &&
+        Objects.equals(this.sectionLinkList, sectionLinkCollection.sectionLinkList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sectionLinkList, super.hashCode());
+    return Objects.hash(link, sectionLinkList);
   }
 
 
@@ -102,7 +123,8 @@ public class SectionLinkCollection extends LinkElement {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SectionLinkCollection {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    sectionLinkList: ").append(toIndentedString(sectionLinkList)).append("\n");
     sb.append("}");
     return sb.toString();
