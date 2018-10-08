@@ -52,7 +52,7 @@ public class TestFormFields extends TestCase {
         String remoteName = "TestPostFormField.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         Integer index = 0;
-        FormFieldTextInput body = (FormFieldTextInput) new FormFieldTextInput()
+        FormField body = new FormFieldTextInput()
                 .textInputFormat("")
                 .textInputDefault("123")
                 .name("FullName")
@@ -78,7 +78,7 @@ public class TestFormFields extends TestCase {
         String fileName = "FormFilled.docx";
         String remoteName = "TestPutFormField.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
-        FormFieldTextInput body = (FormFieldTextInput) new FormFieldTextInput()
+        FormField body = new FormFieldTextInput()
                 .textInputFormat("UPPERCASE")
                 .textInputDefault("123")
                 .name("FullName")
