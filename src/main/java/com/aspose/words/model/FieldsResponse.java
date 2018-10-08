@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/{nodePath}/fields")
 
-public class FieldsResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class FieldsResponse extends AsposeResponse {
   @SerializedName("Fields")
   private FieldCollection fields = null;
-
-  public FieldsResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public FieldsResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public FieldsResponse fields(FieldCollection fields) {
     this.fields = fields;
@@ -119,14 +77,13 @@ public class FieldsResponse {
       return false;
     }
     FieldsResponse fieldsResponse = (FieldsResponse) o;
-    return Objects.equals(this.code, fieldsResponse.code) &&
-        Objects.equals(this.status, fieldsResponse.status) &&
-        Objects.equals(this.fields, fieldsResponse.fields);
+    return Objects.equals(this.fields, fieldsResponse.fields) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, fields);
+    return Objects.hash(fields, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class FieldsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldsResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("}");
     return sb.toString();

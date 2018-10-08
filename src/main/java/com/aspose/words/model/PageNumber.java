@@ -102,7 +102,7 @@ public class PageNumber {
    * @return isTop
   **/
   @ApiModelProperty(required = true, value = "If true the page number is added at the top of the page, else at the bottom.")
-  public Boolean isIsTop() {
+  public Boolean isisIsTop() {
     return isTop;
   }
 
@@ -120,7 +120,7 @@ public class PageNumber {
    * @return setPageNumberOnFirstPage
   **/
   @ApiModelProperty(required = true, value = "If true the page number is added on first page too.")
-  public Boolean isSetPageNumberOnFirstPage() {
+  public Boolean isisSetPageNumberOnFirstPage() {
     return setPageNumberOnFirstPage;
   }
 

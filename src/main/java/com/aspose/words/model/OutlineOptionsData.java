@@ -119,7 +119,7 @@ public class OutlineOptionsData {
    * @return createMissingOutlineLevels
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether or not to create missing outline levels     when the document is exported.     Default value for this property is false.")
-  public Boolean isCreateMissingOutlineLevels() {
+  public Boolean isisCreateMissingOutlineLevels() {
     return createMissingOutlineLevels;
   }
 
@@ -137,7 +137,7 @@ public class OutlineOptionsData {
    * @return createOutlinesForHeadingsInTables
   **/
   @ApiModelProperty(value = "Specifies whether or not to create outlines for headings (paragraphs formatted     with the Heading styles) inside tables.")
-  public Boolean isCreateOutlinesForHeadingsInTables() {
+  public Boolean isisCreateOutlinesForHeadingsInTables() {
     return createOutlinesForHeadingsInTables;
   }
 

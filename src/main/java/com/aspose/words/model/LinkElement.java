@@ -44,6 +44,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Reference to document.")
 
+
 public class LinkElement {
   @SerializedName("link")
   private WordsApiLink link = null;

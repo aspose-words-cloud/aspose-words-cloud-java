@@ -84,7 +84,7 @@ public class MetafileRenderingOptionsData {
    * @return emulateRasterOperations
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether or not the raster operations should be emulated.             ")
-  public Boolean isEmulateRasterOperations() {
+  public Boolean isisEmulateRasterOperations() {
     return emulateRasterOperations;
   }
 
@@ -120,7 +120,7 @@ public class MetafileRenderingOptionsData {
    * @return useEmfEmbeddedToWmf
   **/
   @ApiModelProperty(value = "Determines how WMF metafiles with embedded EMF metafiles should be rendered")
-  public Boolean isUseEmfEmbeddedToWmf() {
+  public Boolean isisUseEmfEmbeddedToWmf() {
     return useEmfEmbeddedToWmf;
   }
 

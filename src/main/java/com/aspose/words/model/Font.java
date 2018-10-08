@@ -47,10 +47,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Font element             ")
 
-public class Font {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class Font extends LinkElement {
   @SerializedName("AllCaps")
   private Boolean allCaps = null;
 
@@ -1096,24 +1093,6 @@ public class Font {
   @SerializedName("UnderlineColor")
   private XmlColor underlineColor = null;
 
-  public Font link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
   public Font allCaps(Boolean allCaps) {
     this.allCaps = allCaps;
     return this;
@@ -1124,7 +1103,7 @@ public class Font {
    * @return allCaps
   **/
   @ApiModelProperty(value = "True if the font is formatted as all capital letters.             ")
-  public Boolean isAllCaps() {
+  public Boolean isisAllCaps() {
     return allCaps;
   }
 
@@ -1142,7 +1121,7 @@ public class Font {
    * @return bidi
   **/
   @ApiModelProperty(value = "Specifies whether the contents of this run shall have right-to-left characteristics.             ")
-  public Boolean isBidi() {
+  public Boolean isisBidi() {
     return bidi;
   }
 
@@ -1160,7 +1139,7 @@ public class Font {
    * @return bold
   **/
   @ApiModelProperty(value = "True if the font is formatted as bold.             ")
-  public Boolean isBold() {
+  public Boolean isisBold() {
     return bold;
   }
 
@@ -1178,7 +1157,7 @@ public class Font {
    * @return boldBi
   **/
   @ApiModelProperty(value = "True if the right-to-left text is formatted as bold.             ")
-  public Boolean isBoldBi() {
+  public Boolean isisBoldBi() {
     return boldBi;
   }
 
@@ -1232,7 +1211,7 @@ public class Font {
    * @return complexScript
   **/
   @ApiModelProperty(value = "Specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.             ")
-  public Boolean isComplexScript() {
+  public Boolean isisComplexScript() {
     return complexScript;
   }
 
@@ -1250,7 +1229,7 @@ public class Font {
    * @return doubleStrikeThrough
   **/
   @ApiModelProperty(value = "True if the font is formatted as double strikethrough text.             ")
-  public Boolean isDoubleStrikeThrough() {
+  public Boolean isisDoubleStrikeThrough() {
     return doubleStrikeThrough;
   }
 
@@ -1268,7 +1247,7 @@ public class Font {
    * @return emboss
   **/
   @ApiModelProperty(value = "True if the font is formatted as embossed.             ")
-  public Boolean isEmboss() {
+  public Boolean isisEmboss() {
     return emboss;
   }
 
@@ -1286,7 +1265,7 @@ public class Font {
    * @return engrave
   **/
   @ApiModelProperty(value = "True if the font is formatted as engraved.             ")
-  public Boolean isEngrave() {
+  public Boolean isisEngrave() {
     return engrave;
   }
 
@@ -1304,7 +1283,7 @@ public class Font {
    * @return hidden
   **/
   @ApiModelProperty(value = "True if the font is formatted as hidden text.             ")
-  public Boolean isHidden() {
+  public Boolean isisHidden() {
     return hidden;
   }
 
@@ -1340,7 +1319,7 @@ public class Font {
    * @return italic
   **/
   @ApiModelProperty(value = "True if the font is formatted as italic.             ")
-  public Boolean isItalic() {
+  public Boolean isisItalic() {
     return italic;
   }
 
@@ -1358,7 +1337,7 @@ public class Font {
    * @return italicBi
   **/
   @ApiModelProperty(value = "True if the right-to-left text is formatted as italic.             ")
-  public Boolean isItalicBi() {
+  public Boolean isisItalicBi() {
     return italicBi;
   }
 
@@ -1538,7 +1517,7 @@ public class Font {
    * @return noProofing
   **/
   @ApiModelProperty(value = "True when the formatted characters are not to be spell checked.")
-  public Boolean isNoProofing() {
+  public Boolean isisNoProofing() {
     return noProofing;
   }
 
@@ -1556,7 +1535,7 @@ public class Font {
    * @return outline
   **/
   @ApiModelProperty(value = "True if the font is formatted as outline.             ")
-  public Boolean isOutline() {
+  public Boolean isisOutline() {
     return outline;
   }
 
@@ -1610,7 +1589,7 @@ public class Font {
    * @return shadow
   **/
   @ApiModelProperty(value = "True if the font is formatted as shadowed.             ")
-  public Boolean isShadow() {
+  public Boolean isisShadow() {
     return shadow;
   }
 
@@ -1664,7 +1643,7 @@ public class Font {
    * @return smallCaps
   **/
   @ApiModelProperty(value = "True if the font is formatted as small capital letters.             ")
-  public Boolean isSmallCaps() {
+  public Boolean isisSmallCaps() {
     return smallCaps;
   }
 
@@ -1700,7 +1679,7 @@ public class Font {
    * @return strikeThrough
   **/
   @ApiModelProperty(value = "True if the font is formatted as strikethrough text.             ")
-  public Boolean isStrikeThrough() {
+  public Boolean isisStrikeThrough() {
     return strikeThrough;
   }
 
@@ -1754,7 +1733,7 @@ public class Font {
    * @return subscript
   **/
   @ApiModelProperty(value = "True if the font is formatted as subscript.             ")
-  public Boolean isSubscript() {
+  public Boolean isisSubscript() {
     return subscript;
   }
 
@@ -1772,7 +1751,7 @@ public class Font {
    * @return superscript
   **/
   @ApiModelProperty(value = "True if the font is formatted as superscript.             ")
-  public Boolean isSuperscript() {
+  public Boolean isisSuperscript() {
     return superscript;
   }
 
@@ -1844,8 +1823,7 @@ public class Font {
       return false;
     }
     Font font = (Font) o;
-    return Objects.equals(this.link, font.link) &&
-        Objects.equals(this.allCaps, font.allCaps) &&
+    return Objects.equals(this.allCaps, font.allCaps) &&
         Objects.equals(this.bidi, font.bidi) &&
         Objects.equals(this.bold, font.bold) &&
         Objects.equals(this.boldBi, font.boldBi) &&
@@ -1884,12 +1862,13 @@ public class Font {
         Objects.equals(this.superscript, font.superscript) &&
         Objects.equals(this.textEffect, font.textEffect) &&
         Objects.equals(this.underline, font.underline) &&
-        Objects.equals(this.underlineColor, font.underlineColor);
+        Objects.equals(this.underlineColor, font.underlineColor) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, allCaps, bidi, bold, boldBi, border, color, complexScript, doubleStrikeThrough, emboss, engrave, hidden, highlightColor, italic, italicBi, kerning, localeId, localeIdBi, localeIdFarEast, name, nameAscii, nameBi, nameFarEast, nameOther, noProofing, outline, position, scaling, shadow, size, sizeBi, smallCaps, spacing, strikeThrough, styleIdentifier, styleName, subscript, superscript, textEffect, underline, underlineColor);
+    return Objects.hash(allCaps, bidi, bold, boldBi, border, color, complexScript, doubleStrikeThrough, emboss, engrave, hidden, highlightColor, italic, italicBi, kerning, localeId, localeIdBi, localeIdFarEast, name, nameAscii, nameBi, nameFarEast, nameOther, noProofing, outline, position, scaling, shadow, size, sizeBi, smallCaps, spacing, strikeThrough, styleIdentifier, styleName, subscript, superscript, textEffect, underline, underlineColor, super.hashCode());
   }
 
 
@@ -1897,8 +1876,7 @@ public class Font {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Font {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    allCaps: ").append(toIndentedString(allCaps)).append("\n");
     sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
     sb.append("    bold: ").append(toIndentedString(bold)).append("\n");

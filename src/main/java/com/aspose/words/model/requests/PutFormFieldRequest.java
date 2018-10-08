@@ -40,7 +40,7 @@ public class PutFormFieldRequest {
     /*
      * From field data.
      */
-    private Object FormField;
+    private FormField FormField;
 
     /*
      * Original document folder.
@@ -102,7 +102,7 @@ public class PutFormFieldRequest {
      * @param String nodePath Path to node that contains collection of formfields.
      * @param String insertBeforeNode Form field will be inserted before node with index.
      */
-    public PutFormFieldRequest(String name,  Object formField,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath,  String insertBeforeNode) {
+    public PutFormFieldRequest(String name,  FormField formField,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath,  String insertBeforeNode) {
         Name = name;
         FormField = formField;
         Folder = folder;
@@ -133,7 +133,7 @@ public class PutFormFieldRequest {
     /*
      *  Gets From field data.
      */
-    public Object getFormField() {
+    public FormField getFormField() {
         return FormField;
     }
 

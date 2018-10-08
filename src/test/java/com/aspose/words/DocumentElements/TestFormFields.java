@@ -52,13 +52,13 @@ public class TestFormFields extends TestCase {
         String remoteName = "TestPostFormField.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         Integer index = 0;
-        FormFieldTextInput body = new FormFieldTextInput()
+        FormField body = new FormFieldTextInput()
+                .textInputFormat("")
+                .textInputDefault("123")
                 .name("FullName")
                 .enabled(true)
                 .calculateOnExit(true)
-                .statusText("")
-                .textInputFormat("UPPERCASE")
-                .textInputDefault("123");
+                .statusText("");
         TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
                 new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
                 null, null);
@@ -78,13 +78,13 @@ public class TestFormFields extends TestCase {
         String fileName = "FormFilled.docx";
         String remoteName = "TestPutFormField.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
-        FormFieldTextInput body = new FormFieldTextInput()
+        FormField body = new FormFieldTextInput()
+                .textInputFormat("UPPERCASE")
+                .textInputDefault("123")
                 .name("FullName")
                 .enabled(true)
                 .calculateOnExit(true)
-                .statusText("")
-                .textInputFormat("UPPERCASE")
-                .textInputDefault("123");
+                .statusText("");
         TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
                 new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
                 null, null);

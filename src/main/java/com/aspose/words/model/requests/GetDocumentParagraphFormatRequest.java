@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="PostFormFieldRequest.java">
+ * <copyright company="Aspose" file="GetDocumentParagraphFormatRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,18 +29,13 @@ import com.aspose.words.model.*;
 import java.io.File;
 
 /*
- * Request model for postFormField operation.
+ * Request model for getDocumentParagraphFormat operation.
  */
-public class PostFormFieldRequest {
+public class GetDocumentParagraphFormatRequest {
     /*
      * The document name.
      */
     private String Name;
-
-    /*
-     * From field data.
-     */
-    private FormField FormField;
 
     /*
      * Object's index
@@ -68,51 +63,28 @@ public class PostFormFieldRequest {
     private String Password;
 
     /*
-     * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
-
-    /*
-     * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    private String RevisionAuthor;
-
-    /*
-     * The date and time to use for revisions.
-     */
-    private String RevisionDateTime;
-
-    /*
-     * Path to node that contains collection of formfields.
+     * Path to node which contains paragraphs.
      */
     private String NodePath;
     
     /*
-     * Initializes a new instance of the postFormFieldRequest class.
+     * Initializes a new instance of the getDocumentParagraphFormatRequest class.
      *  
      * @param String name The document name.
-     * @param FormField formField From field data.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath Path to node that contains collection of formfields.
+     * @param String nodePath Path to node which contains paragraphs.
      */
-    public PostFormFieldRequest(String name,  FormField formField,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
+    public GetDocumentParagraphFormatRequest(String name,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath) {
         Name = name;
-        FormField = formField;
         Index = index;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        DestFileName = destFileName;
-        RevisionAuthor = revisionAuthor;
-        RevisionDateTime = revisionDateTime;
         NodePath = nodePath;
     }
 
@@ -128,20 +100,6 @@ public class PostFormFieldRequest {
      */
     public void setName(String value) {
         Name = value;
-    }
-
-    /*
-     *  Gets From field data.
-     */
-    public FormField getFormField() {
-        return FormField;
-    }
-
-    /*
-     * Sets From field data.
-     */
-    public void setFormField(FormField value) {
-        FormField = value;
     }
 
     /*
@@ -215,56 +173,14 @@ public class PostFormFieldRequest {
     }
 
     /*
-     *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
-    }
-
-    /*
-     *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    public String getRevisionAuthor() {
-        return RevisionAuthor;
-    }
-
-    /*
-     * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    public void setRevisionAuthor(String value) {
-        RevisionAuthor = value;
-    }
-
-    /*
-     *  Gets The date and time to use for revisions.
-     */
-    public String getRevisionDateTime() {
-        return RevisionDateTime;
-    }
-
-    /*
-     * Sets The date and time to use for revisions.
-     */
-    public void setRevisionDateTime(String value) {
-        RevisionDateTime = value;
-    }
-
-    /*
-     *  Gets Path to node that contains collection of formfields.
+     *  Gets Path to node which contains paragraphs.
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * Sets Path to node that contains collection of formfields.
+     * Sets Path to node which contains paragraphs.
      */
     public void setNodePath(String value) {
         NodePath = value;

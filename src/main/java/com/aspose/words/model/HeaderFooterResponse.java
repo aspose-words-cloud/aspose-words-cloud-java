@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/headersfooters/{0} ")
 
-public class HeaderFooterResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class HeaderFooterResponse extends AsposeResponse {
   @SerializedName("HeaderFooter")
   private HeaderFooter headerFooter = null;
-
-  public HeaderFooterResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public HeaderFooterResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public HeaderFooterResponse headerFooter(HeaderFooter headerFooter) {
     this.headerFooter = headerFooter;
@@ -119,14 +77,13 @@ public class HeaderFooterResponse {
       return false;
     }
     HeaderFooterResponse headerFooterResponse = (HeaderFooterResponse) o;
-    return Objects.equals(this.code, headerFooterResponse.code) &&
-        Objects.equals(this.status, headerFooterResponse.status) &&
-        Objects.equals(this.headerFooter, headerFooterResponse.headerFooter);
+    return Objects.equals(this.headerFooter, headerFooterResponse.headerFooter) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, headerFooter);
+    return Objects.hash(headerFooter, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class HeaderFooterResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooterResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    headerFooter: ").append(toIndentedString(headerFooter)).append("\n");
     sb.append("}");
     return sb.toString();

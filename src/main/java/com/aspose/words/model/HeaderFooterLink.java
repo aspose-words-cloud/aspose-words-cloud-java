@@ -45,10 +45,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "HeaderFooter link element")
 
-public class HeaderFooterLink {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class HeaderFooterLink extends LinkElement {
   /**
    * Paragraph&#39;s text
    */
@@ -107,24 +104,6 @@ public class HeaderFooterLink {
   @SerializedName("Type")
   private TypeEnum type = null;
 
-  public HeaderFooterLink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
   public HeaderFooterLink type(TypeEnum type) {
     this.type = type;
     return this;
@@ -153,13 +132,13 @@ public class HeaderFooterLink {
       return false;
     }
     HeaderFooterLink headerFooterLink = (HeaderFooterLink) o;
-    return Objects.equals(this.link, headerFooterLink.link) &&
-        Objects.equals(this.type, headerFooterLink.type);
+    return Objects.equals(this.type, headerFooterLink.type) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, type);
+    return Objects.hash(type, super.hashCode());
   }
 
 
@@ -167,8 +146,7 @@ public class HeaderFooterLink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HeaderFooterLink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

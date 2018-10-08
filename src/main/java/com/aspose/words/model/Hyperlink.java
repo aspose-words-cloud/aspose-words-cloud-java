@@ -45,33 +45,12 @@ import java.io.IOException;
  */
 @ApiModel(description = "Hyperlink element.")
 
-public class Hyperlink {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class Hyperlink extends LinkElement {
   @SerializedName("DisplayText")
   private String displayText = null;
 
   @SerializedName("Value")
   private String value = null;
-
-  public Hyperlink link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Hyperlink displayText(String displayText) {
     this.displayText = displayText;
@@ -119,14 +98,14 @@ public class Hyperlink {
       return false;
     }
     Hyperlink hyperlink = (Hyperlink) o;
-    return Objects.equals(this.link, hyperlink.link) &&
-        Objects.equals(this.displayText, hyperlink.displayText) &&
-        Objects.equals(this.value, hyperlink.value);
+    return Objects.equals(this.displayText, hyperlink.displayText) &&
+        Objects.equals(this.value, hyperlink.value) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, displayText, value);
+    return Objects.hash(displayText, value, super.hashCode());
   }
 
 
@@ -134,8 +113,7 @@ public class Hyperlink {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Hyperlink {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    displayText: ").append(toIndentedString(displayText)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

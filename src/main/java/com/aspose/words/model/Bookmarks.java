@@ -48,30 +48,9 @@ import java.util.List;
  */
 @ApiModel(description = "Represents an array of bookmarks.")
 
-public class Bookmarks {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class Bookmarks extends LinkElement {
   @SerializedName("BookmarkList")
   private List<Bookmark> bookmarkList = null;
-
-  public Bookmarks link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Bookmarks bookmarkList(List<Bookmark> bookmarkList) {
     this.bookmarkList = bookmarkList;
@@ -109,13 +88,13 @@ public class Bookmarks {
       return false;
     }
     Bookmarks bookmarks = (Bookmarks) o;
-    return Objects.equals(this.link, bookmarks.link) &&
-        Objects.equals(this.bookmarkList, bookmarks.bookmarkList);
+    return Objects.equals(this.bookmarkList, bookmarks.bookmarkList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, bookmarkList);
+    return Objects.hash(bookmarkList, super.hashCode());
   }
 
 
@@ -123,8 +102,7 @@ public class Bookmarks {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Bookmarks {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bookmarkList: ").append(toIndentedString(bookmarkList)).append("\n");
     sb.append("}");
     return sb.toString();

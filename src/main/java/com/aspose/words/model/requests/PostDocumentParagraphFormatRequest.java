@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="PostFormFieldRequest.java">
+ * <copyright company="Aspose" file="PostDocumentParagraphFormatRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,18 +29,23 @@ import com.aspose.words.model.*;
 import java.io.File;
 
 /*
- * Request model for postFormField operation.
+ * Request model for postDocumentParagraphFormat operation.
  */
-public class PostFormFieldRequest {
+public class PostDocumentParagraphFormatRequest {
     /*
      * The document name.
      */
     private String Name;
 
     /*
-     * From field data.
+     * Paragraph format object
      */
-    private FormField FormField;
+    private ParagraphFormat Dto;
+
+    /*
+     * Path to node which contains paragraphs.
+     */
+    private String NodePath;
 
     /*
      * Object's index
@@ -81,17 +86,13 @@ public class PostFormFieldRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
-
-    /*
-     * Path to node that contains collection of formfields.
-     */
-    private String NodePath;
     
     /*
-     * Initializes a new instance of the postFormFieldRequest class.
+     * Initializes a new instance of the postDocumentParagraphFormatRequest class.
      *  
      * @param String name The document name.
-     * @param FormField formField From field data.
+     * @param ParagraphFormat dto Paragraph format object
+     * @param String nodePath Path to node which contains paragraphs.
      * @param Integer index Object's index
      * @param String folder Original document folder.
      * @param String storage File storage, which have to be used.
@@ -100,11 +101,11 @@ public class PostFormFieldRequest {
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath Path to node that contains collection of formfields.
      */
-    public PostFormFieldRequest(String name,  FormField formField,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
+    public PostDocumentParagraphFormatRequest(String name,  ParagraphFormat dto,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
-        FormField = formField;
+        Dto = dto;
+        NodePath = nodePath;
         Index = index;
         Folder = folder;
         Storage = storage;
@@ -113,7 +114,6 @@ public class PostFormFieldRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
-        NodePath = nodePath;
     }
 
     /*
@@ -131,17 +131,31 @@ public class PostFormFieldRequest {
     }
 
     /*
-     *  Gets From field data.
+     *  Gets Paragraph format object
      */
-    public FormField getFormField() {
-        return FormField;
+    public ParagraphFormat getDto() {
+        return Dto;
     }
 
     /*
-     * Sets From field data.
+     * Sets Paragraph format object
      */
-    public void setFormField(FormField value) {
-        FormField = value;
+    public void setDto(ParagraphFormat value) {
+        Dto = value;
+    }
+
+    /*
+     *  Gets Path to node which contains paragraphs.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to node which contains paragraphs.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
     }
 
     /*
@@ -254,19 +268,5 @@ public class PostFormFieldRequest {
      */
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
-    }
-
-    /*
-     *  Gets Path to node that contains collection of formfields.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to node that contains collection of formfields.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
     }
 }

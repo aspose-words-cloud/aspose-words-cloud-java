@@ -29,6 +29,8 @@ package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.aspose.words.model.AsposeResponse;
+import com.aspose.words.model.ParagraphFormat;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,52 +41,30 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Base class for all responses.
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/format
  */
-@ApiModel(description = "Base class for all responses.")
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/format")
 
+public class ParagraphFormatResponse extends AsposeResponse {
+  @SerializedName("ParagraphFormat")
+  private ParagraphFormat paragraphFormat = null;
 
-public class AsposeResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
-  public AsposeResponse code(Integer code) {
-    this.code = code;
+  public ParagraphFormatResponse paragraphFormat(ParagraphFormat paragraphFormat) {
+    this.paragraphFormat = paragraphFormat;
     return this;
   }
 
    /**
-   * Response status code.
-   * @return code
+   * Represents all the formatting for a paragraph.
+   * @return paragraphFormat
   **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
+  @ApiModelProperty(value = "Represents all the formatting for a paragraph.")
+  public ParagraphFormat getParagraphFormat() {
+    return paragraphFormat;
   }
 
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public AsposeResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
+  public void setParagraphFormat(ParagraphFormat paragraphFormat) {
+    this.paragraphFormat = paragraphFormat;
   }
 
 
@@ -96,24 +76,23 @@ public class AsposeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AsposeResponse asposeResponse = (AsposeResponse) o;
-    return Objects.equals(this.code, asposeResponse.code) &&
-        Objects.equals(this.status, asposeResponse.status);
+    ParagraphFormatResponse paragraphFormatResponse = (ParagraphFormatResponse) o;
+    return Objects.equals(this.paragraphFormat, paragraphFormatResponse.paragraphFormat) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status);
+    return Objects.hash(paragraphFormat, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AsposeResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("class ParagraphFormatResponse {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    paragraphFormat: ").append(toIndentedString(paragraphFormat)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -76,7 +76,7 @@ public class TestRuns extends TestCase {
         String remoteName = "TestPostRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
-        Run body = new Run().text("Run with text");
+        Run body = (Run) new Run().text("Run with text");
         TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
                 new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
                 null, null);
@@ -96,7 +96,7 @@ public class TestRuns extends TestCase {
         String fileName = "Run.doc";
         String remoteName = "TestPutRun.doc";
         String paragraphPath = "paragraphs/1";
-        Run body = new Run().text("Run with text");
+        Run body = (Run) new Run().text("Run with text");
         TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
                 new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
                 null, null);

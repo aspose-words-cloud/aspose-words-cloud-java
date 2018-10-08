@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/runs/{1}/font ")
 
-public class FontResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class FontResponse extends AsposeResponse {
   @SerializedName("Font")
   private Font font = null;
-
-  public FontResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public FontResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public FontResponse font(Font font) {
     this.font = font;
@@ -119,14 +77,13 @@ public class FontResponse {
       return false;
     }
     FontResponse fontResponse = (FontResponse) o;
-    return Objects.equals(this.code, fontResponse.code) &&
-        Objects.equals(this.status, fontResponse.status) &&
-        Objects.equals(this.font, fontResponse.font);
+    return Objects.equals(this.font, fontResponse.font) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, font);
+    return Objects.hash(font, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class FontResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FontResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    font: ").append(toIndentedString(font)).append("\n");
     sb.append("}");
     return sb.toString();

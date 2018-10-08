@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.")
 
-public class BookmarkResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class BookmarkResponse extends AsposeResponse {
   @SerializedName("Bookmark")
   private Bookmark bookmark = null;
-
-  public BookmarkResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public BookmarkResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public BookmarkResponse bookmark(Bookmark bookmark) {
     this.bookmark = bookmark;
@@ -119,14 +77,13 @@ public class BookmarkResponse {
       return false;
     }
     BookmarkResponse bookmarkResponse = (BookmarkResponse) o;
-    return Objects.equals(this.code, bookmarkResponse.code) &&
-        Objects.equals(this.status, bookmarkResponse.status) &&
-        Objects.equals(this.bookmark, bookmarkResponse.bookmark);
+    return Objects.equals(this.bookmark, bookmarkResponse.bookmark) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, bookmark);
+    return Objects.hash(bookmark, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class BookmarkResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BookmarkResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bookmark: ").append(toIndentedString(bookmark)).append("\n");
     sb.append("}");
     return sb.toString();
