@@ -50,7 +50,6 @@ public class LinkElement {
   private WordsApiLink link = null;
 
   public LinkElement() {
-    this.Type = this.getClass().getSimpleName();
   }
   public LinkElement link(WordsApiLink link) {
     this.link = link;

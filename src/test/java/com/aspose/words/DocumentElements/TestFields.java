@@ -90,7 +90,7 @@ public class TestFields extends TestCase {
         String fileName = "GetField.docx";
         String remoteName = "TestPostField.docx";
         Integer index = 0;
-        Field body = new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
+        Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
         TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
                 new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
                 null, null);
@@ -110,7 +110,7 @@ public class TestFields extends TestCase {
     public void testPutField() throws ApiException {
         String fileName = "GetField.docx";
         String remoteName = "TestPutField.docx";
-        Field body = new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
+        Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
         TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
                 new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
                 null, null);

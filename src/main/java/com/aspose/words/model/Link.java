@@ -58,7 +58,6 @@ public class Link {
   private String title = null;
 
   public Link() {
-    this.Type = this.getClass().getSimpleName();
   }
   public Link href(String href) {
     this.href = href;

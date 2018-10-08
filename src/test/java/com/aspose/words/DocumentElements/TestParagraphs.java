@@ -222,4 +222,39 @@ public class TestParagraphs extends TestCase {
         File result = TestInitializer.wordsApi.renderParagraph(request);
         assertTrue(result.length() > 0);
     }
+
+    /*
+     * Test for updating paragraph format
+     */
+    public void testPostDocumentParagraphFormat() throws ApiException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "PostDocumentParagraphFormat.doc";
+        ParagraphFormat body = new ParagraphFormat().alignment(ParagraphFormat.AlignmentEnum.RIGHT);
+        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                null, null);
+
+        PostDocumentParagraphFormatRequest request = new PostDocumentParagraphFormatRequest(remoteName, body, "", 0,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null, null, null, null);
+
+        ParagraphFormatResponse result = TestInitializer.wordsApi.postDocumentParagraphFormat(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
+    }
+
+    public void testGetDocumentParagraphFormat() throws ApiException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "GetDocumentParagraphFormat.doc";
+        Integer index = 0;
+        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
+                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
+                null, null);
+
+        GetDocumentParagraphFormatRequest request = new GetDocumentParagraphFormatRequest(remoteName, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null, null);
+
+        ParagraphFormatResponse result = TestInitializer.wordsApi.getDocumentParagraphFormat(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
+    }
 }
