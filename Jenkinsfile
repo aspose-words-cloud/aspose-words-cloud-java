@@ -5,7 +5,7 @@ node('billing-qa-ubuntu-16.04.4') {
     try {
 	   stage('0:build android sdk image') {
 		if (params.StartFromStep.toInteger() < 1) {
-			docker build -t asposewordsandroid.image -f ./Dockerfile . 
+			sh "docker build -t asposewordsandroid.image -f ./Dockerfile . "
 		}
 	   }
        stage('1:checkout'){
@@ -23,7 +23,7 @@ node('billing-qa-ubuntu-16.04.4') {
 	   stage('2:release'){
 		if (params.StartFromStep.toInteger() < 3) {
 			withCredentials([usernamePassword(credentialsId: '7a9d358a-f555-4766-81ff-62bf23ec18d4', passwordVariable: 'mavenPass', usernameVariable: 'mavenUser')]) {
-					docker run --rm -v "$PWD":/application asposewordsandroid.image sh -c "gradle clean build test"
+					sh 'docker run --rm -v "$PWD":/application asposewordsandroid.image sh -c "gradle clean build test"'
 				}
 			}
 	   }
