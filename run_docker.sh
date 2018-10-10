@@ -1,0 +1,1 @@
+gradle clean build test publish -PdeployRepoUsername=$0 PdeployRepoPassword=$1
