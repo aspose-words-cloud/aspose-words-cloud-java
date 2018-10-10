@@ -19,6 +19,7 @@ node('billing-qa-ubuntu-16.04.4') {
 			  sh "git config user.email \"jenkins.aspose@gmail.com\""
 			  sh "git config user.name \"jenkins\""
            }
+		 }
 		}
 	   
 	   stage('2:release'){
@@ -27,9 +28,9 @@ node('billing-qa-ubuntu-16.04.4') {
 					sh 'docker run --rm -v "$PWD":/application asposewordsandroid.image sh -c "gradle clean build test publish -PdeployRepoUsername=${mavenUser} -PdeployRepoPassword=${mavenPass}"'
 				}
 			}
-	   }
-		    			                
+	   }	   
     } finally {                       
         deleteDir()
     }
-}   
+}
+	

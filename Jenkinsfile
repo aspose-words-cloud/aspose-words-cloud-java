@@ -8,6 +8,7 @@ node('billing-qa-ubuntu-16.04.4') {
 			sh "docker build -t asposewordsandroid.image -f ./Dockerfile . "
 		}
 	   }
+	   
        stage('1:checkout'){
 		if (params.StartFromStep.toInteger() < 2) {
 		checkout([$class: 'GitSCM', branches: [[name: '*/android']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', url: 'https://github.com/aspose-words-cloud/aspose-words-cloud-java.git/']]])
@@ -17,7 +18,8 @@ node('billing-qa-ubuntu-16.04.4') {
               sh 'echo "{\\"AppSid\\": \\"$AppSid\\",\\"AppKey\\": \\"$AppKey\\", \\"BaseUrl\\": \\"https://auckland-words-cloud-staging.dynabic.com\\"}" > Settings/servercreds.json'
 			  sh "git config user.email \"jenkins.aspose@gmail.com\""
 			  sh "git config user.name \"jenkins\""
-           }
+			}
+		  }
 		}
 	   
 	   stage('2:release'){
@@ -26,8 +28,7 @@ node('billing-qa-ubuntu-16.04.4') {
 					sh 'docker run --rm -v "$PWD":/application asposewordsandroid.image sh -c "gradle clean build test"'
 				}
 			}
-	   }
-		    			                
+	   }	   
     } finally {                       
         deleteDir()
     }
