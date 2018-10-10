@@ -1063,7 +1063,7 @@ public class ApiClient {
      /**
      * Request OAuth token
      */
-    private void requestToken() throws ApiException {
+    public void requestToken() throws ApiException {
         try {
             RequestBody requestBody = new FormEncodingBuilder()
                     .addEncoded("grant_type", "client_credentials")

@@ -43,6 +43,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "base container class for save options data")
 
+
 public class SaveOptionsData {
   @SerializedName("ColorMode")
   private String colorMode = null;
@@ -171,7 +172,7 @@ public class SaveOptionsData {
    * @return zipOutput
   **/
   @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
-  public Boolean isZipOutput() {
+  public Boolean isisZipOutput() {
     return zipOutput;
   }
 
@@ -189,7 +190,7 @@ public class SaveOptionsData {
    * @return updateLastSavedTimeProperty
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
-  public Boolean isUpdateLastSavedTimeProperty() {
+  public Boolean isisUpdateLastSavedTimeProperty() {
     return updateLastSavedTimeProperty;
   }
 
@@ -207,7 +208,7 @@ public class SaveOptionsData {
    * @return updateSdtContent
   **/
   @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
-  public Boolean isUpdateSdtContent() {
+  public Boolean isisUpdateSdtContent() {
     return updateSdtContent;
   }
 
@@ -225,7 +226,7 @@ public class SaveOptionsData {
    * @return updateFields
   **/
   @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
-  public Boolean isUpdateFields() {
+  public Boolean isisUpdateFields() {
     return updateFields;
   }
 

@@ -1,0 +1,12 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="http://api-dev.aspose.cloud/v1.1"
+        android:entries="@array/pref_base_path_list_titles"
+        android:entryValues="@array/pref_base_pass_list_values"
+        android:key="@string/pref_key_base_path"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_base_path" />
+
+</PreferenceScreen>

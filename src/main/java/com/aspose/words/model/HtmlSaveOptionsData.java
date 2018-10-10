@@ -44,34 +44,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "container class for html save options")
 
-public class HtmlSaveOptionsData {
-  @SerializedName("ColorMode")
-  private String colorMode = null;
-
-  @SerializedName("SaveFormat")
-  private String saveFormat = null;
-
-  @SerializedName("FileName")
-  private String fileName = null;
-
-  @SerializedName("DmlRenderingMode")
-  private String dmlRenderingMode = null;
-
-  @SerializedName("DmlEffectsRenderingMode")
-  private String dmlEffectsRenderingMode = null;
-
-  @SerializedName("ZipOutput")
-  private Boolean zipOutput = null;
-
-  @SerializedName("UpdateLastSavedTimeProperty")
-  private Boolean updateLastSavedTimeProperty = null;
-
-  @SerializedName("UpdateSdtContent")
-  private Boolean updateSdtContent = null;
-
-  @SerializedName("UpdateFields")
-  private Boolean updateFields = null;
-
+public class HtmlSaveOptionsData extends SaveOptionsData {
   @SerializedName("AllowNegativeIndent")
   private Boolean allowNegativeIndent = null;
 
@@ -331,168 +304,6 @@ public class HtmlSaveOptionsData {
   @SerializedName("TableWidthOutputMode")
   private String tableWidthOutputMode = null;
 
-  public HtmlSaveOptionsData colorMode(String colorMode) {
-    this.colorMode = colorMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}
-   * @return colorMode
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}")
-  public String getColorMode() {
-    return colorMode;
-  }
-
-  public void setColorMode(String colorMode) {
-    this.colorMode = colorMode;
-  }
-
-  public HtmlSaveOptionsData saveFormat(String saveFormat) {
-    this.saveFormat = saveFormat;
-    return this;
-  }
-
-   /**
-   * format of save
-   * @return saveFormat
-  **/
-  @ApiModelProperty(value = "format of save")
-  public String getSaveFormat() {
-    return saveFormat;
-  }
-
-  public void setSaveFormat(String saveFormat) {
-    this.saveFormat = saveFormat;
-  }
-
-  public HtmlSaveOptionsData fileName(String fileName) {
-    this.fileName = fileName;
-    return this;
-  }
-
-   /**
-   * name of destination file
-   * @return fileName
-  **/
-  @ApiModelProperty(value = "name of destination file")
-  public String getFileName() {
-    return fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public HtmlSaveOptionsData dmlRenderingMode(String dmlRenderingMode) {
-    this.dmlRenderingMode = dmlRenderingMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }
-   * @return dmlRenderingMode
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }")
-  public String getDmlRenderingMode() {
-    return dmlRenderingMode;
-  }
-
-  public void setDmlRenderingMode(String dmlRenderingMode) {
-    this.dmlRenderingMode = dmlRenderingMode;
-  }
-
-  public HtmlSaveOptionsData dmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
-    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }
-   * @return dmlEffectsRenderingMode
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }")
-  public String getDmlEffectsRenderingMode() {
-    return dmlEffectsRenderingMode;
-  }
-
-  public void setDmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
-    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-  }
-
-  public HtmlSaveOptionsData zipOutput(Boolean zipOutput) {
-    this.zipOutput = zipOutput;
-    return this;
-  }
-
-   /**
-   * Controls zip output or not. Default value is false.
-   * @return zipOutput
-  **/
-  @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
-  public Boolean isZipOutput() {
-    return zipOutput;
-  }
-
-  public void setZipOutput(Boolean zipOutput) {
-    this.zipOutput = zipOutput;
-  }
-
-  public HtmlSaveOptionsData updateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
-    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
-   * @return updateLastSavedTimeProperty
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
-  public Boolean isUpdateLastSavedTimeProperty() {
-    return updateLastSavedTimeProperty;
-  }
-
-  public void setUpdateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
-    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
-  }
-
-  public HtmlSaveOptionsData updateSdtContent(Boolean updateSdtContent) {
-    this.updateSdtContent = updateSdtContent;
-    return this;
-  }
-
-   /**
-   * Gets or sets value determining whether content of  is updated before saving.
-   * @return updateSdtContent
-  **/
-  @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
-  public Boolean isUpdateSdtContent() {
-    return updateSdtContent;
-  }
-
-  public void setUpdateSdtContent(Boolean updateSdtContent) {
-    this.updateSdtContent = updateSdtContent;
-  }
-
-  public HtmlSaveOptionsData updateFields(Boolean updateFields) {
-    this.updateFields = updateFields;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true
-   * @return updateFields
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
-  public Boolean isUpdateFields() {
-    return updateFields;
-  }
-
-  public void setUpdateFields(Boolean updateFields) {
-    this.updateFields = updateFields;
-  }
-
   public HtmlSaveOptionsData allowNegativeIndent(Boolean allowNegativeIndent) {
     this.allowNegativeIndent = allowNegativeIndent;
     return this;
@@ -503,7 +314,7 @@ public class HtmlSaveOptionsData {
    * @return allowNegativeIndent
   **/
   @ApiModelProperty(value = "Specifies whether negative left and right indents of paragraphs are allowed (not normalized)")
-  public Boolean isAllowNegativeIndent() {
+  public Boolean isisAllowNegativeIndent() {
     return allowNegativeIndent;
   }
 
@@ -629,7 +440,7 @@ public class HtmlSaveOptionsData {
    * @return exportDocumentProperties
   **/
   @ApiModelProperty(value = "Specifies whether to export built-in and custom document properties")
-  public Boolean isExportDocumentProperties() {
+  public Boolean isisExportDocumentProperties() {
     return exportDocumentProperties;
   }
 
@@ -647,7 +458,7 @@ public class HtmlSaveOptionsData {
    * @return exportDropDownFormFieldAsText
   **/
   @ApiModelProperty(value = "Controls how drop-down form fields are saved to HTML. Default value is false.")
-  public Boolean isExportDropDownFormFieldAsText() {
+  public Boolean isisExportDropDownFormFieldAsText() {
     return exportDropDownFormFieldAsText;
   }
 
@@ -665,7 +476,7 @@ public class HtmlSaveOptionsData {
    * @return exportFontResources
   **/
   @ApiModelProperty(value = "Specifies whether font resources should be exported")
-  public Boolean isExportFontResources() {
+  public Boolean isisExportFontResources() {
     return exportFontResources;
   }
 
@@ -683,7 +494,7 @@ public class HtmlSaveOptionsData {
    * @return exportFontsAsBase64
   **/
   @ApiModelProperty(value = "Specifies whether fonts resources should be embedded to HTML in Base64 encoding.  Default is false.")
-  public Boolean isExportFontsAsBase64() {
+  public Boolean isisExportFontsAsBase64() {
     return exportFontsAsBase64;
   }
 
@@ -719,7 +530,7 @@ public class HtmlSaveOptionsData {
    * @return exportImagesAsBase64
   **/
   @ApiModelProperty(value = "Specifies whether images are saved in Base64 format")
-  public Boolean isExportImagesAsBase64() {
+  public Boolean isisExportImagesAsBase64() {
     return exportImagesAsBase64;
   }
 
@@ -737,7 +548,7 @@ public class HtmlSaveOptionsData {
    * @return exportLanguageInformation
   **/
   @ApiModelProperty(value = "Specifies whether language information is exported")
-  public Boolean isExportLanguageInformation() {
+  public Boolean isisExportLanguageInformation() {
     return exportLanguageInformation;
   }
 
@@ -773,7 +584,7 @@ public class HtmlSaveOptionsData {
    * @return exportOriginalUrlForLinkedImages
   **/
   @ApiModelProperty(value = "Specifies whether original URL should be used as the URL of the linked images. Default value is false.")
-  public Boolean isExportOriginalUrlForLinkedImages() {
+  public Boolean isisExportOriginalUrlForLinkedImages() {
     return exportOriginalUrlForLinkedImages;
   }
 
@@ -791,7 +602,7 @@ public class HtmlSaveOptionsData {
    * @return exportPageMargins
   **/
   @ApiModelProperty(value = "Specifies whether page margins is exported to HTML, MHTML or EPUB. Default is false.")
-  public Boolean isExportPageMargins() {
+  public Boolean isisExportPageMargins() {
     return exportPageMargins;
   }
 
@@ -809,7 +620,7 @@ public class HtmlSaveOptionsData {
    * @return exportPageSetup
   **/
   @ApiModelProperty(value = "Specifies whether page setup is exported")
-  public Boolean isExportPageSetup() {
+  public Boolean isisExportPageSetup() {
     return exportPageSetup;
   }
 
@@ -827,7 +638,7 @@ public class HtmlSaveOptionsData {
    * @return exportRelativeFontSize
   **/
   @ApiModelProperty(value = "Specifies whether font sizes should be output in relative units when saving")
-  public Boolean isExportRelativeFontSize() {
+  public Boolean isisExportRelativeFontSize() {
     return exportRelativeFontSize;
   }
 
@@ -845,7 +656,7 @@ public class HtmlSaveOptionsData {
    * @return exportRoundtripInformation
   **/
   @ApiModelProperty(value = "Specifies whether to write the roundtrip information when saving to HTML Default value is true.")
-  public Boolean isExportRoundtripInformation() {
+  public Boolean isisExportRoundtripInformation() {
     return exportRoundtripInformation;
   }
 
@@ -863,7 +674,7 @@ public class HtmlSaveOptionsData {
    * @return exportTextBoxAsSvg
   **/
   @ApiModelProperty(value = "Controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. Default value is false.    When set to true, exports textboxes as inline \"svg\" elements. When false, exports as \"image\" elements.")
-  public Boolean isExportTextBoxAsSvg() {
+  public Boolean isisExportTextBoxAsSvg() {
     return exportTextBoxAsSvg;
   }
 
@@ -881,7 +692,7 @@ public class HtmlSaveOptionsData {
    * @return exportTextInputFormFieldAsText
   **/
   @ApiModelProperty(value = "Controls how text input form fields are saved")
-  public Boolean isExportTextInputFormFieldAsText() {
+  public Boolean isisExportTextInputFormFieldAsText() {
     return exportTextInputFormFieldAsText;
   }
 
@@ -899,7 +710,7 @@ public class HtmlSaveOptionsData {
    * @return exportTocPageNumbers
   **/
   @ApiModelProperty(value = "Specifies whether to write page numbers to table of contents when saving")
-  public Boolean isExportTocPageNumbers() {
+  public Boolean isisExportTocPageNumbers() {
     return exportTocPageNumbers;
   }
 
@@ -917,7 +728,7 @@ public class HtmlSaveOptionsData {
    * @return exportXhtmlTransitional
   **/
   @ApiModelProperty(value = "Specifies whether to write the DOCTYPE declaration when saving")
-  public Boolean isExportXhtmlTransitional() {
+  public Boolean isisExportXhtmlTransitional() {
     return exportXhtmlTransitional;
   }
 
@@ -1097,7 +908,7 @@ public class HtmlSaveOptionsData {
    * @return prettyFormat
   **/
   @ApiModelProperty(value = "Specifies whether or not use pretty formats output")
-  public Boolean isPrettyFormat() {
+  public Boolean isisPrettyFormat() {
     return prettyFormat;
   }
 
@@ -1151,7 +962,7 @@ public class HtmlSaveOptionsData {
    * @return scaleImageToShapeSize
   **/
   @ApiModelProperty(value = "Specifies whether images are scaled by Aspose.Words to the bounding shape size when exporting")
-  public Boolean isScaleImageToShapeSize() {
+  public Boolean isisScaleImageToShapeSize() {
     return scaleImageToShapeSize;
   }
 
@@ -1187,16 +998,7 @@ public class HtmlSaveOptionsData {
       return false;
     }
     HtmlSaveOptionsData htmlSaveOptionsData = (HtmlSaveOptionsData) o;
-    return Objects.equals(this.colorMode, htmlSaveOptionsData.colorMode) &&
-        Objects.equals(this.saveFormat, htmlSaveOptionsData.saveFormat) &&
-        Objects.equals(this.fileName, htmlSaveOptionsData.fileName) &&
-        Objects.equals(this.dmlRenderingMode, htmlSaveOptionsData.dmlRenderingMode) &&
-        Objects.equals(this.dmlEffectsRenderingMode, htmlSaveOptionsData.dmlEffectsRenderingMode) &&
-        Objects.equals(this.zipOutput, htmlSaveOptionsData.zipOutput) &&
-        Objects.equals(this.updateLastSavedTimeProperty, htmlSaveOptionsData.updateLastSavedTimeProperty) &&
-        Objects.equals(this.updateSdtContent, htmlSaveOptionsData.updateSdtContent) &&
-        Objects.equals(this.updateFields, htmlSaveOptionsData.updateFields) &&
-        Objects.equals(this.allowNegativeIndent, htmlSaveOptionsData.allowNegativeIndent) &&
+    return Objects.equals(this.allowNegativeIndent, htmlSaveOptionsData.allowNegativeIndent) &&
         Objects.equals(this.cssClassNamePrefix, htmlSaveOptionsData.cssClassNamePrefix) &&
         Objects.equals(this.cssStyleSheetFileName, htmlSaveOptionsData.cssStyleSheetFileName) &&
         Objects.equals(this.cssStyleSheetType, htmlSaveOptionsData.cssStyleSheetType) &&
@@ -1233,12 +1035,13 @@ public class HtmlSaveOptionsData {
         Objects.equals(this.resourceFolder, htmlSaveOptionsData.resourceFolder) &&
         Objects.equals(this.resourceFolderAlias, htmlSaveOptionsData.resourceFolderAlias) &&
         Objects.equals(this.scaleImageToShapeSize, htmlSaveOptionsData.scaleImageToShapeSize) &&
-        Objects.equals(this.tableWidthOutputMode, htmlSaveOptionsData.tableWidthOutputMode);
+        Objects.equals(this.tableWidthOutputMode, htmlSaveOptionsData.tableWidthOutputMode) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorMode, saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields, allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextBoxAsSvg, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode);
+    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextBoxAsSvg, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
   }
 
 
@@ -1246,16 +1049,7 @@ public class HtmlSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HtmlSaveOptionsData {\n");
-    
-    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
-    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
-    sb.append("    zipOutput: ").append(toIndentedString(zipOutput)).append("\n");
-    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(updateLastSavedTimeProperty)).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(updateSdtContent)).append("\n");
-    sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    allowNegativeIndent: ").append(toIndentedString(allowNegativeIndent)).append("\n");
     sb.append("    cssClassNamePrefix: ").append(toIndentedString(cssClassNamePrefix)).append("\n");
     sb.append("    cssStyleSheetFileName: ").append(toIndentedString(cssStyleSheetFileName)).append("\n");

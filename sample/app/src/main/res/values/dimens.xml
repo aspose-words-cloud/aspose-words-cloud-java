@@ -1,3 +1,13 @@
 <resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="method_caption_text_size">22sp</dimen>
+    <dimen name="method_caption_margin">16dp</dimen>
+    <dimen name="parameter_name_layout_weight">.30</dimen>
+    <dimen name="parameter_value_layout_weight">.70</dimen>
+    <dimen name="progress_bar_size">32dp</dimen>
 </resources>

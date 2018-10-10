@@ -43,6 +43,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Base class for all responses.")
 
+
 public class AsposeResponse {
   @SerializedName("Code")
   private Integer code = null;

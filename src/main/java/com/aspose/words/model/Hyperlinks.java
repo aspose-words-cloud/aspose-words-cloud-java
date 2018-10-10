@@ -48,30 +48,9 @@ import java.util.List;
  */
 @ApiModel(description = "Collection of .")
 
-public class Hyperlinks {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class Hyperlinks extends LinkElement {
   @SerializedName("HyperlinkList")
   private List<Hyperlink> hyperlinkList = null;
-
-  public Hyperlinks link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Hyperlinks hyperlinkList(List<Hyperlink> hyperlinkList) {
     this.hyperlinkList = hyperlinkList;
@@ -109,13 +88,13 @@ public class Hyperlinks {
       return false;
     }
     Hyperlinks hyperlinks = (Hyperlinks) o;
-    return Objects.equals(this.link, hyperlinks.link) &&
-        Objects.equals(this.hyperlinkList, hyperlinks.hyperlinkList);
+    return Objects.equals(this.hyperlinkList, hyperlinks.hyperlinkList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, hyperlinkList);
+    return Objects.hash(hyperlinkList, super.hashCode());
   }
 
 
@@ -123,8 +102,7 @@ public class Hyperlinks {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Hyperlinks {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    hyperlinkList: ").append(toIndentedString(hyperlinkList)).append("\n");
     sb.append("}");
     return sb.toString();

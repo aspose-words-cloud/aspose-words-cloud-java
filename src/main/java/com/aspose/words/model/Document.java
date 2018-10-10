@@ -223,7 +223,7 @@ public class Document {
    * @return isEncrypted
   **/
   @ApiModelProperty(required = true, value = "Returns true if the document is encrypted and requires a password to open. ")
-  public Boolean isIsEncrypted() {
+  public Boolean isisIsEncrypted() {
     return isEncrypted;
   }
 
@@ -241,7 +241,7 @@ public class Document {
    * @return isSigned
   **/
   @ApiModelProperty(required = true, value = "Returns true if the document contains a digital signature. This property merely informs that a  digital signature is present on a document, but it does not specify whether the signature is valid or not. ")
-  public Boolean isIsSigned() {
+  public Boolean isisIsSigned() {
     return isSigned;
   }
 

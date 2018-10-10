@@ -49,54 +49,12 @@ import java.util.List;
  */
 @ApiModel(description = "Table row element.")
 
-public class TableRow {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
+public class TableRow extends NodeLink {
   @SerializedName("RowFormat")
   private TableRowFormat rowFormat = null;
 
   @SerializedName("TableCellList")
   private List<TableCell> tableCellList = null;
-
-  public TableRow link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public TableRow nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public TableRow rowFormat(TableRowFormat rowFormat) {
     this.rowFormat = rowFormat;
@@ -152,15 +110,14 @@ public class TableRow {
       return false;
     }
     TableRow tableRow = (TableRow) o;
-    return Objects.equals(this.link, tableRow.link) &&
-        Objects.equals(this.nodeId, tableRow.nodeId) &&
-        Objects.equals(this.rowFormat, tableRow.rowFormat) &&
-        Objects.equals(this.tableCellList, tableRow.tableCellList);
+    return Objects.equals(this.rowFormat, tableRow.rowFormat) &&
+        Objects.equals(this.tableCellList, tableRow.tableCellList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, rowFormat, tableCellList);
+    return Objects.hash(rowFormat, tableCellList, super.hashCode());
   }
 
 
@@ -168,9 +125,7 @@ public class TableRow {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableRow {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    rowFormat: ").append(toIndentedString(rowFormat)).append("\n");
     sb.append("    tableCellList: ").append(toIndentedString(tableCellList)).append("\n");
     sb.append("}");

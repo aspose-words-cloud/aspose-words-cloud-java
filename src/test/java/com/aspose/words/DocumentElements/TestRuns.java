@@ -74,7 +74,8 @@ public class TestRuns extends TestCase {
         String remoteName = "TestPostRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
-        Run body = new Run().text("Run with text");
+        Run body = new Run();
+        body.setText("Run with text");
 
         TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
                 StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
@@ -94,7 +95,8 @@ public class TestRuns extends TestCase {
         String fileName = "Run.doc";
         String remoteName = "TestPutRun.doc";
         String paragraphPath = "paragraphs/1";
-        Run body = new Run().text("Run with text");
+        Run body = new Run();
+        body.setText("Run with text");
 
         TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
                 StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));

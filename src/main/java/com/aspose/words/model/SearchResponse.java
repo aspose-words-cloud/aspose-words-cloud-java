@@ -45,54 +45,12 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/search ")
 
-public class SearchResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class SearchResponse extends AsposeResponse {
   @SerializedName("SearchingPattern")
   private String searchingPattern = null;
 
   @SerializedName("SearchResults")
   private SearchResultsCollection searchResults = null;
-
-  public SearchResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public SearchResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public SearchResponse searchingPattern(String searchingPattern) {
     this.searchingPattern = searchingPattern;
@@ -140,15 +98,14 @@ public class SearchResponse {
       return false;
     }
     SearchResponse searchResponse = (SearchResponse) o;
-    return Objects.equals(this.code, searchResponse.code) &&
-        Objects.equals(this.status, searchResponse.status) &&
-        Objects.equals(this.searchingPattern, searchResponse.searchingPattern) &&
-        Objects.equals(this.searchResults, searchResponse.searchResults);
+    return Objects.equals(this.searchingPattern, searchResponse.searchingPattern) &&
+        Objects.equals(this.searchResults, searchResponse.searchResults) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, searchingPattern, searchResults);
+    return Objects.hash(searchingPattern, searchResults, super.hashCode());
   }
 
 
@@ -156,9 +113,7 @@ public class SearchResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    searchingPattern: ").append(toIndentedString(searchingPattern)).append("\n");
     sb.append("    searchResults: ").append(toIndentedString(searchResults)).append("\n");
     sb.append("}");

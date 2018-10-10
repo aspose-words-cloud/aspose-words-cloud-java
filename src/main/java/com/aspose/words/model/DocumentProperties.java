@@ -48,30 +48,9 @@ import java.util.List;
  */
 @ApiModel(description = "Collection of document properties.")
 
-public class DocumentProperties {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class DocumentProperties extends LinkElement {
   @SerializedName("List")
   private List<DocumentProperty> list = null;
-
-  public DocumentProperties link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public DocumentProperties list(List<DocumentProperty> list) {
     this.list = list;
@@ -109,13 +88,13 @@ public class DocumentProperties {
       return false;
     }
     DocumentProperties documentProperties = (DocumentProperties) o;
-    return Objects.equals(this.link, documentProperties.link) &&
-        Objects.equals(this.list, documentProperties.list);
+    return Objects.equals(this.list, documentProperties.list) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, list);
+    return Objects.hash(list, super.hashCode());
   }
 
 
@@ -123,8 +102,7 @@ public class DocumentProperties {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentProperties {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

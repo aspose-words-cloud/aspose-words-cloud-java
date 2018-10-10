@@ -47,13 +47,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Footnote.")
 
-public class Footnote {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
+public class Footnote extends FootnoteLink {
   @SerializedName("Content")
   private StoryChildNodes content = null;
 
@@ -115,42 +109,6 @@ public class Footnote {
 
   @SerializedName("Text")
   private String text = null;
-
-  public Footnote link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public Footnote nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public Footnote content(StoryChildNodes content) {
     this.content = content;
@@ -252,18 +210,17 @@ public class Footnote {
       return false;
     }
     Footnote footnote = (Footnote) o;
-    return Objects.equals(this.link, footnote.link) &&
-        Objects.equals(this.nodeId, footnote.nodeId) &&
-        Objects.equals(this.content, footnote.content) &&
+    return Objects.equals(this.content, footnote.content) &&
         Objects.equals(this.footnoteType, footnote.footnoteType) &&
         Objects.equals(this.position, footnote.position) &&
         Objects.equals(this.referenceMark, footnote.referenceMark) &&
-        Objects.equals(this.text, footnote.text);
+        Objects.equals(this.text, footnote.text) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, content, footnoteType, position, referenceMark, text);
+    return Objects.hash(content, footnoteType, position, referenceMark, text, super.hashCode());
   }
 
 
@@ -271,9 +228,7 @@ public class Footnote {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Footnote {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    footnoteType: ").append(toIndentedString(footnoteType)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");

@@ -105,7 +105,7 @@ public class ReplaceTextRequest {
    * @return isMatchCase
   **/
   @ApiModelProperty(required = true, value = "Flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
-  public Boolean isIsMatchCase() {
+  public Boolean isisIsMatchCase() {
     return isMatchCase;
   }
 
@@ -123,7 +123,7 @@ public class ReplaceTextRequest {
    * @return isMatchWholeWord
   **/
   @ApiModelProperty(required = true, value = "Flag, means that only whole word matched are replaced.")
-  public Boolean isIsMatchWholeWord() {
+  public Boolean isisIsMatchWholeWord() {
     return isMatchWholeWord;
   }
 
@@ -141,7 +141,7 @@ public class ReplaceTextRequest {
    * @return isOldValueRegex
   **/
   @ApiModelProperty(required = true, value = "Flag, means that  contains regex expression.")
-  public Boolean isIsOldValueRegex() {
+  public Boolean isisIsOldValueRegex() {
     return isOldValueRegex;
   }
 

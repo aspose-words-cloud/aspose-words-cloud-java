@@ -40,7 +40,7 @@ public class PostFormFieldRequest {
     /*
      * From field data.
      */
-    private Object FormField;
+    private FormField FormField;
 
     /*
      * Object's index
@@ -102,7 +102,7 @@ public class PostFormFieldRequest {
      * @param String revisionDateTime The date and time to use for revisions.
      * @param String nodePath Path to node that contains collection of formfields.
      */
-    public PostFormFieldRequest(String name,  Object formField,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
+    public PostFormFieldRequest(String name,  FormField formField,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
         Name = name;
         FormField = formField;
         Index = index;
@@ -133,7 +133,7 @@ public class PostFormFieldRequest {
     /*
      *  Gets From field data.
      */
-    public Object getFormField() {
+    public FormField getFormField() {
         return FormField;
     }
 

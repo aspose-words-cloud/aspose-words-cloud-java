@@ -1,11 +1,16 @@
 parameters {		
 		string(name: 'version', defaultValue: '18.8.0', description: 'version of sdk')	
-		string(name: 'StartFromStep', defaultValue: '0', description: 'start step')	
+		string(name: 'StartFromStep', defaultValue: '1', description: 'start step')	
 }
 node('billing-qa-ubuntu-16.04.4') {         
     try {
-       stage('0:checkout'){
+	   stage('0:build android sdk image') {
 		if (params.StartFromStep.toInteger() < 1) {
+			docker build -t asposewordsandroid.image -f ./Dockerfile . 
+		}
+	   }
+       stage('1:checkout'){
+		if (params.StartFromStep.toInteger() < 2) {
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', url: 'https://github.com/aspose-words-cloud/aspose-words-cloud-java.git/']]])
            withCredentials([usernamePassword(credentialsId: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', passwordVariable: 'AppKey', usernameVariable: 'AppSid')]) {
 			  sh 'git checkout master'
@@ -14,20 +19,12 @@ node('billing-qa-ubuntu-16.04.4') {
 			  sh "git config user.email \"jenkins.aspose@gmail.com\""
 			  sh "git config user.name \"jenkins\""
            }
-		   	withCredentials([usernamePassword(credentialsId: '07663A4C-471A-4DD9-A712-94D85879631D', passwordVariable: 'mavenPass', usernameVariable: 'mavenUser')]) {
-					sh 'echo "<settings xmlns=\\"http://maven.apache.org/SETTINGS/1.0.0\\" \\n xmlns:xsi=\\"http://www.w3.org/2001/XMLSchema-instance\\" \\n xsi:schemaLocation=\\"http://maven.apache.org/SETTINGS/1.0.0\\"> \\n<servers> \\n <server> \\n<id>aspose</id>\\n<username>${mavenUser}</username>\\n<password>${mavenPass}</password>\\n</server>\\n</servers>\\n</settings>" > wordsSettings.xml'				
-				}
-			}
 		}
 	   
-	   stage('1:release'){
-		if (params.StartFromStep.toInteger() < 2) {
-			withCredentials([usernamePassword(credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', passwordVariable: 'gitPass', usernameVariable: 'gitUsername')]) {
-					docker.image('maven').inside{
-						stage('deploy'){
-							sh "mvn --settings wordsSettings.xml deploy -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json"							
-						}
-					}
+	   stage('2:release'){
+		if (params.StartFromStep.toInteger() < 3) {
+			withCredentials([usernamePassword(credentialsId: '7a9d358a-f555-4766-81ff-62bf23ec18d4', passwordVariable: 'mavenPass', usernameVariable: 'mavenUser')]) {
+					docker run --rm -v "$PWD":/application asposewordsandroid.image sh -c "gradle publish -PdeployRepoUsername=${mavenUser} -PdeployRepoPassword=${mavenPass}"
 				}
 			}
 	   }

@@ -50,13 +50,13 @@ public class TestFormFields extends TestCase {
         String remoteName = "TestPostFormField.docx";
         String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         Integer index = 0;
-        FormFieldTextInput body = new FormFieldTextInput()
+        FormField body = new FormFieldTextInput()
+                .textInputFormat("UPPERCASE")
+                .textInputDefault("123")
                 .name("FullName")
                 .enabled(true)
                 .calculateOnExit(true)
-                .statusText("")
-                .textInputFormat("UPPERCASE")
-                .textInputDefault("123");
+                .statusText("");
 
         TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
                 StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
@@ -76,13 +76,13 @@ public class TestFormFields extends TestCase {
         String fileName = "FormFilled.docx";
         String remoteName = "TestPutFormField.docx";
         String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
-        FormFieldTextInput body = new FormFieldTextInput()
+        FormField body = new FormFieldTextInput()
+                .textInputFormat("UPPERCASE")
+                .textInputDefault("123")
                 .name("FullName")
                 .enabled(true)
                 .calculateOnExit(true)
-                .statusText("")
-                .textInputFormat("UPPERCASE")
-                .textInputDefault("123");
+                .statusText("");
 
         TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
                 StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));

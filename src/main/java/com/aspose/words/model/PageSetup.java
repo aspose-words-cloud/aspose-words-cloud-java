@@ -45,10 +45,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents the page setup properties of a section.             ")
 
-public class PageSetup {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class PageSetup extends LinkElement {
   @SerializedName("Bidi")
   private Boolean bidi = null;
 
@@ -676,24 +673,6 @@ public class PageSetup {
   @SerializedName("VerticalAlignment")
   private VerticalAlignmentEnum verticalAlignment = null;
 
-  public PageSetup link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
   public PageSetup bidi(Boolean bidi) {
     this.bidi = bidi;
     return this;
@@ -704,7 +683,7 @@ public class PageSetup {
    * @return bidi
   **/
   @ApiModelProperty(value = "Specifies that this section contains bidirectional (complex scripts) text.             ")
-  public Boolean isBidi() {
+  public Boolean isisBidi() {
     return bidi;
   }
 
@@ -722,7 +701,7 @@ public class PageSetup {
    * @return borderAlwaysInFront
   **/
   @ApiModelProperty(value = "Specifies where the page border is positioned relative to intersecting texts and objects.             ")
-  public Boolean isBorderAlwaysInFront() {
+  public Boolean isisBorderAlwaysInFront() {
     return borderAlwaysInFront;
   }
 
@@ -794,7 +773,7 @@ public class PageSetup {
    * @return differentFirstPageHeaderFooter
   **/
   @ApiModelProperty(value = "True if a different header or footer is used on the first page.             ")
-  public Boolean isDifferentFirstPageHeaderFooter() {
+  public Boolean isisDifferentFirstPageHeaderFooter() {
     return differentFirstPageHeaderFooter;
   }
 
@@ -1100,7 +1079,7 @@ public class PageSetup {
    * @return restartPageNumbering
   **/
   @ApiModelProperty(value = "True if page numbering restarts at the beginning of the section.             ")
-  public Boolean isRestartPageNumbering() {
+  public Boolean isisRestartPageNumbering() {
     return restartPageNumbering;
   }
 
@@ -1136,7 +1115,7 @@ public class PageSetup {
    * @return rtlGutter
   **/
   @ApiModelProperty(value = "Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.             ")
-  public Boolean isRtlGutter() {
+  public Boolean isisRtlGutter() {
     return rtlGutter;
   }
 
@@ -1172,7 +1151,7 @@ public class PageSetup {
    * @return suppressEndnotes
   **/
   @ApiModelProperty(value = "True if endnotes are printed at the end of the next section that doesn't suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.             ")
-  public Boolean isSuppressEndnotes() {
+  public Boolean isisSuppressEndnotes() {
     return suppressEndnotes;
   }
 
@@ -1226,8 +1205,7 @@ public class PageSetup {
       return false;
     }
     PageSetup pageSetup = (PageSetup) o;
-    return Objects.equals(this.link, pageSetup.link) &&
-        Objects.equals(this.bidi, pageSetup.bidi) &&
+    return Objects.equals(this.bidi, pageSetup.bidi) &&
         Objects.equals(this.borderAlwaysInFront, pageSetup.borderAlwaysInFront) &&
         Objects.equals(this.borderAppliesTo, pageSetup.borderAppliesTo) &&
         Objects.equals(this.borderDistanceFrom, pageSetup.borderDistanceFrom) &&
@@ -1255,12 +1233,13 @@ public class PageSetup {
         Objects.equals(this.sectionStart, pageSetup.sectionStart) &&
         Objects.equals(this.suppressEndnotes, pageSetup.suppressEndnotes) &&
         Objects.equals(this.topMargin, pageSetup.topMargin) &&
-        Objects.equals(this.verticalAlignment, pageSetup.verticalAlignment);
+        Objects.equals(this.verticalAlignment, pageSetup.verticalAlignment) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, bidi, borderAlwaysInFront, borderAppliesTo, borderDistanceFrom, bottomMargin, differentFirstPageHeaderFooter, firstPageTray, footerDistance, gutter, headerDistance, leftMargin, lineNumberCountBy, lineNumberDistanceFromText, lineNumberRestartMode, lineStartingNumber, orientation, otherPagesTray, pageHeight, pageNumberStyle, pageStartingNumber, pageWidth, paperSize, restartPageNumbering, rightMargin, rtlGutter, sectionStart, suppressEndnotes, topMargin, verticalAlignment);
+    return Objects.hash(bidi, borderAlwaysInFront, borderAppliesTo, borderDistanceFrom, bottomMargin, differentFirstPageHeaderFooter, firstPageTray, footerDistance, gutter, headerDistance, leftMargin, lineNumberCountBy, lineNumberDistanceFromText, lineNumberRestartMode, lineStartingNumber, orientation, otherPagesTray, pageHeight, pageNumberStyle, pageStartingNumber, pageWidth, paperSize, restartPageNumbering, rightMargin, rtlGutter, sectionStart, suppressEndnotes, topMargin, verticalAlignment, super.hashCode());
   }
 
 
@@ -1268,8 +1247,7 @@ public class PageSetup {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageSetup {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
     sb.append("    borderAlwaysInFront: ").append(toIndentedString(borderAlwaysInFront)).append("\n");
     sb.append("    borderAppliesTo: ").append(toIndentedString(borderAppliesTo)).append("\n");

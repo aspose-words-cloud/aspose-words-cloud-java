@@ -49,54 +49,12 @@ import java.util.List;
  */
 @ApiModel(description = "Table element")
 
-public class Table {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
+public class Table extends NodeLink {
   @SerializedName("TableProperties")
   private TableProperties tableProperties = null;
 
   @SerializedName("TableRowList")
   private List<TableRow> tableRowList = null;
-
-  public Table link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-  public Table nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Node id
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Node id")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
 
   public Table tableProperties(TableProperties tableProperties) {
     this.tableProperties = tableProperties;
@@ -152,15 +110,14 @@ public class Table {
       return false;
     }
     Table table = (Table) o;
-    return Objects.equals(this.link, table.link) &&
-        Objects.equals(this.nodeId, table.nodeId) &&
-        Objects.equals(this.tableProperties, table.tableProperties) &&
-        Objects.equals(this.tableRowList, table.tableRowList);
+    return Objects.equals(this.tableProperties, table.tableProperties) &&
+        Objects.equals(this.tableRowList, table.tableRowList) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, nodeId, tableProperties, tableRowList);
+    return Objects.hash(tableProperties, tableRowList, super.hashCode());
   }
 
 
@@ -168,9 +125,7 @@ public class Table {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Table {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    tableProperties: ").append(toIndentedString(tableProperties)).append("\n");
     sb.append("    tableRowList: ").append(toIndentedString(tableRowList)).append("\n");
     sb.append("}");

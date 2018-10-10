@@ -45,51 +45,9 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs ")
 
-public class ParagraphLinkCollectionResponse {
-  @SerializedName("Code")
-  private Integer code = null;
-
-  @SerializedName("Status")
-  private String status = null;
-
+public class ParagraphLinkCollectionResponse extends AsposeResponse {
   @SerializedName("Paragraphs")
   private ParagraphLinkCollection paragraphs = null;
-
-  public ParagraphLinkCollectionResponse code(Integer code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Response status code.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Response status code.")
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public ParagraphLinkCollectionResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Response status.
-   * @return status
-  **/
-  @ApiModelProperty(value = "Response status.")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
 
   public ParagraphLinkCollectionResponse paragraphs(ParagraphLinkCollection paragraphs) {
     this.paragraphs = paragraphs;
@@ -119,14 +77,13 @@ public class ParagraphLinkCollectionResponse {
       return false;
     }
     ParagraphLinkCollectionResponse paragraphLinkCollectionResponse = (ParagraphLinkCollectionResponse) o;
-    return Objects.equals(this.code, paragraphLinkCollectionResponse.code) &&
-        Objects.equals(this.status, paragraphLinkCollectionResponse.status) &&
-        Objects.equals(this.paragraphs, paragraphLinkCollectionResponse.paragraphs);
+    return Objects.equals(this.paragraphs, paragraphLinkCollectionResponse.paragraphs) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, status, paragraphs);
+    return Objects.hash(paragraphs, super.hashCode());
   }
 
 
@@ -134,9 +91,7 @@ public class ParagraphLinkCollectionResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphLinkCollectionResponse {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    paragraphs: ").append(toIndentedString(paragraphs)).append("\n");
     sb.append("}");
     return sb.toString();

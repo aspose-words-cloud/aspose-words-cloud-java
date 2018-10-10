@@ -108,7 +108,9 @@ public class TestConvertDocument extends TestCase {
         String fileName = "45.pdf";
         String remoteName = "TestPutDocumentSaveAsTiff.docx";
         String destName = StringUtil.join("/",TestInitializer.RemoteTestOut, "TestPostDocumentSaveAsTiff.tiff");
-        TiffSaveOptionsData saveOptionsData = new TiffSaveOptionsData().saveFormat("tiff").fileName(destName);
+        TiffSaveOptionsData saveOptionsData = new TiffSaveOptionsData();
+        saveOptionsData.setSaveFormat("tiff");
+        saveOptionsData.setFileName(fileName);
         TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
                 StringUtil.join("/",TestInitializer.LocalTestFolder, testFolder, fileName));
         PutDocumentSaveAsTiffRequest request = new PutDocumentSaveAsTiffRequest(remoteName, saveOptionsData,

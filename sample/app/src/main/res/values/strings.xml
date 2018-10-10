@@ -1,4 +1,45 @@
 <resources>
-    <string name="app_name">Sample</string>
+    <string name="app_name">Aspose Cloud PDF</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Aspose.PDF</string>
+    <string name="nav_header_subtitle">Cloud Product Family</string>
+    <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+    <string name="pref_header_credentials">Credentials</string>
+
+    <string name="pref_title_app_sid">App SID</string>
+    <string name="pref_key_app_sid">pref_key_app_sid</string>
+
+    <string name="pref_title_app_key">App Key</string>
+    <string name="pref_key_app_key">pref_key_app_key</string>
+
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_key_base_path">pref_key_base_path</string>
+    <string name="pref_title_base_path">Base Path</string>
+
+    <string-array name="pref_base_path_list_titles">
+        <item>Production</item>
+        <item>Dev HTTP</item>
+        <item>Dev HTTPS</item>
+    </string-array>
+
+    <string-array name="pref_base_pass_list_values">
+        <item>https://api.aspose.cloud/v1.1</item>
+        <item>http://api-dev.aspose.cloud/v1.1</item>
+        <item>https://api-dev.aspose.cloud/v1.1</item>
+    </string-array>
+    <string name="method_title_put_create_document">PutCreateDocument</string>
+
+    <string name="parameter_name_name">name</string>
+    <string name="parameter_name_default_value">new_android_doc.pdf</string>
+
+    <string name="parameter_name_folder">folder</string>
+    <string name="parameter_name_folder_value">TempPdfCloud</string>
+
+    <string name="button_text_invoke">Invoke</string>
 </resources>

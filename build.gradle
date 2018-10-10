@@ -1,36 +1,48 @@
 apply plugin: 'idea'
 
 group = 'com.aspose'
-version = '18.8.0'
+version = '18.9.0'
 
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url "https://artifact.aspose.cloud/repo/"
-        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
-
 repositories {
     jcenter()
 }
 
+apply plugin: 'maven-publish'
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
-if(hasProperty('target') && target == 'android') {
-
-    apply plugin: 'com.android.library'
-    apply plugin: 'com.github.dcendents.android-maven'
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact "$buildDir/outputs/aar/$rootProject.name" + "-release-" + version + ".aar"
+        }
+    }
+    repositories {
+        maven {
+            name 'aspose'
+            url deployRepoUrl
+            credentials {
+                username = deployRepoUsername
+                password = deployRepoPassword
+            }
+        }
+    }
+}
 
     android {
         compileSdkVersion 25
         buildToolsVersion '25.0.2'
         defaultConfig {
-            minSdkVersion 14
+            minSdkVersion 19
             targetSdkVersion 25
         }
         compileOptions {
@@ -49,51 +61,21 @@ if(hasProperty('target') && target == 'android') {
             }
         }
 
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+        lintOptions {
+            abortOnError true
+            disable 'LintError'
+        }
+
         dependencies {
             provided 'javax.annotation:jsr250-api:1.0'
         }
     }
-
-    afterEvaluate {
-        android.libraryVariants.all { variant ->
-            def task = project.tasks.create "jar${variant.name.capitalize()}", Jar
-            task.description = "Create jar artifact for ${variant.name}"
-            task.dependsOn variant.javaCompile
-            task.from variant.javaCompile.destinationDir
-            task.destinationDir = project.file("${project.buildDir}/outputs/jar")
-            task.archiveName = "${project.name}-${variant.baseName}-${version}.jar"
-            artifacts.add('archives', task);
-        }
-    }
-
-    task sourcesJar(type: Jar) {
-        from android.sourceSets.main.java.srcDirs
-        classifier = 'sources'
-    }
-
-    artifacts {
-        archives sourcesJar
-    }
-
-} else {
-
-    apply plugin: 'java'
-    apply plugin: 'maven'
-
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
-
-    install {
-        repositories.mavenInstaller {
-            pom.artifactId = 'aspose-words-cloud-android'
-        }
-    }
-
-    task execute(type:JavaExec) {
-       main = System.getProperty('mainClass')
-       classpath = sourceSets.main.runtimeClasspath
-    }
-}
 
 dependencies {
     compile 'io.swagger:swagger-annotations:1.5.17'

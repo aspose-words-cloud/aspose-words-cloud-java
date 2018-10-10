@@ -222,4 +222,37 @@ public class TestParagraphs extends TestCase {
         File result = TestInitializer.wordsApi.renderParagraph(request);
         assertTrue(result.length() > 0);
     }
+
+    /*
+     * Test for updating paragraph format
+     */
+    public void testPostDocumentParagraphFormat() throws ApiException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "PostDocumentParagraphFormat.doc";
+        ParagraphFormat body = new ParagraphFormat().alignment(ParagraphFormat.AlignmentEnum.RIGHT);
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+
+        PostDocumentParagraphFormatRequest request = new PostDocumentParagraphFormatRequest(remoteName, body, "", 0,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
+                null, null, null, null);
+
+        ParagraphFormatResponse result = TestInitializer.wordsApi.postDocumentParagraphFormat(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
+    }
+
+    public void testGetDocumentParagraphFormat() throws ApiException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "GetDocumentParagraphFormat.doc";
+        Integer index = 0;
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
+                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+
+        GetDocumentParagraphFormatRequest request = new GetDocumentParagraphFormatRequest(remoteName, index,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
+                null, null);
+
+        ParagraphFormatResponse result = TestInitializer.wordsApi.getDocumentParagraphFormat(request);
+        assertEquals(result.getCode(), Integer.valueOf(200));
+    }
 }

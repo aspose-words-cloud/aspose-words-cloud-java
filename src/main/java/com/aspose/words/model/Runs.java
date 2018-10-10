@@ -48,30 +48,9 @@ import java.util.List;
  */
 @ApiModel(description = "Represents DTO for collection of runs.")
 
-public class Runs {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class Runs extends LinkElement {
   @SerializedName("List")
   private List<Run> list = null;
-
-  public Runs link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Runs list(List<Run> list) {
     this.list = list;
@@ -109,13 +88,13 @@ public class Runs {
       return false;
     }
     Runs runs = (Runs) o;
-    return Objects.equals(this.link, runs.link) &&
-        Objects.equals(this.list, runs.list);
+    return Objects.equals(this.list, runs.list) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, list);
+    return Objects.hash(list, super.hashCode());
   }
 
 
@@ -123,8 +102,7 @@ public class Runs {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Runs {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("}");
     return sb.toString();

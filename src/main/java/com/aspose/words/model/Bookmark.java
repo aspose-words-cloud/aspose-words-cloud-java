@@ -45,33 +45,12 @@ import java.io.IOException;
  */
 @ApiModel(description = "Represents a single bookmark.")
 
-public class Bookmark {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
+public class Bookmark extends LinkElement {
   @SerializedName("Name")
   private String name = null;
 
   @SerializedName("Text")
   private String text = null;
-
-  public Bookmark link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Link to the document.
-   * @return link
-  **/
-  @ApiModelProperty(value = "Link to the document.")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
 
   public Bookmark name(String name) {
     this.name = name;
@@ -119,14 +98,14 @@ public class Bookmark {
       return false;
     }
     Bookmark bookmark = (Bookmark) o;
-    return Objects.equals(this.link, bookmark.link) &&
-        Objects.equals(this.name, bookmark.name) &&
-        Objects.equals(this.text, bookmark.text);
+    return Objects.equals(this.name, bookmark.name) &&
+        Objects.equals(this.text, bookmark.text) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, name, text);
+    return Objects.hash(name, text, super.hashCode());
   }
 
 
@@ -134,8 +113,7 @@ public class Bookmark {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Bookmark {\n");
-    
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");

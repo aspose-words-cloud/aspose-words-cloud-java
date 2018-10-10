@@ -44,34 +44,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "container class for docx/docm/dotx/dotm/flatopc save options")
 
-public class OoxmlSaveOptionsData {
-  @SerializedName("ColorMode")
-  private String colorMode = null;
-
-  @SerializedName("SaveFormat")
-  private String saveFormat = null;
-
-  @SerializedName("FileName")
-  private String fileName = null;
-
-  @SerializedName("DmlRenderingMode")
-  private String dmlRenderingMode = null;
-
-  @SerializedName("DmlEffectsRenderingMode")
-  private String dmlEffectsRenderingMode = null;
-
-  @SerializedName("ZipOutput")
-  private Boolean zipOutput = null;
-
-  @SerializedName("UpdateLastSavedTimeProperty")
-  private Boolean updateLastSavedTimeProperty = null;
-
-  @SerializedName("UpdateSdtContent")
-  private Boolean updateSdtContent = null;
-
-  @SerializedName("UpdateFields")
-  private Boolean updateFields = null;
-
+public class OoxmlSaveOptionsData extends SaveOptionsData {
   @SerializedName("Compliance")
   private String compliance = null;
 
@@ -80,168 +53,6 @@ public class OoxmlSaveOptionsData {
 
   @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
-
-  public OoxmlSaveOptionsData colorMode(String colorMode) {
-    this.colorMode = colorMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}
-   * @return colorMode
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}")
-  public String getColorMode() {
-    return colorMode;
-  }
-
-  public void setColorMode(String colorMode) {
-    this.colorMode = colorMode;
-  }
-
-  public OoxmlSaveOptionsData saveFormat(String saveFormat) {
-    this.saveFormat = saveFormat;
-    return this;
-  }
-
-   /**
-   * format of save
-   * @return saveFormat
-  **/
-  @ApiModelProperty(value = "format of save")
-  public String getSaveFormat() {
-    return saveFormat;
-  }
-
-  public void setSaveFormat(String saveFormat) {
-    this.saveFormat = saveFormat;
-  }
-
-  public OoxmlSaveOptionsData fileName(String fileName) {
-    this.fileName = fileName;
-    return this;
-  }
-
-   /**
-   * name of destination file
-   * @return fileName
-  **/
-  @ApiModelProperty(value = "name of destination file")
-  public String getFileName() {
-    return fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public OoxmlSaveOptionsData dmlRenderingMode(String dmlRenderingMode) {
-    this.dmlRenderingMode = dmlRenderingMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }
-   * @return dmlRenderingMode
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }")
-  public String getDmlRenderingMode() {
-    return dmlRenderingMode;
-  }
-
-  public void setDmlRenderingMode(String dmlRenderingMode) {
-    this.dmlRenderingMode = dmlRenderingMode;
-  }
-
-  public OoxmlSaveOptionsData dmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
-    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }
-   * @return dmlEffectsRenderingMode
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }")
-  public String getDmlEffectsRenderingMode() {
-    return dmlEffectsRenderingMode;
-  }
-
-  public void setDmlEffectsRenderingMode(String dmlEffectsRenderingMode) {
-    this.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-  }
-
-  public OoxmlSaveOptionsData zipOutput(Boolean zipOutput) {
-    this.zipOutput = zipOutput;
-    return this;
-  }
-
-   /**
-   * Controls zip output or not. Default value is false.
-   * @return zipOutput
-  **/
-  @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
-  public Boolean isZipOutput() {
-    return zipOutput;
-  }
-
-  public void setZipOutput(Boolean zipOutput) {
-    this.zipOutput = zipOutput;
-  }
-
-  public OoxmlSaveOptionsData updateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
-    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
-   * @return updateLastSavedTimeProperty
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
-  public Boolean isUpdateLastSavedTimeProperty() {
-    return updateLastSavedTimeProperty;
-  }
-
-  public void setUpdateLastSavedTimeProperty(Boolean updateLastSavedTimeProperty) {
-    this.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
-  }
-
-  public OoxmlSaveOptionsData updateSdtContent(Boolean updateSdtContent) {
-    this.updateSdtContent = updateSdtContent;
-    return this;
-  }
-
-   /**
-   * Gets or sets value determining whether content of  is updated before saving.
-   * @return updateSdtContent
-  **/
-  @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
-  public Boolean isUpdateSdtContent() {
-    return updateSdtContent;
-  }
-
-  public void setUpdateSdtContent(Boolean updateSdtContent) {
-    this.updateSdtContent = updateSdtContent;
-  }
-
-  public OoxmlSaveOptionsData updateFields(Boolean updateFields) {
-    this.updateFields = updateFields;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true
-   * @return updateFields
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
-  public Boolean isUpdateFields() {
-    return updateFields;
-  }
-
-  public void setUpdateFields(Boolean updateFields) {
-    this.updateFields = updateFields;
-  }
 
   public OoxmlSaveOptionsData compliance(String compliance) {
     this.compliance = compliance;
@@ -289,7 +100,7 @@ public class OoxmlSaveOptionsData {
    * @return prettyFormat
   **/
   @ApiModelProperty(value = "Specifies whether or not use pretty formats output")
-  public Boolean isPrettyFormat() {
+  public Boolean isisPrettyFormat() {
     return prettyFormat;
   }
 
@@ -307,23 +118,15 @@ public class OoxmlSaveOptionsData {
       return false;
     }
     OoxmlSaveOptionsData ooxmlSaveOptionsData = (OoxmlSaveOptionsData) o;
-    return Objects.equals(this.colorMode, ooxmlSaveOptionsData.colorMode) &&
-        Objects.equals(this.saveFormat, ooxmlSaveOptionsData.saveFormat) &&
-        Objects.equals(this.fileName, ooxmlSaveOptionsData.fileName) &&
-        Objects.equals(this.dmlRenderingMode, ooxmlSaveOptionsData.dmlRenderingMode) &&
-        Objects.equals(this.dmlEffectsRenderingMode, ooxmlSaveOptionsData.dmlEffectsRenderingMode) &&
-        Objects.equals(this.zipOutput, ooxmlSaveOptionsData.zipOutput) &&
-        Objects.equals(this.updateLastSavedTimeProperty, ooxmlSaveOptionsData.updateLastSavedTimeProperty) &&
-        Objects.equals(this.updateSdtContent, ooxmlSaveOptionsData.updateSdtContent) &&
-        Objects.equals(this.updateFields, ooxmlSaveOptionsData.updateFields) &&
-        Objects.equals(this.compliance, ooxmlSaveOptionsData.compliance) &&
+    return Objects.equals(this.compliance, ooxmlSaveOptionsData.compliance) &&
         Objects.equals(this.password, ooxmlSaveOptionsData.password) &&
-        Objects.equals(this.prettyFormat, ooxmlSaveOptionsData.prettyFormat);
+        Objects.equals(this.prettyFormat, ooxmlSaveOptionsData.prettyFormat) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorMode, saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields, compliance, password, prettyFormat);
+    return Objects.hash(compliance, password, prettyFormat, super.hashCode());
   }
 
 
@@ -331,16 +134,7 @@ public class OoxmlSaveOptionsData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OoxmlSaveOptionsData {\n");
-    
-    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
-    sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");
-    sb.append("    dmlEffectsRenderingMode: ").append(toIndentedString(dmlEffectsRenderingMode)).append("\n");
-    sb.append("    zipOutput: ").append(toIndentedString(zipOutput)).append("\n");
-    sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(updateLastSavedTimeProperty)).append("\n");
-    sb.append("    updateSdtContent: ").append(toIndentedString(updateSdtContent)).append("\n");
-    sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    compliance: ").append(toIndentedString(compliance)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");

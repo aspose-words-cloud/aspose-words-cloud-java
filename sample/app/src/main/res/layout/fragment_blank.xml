@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.BlankFragment"
+    android:background="@android:color/white"
+    android:padding="@dimen/fab_margin"
+    >
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="@dimen/method_caption_text_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/method_title_put_create_document" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="@dimen/parameter_name_layout_weight"
+                    android:layout_height="wrap_content"
+                    android:text="@string/parameter_name_name"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="@dimen/parameter_value_layout_weight"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="@string/parameter_name_default_value"
+                    android:id="@+id/etName"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="@dimen/parameter_name_layout_weight"
+                    android:layout_height="wrap_content"
+                    android:text="@string/parameter_name_folder"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="@dimen/parameter_value_layout_weight"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="@string/parameter_name_folder_value"
+                    android:id="@+id/etFolder"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                >
+                <Button
+                    android:id="@+id/btnInvoke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_text_invoke"
+                    />
+
+                <ProgressBar
+                    android:layout_width="@dimen/progress_bar_size"
+                    android:layout_height="@dimen/progress_bar_size"
+                    android:id="@+id/pbInvoking"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    />
+
+                <TextView
+                    android:id="@+id/tvResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:textSize="@dimen/method_caption_text_size"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvResponse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

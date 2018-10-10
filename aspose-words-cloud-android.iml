@@ -84,17 +84,20 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/publications" />
+      <excludeFolder url="file://$MODULE_DIR$/build/reports" />
+      <excludeFolder url="file://$MODULE_DIR$/build/test-results" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Gradle: com.google.code.gson:gson:2.8.1@jar" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.squareup.okio:okio:1.6.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.threeten:threetenbp:1.3.5@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
@@ -102,6 +105,7 @@
     <orderEntry type="library" exported="" name="Gradle: io.swagger:swagger-annotations:1.5.17@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: javax.annotation:jsr250-api:1.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: io.gsonfire:gson-fire:1.8.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.okio:okio:1.6.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp:logging-interceptor:2.7.5@jar" level="project" />
   </component>
 </module>

@@ -139,7 +139,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RevisionsModificationResponse> resp = acceptAllRevisionsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -268,7 +268,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ClassificationResponse> resp = classifyWithHttpInfo(request);
                 return resp.getData();
             }
@@ -403,7 +403,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ClassificationResponse> resp = classifyDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -550,7 +550,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentPropertyResponse> resp = createOrUpdateDocumentPropertyWithHttpInfo(request);
                 return resp.getData();
             }
@@ -698,7 +698,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BorderResponse> resp = deleteBorderWithHttpInfo(request);
                 return resp.getData();
             }
@@ -840,7 +840,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BordersResponse> resp = deleteBordersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -982,7 +982,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteCommentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1118,7 +1118,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteDocumentMacrosWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1260,7 +1260,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteDocumentPropertyWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1396,7 +1396,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = deleteDocumentWatermarkWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1539,7 +1539,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1682,7 +1682,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1819,7 +1819,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteFieldsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -1962,7 +1962,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteFootnoteWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2105,7 +2105,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteFormFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2248,7 +2248,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteHeaderFooterWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2386,7 +2386,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteHeadersFootersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2529,7 +2529,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteOfficeMathObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2672,7 +2672,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteParagraphWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2820,7 +2820,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteRunWithHttpInfo(request);
                 return resp.getData();
             }
@@ -2963,7 +2963,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteTableWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3111,7 +3111,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteTableCellWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3259,7 +3259,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = deleteTableRowWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3398,7 +3398,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ProtectionDataResponse> resp = deleteUnprotectDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3522,7 +3522,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AvailableFontsResponse> resp = getAvailableFontsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3667,7 +3667,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BorderResponse> resp = getBorderWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3806,7 +3806,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BordersResponse> resp = getBordersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -3945,7 +3945,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<CommentResponse> resp = getCommentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4078,7 +4078,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<CommentsResponse> resp = getCommentsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4211,7 +4211,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = getDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4350,7 +4350,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BookmarkResponse> resp = getDocumentBookmarkByNameWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4483,7 +4483,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BookmarksResponse> resp = getDocumentBookmarksWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4623,7 +4623,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DrawingObjectResponse> resp = getDocumentDrawingObjectByIndexWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4763,7 +4763,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
                 return resp.getData();
             }
@@ -4903,7 +4903,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5037,7 +5037,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DrawingObjectsResponse> resp = getDocumentDrawingObjectsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5171,7 +5171,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldNamesResponse> resp = getDocumentFieldNamesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5310,7 +5310,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HyperlinkResponse> resp = getDocumentHyperlinkByIndexWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5443,7 +5443,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HyperlinksResponse> resp = getDocumentHyperlinksWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5583,7 +5583,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ParagraphResponse> resp = getDocumentParagraphWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5633,6 +5633,146 @@ public class WordsApi {
 
         com.squareup.okhttp.Call call = getDocumentParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getDocumentParagraphFormat
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getDocumentParagraphFormatCall(GetDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDocumentParagraphFormatValidateBeforeCall(GetDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentParagraphFormat");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentParagraphFormat");
+        }
+        
+
+        com.squareup.okhttp.Call call = getDocumentParagraphFormatCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Represents all the formatting for a paragraph.
+     * 
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphFormatResponse getDocumentParagraphFormat(GetDocumentParagraphFormatRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphFormatResponse> resp = getDocumentParagraphFormatWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphFormatResponse> resp = getDocumentParagraphFormatWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Represents all the formatting for a paragraph.
+     * 
+     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphFormatResponse> getDocumentParagraphFormatWithHttpInfo(GetDocumentParagraphFormatRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getDocumentParagraphFormatValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Represents all the formatting for a paragraph. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getDocumentParagraphFormatAsync(GetDocumentParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDocumentParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -5728,7 +5868,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RunResponse> resp = getDocumentParagraphRunWithHttpInfo(request);
                 return resp.getData();
             }
@@ -5873,7 +6013,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FontResponse> resp = getDocumentParagraphRunFontWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6012,7 +6152,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RunsResponse> resp = getDocumentParagraphRunsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6146,7 +6286,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ParagraphLinkCollectionResponse> resp = getDocumentParagraphsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6279,7 +6419,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentPropertiesResponse> resp = getDocumentPropertiesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6418,7 +6558,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentPropertyResponse> resp = getDocumentPropertyWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6551,7 +6691,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ProtectionDataResponse> resp = getDocumentProtectionWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6687,7 +6827,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<StatDataResponse> resp = getDocumentStatisticsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6825,7 +6965,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TextItemsResponse> resp = getDocumentTextItemsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -6970,7 +7110,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = getDocumentWithFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7110,7 +7250,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldResponse> resp = getFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7244,7 +7384,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldsResponse> resp = getFieldsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7384,7 +7524,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FootnoteResponse> resp = getFootnoteWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7518,7 +7658,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FootnotesResponse> resp = getFootnotesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7658,7 +7798,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FormFieldResponse> resp = getFormFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7792,7 +7932,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FormFieldsResponse> resp = getFormFieldsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -7932,7 +8072,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HeaderFooterResponse> resp = getHeaderFooterWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8078,7 +8218,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HeaderFooterResponse> resp = getHeaderFooterOfSectionWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8213,7 +8353,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HeaderFootersResponse> resp = getHeaderFootersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8353,7 +8493,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<OfficeMathObjectResponse> resp = getOfficeMathObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8487,7 +8627,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<OfficeMathObjectsResponse> resp = getOfficeMathObjectsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8626,7 +8766,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SectionResponse> resp = getSectionWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8765,7 +8905,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SectionPageSetupResponse> resp = getSectionPageSetupWithHttpInfo(request);
                 return resp.getData();
             }
@@ -8898,7 +9038,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SectionLinkCollectionResponse> resp = getSectionsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9038,7 +9178,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableResponse> resp = getTableWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9183,7 +9323,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableCellResponse> resp = getTableCellWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9328,7 +9468,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableCellFormatResponse> resp = getTableCellFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9468,7 +9608,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TablePropertiesResponse> resp = getTablePropertiesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9613,7 +9753,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableRowResponse> resp = getTableRowWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9758,7 +9898,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableRowFormatResponse> resp = getTableRowFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -9892,7 +10032,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableLinkCollectionResponse> resp = getTablesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10029,7 +10169,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableResponse> resp = insertTableWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10171,7 +10311,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableCellResponse> resp = insertTableCellWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10313,7 +10453,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableRowResponse> resp = insertTableRowWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10454,7 +10594,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postAppendDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10593,7 +10733,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ProtectionDataResponse> resp = postChangeDocumentProtectionWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10740,7 +10880,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<CommentResponse> resp = postCommentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -10879,7 +11019,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postCompareDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11019,7 +11159,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postDocumentExecuteMailMergeWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11069,6 +11209,159 @@ public class WordsApi {
 
         com.squareup.okhttp.Call call = postDocumentExecuteMailMergeValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for postDocumentParagraphFormat
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call postDocumentParagraphFormatCall(PostDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call postDocumentParagraphFormatValidateBeforeCall(PostDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postDocumentParagraphFormat");
+        }
+        
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling postDocumentParagraphFormat");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling postDocumentParagraphFormat");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postDocumentParagraphFormat");
+        }
+        
+
+        com.squareup.okhttp.Call call = postDocumentParagraphFormatCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates paragrpaph format properties, returns updated format properties.
+     * 
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphFormatResponse postDocumentParagraphFormat(PostDocumentParagraphFormatRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphFormatResponse> resp = postDocumentParagraphFormatWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphFormatResponse> resp = postDocumentParagraphFormatWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates paragrpaph format properties, returns updated format properties.
+     * 
+     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphFormatResponse> postDocumentParagraphFormatWithHttpInfo(PostDocumentParagraphFormatRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = postDocumentParagraphFormatValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates paragrpaph format properties, returns updated format properties. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postDocumentParagraphFormatAsync(PostDocumentParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postDocumentParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -11172,7 +11465,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FontResponse> resp = postDocumentParagraphRunFontWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11312,7 +11605,7 @@ public class WordsApi {
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SaveResponse> resp = postDocumentSaveAsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11469,7 +11762,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DrawingObjectResponse> resp = postDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11613,7 +11906,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postExecuteTemplateWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11761,7 +12054,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldResponse> resp = postFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -11909,7 +12202,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FootnoteResponse> resp = postFootnoteWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12057,7 +12350,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FormFieldResponse> resp = postFormFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12197,7 +12490,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postInsertDocumentWatermarkImageWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12338,7 +12631,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postInsertDocumentWatermarkTextWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12479,7 +12772,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postInsertPageNumbersWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12608,7 +12901,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SaveResponse> resp = postLoadWebDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12749,7 +13042,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ReplaceTextResponse> resp = postReplaceTextWithHttpInfo(request);
                 return resp.getData();
             }
@@ -12902,7 +13195,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RunResponse> resp = postRunWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13041,7 +13334,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SplitDocumentResponse> resp = postSplitDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13188,7 +13481,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BookmarkResponse> resp = postUpdateDocumentBookmarkWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13322,7 +13615,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = postUpdateDocumentFieldsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13463,7 +13756,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<CommentResponse> resp = putCommentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13603,7 +13896,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = putConvertDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13729,7 +14022,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DocumentResponse> resp = putCreateDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -13860,7 +14153,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldNamesResponse> resp = putDocumentFieldNamesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14018,7 +14311,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SaveResponse> resp = putDocumentSaveAsTiffWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14169,7 +14462,7 @@ if (request.getImageFile() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<DrawingObjectResponse> resp = putDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14309,7 +14602,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = putExecuteMailMergeOnlineWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14450,7 +14743,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = putExecuteTemplateOnlineWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14593,7 +14886,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FieldResponse> resp = putFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14735,7 +15028,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FootnoteResponse> resp = putFootnoteWithHttpInfo(request);
                 return resp.getData();
             }
@@ -14878,7 +15171,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<FormFieldResponse> resp = putFormFieldWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15020,7 +15313,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<HeaderFooterResponse> resp = putHeaderFooterWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15163,7 +15456,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ParagraphResponse> resp = putParagraphWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15302,7 +15595,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<ProtectionDataResponse> resp = putProtectDocumentWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15450,7 +15743,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RunResponse> resp = putRunWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15584,7 +15877,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<RevisionsModificationResponse> resp = rejectAllRevisionsWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15731,7 +16024,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderDrawingObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -15878,7 +16171,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderMathObjectWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16024,7 +16317,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderPageWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16171,7 +16464,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderParagraphWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16318,7 +16611,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<File> resp = renderTableWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16441,7 +16734,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<AsposeResponse> resp = resetCacheWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16580,7 +16873,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SearchResponse> resp = searchWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16733,7 +17026,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<BorderResponse> resp = updateBorderWithHttpInfo(request);
                 return resp.getData();
             }
@@ -16880,7 +17173,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<SectionPageSetupResponse> resp = updateSectionPageSetupWithHttpInfo(request);
                 return resp.getData();
             }
@@ -17028,7 +17321,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableCellFormatResponse> resp = updateTableCellFormatWithHttpInfo(request);
                 return resp.getData();
             }
@@ -17171,7 +17464,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TablePropertiesResponse> resp = updateTablePropertiesWithHttpInfo(request);
                 return resp.getData();
             }
@@ -17319,7 +17612,7 @@ if (request.getData() != null)
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
-                apiClient.refreshToken();
+                apiClient.requestToken();
                 ApiResponse<TableRowFormatResponse> resp = updateTableRowFormatWithHttpInfo(request);
                 return resp.getData();
             }
