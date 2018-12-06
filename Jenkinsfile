@@ -5,6 +5,7 @@ node('billing-qa-ubuntu-16.04.4') {
     try {
 	   stage('0:build android sdk image') {
 		if (params.StartFromStep.toInteger() < 1) {
+		    checkout([$class: 'GitSCM', branches: [[name: '*/android']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9d6c4dfa-042c-4ed1-81c7-9175179dddda', url: 'https://github.com/aspose-words-cloud/aspose-words-cloud-java.git/']]])
 			sh "docker build -t asposewordsandroid.image -f ./Dockerfile . "
 		}
 	   }
