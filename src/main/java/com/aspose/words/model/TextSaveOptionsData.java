@@ -45,6 +45,9 @@ import java.io.IOException;
 @ApiModel(description = "Container class for text save options.")
 
 public class TextSaveOptionsData extends SaveOptionsData {
+  @SerializedName("AddBidiMarks")
+  private Boolean addBidiMarks = null;
+
   @SerializedName("Encoding")
   private String encoding = null;
 
@@ -62,6 +65,24 @@ public class TextSaveOptionsData extends SaveOptionsData {
 
   @SerializedName("SimplifyListLabels")
   private Boolean simplifyListLabels = null;
+
+  public TextSaveOptionsData addBidiMarks(Boolean addBidiMarks) {
+    this.addBidiMarks = addBidiMarks;
+    return this;
+  }
+
+   /**
+   * Specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
+   * @return addBidiMarks
+  **/
+  @ApiModelProperty(value = "Specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.")
+  public Boolean isisAddBidiMarks() {
+    return addBidiMarks;
+  }
+
+  public void setAddBidiMarks(Boolean addBidiMarks) {
+    this.addBidiMarks = addBidiMarks;
+  }
 
   public TextSaveOptionsData encoding(String encoding) {
     this.encoding = encoding;
@@ -181,7 +202,8 @@ public class TextSaveOptionsData extends SaveOptionsData {
       return false;
     }
     TextSaveOptionsData textSaveOptionsData = (TextSaveOptionsData) o;
-    return Objects.equals(this.encoding, textSaveOptionsData.encoding) &&
+    return Objects.equals(this.addBidiMarks, textSaveOptionsData.addBidiMarks) &&
+        Objects.equals(this.encoding, textSaveOptionsData.encoding) &&
         Objects.equals(this.exportHeadersFooters, textSaveOptionsData.exportHeadersFooters) &&
         Objects.equals(this.forcePageBreaks, textSaveOptionsData.forcePageBreaks) &&
         Objects.equals(this.paragraphBreak, textSaveOptionsData.paragraphBreak) &&
@@ -192,7 +214,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(encoding, exportHeadersFooters, forcePageBreaks, paragraphBreak, preserveTableLayout, simplifyListLabels, super.hashCode());
+    return Objects.hash(addBidiMarks, encoding, exportHeadersFooters, forcePageBreaks, paragraphBreak, preserveTableLayout, simplifyListLabels, super.hashCode());
   }
 
 
@@ -201,6 +223,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class TextSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    addBidiMarks: ").append(toIndentedString(addBidiMarks)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    exportHeadersFooters: ").append(toIndentedString(exportHeadersFooters)).append("\n");
     sb.append("    forcePageBreaks: ").append(toIndentedString(forcePageBreaks)).append("\n");
