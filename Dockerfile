@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM gradle:4.10.0-jdk8
 
 RUN apt-get update && apt-get install -y \
 curl
