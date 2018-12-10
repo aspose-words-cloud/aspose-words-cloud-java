@@ -1,7 +1,7 @@
 FROM gradle:4.10.0-jdk8
 
-RUN apt-get update && apt-get install -y \
-curl
+USER root
+
 ENV SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip" \
     ANDROID_HOME="/usr/local/android-sdk" \
     ANDROID_VERSION=25 \
