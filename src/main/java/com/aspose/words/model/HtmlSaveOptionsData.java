@@ -292,9 +292,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
   @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
 
-  @SerializedName("ResolveFontNames")
-  private Boolean resolveFontNames = null;
-
   @SerializedName("ResourceFolder")
   private String resourceFolder = null;
 
@@ -919,24 +916,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     this.prettyFormat = prettyFormat;
   }
 
-  public HtmlSaveOptionsData resolveFontNames(Boolean resolveFontNames) {
-    this.resolveFontNames = resolveFontNames;
-    return this;
-  }
-
-   /**
-   * A new option HtmlSaveOptions.ResolveFontNames has been added that affects writing of font names to HTML-based formats. By default this option is set to false and, as before, Aspose.Words writes font names as specified in the source document, ignoring Document.FontSettings. If this option is set to true, Aspose.Words resolves all font names before writing them to HTML. That is, it checks availability of each font using Document.FontSettings and substitutes unavailable fonts if needed.
-   * @return resolveFontNames
-  **/
-  @ApiModelProperty(value = "A new option HtmlSaveOptions.ResolveFontNames has been added that affects writing of font names to HTML-based formats. By default this option is set to false and, as before, Aspose.Words writes font names as specified in the source document, ignoring Document.FontSettings. If this option is set to true, Aspose.Words resolves all font names before writing them to HTML. That is, it checks availability of each font using Document.FontSettings and substitutes unavailable fonts if needed.")
-  public Boolean isisResolveFontNames() {
-    return resolveFontNames;
-  }
-
-  public void setResolveFontNames(Boolean resolveFontNames) {
-    this.resolveFontNames = resolveFontNames;
-  }
-
   public HtmlSaveOptionsData resourceFolder(String resourceFolder) {
     this.resourceFolder = resourceFolder;
     return this;
@@ -1053,7 +1032,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         Objects.equals(this.metafileFormat, htmlSaveOptionsData.metafileFormat) &&
         Objects.equals(this.officeMathOutputMode, htmlSaveOptionsData.officeMathOutputMode) &&
         Objects.equals(this.prettyFormat, htmlSaveOptionsData.prettyFormat) &&
-        Objects.equals(this.resolveFontNames, htmlSaveOptionsData.resolveFontNames) &&
         Objects.equals(this.resourceFolder, htmlSaveOptionsData.resourceFolder) &&
         Objects.equals(this.resourceFolderAlias, htmlSaveOptionsData.resourceFolderAlias) &&
         Objects.equals(this.scaleImageToShapeSize, htmlSaveOptionsData.scaleImageToShapeSize) &&
@@ -1063,7 +1041,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextBoxAsSvg, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
+    return Objects.hash(allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextBoxAsSvg, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode, super.hashCode());
   }
 
 
@@ -1106,7 +1084,6 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     sb.append("    metafileFormat: ").append(toIndentedString(metafileFormat)).append("\n");
     sb.append("    officeMathOutputMode: ").append(toIndentedString(officeMathOutputMode)).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
-    sb.append("    resolveFontNames: ").append(toIndentedString(resolveFontNames)).append("\n");
     sb.append("    resourceFolder: ").append(toIndentedString(resourceFolder)).append("\n");
     sb.append("    resourceFolderAlias: ").append(toIndentedString(resourceFolderAlias)).append("\n");
     sb.append("    scaleImageToShapeSize: ").append(toIndentedString(scaleImageToShapeSize)).append("\n");

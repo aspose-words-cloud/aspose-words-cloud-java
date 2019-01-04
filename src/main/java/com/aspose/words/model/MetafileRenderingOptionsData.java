@@ -56,9 +56,6 @@ public class MetafileRenderingOptionsData {
   @SerializedName("UseEmfEmbeddedToWmf")
   private Boolean useEmfEmbeddedToWmf = null;
 
-  @SerializedName("ScaleWmfFontsToMetafileSize")
-  private Boolean scaleWmfFontsToMetafileSize = null;
-
   public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
     this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
     return this;
@@ -131,24 +128,6 @@ public class MetafileRenderingOptionsData {
     this.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
   }
 
-  public MetafileRenderingOptionsData scaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
-    this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page.
-   * @return scaleWmfFontsToMetafileSize
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page.")
-  public Boolean isisScaleWmfFontsToMetafileSize() {
-    return scaleWmfFontsToMetafileSize;
-  }
-
-  public void setScaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
-    this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -162,13 +141,12 @@ public class MetafileRenderingOptionsData {
     return Objects.equals(this.emfPlusDualRenderingMode, metafileRenderingOptionsData.emfPlusDualRenderingMode) &&
         Objects.equals(this.emulateRasterOperations, metafileRenderingOptionsData.emulateRasterOperations) &&
         Objects.equals(this.renderingMode, metafileRenderingOptionsData.renderingMode) &&
-        Objects.equals(this.useEmfEmbeddedToWmf, metafileRenderingOptionsData.useEmfEmbeddedToWmf) &&
-        Objects.equals(this.scaleWmfFontsToMetafileSize, metafileRenderingOptionsData.scaleWmfFontsToMetafileSize);
+        Objects.equals(this.useEmfEmbeddedToWmf, metafileRenderingOptionsData.useEmfEmbeddedToWmf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emfPlusDualRenderingMode, emulateRasterOperations, renderingMode, useEmfEmbeddedToWmf, scaleWmfFontsToMetafileSize);
+    return Objects.hash(emfPlusDualRenderingMode, emulateRasterOperations, renderingMode, useEmfEmbeddedToWmf);
   }
 
 
@@ -181,7 +159,6 @@ public class MetafileRenderingOptionsData {
     sb.append("    emulateRasterOperations: ").append(toIndentedString(emulateRasterOperations)).append("\n");
     sb.append("    renderingMode: ").append(toIndentedString(renderingMode)).append("\n");
     sb.append("    useEmfEmbeddedToWmf: ").append(toIndentedString(useEmfEmbeddedToWmf)).append("\n");
-    sb.append("    scaleWmfFontsToMetafileSize: ").append(toIndentedString(scaleWmfFontsToMetafileSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
