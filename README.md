@@ -23,12 +23,26 @@ To use Aspose Words for Cloud Java SDK you need to register an account with [Asp
 Add this dependency to your project's POM:
 
 ```xml
-<dependency>
-  <groupId>com.aspose.words</groupId>
-  <artifactId>aspose-words-cloud</artifactId>
-  <version>18.9</version>
-  <scope>compile</scope>
-</dependency>
+<repositories>
+    <repository>
+        <id>aspose-cloud</id>
+        <name>artifact.aspose-cloud-releases</name>
+        <url>http://artifact.aspose.cloud/repo</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.aspose</groupId>
+        <artifactId>aspose-cloud-storage</artifactId>
+        <version>1.0.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.aspose</groupId>
+        <artifactId>aspose-words-cloud</artifactId>
+        <version>18.9.0</version>
+    </dependency>
+</dependencies>
 ```
 
 ## Getting Started
