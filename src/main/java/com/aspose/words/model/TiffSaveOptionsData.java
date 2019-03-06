@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.model;
+package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.model.GraphicsQualityOptionsData;
-import com.aspose.words.model.ImageSaveOptionsData;
-import com.aspose.words.model.MetafileRenderingOptionsData;
+import com.aspose.words.cloud.model.GraphicsQualityOptionsData;
+import com.aspose.words.cloud.model.ImageSaveOptionsData;
+import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

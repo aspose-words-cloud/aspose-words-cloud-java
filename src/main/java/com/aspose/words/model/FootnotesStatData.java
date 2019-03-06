@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.model;
+package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;

@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.model;
+package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.model.DocumentPosition;
+import com.aspose.words.cloud.model.DocumentPosition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

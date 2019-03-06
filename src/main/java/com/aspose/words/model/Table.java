@@ -25,14 +25,14 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.model;
+package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.model.NodeLink;
-import com.aspose.words.model.TableProperties;
-import com.aspose.words.model.TableRow;
-import com.aspose.words.model.WordsApiLink;
+import com.aspose.words.cloud.model.NodeLink;
+import com.aspose.words.cloud.model.TableProperties;
+import com.aspose.words.cloud.model.TableRow;
+import com.aspose.words.cloud.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

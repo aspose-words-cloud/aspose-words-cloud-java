@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.model.requests;
-import com.aspose.words.model.*;
+package com.aspose.words.cloud.model.requests;
+import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*

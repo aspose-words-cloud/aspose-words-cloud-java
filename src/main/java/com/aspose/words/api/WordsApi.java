@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.api;
+package com.aspose.words.cloud.api;
 
-import com.aspose.words.*;
-import com.aspose.words.model.*;
-import com.aspose.words.model.requests.*;
+import com.aspose.words.cloud.*;
+import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.requests.*;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.File;

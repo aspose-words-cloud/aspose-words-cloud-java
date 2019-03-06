@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.model;
+package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.model.AsposeResponse;
-import com.aspose.words.model.CommentsCollection;
+import com.aspose.words.cloud.model.AsposeResponse;
+import com.aspose.words.cloud.model.CommentsCollection;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
