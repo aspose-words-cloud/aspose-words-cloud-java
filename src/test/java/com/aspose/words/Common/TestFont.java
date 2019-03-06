@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.Common;
+package com.aspose.words.cloud.Common;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.AsposeResponse;
-import com.aspose.words.model.AvailableFontsResponse;
-import com.aspose.words.model.requests.GetAvailableFontsRequest;
-import com.aspose.words.model.requests.ResetCacheRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.AsposeResponse;
+import com.aspose.words.cloud.model.AvailableFontsResponse;
+import com.aspose.words.cloud.model.requests.GetAvailableFontsRequest;
+import com.aspose.words.cloud.model.requests.ResetCacheRequest;
 import junit.framework.TestCase;
 
 public class TestFont extends TestCase {

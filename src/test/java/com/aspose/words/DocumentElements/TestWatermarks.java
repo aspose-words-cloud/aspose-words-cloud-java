@@ -24,15 +24,15 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.DocumentResponse;
-import com.aspose.words.model.WatermarkText;
-import com.aspose.words.model.requests.DeleteDocumentWatermarkRequest;
-import com.aspose.words.model.requests.PostInsertDocumentWatermarkImageRequest;
-import com.aspose.words.model.requests.PostInsertDocumentWatermarkTextRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.DocumentResponse;
+import com.aspose.words.cloud.model.WatermarkText;
+import com.aspose.words.cloud.model.requests.DeleteDocumentWatermarkRequest;
+import com.aspose.words.cloud.model.requests.PostInsertDocumentWatermarkImageRequest;
+import com.aspose.words.cloud.model.requests.PostInsertDocumentWatermarkTextRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

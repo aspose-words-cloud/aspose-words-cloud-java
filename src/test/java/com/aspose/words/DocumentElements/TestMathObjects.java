@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.AsposeResponse;
-import com.aspose.words.model.OfficeMathObjectResponse;
-import com.aspose.words.model.OfficeMathObjectsResponse;
-import com.aspose.words.model.requests.*;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.AsposeResponse;
+import com.aspose.words.cloud.model.OfficeMathObjectResponse;
+import com.aspose.words.cloud.model.OfficeMathObjectsResponse;
+import com.aspose.words.cloud.model.requests.*;
 import junit.framework.TestCase;
 
 import java.io.File;

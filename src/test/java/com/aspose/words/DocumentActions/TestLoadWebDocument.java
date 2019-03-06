@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.LoadWebDocumentData;
-import com.aspose.words.model.SaveOptionsData;
-import com.aspose.words.model.SaveResponse;
-import com.aspose.words.model.requests.PostLoadWebDocumentRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.LoadWebDocumentData;
+import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.cloud.model.SaveResponse;
+import com.aspose.words.cloud.model.requests.PostLoadWebDocumentRequest;
 import junit.framework.TestCase;
 
 public class TestLoadWebDocument extends TestCase {

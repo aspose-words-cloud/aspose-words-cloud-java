@@ -24,12 +24,12 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.SplitDocumentResponse;
-import com.aspose.words.model.requests.PostSplitDocumentRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.SplitDocumentResponse;
+import com.aspose.words.cloud.model.requests.PostSplitDocumentRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

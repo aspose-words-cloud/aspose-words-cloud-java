@@ -24,16 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.AsposeResponse;
-import com.aspose.words.model.Run;
-import com.aspose.words.model.RunResponse;
-import com.aspose.words.model.requests.DeleteRunRequest;
-import com.aspose.words.model.requests.PostRunRequest;
-import com.aspose.words.model.requests.PutRunRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.AsposeResponse;
+import com.aspose.words.cloud.model.Run;
+import com.aspose.words.cloud.model.RunResponse;
+import com.aspose.words.cloud.model.requests.DeleteRunRequest;
+import com.aspose.words.cloud.model.requests.PostRunRequest;
+import com.aspose.words.cloud.model.requests.PutRunRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

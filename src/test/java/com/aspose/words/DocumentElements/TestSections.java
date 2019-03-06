@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.SectionLinkCollectionResponse;
-import com.aspose.words.model.SectionResponse;
-import com.aspose.words.model.requests.GetSectionRequest;
-import com.aspose.words.model.requests.GetSectionsRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.SectionLinkCollectionResponse;
+import com.aspose.words.cloud.model.SectionResponse;
+import com.aspose.words.cloud.model.requests.GetSectionRequest;
+import com.aspose.words.cloud.model.requests.GetSectionsRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

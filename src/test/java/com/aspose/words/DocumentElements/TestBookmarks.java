@@ -24,16 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.BookmarkData;
-import com.aspose.words.model.BookmarkResponse;
-import com.aspose.words.model.BookmarksResponse;
-import com.aspose.words.model.requests.GetDocumentBookmarkByNameRequest;
-import com.aspose.words.model.requests.GetDocumentBookmarksRequest;
-import com.aspose.words.model.requests.PostUpdateDocumentBookmarkRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.BookmarkData;
+import com.aspose.words.cloud.model.BookmarkResponse;
+import com.aspose.words.cloud.model.BookmarksResponse;
+import com.aspose.words.cloud.model.requests.GetDocumentBookmarkByNameRequest;
+import com.aspose.words.cloud.model.requests.GetDocumentBookmarksRequest;
+import com.aspose.words.cloud.model.requests.PostUpdateDocumentBookmarkRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

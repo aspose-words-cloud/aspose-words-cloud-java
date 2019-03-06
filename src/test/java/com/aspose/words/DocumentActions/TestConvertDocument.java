@@ -24,17 +24,17 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.SaveOptionsData;
-import com.aspose.words.model.SaveResponse;
-import com.aspose.words.model.TiffSaveOptionsData;
-import com.aspose.words.model.requests.GetDocumentWithFormatRequest;
-import com.aspose.words.model.requests.PostDocumentSaveAsRequest;
-import com.aspose.words.model.requests.PutConvertDocumentRequest;
-import com.aspose.words.model.requests.PutDocumentSaveAsTiffRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.cloud.model.SaveResponse;
+import com.aspose.words.cloud.model.TiffSaveOptionsData;
+import com.aspose.words.cloud.model.requests.GetDocumentWithFormatRequest;
+import com.aspose.words.cloud.model.requests.PostDocumentSaveAsRequest;
+import com.aspose.words.cloud.model.requests.PutConvertDocumentRequest;
+import com.aspose.words.cloud.model.requests.PutDocumentSaveAsTiffRequest;
 import junit.framework.TestCase;
 import org.junit.Ignore;
 

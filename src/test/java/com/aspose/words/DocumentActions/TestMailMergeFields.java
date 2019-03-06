@@ -24,13 +24,13 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.FieldNamesResponse;
-import com.aspose.words.model.requests.GetDocumentFieldNamesRequest;
-import com.aspose.words.model.requests.PutDocumentFieldNamesRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.FieldNamesResponse;
+import com.aspose.words.cloud.model.requests.GetDocumentFieldNamesRequest;
+import com.aspose.words.cloud.model.requests.PutDocumentFieldNamesRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

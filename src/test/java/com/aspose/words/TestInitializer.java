@@ -1,5 +1,5 @@
-package com.aspose.words;
-import com.aspose.words.api.WordsApi;
+package com.aspose.words.cloud;
+import com.aspose.words.cloud.api.WordsApi;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import java.io.FileNotFoundException;

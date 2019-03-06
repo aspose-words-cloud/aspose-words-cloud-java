@@ -1,10 +1,10 @@
-package com.aspose.words.Common;
+package com.aspose.words.cloud.Common;
 
-import com.aspose.words.Document.TestDocument;
-import com.aspose.words.DocumentActions.*;
-import com.aspose.words.DocumentElements.*;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.api.WordsApi;
+import com.aspose.words.cloud.Document.TestDocument;
+import com.aspose.words.cloud.DocumentActions.*;
+import com.aspose.words.cloud.DocumentElements.*;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.api.WordsApi;
 import com.squareup.okhttp.Call;
 import junit.framework.TestCase;
 

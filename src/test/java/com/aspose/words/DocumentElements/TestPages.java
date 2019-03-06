@@ -24,15 +24,15 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.PageSetup;
-import com.aspose.words.model.SectionPageSetupResponse;
-import com.aspose.words.model.requests.GetSectionPageSetupRequest;
-import com.aspose.words.model.requests.RenderPageRequest;
-import com.aspose.words.model.requests.UpdateSectionPageSetupRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.PageSetup;
+import com.aspose.words.cloud.model.SectionPageSetupResponse;
+import com.aspose.words.cloud.model.requests.GetSectionPageSetupRequest;
+import com.aspose.words.cloud.model.requests.RenderPageRequest;
+import com.aspose.words.cloud.model.requests.UpdateSectionPageSetupRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

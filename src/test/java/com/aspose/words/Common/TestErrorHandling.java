@@ -1,8 +1,8 @@
-package com.aspose.words.Common;
+package com.aspose.words.cloud.Common;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.requests.GetSectionRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.requests.GetSectionRequest;
 import junit.framework.TestCase;
 import org.junit.Assert;
 

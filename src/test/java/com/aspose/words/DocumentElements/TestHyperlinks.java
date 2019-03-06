@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.HyperlinkResponse;
-import com.aspose.words.model.HyperlinksResponse;
-import com.aspose.words.model.requests.GetDocumentHyperlinkByIndexRequest;
-import com.aspose.words.model.requests.GetDocumentHyperlinksRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.HyperlinkResponse;
+import com.aspose.words.cloud.model.HyperlinksResponse;
+import com.aspose.words.cloud.model.requests.GetDocumentHyperlinkByIndexRequest;
+import com.aspose.words.cloud.model.requests.GetDocumentHyperlinksRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

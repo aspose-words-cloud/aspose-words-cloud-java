@@ -24,17 +24,17 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.ReplaceTextRequest;
-import com.aspose.words.model.ReplaceTextResponse;
-import com.aspose.words.model.SearchResponse;
-import com.aspose.words.model.TextItemsResponse;
-import com.aspose.words.model.requests.GetDocumentTextItemsRequest;
-import com.aspose.words.model.requests.PostReplaceTextRequest;
-import com.aspose.words.model.requests.SearchRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.ReplaceTextRequest;
+import com.aspose.words.cloud.model.ReplaceTextResponse;
+import com.aspose.words.cloud.model.SearchResponse;
+import com.aspose.words.cloud.model.TextItemsResponse;
+import com.aspose.words.cloud.model.requests.GetDocumentTextItemsRequest;
+import com.aspose.words.cloud.model.requests.PostReplaceTextRequest;
+import com.aspose.words.cloud.model.requests.SearchRequest;
 import junit.framework.TestCase;
 
 import java.io.File;

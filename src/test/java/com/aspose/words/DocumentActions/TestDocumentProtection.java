@@ -24,16 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.ProtectionDataResponse;
-import com.aspose.words.model.ProtectionRequest;
-import com.aspose.words.model.requests.DeleteUnprotectDocumentRequest;
-import com.aspose.words.model.requests.GetDocumentProtectionRequest;
-import com.aspose.words.model.requests.PostChangeDocumentProtectionRequest;
-import com.aspose.words.model.requests.PutProtectDocumentRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.ProtectionDataResponse;
+import com.aspose.words.cloud.model.ProtectionRequest;
+import com.aspose.words.cloud.model.requests.DeleteUnprotectDocumentRequest;
+import com.aspose.words.cloud.model.requests.GetDocumentProtectionRequest;
+import com.aspose.words.cloud.model.requests.PostChangeDocumentProtectionRequest;
+import com.aspose.words.cloud.model.requests.PutProtectDocumentRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
