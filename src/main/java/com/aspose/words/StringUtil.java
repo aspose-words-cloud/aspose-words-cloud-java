@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words;
+package com.aspose.words.cloud;
 
 
 public class StringUtil {

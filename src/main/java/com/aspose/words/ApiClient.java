@@ -24,7 +24,7 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words;
+package com.aspose.words.cloud;
 
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;

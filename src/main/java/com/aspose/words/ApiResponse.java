@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words;
+package com.aspose.words.cloud;
 
 import java.util.List;
 import java.util.Map;
