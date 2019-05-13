@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ClassifyRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -38,7 +38,7 @@ public class ClassifyRequest {
     private String Text;
 
     /*
-     * Count of the best classes to return.
+     * Number of the best classes to return.
      */
     private String BestClassesCount;
     
@@ -46,7 +46,7 @@ public class ClassifyRequest {
      * Initializes a new instance of the classifyRequest class.
      *  
      * @param String text Text to classify.
-     * @param String bestClassesCount Count of the best classes to return.
+     * @param String bestClassesCount Number of the best classes to return.
      */
     public ClassifyRequest(String text,  String bestClassesCount) {
         Text = text;
@@ -68,16 +68,17 @@ public class ClassifyRequest {
     }
 
     /*
-     *  Gets Count of the best classes to return.
+     *  Gets Number of the best classes to return.
      */
     public String getBestClassesCount() {
         return BestClassesCount;
     }
 
     /*
-     * Sets Count of the best classes to return.
+     * Sets Number of the best classes to return.
      */
     public void setBestClassesCount(String value) {
         BestClassesCount = value;
     }
 }
+/*

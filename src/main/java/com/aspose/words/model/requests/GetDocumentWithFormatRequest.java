@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentWithFormatRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetDocumentWithFormatRequest {
     /*
-     * The file name.
+     * The document name.
      */
     private String Name;
 
@@ -48,7 +48,7 @@ public class GetDocumentWithFormatRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -63,7 +63,7 @@ public class GetDocumentWithFormatRequest {
     private String Password;
 
     /*
-     * Path to save result
+     * Path to save the result
      */
     private String OutPath;
 
@@ -75,13 +75,13 @@ public class GetDocumentWithFormatRequest {
     /*
      * Initializes a new instance of the getDocumentWithFormatRequest class.
      *  
-     * @param String name The file name.
+     * @param String name The document name.
      * @param String format The destination format.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String outPath Path to save result
+     * @param String outPath Path to save the result
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public GetDocumentWithFormatRequest(String name,  String format,  String folder,  String storage,  String loadEncoding,  String password,  String outPath,  String fontsLocation) {
@@ -96,14 +96,14 @@ public class GetDocumentWithFormatRequest {
     }
 
     /*
-     *  Gets The file name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The file name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -138,14 +138,14 @@ public class GetDocumentWithFormatRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -180,14 +180,14 @@ public class GetDocumentWithFormatRequest {
     }
 
     /*
-     *  Gets Path to save result
+     *  Gets Path to save the result
      */
     public String getOutPath() {
         return OutPath;
     }
 
     /*
-     * Sets Path to save result
+     * Sets Path to save the result
      */
     public void setOutPath(String value) {
         OutPath = value;
@@ -207,3 +207,4 @@ public class GetDocumentWithFormatRequest {
         FontsLocation = value;
     }
 }
+/*

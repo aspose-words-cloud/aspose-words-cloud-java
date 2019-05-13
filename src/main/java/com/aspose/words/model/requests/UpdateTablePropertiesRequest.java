@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTablePropertiesRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -38,9 +38,14 @@ public class UpdateTablePropertiesRequest {
     private String Name;
 
     /*
-     * Object's index
+     * Object index.
      */
     private Integer Index;
+
+    /*
+     * Path to the node, which contains tables.
+     */
+    private String NodePath;
 
     /*
      * Original document folder.
@@ -48,7 +53,7 @@ public class UpdateTablePropertiesRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -81,30 +86,26 @@ public class UpdateTablePropertiesRequest {
      * The properties.
      */
     private TableProperties Properties;
-
-    /*
-     * Path to node, which contains tables.
-     */
-    private String NodePath;
     
     /*
      * Initializes a new instance of the updateTablePropertiesRequest class.
      *  
      * @param String name The document name.
-     * @param Integer index Object's index
+     * @param Integer index Object index.
+     * @param String nodePath Path to the node, which contains tables.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      * @param TableProperties properties The properties.
-     * @param String nodePath Path to node, which contains tables.
      */
-    public UpdateTablePropertiesRequest(String name,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableProperties properties,  String nodePath) {
+    public UpdateTablePropertiesRequest(String name,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableProperties properties) {
         Name = name;
         Index = index;
+        NodePath = nodePath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -113,7 +114,6 @@ public class UpdateTablePropertiesRequest {
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
         Properties = properties;
-        NodePath = nodePath;
     }
 
     /*
@@ -131,17 +131,31 @@ public class UpdateTablePropertiesRequest {
     }
 
     /*
-     *  Gets Object's index
+     *  Gets Object index.
      */
     public Integer getIndex() {
         return Index;
     }
 
     /*
-     * Sets Object's index
+     * Sets Object index.
      */
     public void setIndex(Integer value) {
         Index = value;
+    }
+
+    /*
+     *  Gets Path to the node, which contains tables.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to the node, which contains tables.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
     }
 
     /*
@@ -159,14 +173,14 @@ public class UpdateTablePropertiesRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -255,18 +269,5 @@ public class UpdateTablePropertiesRequest {
     public void setProperties(TableProperties value) {
         Properties = value;
     }
-
-    /*
-     *  Gets Path to node, which contains tables.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to node, which contains tables.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
 }
+/*

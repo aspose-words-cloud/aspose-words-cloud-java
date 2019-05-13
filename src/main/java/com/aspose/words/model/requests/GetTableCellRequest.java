@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetTableCellRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -43,7 +43,7 @@ public class GetTableCellRequest {
     private String TableRowPath;
 
     /*
-     * Object's index
+     * Object index.
      */
     private Integer Index;
 
@@ -53,7 +53,7 @@ public class GetTableCellRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -72,9 +72,9 @@ public class GetTableCellRequest {
      *  
      * @param String name The document name.
      * @param String tableRowPath Path to table row.
-     * @param Integer index Object's index
+     * @param Integer index Object index.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
@@ -117,14 +117,14 @@ public class GetTableCellRequest {
     }
 
     /*
-     *  Gets Object's index
+     *  Gets Object index.
      */
     public Integer getIndex() {
         return Index;
     }
 
     /*
-     * Sets Object's index
+     * Sets Object index.
      */
     public void setIndex(Integer value) {
         Index = value;
@@ -145,14 +145,14 @@ public class GetTableCellRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -186,3 +186,4 @@ public class GetTableCellRequest {
         Password = value;
     }
 }
+/*

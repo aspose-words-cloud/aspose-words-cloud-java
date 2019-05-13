@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderParagraphRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class RenderParagraphRequest {
     /*
-     * The file name.
+     * The document name.
      */
     private String Name;
 
@@ -43,9 +43,14 @@ public class RenderParagraphRequest {
     private String Format;
 
     /*
-     * Object's index
+     * Object index.
      */
     private Integer Index;
+
+    /*
+     * Path to the node, which contains paragraphs.
+     */
+    private String NodePath;
 
     /*
      * Original document folder.
@@ -53,7 +58,7 @@ public class RenderParagraphRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -68,11 +73,6 @@ public class RenderParagraphRequest {
     private String Password;
 
     /*
-     * Path to node, which contains paragraphs.
-     */
-    private String NodePath;
-
-    /*
      * Folder in filestorage with custom fonts.
      */
     private String FontsLocation;
@@ -80,37 +80,37 @@ public class RenderParagraphRequest {
     /*
      * Initializes a new instance of the renderParagraphRequest class.
      *  
-     * @param String name The file name.
+     * @param String name The document name.
      * @param String format The destination format.
-     * @param Integer index Object's index
+     * @param Integer index Object index.
+     * @param String nodePath Path to the node, which contains paragraphs.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String nodePath Path to node, which contains paragraphs.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderParagraphRequest(String name,  String format,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath,  String fontsLocation) {
+    public RenderParagraphRequest(String name,  String format,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String fontsLocation) {
         Name = name;
         Format = format;
         Index = index;
+        NodePath = nodePath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        NodePath = nodePath;
         FontsLocation = fontsLocation;
     }
 
     /*
-     *  Gets The file name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The file name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -131,17 +131,31 @@ public class RenderParagraphRequest {
     }
 
     /*
-     *  Gets Object's index
+     *  Gets Object index.
      */
     public Integer getIndex() {
         return Index;
     }
 
     /*
-     * Sets Object's index
+     * Sets Object index.
      */
     public void setIndex(Integer value) {
         Index = value;
+    }
+
+    /*
+     *  Gets Path to the node, which contains paragraphs.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to the node, which contains paragraphs.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
     }
 
     /*
@@ -159,14 +173,14 @@ public class RenderParagraphRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -201,20 +215,6 @@ public class RenderParagraphRequest {
     }
 
     /*
-     *  Gets Path to node, which contains paragraphs.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to node, which contains paragraphs.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
-
-    /*
      *  Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
@@ -228,3 +228,4 @@ public class RenderParagraphRequest {
         FontsLocation = value;
     }
 }
+/*

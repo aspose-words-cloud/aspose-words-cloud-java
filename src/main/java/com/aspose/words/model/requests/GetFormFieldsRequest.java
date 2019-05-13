@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetFormFieldsRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -33,9 +33,14 @@ import java.io.File;
  */
 public class GetFormFieldsRequest {
     /*
-     * The file name.
+     * The document name.
      */
     private String Name;
+
+    /*
+     * Path to the node containing collection of form fields.
+     */
+    private String NodePath;
 
     /*
      * Original document folder.
@@ -43,7 +48,7 @@ public class GetFormFieldsRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -56,43 +61,52 @@ public class GetFormFieldsRequest {
      * Password for opening an encrypted document.
      */
     private String Password;
-
-    /*
-     * Path to node containing collection of form fields.
-     */
-    private String NodePath;
     
     /*
      * Initializes a new instance of the getFormFieldsRequest class.
      *  
-     * @param String name The file name.
+     * @param String name The document name.
+     * @param String nodePath Path to the node containing collection of form fields.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String nodePath Path to node containing collection of form fields.
      */
-    public GetFormFieldsRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath) {
+    public GetFormFieldsRequest(String name,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
+        NodePath = nodePath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        NodePath = nodePath;
     }
 
     /*
-     *  Gets The file name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The file name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
+    }
+
+    /*
+     *  Gets Path to the node containing collection of form fields.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to the node containing collection of form fields.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
     }
 
     /*
@@ -110,14 +124,14 @@ public class GetFormFieldsRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -150,18 +164,5 @@ public class GetFormFieldsRequest {
     public void setPassword(String value) {
         Password = value;
     }
-
-    /*
-     *  Gets Path to node containing collection of form fields.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to node containing collection of form fields.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
 }
+/*

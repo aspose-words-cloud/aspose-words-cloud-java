@@ -45,8 +45,8 @@ import java.io.IOException;
 @ApiModel(description = "Table element")
 
 public class TableInsert {
-  @SerializedName("Postion")
-  private DocumentPosition postion = null;
+  @SerializedName("Position")
+  private DocumentPosition position = null;
 
   @SerializedName("ColumnsCount")
   private Integer columnsCount = null;
@@ -54,22 +54,22 @@ public class TableInsert {
   @SerializedName("RowsCount")
   private Integer rowsCount = null;
 
-  public TableInsert postion(DocumentPosition postion) {
-    this.postion = postion;
+  public TableInsert position(DocumentPosition position) {
+    this.position = position;
     return this;
   }
 
    /**
    * Table will be inserted before specified position.
-   * @return postion
+   * @return position
   **/
   @ApiModelProperty(value = "Table will be inserted before specified position.")
-  public DocumentPosition getPostion() {
-    return postion;
+  public DocumentPosition getPosition() {
+    return position;
   }
 
-  public void setPostion(DocumentPosition postion) {
-    this.postion = postion;
+  public void setPosition(DocumentPosition position) {
+    this.position = position;
   }
 
   public TableInsert columnsCount(Integer columnsCount) {
@@ -118,14 +118,14 @@ public class TableInsert {
       return false;
     }
     TableInsert tableInsert = (TableInsert) o;
-    return Objects.equals(this.postion, tableInsert.postion) &&
+    return Objects.equals(this.position, tableInsert.position) &&
         Objects.equals(this.columnsCount, tableInsert.columnsCount) &&
         Objects.equals(this.rowsCount, tableInsert.rowsCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(postion, columnsCount, rowsCount);
+    return Objects.hash(position, columnsCount, rowsCount);
   }
 
 
@@ -134,7 +134,7 @@ public class TableInsert {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableInsert {\n");
     
-    sb.append("    postion: ").append(toIndentedString(postion)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    columnsCount: ").append(toIndentedString(columnsCount)).append("\n");
     sb.append("    rowsCount: ").append(toIndentedString(rowsCount)).append("\n");
     sb.append("}");

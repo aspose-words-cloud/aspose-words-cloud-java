@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentDrawingObjectsRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -38,12 +38,17 @@ public class GetDocumentDrawingObjectsRequest {
     private String Name;
 
     /*
+     * Path to the node, which contains collection of drawing objects.
+     */
+    private String NodePath;
+
+    /*
      * Original document folder.
      */
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -56,29 +61,24 @@ public class GetDocumentDrawingObjectsRequest {
      * Password for opening an encrypted document.
      */
     private String Password;
-
-    /*
-     * Path to node, which contains collection of drawing objects.
-     */
-    private String NodePath;
     
     /*
      * Initializes a new instance of the getDocumentDrawingObjectsRequest class.
      *  
      * @param String name The document name.
+     * @param String nodePath Path to the node, which contains collection of drawing objects.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String nodePath Path to node, which contains collection of drawing objects.
      */
-    public GetDocumentDrawingObjectsRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath) {
+    public GetDocumentDrawingObjectsRequest(String name,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
+        NodePath = nodePath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        NodePath = nodePath;
     }
 
     /*
@@ -96,6 +96,20 @@ public class GetDocumentDrawingObjectsRequest {
     }
 
     /*
+     *  Gets Path to the node, which contains collection of drawing objects.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to the node, which contains collection of drawing objects.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
+    }
+
+    /*
      *  Gets Original document folder.
      */
     public String getFolder() {
@@ -110,14 +124,14 @@ public class GetDocumentDrawingObjectsRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -150,18 +164,5 @@ public class GetDocumentDrawingObjectsRequest {
     public void setPassword(String value) {
         Password = value;
     }
-
-    /*
-     *  Gets Path to node, which contains collection of drawing objects.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to node, which contains collection of drawing objects.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
 }
+/*

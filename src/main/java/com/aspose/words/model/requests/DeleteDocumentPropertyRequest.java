@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteDocumentPropertyRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -48,7 +48,7 @@ public class DeleteDocumentPropertyRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -83,7 +83,7 @@ public class DeleteDocumentPropertyRequest {
      * @param String name The document name.
      * @param String propertyName The property name.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -145,14 +145,14 @@ public class DeleteDocumentPropertyRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -228,3 +228,4 @@ public class DeleteDocumentPropertyRequest {
         RevisionDateTime = value;
     }
 }
+/*

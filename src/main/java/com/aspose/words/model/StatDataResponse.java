@@ -29,9 +29,9 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.AsposeResponse;
 import com.aspose.words.cloud.model.DocumentStatData;
 import com.aspose.words.cloud.model.FileLink;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,7 +46,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Response for the request of the document's statistical data")
 
-public class StatDataResponse extends AsposeResponse {
+public class StatDataResponse extends WordsResponse {
   @SerializedName("DocumentLink")
   private FileLink documentLink = null;
 

@@ -29,8 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.AsposeResponse;
 import com.aspose.words.cloud.model.ModificationOperationResult;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,7 +45,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)")
 
-public class RevisionsModificationResponse extends AsposeResponse {
+public class RevisionsModificationResponse extends WordsResponse {
   @SerializedName("Result")
   private ModificationOperationResult result = null;
 

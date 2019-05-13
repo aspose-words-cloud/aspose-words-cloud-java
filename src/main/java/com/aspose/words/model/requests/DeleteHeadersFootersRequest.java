@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteHeadersFootersRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -38,12 +38,17 @@ public class DeleteHeadersFootersRequest {
     private String Name;
 
     /*
+     * Path to parent section.
+     */
+    private String SectionPath;
+
+    /*
      * Original document folder.
      */
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -73,11 +78,6 @@ public class DeleteHeadersFootersRequest {
     private String RevisionDateTime;
 
     /*
-     * Path to parent section.
-     */
-    private String SectionPath;
-
-    /*
      * List of types of headers and footers.
      */
     private String HeadersFootersTypes;
@@ -86,18 +86,19 @@ public class DeleteHeadersFootersRequest {
      * Initializes a new instance of the deleteHeadersFootersRequest class.
      *  
      * @param String name The document name.
+     * @param String sectionPath Path to parent section.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String sectionPath Path to parent section.
      * @param String headersFootersTypes List of types of headers and footers.
      */
-    public DeleteHeadersFootersRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String sectionPath,  String headersFootersTypes) {
+    public DeleteHeadersFootersRequest(String name,  String sectionPath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String headersFootersTypes) {
         Name = name;
+        SectionPath = sectionPath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -105,7 +106,6 @@ public class DeleteHeadersFootersRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
-        SectionPath = sectionPath;
         HeadersFootersTypes = headersFootersTypes;
     }
 
@@ -124,6 +124,20 @@ public class DeleteHeadersFootersRequest {
     }
 
     /*
+     *  Gets Path to parent section.
+     */
+    public String getSectionPath() {
+        return SectionPath;
+    }
+
+    /*
+     * Sets Path to parent section.
+     */
+    public void setSectionPath(String value) {
+        SectionPath = value;
+    }
+
+    /*
      *  Gets Original document folder.
      */
     public String getFolder() {
@@ -138,14 +152,14 @@ public class DeleteHeadersFootersRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -222,20 +236,6 @@ public class DeleteHeadersFootersRequest {
     }
 
     /*
-     *  Gets Path to parent section.
-     */
-    public String getSectionPath() {
-        return SectionPath;
-    }
-
-    /*
-     * Sets Path to parent section.
-     */
-    public void setSectionPath(String value) {
-        SectionPath = value;
-    }
-
-    /*
      *  Gets List of types of headers and footers.
      */
     public String getHeadersFootersTypes() {
@@ -249,3 +249,4 @@ public class DeleteHeadersFootersRequest {
         HeadersFootersTypes = value;
     }
 }
+/*

@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetHeaderFootersRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -38,12 +38,17 @@ public class GetHeaderFootersRequest {
     private String Name;
 
     /*
+     * Path to parent section.
+     */
+    private String SectionPath;
+
+    /*
      * Original document folder.
      */
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -58,11 +63,6 @@ public class GetHeaderFootersRequest {
     private String Password;
 
     /*
-     * Path to parent section.
-     */
-    private String SectionPath;
-
-    /*
      * List of types of headers and footers.
      */
     private String FilterByType;
@@ -71,20 +71,20 @@ public class GetHeaderFootersRequest {
      * Initializes a new instance of the getHeaderFootersRequest class.
      *  
      * @param String name The document name.
+     * @param String sectionPath Path to parent section.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String sectionPath Path to parent section.
      * @param String filterByType List of types of headers and footers.
      */
-    public GetHeaderFootersRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String sectionPath,  String filterByType) {
+    public GetHeaderFootersRequest(String name,  String sectionPath,  String folder,  String storage,  String loadEncoding,  String password,  String filterByType) {
         Name = name;
+        SectionPath = sectionPath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        SectionPath = sectionPath;
         FilterByType = filterByType;
     }
 
@@ -103,6 +103,20 @@ public class GetHeaderFootersRequest {
     }
 
     /*
+     *  Gets Path to parent section.
+     */
+    public String getSectionPath() {
+        return SectionPath;
+    }
+
+    /*
+     * Sets Path to parent section.
+     */
+    public void setSectionPath(String value) {
+        SectionPath = value;
+    }
+
+    /*
      *  Gets Original document folder.
      */
     public String getFolder() {
@@ -117,14 +131,14 @@ public class GetHeaderFootersRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -159,20 +173,6 @@ public class GetHeaderFootersRequest {
     }
 
     /*
-     *  Gets Path to parent section.
-     */
-    public String getSectionPath() {
-        return SectionPath;
-    }
-
-    /*
-     * Sets Path to parent section.
-     */
-    public void setSectionPath(String value) {
-        SectionPath = value;
-    }
-
-    /*
      *  Gets List of types of headers and footers.
      */
     public String getFilterByType() {
@@ -186,3 +186,4 @@ public class GetHeaderFootersRequest {
         FilterByType = value;
     }
 }
+/*

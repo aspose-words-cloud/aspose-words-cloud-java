@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ResetCacheRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -33,3 +33,4 @@ import java.io.File;
  */
 public class ResetCacheRequest {
 }
+/*

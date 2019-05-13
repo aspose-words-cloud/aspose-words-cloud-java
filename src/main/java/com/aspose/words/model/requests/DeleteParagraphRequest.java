@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteParagraphRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -38,9 +38,14 @@ public class DeleteParagraphRequest {
     private String Name;
 
     /*
-     * Object's index
+     * Object index.
      */
     private Integer Index;
+
+    /*
+     * Path to the node which contains paragraphs.
+     */
+    private String NodePath;
 
     /*
      * Original document folder.
@@ -48,7 +53,7 @@ public class DeleteParagraphRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -76,29 +81,25 @@ public class DeleteParagraphRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
-
-    /*
-     * Path to node which contains paragraphs.
-     */
-    private String NodePath;
     
     /*
      * Initializes a new instance of the deleteParagraphRequest class.
      *  
      * @param String name The file name.
-     * @param Integer index Object's index
+     * @param Integer index Object index.
+     * @param String nodePath Path to the node which contains paragraphs.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String nodePath Path to node which contains paragraphs.
      */
-    public DeleteParagraphRequest(String name,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String nodePath) {
+    public DeleteParagraphRequest(String name,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         Index = index;
+        NodePath = nodePath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -106,7 +107,6 @@ public class DeleteParagraphRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
-        NodePath = nodePath;
     }
 
     /*
@@ -124,17 +124,31 @@ public class DeleteParagraphRequest {
     }
 
     /*
-     *  Gets Object's index
+     *  Gets Object index.
      */
     public Integer getIndex() {
         return Index;
     }
 
     /*
-     * Sets Object's index
+     * Sets Object index.
      */
     public void setIndex(Integer value) {
         Index = value;
+    }
+
+    /*
+     *  Gets Path to the node which contains paragraphs.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to the node which contains paragraphs.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
     }
 
     /*
@@ -152,14 +166,14 @@ public class DeleteParagraphRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -234,18 +248,5 @@ public class DeleteParagraphRequest {
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
     }
-
-    /*
-     *  Gets Path to node which contains paragraphs.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to node which contains paragraphs.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
 }
+/*

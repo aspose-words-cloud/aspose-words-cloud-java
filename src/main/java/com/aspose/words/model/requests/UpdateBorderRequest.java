@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateBorderRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -43,12 +43,12 @@ public class UpdateBorderRequest {
     private Border BorderProperties;
 
     /*
-     * Path to node with border(node should be cell or row).
+     * Path to the node with border(node should be cell or row).
      */
     private String NodePath;
 
     /*
-     * Object's index
+     * Object index.
      */
     private Integer Index;
 
@@ -58,7 +58,7 @@ public class UpdateBorderRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -92,10 +92,10 @@ public class UpdateBorderRequest {
      *  
      * @param String name The document name.
      * @param Border borderProperties Border properties
-     * @param String nodePath Path to node with border(node should be cell or row).
-     * @param Integer index Object's index
+     * @param String nodePath Path to the node with border(node should be cell or row).
+     * @param Integer index Object index.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -145,28 +145,28 @@ public class UpdateBorderRequest {
     }
 
     /*
-     *  Gets Path to node with border(node should be cell or row).
+     *  Gets Path to the node with border(node should be cell or row).
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * Sets Path to node with border(node should be cell or row).
+     * Sets Path to the node with border(node should be cell or row).
      */
     public void setNodePath(String value) {
         NodePath = value;
     }
 
     /*
-     *  Gets Object's index
+     *  Gets Object index.
      */
     public Integer getIndex() {
         return Index;
     }
 
     /*
-     * Sets Object's index
+     * Sets Object index.
      */
     public void setIndex(Integer value) {
         Index = value;
@@ -187,14 +187,14 @@ public class UpdateBorderRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -270,3 +270,4 @@ public class UpdateBorderRequest {
         RevisionDateTime = value;
     }
 }
+/*

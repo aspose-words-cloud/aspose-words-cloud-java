@@ -29,8 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.AsposeResponse;
 import com.aspose.words.cloud.model.DrawingObject;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,7 +45,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Response for \"drawingObjects/n\" resource.")
 
-public class DrawingObjectResponse extends AsposeResponse {
+public class DrawingObjectResponse extends WordsResponse {
   @SerializedName("DrawingObject")
   private DrawingObject drawingObject = null;
 

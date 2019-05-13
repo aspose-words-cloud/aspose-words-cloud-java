@@ -29,7 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.AsposeResponse;
+import com.aspose.words.cloud.model.ApiError;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,26 +45,26 @@ import java.io.IOException;
  */
 @ApiModel(description = "Response for Api error")
 
-public class WordsApiErrorResponse extends AsposeResponse {
-  @SerializedName("Message")
-  private String message = null;
+public class WordsApiErrorResponse extends WordsResponse {
+  @SerializedName("Error")
+  private ApiError error = null;
 
-  public WordsApiErrorResponse message(String message) {
-    this.message = message;
+  public WordsApiErrorResponse error(ApiError error) {
+    this.error = error;
     return this;
   }
 
    /**
-   * Error message.
-   * @return message
+   * Error.
+   * @return error
   **/
-  @ApiModelProperty(value = "Error message.")
-  public String getMessage() {
-    return message;
+  @ApiModelProperty(value = "Error.")
+  public ApiError getError() {
+    return error;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setError(ApiError error) {
+    this.error = error;
   }
 
 
@@ -76,13 +77,13 @@ public class WordsApiErrorResponse extends AsposeResponse {
       return false;
     }
     WordsApiErrorResponse wordsApiErrorResponse = (WordsApiErrorResponse) o;
-    return Objects.equals(this.message, wordsApiErrorResponse.message) &&
+    return Objects.equals(this.error, wordsApiErrorResponse.error) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, super.hashCode());
+    return Objects.hash(error, super.hashCode());
   }
 
 
@@ -91,7 +92,7 @@ public class WordsApiErrorResponse extends AsposeResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class WordsApiErrorResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetFieldRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -33,14 +33,19 @@ import java.io.File;
  */
 public class GetFieldRequest {
     /*
-     * The file name.
+     * The document name.
      */
     private String Name;
 
     /*
-     * Object's index
+     * Object index.
      */
     private Integer Index;
+
+    /*
+     * Path to the node, which contains collection of fields.
+     */
+    private String NodePath;
 
     /*
      * Original document folder.
@@ -48,7 +53,7 @@ public class GetFieldRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -61,59 +66,68 @@ public class GetFieldRequest {
      * Password for opening an encrypted document.
      */
     private String Password;
-
-    /*
-     * Path to node, which contains collection of fields.
-     */
-    private String NodePath;
     
     /*
      * Initializes a new instance of the getFieldRequest class.
      *  
-     * @param String name The file name.
-     * @param Integer index Object's index
+     * @param String name The document name.
+     * @param Integer index Object index.
+     * @param String nodePath Path to the node, which contains collection of fields.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String nodePath Path to node, which contains collection of fields.
      */
-    public GetFieldRequest(String name,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String nodePath) {
+    public GetFieldRequest(String name,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
         Index = index;
+        NodePath = nodePath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        NodePath = nodePath;
     }
 
     /*
-     *  Gets The file name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The file name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     *  Gets Object's index
+     *  Gets Object index.
      */
     public Integer getIndex() {
         return Index;
     }
 
     /*
-     * Sets Object's index
+     * Sets Object index.
      */
     public void setIndex(Integer value) {
         Index = value;
+    }
+
+    /*
+     *  Gets Path to the node, which contains collection of fields.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to the node, which contains collection of fields.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
     }
 
     /*
@@ -131,14 +145,14 @@ public class GetFieldRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -171,18 +185,5 @@ public class GetFieldRequest {
     public void setPassword(String value) {
         Password = value;
     }
-
-    /*
-     *  Gets Path to node, which contains collection of fields.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to node, which contains collection of fields.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
 }
+/*

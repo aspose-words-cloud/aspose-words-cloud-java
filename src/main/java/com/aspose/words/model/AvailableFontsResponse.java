@@ -29,8 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.AsposeResponse;
 import com.aspose.words.cloud.model.FontInfo;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,7 +47,7 @@ import java.util.List;
  */
 @ApiModel(description = "The list of fonts, available for document processing")
 
-public class AvailableFontsResponse extends AsposeResponse {
+public class AvailableFontsResponse extends WordsResponse {
   @SerializedName("AdditionalFonts")
   private List<FontInfo> additionalFonts = null;
 

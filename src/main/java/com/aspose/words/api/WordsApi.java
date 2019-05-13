@@ -108,8 +108,8 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -127,7 +127,7 @@ public class WordsApi {
     }
 
     /**
-     * Accept all revisions in document
+     * Accepts all revisions in document
      * 
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -148,7 +148,7 @@ public class WordsApi {
     }
 
     /**
-     * Accept all revisions in document
+     * Accepts all revisions in document
      * 
      * @return ApiResponse&lt;RevisionsModificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -160,7 +160,7 @@ public class WordsApi {
     }
 
     /**
-     * Accept all revisions in document (asynchronously)
+     * Accepts all revisions in document (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -189,6 +189,147 @@ public class WordsApi {
 
         com.squareup.okhttp.Call call = acceptAllRevisionsValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RevisionsModificationResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for appendDocument
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call appendDocumentCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getDocumentList();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/appendDocument"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call appendDocumentValidateBeforeCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling appendDocument");
+        }
+        
+        // verify the required parameter 'DocumentList' is set
+        if (request.getDocumentList() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'DocumentList' when calling appendDocument");
+        }
+        
+
+        com.squareup.okhttp.Call call = appendDocumentCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Appends documents to original document.
+     * 
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentResponse appendDocument(AppendDocumentRequest request) throws ApiException {
+        try {
+            ApiResponse<DocumentResponse> resp = appendDocumentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DocumentResponse> resp = appendDocumentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Appends documents to original document.
+     * 
+     * @return ApiResponse&lt;DocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DocumentResponse> appendDocumentWithHttpInfo(AppendDocumentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Appends documents to original document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call appendDocumentAsync(AppendDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -237,7 +378,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -256,7 +397,7 @@ public class WordsApi {
     }
 
     /**
-     * Classify raw text.
+     * Classifies raw text.
      * 
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -277,7 +418,7 @@ public class WordsApi {
     }
 
     /**
-     * Classify raw text.
+     * Classifies raw text.
      * 
      * @return ApiResponse&lt;ClassificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -289,7 +430,7 @@ public class WordsApi {
     }
 
     /**
-     * Classify raw text. (asynchronously)
+     * Classifies raw text. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -372,7 +513,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -391,7 +532,7 @@ public class WordsApi {
     }
 
     /**
-     * Classify document.
+     * Classifies document.
      * 
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -412,7 +553,7 @@ public class WordsApi {
     }
 
     /**
-     * Classify document.
+     * Classifies document.
      * 
      * @return ApiResponse&lt;ClassificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -424,7 +565,7 @@ public class WordsApi {
     }
 
     /**
-     * Classify document. (asynchronously)
+     * Classifies document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -454,6 +595,801 @@ public class WordsApi {
         com.squareup.okhttp.Call call = classifyDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ClassificationResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for compareDocument
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call compareDocumentCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getCompareData();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/compareDocument"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call compareDocumentValidateBeforeCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling compareDocument");
+        }
+        
+        // verify the required parameter 'CompareData' is set
+        if (request.getCompareData() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'CompareData' when calling compareDocument");
+        }
+        
+
+        com.squareup.okhttp.Call call = compareDocumentCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Compares document with original document.
+     * 
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentResponse compareDocument(CompareDocumentRequest request) throws ApiException {
+        try {
+            ApiResponse<DocumentResponse> resp = compareDocumentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DocumentResponse> resp = compareDocumentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Compares document with original document.
+     * 
+     * @return ApiResponse&lt;DocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DocumentResponse> compareDocumentWithHttpInfo(CompareDocumentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Compares document with original document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call compareDocumentAsync(CompareDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for convertDocument
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call convertDocumentCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/convert";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "outPath", request.getOutPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fileNameFieldValue", request.getFileNameFieldValue());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+          localVarFormParams.put("Document", request.getDocument());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call convertDocumentValidateBeforeCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling convertDocument");
+        }
+        
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling convertDocument");
+        }
+        
+
+        com.squareup.okhttp.Call call = convertDocumentCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Converts document from the request&#39;s content to the specified format .
+     * 
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public File convertDocument(ConvertDocumentRequest request) throws ApiException {
+        try {
+            ApiResponse<File> resp = convertDocumentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<File> resp = convertDocumentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Converts document from the request&#39;s content to the specified format .
+     * 
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<File> convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<File>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Converts document from the request&#39;s content to the specified format . (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call convertDocumentAsync(ConvertDocumentRequest request, final ApiCallback<File> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<File>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for copyFile
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call copyFileCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/storage/file/copy/{srcPath}"
+            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destPath", request.getDestPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "srcStorageName", request.getSrcStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destStorageName", request.getDestStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", request.getVersionId());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call copyFileValidateBeforeCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'DestPath' is set
+        if (request.getDestPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'DestPath' when calling copyFile");
+        }
+        
+        // verify the required parameter 'SrcPath' is set
+        if (request.getSrcPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SrcPath' when calling copyFile");
+        }
+        
+
+        com.squareup.okhttp.Call call = copyFileCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Copy file
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void copyFile(CopyFileRequest request) throws ApiException {
+        try {
+            copyFileWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                copyFileWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Copy file
+     * 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<Void> copyFileWithHttpInfo(CopyFileRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = copyFileValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Copy file (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call copyFileAsync(CopyFileRequest request, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = copyFileValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for copyFolder
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call copyFolderCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/storage/folder/copy/{srcPath}"
+            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destPath", request.getDestPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "srcStorageName", request.getSrcStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destStorageName", request.getDestStorageName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call copyFolderValidateBeforeCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'DestPath' is set
+        if (request.getDestPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'DestPath' when calling copyFolder");
+        }
+        
+        // verify the required parameter 'SrcPath' is set
+        if (request.getSrcPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SrcPath' when calling copyFolder");
+        }
+        
+
+        com.squareup.okhttp.Call call = copyFolderCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Copy folder
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void copyFolder(CopyFolderRequest request) throws ApiException {
+        try {
+            copyFolderWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                copyFolderWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Copy folder
+     * 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<Void> copyFolderWithHttpInfo(CopyFolderRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = copyFolderValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Copy folder (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call copyFolderAsync(CopyFolderRequest request, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = copyFolderValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for createDocument
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call createDocumentCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fileName", request.getFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createDocumentValidateBeforeCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = createDocumentCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extensions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;
+     * 
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentResponse createDocument(CreateDocumentRequest request) throws ApiException {
+        try {
+            ApiResponse<DocumentResponse> resp = createDocumentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DocumentResponse> resp = createDocumentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extensions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;
+     * 
+     * @return ApiResponse&lt;DocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DocumentResponse> createDocumentWithHttpInfo(CreateDocumentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extensions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot; (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createDocumentAsync(CreateDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for createFolder
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call createFolderCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/storage/folder/{path}"
+            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createFolderValidateBeforeCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Path' is set
+        if (request.getPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling createFolder");
+        }
+        
+
+        com.squareup.okhttp.Call call = createFolderCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create the folder
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void createFolder(CreateFolderRequest request) throws ApiException {
+        try {
+            createFolderWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                createFolderWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Create the folder
+     * 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<Void> createFolderWithHttpInfo(CreateFolderRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = createFolderValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Create the folder (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createFolderAsync(CreateFolderRequest request, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createFolderValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -509,8 +1445,8 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -538,7 +1474,7 @@ public class WordsApi {
     }
 
     /**
-     * Add new or update existing document property.
+     * Adds new or update existing document property.
      * 
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -559,7 +1495,7 @@ public class WordsApi {
     }
 
     /**
-     * Add new or update existing document property.
+     * Adds new or update existing document property.
      * 
      * @return ApiResponse&lt;DocumentPropertyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -571,7 +1507,7 @@ public class WordsApi {
     }
 
     /**
-     * Add new or update existing document property. (asynchronously)
+     * Adds new or update existing document property. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -657,7 +1593,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -804,7 +1740,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -946,7 +1882,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -970,46 +1906,42 @@ public class WordsApi {
     }
 
     /**
-     * Remove comment from document.
+     * Removes comment from document.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteComment(DeleteCommentRequest request) throws ApiException {
+    public void deleteComment(DeleteCommentRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteCommentWithHttpInfo(request);
-            return resp.getData();
+            deleteCommentWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteCommentWithHttpInfo(request);
-                return resp.getData();
+                deleteCommentWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Remove comment from document.
+     * Removes comment from document.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteCommentWithHttpInfo(DeleteCommentRequest request) throws ApiException {
+    private ApiResponse<Void> deleteCommentWithHttpInfo(DeleteCommentRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteCommentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Remove comment from document. (asynchronously)
+     * Removes comment from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCommentAsync(DeleteCommentRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteCommentAsync(DeleteCommentRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1031,144 +1963,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for deleteDocumentMacros
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteDocumentMacrosCall(DeleteDocumentMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/macros"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteDocumentMacrosValidateBeforeCall(DeleteDocumentMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteDocumentMacros");
-        }
-        
-
-        com.squareup.okhttp.Call call = deleteDocumentMacrosCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Remove macros from document.
-     * 
-     * @return AsposeResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AsposeResponse deleteDocumentMacros(DeleteDocumentMacrosRequest request) throws ApiException {
-        try {
-            ApiResponse<AsposeResponse> resp = deleteDocumentMacrosWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteDocumentMacrosWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Remove macros from document.
-     * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<AsposeResponse> deleteDocumentMacrosWithHttpInfo(DeleteDocumentMacrosRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = deleteDocumentMacrosValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Remove macros from document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call deleteDocumentMacrosAsync(DeleteDocumentMacrosRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = deleteDocumentMacrosValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -1224,7 +2019,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1248,46 +2043,42 @@ public class WordsApi {
     }
 
     /**
-     * Delete document property.
+     * Deletes document property.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException {
+    public void deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteDocumentPropertyWithHttpInfo(request);
-            return resp.getData();
+            deleteDocumentPropertyWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteDocumentPropertyWithHttpInfo(request);
-                return resp.getData();
+                deleteDocumentPropertyWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Delete document property.
+     * Deletes document property.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteDocumentPropertyWithHttpInfo(DeleteDocumentPropertyRequest request) throws ApiException {
+    private ApiResponse<Void> deleteDocumentPropertyWithHttpInfo(DeleteDocumentPropertyRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteDocumentPropertyValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Delete document property. (asynchronously)
+     * Deletes document property. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteDocumentPropertyAsync(DeleteDocumentPropertyRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteDocumentPropertyAsync(DeleteDocumentPropertyRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1309,144 +2100,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteDocumentPropertyValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for deleteDocumentWatermark
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteDocumentWatermarkCall(DeleteDocumentWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/watermark"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteDocumentWatermarkValidateBeforeCall(DeleteDocumentWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteDocumentWatermark");
-        }
-        
-
-        com.squareup.okhttp.Call call = deleteDocumentWatermarkCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Delete watermark (for deleting last watermark from the document).
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse deleteDocumentWatermark(DeleteDocumentWatermarkRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = deleteDocumentWatermarkWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = deleteDocumentWatermarkWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Delete watermark (for deleting last watermark from the document).
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> deleteDocumentWatermarkWithHttpInfo(DeleteDocumentWatermarkRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = deleteDocumentWatermarkValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Delete watermark (for deleting last watermark from the document). (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call deleteDocumentWatermarkAsync(DeleteDocumentWatermarkRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = deleteDocumentWatermarkValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -1462,7 +2116,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1473,7 +2128,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -1503,7 +2157,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1520,6 +2174,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteDrawingObject");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteDrawingObject");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteDrawingObjectCall(request, progressListener, progressRequestListener);
         return call;
@@ -1529,19 +2188,16 @@ public class WordsApi {
     /**
      * Removes drawing object from document.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException {
+    public void deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteDrawingObjectWithHttpInfo(request);
-            return resp.getData();
+            deleteDrawingObjectWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteDrawingObjectWithHttpInfo(request);
-                return resp.getData();
+                deleteDrawingObjectWithHttpInfo(request);
             }
             throw ex;
         }
@@ -1550,13 +2206,12 @@ public class WordsApi {
     /**
      * Removes drawing object from document.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteDrawingObjectWithHttpInfo(DeleteDrawingObjectRequest request) throws ApiException {
+    private ApiResponse<Void> deleteDrawingObjectWithHttpInfo(DeleteDrawingObjectRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteDrawingObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -1566,7 +2221,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteDrawingObjectAsync(DeleteDrawingObjectRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteDrawingObjectAsync(DeleteDrawingObjectRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1588,8 +2243,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -1605,7 +2259,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1616,7 +2271,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -1646,7 +2300,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1663,6 +2317,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteField");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteField");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteFieldCall(request, progressListener, progressRequestListener);
         return call;
@@ -1670,46 +2329,42 @@ public class WordsApi {
     }
 
     /**
-     * Delete field from document.
+     * Deletes field from document.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteField(DeleteFieldRequest request) throws ApiException {
+    public void deleteField(DeleteFieldRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteFieldWithHttpInfo(request);
-            return resp.getData();
+            deleteFieldWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteFieldWithHttpInfo(request);
-                return resp.getData();
+                deleteFieldWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Delete field from document.
+     * Deletes field from document.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteFieldWithHttpInfo(DeleteFieldRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFieldWithHttpInfo(DeleteFieldRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Delete field from document. (asynchronously)
+     * Deletes field from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldAsync(DeleteFieldRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFieldAsync(DeleteFieldRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1731,8 +2386,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -1747,7 +2401,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1758,7 +2413,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -1788,7 +2442,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1800,6 +2454,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFields");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteFields");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteFieldsCall(request, progressListener, progressRequestListener);
         return call;
@@ -1807,46 +2466,42 @@ public class WordsApi {
     }
 
     /**
-     * Remove fields from section paragraph.
+     * Removes fields from section paragraph.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteFields(DeleteFieldsRequest request) throws ApiException {
+    public void deleteFields(DeleteFieldsRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteFieldsWithHttpInfo(request);
-            return resp.getData();
+            deleteFieldsWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteFieldsWithHttpInfo(request);
-                return resp.getData();
+                deleteFieldsWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Remove fields from section paragraph.
+     * Removes fields from section paragraph.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteFieldsWithHttpInfo(DeleteFieldsRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFieldsWithHttpInfo(DeleteFieldsRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteFieldsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Remove fields from section paragraph. (asynchronously)
+     * Removes fields from section paragraph. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldsAsync(DeleteFieldsRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFieldsAsync(DeleteFieldsRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1868,35 +2523,27 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for deleteFootnote
+     * Build call for deleteFile
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFootnoteCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFileCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+        String localVarPath = "/words/storage/file/{path}"
+            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", request.getVersionId());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -1926,7 +2573,266 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteFileValidateBeforeCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Path' is set
+        if (request.getPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling deleteFile");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteFileCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete file
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteFile(DeleteFileRequest request) throws ApiException {
+        try {
+            deleteFileWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                deleteFileWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Delete file
+     * 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<Void> deleteFileWithHttpInfo(DeleteFileRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteFileValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete file (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteFileAsync(DeleteFileRequest request, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteFileValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteFolder
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteFolderCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/storage/folder/{path}"
+            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "recursive", request.getRecursive());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteFolderValidateBeforeCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Path' is set
+        if (request.getPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling deleteFolder");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteFolderCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete folder
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteFolder(DeleteFolderRequest request) throws ApiException {
+        try {
+            deleteFolderWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                deleteFolderWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Delete folder
+     * 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<Void> deleteFolderWithHttpInfo(DeleteFolderRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete folder (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteFolderAsync(DeleteFolderRequest request, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteFootnote
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteFootnoteCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1943,6 +2849,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteFootnote");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteFootnote");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteFootnoteCall(request, progressListener, progressRequestListener);
         return call;
@@ -1952,19 +2863,16 @@ public class WordsApi {
     /**
      * Removes footnote from document.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteFootnote(DeleteFootnoteRequest request) throws ApiException {
+    public void deleteFootnote(DeleteFootnoteRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteFootnoteWithHttpInfo(request);
-            return resp.getData();
+            deleteFootnoteWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteFootnoteWithHttpInfo(request);
-                return resp.getData();
+                deleteFootnoteWithHttpInfo(request);
             }
             throw ex;
         }
@@ -1973,13 +2881,12 @@ public class WordsApi {
     /**
      * Removes footnote from document.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteFootnoteWithHttpInfo(DeleteFootnoteRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFootnoteWithHttpInfo(DeleteFootnoteRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteFootnoteValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -1989,7 +2896,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFootnoteAsync(DeleteFootnoteRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFootnoteAsync(DeleteFootnoteRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2011,8 +2918,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -2028,7 +2934,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2039,7 +2946,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -2069,7 +2975,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2086,6 +2992,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteFormField");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteFormField");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteFormFieldCall(request, progressListener, progressRequestListener);
         return call;
@@ -2095,19 +3006,16 @@ public class WordsApi {
     /**
      * Removes form field from document.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteFormField(DeleteFormFieldRequest request) throws ApiException {
+    public void deleteFormField(DeleteFormFieldRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteFormFieldWithHttpInfo(request);
-            return resp.getData();
+            deleteFormFieldWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteFormFieldWithHttpInfo(request);
-                return resp.getData();
+                deleteFormFieldWithHttpInfo(request);
             }
             throw ex;
         }
@@ -2116,13 +3024,12 @@ public class WordsApi {
     /**
      * Removes form field from document.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteFormFieldWithHttpInfo(DeleteFormFieldRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFormFieldWithHttpInfo(DeleteFormFieldRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteFormFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -2132,7 +3039,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFormFieldAsync(DeleteFormFieldRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFormFieldAsync(DeleteFormFieldRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2154,8 +3061,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -2171,7 +3077,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2182,7 +3089,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "sectionPath", request.getSectionPath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -2212,7 +3118,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2229,6 +3135,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteHeaderFooter");
         }
         
+        // verify the required parameter 'SectionPath' is set
+        if (request.getSectionPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SectionPath' when calling deleteHeaderFooter");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteHeaderFooterCall(request, progressListener, progressRequestListener);
         return call;
@@ -2236,46 +3147,42 @@ public class WordsApi {
     }
 
     /**
-     * Delete header/footer from document.
+     * Deletes header/footer from document.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException {
+    public void deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteHeaderFooterWithHttpInfo(request);
-            return resp.getData();
+            deleteHeaderFooterWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteHeaderFooterWithHttpInfo(request);
-                return resp.getData();
+                deleteHeaderFooterWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Delete header/footer from document.
+     * Deletes header/footer from document.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteHeaderFooterWithHttpInfo(DeleteHeaderFooterRequest request) throws ApiException {
+    private ApiResponse<Void> deleteHeaderFooterWithHttpInfo(DeleteHeaderFooterRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteHeaderFooterValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Delete header/footer from document. (asynchronously)
+     * Deletes header/footer from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteHeaderFooterAsync(DeleteHeaderFooterRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteHeaderFooterAsync(DeleteHeaderFooterRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2297,8 +3204,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteHeaderFooterValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -2313,7 +3219,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2324,7 +3231,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "sectionPath", request.getSectionPath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "headersFootersTypes", request.getHeadersFootersTypes());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2355,7 +3261,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2367,6 +3273,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteHeadersFooters");
         }
         
+        // verify the required parameter 'SectionPath' is set
+        if (request.getSectionPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SectionPath' when calling deleteHeadersFooters");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteHeadersFootersCall(request, progressListener, progressRequestListener);
         return call;
@@ -2374,46 +3285,42 @@ public class WordsApi {
     }
 
     /**
-     * Delete document headers and footers.
+     * Deletes document headers and footers.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException {
+    public void deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteHeadersFootersWithHttpInfo(request);
-            return resp.getData();
+            deleteHeadersFootersWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteHeadersFootersWithHttpInfo(request);
-                return resp.getData();
+                deleteHeadersFootersWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Delete document headers and footers.
+     * Deletes document headers and footers.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteHeadersFootersWithHttpInfo(DeleteHeadersFootersRequest request) throws ApiException {
+    private ApiResponse<Void> deleteHeadersFootersWithHttpInfo(DeleteHeadersFootersRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteHeadersFootersValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Delete document headers and footers. (asynchronously)
+     * Deletes document headers and footers. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteHeadersFootersAsync(DeleteHeadersFootersRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteHeadersFootersAsync(DeleteHeadersFootersRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2435,24 +3342,22 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteHeadersFootersValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for deleteOfficeMathObject
+     * Build call for deleteMacros
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteOfficeMathObjectCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteMacrosCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+        String localVarPath = "/words/{name}/macros"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2463,7 +3368,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -2493,7 +3397,140 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteMacrosValidateBeforeCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteMacros");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteMacrosCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Removes macros from document.
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteMacros(DeleteMacrosRequest request) throws ApiException {
+        try {
+            deleteMacrosWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                deleteMacrosWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes macros from document.
+     * 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<Void> deleteMacrosWithHttpInfo(DeleteMacrosRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteMacrosValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes macros from document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteMacrosAsync(DeleteMacrosRequest request, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteMacrosValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteOfficeMathObject
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteOfficeMathObjectCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2510,6 +3547,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteOfficeMathObject");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteOfficeMathObject");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteOfficeMathObjectCall(request, progressListener, progressRequestListener);
         return call;
@@ -2519,19 +3561,16 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException {
+    public void deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteOfficeMathObjectWithHttpInfo(request);
-            return resp.getData();
+            deleteOfficeMathObjectWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteOfficeMathObjectWithHttpInfo(request);
-                return resp.getData();
+                deleteOfficeMathObjectWithHttpInfo(request);
             }
             throw ex;
         }
@@ -2540,13 +3579,12 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteOfficeMathObjectWithHttpInfo(DeleteOfficeMathObjectRequest request) throws ApiException {
+    private ApiResponse<Void> deleteOfficeMathObjectWithHttpInfo(DeleteOfficeMathObjectRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -2556,7 +3594,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteOfficeMathObjectAsync(DeleteOfficeMathObjectRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteOfficeMathObjectAsync(DeleteOfficeMathObjectRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2578,8 +3616,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteOfficeMathObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -2595,7 +3632,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2606,7 +3644,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -2636,7 +3673,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2653,6 +3690,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraph");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraph");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteParagraphCall(request, progressListener, progressRequestListener);
         return call;
@@ -2660,46 +3702,42 @@ public class WordsApi {
     }
 
     /**
-     * Remove paragraph from section.
+     * Removes paragraph from section.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteParagraph(DeleteParagraphRequest request) throws ApiException {
+    public void deleteParagraph(DeleteParagraphRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteParagraphWithHttpInfo(request);
-            return resp.getData();
+            deleteParagraphWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteParagraphWithHttpInfo(request);
-                return resp.getData();
+                deleteParagraphWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Remove paragraph from section.
+     * Removes paragraph from section.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteParagraphWithHttpInfo(DeleteParagraphRequest request) throws ApiException {
+    private ApiResponse<Void> deleteParagraphWithHttpInfo(DeleteParagraphRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteParagraphValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Remove paragraph from section. (asynchronously)
+     * Removes paragraph from section. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphAsync(DeleteParagraphRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteParagraphAsync(DeleteParagraphRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2721,8 +3759,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -2779,7 +3816,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2810,19 +3847,16 @@ public class WordsApi {
     /**
      * Removes run from document.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteRun(DeleteRunRequest request) throws ApiException {
+    public void deleteRun(DeleteRunRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteRunWithHttpInfo(request);
-            return resp.getData();
+            deleteRunWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteRunWithHttpInfo(request);
-                return resp.getData();
+                deleteRunWithHttpInfo(request);
             }
             throw ex;
         }
@@ -2831,13 +3865,12 @@ public class WordsApi {
     /**
      * Removes run from document.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteRunWithHttpInfo(DeleteRunRequest request) throws ApiException {
+    private ApiResponse<Void> deleteRunWithHttpInfo(DeleteRunRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteRunValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -2847,7 +3880,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteRunAsync(DeleteRunRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteRunAsync(DeleteRunRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2869,8 +3902,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -2886,7 +3918,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2897,7 +3930,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -2927,7 +3959,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -2944,6 +3976,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteTable");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteTable");
+        }
+        
 
         com.squareup.okhttp.Call call = deleteTableCall(request, progressListener, progressRequestListener);
         return call;
@@ -2951,46 +3988,42 @@ public class WordsApi {
     }
 
     /**
-     * Delete a table.
+     * Deletes a table.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteTable(DeleteTableRequest request) throws ApiException {
+    public void deleteTable(DeleteTableRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteTableWithHttpInfo(request);
-            return resp.getData();
+            deleteTableWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteTableWithHttpInfo(request);
-                return resp.getData();
+                deleteTableWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Delete a table.
+     * Deletes a table.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteTableWithHttpInfo(DeleteTableRequest request) throws ApiException {
+    private ApiResponse<Void> deleteTableWithHttpInfo(DeleteTableRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteTableValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Delete a table. (asynchronously)
+     * Deletes a table. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTableAsync(DeleteTableRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTableAsync(DeleteTableRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3012,8 +4045,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -3070,7 +4102,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3099,46 +4131,42 @@ public class WordsApi {
     }
 
     /**
-     * Delete a table cell.
+     * Deletes a table cell.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteTableCell(DeleteTableCellRequest request) throws ApiException {
+    public void deleteTableCell(DeleteTableCellRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteTableCellWithHttpInfo(request);
-            return resp.getData();
+            deleteTableCellWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteTableCellWithHttpInfo(request);
-                return resp.getData();
+                deleteTableCellWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Delete a table cell.
+     * Deletes a table cell.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteTableCellWithHttpInfo(DeleteTableCellRequest request) throws ApiException {
+    private ApiResponse<Void> deleteTableCellWithHttpInfo(DeleteTableCellRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteTableCellValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Delete a table cell. (asynchronously)
+     * Deletes a table cell. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTableCellAsync(DeleteTableCellRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTableCellAsync(DeleteTableCellRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3160,8 +4188,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableCellValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -3218,7 +4245,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3247,46 +4274,42 @@ public class WordsApi {
     }
 
     /**
-     * Delete a table row.
+     * Deletes a table row.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse deleteTableRow(DeleteTableRowRequest request) throws ApiException {
+    public void deleteTableRow(DeleteTableRowRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = deleteTableRowWithHttpInfo(request);
-            return resp.getData();
+            deleteTableRowWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = deleteTableRowWithHttpInfo(request);
-                return resp.getData();
+                deleteTableRowWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Delete a table row.
+     * Deletes a table row.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> deleteTableRowWithHttpInfo(DeleteTableRowRequest request) throws ApiException {
+    private ApiResponse<Void> deleteTableRowWithHttpInfo(DeleteTableRowRequest request) throws ApiException {
         com.squareup.okhttp.Call call = deleteTableRowValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
-     * Delete a table row. (asynchronously)
+     * Deletes a table row. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTableRowAsync(DeleteTableRowRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTableRowAsync(DeleteTableRowRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3308,22 +4331,21 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteTableRowValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for deleteUnprotectDocument
+     * Build call for deleteWatermark
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteUnprotectDocumentCall(DeleteUnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getProtectionRequest();
+    private com.squareup.okhttp.Call deleteWatermarkCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/protection"
+        String localVarPath = "/words/{name}/watermarks/deleteLast"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3333,6 +4355,8 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -3362,44 +4386,39 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteUnprotectDocumentValidateBeforeCall(DeleteUnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteWatermarkValidateBeforeCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteUnprotectDocument");
-        }
-        
-        // verify the required parameter 'ProtectionRequest' is set
-        if (request.getProtectionRequest() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ProtectionRequest' when calling deleteUnprotectDocument");
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteWatermark");
         }
         
 
-        com.squareup.okhttp.Call call = deleteUnprotectDocumentCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = deleteWatermarkCall(request, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Unprotect document.
+     * Deletes watermark (for deleting last watermark from the document).
      * 
-     * @return ProtectionDataResponse
+     * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProtectionDataResponse deleteUnprotectDocument(DeleteUnprotectDocumentRequest request) throws ApiException {
+    public DocumentResponse deleteWatermark(DeleteWatermarkRequest request) throws ApiException {
         try {
-            ApiResponse<ProtectionDataResponse> resp = deleteUnprotectDocumentWithHttpInfo(request);
+            ApiResponse<DocumentResponse> resp = deleteWatermarkWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<ProtectionDataResponse> resp = deleteUnprotectDocumentWithHttpInfo(request);
+                ApiResponse<DocumentResponse> resp = deleteWatermarkWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -3407,25 +4426,25 @@ public class WordsApi {
     }
 
     /**
-     * Unprotect document.
+     * Deletes watermark (for deleting last watermark from the document).
      * 
-     * @return ApiResponse&lt;ProtectionDataResponse&gt;
+     * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ProtectionDataResponse> deleteUnprotectDocumentWithHttpInfo(DeleteUnprotectDocumentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = deleteUnprotectDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
+    private ApiResponse<DocumentResponse> deleteWatermarkWithHttpInfo(DeleteWatermarkRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Unprotect document. (asynchronously)
+     * Deletes watermark (for deleting last watermark from the document). (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteUnprotectDocumentAsync(DeleteUnprotectDocumentRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteWatermarkAsync(DeleteWatermarkRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3446,8 +4465,704 @@ public class WordsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = deleteUnprotectDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
+        com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for downloadFile
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call downloadFileCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/storage/file/{path}"
+            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", request.getVersionId());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call downloadFileValidateBeforeCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Path' is set
+        if (request.getPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling downloadFile");
+        }
+        
+
+        com.squareup.okhttp.Call call = downloadFileCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Download file
+     * 
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public File downloadFile(DownloadFileRequest request) throws ApiException {
+        try {
+            ApiResponse<File> resp = downloadFileWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<File> resp = downloadFileWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Download file
+     * 
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<File> downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<File>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Download file (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call downloadFileAsync(DownloadFileRequest request, final ApiCallback<File> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<File>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for executeMailMerge
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call executeMailMergeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/executeMailMerge"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "mailMergeDataFile", request.getMailMergeDataFile());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getData() != null)
+          localVarFormParams.put("Data", request.getData());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call executeMailMergeValidateBeforeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling executeMailMerge");
+        }
+        
+
+        com.squareup.okhttp.Call call = executeMailMergeCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Executes document mail merge operation.
+     * 
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentResponse executeMailMerge(ExecuteMailMergeRequest request) throws ApiException {
+        try {
+            ApiResponse<DocumentResponse> resp = executeMailMergeWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DocumentResponse> resp = executeMailMergeWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Executes document mail merge operation.
+     * 
+     * @return ApiResponse&lt;DocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DocumentResponse> executeMailMergeWithHttpInfo(ExecuteMailMergeRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Executes document mail merge operation. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call executeMailMergeAsync(ExecuteMailMergeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for executeMailMergeOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call executeMailMergeOnlineCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/executeMailMerge";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "documentFileName", request.getDocumentFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getTemplate() != null)
+          localVarFormParams.put("Template", request.getTemplate());
+if (request.getData() != null)
+          localVarFormParams.put("Data", request.getData());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call executeMailMergeOnlineValidateBeforeCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Template' is set
+        if (request.getTemplate() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling executeMailMergeOnline");
+        }
+        
+        // verify the required parameter 'Data' is set
+        if (request.getData() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling executeMailMergeOnline");
+        }
+        
+
+        com.squareup.okhttp.Call call = executeMailMergeOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Executes document mail merge online.
+     * 
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public File executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) throws ApiException {
+        try {
+            ApiResponse<File> resp = executeMailMergeOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<File> resp = executeMailMergeOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Executes document mail merge online.
+     * 
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<File> executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<File>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Executes document mail merge online. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call executeMailMergeOnlineAsync(ExecuteMailMergeOnlineRequest request, final ApiCallback<File> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<File>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for executeTemplate
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call executeTemplateCall(ExecuteTemplateRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/executeTemplate"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getData() != null)
+          localVarFormParams.put("Data", request.getData());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call executeTemplateValidateBeforeCall(ExecuteTemplateRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling executeTemplate");
+        }
+        
+        // verify the required parameter 'Data' is set
+        if (request.getData() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling executeTemplate");
+        }
+        
+
+        com.squareup.okhttp.Call call = executeTemplateCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Populates document template with data.
+     * 
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentResponse executeTemplate(ExecuteTemplateRequest request) throws ApiException {
+        try {
+            ApiResponse<DocumentResponse> resp = executeTemplateWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DocumentResponse> resp = executeTemplateWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Populates document template with data.
+     * 
+     * @return ApiResponse&lt;DocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DocumentResponse> executeTemplateWithHttpInfo(ExecuteTemplateRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = executeTemplateValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Populates document template with data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call executeTemplateAsync(ExecuteTemplateRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = executeTemplateValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for executeTemplateOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call executeTemplateOnlineCall(ExecuteTemplateOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/executeTemplate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "documentFileName", request.getDocumentFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getTemplate() != null)
+          localVarFormParams.put("Template", request.getTemplate());
+if (request.getData() != null)
+          localVarFormParams.put("Data", request.getData());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call executeTemplateOnlineValidateBeforeCall(ExecuteTemplateOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Template' is set
+        if (request.getTemplate() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling executeTemplateOnline");
+        }
+        
+        // verify the required parameter 'Data' is set
+        if (request.getData() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling executeTemplateOnline");
+        }
+        
+
+        com.squareup.okhttp.Call call = executeTemplateOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Populates document template with data online.
+     * 
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public File executeTemplateOnline(ExecuteTemplateOnlineRequest request) throws ApiException {
+        try {
+            ApiResponse<File> resp = executeTemplateOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<File> resp = executeTemplateOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Populates document template with data online.
+     * 
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<File> executeTemplateOnlineWithHttpInfo(ExecuteTemplateOnlineRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = executeTemplateOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<File>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Populates document template with data online. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call executeTemplateOnlineAsync(ExecuteTemplateOnlineRequest request, final ApiCallback<File> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = executeTemplateOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<File>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -3496,7 +5211,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3576,6 +5291,278 @@ public class WordsApi {
         return call;
     }
     /**
+     * Build call for getBookmarkByName
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getBookmarkByNameCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "bookmarkName" + "\\}", apiClient.escapeString(request.getBookmarkName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getBookmarkByNameValidateBeforeCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getBookmarkByName");
+        }
+        
+        // verify the required parameter 'BookmarkName' is set
+        if (request.getBookmarkName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkName' when calling getBookmarkByName");
+        }
+        
+
+        com.squareup.okhttp.Call call = getBookmarkByNameCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Reads document bookmark data by its name.
+     * 
+     * @return BookmarkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BookmarkResponse getBookmarkByName(GetBookmarkByNameRequest request) throws ApiException {
+        try {
+            ApiResponse<BookmarkResponse> resp = getBookmarkByNameWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<BookmarkResponse> resp = getBookmarkByNameWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads document bookmark data by its name.
+     * 
+     * @return ApiResponse&lt;BookmarkResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<BookmarkResponse> getBookmarkByNameWithHttpInfo(GetBookmarkByNameRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads document bookmark data by its name. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getBookmarkByNameAsync(GetBookmarkByNameRequest request, final ApiCallback<BookmarkResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getBookmarks
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getBookmarksCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/bookmarks"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getBookmarksValidateBeforeCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getBookmarks");
+        }
+        
+
+        com.squareup.okhttp.Call call = getBookmarksCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Reads document bookmarks common info.
+     * 
+     * @return BookmarksResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BookmarksResponse getBookmarks(GetBookmarksRequest request) throws ApiException {
+        try {
+            ApiResponse<BookmarksResponse> resp = getBookmarksWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<BookmarksResponse> resp = getBookmarksWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads document bookmarks common info.
+     * 
+     * @return ApiResponse&lt;BookmarksResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<BookmarksResponse> getBookmarksWithHttpInfo(GetBookmarksRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<BookmarksResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads document bookmarks common info. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getBookmarksAsync(GetBookmarksRequest request, final ApiCallback<BookmarksResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BookmarksResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getBorder
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -3626,7 +5613,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3655,7 +5642,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a border.
+     * Returns a border.
      * &#39;nodePath&#39; should refer to node with cell or row
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3676,7 +5663,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a border.
+     * Returns a border.
      * &#39;nodePath&#39; should refer to node with cell or row
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3688,7 +5675,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a border. (asynchronously)
+     * Returns a border. (asynchronously)
      * &#39;nodePath&#39; should refer to node with cell or row
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3770,7 +5757,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3794,7 +5781,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a collection of borders.
+     * Returns a collection of borders.
      * &#39;nodePath&#39; should refer to node with cell or row
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3815,7 +5802,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a collection of borders.
+     * Returns a collection of borders.
      * &#39;nodePath&#39; should refer to node with cell or row
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3827,7 +5814,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a collection of borders. (asynchronously)
+     * Returns a collection of borders. (asynchronously)
      * &#39;nodePath&#39; should refer to node with cell or row
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3909,7 +5896,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -3933,7 +5920,7 @@ public class WordsApi {
     }
 
     /**
-     * Get comment from document.
+     * Gets comment from document.
      * 
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3954,7 +5941,7 @@ public class WordsApi {
     }
 
     /**
-     * Get comment from document.
+     * Gets comment from document.
      * 
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3966,7 +5953,7 @@ public class WordsApi {
     }
 
     /**
-     * Get comment from document. (asynchronously)
+     * Gets comment from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4047,7 +6034,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4066,7 +6053,7 @@ public class WordsApi {
     }
 
     /**
-     * Get comments from document.
+     * Gets comments from document.
      * 
      * @return CommentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4087,7 +6074,7 @@ public class WordsApi {
     }
 
     /**
-     * Get comments from document.
+     * Gets comments from document.
      * 
      * @return ApiResponse&lt;CommentsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4099,7 +6086,7 @@ public class WordsApi {
     }
 
     /**
-     * Get comments from document. (asynchronously)
+     * Gets comments from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4180,7 +6167,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4199,7 +6186,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document common info.
+     * Reads document common info.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4220,7 +6207,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document common info.
+     * Reads document common info.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4232,7 +6219,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document common info. (asynchronously)
+     * Reads document common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4265,278 +6252,6 @@ public class WordsApi {
         return call;
     }
     /**
-     * Build call for getDocumentBookmarkByName
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentBookmarkByNameCall(GetDocumentBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "bookmarkName" + "\\}", apiClient.escapeString(request.getBookmarkName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentBookmarkByNameValidateBeforeCall(GetDocumentBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentBookmarkByName");
-        }
-        
-        // verify the required parameter 'BookmarkName' is set
-        if (request.getBookmarkName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkName' when calling getDocumentBookmarkByName");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentBookmarkByNameCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Read document bookmark data by its name.
-     * 
-     * @return BookmarkResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public BookmarkResponse getDocumentBookmarkByName(GetDocumentBookmarkByNameRequest request) throws ApiException {
-        try {
-            ApiResponse<BookmarkResponse> resp = getDocumentBookmarkByNameWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<BookmarkResponse> resp = getDocumentBookmarkByNameWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Read document bookmark data by its name.
-     * 
-     * @return ApiResponse&lt;BookmarkResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<BookmarkResponse> getDocumentBookmarkByNameWithHttpInfo(GetDocumentBookmarkByNameRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentBookmarkByNameValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read document bookmark data by its name. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDocumentBookmarkByNameAsync(GetDocumentBookmarkByNameRequest request, final ApiCallback<BookmarkResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentBookmarkByNameValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getDocumentBookmarks
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentBookmarksCall(GetDocumentBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentBookmarksValidateBeforeCall(GetDocumentBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentBookmarks");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentBookmarksCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Read document bookmarks common info.
-     * 
-     * @return BookmarksResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public BookmarksResponse getDocumentBookmarks(GetDocumentBookmarksRequest request) throws ApiException {
-        try {
-            ApiResponse<BookmarksResponse> resp = getDocumentBookmarksWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<BookmarksResponse> resp = getDocumentBookmarksWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Read document bookmarks common info.
-     * 
-     * @return ApiResponse&lt;BookmarksResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<BookmarksResponse> getDocumentBookmarksWithHttpInfo(GetDocumentBookmarksRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentBookmarksValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<BookmarksResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read document bookmarks common info. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDocumentBookmarksAsync(GetDocumentBookmarksRequest request, final ApiCallback<BookmarksResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentBookmarksValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<BookmarksResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for getDocumentDrawingObjectByIndex
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -4549,7 +6264,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4557,7 +6273,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -4587,7 +6302,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4604,6 +6319,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectByIndex");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getDocumentDrawingObjectByIndex");
+        }
+        
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexCall(request, progressListener, progressRequestListener);
         return call;
@@ -4611,7 +6331,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document drawing object common info by its index or convert to format specified.
+     * Reads document drawing object common info by its index or convert to format specified.
      * 
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4632,7 +6352,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document drawing object common info by its index or convert to format specified.
+     * Reads document drawing object common info by its index or convert to format specified.
      * 
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4644,7 +6364,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document drawing object common info by its index or convert to format specified. (asynchronously)
+     * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4689,7 +6409,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4697,7 +6418,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -4727,7 +6447,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4744,6 +6464,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectImageData");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getDocumentDrawingObjectImageData");
+        }
+        
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataCall(request, progressListener, progressRequestListener);
         return call;
@@ -4751,7 +6476,7 @@ public class WordsApi {
     }
 
     /**
-     * Read drawing object image data.
+     * Reads drawing object image data.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4772,7 +6497,7 @@ public class WordsApi {
     }
 
     /**
-     * Read drawing object image data.
+     * Reads drawing object image data.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4784,7 +6509,7 @@ public class WordsApi {
     }
 
     /**
-     * Read drawing object image data. (asynchronously)
+     * Reads drawing object image data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4829,7 +6554,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4837,7 +6563,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -4867,7 +6592,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -4884,6 +6609,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectOleData");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getDocumentDrawingObjectOleData");
+        }
+        
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataCall(request, progressListener, progressRequestListener);
         return call;
@@ -4891,7 +6621,7 @@ public class WordsApi {
     }
 
     /**
-     * Get drawing object OLE data.
+     * Gets drawing object OLE data.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4912,7 +6642,7 @@ public class WordsApi {
     }
 
     /**
-     * Get drawing object OLE data.
+     * Gets drawing object OLE data.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4924,7 +6654,7 @@ public class WordsApi {
     }
 
     /**
-     * Get drawing object OLE data. (asynchronously)
+     * Gets drawing object OLE data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4968,7 +6698,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4976,7 +6707,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -5006,7 +6736,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5018,6 +6748,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjects");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getDocumentDrawingObjects");
+        }
+        
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsCall(request, progressListener, progressRequestListener);
         return call;
@@ -5025,7 +6760,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document drawing objects common info.
+     * Reads document drawing objects common info.
      * 
      * @return DrawingObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5046,7 +6781,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document drawing objects common info.
+     * Reads document drawing objects common info.
      * 
      * @return ApiResponse&lt;DrawingObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5058,7 +6793,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document drawing objects common info. (asynchronously)
+     * Reads document drawing objects common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5140,7 +6875,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5159,7 +6894,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document field names.
+     * Reads document field names.
      * 
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5180,7 +6915,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document field names.
+     * Reads document field names.
      * 
      * @return ApiResponse&lt;FieldNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5192,7 +6927,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document field names. (asynchronously)
+     * Reads document field names. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5220,6 +6955,137 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentFieldNamesValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FieldNamesResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getDocumentFieldNamesOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getDocumentFieldNamesOnlineCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/mailMergeFieldNames";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useNonMergeFields", request.getUseNonMergeFields());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getTemplate() != null)
+          localVarFormParams.put("Template", request.getTemplate());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDocumentFieldNamesOnlineValidateBeforeCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Template' is set
+        if (request.getTemplate() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling getDocumentFieldNamesOnline");
+        }
+        
+
+        com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Reads document field names.
+     * 
+     * @return FieldNamesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FieldNamesResponse getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) throws ApiException {
+        try {
+            ApiResponse<FieldNamesResponse> resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FieldNamesResponse> resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads document field names.
+     * 
+     * @return ApiResponse&lt;FieldNamesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FieldNamesResponse> getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FieldNamesResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads document field names. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getDocumentFieldNamesOnlineAsync(GetDocumentFieldNamesOnlineRequest request, final ApiCallback<FieldNamesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<FieldNamesResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -5274,7 +7140,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5298,7 +7164,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document hyperlink by its index.
+     * Reads document hyperlink by its index.
      * 
      * @return HyperlinkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5319,7 +7185,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document hyperlink by its index.
+     * Reads document hyperlink by its index.
      * 
      * @return ApiResponse&lt;HyperlinkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5331,7 +7197,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document hyperlink by its index. (asynchronously)
+     * Reads document hyperlink by its index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5412,7 +7278,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -5431,7 +7297,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document hyperlinks common info.
+     * Reads document hyperlinks common info.
      * 
      * @return HyperlinksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5452,7 +7318,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document hyperlinks common info.
+     * Reads document hyperlinks common info.
      * 
      * @return ApiResponse&lt;HyperlinksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5464,7 +7330,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document hyperlinks common info. (asynchronously)
+     * Reads document hyperlinks common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5493,849 +7359,6 @@ public class WordsApi {
 
         com.squareup.okhttp.Call call = getDocumentHyperlinksValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<HyperlinksResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getDocumentParagraph
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentParagraphCall(GetDocumentParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentParagraphValidateBeforeCall(GetDocumentParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentParagraph");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentParagraph");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentParagraphCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * This resource represents one of the paragraphs contained in the document.
-     * 
-     * @return ParagraphResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ParagraphResponse getDocumentParagraph(GetDocumentParagraphRequest request) throws ApiException {
-        try {
-            ApiResponse<ParagraphResponse> resp = getDocumentParagraphWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<ParagraphResponse> resp = getDocumentParagraphWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * This resource represents one of the paragraphs contained in the document.
-     * 
-     * @return ApiResponse&lt;ParagraphResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<ParagraphResponse> getDocumentParagraphWithHttpInfo(GetDocumentParagraphRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentParagraphValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * This resource represents one of the paragraphs contained in the document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDocumentParagraphAsync(GetDocumentParagraphRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getDocumentParagraphFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentParagraphFormatCall(GetDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentParagraphFormatValidateBeforeCall(GetDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentParagraphFormat");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentParagraphFormat");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentParagraphFormatCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Represents all the formatting for a paragraph.
-     * 
-     * @return ParagraphFormatResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ParagraphFormatResponse getDocumentParagraphFormat(GetDocumentParagraphFormatRequest request) throws ApiException {
-        try {
-            ApiResponse<ParagraphFormatResponse> resp = getDocumentParagraphFormatWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<ParagraphFormatResponse> resp = getDocumentParagraphFormatWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Represents all the formatting for a paragraph.
-     * 
-     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<ParagraphFormatResponse> getDocumentParagraphFormatWithHttpInfo(GetDocumentParagraphFormatRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentParagraphFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Represents all the formatting for a paragraph. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDocumentParagraphFormatAsync(GetDocumentParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getDocumentParagraphRun
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentParagraphRunCall(GetDocumentParagraphRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentParagraphRunValidateBeforeCall(GetDocumentParagraphRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentParagraphRun");
-        }
-        
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getDocumentParagraphRun");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentParagraphRun");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentParagraphRunCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * This resource represents run of text contained in the document.
-     * 
-     * @return RunResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public RunResponse getDocumentParagraphRun(GetDocumentParagraphRunRequest request) throws ApiException {
-        try {
-            ApiResponse<RunResponse> resp = getDocumentParagraphRunWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<RunResponse> resp = getDocumentParagraphRunWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * This resource represents run of text contained in the document.
-     * 
-     * @return ApiResponse&lt;RunResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<RunResponse> getDocumentParagraphRunWithHttpInfo(GetDocumentParagraphRunRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentParagraphRunValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * This resource represents run of text contained in the document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDocumentParagraphRunAsync(GetDocumentParagraphRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentParagraphRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getDocumentParagraphRunFont
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentParagraphRunFontCall(GetDocumentParagraphRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentParagraphRunFontValidateBeforeCall(GetDocumentParagraphRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentParagraphRunFont");
-        }
-        
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getDocumentParagraphRunFont");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentParagraphRunFont");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentParagraphRunFontCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * This resource represents font of run.
-     * 
-     * @return FontResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FontResponse getDocumentParagraphRunFont(GetDocumentParagraphRunFontRequest request) throws ApiException {
-        try {
-            ApiResponse<FontResponse> resp = getDocumentParagraphRunFontWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FontResponse> resp = getDocumentParagraphRunFontWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * This resource represents font of run.
-     * 
-     * @return ApiResponse&lt;FontResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FontResponse> getDocumentParagraphRunFontWithHttpInfo(GetDocumentParagraphRunFontRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentParagraphRunFontValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * This resource represents font of run. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDocumentParagraphRunFontAsync(GetDocumentParagraphRunFontRequest request, final ApiCallback<FontResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentParagraphRunFontValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getDocumentParagraphRuns
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentParagraphRunsCall(GetDocumentParagraphRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentParagraphRunsValidateBeforeCall(GetDocumentParagraphRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentParagraphRuns");
-        }
-        
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getDocumentParagraphRuns");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentParagraphRunsCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * This resource represents collection of runs in the paragraph.
-     * 
-     * @return RunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public RunsResponse getDocumentParagraphRuns(GetDocumentParagraphRunsRequest request) throws ApiException {
-        try {
-            ApiResponse<RunsResponse> resp = getDocumentParagraphRunsWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<RunsResponse> resp = getDocumentParagraphRunsWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * This resource represents collection of runs in the paragraph.
-     * 
-     * @return ApiResponse&lt;RunsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<RunsResponse> getDocumentParagraphRunsWithHttpInfo(GetDocumentParagraphRunsRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentParagraphRunsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<RunsResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * This resource represents collection of runs in the paragraph. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDocumentParagraphRunsAsync(GetDocumentParagraphRunsRequest request, final ApiCallback<RunsResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentParagraphRunsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RunsResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getDocumentParagraphs
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentParagraphsCall(GetDocumentParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentParagraphsValidateBeforeCall(GetDocumentParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentParagraphs");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentParagraphsCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Return a list of paragraphs that are contained in the document.
-     * 
-     * @return ParagraphLinkCollectionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ParagraphLinkCollectionResponse getDocumentParagraphs(GetDocumentParagraphsRequest request) throws ApiException {
-        try {
-            ApiResponse<ParagraphLinkCollectionResponse> resp = getDocumentParagraphsWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<ParagraphLinkCollectionResponse> resp = getDocumentParagraphsWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Return a list of paragraphs that are contained in the document.
-     * 
-     * @return ApiResponse&lt;ParagraphLinkCollectionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<ParagraphLinkCollectionResponse> getDocumentParagraphsWithHttpInfo(GetDocumentParagraphsRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentParagraphsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<ParagraphLinkCollectionResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Return a list of paragraphs that are contained in the document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getDocumentParagraphsAsync(GetDocumentParagraphsRequest request, final ApiCallback<ParagraphLinkCollectionResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentParagraphsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParagraphLinkCollectionResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6388,7 +7411,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6407,7 +7430,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document properties info.
+     * Reads document properties info.
      * 
      * @return DocumentPropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6428,7 +7451,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document properties info.
+     * Reads document properties info.
      * 
      * @return ApiResponse&lt;DocumentPropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6440,7 +7463,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document properties info. (asynchronously)
+     * Reads document properties info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6522,7 +7545,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6546,7 +7569,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document property info by the property name.
+     * Reads document property info by the property name.
      * 
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6567,7 +7590,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document property info by the property name.
+     * Reads document property info by the property name.
      * 
      * @return ApiResponse&lt;DocumentPropertyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6579,7 +7602,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document property info by the property name. (asynchronously)
+     * Reads document property info by the property name. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6660,7 +7683,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6679,7 +7702,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document protection common info.
+     * Reads document protection common info.
      * 
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6700,7 +7723,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document protection common info.
+     * Reads document protection common info.
      * 
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6712,7 +7735,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document protection common info. (asynchronously)
+     * Reads document protection common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6796,7 +7819,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -6815,7 +7838,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document statistics.
+     * Reads document statistics.
      * 
      * @return StatDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6836,7 +7859,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document statistics.
+     * Reads document statistics.
      * 
      * @return ApiResponse&lt;StatDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6848,7 +7871,7 @@ public class WordsApi {
     }
 
     /**
-     * Read document statistics. (asynchronously)
+     * Reads document statistics. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6877,148 +7900,6 @@ public class WordsApi {
 
         com.squareup.okhttp.Call call = getDocumentStatisticsValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<StatDataResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getDocumentTextItems
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @deprecated
-     */
-    @Deprecated
-    private com.squareup.okhttp.Call getDocumentTextItemsCall(GetDocumentTextItemsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/textItems"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentTextItemsValidateBeforeCall(GetDocumentTextItemsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentTextItems");
-        }
-        
-
-        com.squareup.okhttp.Call call = getDocumentTextItemsCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Read document text items.
-     * 
-     * @return TextItemsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @deprecated
-     */
-    @Deprecated
-    public TextItemsResponse getDocumentTextItems(GetDocumentTextItemsRequest request) throws ApiException {
-        try {
-            ApiResponse<TextItemsResponse> resp = getDocumentTextItemsWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<TextItemsResponse> resp = getDocumentTextItemsWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Read document text items.
-     * 
-     * @return ApiResponse&lt;TextItemsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @deprecated
-     */
-    @Deprecated
-    private ApiResponse<TextItemsResponse> getDocumentTextItemsWithHttpInfo(GetDocumentTextItemsRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentTextItemsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<TextItemsResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read document text items. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @deprecated
-     */
-    @Deprecated
-    public com.squareup.okhttp.Call getDocumentTextItemsAsync(GetDocumentTextItemsRequest request, final ApiCallback<TextItemsResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getDocumentTextItemsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TextItemsResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -7074,7 +7955,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7098,7 +7979,7 @@ public class WordsApi {
     }
 
     /**
-     * Export the document into the specified format.
+     * Exports the document into the specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7119,7 +8000,7 @@ public class WordsApi {
     }
 
     /**
-     * Export the document into the specified format.
+     * Exports the document into the specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7131,7 +8012,7 @@ public class WordsApi {
     }
 
     /**
-     * Export the document into the specified format. (asynchronously)
+     * Exports the document into the specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7176,7 +8057,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7184,7 +8066,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -7214,7 +8095,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7231,6 +8112,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getField");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getField");
+        }
+        
 
         com.squareup.okhttp.Call call = getFieldCall(request, progressListener, progressRequestListener);
         return call;
@@ -7238,7 +8124,7 @@ public class WordsApi {
     }
 
     /**
-     * Get field from document.
+     * Gets field from document.
      * 
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7259,7 +8145,7 @@ public class WordsApi {
     }
 
     /**
-     * Get field from document.
+     * Gets field from document.
      * 
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7271,7 +8157,7 @@ public class WordsApi {
     }
 
     /**
-     * Get field from document. (asynchronously)
+     * Gets field from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7315,7 +8201,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7323,7 +8210,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -7353,7 +8239,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7363,6 +8249,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFields");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFields");
         }
         
 
@@ -7438,27 +8329,22 @@ public class WordsApi {
         return call;
     }
     /**
-     * Build call for getFootnote
+     * Build call for getFilesList
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFootnoteCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFilesListCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+        String localVarPath = "/words/storage/folder/{path}"
+            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -7488,7 +8374,142 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFilesListValidateBeforeCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Path' is set
+        if (request.getPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling getFilesList");
+        }
+        
+
+        com.squareup.okhttp.Call call = getFilesListCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get all files and folders within a folder
+     * 
+     * @return FilesList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FilesList getFilesList(GetFilesListRequest request) throws ApiException {
+        try {
+            ApiResponse<FilesList> resp = getFilesListWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FilesList> resp = getFilesListWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Get all files and folders within a folder
+     * 
+     * @return ApiResponse&lt;FilesList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FilesList> getFilesListWithHttpInfo(GetFilesListRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FilesList>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get all files and folders within a folder (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getFilesListAsync(GetFilesListRequest request, final ApiCallback<FilesList> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FilesList>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getFootnote
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getFootnoteCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7505,6 +8526,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getFootnote");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFootnote");
+        }
+        
 
         com.squareup.okhttp.Call call = getFootnoteCall(request, progressListener, progressRequestListener);
         return call;
@@ -7512,7 +8538,7 @@ public class WordsApi {
     }
 
     /**
-     * Read footnote by index.
+     * Reads footnote by index.
      * 
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7533,7 +8559,7 @@ public class WordsApi {
     }
 
     /**
-     * Read footnote by index.
+     * Reads footnote by index.
      * 
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7545,7 +8571,7 @@ public class WordsApi {
     }
 
     /**
-     * Read footnote by index. (asynchronously)
+     * Reads footnote by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7589,7 +8615,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7597,7 +8624,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -7627,7 +8653,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7639,6 +8665,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFootnotes");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFootnotes");
+        }
+        
 
         com.squareup.okhttp.Call call = getFootnotesCall(request, progressListener, progressRequestListener);
         return call;
@@ -7646,7 +8677,7 @@ public class WordsApi {
     }
 
     /**
-     * Get footnotes from document.
+     * Gets footnotes from document.
      * 
      * @return FootnotesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7667,7 +8698,7 @@ public class WordsApi {
     }
 
     /**
-     * Get footnotes from document.
+     * Gets footnotes from document.
      * 
      * @return ApiResponse&lt;FootnotesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7679,7 +8710,7 @@ public class WordsApi {
     }
 
     /**
-     * Get footnotes from document. (asynchronously)
+     * Gets footnotes from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7724,7 +8755,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7732,7 +8764,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -7762,7 +8793,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7777,6 +8808,11 @@ public class WordsApi {
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getFormField");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFormField");
         }
         
 
@@ -7863,7 +8899,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7871,7 +8908,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -7901,7 +8937,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -7913,6 +8949,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFormFields");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFormFields");
+        }
+        
 
         com.squareup.okhttp.Call call = getFormFieldsCall(request, progressListener, progressRequestListener);
         return call;
@@ -7920,7 +8961,7 @@ public class WordsApi {
     }
 
     /**
-     * Get form fields from document.
+     * Gets form fields from document.
      * 
      * @return FormFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7941,7 +8982,7 @@ public class WordsApi {
     }
 
     /**
-     * Get form fields from document.
+     * Gets form fields from document.
      * 
      * @return ApiResponse&lt;FormFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7953,7 +8994,7 @@ public class WordsApi {
     }
 
     /**
-     * Get form fields from document. (asynchronously)
+     * Gets form fields from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8036,7 +9077,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8060,7 +9101,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a header/footer that is contained in the document.
+     * Returns a header/footer from the document by index.
      * 
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8081,7 +9122,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a header/footer that is contained in the document.
+     * Returns a header/footer from the document by index.
      * 
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8093,7 +9134,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a header/footer that is contained in the document. (asynchronously)
+     * Returns a header/footer from the document by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8177,7 +9218,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8206,7 +9247,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a header/footer that is contained in the document.
+     * Returns a header/footer from the document section.
      * 
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8227,7 +9268,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a header/footer that is contained in the document.
+     * Returns a header/footer from the document section.
      * 
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8239,7 +9280,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a header/footer that is contained in the document. (asynchronously)
+     * Returns a header/footer from the document section. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8283,7 +9324,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8291,7 +9333,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "sectionPath", request.getSectionPath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "filterByType", request.getFilterByType());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -8322,7 +9363,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8334,6 +9375,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getHeaderFooters");
         }
         
+        // verify the required parameter 'SectionPath' is set
+        if (request.getSectionPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SectionPath' when calling getHeaderFooters");
+        }
+        
 
         com.squareup.okhttp.Call call = getHeaderFootersCall(request, progressListener, progressRequestListener);
         return call;
@@ -8341,7 +9387,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of header/footers that are contained in the document.
+     * Returns a list of header/footers from the document.
      * 
      * @return HeaderFootersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8362,7 +9408,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of header/footers that are contained in the document.
+     * Returns a list of header/footers from the document.
      * 
      * @return ApiResponse&lt;HeaderFootersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8374,7 +9420,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of header/footers that are contained in the document. (asynchronously)
+     * Returns a list of header/footers from the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8419,7 +9465,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8427,7 +9474,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -8457,7 +9503,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8474,6 +9520,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getOfficeMathObject");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getOfficeMathObject");
+        }
+        
 
         com.squareup.okhttp.Call call = getOfficeMathObjectCall(request, progressListener, progressRequestListener);
         return call;
@@ -8481,7 +9532,7 @@ public class WordsApi {
     }
 
     /**
-     * Read OfficeMath object by index.
+     * Reads OfficeMath object by index.
      * 
      * @return OfficeMathObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8502,7 +9553,7 @@ public class WordsApi {
     }
 
     /**
-     * Read OfficeMath object by index.
+     * Reads OfficeMath object by index.
      * 
      * @return ApiResponse&lt;OfficeMathObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8514,7 +9565,7 @@ public class WordsApi {
     }
 
     /**
-     * Read OfficeMath object by index. (asynchronously)
+     * Reads OfficeMath object by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8558,7 +9609,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8566,7 +9618,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -8596,7 +9647,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8608,6 +9659,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getOfficeMathObjects");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getOfficeMathObjects");
+        }
+        
 
         com.squareup.okhttp.Call call = getOfficeMathObjectsCall(request, progressListener, progressRequestListener);
         return call;
@@ -8615,7 +9671,7 @@ public class WordsApi {
     }
 
     /**
-     * Get OfficeMath objects from document.
+     * Gets OfficeMath objects from document.
      * 
      * @return OfficeMathObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8636,7 +9692,7 @@ public class WordsApi {
     }
 
     /**
-     * Get OfficeMath objects from document.
+     * Gets OfficeMath objects from document.
      * 
      * @return ApiResponse&lt;OfficeMathObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8648,7 +9704,7 @@ public class WordsApi {
     }
 
     /**
-     * Get OfficeMath objects from document. (asynchronously)
+     * Gets OfficeMath objects from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8677,6 +9733,864 @@ public class WordsApi {
 
         com.squareup.okhttp.Call call = getOfficeMathObjectsValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OfficeMathObjectsResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getParagraph
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphValidateBeforeCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraph");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraph");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraph");
+        }
+        
+
+        com.squareup.okhttp.Call call = getParagraphCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document.
+     * 
+     * @return ParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphResponse getParagraph(GetParagraphRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphResponse> resp = getParagraphWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphResponse> resp = getParagraphWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document.
+     * 
+     * @return ApiResponse&lt;ParagraphResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphResponse> getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphAsync(GetParagraphRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getParagraphFormat
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphFormatCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphFormatValidateBeforeCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphFormat");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphFormat");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraphFormat");
+        }
+        
+
+        com.squareup.okhttp.Call call = getParagraphFormatCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Represents all the formatting for a paragraph.
+     * 
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphFormatResponse getParagraphFormat(GetParagraphFormatRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphFormatResponse> resp = getParagraphFormatWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphFormatResponse> resp = getParagraphFormatWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Represents all the formatting for a paragraph.
+     * 
+     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphFormatResponse> getParagraphFormatWithHttpInfo(GetParagraphFormatRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Represents all the formatting for a paragraph. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphFormatAsync(GetParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getParagraphs
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphsCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphsValidateBeforeCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphs");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraphs");
+        }
+        
+
+        com.squareup.okhttp.Call call = getParagraphsCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document.
+     * 
+     * @return ParagraphLinkCollectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphLinkCollectionResponse getParagraphs(GetParagraphsRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphLinkCollectionResponse> resp = getParagraphsWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphLinkCollectionResponse> resp = getParagraphsWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document.
+     * 
+     * @return ApiResponse&lt;ParagraphLinkCollectionResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphLinkCollectionResponse> getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphLinkCollectionResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphsAsync(GetParagraphsRequest request, final ApiCallback<ParagraphLinkCollectionResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphLinkCollectionResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getRun
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getRunCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getRunValidateBeforeCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getRun");
+        }
+        
+        // verify the required parameter 'ParagraphPath' is set
+        if (request.getParagraphPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getRun");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getRun");
+        }
+        
+
+        com.squareup.okhttp.Call call = getRunCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * This resource represents run of text contained in the document.
+     * 
+     * @return RunResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RunResponse getRun(GetRunRequest request) throws ApiException {
+        try {
+            ApiResponse<RunResponse> resp = getRunWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<RunResponse> resp = getRunWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * This resource represents run of text contained in the document.
+     * 
+     * @return ApiResponse&lt;RunResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<RunResponse> getRunWithHttpInfo(GetRunRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This resource represents run of text contained in the document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getRunAsync(GetRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getRunFont
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getRunFontCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getRunFontValidateBeforeCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getRunFont");
+        }
+        
+        // verify the required parameter 'ParagraphPath' is set
+        if (request.getParagraphPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getRunFont");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getRunFont");
+        }
+        
+
+        com.squareup.okhttp.Call call = getRunFontCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * This resource represents font of run.
+     * 
+     * @return FontResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FontResponse getRunFont(GetRunFontRequest request) throws ApiException {
+        try {
+            ApiResponse<FontResponse> resp = getRunFontWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FontResponse> resp = getRunFontWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * This resource represents font of run.
+     * 
+     * @return ApiResponse&lt;FontResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FontResponse> getRunFontWithHttpInfo(GetRunFontRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This resource represents font of run. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getRunFontAsync(GetRunFontRequest request, final ApiCallback<FontResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getRuns
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getRunsCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{paragraphPath}/runs"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getRunsValidateBeforeCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getRuns");
+        }
+        
+        // verify the required parameter 'ParagraphPath' is set
+        if (request.getParagraphPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getRuns");
+        }
+        
+
+        com.squareup.okhttp.Call call = getRunsCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * This resource represents collection of runs in the paragraph.
+     * 
+     * @return RunsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RunsResponse getRuns(GetRunsRequest request) throws ApiException {
+        try {
+            ApiResponse<RunsResponse> resp = getRunsWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<RunsResponse> resp = getRunsWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * This resource represents collection of runs in the paragraph.
+     * 
+     * @return ApiResponse&lt;RunsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<RunsResponse> getRunsWithHttpInfo(GetRunsRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<RunsResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This resource represents collection of runs in the paragraph. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getRunsAsync(GetRunsRequest request, final ApiCallback<RunsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RunsResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -8730,7 +10644,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8754,7 +10668,7 @@ public class WordsApi {
     }
 
     /**
-     * Get document section by index.
+     * Gets document section by index.
      * 
      * @return SectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8775,7 +10689,7 @@ public class WordsApi {
     }
 
     /**
-     * Get document section by index.
+     * Gets document section by index.
      * 
      * @return ApiResponse&lt;SectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8787,7 +10701,7 @@ public class WordsApi {
     }
 
     /**
-     * Get document section by index. (asynchronously)
+     * Gets document section by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8869,7 +10783,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -8893,7 +10807,7 @@ public class WordsApi {
     }
 
     /**
-     * Get page setup of section.
+     * Gets page setup of section.
      * 
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8914,7 +10828,7 @@ public class WordsApi {
     }
 
     /**
-     * Get page setup of section.
+     * Gets page setup of section.
      * 
      * @return ApiResponse&lt;SectionPageSetupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8926,7 +10840,7 @@ public class WordsApi {
     }
 
     /**
-     * Get page setup of section. (asynchronously)
+     * Gets page setup of section. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9007,7 +10921,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -9026,7 +10940,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of sections that are contained in the document.
+     * Returns a list of sections that are contained in the document.
      * 
      * @return SectionLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9047,7 +10961,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of sections that are contained in the document.
+     * Returns a list of sections that are contained in the document.
      * 
      * @return ApiResponse&lt;SectionLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9059,7 +10973,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of sections that are contained in the document. (asynchronously)
+     * Returns a list of sections that are contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9104,7 +11018,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9112,7 +11027,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -9142,7 +11056,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -9159,6 +11073,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTable");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getTable");
+        }
+        
 
         com.squareup.okhttp.Call call = getTableCall(request, progressListener, progressRequestListener);
         return call;
@@ -9166,7 +11085,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table.
+     * Returns a table.
      * 
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9187,7 +11106,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table.
+     * Returns a table.
      * 
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9199,7 +11118,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table. (asynchronously)
+     * Returns a table. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9282,7 +11201,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -9311,7 +11230,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table cell.
+     * Returns a table cell.
      * 
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9332,7 +11251,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table cell.
+     * Returns a table cell.
      * 
      * @return ApiResponse&lt;TableCellResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9344,7 +11263,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table cell. (asynchronously)
+     * Returns a table cell. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9427,7 +11346,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -9456,7 +11375,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table cell format.
+     * Returns a table cell format.
      * 
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9477,7 +11396,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table cell format.
+     * Returns a table cell format.
      * 
      * @return ApiResponse&lt;TableCellFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9489,7 +11408,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table cell format. (asynchronously)
+     * Returns a table cell format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9534,7 +11453,8 @@ public class WordsApi {
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9542,7 +11462,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -9572,7 +11491,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -9589,6 +11508,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTableProperties");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getTableProperties");
+        }
+        
 
         com.squareup.okhttp.Call call = getTablePropertiesCall(request, progressListener, progressRequestListener);
         return call;
@@ -9596,7 +11520,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table properties.
+     * Returns a table properties.
      * 
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9617,7 +11541,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table properties.
+     * Returns a table properties.
      * 
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9629,7 +11553,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table properties. (asynchronously)
+     * Returns a table properties. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9712,7 +11636,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -9741,7 +11665,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table row.
+     * Returns a table row.
      * 
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9762,7 +11686,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table row.
+     * Returns a table row.
      * 
      * @return ApiResponse&lt;TableRowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9774,7 +11698,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table row. (asynchronously)
+     * Returns a table row. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9857,7 +11781,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -9886,7 +11810,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table row format.
+     * Returns a table row format.
      * 
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9907,7 +11831,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table row format.
+     * Returns a table row format.
      * 
      * @return ApiResponse&lt;TableRowFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9919,7 +11843,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a table row format. (asynchronously)
+     * Returns a table row format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9963,7 +11887,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9971,7 +11896,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -10001,7 +11925,7 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -10013,6 +11937,11 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTables");
         }
         
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getTables");
+        }
+        
 
         com.squareup.okhttp.Call call = getTablesCall(request, progressListener, progressRequestListener);
         return call;
@@ -10020,7 +11949,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of tables that are contained in the document.
+     * Returns a list of tables that are contained in the document.
      * 
      * @return TableLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10041,7 +11970,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of tables that are contained in the document.
+     * Returns a list of tables that are contained in the document.
      * 
      * @return ApiResponse&lt;TableLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10053,7 +11982,7 @@ public class WordsApi {
     }
 
     /**
-     * Return a list of tables that are contained in the document. (asynchronously)
+     * Returns a list of tables that are contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10086,17 +12015,17 @@ public class WordsApi {
         return call;
     }
     /**
-     * Build call for insertTable
+     * Build call for insertComment
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertTableCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getTable();
+    private com.squareup.okhttp.Call insertCommentCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getComment();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables"
+        String localVarPath = "/words/{name}/comments"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -10108,7 +12037,6 @@ public class WordsApi {
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -10138,8 +12066,1333 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertCommentValidateBeforeCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertComment");
+        }
+        
+        // verify the required parameter 'Comment' is set
+        if (request.getComment() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Comment' when calling insertComment");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertCommentCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds comment to document, returns inserted comment data.
+     * 
+     * @return CommentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CommentResponse insertComment(InsertCommentRequest request) throws ApiException {
+        try {
+            ApiResponse<CommentResponse> resp = insertCommentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<CommentResponse> resp = insertCommentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds comment to document, returns inserted comment data.
+     * 
+     * @return ApiResponse&lt;CommentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<CommentResponse> insertCommentWithHttpInfo(InsertCommentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds comment to document, returns inserted comment data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertCommentAsync(InsertCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertDrawingObject
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertDrawingObjectCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDrawingObject() != null)
+          localVarFormParams.put("DrawingObject", request.getDrawingObject());
+if (request.getImageFile() != null)
+          localVarFormParams.put("ImageFile", request.getImageFile());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertDrawingObjectValidateBeforeCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertDrawingObject");
+        }
+        
+        // verify the required parameter 'DrawingObject' is set
+        if (request.getDrawingObject() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'DrawingObject' when calling insertDrawingObject");
+        }
+        
+        // verify the required parameter 'ImageFile' is set
+        if (request.getImageFile() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling insertDrawingObject");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertDrawingObject");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertDrawingObjectCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds drawing object to document, returns added  drawing object&#39;s data.
+     * 
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DrawingObjectResponse insertDrawingObject(InsertDrawingObjectRequest request) throws ApiException {
+        try {
+            ApiResponse<DrawingObjectResponse> resp = insertDrawingObjectWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DrawingObjectResponse> resp = insertDrawingObjectWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds drawing object to document, returns added  drawing object&#39;s data.
+     * 
+     * @return ApiResponse&lt;DrawingObjectResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DrawingObjectResponse> insertDrawingObjectWithHttpInfo(InsertDrawingObjectRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds drawing object to document, returns added  drawing object&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertDrawingObjectAsync(InsertDrawingObjectRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertField
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertFieldCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getField();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/fields"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertFieldValidateBeforeCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertField");
+        }
+        
+        // verify the required parameter 'Field' is set
+        if (request.getField() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling insertField");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertField");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertFieldCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds field to document, returns inserted field&#39;s data.
+     * 
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FieldResponse insertField(InsertFieldRequest request) throws ApiException {
+        try {
+            ApiResponse<FieldResponse> resp = insertFieldWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FieldResponse> resp = insertFieldWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds field to document, returns inserted field&#39;s data.
+     * 
+     * @return ApiResponse&lt;FieldResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FieldResponse> insertFieldWithHttpInfo(InsertFieldRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds field to document, returns inserted field&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertFieldAsync(InsertFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertFootnote
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertFootnoteCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getFootnoteDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/footnotes"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertFootnoteValidateBeforeCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertFootnote");
+        }
+        
+        // verify the required parameter 'FootnoteDto' is set
+        if (request.getFootnoteDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling insertFootnote");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertFootnote");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertFootnoteCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds footnote to document, returns added footnote&#39;s data.
+     * 
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FootnoteResponse insertFootnote(InsertFootnoteRequest request) throws ApiException {
+        try {
+            ApiResponse<FootnoteResponse> resp = insertFootnoteWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FootnoteResponse> resp = insertFootnoteWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds footnote to document, returns added footnote&#39;s data.
+     * 
+     * @return ApiResponse&lt;FootnoteResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FootnoteResponse> insertFootnoteWithHttpInfo(InsertFootnoteRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds footnote to document, returns added footnote&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertFootnoteAsync(InsertFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertFormField
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertFormFieldCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getFormField();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/formfields"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertFormFieldValidateBeforeCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertFormField");
+        }
+        
+        // verify the required parameter 'FormField' is set
+        if (request.getFormField() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling insertFormField");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertFormField");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertFormFieldCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds form field to paragraph, returns added form field&#39;s data.
+     * 
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FormFieldResponse insertFormField(InsertFormFieldRequest request) throws ApiException {
+        try {
+            ApiResponse<FormFieldResponse> resp = insertFormFieldWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FormFieldResponse> resp = insertFormFieldWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds form field to paragraph, returns added form field&#39;s data.
+     * 
+     * @return ApiResponse&lt;FormFieldResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FormFieldResponse> insertFormFieldWithHttpInfo(InsertFormFieldRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds form field to paragraph, returns added form field&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertFormFieldAsync(InsertFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertHeaderFooter
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertHeaderFooterCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getHeaderFooterType();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertHeaderFooterValidateBeforeCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertHeaderFooter");
+        }
+        
+        // verify the required parameter 'HeaderFooterType' is set
+        if (request.getHeaderFooterType() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'HeaderFooterType' when calling insertHeaderFooter");
+        }
+        
+        // verify the required parameter 'SectionPath' is set
+        if (request.getSectionPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SectionPath' when calling insertHeaderFooter");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertHeaderFooterCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Inserts to document header or footer.
+     * 
+     * @return HeaderFooterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public HeaderFooterResponse insertHeaderFooter(InsertHeaderFooterRequest request) throws ApiException {
+        try {
+            ApiResponse<HeaderFooterResponse> resp = insertHeaderFooterWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<HeaderFooterResponse> resp = insertHeaderFooterWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Inserts to document header or footer.
+     * 
+     * @return ApiResponse&lt;HeaderFooterResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<HeaderFooterResponse> insertHeaderFooterWithHttpInfo(InsertHeaderFooterRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<HeaderFooterResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Inserts to document header or footer. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertHeaderFooterAsync(InsertHeaderFooterRequest request, final ApiCallback<HeaderFooterResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<HeaderFooterResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertPageNumbers
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertPageNumbersCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getPageNumber();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/insertPageNumbers"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertPageNumbersValidateBeforeCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertPageNumbers");
+        }
+        
+        // verify the required parameter 'PageNumber' is set
+        if (request.getPageNumber() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'PageNumber' when calling insertPageNumbers");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertPageNumbersCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Inserts document page numbers.
+     * 
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentResponse insertPageNumbers(InsertPageNumbersRequest request) throws ApiException {
+        try {
+            ApiResponse<DocumentResponse> resp = insertPageNumbersWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DocumentResponse> resp = insertPageNumbersWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Inserts document page numbers.
+     * 
+     * @return ApiResponse&lt;DocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DocumentResponse> insertPageNumbersWithHttpInfo(InsertPageNumbersRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Inserts document page numbers. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertPageNumbersAsync(InsertPageNumbersRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertParagraph
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertParagraphCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getParagraph();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertParagraphValidateBeforeCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertParagraph");
+        }
+        
+        // verify the required parameter 'Paragraph' is set
+        if (request.getParagraph() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling insertParagraph");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertParagraph");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertParagraphCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph&#39;s data.
+     * 
+     * @return ParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphResponse insertParagraph(InsertParagraphRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphResponse> resp = insertParagraphWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphResponse> resp = insertParagraphWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph&#39;s data.
+     * 
+     * @return ApiResponse&lt;ParagraphResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphResponse> insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertParagraphAsync(InsertParagraphRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertRun
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertRunCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getRun();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{paragraphPath}/runs"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertRunValidateBeforeCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertRun");
+        }
+        
+        // verify the required parameter 'ParagraphPath' is set
+        if (request.getParagraphPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling insertRun");
+        }
+        
+        // verify the required parameter 'Run' is set
+        if (request.getRun() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Run' when calling insertRun");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertRunCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds run to document, returns added paragraph&#39;s data.
+     * 
+     * @return RunResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RunResponse insertRun(InsertRunRequest request) throws ApiException {
+        try {
+            ApiResponse<RunResponse> resp = insertRunWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<RunResponse> resp = insertRunWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds run to document, returns added paragraph&#39;s data.
+     * 
+     * @return ApiResponse&lt;RunResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<RunResponse> insertRunWithHttpInfo(InsertRunRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds run to document, returns added paragraph&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertRunAsync(InsertRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertTable
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertTableCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getTable();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/tables"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -10148,6 +13401,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertTable");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertTable");
         }
         
 
@@ -10275,8 +13533,8 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -10417,8 +13675,8 @@ public class WordsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -10507,1914 +13765,17 @@ public class WordsApi {
         return call;
     }
     /**
-     * Build call for postAppendDocument
+     * Build call for insertWatermarkImage
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call postAppendDocumentCall(PostAppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getDocumentList();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/appendDocument"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postAppendDocumentValidateBeforeCall(PostAppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postAppendDocument");
-        }
-        
-        // verify the required parameter 'DocumentList' is set
-        if (request.getDocumentList() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'DocumentList' when calling postAppendDocument");
-        }
-        
-
-        com.squareup.okhttp.Call call = postAppendDocumentCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Append documents to original document.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse postAppendDocument(PostAppendDocumentRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = postAppendDocumentWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = postAppendDocumentWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Append documents to original document.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> postAppendDocumentWithHttpInfo(PostAppendDocumentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postAppendDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Append documents to original document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postAppendDocumentAsync(PostAppendDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postAppendDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postChangeDocumentProtection
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postChangeDocumentProtectionCall(PostChangeDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getProtectionRequest();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postChangeDocumentProtectionValidateBeforeCall(PostChangeDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postChangeDocumentProtection");
-        }
-        
-        // verify the required parameter 'ProtectionRequest' is set
-        if (request.getProtectionRequest() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ProtectionRequest' when calling postChangeDocumentProtection");
-        }
-        
-
-        com.squareup.okhttp.Call call = postChangeDocumentProtectionCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Change document protection.
-     * 
-     * @return ProtectionDataResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ProtectionDataResponse postChangeDocumentProtection(PostChangeDocumentProtectionRequest request) throws ApiException {
-        try {
-            ApiResponse<ProtectionDataResponse> resp = postChangeDocumentProtectionWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<ProtectionDataResponse> resp = postChangeDocumentProtectionWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Change document protection.
-     * 
-     * @return ApiResponse&lt;ProtectionDataResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<ProtectionDataResponse> postChangeDocumentProtectionWithHttpInfo(PostChangeDocumentProtectionRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postChangeDocumentProtectionValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Change document protection. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postChangeDocumentProtectionAsync(PostChangeDocumentProtectionRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postChangeDocumentProtectionValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postComment
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postCommentCall(PostCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getComment();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "commentIndex" + "\\}", apiClient.escapeString(request.getCommentIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postCommentValidateBeforeCall(PostCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postComment");
-        }
-        
-        // verify the required parameter 'CommentIndex' is set
-        if (request.getCommentIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'CommentIndex' when calling postComment");
-        }
-        
-        // verify the required parameter 'Comment' is set
-        if (request.getComment() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Comment' when calling postComment");
-        }
-        
-
-        com.squareup.okhttp.Call call = postCommentCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Updates the comment, returns updated comment&#39;s data.
-     * 
-     * @return CommentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public CommentResponse postComment(PostCommentRequest request) throws ApiException {
-        try {
-            ApiResponse<CommentResponse> resp = postCommentWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<CommentResponse> resp = postCommentWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Updates the comment, returns updated comment&#39;s data.
-     * 
-     * @return ApiResponse&lt;CommentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<CommentResponse> postCommentWithHttpInfo(PostCommentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postCommentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Updates the comment, returns updated comment&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postCommentAsync(PostCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postCompareDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postCompareDocumentCall(PostCompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getCompareData();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/compareDocument"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postCompareDocumentValidateBeforeCall(PostCompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postCompareDocument");
-        }
-        
-        // verify the required parameter 'CompareData' is set
-        if (request.getCompareData() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'CompareData' when calling postCompareDocument");
-        }
-        
-
-        com.squareup.okhttp.Call call = postCompareDocumentCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Compare document with original document.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse postCompareDocument(PostCompareDocumentRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = postCompareDocumentWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = postCompareDocumentWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Compare document with original document.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> postCompareDocumentWithHttpInfo(PostCompareDocumentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postCompareDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Compare document with original document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postCompareDocumentAsync(PostCompareDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postCompareDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postDocumentExecuteMailMerge
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postDocumentExecuteMailMergeCall(PostDocumentExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertWatermarkImageCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/executeMailMerge"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "mailMergeDataFile", request.getMailMergeDataFile());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getData() != null)
-          localVarFormParams.put("Data", request.getData());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postDocumentExecuteMailMergeValidateBeforeCall(PostDocumentExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postDocumentExecuteMailMerge");
-        }
-        
-
-        com.squareup.okhttp.Call call = postDocumentExecuteMailMergeCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Execute document mail merge operation.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse postDocumentExecuteMailMerge(PostDocumentExecuteMailMergeRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = postDocumentExecuteMailMergeWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = postDocumentExecuteMailMergeWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Execute document mail merge operation.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> postDocumentExecuteMailMergeWithHttpInfo(PostDocumentExecuteMailMergeRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postDocumentExecuteMailMergeValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Execute document mail merge operation. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postDocumentExecuteMailMergeAsync(PostDocumentExecuteMailMergeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postDocumentExecuteMailMergeValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postDocumentParagraphFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postDocumentParagraphFormatCall(PostDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postDocumentParagraphFormatValidateBeforeCall(PostDocumentParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postDocumentParagraphFormat");
-        }
-        
-        // verify the required parameter 'Dto' is set
-        if (request.getDto() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling postDocumentParagraphFormat");
-        }
-        
-        // verify the required parameter 'NodePath' is set
-        if (request.getNodePath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling postDocumentParagraphFormat");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postDocumentParagraphFormat");
-        }
-        
-
-        com.squareup.okhttp.Call call = postDocumentParagraphFormatCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Updates paragrpaph format properties, returns updated format properties.
-     * 
-     * @return ParagraphFormatResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ParagraphFormatResponse postDocumentParagraphFormat(PostDocumentParagraphFormatRequest request) throws ApiException {
-        try {
-            ApiResponse<ParagraphFormatResponse> resp = postDocumentParagraphFormatWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<ParagraphFormatResponse> resp = postDocumentParagraphFormatWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Updates paragrpaph format properties, returns updated format properties.
-     * 
-     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<ParagraphFormatResponse> postDocumentParagraphFormatWithHttpInfo(PostDocumentParagraphFormatRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postDocumentParagraphFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Updates paragrpaph format properties, returns updated format properties. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postDocumentParagraphFormatAsync(PostDocumentParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postDocumentParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postDocumentParagraphRunFont
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postDocumentParagraphRunFontCall(PostDocumentParagraphRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getFontDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postDocumentParagraphRunFontValidateBeforeCall(PostDocumentParagraphRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postDocumentParagraphRunFont");
-        }
-        
-        // verify the required parameter 'FontDto' is set
-        if (request.getFontDto() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'FontDto' when calling postDocumentParagraphRunFont");
-        }
-        
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling postDocumentParagraphRunFont");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postDocumentParagraphRunFont");
-        }
-        
-
-        com.squareup.okhttp.Call call = postDocumentParagraphRunFontCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Updates font properties, returns updated font data.
-     * 
-     * @return FontResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FontResponse postDocumentParagraphRunFont(PostDocumentParagraphRunFontRequest request) throws ApiException {
-        try {
-            ApiResponse<FontResponse> resp = postDocumentParagraphRunFontWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FontResponse> resp = postDocumentParagraphRunFontWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Updates font properties, returns updated font data.
-     * 
-     * @return ApiResponse&lt;FontResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FontResponse> postDocumentParagraphRunFontWithHttpInfo(PostDocumentParagraphRunFontRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postDocumentParagraphRunFontValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Updates font properties, returns updated font data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postDocumentParagraphRunFontAsync(PostDocumentParagraphRunFontRequest request, final ApiCallback<FontResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postDocumentParagraphRunFontValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postDocumentSaveAs
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postDocumentSaveAsCall(PostDocumentSaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getSaveOptionsData();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/saveAs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postDocumentSaveAsValidateBeforeCall(PostDocumentSaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postDocumentSaveAs");
-        }
-        
-        // verify the required parameter 'SaveOptionsData' is set
-        if (request.getSaveOptionsData() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'SaveOptionsData' when calling postDocumentSaveAs");
-        }
-        
-
-        com.squareup.okhttp.Call call = postDocumentSaveAsCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Convert document to destination format with detailed settings and save result to storage.
-     * 
-     * @return SaveResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SaveResponse postDocumentSaveAs(PostDocumentSaveAsRequest request) throws ApiException {
-        try {
-            ApiResponse<SaveResponse> resp = postDocumentSaveAsWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<SaveResponse> resp = postDocumentSaveAsWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Convert document to destination format with detailed settings and save result to storage.
-     * 
-     * @return ApiResponse&lt;SaveResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<SaveResponse> postDocumentSaveAsWithHttpInfo(PostDocumentSaveAsRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postDocumentSaveAsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Convert document to destination format with detailed settings and save result to storage. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postDocumentSaveAsAsync(PostDocumentSaveAsRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postDocumentSaveAsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postDrawingObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postDrawingObjectCall(PostDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getDrawingObject() != null)
-          localVarFormParams.put("DrawingObject", request.getDrawingObject());
-if (request.getImageFile() != null)
-          localVarFormParams.put("ImageFile", request.getImageFile());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postDrawingObjectValidateBeforeCall(PostDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postDrawingObject");
-        }
-        
-        // verify the required parameter 'DrawingObject' is set
-        if (request.getDrawingObject() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'DrawingObject' when calling postDrawingObject");
-        }
-        
-        // verify the required parameter 'ImageFile' is set
-        if (request.getImageFile() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling postDrawingObject");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postDrawingObject");
-        }
-        
-
-        com.squareup.okhttp.Call call = postDrawingObjectCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Updates drawing object, returns updated  drawing object&#39;s data.
-     * 
-     * @return DrawingObjectResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DrawingObjectResponse postDrawingObject(PostDrawingObjectRequest request) throws ApiException {
-        try {
-            ApiResponse<DrawingObjectResponse> resp = postDrawingObjectWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DrawingObjectResponse> resp = postDrawingObjectWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Updates drawing object, returns updated  drawing object&#39;s data.
-     * 
-     * @return ApiResponse&lt;DrawingObjectResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DrawingObjectResponse> postDrawingObjectWithHttpInfo(PostDrawingObjectRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postDrawingObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Updates drawing object, returns updated  drawing object&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postDrawingObjectAsync(PostDrawingObjectRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postExecuteTemplate
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postExecuteTemplateCall(PostExecuteTemplateRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/executeTemplate"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getData() != null)
-          localVarFormParams.put("Data", request.getData());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postExecuteTemplateValidateBeforeCall(PostExecuteTemplateRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postExecuteTemplate");
-        }
-        
-        // verify the required parameter 'Data' is set
-        if (request.getData() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling postExecuteTemplate");
-        }
-        
-
-        com.squareup.okhttp.Call call = postExecuteTemplateCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Populate document template with data.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse postExecuteTemplate(PostExecuteTemplateRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = postExecuteTemplateWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = postExecuteTemplateWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Populate document template with data.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> postExecuteTemplateWithHttpInfo(PostExecuteTemplateRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postExecuteTemplateValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Populate document template with data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postExecuteTemplateAsync(PostExecuteTemplateRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postExecuteTemplateValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postFieldCall(PostFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getField();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postFieldValidateBeforeCall(PostFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postField");
-        }
-        
-        // verify the required parameter 'Field' is set
-        if (request.getField() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling postField");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postField");
-        }
-        
-
-        com.squareup.okhttp.Call call = postFieldCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Updates field&#39;s properties, returns updated field&#39;s data.
-     * 
-     * @return FieldResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FieldResponse postField(PostFieldRequest request) throws ApiException {
-        try {
-            ApiResponse<FieldResponse> resp = postFieldWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FieldResponse> resp = postFieldWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Updates field&#39;s properties, returns updated field&#39;s data.
-     * 
-     * @return ApiResponse&lt;FieldResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FieldResponse> postFieldWithHttpInfo(PostFieldRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Updates field&#39;s properties, returns updated field&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postFieldAsync(PostFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postFootnote
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postFootnoteCall(PostFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getFootnoteDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postFootnoteValidateBeforeCall(PostFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postFootnote");
-        }
-        
-        // verify the required parameter 'FootnoteDto' is set
-        if (request.getFootnoteDto() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling postFootnote");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postFootnote");
-        }
-        
-
-        com.squareup.okhttp.Call call = postFootnoteCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Updates footnote&#39;s properties, returns updated run&#39;s data.
-     * 
-     * @return FootnoteResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FootnoteResponse postFootnote(PostFootnoteRequest request) throws ApiException {
-        try {
-            ApiResponse<FootnoteResponse> resp = postFootnoteWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FootnoteResponse> resp = postFootnoteWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Updates footnote&#39;s properties, returns updated run&#39;s data.
-     * 
-     * @return ApiResponse&lt;FootnoteResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FootnoteResponse> postFootnoteWithHttpInfo(PostFootnoteRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postFootnoteValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Updates footnote&#39;s properties, returns updated run&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postFootnoteAsync(PostFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postFormField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postFormFieldCall(PostFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getFormField();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postFormFieldValidateBeforeCall(PostFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postFormField");
-        }
-        
-        // verify the required parameter 'FormField' is set
-        if (request.getFormField() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling postFormField");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postFormField");
-        }
-        
-
-        com.squareup.okhttp.Call call = postFormFieldCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Updates properties of form field, returns updated form field.
-     * 
-     * @return FormFieldResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FormFieldResponse postFormField(PostFormFieldRequest request) throws ApiException {
-        try {
-            ApiResponse<FormFieldResponse> resp = postFormFieldWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FormFieldResponse> resp = postFormFieldWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Updates properties of form field, returns updated form field.
-     * 
-     * @return ApiResponse&lt;FormFieldResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FormFieldResponse> postFormFieldWithHttpInfo(PostFormFieldRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postFormFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Updates properties of form field, returns updated form field. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postFormFieldAsync(PostFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postInsertDocumentWatermarkImage
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postInsertDocumentWatermarkImageCall(PostInsertDocumentWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/watermark/insertImage"
+        String localVarPath = "/words/{name}/watermarks/images"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -12459,39 +13820,39 @@ if (request.getImageFile() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postInsertDocumentWatermarkImageValidateBeforeCall(PostInsertDocumentWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertWatermarkImageValidateBeforeCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postInsertDocumentWatermarkImage");
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertWatermarkImage");
         }
         
 
-        com.squareup.okhttp.Call call = postInsertDocumentWatermarkImageCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = insertWatermarkImageCall(request, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Insert document watermark image.
+     * Inserts document watermark image.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse postInsertDocumentWatermarkImage(PostInsertDocumentWatermarkImageRequest request) throws ApiException {
+    public DocumentResponse insertWatermarkImage(InsertWatermarkImageRequest request) throws ApiException {
         try {
-            ApiResponse<DocumentResponse> resp = postInsertDocumentWatermarkImageWithHttpInfo(request);
+            ApiResponse<DocumentResponse> resp = insertWatermarkImageWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = postInsertDocumentWatermarkImageWithHttpInfo(request);
+                ApiResponse<DocumentResponse> resp = insertWatermarkImageWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -12499,25 +13860,25 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * Insert document watermark image.
+     * Inserts document watermark image.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> postInsertDocumentWatermarkImageWithHttpInfo(PostInsertDocumentWatermarkImageRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postInsertDocumentWatermarkImageValidateBeforeCall(request, null, null);
+    private ApiResponse<DocumentResponse> insertWatermarkImageWithHttpInfo(InsertWatermarkImageRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Insert document watermark image. (asynchronously)
+     * Inserts document watermark image. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postInsertDocumentWatermarkImageAsync(PostInsertDocumentWatermarkImageRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertWatermarkImageAsync(InsertWatermarkImageRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12538,23 +13899,23 @@ if (request.getImageFile() != null)
             };
         }
 
-        com.squareup.okhttp.Call call = postInsertDocumentWatermarkImageValidateBeforeCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for postInsertDocumentWatermarkText
+     * Build call for insertWatermarkText
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call postInsertDocumentWatermarkTextCall(PostInsertDocumentWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertWatermarkTextCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = request.getWatermarkText();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/watermark/insertText"
+        String localVarPath = "/words/{name}/watermarks/texts"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -12595,44 +13956,44 @@ if (request.getImageFile() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postInsertDocumentWatermarkTextValidateBeforeCall(PostInsertDocumentWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertWatermarkTextValidateBeforeCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postInsertDocumentWatermarkText");
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertWatermarkText");
         }
         
         // verify the required parameter 'WatermarkText' is set
         if (request.getWatermarkText() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'WatermarkText' when calling postInsertDocumentWatermarkText");
+          throw new ApiException(BadRequest, "Missing the required parameter 'WatermarkText' when calling insertWatermarkText");
         }
         
 
-        com.squareup.okhttp.Call call = postInsertDocumentWatermarkTextCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = insertWatermarkTextCall(request, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Insert document watermark text.
+     * Inserts document watermark text.
      * 
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse postInsertDocumentWatermarkText(PostInsertDocumentWatermarkTextRequest request) throws ApiException {
+    public DocumentResponse insertWatermarkText(InsertWatermarkTextRequest request) throws ApiException {
         try {
-            ApiResponse<DocumentResponse> resp = postInsertDocumentWatermarkTextWithHttpInfo(request);
+            ApiResponse<DocumentResponse> resp = insertWatermarkTextWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = postInsertDocumentWatermarkTextWithHttpInfo(request);
+                ApiResponse<DocumentResponse> resp = insertWatermarkTextWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -12640,25 +14001,25 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * Insert document watermark text.
+     * Inserts document watermark text.
      * 
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> postInsertDocumentWatermarkTextWithHttpInfo(PostInsertDocumentWatermarkTextRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postInsertDocumentWatermarkTextValidateBeforeCall(request, null, null);
+    private ApiResponse<DocumentResponse> insertWatermarkTextWithHttpInfo(InsertWatermarkTextRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Insert document watermark text. (asynchronously)
+     * Inserts document watermark text. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postInsertDocumentWatermarkTextAsync(PostInsertDocumentWatermarkTextRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertWatermarkTextAsync(InsertWatermarkTextRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12679,160 +14040,19 @@ if (request.getImageFile() != null)
             };
         }
 
-        com.squareup.okhttp.Call call = postInsertDocumentWatermarkTextValidateBeforeCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for postInsertPageNumbers
+     * Build call for loadWebDocument
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call postInsertPageNumbersCall(PostInsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getPageNumber();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/insertPageNumbers"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postInsertPageNumbersValidateBeforeCall(PostInsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postInsertPageNumbers");
-        }
-        
-        // verify the required parameter 'PageNumber' is set
-        if (request.getPageNumber() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'PageNumber' when calling postInsertPageNumbers");
-        }
-        
-
-        com.squareup.okhttp.Call call = postInsertPageNumbersCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Insert document page numbers.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse postInsertPageNumbers(PostInsertPageNumbersRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = postInsertPageNumbersWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = postInsertPageNumbersWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Insert document page numbers.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> postInsertPageNumbersWithHttpInfo(PostInsertPageNumbersRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postInsertPageNumbersValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Insert document page numbers. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postInsertPageNumbersAsync(PostInsertPageNumbersRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postInsertPageNumbersValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postLoadWebDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postLoadWebDocumentCall(PostLoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call loadWebDocumentCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = request.getData();
 
         // create path and map variables
@@ -12870,20 +14090,20 @@ if (request.getImageFile() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postLoadWebDocumentValidateBeforeCall(PostLoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call loadWebDocumentValidateBeforeCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'Data' is set
         if (request.getData() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling postLoadWebDocument");
+          throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling loadWebDocument");
         }
         
 
-        com.squareup.okhttp.Call call = postLoadWebDocumentCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loadWebDocumentCall(request, progressListener, progressRequestListener);
         return call;
 
     }
@@ -12894,15 +14114,15 @@ if (request.getImageFile() != null)
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SaveResponse postLoadWebDocument(PostLoadWebDocumentRequest request) throws ApiException {
+    public SaveResponse loadWebDocument(LoadWebDocumentRequest request) throws ApiException {
         try {
-            ApiResponse<SaveResponse> resp = postLoadWebDocumentWithHttpInfo(request);
+            ApiResponse<SaveResponse> resp = loadWebDocumentWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<SaveResponse> resp = postLoadWebDocumentWithHttpInfo(request);
+                ApiResponse<SaveResponse> resp = loadWebDocumentWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -12915,8 +14135,8 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SaveResponse> postLoadWebDocumentWithHttpInfo(PostLoadWebDocumentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postLoadWebDocumentValidateBeforeCall(request, null, null);
+    private ApiResponse<SaveResponse> loadWebDocumentWithHttpInfo(LoadWebDocumentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -12928,7 +14148,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postLoadWebDocumentAsync(PostLoadWebDocumentRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loadWebDocumentAsync(LoadWebDocumentRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12949,331 +14169,31 @@ if (request.getImageFile() != null)
             };
         }
 
-        com.squareup.okhttp.Call call = postLoadWebDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for postReplaceText
+     * Build call for moveFile
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call postReplaceTextCall(PostReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getReplaceText();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/replaceText"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postReplaceTextValidateBeforeCall(PostReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postReplaceText");
-        }
-        
-        // verify the required parameter 'ReplaceText' is set
-        if (request.getReplaceText() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ReplaceText' when calling postReplaceText");
-        }
-        
-
-        com.squareup.okhttp.Call call = postReplaceTextCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Replace document text.
-     * 
-     * @return ReplaceTextResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ReplaceTextResponse postReplaceText(PostReplaceTextRequest request) throws ApiException {
-        try {
-            ApiResponse<ReplaceTextResponse> resp = postReplaceTextWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<ReplaceTextResponse> resp = postReplaceTextWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Replace document text.
-     * 
-     * @return ApiResponse&lt;ReplaceTextResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<ReplaceTextResponse> postReplaceTextWithHttpInfo(PostReplaceTextRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postReplaceTextValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<ReplaceTextResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Replace document text. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postReplaceTextAsync(PostReplaceTextRequest request, final ApiCallback<ReplaceTextResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postReplaceTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ReplaceTextResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postRun
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postRunCall(PostRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getRun();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postRunValidateBeforeCall(PostRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postRun");
-        }
-        
-        // verify the required parameter 'Run' is set
-        if (request.getRun() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Run' when calling postRun");
-        }
-        
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling postRun");
-        }
-        
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling postRun");
-        }
-        
-
-        com.squareup.okhttp.Call call = postRunCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Updates run&#39;s properties, returns updated run&#39;s data.
-     * 
-     * @return RunResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public RunResponse postRun(PostRunRequest request) throws ApiException {
-        try {
-            ApiResponse<RunResponse> resp = postRunWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<RunResponse> resp = postRunWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Updates run&#39;s properties, returns updated run&#39;s data.
-     * 
-     * @return ApiResponse&lt;RunResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<RunResponse> postRunWithHttpInfo(PostRunRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postRunValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Updates run&#39;s properties, returns updated run&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postRunAsync(PostRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postSplitDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postSplitDocumentCall(PostSplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call moveFileCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/split"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+        String localVarPath = "/words/storage/file/move/{srcPath}"
+            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "from", request.getFrom());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "to", request.getTo());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "zipOutput", request.getZipOutput());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destPath", request.getDestPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "srcStorageName", request.getSrcStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destStorageName", request.getDestStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", request.getVersionId());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -13303,65 +14223,66 @@ if (request.getImageFile() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postSplitDocumentValidateBeforeCall(PostSplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call moveFileValidateBeforeCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postSplitDocument");
+        // verify the required parameter 'DestPath' is set
+        if (request.getDestPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'DestPath' when calling moveFile");
+        }
+        
+        // verify the required parameter 'SrcPath' is set
+        if (request.getSrcPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SrcPath' when calling moveFile");
         }
         
 
-        com.squareup.okhttp.Call call = postSplitDocumentCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = moveFileCall(request, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Split document.
+     * Move file
      * 
-     * @return SplitDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SplitDocumentResponse postSplitDocument(PostSplitDocumentRequest request) throws ApiException {
+    public void moveFile(MoveFileRequest request) throws ApiException {
         try {
-            ApiResponse<SplitDocumentResponse> resp = postSplitDocumentWithHttpInfo(request);
-            return resp.getData();
+            moveFileWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<SplitDocumentResponse> resp = postSplitDocumentWithHttpInfo(request);
-                return resp.getData();
+                moveFileWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Split document.
+     * Move file
      * 
-     * @return ApiResponse&lt;SplitDocumentResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SplitDocumentResponse> postSplitDocumentWithHttpInfo(PostSplitDocumentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postSplitDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<SplitDocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+    private ApiResponse<Void> moveFileWithHttpInfo(MoveFileRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = moveFileValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
     }
 
     /**
-     * Split document. (asynchronously)
+     * Move file (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call postSplitDocumentAsync(PostSplitDocumentRequest request, final ApiCallback<SplitDocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call moveFileAsync(MoveFileRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13382,179 +14303,29 @@ if (request.getImageFile() != null)
             };
         }
 
-        com.squareup.okhttp.Call call = postSplitDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SplitDocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        com.squareup.okhttp.Call call = moveFileValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for postUpdateDocumentBookmark
+     * Build call for moveFolder
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call postUpdateDocumentBookmarkCall(PostUpdateDocumentBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getBookmarkData();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "bookmarkName" + "\\}", apiClient.escapeString(request.getBookmarkName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postUpdateDocumentBookmarkValidateBeforeCall(PostUpdateDocumentBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postUpdateDocumentBookmark");
-        }
-        
-        // verify the required parameter 'BookmarkData' is set
-        if (request.getBookmarkData() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkData' when calling postUpdateDocumentBookmark");
-        }
-        
-        // verify the required parameter 'BookmarkName' is set
-        if (request.getBookmarkName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkName' when calling postUpdateDocumentBookmark");
-        }
-        
-
-        com.squareup.okhttp.Call call = postUpdateDocumentBookmarkCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Update document bookmark.
-     * 
-     * @return BookmarkResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public BookmarkResponse postUpdateDocumentBookmark(PostUpdateDocumentBookmarkRequest request) throws ApiException {
-        try {
-            ApiResponse<BookmarkResponse> resp = postUpdateDocumentBookmarkWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<BookmarkResponse> resp = postUpdateDocumentBookmarkWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Update document bookmark.
-     * 
-     * @return ApiResponse&lt;BookmarkResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<BookmarkResponse> postUpdateDocumentBookmarkWithHttpInfo(PostUpdateDocumentBookmarkRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postUpdateDocumentBookmarkValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Update document bookmark. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postUpdateDocumentBookmarkAsync(PostUpdateDocumentBookmarkRequest request, final ApiCallback<BookmarkResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postUpdateDocumentBookmarkValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for postUpdateDocumentFields
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call postUpdateDocumentFieldsCall(PostUpdateDocumentFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call moveFolderCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/updateFields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+        String localVarPath = "/words/storage/folder/move/{srcPath}"
+            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destPath", request.getDestPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "srcStorageName", request.getSrcStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destStorageName", request.getDestStorageName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -13584,206 +14355,66 @@ if (request.getImageFile() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call postUpdateDocumentFieldsValidateBeforeCall(PostUpdateDocumentFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling postUpdateDocumentFields");
-        }
-        
-
-        com.squareup.okhttp.Call call = postUpdateDocumentFieldsCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Update (reevaluate) fields in document.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse postUpdateDocumentFields(PostUpdateDocumentFieldsRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = postUpdateDocumentFieldsWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = postUpdateDocumentFieldsWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Update (reevaluate) fields in document.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> postUpdateDocumentFieldsWithHttpInfo(PostUpdateDocumentFieldsRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = postUpdateDocumentFieldsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Update (reevaluate) fields in document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call postUpdateDocumentFieldsAsync(PostUpdateDocumentFieldsRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = postUpdateDocumentFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putComment
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putCommentCall(PutCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getComment();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/comments"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putCommentValidateBeforeCall(PutCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call moveFolderValidateBeforeCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putComment");
+        // verify the required parameter 'DestPath' is set
+        if (request.getDestPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'DestPath' when calling moveFolder");
         }
         
-        // verify the required parameter 'Comment' is set
-        if (request.getComment() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Comment' when calling putComment");
+        // verify the required parameter 'SrcPath' is set
+        if (request.getSrcPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SrcPath' when calling moveFolder");
         }
         
 
-        com.squareup.okhttp.Call call = putCommentCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = moveFolderCall(request, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Adds comment to document, returns inserted comment&#39;s data.
+     * Move folder
      * 
-     * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommentResponse putComment(PutCommentRequest request) throws ApiException {
+    public void moveFolder(MoveFolderRequest request) throws ApiException {
         try {
-            ApiResponse<CommentResponse> resp = putCommentWithHttpInfo(request);
-            return resp.getData();
+            moveFolderWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<CommentResponse> resp = putCommentWithHttpInfo(request);
-                return resp.getData();
+                moveFolderWithHttpInfo(request);
             }
             throw ex;
         }
     }
 
     /**
-     * Adds comment to document, returns inserted comment&#39;s data.
+     * Move folder
      * 
-     * @return ApiResponse&lt;CommentResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<CommentResponse> putCommentWithHttpInfo(PutCommentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putCommentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+    private ApiResponse<Void> moveFolderWithHttpInfo(MoveFolderRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = moveFolderValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
     }
 
     /**
-     * Adds comment to document, returns inserted comment&#39;s data. (asynchronously)
+     * Move folder (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call putCommentAsync(PutCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call moveFolderAsync(MoveFolderRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13804,1719 +14435,18 @@ if (request.getImageFile() != null)
             };
         }
 
-        com.squareup.okhttp.Call call = putCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        com.squareup.okhttp.Call call = moveFolderValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
-     * Build call for putConvertDocument
+     * Build call for protectDocument
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call putConvertDocumentCall(PutConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/convert";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "outPath", request.getOutPath());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "documentFileName", request.getDocumentFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getDocument() != null)
-          localVarFormParams.put("Document", request.getDocument());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putConvertDocumentValidateBeforeCall(PutConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Document' is set
-        if (request.getDocument() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling putConvertDocument");
-        }
-        
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling putConvertDocument");
-        }
-        
-
-        com.squareup.okhttp.Call call = putConvertDocumentCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Convert document from request content to format specified.
-     * 
-     * @return File
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public File putConvertDocument(PutConvertDocumentRequest request) throws ApiException {
-        try {
-            ApiResponse<File> resp = putConvertDocumentWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<File> resp = putConvertDocumentWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Convert document from request content to format specified.
-     * 
-     * @return ApiResponse&lt;File&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<File> putConvertDocumentWithHttpInfo(PutConvertDocumentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putConvertDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<File>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Convert document from request content to format specified. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putConvertDocumentAsync(PutConvertDocumentRequest request, final ApiCallback<File> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putConvertDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<File>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putCreateDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putCreateDocumentCall(PutCreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/create";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fileName", request.getFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putCreateDocumentValidateBeforeCall(PutCreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-
-        com.squareup.okhttp.Call call = putCreateDocumentCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extentions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse putCreateDocument(PutCreateDocumentRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = putCreateDocumentWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = putCreateDocumentWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extentions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> putCreateDocumentWithHttpInfo(PutCreateDocumentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putCreateDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Creates new document. Document is created with format which is recognized from file extensions.  Supported extentions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot; (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putCreateDocumentAsync(PutCreateDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putCreateDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putDocumentFieldNames
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putDocumentFieldNamesCall(PutDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/mailMergeFieldNames";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useNonMergeFields", request.getUseNonMergeFields());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getTemplate() != null)
-          localVarFormParams.put("Template", request.getTemplate());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putDocumentFieldNamesValidateBeforeCall(PutDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Template' is set
-        if (request.getTemplate() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling putDocumentFieldNames");
-        }
-        
-
-        com.squareup.okhttp.Call call = putDocumentFieldNamesCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Read document field names.
-     * 
-     * @return FieldNamesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FieldNamesResponse putDocumentFieldNames(PutDocumentFieldNamesRequest request) throws ApiException {
-        try {
-            ApiResponse<FieldNamesResponse> resp = putDocumentFieldNamesWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FieldNamesResponse> resp = putDocumentFieldNamesWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Read document field names.
-     * 
-     * @return ApiResponse&lt;FieldNamesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FieldNamesResponse> putDocumentFieldNamesWithHttpInfo(PutDocumentFieldNamesRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putDocumentFieldNamesValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FieldNamesResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read document field names. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putDocumentFieldNamesAsync(PutDocumentFieldNamesRequest request, final ApiCallback<FieldNamesResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putDocumentFieldNamesValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FieldNamesResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putDocumentSaveAsTiff
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putDocumentSaveAsTiffCall(PutDocumentSaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getSaveOptions();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/saveAs/tiff"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "resultFile", request.getResultFile());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useAntiAliasing", request.getUseAntiAliasing());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useHighQualityRendering", request.getUseHighQualityRendering());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageBrightness", request.getImageBrightness());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageColorMode", request.getImageColorMode());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageContrast", request.getImageContrast());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "numeralFormat", request.getNumeralFormat());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pageCount", request.getPageCount());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pageIndex", request.getPageIndex());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "paperColor", request.getPaperColor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pixelFormat", request.getPixelFormat());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "resolution", request.getResolution());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "scale", request.getScale());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "tiffCompression", request.getTiffCompression());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "dmlRenderingMode", request.getDmlRenderingMode());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "dmlEffectsRenderingMode", request.getDmlEffectsRenderingMode());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "tiffBinarizationMethod", request.getTiffBinarizationMethod());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "zipOutput", request.getZipOutput());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putDocumentSaveAsTiffValidateBeforeCall(PutDocumentSaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putDocumentSaveAsTiff");
-        }
-        
-        // verify the required parameter 'SaveOptions' is set
-        if (request.getSaveOptions() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'SaveOptions' when calling putDocumentSaveAsTiff");
-        }
-        
-
-        com.squareup.okhttp.Call call = putDocumentSaveAsTiffCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Convert document to tiff with detailed settings and save result to storage.
-     * 
-     * @return SaveResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SaveResponse putDocumentSaveAsTiff(PutDocumentSaveAsTiffRequest request) throws ApiException {
-        try {
-            ApiResponse<SaveResponse> resp = putDocumentSaveAsTiffWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<SaveResponse> resp = putDocumentSaveAsTiffWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Convert document to tiff with detailed settings and save result to storage.
-     * 
-     * @return ApiResponse&lt;SaveResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<SaveResponse> putDocumentSaveAsTiffWithHttpInfo(PutDocumentSaveAsTiffRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putDocumentSaveAsTiffValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Convert document to tiff with detailed settings and save result to storage. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putDocumentSaveAsTiffAsync(PutDocumentSaveAsTiffRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putDocumentSaveAsTiffValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putDrawingObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putDrawingObjectCall(PutDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getDrawingObject() != null)
-          localVarFormParams.put("DrawingObject", request.getDrawingObject());
-if (request.getImageFile() != null)
-          localVarFormParams.put("ImageFile", request.getImageFile());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putDrawingObjectValidateBeforeCall(PutDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putDrawingObject");
-        }
-        
-        // verify the required parameter 'DrawingObject' is set
-        if (request.getDrawingObject() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'DrawingObject' when calling putDrawingObject");
-        }
-        
-        // verify the required parameter 'ImageFile' is set
-        if (request.getImageFile() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling putDrawingObject");
-        }
-        
-
-        com.squareup.okhttp.Call call = putDrawingObjectCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Adds  drawing object to document, returns added  drawing object&#39;s data.
-     * 
-     * @return DrawingObjectResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DrawingObjectResponse putDrawingObject(PutDrawingObjectRequest request) throws ApiException {
-        try {
-            ApiResponse<DrawingObjectResponse> resp = putDrawingObjectWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DrawingObjectResponse> resp = putDrawingObjectWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Adds  drawing object to document, returns added  drawing object&#39;s data.
-     * 
-     * @return ApiResponse&lt;DrawingObjectResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DrawingObjectResponse> putDrawingObjectWithHttpInfo(PutDrawingObjectRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putDrawingObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Adds  drawing object to document, returns added  drawing object&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putDrawingObjectAsync(PutDrawingObjectRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putExecuteMailMergeOnline
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putExecuteMailMergeOnlineCall(PutExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/executeMailMerge";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "documentFileName", request.getDocumentFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getTemplate() != null)
-          localVarFormParams.put("Template", request.getTemplate());
-if (request.getData() != null)
-          localVarFormParams.put("Data", request.getData());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putExecuteMailMergeOnlineValidateBeforeCall(PutExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Template' is set
-        if (request.getTemplate() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling putExecuteMailMergeOnline");
-        }
-        
-        // verify the required parameter 'Data' is set
-        if (request.getData() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling putExecuteMailMergeOnline");
-        }
-        
-
-        com.squareup.okhttp.Call call = putExecuteMailMergeOnlineCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Execute document mail merge online.
-     * 
-     * @return File
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public File putExecuteMailMergeOnline(PutExecuteMailMergeOnlineRequest request) throws ApiException {
-        try {
-            ApiResponse<File> resp = putExecuteMailMergeOnlineWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<File> resp = putExecuteMailMergeOnlineWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Execute document mail merge online.
-     * 
-     * @return ApiResponse&lt;File&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<File> putExecuteMailMergeOnlineWithHttpInfo(PutExecuteMailMergeOnlineRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putExecuteMailMergeOnlineValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<File>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Execute document mail merge online. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putExecuteMailMergeOnlineAsync(PutExecuteMailMergeOnlineRequest request, final ApiCallback<File> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putExecuteMailMergeOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<File>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putExecuteTemplateOnline
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putExecuteTemplateOnlineCall(PutExecuteTemplateOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/executeTemplate";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "documentFileName", request.getDocumentFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getTemplate() != null)
-          localVarFormParams.put("Template", request.getTemplate());
-if (request.getData() != null)
-          localVarFormParams.put("Data", request.getData());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putExecuteTemplateOnlineValidateBeforeCall(PutExecuteTemplateOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Template' is set
-        if (request.getTemplate() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling putExecuteTemplateOnline");
-        }
-        
-        // verify the required parameter 'Data' is set
-        if (request.getData() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling putExecuteTemplateOnline");
-        }
-        
-
-        com.squareup.okhttp.Call call = putExecuteTemplateOnlineCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Populate document template with data online.
-     * 
-     * @return File
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public File putExecuteTemplateOnline(PutExecuteTemplateOnlineRequest request) throws ApiException {
-        try {
-            ApiResponse<File> resp = putExecuteTemplateOnlineWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<File> resp = putExecuteTemplateOnlineWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Populate document template with data online.
-     * 
-     * @return ApiResponse&lt;File&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<File> putExecuteTemplateOnlineWithHttpInfo(PutExecuteTemplateOnlineRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putExecuteTemplateOnlineValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<File>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Populate document template with data online. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putExecuteTemplateOnlineAsync(PutExecuteTemplateOnlineRequest request, final ApiCallback<File> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putExecuteTemplateOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<File>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putFieldCall(PutFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getField();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putFieldValidateBeforeCall(PutFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putField");
-        }
-        
-        // verify the required parameter 'Field' is set
-        if (request.getField() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling putField");
-        }
-        
-
-        com.squareup.okhttp.Call call = putFieldCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Adds field to document, returns inserted field&#39;s data.
-     * 
-     * @return FieldResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FieldResponse putField(PutFieldRequest request) throws ApiException {
-        try {
-            ApiResponse<FieldResponse> resp = putFieldWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FieldResponse> resp = putFieldWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Adds field to document, returns inserted field&#39;s data.
-     * 
-     * @return ApiResponse&lt;FieldResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FieldResponse> putFieldWithHttpInfo(PutFieldRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Adds field to document, returns inserted field&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putFieldAsync(PutFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putFootnote
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putFootnoteCall(PutFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getFootnoteDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putFootnoteValidateBeforeCall(PutFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putFootnote");
-        }
-        
-        // verify the required parameter 'FootnoteDto' is set
-        if (request.getFootnoteDto() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling putFootnote");
-        }
-        
-
-        com.squareup.okhttp.Call call = putFootnoteCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Adds footnote to document, returns added footnote&#39;s data.
-     * 
-     * @return FootnoteResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FootnoteResponse putFootnote(PutFootnoteRequest request) throws ApiException {
-        try {
-            ApiResponse<FootnoteResponse> resp = putFootnoteWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FootnoteResponse> resp = putFootnoteWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Adds footnote to document, returns added footnote&#39;s data.
-     * 
-     * @return ApiResponse&lt;FootnoteResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FootnoteResponse> putFootnoteWithHttpInfo(PutFootnoteRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putFootnoteValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Adds footnote to document, returns added footnote&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putFootnoteAsync(PutFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putFormField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putFormFieldCall(PutFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getFormField();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putFormFieldValidateBeforeCall(PutFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putFormField");
-        }
-        
-        // verify the required parameter 'FormField' is set
-        if (request.getFormField() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling putFormField");
-        }
-        
-
-        com.squareup.okhttp.Call call = putFormFieldCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Adds form field to paragraph, returns added form field&#39;s data.
-     * 
-     * @return FormFieldResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public FormFieldResponse putFormField(PutFormFieldRequest request) throws ApiException {
-        try {
-            ApiResponse<FormFieldResponse> resp = putFormFieldWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<FormFieldResponse> resp = putFormFieldWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Adds form field to paragraph, returns added form field&#39;s data.
-     * 
-     * @return ApiResponse&lt;FormFieldResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<FormFieldResponse> putFormFieldWithHttpInfo(PutFormFieldRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putFormFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Adds form field to paragraph, returns added form field&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putFormFieldAsync(PutFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putHeaderFooter
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putHeaderFooterCall(PutHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getHeaderFooterType();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "sectionPath", request.getSectionPath());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putHeaderFooterValidateBeforeCall(PutHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putHeaderFooter");
-        }
-        
-        // verify the required parameter 'HeaderFooterType' is set
-        if (request.getHeaderFooterType() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'HeaderFooterType' when calling putHeaderFooter");
-        }
-        
-
-        com.squareup.okhttp.Call call = putHeaderFooterCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Insert to document header or footer.
-     * 
-     * @return HeaderFooterResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public HeaderFooterResponse putHeaderFooter(PutHeaderFooterRequest request) throws ApiException {
-        try {
-            ApiResponse<HeaderFooterResponse> resp = putHeaderFooterWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<HeaderFooterResponse> resp = putHeaderFooterWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Insert to document header or footer.
-     * 
-     * @return ApiResponse&lt;HeaderFooterResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<HeaderFooterResponse> putHeaderFooterWithHttpInfo(PutHeaderFooterRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putHeaderFooterValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<HeaderFooterResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Insert to document header or footer. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putHeaderFooterAsync(PutHeaderFooterRequest request, final ApiCallback<HeaderFooterResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putHeaderFooterValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<HeaderFooterResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putParagraph
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putParagraphCall(PutParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getParagraph();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putParagraphValidateBeforeCall(PutParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putParagraph");
-        }
-        
-        // verify the required parameter 'Paragraph' is set
-        if (request.getParagraph() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling putParagraph");
-        }
-        
-
-        com.squareup.okhttp.Call call = putParagraphCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Adds paragraph to document, returns added paragraph&#39;s data.
-     * 
-     * @return ParagraphResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ParagraphResponse putParagraph(PutParagraphRequest request) throws ApiException {
-        try {
-            ApiResponse<ParagraphResponse> resp = putParagraphWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<ParagraphResponse> resp = putParagraphWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Adds paragraph to document, returns added paragraph&#39;s data.
-     * 
-     * @return ApiResponse&lt;ParagraphResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<ParagraphResponse> putParagraphWithHttpInfo(PutParagraphRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putParagraphValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Adds paragraph to document, returns added paragraph&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putParagraphAsync(PutParagraphRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putProtectDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putProtectDocumentCall(PutProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call protectDocumentCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
@@ -15559,44 +14489,44 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putProtectDocumentValidateBeforeCall(PutProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call protectDocumentValidateBeforeCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putProtectDocument");
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling protectDocument");
         }
         
         // verify the required parameter 'ProtectionRequest' is set
         if (request.getProtectionRequest() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ProtectionRequest' when calling putProtectDocument");
+          throw new ApiException(BadRequest, "Missing the required parameter 'ProtectionRequest' when calling protectDocument");
         }
         
 
-        com.squareup.okhttp.Call call = putProtectDocumentCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = protectDocumentCall(request, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Protect document.
+     * Protects document.
      * 
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProtectionDataResponse putProtectDocument(PutProtectDocumentRequest request) throws ApiException {
+    public ProtectionDataResponse protectDocument(ProtectDocumentRequest request) throws ApiException {
         try {
-            ApiResponse<ProtectionDataResponse> resp = putProtectDocumentWithHttpInfo(request);
+            ApiResponse<ProtectionDataResponse> resp = protectDocumentWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<ProtectionDataResponse> resp = putProtectDocumentWithHttpInfo(request);
+                ApiResponse<ProtectionDataResponse> resp = protectDocumentWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -15604,25 +14534,25 @@ if (request.getData() != null)
     }
 
     /**
-     * Protect document.
+     * Protects document.
      * 
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ProtectionDataResponse> putProtectDocumentWithHttpInfo(PutProtectDocumentRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putProtectDocumentValidateBeforeCall(request, null, null);
+    private ApiResponse<ProtectionDataResponse> protectDocumentWithHttpInfo(ProtectDocumentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Protect document. (asynchronously)
+     * Protects document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call putProtectDocumentAsync(PutProtectDocumentRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call protectDocumentAsync(ProtectDocumentRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15643,156 +14573,8 @@ if (request.getData() != null)
             };
         }
 
-        com.squareup.okhttp.Call call = putProtectDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for putRun
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call putRunCall(PutRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getRun();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call putRunValidateBeforeCall(PutRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling putRun");
-        }
-        
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling putRun");
-        }
-        
-        // verify the required parameter 'Run' is set
-        if (request.getRun() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Run' when calling putRun");
-        }
-        
-
-        com.squareup.okhttp.Call call = putRunCall(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Adds run to document, returns added paragraph&#39;s data.
-     * 
-     * @return RunResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public RunResponse putRun(PutRunRequest request) throws ApiException {
-        try {
-            ApiResponse<RunResponse> resp = putRunWithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<RunResponse> resp = putRunWithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Adds run to document, returns added paragraph&#39;s data.
-     * 
-     * @return ApiResponse&lt;RunResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<RunResponse> putRunWithHttpInfo(PutRunRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = putRunValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Adds run to document, returns added paragraph&#39;s data. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call putRunAsync(PutRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = putRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -15846,8 +14628,8 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -15865,7 +14647,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Reject all revisions in document
+     * Rejects all revisions in document
      * 
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15886,7 +14668,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Reject all revisions in document
+     * Rejects all revisions in document
      * 
      * @return ApiResponse&lt;RevisionsModificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15898,7 +14680,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Reject all revisions in document (asynchronously)
+     * Rejects all revisions in document (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15943,7 +14725,8 @@ if (request.getData() != null)
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15952,7 +14735,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -15983,7 +14765,7 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -16003,6 +14785,11 @@ if (request.getData() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderDrawingObject");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling renderDrawingObject");
         }
         
 
@@ -16090,7 +14877,8 @@ if (request.getData() != null)
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16099,7 +14887,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -16130,7 +14917,7 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -16150,6 +14937,11 @@ if (request.getData() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderMathObject");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling renderMathObject");
         }
         
 
@@ -16276,7 +15068,7 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -16383,7 +15175,8 @@ if (request.getData() != null)
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16392,7 +15185,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -16423,7 +15215,7 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -16443,6 +15235,11 @@ if (request.getData() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderParagraph");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling renderParagraph");
         }
         
 
@@ -16530,7 +15327,8 @@ if (request.getData() != null)
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16539,7 +15337,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -16570,7 +15367,7 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -16590,6 +15387,11 @@ if (request.getData() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderTable");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling renderTable");
         }
         
 
@@ -16665,6 +15467,147 @@ if (request.getData() != null)
         return call;
     }
     /**
+     * Build call for replaceText
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call replaceTextCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getReplaceText();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/replaceText"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call replaceTextValidateBeforeCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling replaceText");
+        }
+        
+        // verify the required parameter 'ReplaceText' is set
+        if (request.getReplaceText() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ReplaceText' when calling replaceText");
+        }
+        
+
+        com.squareup.okhttp.Call call = replaceTextCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Replaces document text.
+     * 
+     * @return ReplaceTextResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ReplaceTextResponse replaceText(ReplaceTextRequest request) throws ApiException {
+        try {
+            ApiResponse<ReplaceTextResponse> resp = replaceTextWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ReplaceTextResponse> resp = replaceTextWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Replaces document text.
+     * 
+     * @return ApiResponse&lt;ReplaceTextResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ReplaceTextResponse> replaceTextWithHttpInfo(ReplaceTextRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ReplaceTextResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Replaces document text. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call replaceTextAsync(ReplaceTextRequest request, final ApiCallback<ReplaceTextResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ReplaceTextResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for resetCache
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -16708,7 +15651,7 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -16724,19 +15667,16 @@ if (request.getData() != null)
     /**
      * Resets font&#39;s cache.
      * 
-     * @return AsposeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AsposeResponse resetCache(ResetCacheRequest request) throws ApiException {
+    public void resetCache(ResetCacheRequest request) throws ApiException {
         try {
-            ApiResponse<AsposeResponse> resp = resetCacheWithHttpInfo(request);
-            return resp.getData();
+            resetCacheWithHttpInfo(request);
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<AsposeResponse> resp = resetCacheWithHttpInfo(request);
-                return resp.getData();
+                resetCacheWithHttpInfo(request);
             }
             throw ex;
         }
@@ -16745,13 +15685,12 @@ if (request.getData() != null)
     /**
      * Resets font&#39;s cache.
      * 
-     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AsposeResponse> resetCacheWithHttpInfo(ResetCacheRequest request) throws ApiException {
+    private ApiResponse<Void> resetCacheWithHttpInfo(ResetCacheRequest request) throws ApiException {
         com.squareup.okhttp.Call call = resetCacheValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -16761,7 +15700,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call resetCacheAsync(ResetCacheRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call resetCacheAsync(ResetCacheRequest request, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16783,7 +15722,304 @@ if (request.getData() != null)
         }
 
         com.squareup.okhttp.Call call = resetCacheValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for saveAs
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call saveAsCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getSaveOptionsData();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/saveAs"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call saveAsValidateBeforeCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling saveAs");
+        }
+        
+        // verify the required parameter 'SaveOptionsData' is set
+        if (request.getSaveOptionsData() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SaveOptionsData' when calling saveAs");
+        }
+        
+
+        com.squareup.okhttp.Call call = saveAsCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Converts document to destination format with detailed settings and saves result to storage.
+     * 
+     * @return SaveResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SaveResponse saveAs(SaveAsRequest request) throws ApiException {
+        try {
+            ApiResponse<SaveResponse> resp = saveAsWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<SaveResponse> resp = saveAsWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Converts document to destination format with detailed settings and saves result to storage.
+     * 
+     * @return ApiResponse&lt;SaveResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<SaveResponse> saveAsWithHttpInfo(SaveAsRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Converts document to destination format with detailed settings and saves result to storage. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call saveAsAsync(SaveAsRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for saveAsTiff
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call saveAsTiffCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getSaveOptions();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/saveAs/tiff"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "resultFile", request.getResultFile());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useAntiAliasing", request.getUseAntiAliasing());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useHighQualityRendering", request.getUseHighQualityRendering());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageBrightness", request.getImageBrightness());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageColorMode", request.getImageColorMode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageContrast", request.getImageContrast());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "numeralFormat", request.getNumeralFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pageCount", request.getPageCount());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pageIndex", request.getPageIndex());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "paperColor", request.getPaperColor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pixelFormat", request.getPixelFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "resolution", request.getResolution());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "scale", request.getScale());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "tiffCompression", request.getTiffCompression());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "dmlRenderingMode", request.getDmlRenderingMode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "dmlEffectsRenderingMode", request.getDmlEffectsRenderingMode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "tiffBinarizationMethod", request.getTiffBinarizationMethod());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "zipOutput", request.getZipOutput());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call saveAsTiffValidateBeforeCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling saveAsTiff");
+        }
+        
+        // verify the required parameter 'SaveOptions' is set
+        if (request.getSaveOptions() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SaveOptions' when calling saveAsTiff");
+        }
+        
+
+        com.squareup.okhttp.Call call = saveAsTiffCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Converts document to tiff with detailed settings and saves result to storage.
+     * 
+     * @return SaveResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SaveResponse saveAsTiff(SaveAsTiffRequest request) throws ApiException {
+        try {
+            ApiResponse<SaveResponse> resp = saveAsTiffWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<SaveResponse> resp = saveAsTiffWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Converts document to tiff with detailed settings and saves result to storage.
+     * 
+     * @return ApiResponse&lt;SaveResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<SaveResponse> saveAsTiffWithHttpInfo(SaveAsTiffRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Converts document to tiff with detailed settings and saves result to storage. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call saveAsTiffAsync(SaveAsTiffRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -16837,7 +16073,7 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "JWT" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -16861,7 +16097,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Search text in document.
+     * Searches text in document.
      * 
      * @return SearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16882,7 +16118,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Search text in document.
+     * Searches text in document.
      * 
      * @return ApiResponse&lt;SearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16894,7 +16130,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Search text in document. (asynchronously)
+     * Searches text in document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16923,6 +16159,431 @@ if (request.getData() != null)
 
         com.squareup.okhttp.Call call = searchValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SearchResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for splitDocument
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call splitDocumentCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/split"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "from", request.getFrom());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "to", request.getTo());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "zipOutput", request.getZipOutput());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call splitDocumentValidateBeforeCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling splitDocument");
+        }
+        
+
+        com.squareup.okhttp.Call call = splitDocumentCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Splits document.
+     * 
+     * @return SplitDocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SplitDocumentResponse splitDocument(SplitDocumentRequest request) throws ApiException {
+        try {
+            ApiResponse<SplitDocumentResponse> resp = splitDocumentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<SplitDocumentResponse> resp = splitDocumentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Splits document.
+     * 
+     * @return ApiResponse&lt;SplitDocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<SplitDocumentResponse> splitDocumentWithHttpInfo(SplitDocumentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<SplitDocumentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Splits document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call splitDocumentAsync(SplitDocumentRequest request, final ApiCallback<SplitDocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SplitDocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for unprotectDocument
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call unprotectDocumentCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getProtectionRequest();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/protection"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call unprotectDocumentValidateBeforeCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling unprotectDocument");
+        }
+        
+        // verify the required parameter 'ProtectionRequest' is set
+        if (request.getProtectionRequest() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ProtectionRequest' when calling unprotectDocument");
+        }
+        
+
+        com.squareup.okhttp.Call call = unprotectDocumentCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Unprotects document.
+     * 
+     * @return ProtectionDataResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ProtectionDataResponse unprotectDocument(UnprotectDocumentRequest request) throws ApiException {
+        try {
+            ApiResponse<ProtectionDataResponse> resp = unprotectDocumentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ProtectionDataResponse> resp = unprotectDocumentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Unprotects document.
+     * 
+     * @return ApiResponse&lt;ProtectionDataResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ProtectionDataResponse> unprotectDocumentWithHttpInfo(UnprotectDocumentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Unprotects document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call unprotectDocumentAsync(UnprotectDocumentRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateBookmark
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateBookmarkCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getBookmarkData();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "bookmarkName" + "\\}", apiClient.escapeString(request.getBookmarkName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateBookmarkValidateBeforeCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateBookmark");
+        }
+        
+        // verify the required parameter 'BookmarkData' is set
+        if (request.getBookmarkData() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkData' when calling updateBookmark");
+        }
+        
+        // verify the required parameter 'BookmarkName' is set
+        if (request.getBookmarkName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkName' when calling updateBookmark");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateBookmarkCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates document bookmark.
+     * 
+     * @return BookmarkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BookmarkResponse updateBookmark(UpdateBookmarkRequest request) throws ApiException {
+        try {
+            ApiResponse<BookmarkResponse> resp = updateBookmarkWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<BookmarkResponse> resp = updateBookmarkWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates document bookmark.
+     * 
+     * @return ApiResponse&lt;BookmarkResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<BookmarkResponse> updateBookmarkWithHttpInfo(UpdateBookmarkRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates document bookmark. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateBookmarkAsync(UpdateBookmarkRequest request, final ApiCallback<BookmarkResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -16980,8 +16641,8 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -17080,6 +16741,1367 @@ if (request.getData() != null)
         return call;
     }
     /**
+     * Build call for updateComment
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateCommentCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getComment();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/comments/{commentIndex}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "commentIndex" + "\\}", apiClient.escapeString(request.getCommentIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateCommentValidateBeforeCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateComment");
+        }
+        
+        // verify the required parameter 'CommentIndex' is set
+        if (request.getCommentIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'CommentIndex' when calling updateComment");
+        }
+        
+        // verify the required parameter 'Comment' is set
+        if (request.getComment() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Comment' when calling updateComment");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateCommentCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates the comment, returns updated comment data.
+     * 
+     * @return CommentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public CommentResponse updateComment(UpdateCommentRequest request) throws ApiException {
+        try {
+            ApiResponse<CommentResponse> resp = updateCommentWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<CommentResponse> resp = updateCommentWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates the comment, returns updated comment data.
+     * 
+     * @return ApiResponse&lt;CommentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<CommentResponse> updateCommentWithHttpInfo(UpdateCommentRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates the comment, returns updated comment data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateCommentAsync(UpdateCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateDrawingObject
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateDrawingObjectCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDrawingObject() != null)
+          localVarFormParams.put("DrawingObject", request.getDrawingObject());
+if (request.getImageFile() != null)
+          localVarFormParams.put("ImageFile", request.getImageFile());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateDrawingObjectValidateBeforeCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateDrawingObject");
+        }
+        
+        // verify the required parameter 'DrawingObject' is set
+        if (request.getDrawingObject() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'DrawingObject' when calling updateDrawingObject");
+        }
+        
+        // verify the required parameter 'ImageFile' is set
+        if (request.getImageFile() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling updateDrawingObject");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateDrawingObject");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateDrawingObject");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateDrawingObjectCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates drawing object, returns updated  drawing object&#39;s data.
+     * 
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DrawingObjectResponse updateDrawingObject(UpdateDrawingObjectRequest request) throws ApiException {
+        try {
+            ApiResponse<DrawingObjectResponse> resp = updateDrawingObjectWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DrawingObjectResponse> resp = updateDrawingObjectWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates drawing object, returns updated  drawing object&#39;s data.
+     * 
+     * @return ApiResponse&lt;DrawingObjectResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DrawingObjectResponse> updateDrawingObjectWithHttpInfo(UpdateDrawingObjectRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates drawing object, returns updated  drawing object&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateDrawingObjectAsync(UpdateDrawingObjectRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateField
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateFieldCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getField();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateFieldValidateBeforeCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateField");
+        }
+        
+        // verify the required parameter 'Field' is set
+        if (request.getField() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling updateField");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateField");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateField");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateFieldCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates field&#39;s properties, returns updated field&#39;s data.
+     * 
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FieldResponse updateField(UpdateFieldRequest request) throws ApiException {
+        try {
+            ApiResponse<FieldResponse> resp = updateFieldWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FieldResponse> resp = updateFieldWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates field&#39;s properties, returns updated field&#39;s data.
+     * 
+     * @return ApiResponse&lt;FieldResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FieldResponse> updateFieldWithHttpInfo(UpdateFieldRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates field&#39;s properties, returns updated field&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateFieldAsync(UpdateFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateFields
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateFieldsCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/updateFields"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateFieldsValidateBeforeCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateFields");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateFieldsCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates (reevaluate) fields in document.
+     * 
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocumentResponse updateFields(UpdateFieldsRequest request) throws ApiException {
+        try {
+            ApiResponse<DocumentResponse> resp = updateFieldsWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<DocumentResponse> resp = updateFieldsWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates (reevaluate) fields in document.
+     * 
+     * @return ApiResponse&lt;DocumentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<DocumentResponse> updateFieldsWithHttpInfo(UpdateFieldsRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates (reevaluate) fields in document. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateFieldsAsync(UpdateFieldsRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateFootnote
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateFootnoteCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getFootnoteDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateFootnoteValidateBeforeCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateFootnote");
+        }
+        
+        // verify the required parameter 'FootnoteDto' is set
+        if (request.getFootnoteDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling updateFootnote");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateFootnote");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateFootnote");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateFootnoteCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates footnote&#39;s properties, returns updated run&#39;s data.
+     * 
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FootnoteResponse updateFootnote(UpdateFootnoteRequest request) throws ApiException {
+        try {
+            ApiResponse<FootnoteResponse> resp = updateFootnoteWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FootnoteResponse> resp = updateFootnoteWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates footnote&#39;s properties, returns updated run&#39;s data.
+     * 
+     * @return ApiResponse&lt;FootnoteResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FootnoteResponse> updateFootnoteWithHttpInfo(UpdateFootnoteRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates footnote&#39;s properties, returns updated run&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateFootnoteAsync(UpdateFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateFormField
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateFormFieldCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getFormField();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateFormFieldValidateBeforeCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateFormField");
+        }
+        
+        // verify the required parameter 'FormField' is set
+        if (request.getFormField() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling updateFormField");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateFormField");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateFormField");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateFormFieldCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates properties of form field, returns updated form field.
+     * 
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FormFieldResponse updateFormField(UpdateFormFieldRequest request) throws ApiException {
+        try {
+            ApiResponse<FormFieldResponse> resp = updateFormFieldWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FormFieldResponse> resp = updateFormFieldWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates properties of form field, returns updated form field.
+     * 
+     * @return ApiResponse&lt;FormFieldResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FormFieldResponse> updateFormFieldWithHttpInfo(UpdateFormFieldRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates properties of form field, returns updated form field. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateFormFieldAsync(UpdateFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateParagraphFormat
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateParagraphFormatCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateParagraphFormatValidateBeforeCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateParagraphFormat");
+        }
+        
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphFormat");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateParagraphFormat");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateParagraphFormat");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateParagraphFormatCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates paragraph format properties, returns updated format properties.
+     * 
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphFormatResponse updateParagraphFormat(UpdateParagraphFormatRequest request) throws ApiException {
+        try {
+            ApiResponse<ParagraphFormatResponse> resp = updateParagraphFormatWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphFormatResponse> resp = updateParagraphFormatWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates paragraph format properties, returns updated format properties.
+     * 
+     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphFormatResponse> updateParagraphFormatWithHttpInfo(UpdateParagraphFormatRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates paragraph format properties, returns updated format properties. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateParagraphFormatAsync(UpdateParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateRun
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateRunCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getRun();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateRunValidateBeforeCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateRun");
+        }
+        
+        // verify the required parameter 'Run' is set
+        if (request.getRun() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Run' when calling updateRun");
+        }
+        
+        // verify the required parameter 'ParagraphPath' is set
+        if (request.getParagraphPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling updateRun");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateRun");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateRunCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates run&#39;s properties, returns updated run&#39;s data.
+     * 
+     * @return RunResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RunResponse updateRun(UpdateRunRequest request) throws ApiException {
+        try {
+            ApiResponse<RunResponse> resp = updateRunWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<RunResponse> resp = updateRunWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates run&#39;s properties, returns updated run&#39;s data.
+     * 
+     * @return ApiResponse&lt;RunResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<RunResponse> updateRunWithHttpInfo(UpdateRunRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates run&#39;s properties, returns updated run&#39;s data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateRunAsync(UpdateRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateRunFont
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateRunFontCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.getFontDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateRunFontValidateBeforeCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateRunFont");
+        }
+        
+        // verify the required parameter 'FontDto' is set
+        if (request.getFontDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'FontDto' when calling updateRunFont");
+        }
+        
+        // verify the required parameter 'ParagraphPath' is set
+        if (request.getParagraphPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling updateRunFont");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateRunFont");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateRunFontCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates font properties, returns updated font data.
+     * 
+     * @return FontResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FontResponse updateRunFont(UpdateRunFontRequest request) throws ApiException {
+        try {
+            ApiResponse<FontResponse> resp = updateRunFontWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FontResponse> resp = updateRunFontWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates font properties, returns updated font data.
+     * 
+     * @return ApiResponse&lt;FontResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FontResponse> updateRunFontWithHttpInfo(UpdateRunFontRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates font properties, returns updated font data. (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateRunFontAsync(UpdateRunFontRequest request, final ApiCallback<FontResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for updateSectionPageSetup
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -17132,8 +18154,8 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -17161,7 +18183,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Update page setup of section.
+     * Updates page setup of section.
      * 
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17182,7 +18204,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Update page setup of section.
+     * Updates page setup of section.
      * 
      * @return ApiResponse&lt;SectionPageSetupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17194,7 +18216,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Update page setup of section. (asynchronously)
+     * Updates page setup of section. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -17280,8 +18302,8 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -17387,7 +18409,8 @@ if (request.getData() != null)
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()))
+            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17398,7 +18421,6 @@ if (request.getData() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "nodePath", request.getNodePath());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -17428,8 +18450,8 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -17443,6 +18465,11 @@ if (request.getData() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableProperties");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateTableProperties");
         }
         
 
@@ -17571,8 +18598,8 @@ if (request.getData() != null)
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
@@ -17662,6 +18689,143 @@ if (request.getData() != null)
 
         com.squareup.okhttp.Call call = updateTableRowFormatValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TableRowFormatResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for uploadFile
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call uploadFileCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/storage/file/{path}"
+            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getFile() != null)
+          localVarFormParams.put("File", request.getFile());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call uploadFileValidateBeforeCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'File' is set
+        if (request.getFile() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'File' when calling uploadFile");
+        }
+        
+        // verify the required parameter 'Path' is set
+        if (request.getPath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling uploadFile");
+        }
+        
+
+        com.squareup.okhttp.Call call = uploadFileCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Upload file
+     * 
+     * @return FilesUploadResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public FilesUploadResult uploadFile(UploadFileRequest request) throws ApiException {
+        try {
+            ApiResponse<FilesUploadResult> resp = uploadFileWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<FilesUploadResult> resp = uploadFileWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Upload file
+     * 
+     * @return ApiResponse&lt;FilesUploadResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<FilesUploadResult> uploadFileWithHttpInfo(UploadFileRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<FilesUploadResult>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Upload file (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call uploadFileAsync(UploadFileRequest request, final ApiCallback<FilesUploadResult> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<FilesUploadResult>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -17837,3 +19001,4 @@ if (request.getData() != null)
         return path;
     }
 }
+/*

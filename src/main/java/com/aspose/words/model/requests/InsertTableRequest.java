@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -38,12 +38,17 @@ public class InsertTableRequest {
     private String Name;
 
     /*
+     * Path to the node, which contains tables.
+     */
+    private String NodePath;
+
+    /*
      * Original document folder.
      */
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -76,28 +81,24 @@ public class InsertTableRequest {
      * Table parameters/
      */
     private TableInsert Table;
-
-    /*
-     * Path to node, which contains tables.
-     */
-    private String NodePath;
     
     /*
      * Initializes a new instance of the insertTableRequest class.
      *  
      * @param String name The document name.
+     * @param String nodePath Path to the node, which contains tables.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      * @param TableInsert table Table parameters/
-     * @param String nodePath Path to node, which contains tables.
      */
-    public InsertTableRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableInsert table,  String nodePath) {
+    public InsertTableRequest(String name,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableInsert table) {
         Name = name;
+        NodePath = nodePath;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -106,7 +107,6 @@ public class InsertTableRequest {
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
         Table = table;
-        NodePath = nodePath;
     }
 
     /*
@@ -124,6 +124,20 @@ public class InsertTableRequest {
     }
 
     /*
+     *  Gets Path to the node, which contains tables.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to the node, which contains tables.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
+    }
+
+    /*
      *  Gets Original document folder.
      */
     public String getFolder() {
@@ -138,14 +152,14 @@ public class InsertTableRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -234,18 +248,5 @@ public class InsertTableRequest {
     public void setTable(TableInsert value) {
         Table = value;
     }
-
-    /*
-     *  Gets Path to node, which contains tables.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to node, which contains tables.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
 }
+/*

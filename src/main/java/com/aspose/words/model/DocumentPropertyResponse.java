@@ -29,8 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.AsposeResponse;
 import com.aspose.words.cloud.model.DocumentProperty;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,7 +45,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET documentProperties/{propertyName}.")
 
-public class DocumentPropertyResponse extends AsposeResponse {
+public class DocumentPropertyResponse extends WordsResponse {
   @SerializedName("DocumentProperty")
   private DocumentProperty documentProperty = null;
 

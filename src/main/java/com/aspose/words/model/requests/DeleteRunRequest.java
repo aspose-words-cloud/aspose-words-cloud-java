@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteRunRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class DeleteRunRequest {
     /*
-     * The file name.
+     * The document name.
      */
     private String Name;
 
@@ -43,7 +43,7 @@ public class DeleteRunRequest {
     private String ParagraphPath;
 
     /*
-     * Object's index
+     * Object index.
      */
     private Integer Index;
 
@@ -53,7 +53,7 @@ public class DeleteRunRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -85,11 +85,11 @@ public class DeleteRunRequest {
     /*
      * Initializes a new instance of the deleteRunRequest class.
      *  
-     * @param String name The file name.
+     * @param String name The document name.
      * @param String paragraphPath Path to parent paragraph.
-     * @param Integer index Object's index
+     * @param Integer index Object index.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -110,14 +110,14 @@ public class DeleteRunRequest {
     }
 
     /*
-     *  Gets The file name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The file name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -138,14 +138,14 @@ public class DeleteRunRequest {
     }
 
     /*
-     *  Gets Object's index
+     *  Gets Object index.
      */
     public Integer getIndex() {
         return Index;
     }
 
     /*
-     * Sets Object's index
+     * Sets Object index.
      */
     public void setIndex(Integer value) {
         Index = value;
@@ -166,14 +166,14 @@ public class DeleteRunRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -249,3 +249,4 @@ public class DeleteRunRequest {
         RevisionDateTime = value;
     }
 }
+/*

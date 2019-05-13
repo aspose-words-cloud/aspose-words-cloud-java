@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteCommentRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -33,12 +33,12 @@ import java.io.File;
  */
 public class DeleteCommentRequest {
     /*
-     * The file name.
+     * The document name.
      */
     private String Name;
 
     /*
-     * Comment index
+     * The comment index
      */
     private Integer CommentIndex;
 
@@ -48,7 +48,7 @@ public class DeleteCommentRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -80,10 +80,10 @@ public class DeleteCommentRequest {
     /*
      * Initializes a new instance of the deleteCommentRequest class.
      *  
-     * @param String name The file name.
-     * @param Integer commentIndex Comment index
+     * @param String name The document name.
+     * @param Integer commentIndex The comment index
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -103,28 +103,28 @@ public class DeleteCommentRequest {
     }
 
     /*
-     *  Gets The file name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The file name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
     }
 
     /*
-     *  Gets Comment index
+     *  Gets The comment index
      */
     public Integer getCommentIndex() {
         return CommentIndex;
     }
 
     /*
-     * Sets Comment index
+     * Sets The comment index
      */
     public void setCommentIndex(Integer value) {
         CommentIndex = value;
@@ -145,14 +145,14 @@ public class DeleteCommentRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -228,3 +228,4 @@ public class DeleteCommentRequest {
         RevisionDateTime = value;
     }
 }
+/*

@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentStatisticsRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -43,7 +43,7 @@ public class GetDocumentStatisticsRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -77,7 +77,7 @@ public class GetDocumentStatisticsRequest {
      *  
      * @param String name The document name.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param Boolean includeComments Support including/excluding comments from the WordCount. Default value is \"true\".
@@ -124,14 +124,14 @@ public class GetDocumentStatisticsRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -207,3 +207,4 @@ public class GetDocumentStatisticsRequest {
         IncludeTextInShapes = value;
     }
 }
+/*

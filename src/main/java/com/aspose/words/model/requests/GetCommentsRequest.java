@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetCommentsRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetCommentsRequest {
     /*
-     * The file name.
+     * The document name.
      */
     private String Name;
 
@@ -43,7 +43,7 @@ public class GetCommentsRequest {
     private String Folder;
 
     /*
-     * File storage, which have to be used.
+     * Original document storage.
      */
     private String Storage;
 
@@ -60,9 +60,9 @@ public class GetCommentsRequest {
     /*
      * Initializes a new instance of the getCommentsRequest class.
      *  
-     * @param String name The file name.
+     * @param String name The document name.
      * @param String folder Original document folder.
-     * @param String storage File storage, which have to be used.
+     * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
@@ -75,14 +75,14 @@ public class GetCommentsRequest {
     }
 
     /*
-     *  Gets The file name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The file name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
@@ -103,14 +103,14 @@ public class GetCommentsRequest {
     }
 
     /*
-     *  Gets File storage, which have to be used.
+     *  Gets Original document storage.
      */
     public String getStorage() {
         return Storage;
     }
 
     /*
-     * Sets File storage, which have to be used.
+     * Sets Original document storage.
      */
     public void setStorage(String value) {
         Storage = value;
@@ -144,3 +144,4 @@ public class GetCommentsRequest {
         Password = value;
     }
 }
+/*
