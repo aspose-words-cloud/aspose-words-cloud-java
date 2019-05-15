@@ -63,7 +63,7 @@ public class CompareDocumentRequest {
     private String Password;
 
     /*
-     * Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String DestFileName;
     
@@ -76,7 +76,7 @@ public class CompareDocumentRequest {
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public CompareDocumentRequest(String name,  CompareData compareData,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
         Name = name;
@@ -173,14 +173,14 @@ public class CompareDocumentRequest {
     }
 
     /*
-     *  Gets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public String getDestFileName() {
         return DestFileName;
     }
 
     /*
-     * Sets Result name of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public void setDestFileName(String value) {
         DestFileName = value;
