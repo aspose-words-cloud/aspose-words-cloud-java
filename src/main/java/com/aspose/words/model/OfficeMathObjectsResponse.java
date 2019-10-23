@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.OfficeMathObjectsCollection;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.OfficeMathObjectsCollection;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/OfficeMathObjects 
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/OfficeMathObjects.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/OfficeMathObjects ")
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/OfficeMathObjects.")
 
 public class OfficeMathObjectsResponse extends WordsResponse {
   @SerializedName("OfficeMathObjects")
@@ -55,10 +55,10 @@ public class OfficeMathObjectsResponse extends WordsResponse {
   }
 
    /**
-   * Collection of OfficeMath objects.
+   * Gets or sets collection of OfficeMath objects.
    * @return officeMathObjects
   **/
-  @ApiModelProperty(value = "Collection of OfficeMath objects.")
+  @ApiModelProperty(value = "Gets or sets collection of OfficeMath objects.")
   public OfficeMathObjectsCollection getOfficeMathObjects() {
     return officeMathObjects;
   }

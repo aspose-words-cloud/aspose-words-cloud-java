@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DocumentProperties;
-import com.aspose.words.cloud.model.Link;
+import com.aspose.words.model.DocumentProperties;
+import com.aspose.words.model.Link;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,7 +55,7 @@ public class Document {
   private String fileName = null;
 
   /**
-   * Gets the original format of the document.
+   * Gets or sets the original format of the document.
    */
   @JsonAdapter(SourceFormatEnum.Adapter.class)
   public enum SourceFormatEnum {
@@ -165,10 +165,10 @@ public class Document {
   }
 
    /**
-   * A list of links that originate from this document.
+   * Gets or sets a list of links that originate from this document.
    * @return links
   **/
-  @ApiModelProperty(value = "A list of links that originate from this document.")
+  @ApiModelProperty(value = "Gets or sets a list of links that originate from this document.")
   public List<Link> getLinks() {
     return links;
   }
@@ -183,10 +183,10 @@ public class Document {
   }
 
    /**
-   * Gets the name of the file.
+   * Gets or sets the name of the file.
    * @return fileName
   **/
-  @ApiModelProperty(value = "Gets the name of the file.")
+  @ApiModelProperty(value = "Gets or sets the name of the file.")
   public String getFileName() {
     return fileName;
   }
@@ -201,10 +201,10 @@ public class Document {
   }
 
    /**
-   * Gets the original format of the document.
+   * Gets or sets the original format of the document.
    * @return sourceFormat
   **/
-  @ApiModelProperty(required = true, value = "Gets the original format of the document.")
+  @ApiModelProperty(required = true, value = "Gets or sets the original format of the document.")
   public SourceFormatEnum getSourceFormat() {
     return sourceFormat;
   }
@@ -219,10 +219,10 @@ public class Document {
   }
 
    /**
-   * Returns true if the document is encrypted and requires a password to open. 
+   * Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
    * @return isEncrypted
   **/
-  @ApiModelProperty(required = true, value = "Returns true if the document is encrypted and requires a password to open. ")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.")
   public Boolean isisIsEncrypted() {
     return isEncrypted;
   }
@@ -237,10 +237,10 @@ public class Document {
   }
 
    /**
-   * Returns true if the document contains a digital signature. This property merely informs that a  digital signature is present on a document, but it does not specify whether the signature is valid or not. 
+   * Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
    * @return isSigned
   **/
-  @ApiModelProperty(required = true, value = "Returns true if the document contains a digital signature. This property merely informs that a  digital signature is present on a document, but it does not specify whether the signature is valid or not. ")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.")
   public Boolean isisIsSigned() {
     return isSigned;
   }
@@ -255,10 +255,10 @@ public class Document {
   }
 
    /**
-   * Returns document properties.
+   * Gets or sets returns document properties.
    * @return documentProperties
   **/
-  @ApiModelProperty(value = "Returns document properties.")
+  @ApiModelProperty(value = "Gets or sets returns document properties.")
   public DocumentProperties getDocumentProperties() {
     return documentProperties;
   }

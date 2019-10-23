@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Container class for Downsample options
+ * Container class for Downsample options.
  */
-@ApiModel(description = "Container class for Downsample options")
+@ApiModel(description = "Container class for Downsample options.")
 
 public class DownsampleOptionsData {
   @SerializedName("DownsampleImages")
@@ -59,10 +59,10 @@ public class DownsampleOptionsData {
   }
 
    /**
-   * Specifies whether images should be downsampled.
+   * Gets or sets specifies whether images should be downsampled.
    * @return downsampleImages
   **/
-  @ApiModelProperty(value = "Specifies whether images should be downsampled.")
+  @ApiModelProperty(value = "Gets or sets specifies whether images should be downsampled.")
   public Boolean isisDownsampleImages() {
     return downsampleImages;
   }
@@ -77,10 +77,10 @@ public class DownsampleOptionsData {
   }
 
    /**
-   * Specifies the resolution in pixels per inch which the images should be downsampled to.
+   * Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.
    * @return resolution
   **/
-  @ApiModelProperty(value = "Specifies the resolution in pixels per inch which the images should be downsampled to.")
+  @ApiModelProperty(value = "Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.")
   public Integer getResolution() {
     return resolution;
   }
@@ -95,10 +95,10 @@ public class DownsampleOptionsData {
   }
 
    /**
-   * Specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value,  the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
+   * Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
    * @return resolutionThreshold
   **/
-  @ApiModelProperty(value = "Specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value,  the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.")
+  @ApiModelProperty(value = "Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.")
   public Integer getResolutionThreshold() {
     return resolutionThreshold;
   }

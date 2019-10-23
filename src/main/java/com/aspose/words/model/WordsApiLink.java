@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Link;
+import com.aspose.words.model.Link;
 import io.swagger.annotations.ApiModel;
 
 /**

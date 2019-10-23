@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FileLink;
+import com.aspose.words.model.FileLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -62,10 +62,10 @@ public class SaveResult {
   }
 
    /**
-   * Link to source document.
+   * Gets or sets link to source document.
    * @return sourceDocument
   **/
-  @ApiModelProperty(value = "Link to source document.")
+  @ApiModelProperty(value = "Gets or sets link to source document.")
   public FileLink getSourceDocument() {
     return sourceDocument;
   }
@@ -80,10 +80,10 @@ public class SaveResult {
   }
 
    /**
-   * Link to destination document.
+   * Gets or sets link to destination document.
    * @return destDocument
   **/
-  @ApiModelProperty(value = "Link to destination document.")
+  @ApiModelProperty(value = "Gets or sets link to destination document.")
   public FileLink getDestDocument() {
     return destDocument;
   }
@@ -106,10 +106,10 @@ public class SaveResult {
   }
 
    /**
-   * Links to additional items (css, images etc).
+   * Gets or sets links to additional items (css, images etc).
    * @return additionalItems
   **/
-  @ApiModelProperty(value = "Links to additional items (css, images etc).")
+  @ApiModelProperty(value = "Gets or sets links to additional items (css, images etc).")
   public List<FileLink> getAdditionalItems() {
     return additionalItems;
   }

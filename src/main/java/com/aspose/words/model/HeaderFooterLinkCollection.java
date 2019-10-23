@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.HeaderFooterLink;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.HeaderFooterLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,9 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of links to header/footers
+ * Collection of links to header/footers.
  */
-@ApiModel(description = "Collection of links to header/footers")
+@ApiModel(description = "Collection of links to header/footers.")
 
 public class HeaderFooterLinkCollection extends LinkElement {
   @SerializedName("List")
@@ -66,10 +66,10 @@ public class HeaderFooterLinkCollection extends LinkElement {
   }
 
    /**
-   * Collection of section&#39;s links
+   * Gets or sets collection of section&#39;s links.
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of section's links")
+  @ApiModelProperty(value = "Gets or sets collection of section's links.")
   public List<HeaderFooterLink> getList() {
     return list;
   }

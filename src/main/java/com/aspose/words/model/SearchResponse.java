@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SearchResultsCollection;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.SearchResultsCollection;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/search 
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/search.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/search ")
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/search.")
 
 public class SearchResponse extends WordsResponse {
   @SerializedName("SearchingPattern")
@@ -58,10 +58,10 @@ public class SearchResponse extends WordsResponse {
   }
 
    /**
-   * A regular expression pattern used to find matches.
+   * Gets or sets a regular expression pattern used to find matches.
    * @return searchingPattern
   **/
-  @ApiModelProperty(value = "A regular expression pattern used to find matches.")
+  @ApiModelProperty(value = "Gets or sets a regular expression pattern used to find matches.")
   public String getSearchingPattern() {
     return searchingPattern;
   }
@@ -76,10 +76,10 @@ public class SearchResponse extends WordsResponse {
   }
 
    /**
-   * Collection of search results.
+   * Gets or sets collection of search results.
    * @return searchResults
   **/
-  @ApiModelProperty(value = "Collection of search results.")
+  @ApiModelProperty(value = "Gets or sets collection of search results.")
   public SearchResultsCollection getSearchResults() {
     return searchResults;
   }

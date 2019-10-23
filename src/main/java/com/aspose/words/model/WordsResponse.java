@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -54,10 +54,10 @@ public class WordsResponse {
   }
 
    /**
-   * Request Id.
+   * Gets or sets request Id.
    * @return requestId
   **/
-  @ApiModelProperty(value = "Request Id.")
+  @ApiModelProperty(value = "Gets or sets request Id.")
   public String getRequestId() {
     return requestId;
   }

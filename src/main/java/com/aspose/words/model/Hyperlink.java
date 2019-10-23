@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -58,10 +58,10 @@ public class Hyperlink extends LinkElement {
   }
 
    /**
-   * Hypelink&#39;s display text
+   * Gets or sets hypelink&#39;s display text.
    * @return displayText
   **/
-  @ApiModelProperty(value = "Hypelink's display text")
+  @ApiModelProperty(value = "Gets or sets hypelink's display text.")
   public String getDisplayText() {
     return displayText;
   }
@@ -76,10 +76,10 @@ public class Hyperlink extends LinkElement {
   }
 
    /**
-   * Value
+   * Gets or sets value.
    * @return value
   **/
-  @ApiModelProperty(value = "Value")
+  @ApiModelProperty(value = "Gets or sets value.")
   public String getValue() {
     return value;
   }

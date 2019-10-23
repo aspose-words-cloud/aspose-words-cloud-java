@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveResult;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.SaveResult;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,10 +55,10 @@ public class SaveResponse extends WordsResponse {
   }
 
    /**
-   * Save result.
+   * Gets or sets save result.
    * @return saveResult
   **/
-  @ApiModelProperty(value = "Save result.")
+  @ApiModelProperty(value = "Gets or sets save result.")
   public SaveResult getSaveResult() {
     return saveResult;
   }

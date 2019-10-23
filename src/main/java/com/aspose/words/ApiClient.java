@@ -24,7 +24,7 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud;
+package com.aspose.words;
 
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
@@ -49,10 +49,10 @@ import java.util.regex.Pattern;
 
 public class ApiClient {
 
-    private String apiVersion = "v1";
+    private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "18.9";
+    private String clientVersion = "19.8";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -131,17 +131,6 @@ public class ApiClient {
     public String getApiVersion() {
         return apiVersion;
     }
-
-    /**
-     * Set ApiVersion
-     *
-     * @param apiVersion Api Version
-     */
-    public ApiClient setApiVersion(String apiVersion) {
-        this.apiVersion = apiVersion;
-        return this;
-    }
-    
     
     /**
      * Get base path
@@ -171,7 +160,7 @@ public class ApiClient {
      */
     public ApiClient setBasePath(String basePath) {
         this.basePath = basePath;
-        this.baseUrl = basePath.replace("/v1.1", "").replace("/v1", "").replace("/v2", "").replace("/v3", "");
+        this.baseUrl = basePath.replace("/v4.0", "");
         return this;
     }
 
@@ -663,6 +652,9 @@ public class ApiClient {
             }
             return RequestBody.create(MediaType.parse(contentType), content);
         }
+        else if (contentType.equals("plain/text")) {
+            return RequestBody.create(MediaType.parse(contentType), obj.toString());
+        }
         else {
             throw new ApiException("Content type \"" + contentType + "\" is not supported");
         }
@@ -1071,7 +1063,8 @@ public class ApiClient {
                     .addEncoded("client_secret", getAppKey())
                     .build();
 
-            String url = baseUrl + "/oauth2/token";
+            String url = "https://api-qa.aspose.cloud/connect/token";
+            // String url = baseUrl + "/connect/token";
             Request request = new Request.Builder()
                     .url(url)
                     .post(requestBody)

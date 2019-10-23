@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.NodeLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.NodeLink;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,10 +65,10 @@ public class TableCell extends NodeLink {
   }
 
    /**
-   * Child nodes.
+   * Gets or sets child nodes.
    * @return childNodes
   **/
-  @ApiModelProperty(value = "Child nodes.")
+  @ApiModelProperty(value = "Gets or sets child nodes.")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }

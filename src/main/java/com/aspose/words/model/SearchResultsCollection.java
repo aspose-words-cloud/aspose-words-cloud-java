@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.SearchResult;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.SearchResult;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,10 +66,10 @@ public class SearchResultsCollection extends LinkElement {
   }
 
    /**
-   * Collection of comments
+   * Gets or sets collection of comments.
    * @return resultsList
   **/
-  @ApiModelProperty(value = "Collection of comments")
+  @ApiModelProperty(value = "Gets or sets collection of comments.")
   public List<SearchResult> getResultsList() {
     return resultsList;
   }

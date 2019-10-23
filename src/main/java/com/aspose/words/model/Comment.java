@@ -25,14 +25,14 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.CommentLink;
-import com.aspose.words.cloud.model.DocumentPosition;
-import com.aspose.words.cloud.model.StoryChildNodes;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.CommentLink;
+import com.aspose.words.model.DocumentPosition;
+import com.aspose.words.model.StoryChildNodes;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -76,10 +76,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Returns or sets the author name for a comment.
+   * Gets or sets returns or sets the author name for a comment.
    * @return author
   **/
-  @ApiModelProperty(value = "Returns or sets the author name for a comment.")
+  @ApiModelProperty(value = "Gets or sets returns or sets the author name for a comment.")
   public String getAuthor() {
     return author;
   }
@@ -94,10 +94,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Content of comment
+   * Gets or sets content of comment.
    * @return content
   **/
-  @ApiModelProperty(value = "Content of comment")
+  @ApiModelProperty(value = "Gets or sets content of comment.")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -112,10 +112,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Gets the date and time that the comment was made.
+   * Gets or sets the date and time that the comment was made.
    * @return dateTime
   **/
-  @ApiModelProperty(value = "Gets the date and time that the comment was made.")
+  @ApiModelProperty(value = "Gets or sets the date and time that the comment was made.")
   public OffsetDateTime getDateTime() {
     return dateTime;
   }
@@ -130,10 +130,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Returns or sets the initials of the user associated with a specific comment.
+   * Gets or sets returns or sets the initials of the user associated with a specific comment.
    * @return initial
   **/
-  @ApiModelProperty(value = "Returns or sets the initials of the user associated with a specific comment.")
+  @ApiModelProperty(value = "Gets or sets returns or sets the initials of the user associated with a specific comment.")
   public String getInitial() {
     return initial;
   }
@@ -148,10 +148,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Link to comment range end node.
+   * Gets or sets link to comment range end node.
    * @return rangeEnd
   **/
-  @ApiModelProperty(value = "Link to comment range end node.")
+  @ApiModelProperty(value = "Gets or sets link to comment range end node.")
   public DocumentPosition getRangeEnd() {
     return rangeEnd;
   }
@@ -166,10 +166,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Link to comment range start node.
+   * Gets or sets link to comment range start node.
    * @return rangeStart
   **/
-  @ApiModelProperty(value = "Link to comment range start node.")
+  @ApiModelProperty(value = "Gets or sets link to comment range start node.")
   public DocumentPosition getRangeStart() {
     return rangeStart;
   }
@@ -184,10 +184,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * This is a convenience property that allows to easily get or set text of the comment.
+   * Gets or sets this is a convenience property that allows to easily get or set text of the comment.
    * @return text
   **/
-  @ApiModelProperty(value = "This is a convenience property that allows to easily get or set text of the comment.")
+  @ApiModelProperty(value = "Gets or sets this is a convenience property that allows to easily get or set text of the comment.")
   public String getText() {
     return text;
   }

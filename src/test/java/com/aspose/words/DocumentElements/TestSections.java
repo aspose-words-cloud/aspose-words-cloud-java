@@ -24,17 +24,18 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentElements;
+package com.aspose.words.DocumentElements;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.SectionLinkCollectionResponse;
-import com.aspose.words.cloud.model.SectionResponse;
-import com.aspose.words.cloud.model.requests.GetSectionRequest;
-import com.aspose.words.cloud.model.requests.GetSectionsRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.SectionLinkCollectionResponse;
+import com.aspose.words.model.SectionResponse;
+import com.aspose.words.model.requests.GetSectionRequest;
+import com.aspose.words.model.requests.GetSectionsRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
 public class TestSections extends TestCase {
@@ -49,39 +50,35 @@ public class TestSections extends TestCase {
     /*
      * Test for getting section
      */
-    public void testGetSection() throws ApiException {
+    public void testGetSection() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSection.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetSectionRequest request = new GetSectionRequest(remoteName, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         SectionResponse result = TestInitializer.wordsApi.getSection(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 
     /*
      * Test for getting sections
      */
-    public void testGetSections() throws ApiException {
+    public void testGetSections() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSections.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetSectionsRequest request = new GetSectionsRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSections(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 }

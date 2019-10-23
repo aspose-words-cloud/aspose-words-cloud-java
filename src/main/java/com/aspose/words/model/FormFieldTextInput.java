@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FormField;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.FormField;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * FormField text input element
+ * FormField text input element.
  */
-@ApiModel(description = "FormField text input element")
+@ApiModel(description = "FormField text input element.")
 
 public class FormFieldTextInput extends FormField {
   @SerializedName("MaxLength")
@@ -119,10 +119,10 @@ public class FormFieldTextInput extends FormField {
   }
 
    /**
-   * Maximum length for the text field. Zero when the length is not limited.
+   * Gets or sets maximum length for the text field. Zero when the length is not limited.
    * @return maxLength
   **/
-  @ApiModelProperty(value = "Maximum length for the text field. Zero when the length is not limited.")
+  @ApiModelProperty(value = "Gets or sets maximum length for the text field. Zero when the length is not limited.")
   public Integer getMaxLength() {
     return maxLength;
   }
@@ -137,10 +137,10 @@ public class FormFieldTextInput extends FormField {
   }
 
    /**
-   * Gets or sets the default string or a calculation expression of a text form field. 
+   * Gets or sets the default string or a calculation expression of a text form field.
    * @return textInputDefault
   **/
-  @ApiModelProperty(value = "Gets or sets the default string or a calculation expression of a text form field. ")
+  @ApiModelProperty(value = "Gets or sets the default string or a calculation expression of a text form field.")
   public String getTextInputDefault() {
     return textInputDefault;
   }
@@ -155,10 +155,10 @@ public class FormFieldTextInput extends FormField {
   }
 
    /**
-   * Returns or sets the text formatting for a text form field.
+   * Gets or sets returns or sets the text formatting for a text form field.
    * @return textInputFormat
   **/
-  @ApiModelProperty(value = "Returns or sets the text formatting for a text form field.")
+  @ApiModelProperty(value = "Gets or sets returns or sets the text formatting for a text form field.")
   public String getTextInputFormat() {
     return textInputFormat;
   }

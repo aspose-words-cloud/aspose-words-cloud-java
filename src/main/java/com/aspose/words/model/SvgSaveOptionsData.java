@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.FixedPageSaveOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for svg save options
+ * container class for svg save options.
  */
-@ApiModel(description = "container class for svg save options")
+@ApiModel(description = "container class for svg save options.")
 
 public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("ExportEmbeddedImages")
@@ -70,10 +70,10 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specified whether images should be embedded into SVG document as base64
+   * Gets or sets specified whether images should be embedded into SVG document as base64.
    * @return exportEmbeddedImages
   **/
-  @ApiModelProperty(value = "Specified whether images should be embedded into SVG document as base64")
+  @ApiModelProperty(value = "Gets or sets specified whether images should be embedded into SVG document as base64.")
   public Boolean isisExportEmbeddedImages() {
     return exportEmbeddedImages;
   }
@@ -88,10 +88,10 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
+   * Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
    * @return fitToViewPort
   **/
-  @ApiModelProperty(value = "Specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.")
+  @ApiModelProperty(value = "Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.")
   public Boolean isisFitToViewPort() {
     return fitToViewPort;
   }
@@ -106,10 +106,10 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the physical folder where resources (images) are saved when exporting
+   * Gets or sets specifies the physical folder where resources (images) are saved when exporting.
    * @return resourcesFolder
   **/
-  @ApiModelProperty(value = "Specifies the physical folder where resources (images) are saved when exporting")
+  @ApiModelProperty(value = "Gets or sets specifies the physical folder where resources (images) are saved when exporting.")
   public String getResourcesFolder() {
     return resourcesFolder;
   }
@@ -124,10 +124,10 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the name of the folder used to construct image URIs
+   * Gets or sets specifies the name of the folder used to construct image URIs.
    * @return resourcesFolderAlias
   **/
-  @ApiModelProperty(value = "Specifies the name of the folder used to construct image URIs")
+  @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs.")
   public String getResourcesFolderAlias() {
     return resourcesFolderAlias;
   }
@@ -142,10 +142,10 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Show/hide page stepper
+   * Gets or sets show/hide page stepper.
    * @return showPageBorder
   **/
-  @ApiModelProperty(value = "Show/hide page stepper")
+  @ApiModelProperty(value = "Gets or sets show/hide page stepper.")
   public Boolean isisShowPageBorder() {
     return showPageBorder;
   }
@@ -160,10 +160,10 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines how text should be rendered
+   * Gets or sets determines how text should be rendered.
    * @return textOutputMode
   **/
-  @ApiModelProperty(value = "Determines how text should be rendered")
+  @ApiModelProperty(value = "Gets or sets determines how text should be rendered.")
   public String getTextOutputMode() {
     return textOutputMode;
   }

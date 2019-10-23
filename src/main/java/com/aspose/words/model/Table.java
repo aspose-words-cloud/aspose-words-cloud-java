@@ -25,14 +25,14 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.NodeLink;
-import com.aspose.words.cloud.model.TableProperties;
-import com.aspose.words.cloud.model.TableRow;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.NodeLink;
+import com.aspose.words.model.TableProperties;
+import com.aspose.words.model.TableRow;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,9 +45,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Table element
+ * Table element.
  */
-@ApiModel(description = "Table element")
+@ApiModel(description = "Table element.")
 
 public class Table extends NodeLink {
   @SerializedName("TableProperties")
@@ -62,10 +62,10 @@ public class Table extends NodeLink {
   }
 
    /**
-   * Table properties.
+   * Gets or sets table properties.
    * @return tableProperties
   **/
-  @ApiModelProperty(value = "Table properties.")
+  @ApiModelProperty(value = "Gets or sets table properties.")
   public TableProperties getTableProperties() {
     return tableProperties;
   }
@@ -88,10 +88,10 @@ public class Table extends NodeLink {
   }
 
    /**
-   * Collection of table&#39;s rows.
+   * Gets or sets collection of table&#39;s rows.
    * @return tableRowList
   **/
-  @ApiModelProperty(value = "Collection of table's rows.")
+  @ApiModelProperty(value = "Gets or sets collection of table's rows.")
   public List<TableRow> getTableRowList() {
     return tableRowList;
   }

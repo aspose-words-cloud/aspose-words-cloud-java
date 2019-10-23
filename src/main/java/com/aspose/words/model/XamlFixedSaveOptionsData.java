@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.FixedPageSaveOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for xaml fixed save options
+ * container class for xaml fixed save options.
  */
-@ApiModel(description = "container class for xaml fixed save options")
+@ApiModel(description = "container class for xaml fixed save options.")
 
 public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("ResourcesFolder")
@@ -58,10 +58,10 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.
+   * Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.
    * @return resourcesFolder
   **/
-  @ApiModelProperty(value = "Specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.")
+  @ApiModelProperty(value = "Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.")
   public String getResourcesFolder() {
     return resourcesFolder;
   }
@@ -76,10 +76,10 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.
+   * Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.
    * @return resourcesFolderAlias
   **/
-  @ApiModelProperty(value = "Specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.")
+  @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.")
   public String getResourcesFolderAlias() {
     return resourcesFolderAlias;
   }

@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FileLink;
+import com.aspose.words.model.FileLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * result of the operation which modifies the original document and saves the result
+ * result of the operation which modifies the original document and saves the result.
  */
-@ApiModel(description = "result of the operation which modifies the original document and saves the result")
+@ApiModel(description = "result of the operation which modifies the original document and saves the result.")
 
 public class ModificationOperationResult {
   @SerializedName("Source")
@@ -57,10 +57,10 @@ public class ModificationOperationResult {
   }
 
    /**
-   * Link to the source document (source for the modification operation)
+   * Gets or sets link to the source document (source for the modification operation).
    * @return source
   **/
-  @ApiModelProperty(value = "Link to the source document (source for the modification operation)")
+  @ApiModelProperty(value = "Gets or sets link to the source document (source for the modification operation).")
   public FileLink getSource() {
     return source;
   }
@@ -75,10 +75,10 @@ public class ModificationOperationResult {
   }
 
    /**
-   * Link to the dest document (result of the modification operation)
+   * Gets or sets link to the dest document (result of the modification operation).
    * @return dest
   **/
-  @ApiModelProperty(value = "Link to the dest document (result of the modification operation)")
+  @ApiModelProperty(value = "Gets or sets link to the dest document (result of the modification operation).")
   public FileLink getDest() {
     return dest;
   }

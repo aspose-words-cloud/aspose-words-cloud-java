@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTablePropertiesRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,14 +38,14 @@ public class UpdateTablePropertiesRequest {
     private String Name;
 
     /*
-     * Object index.
-     */
-    private Integer Index;
-
-    /*
      * Path to the node, which contains tables.
      */
     private String NodePath;
+
+    /*
+     * Object index.
+     */
+    private Integer Index;
 
     /*
      * Original document folder.
@@ -91,8 +91,8 @@ public class UpdateTablePropertiesRequest {
      * Initializes a new instance of the updateTablePropertiesRequest class.
      *  
      * @param String name The document name.
-     * @param Integer index Object index.
      * @param String nodePath Path to the node, which contains tables.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,10 +102,10 @@ public class UpdateTablePropertiesRequest {
      * @param String revisionDateTime The date and time to use for revisions.
      * @param TableProperties properties The properties.
      */
-    public UpdateTablePropertiesRequest(String name,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableProperties properties) {
+    public UpdateTablePropertiesRequest(String name,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableProperties properties) {
         Name = name;
-        Index = index;
         NodePath = nodePath;
+        Index = index;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -131,20 +131,6 @@ public class UpdateTablePropertiesRequest {
     }
 
     /*
-     *  Gets Object index.
-     */
-    public Integer getIndex() {
-        return Index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        Index = value;
-    }
-
-    /*
      *  Gets Path to the node, which contains tables.
      */
     public String getNodePath() {
@@ -156,6 +142,20 @@ public class UpdateTablePropertiesRequest {
      */
     public void setNodePath(String value) {
         NodePath = value;
+    }
+
+    /*
+     *  Gets Object index.
+     */
+    public Integer getIndex() {
+        return Index;
+    }
+
+    /*
+     * Sets Object index.
+     */
+    public void setIndex(Integer value) {
+        Index = value;
     }
 
     /*
@@ -270,4 +270,3 @@ public class UpdateTablePropertiesRequest {
         Properties = value;
     }
 }
-/*

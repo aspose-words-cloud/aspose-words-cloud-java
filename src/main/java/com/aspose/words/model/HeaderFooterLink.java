@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,13 +41,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * HeaderFooter link element
+ * HeaderFooter link element.
  */
-@ApiModel(description = "HeaderFooter link element")
+@ApiModel(description = "HeaderFooter link element.")
 
 public class HeaderFooterLink extends LinkElement {
   /**
-   * Paragraph&#39;s text
+   * Gets or sets paragraph&#39;s text.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -110,10 +110,10 @@ public class HeaderFooterLink extends LinkElement {
   }
 
    /**
-   * Paragraph&#39;s text
+   * Gets or sets paragraph&#39;s text.
    * @return type
   **/
-  @ApiModelProperty(value = "Paragraph's text")
+  @ApiModelProperty(value = "Gets or sets paragraph's text.")
   public TypeEnum getType() {
     return type;
   }

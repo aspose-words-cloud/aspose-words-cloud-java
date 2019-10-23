@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderTableRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -43,14 +43,14 @@ public class RenderTableRequest {
     private String Format;
 
     /*
-     * Object index.
-     */
-    private Integer Index;
-
-    /*
      * Path to the node, which contains tables.
      */
     private String NodePath;
+
+    /*
+     * Object index.
+     */
+    private Integer Index;
 
     /*
      * Original document folder.
@@ -82,19 +82,19 @@ public class RenderTableRequest {
      *  
      * @param String name The document name.
      * @param String format The destination format.
-     * @param Integer index Object index.
      * @param String nodePath Path to the node, which contains tables.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderTableRequest(String name,  String format,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String fontsLocation) {
+    public RenderTableRequest(String name,  String format,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String fontsLocation) {
         Name = name;
         Format = format;
-        Index = index;
         NodePath = nodePath;
+        Index = index;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -131,20 +131,6 @@ public class RenderTableRequest {
     }
 
     /*
-     *  Gets Object index.
-     */
-    public Integer getIndex() {
-        return Index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        Index = value;
-    }
-
-    /*
      *  Gets Path to the node, which contains tables.
      */
     public String getNodePath() {
@@ -156,6 +142,20 @@ public class RenderTableRequest {
      */
     public void setNodePath(String value) {
         NodePath = value;
+    }
+
+    /*
+     *  Gets Object index.
+     */
+    public Integer getIndex() {
+        return Index;
+    }
+
+    /*
+     * Sets Object index.
+     */
+    public void setIndex(Integer value) {
+        Index = value;
     }
 
     /*
@@ -228,4 +228,3 @@ public class RenderTableRequest {
         FontsLocation = value;
     }
 }
-/*

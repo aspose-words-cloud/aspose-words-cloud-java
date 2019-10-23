@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.PreferredWidth;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.PreferredWidth;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,7 +48,7 @@ import java.io.IOException;
 
 public class TableProperties extends LinkElement {
   /**
-   * Specifies how an inline table is aligned in the document.
+   * Gets or sets specifies how an inline table is aligned in the document.
    */
   @JsonAdapter(AlignmentEnum.Adapter.class)
   public enum AlignmentEnum {
@@ -983,7 +983,7 @@ public class TableProperties extends LinkElement {
   private StyleOptionsEnum styleOptions = null;
 
   /**
-   * Get or sets TextWrapping  for table.
+   * Gets or sets get or sets TextWrapping  for table.
    */
   @JsonAdapter(TextWrappingEnum.Adapter.class)
   public enum TextWrappingEnum {
@@ -1043,10 +1043,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Specifies how an inline table is aligned in the document.
+   * Gets or sets specifies how an inline table is aligned in the document.
    * @return alignment
   **/
-  @ApiModelProperty(value = "Specifies how an inline table is aligned in the document.")
+  @ApiModelProperty(value = "Gets or sets specifies how an inline table is aligned in the document.")
   public AlignmentEnum getAlignment() {
     return alignment;
   }
@@ -1061,10 +1061,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
+   * Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
    * @return allowAutoFit
   **/
-  @ApiModelProperty(value = "Allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.")
+  @ApiModelProperty(value = "Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.")
   public Boolean isisAllowAutoFit() {
     return allowAutoFit;
   }
@@ -1169,10 +1169,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Gets or sets the table preferred width.  Preferred width can be specified as a percentage, number of points or a special \&quot;auto\&quot; value.
+   * Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \&quot;auto\&quot; value.
    * @return preferredWidth
   **/
-  @ApiModelProperty(value = "Gets or sets the table preferred width.  Preferred width can be specified as a percentage, number of points or a special \"auto\" value.")
+  @ApiModelProperty(value = "Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \"auto\" value.")
   public PreferredWidth getPreferredWidth() {
     return preferredWidth;
   }
@@ -1259,10 +1259,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Get or sets TextWrapping  for table.
+   * Gets or sets get or sets TextWrapping  for table.
    * @return textWrapping
   **/
-  @ApiModelProperty(value = "Get or sets TextWrapping  for table.")
+  @ApiModelProperty(value = "Gets or sets get or sets TextWrapping  for table.")
   public TextWrappingEnum getTextWrapping() {
     return textWrapping;
   }

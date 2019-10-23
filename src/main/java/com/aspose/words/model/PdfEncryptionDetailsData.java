@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for details of encryption
+ * container class for details of encryption.
  */
-@ApiModel(description = "container class for details of encryption")
+@ApiModel(description = "container class for details of encryption.")
 
 public class PdfEncryptionDetailsData {
   @SerializedName("EncryptionAlgorithm")
@@ -62,10 +62,10 @@ public class PdfEncryptionDetailsData {
   }
 
    /**
-   * Specifies the encryption algorithm to use
+   * Gets or sets specifies the encryption algorithm to use.
    * @return encryptionAlgorithm
   **/
-  @ApiModelProperty(value = "Specifies the encryption algorithm to use")
+  @ApiModelProperty(value = "Gets or sets specifies the encryption algorithm to use.")
   public String getEncryptionAlgorithm() {
     return encryptionAlgorithm;
   }
@@ -80,10 +80,10 @@ public class PdfEncryptionDetailsData {
   }
 
    /**
-   * Specifies the owner password for the encrypted PDF document
+   * Gets or sets specifies the owner password for the encrypted PDF document.
    * @return ownerPassword
   **/
-  @ApiModelProperty(value = "Specifies the owner password for the encrypted PDF document")
+  @ApiModelProperty(value = "Gets or sets specifies the owner password for the encrypted PDF document.")
   public String getOwnerPassword() {
     return ownerPassword;
   }
@@ -98,10 +98,10 @@ public class PdfEncryptionDetailsData {
   }
 
    /**
-   * Specifies the operations that are allowed to a user on an encrypted PDF document        
+   * Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.
    * @return permissions
   **/
-  @ApiModelProperty(value = "Specifies the operations that are allowed to a user on an encrypted PDF document        ")
+  @ApiModelProperty(value = "Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.")
   public String getPermissions() {
     return permissions;
   }
@@ -116,10 +116,10 @@ public class PdfEncryptionDetailsData {
   }
 
    /**
-   * Specifies the user password required for opening the encrypted PDF document
+   * Gets or sets specifies the user password required for opening the encrypted PDF document.
    * @return userPassword
   **/
-  @ApiModelProperty(value = "Specifies the user password required for opening the encrypted PDF document")
+  @ApiModelProperty(value = "Gets or sets specifies the user password required for opening the encrypted PDF document.")
   public String getUserPassword() {
     return userPassword;
   }

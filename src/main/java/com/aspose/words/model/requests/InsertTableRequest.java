@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -78,7 +78,7 @@ public class InsertTableRequest {
     private String RevisionDateTime;
 
     /*
-     * Table parameters/
+     * Table parameters/.
      */
     private TableInsert Table;
     
@@ -94,7 +94,7 @@ public class InsertTableRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableInsert table Table parameters/
+     * @param TableInsert table Table parameters/.
      */
     public InsertTableRequest(String name,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableInsert table) {
         Name = name;
@@ -236,17 +236,16 @@ public class InsertTableRequest {
     }
 
     /*
-     *  Gets Table parameters/
+     *  Gets Table parameters/.
      */
     public TableInsert getTable() {
         return Table;
     }
 
     /*
-     * Sets Table parameters/
+     * Sets Table parameters/.
      */
     public void setTable(TableInsert value) {
         Table = value;
     }
 }
-/*

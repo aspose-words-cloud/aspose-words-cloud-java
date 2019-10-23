@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Utility class for  serialization
+ * Utility class for  serialization.
  */
-@ApiModel(description = "Utility class for  serialization")
+@ApiModel(description = "Utility class for  serialization.")
 
 public class XmlColor {
   @SerializedName("Web")
@@ -56,10 +56,10 @@ public class XmlColor {
   }
 
    /**
-   * HTML string color representation
+   * Gets or sets hTML string color representation.
    * @return web
   **/
-  @ApiModelProperty(value = "HTML string color representation")
+  @ApiModelProperty(value = "Gets or sets hTML string color representation.")
   public String getWeb() {
     return web;
   }
@@ -74,10 +74,10 @@ public class XmlColor {
   }
 
    /**
-   * Alpha component of color structure
+   * Gets or sets alpha component of color structure.
    * @return alpha
   **/
-  @ApiModelProperty(required = true, value = "Alpha component of color structure")
+  @ApiModelProperty(required = true, value = "Gets or sets alpha component of color structure.")
   public Integer getAlpha() {
     return alpha;
   }

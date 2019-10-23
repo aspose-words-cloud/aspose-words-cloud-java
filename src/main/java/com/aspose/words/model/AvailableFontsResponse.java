@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FontInfo;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.FontInfo;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,9 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The list of fonts, available for document processing
+ * The list of fonts, available for document processing.
  */
-@ApiModel(description = "The list of fonts, available for document processing")
+@ApiModel(description = "The list of fonts, available for document processing.")
 
 public class AvailableFontsResponse extends WordsResponse {
   @SerializedName("AdditionalFonts")
@@ -71,10 +71,10 @@ public class AvailableFontsResponse extends WordsResponse {
   }
 
    /**
-   * The list of addititional fonts, provided by aspose team
+   * Gets or sets the list of addititional fonts, provided by aspose team.
    * @return additionalFonts
   **/
-  @ApiModelProperty(value = "The list of addititional fonts, provided by aspose team")
+  @ApiModelProperty(value = "Gets or sets the list of addititional fonts, provided by aspose team.")
   public List<FontInfo> getAdditionalFonts() {
     return additionalFonts;
   }
@@ -97,10 +97,10 @@ public class AvailableFontsResponse extends WordsResponse {
   }
 
    /**
-   * Custom user fonts (from user file storage). To use them, you should specify \&quot;fontsLocation\&quot; parameter in any request
+   * Gets or sets custom user fonts (from user file storage). To use them, you should specify \&quot;fontsLocation\&quot; parameter in any request.
    * @return customFonts
   **/
-  @ApiModelProperty(value = "Custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request")
+  @ApiModelProperty(value = "Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.")
   public List<FontInfo> getCustomFonts() {
     return customFonts;
   }
@@ -123,10 +123,10 @@ public class AvailableFontsResponse extends WordsResponse {
   }
 
    /**
-   * The list of system fonts, availiable on the server
+   * Gets or sets the list of system fonts, availiable on the server.
    * @return systemFonts
   **/
-  @ApiModelProperty(value = "The list of system fonts, availiable on the server")
+  @ApiModelProperty(value = "Gets or sets the list of system fonts, availiable on the server.")
   public List<FontInfo> getSystemFonts() {
     return systemFonts;
   }

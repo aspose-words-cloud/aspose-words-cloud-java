@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -65,10 +65,10 @@ public class ReplaceTextParameters {
   }
 
    /**
-   * Old text value (or regex pattern ) to replace.
+   * Gets or sets old text value (or regex pattern ) to replace.
    * @return oldValue
   **/
-  @ApiModelProperty(value = "Old text value (or regex pattern ) to replace.")
+  @ApiModelProperty(value = "Gets or sets old text value (or regex pattern ) to replace.")
   public String getOldValue() {
     return oldValue;
   }
@@ -83,10 +83,10 @@ public class ReplaceTextParameters {
   }
 
    /**
-   * New text value to replace by.
+   * Gets or sets new text value to replace by.
    * @return newValue
   **/
-  @ApiModelProperty(value = "New text value to replace by.")
+  @ApiModelProperty(value = "Gets or sets new text value to replace by.")
   public String getNewValue() {
     return newValue;
   }
@@ -101,10 +101,10 @@ public class ReplaceTextParameters {
   }
 
    /**
-   * Flag, true means the search is case-sensitive; false means the search is not case-sensitive.
+   * Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
    * @return isMatchCase
   **/
-  @ApiModelProperty(required = true, value = "Flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
   public Boolean isisIsMatchCase() {
     return isMatchCase;
   }
@@ -119,10 +119,10 @@ public class ReplaceTextParameters {
   }
 
    /**
-   * Flag, means that only whole word matched are replaced.
+   * Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
    * @return isMatchWholeWord
   **/
-  @ApiModelProperty(required = true, value = "Flag, means that only whole word matched are replaced.")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, means that only whole word matched are replaced.")
   public Boolean isisIsMatchWholeWord() {
     return isMatchWholeWord;
   }
@@ -137,10 +137,10 @@ public class ReplaceTextParameters {
   }
 
    /**
-   * Flag, means that  contains regex expression.
+   * Gets or sets a value indicating whether flag, means that  contains regex expression.
    * @return isOldValueRegex
   **/
-  @ApiModelProperty(required = true, value = "Flag, means that  contains regex expression.")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, means that  contains regex expression.")
   public Boolean isisIsOldValueRegex() {
     return isOldValueRegex;
   }

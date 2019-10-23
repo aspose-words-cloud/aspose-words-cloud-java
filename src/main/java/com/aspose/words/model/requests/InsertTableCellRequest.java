@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableCellRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -78,7 +78,7 @@ public class InsertTableCellRequest {
     private String RevisionDateTime;
 
     /*
-     * Table cell parameters/
+     * Table cell parameters/.
      */
     private TableCellInsert Cell;
     
@@ -94,7 +94,7 @@ public class InsertTableCellRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableCellInsert cell Table cell parameters/
+     * @param TableCellInsert cell Table cell parameters/.
      */
     public InsertTableCellRequest(String name,  String tableRowPath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableCellInsert cell) {
         Name = name;
@@ -236,17 +236,16 @@ public class InsertTableCellRequest {
     }
 
     /*
-     *  Gets Table cell parameters/
+     *  Gets Table cell parameters/.
      */
     public TableCellInsert getCell() {
         return Cell;
     }
 
     /*
-     * Sets Table cell parameters/
+     * Sets Table cell parameters/.
      */
     public void setCell(TableCellInsert value) {
         Cell = value;
     }
 }
-/*

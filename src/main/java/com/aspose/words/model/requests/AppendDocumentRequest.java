@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="AppendDocumentRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -228,4 +228,3 @@ public class AppendDocumentRequest {
         RevisionDateTime = value;
     }
 }
-/*

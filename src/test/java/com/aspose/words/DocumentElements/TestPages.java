@@ -24,19 +24,21 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentElements;
-
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.PageSetup;
-import com.aspose.words.cloud.model.SectionPageSetupResponse;
-import com.aspose.words.cloud.model.requests.GetSectionPageSetupRequest;
-import com.aspose.words.cloud.model.requests.RenderPageRequest;
-import com.aspose.words.cloud.model.requests.UpdateSectionPageSetupRequest;
-import junit.framework.TestCase;
+package com.aspose.words.DocumentElements;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
+
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.PageSetup;
+import com.aspose.words.model.SectionPageSetupResponse;
+import com.aspose.words.model.requests.GetSectionPageSetupRequest;
+import com.aspose.words.model.requests.RenderPageRequest;
+import com.aspose.words.model.requests.UpdateSectionPageSetupRequest;
+
+import junit.framework.TestCase;
 
 public class TestPages extends TestCase {
     private String testFolder = "DocumentElements/Pages";
@@ -50,14 +52,12 @@ public class TestPages extends TestCase {
     /*
      * Test for page rendering
      */
-    public void testRenderPage() throws ApiException {
+    public void testRenderPage() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestRenderPage.doc";
         Integer pageNumber = 1;
         String format = "png";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         RenderPageRequest request = new RenderPageRequest(remoteName, pageNumber, format,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -70,42 +70,38 @@ public class TestPages extends TestCase {
     /*
      * Test for getting page setup
      */
-    public void testGetSectionPageSetup() throws ApiException {
+    public void testGetSectionPageSetup() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSectionPageSetup.doc";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetSectionPageSetupRequest request = new GetSectionPageSetupRequest(remoteName, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.getSectionPageSetup(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 
     /*
      * Test for updating page setup
      */
-    public void testUpdateSectionPageSetup() throws ApiException {
+    public void testUpdateSectionPageSetup() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUpdateSectionPageSetup.doc";
         Integer index = 0;
         PageSetup body = new PageSetup().rtlGutter(true).leftMargin(10.0)
                 .orientation(PageSetup.OrientationEnum.LANDSCAPE).paperSize(PageSetup.PaperSizeEnum.A5);
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateSectionPageSetupRequest request = new UpdateSectionPageSetupRequest(remoteName, index, body,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.updateSectionPageSetup(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 }

@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DocumentPosition;
+import com.aspose.words.model.DocumentPosition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,10 +57,10 @@ public class SearchResult {
   }
 
    /**
-   * Link to result range start node.
+   * Gets or sets link to result range start node.
    * @return rangeStart
   **/
-  @ApiModelProperty(value = "Link to result range start node.")
+  @ApiModelProperty(value = "Gets or sets link to result range start node.")
   public DocumentPosition getRangeStart() {
     return rangeStart;
   }
@@ -75,10 +75,10 @@ public class SearchResult {
   }
 
    /**
-   * Link to result range end node.
+   * Gets or sets link to result range end node.
    * @return rangeEnd
   **/
-  @ApiModelProperty(value = "Link to result range end node.")
+  @ApiModelProperty(value = "Gets or sets link to result range end node.")
   public DocumentPosition getRangeEnd() {
     return rangeEnd;
   }

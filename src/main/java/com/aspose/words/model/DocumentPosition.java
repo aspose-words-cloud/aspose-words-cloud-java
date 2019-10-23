@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.NodeLink;
+import com.aspose.words.model.NodeLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,10 +57,10 @@ public class DocumentPosition {
   }
 
    /**
-   * Link to  node.
+   * Gets or sets link to  node.
    * @return node
   **/
-  @ApiModelProperty(value = "Link to  node.")
+  @ApiModelProperty(value = "Gets or sets link to  node.")
   public NodeLink getNode() {
     return node;
   }
@@ -75,10 +75,10 @@ public class DocumentPosition {
   }
 
    /**
-   * Offset into the node.
+   * Gets or sets offset into the node.
    * @return offset
   **/
-  @ApiModelProperty(value = "Offset into the node.")
+  @ApiModelProperty(value = "Gets or sets offset into the node.")
   public Integer getOffset() {
     return offset;
   }

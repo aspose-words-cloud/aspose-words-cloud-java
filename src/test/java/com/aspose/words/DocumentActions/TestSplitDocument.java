@@ -24,15 +24,17 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentActions;
+package com.aspose.words.DocumentActions;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.SplitDocumentResponse;
-import com.aspose.words.cloud.model.requests.PostSplitDocumentRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.SplitDocumentResponse;
+import com.aspose.words.model.requests.SplitDocumentRequest;
+
 import junit.framework.TestCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
 public class TestSplitDocument extends TestCase {
@@ -47,7 +49,7 @@ public class TestSplitDocument extends TestCase {
     /*
      * Test for splitting document
      */
-    public void testPostSplitDocument() throws ApiException {
+    public void testPostSplitDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostSplitDocument.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -55,15 +57,13 @@ public class TestSplitDocument extends TestCase {
         Integer from = 1;
         Integer to = 2;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        PostSplitDocumentRequest request = new PostSplitDocumentRequest(remoteName,
+        SplitDocumentRequest request = new SplitDocumentRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, destName, format, from, to, null, null);
 
-        SplitDocumentResponse result = TestInitializer.wordsApi.postSplitDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        SplitDocumentResponse result = TestInitializer.wordsApi.splitDocument(request);
+        assertNotNull(result);
     }
 }

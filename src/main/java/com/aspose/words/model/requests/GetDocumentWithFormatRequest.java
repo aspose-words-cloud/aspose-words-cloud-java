@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentWithFormatRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -63,7 +63,7 @@ public class GetDocumentWithFormatRequest {
     private String Password;
 
     /*
-     * Path to save the result
+     * Path to save the result.
      */
     private String OutPath;
 
@@ -81,7 +81,7 @@ public class GetDocumentWithFormatRequest {
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String outPath Path to save the result
+     * @param String outPath Path to save the result.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public GetDocumentWithFormatRequest(String name,  String format,  String folder,  String storage,  String loadEncoding,  String password,  String outPath,  String fontsLocation) {
@@ -180,14 +180,14 @@ public class GetDocumentWithFormatRequest {
     }
 
     /*
-     *  Gets Path to save the result
+     *  Gets Path to save the result.
      */
     public String getOutPath() {
         return OutPath;
     }
 
     /*
-     * Sets Path to save the result
+     * Sets Path to save the result.
      */
     public void setOutPath(String value) {
         OutPath = value;
@@ -207,4 +207,3 @@ public class GetDocumentWithFormatRequest {
         FontsLocation = value;
     }
 }
-/*

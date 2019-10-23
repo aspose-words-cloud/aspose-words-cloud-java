@@ -25,16 +25,16 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DownsampleOptionsData;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
-import com.aspose.words.cloud.model.OutlineOptionsData;
-import com.aspose.words.cloud.model.PdfDigitalSignatureDetailsData;
-import com.aspose.words.cloud.model.PdfEncryptionDetailsData;
+import com.aspose.words.model.DownsampleOptionsData;
+import com.aspose.words.model.FixedPageSaveOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.OutlineOptionsData;
+import com.aspose.words.model.PdfDigitalSignatureDetailsData;
+import com.aspose.words.model.PdfEncryptionDetailsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,9 +45,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for pdf save options
+ * container class for pdf save options.
  */
-@ApiModel(description = "container class for pdf save options")
+@ApiModel(description = "container class for pdf save options.")
 
 public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("Compliance")
@@ -84,7 +84,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   private String fontEmbeddingMode = null;
 
   /**
-   * Determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
+   * Gets or sets determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
    */
   @JsonAdapter(HeaderFooterBookmarksExportModeEnum.Adapter.class)
   public enum HeaderFooterBookmarksExportModeEnum {
@@ -177,10 +177,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the PDF standards compliance level for output documents
+   * Gets or sets specifies the PDF standards compliance level for output documents.
    * @return compliance
   **/
-  @ApiModelProperty(value = "Specifies the PDF standards compliance level for output documents")
+  @ApiModelProperty(value = "Gets or sets specifies the PDF standards compliance level for output documents.")
   public String getCompliance() {
     return compliance;
   }
@@ -195,10 +195,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. Default is false.
+   * Gets or sets specifies whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. Default is false.
    * @return createNoteHyperlinks
   **/
-  @ApiModelProperty(value = "Specifies whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. Default is false.")
+  @ApiModelProperty(value = "Gets or sets specifies whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. Default is false.")
   public Boolean isisCreateNoteHyperlinks() {
     return createNoteHyperlinks;
   }
@@ -231,10 +231,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the details for signing the output PDF document
+   * Gets or sets specifies the details for signing the output PDF document.
    * @return digitalSignatureDetails
   **/
-  @ApiModelProperty(value = "Specifies the details for signing the output PDF document")
+  @ApiModelProperty(value = "Gets or sets specifies the details for signing the output PDF document.")
   public PdfDigitalSignatureDetailsData getDigitalSignatureDetails() {
     return digitalSignatureDetails;
   }
@@ -249,10 +249,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * A flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
+   * Gets or sets a flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
    * @return displayDocTitle
   **/
-  @ApiModelProperty(value = "A flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.")
+  @ApiModelProperty(value = "Gets or sets a flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.")
   public Boolean isisDisplayDocTitle() {
     return displayDocTitle;
   }
@@ -267,10 +267,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Allows to specify downsample options.
+   * Gets or sets allows to specify downsample options.
    * @return downsampleOptions
   **/
-  @ApiModelProperty(value = "Allows to specify downsample options.")
+  @ApiModelProperty(value = "Gets or sets allows to specify downsample options.")
   public DownsampleOptionsData getDownsampleOptions() {
     return downsampleOptions;
   }
@@ -285,10 +285,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Controls how fonts are embedded into the resulting PDF documents
+   * Gets or sets controls how fonts are embedded into the resulting PDF documents.
    * @return embedFullFonts
   **/
-  @ApiModelProperty(value = "Controls how fonts are embedded into the resulting PDF documents")
+  @ApiModelProperty(value = "Gets or sets controls how fonts are embedded into the resulting PDF documents.")
   public Boolean isisEmbedFullFonts() {
     return embedFullFonts;
   }
@@ -303,10 +303,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the details for encrypting the output PDF document
+   * Gets or sets specifies the details for encrypting the output PDF document.
    * @return encryptionDetails
   **/
-  @ApiModelProperty(value = "Specifies the details for encrypting the output PDF document")
+  @ApiModelProperty(value = "Gets or sets specifies the details for encrypting the output PDF document.")
   public PdfEncryptionDetailsData getEncryptionDetails() {
     return encryptionDetails;
   }
@@ -321,10 +321,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * A flag specifying whether URI should be escaped before writing.             
+   * Gets or sets a flag specifying whether URI should be escaped before writing.             
    * @return escapeUri
   **/
-  @ApiModelProperty(value = "A flag specifying whether URI should be escaped before writing.             ")
+  @ApiModelProperty(value = "Gets or sets a flag specifying whether URI should be escaped before writing.             ")
   public Boolean isisEscapeUri() {
     return escapeUri;
   }
@@ -339,10 +339,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines whether or not to export document structure
+   * Gets or sets determines whether or not to export document structure.
    * @return exportDocumentStructure
   **/
-  @ApiModelProperty(value = "Determines whether or not to export document structure")
+  @ApiModelProperty(value = "Gets or sets determines whether or not to export document structure.")
   public Boolean isisExportDocumentStructure() {
     return exportDocumentStructure;
   }
@@ -357,10 +357,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the font embedding mode
+   * Gets or sets specifies the font embedding mode.
    * @return fontEmbeddingMode
   **/
-  @ApiModelProperty(value = "Specifies the font embedding mode")
+  @ApiModelProperty(value = "Gets or sets specifies the font embedding mode.")
   public String getFontEmbeddingMode() {
     return fontEmbeddingMode;
   }
@@ -375,10 +375,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
+   * Gets or sets determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
    * @return headerFooterBookmarksExportMode
   **/
-  @ApiModelProperty(value = "Determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.")
+  @ApiModelProperty(value = "Gets or sets determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.")
   public HeaderFooterBookmarksExportModeEnum getHeaderFooterBookmarksExportMode() {
     return headerFooterBookmarksExportMode;
   }
@@ -393,10 +393,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies how the color space will be selected for the images in PDF document.
+   * Gets or sets specifies how the color space will be selected for the images in PDF document.
    * @return imageColorSpaceExportMode
   **/
-  @ApiModelProperty(value = "Specifies how the color space will be selected for the images in PDF document.")
+  @ApiModelProperty(value = "Gets or sets specifies how the color space will be selected for the images in PDF document.")
   public String getImageColorSpaceExportMode() {
     return imageColorSpaceExportMode;
   }
@@ -411,10 +411,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies compression type to be used for all images in the document
+   * Gets or sets specifies compression type to be used for all images in the document.
    * @return imageCompression
   **/
-  @ApiModelProperty(value = "Specifies compression type to be used for all images in the document")
+  @ApiModelProperty(value = "Gets or sets specifies compression type to be used for all images in the document.")
   public String getImageCompression() {
     return imageCompression;
   }
@@ -429,10 +429,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser
+   * Gets or sets determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.
    * @return openHyperlinksInNewWindow
   **/
-  @ApiModelProperty(value = "Determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser")
+  @ApiModelProperty(value = "Gets or sets determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.")
   public Boolean isisOpenHyperlinksInNewWindow() {
     return openHyperlinksInNewWindow;
   }
@@ -447,10 +447,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Allows to specify outline options
+   * Gets or sets allows to specify outline options.
    * @return outlineOptions
   **/
-  @ApiModelProperty(value = "Allows to specify outline options")
+  @ApiModelProperty(value = "Gets or sets allows to specify outline options.")
   public OutlineOptionsData getOutlineOptions() {
     return outlineOptions;
   }
@@ -465,10 +465,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies how the PDF document should be displayed when opened in the PDF reader
+   * Gets or sets specifies how the PDF document should be displayed when opened in the PDF reader.
    * @return pageMode
   **/
-  @ApiModelProperty(value = "Specifies how the PDF document should be displayed when opened in the PDF reader")
+  @ApiModelProperty(value = "Gets or sets specifies how the PDF document should be displayed when opened in the PDF reader.")
   public String getPageMode() {
     return pageMode;
   }
@@ -501,10 +501,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text
+   * Gets or sets specifies whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
    * @return preserveFormFields
   **/
-  @ApiModelProperty(value = "Specifies whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text")
+  @ApiModelProperty(value = "Gets or sets specifies whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.")
   public Boolean isisPreserveFormFields() {
     return preserveFormFields;
   }
@@ -519,10 +519,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies compression type to be used for all textual content in the document
+   * Gets or sets specifies compression type to be used for all textual content in the document.
    * @return textCompression
   **/
-  @ApiModelProperty(value = "Specifies compression type to be used for all textual content in the document")
+  @ApiModelProperty(value = "Gets or sets specifies compression type to be used for all textual content in the document.")
   public String getTextCompression() {
     return textCompression;
   }
@@ -537,10 +537,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines whether the document should be saved using a booklet printing layout
+   * Gets or sets determines whether the document should be saved using a booklet printing layout.
    * @return useBookFoldPrintingSettings
   **/
-  @ApiModelProperty(value = "Determines whether the document should be saved using a booklet printing layout")
+  @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
   public Boolean isisUseBookFoldPrintingSettings() {
     return useBookFoldPrintingSettings;
   }
@@ -555,10 +555,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines whether or not to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts
+   * Gets or sets determines whether or not to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
    * @return useCoreFonts
   **/
-  @ApiModelProperty(value = "Determines whether or not to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts")
+  @ApiModelProperty(value = "Gets or sets determines whether or not to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.")
   public Boolean isisUseCoreFonts() {
     return useCoreFonts;
   }
@@ -573,10 +573,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines what type of zoom should be applied when a document is opened with a PDF viewer
+   * Gets or sets determines what type of zoom should be applied when a document is opened with a PDF viewer.
    * @return zoomBehavior
   **/
-  @ApiModelProperty(value = "Determines what type of zoom should be applied when a document is opened with a PDF viewer")
+  @ApiModelProperty(value = "Gets or sets determines what type of zoom should be applied when a document is opened with a PDF viewer.")
   public String getZoomBehavior() {
     return zoomBehavior;
   }
@@ -591,10 +591,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines zoom factor (in percentages) for a document
+   * Gets or sets determines zoom factor (in percentages) for a document.
    * @return zoomFactor
   **/
-  @ApiModelProperty(value = "Determines zoom factor (in percentages) for a document")
+  @ApiModelProperty(value = "Gets or sets determines zoom factor (in percentages) for a document.")
   public Integer getZoomFactor() {
     return zoomFactor;
   }

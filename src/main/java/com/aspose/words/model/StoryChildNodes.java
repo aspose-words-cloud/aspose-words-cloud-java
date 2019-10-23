@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.NodeLink;
+import com.aspose.words.model.NodeLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,9 +42,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Child nodes of  or 
+ * Child nodes of  or .
  */
-@ApiModel(description = "Child nodes of  or ")
+@ApiModel(description = "Child nodes of  or .")
 
 public class StoryChildNodes {
   @SerializedName("ChildNodes")
@@ -64,10 +64,10 @@ public class StoryChildNodes {
   }
 
    /**
-   * Child nodes.
+   * Gets or sets child nodes.
    * @return childNodes
   **/
-  @ApiModelProperty(value = "Child nodes.")
+  @ApiModelProperty(value = "Gets or sets child nodes.")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }

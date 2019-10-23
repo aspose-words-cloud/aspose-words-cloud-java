@@ -24,16 +24,28 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentElements;
+package com.aspose.words.DocumentElements;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.*;
-import com.aspose.words.cloud.model.requests.*;
-import junit.framework.TestCase;
-
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
+
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.DocumentResponse;
+import com.aspose.words.model.Field;
+import com.aspose.words.model.FieldResponse;
+import com.aspose.words.model.FieldsResponse;
+import com.aspose.words.model.PageNumber;
+import com.aspose.words.model.requests.DeleteFieldRequest;
+import com.aspose.words.model.requests.DeleteFieldsRequest;
+import com.aspose.words.model.requests.GetFieldRequest;
+import com.aspose.words.model.requests.GetFieldsRequest;
+import com.aspose.words.model.requests.InsertFieldRequest;
+import com.aspose.words.model.requests.InsertPageNumbersRequest;
+import com.aspose.words.model.requests.UpdateFieldRequest;
+import com.aspose.words.model.requests.UpdateFieldsRequest;
+
+import junit.framework.TestCase;
 
 public class TestFields extends TestCase {
     private String testFolder = "DocumentElements/Fields";
@@ -47,159 +59,140 @@ public class TestFields extends TestCase {
     /*
      * Test for getting fields from document
      */
-    public void testGetFields() throws ApiException {
+    public void testGetFields() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestGetFields.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        GetFieldsRequest request = new GetFieldsRequest(remoteName,
+        GetFieldsRequest request = new GetFieldsRequest(remoteName, "sections/0",
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
-                null, null, null, "sections/0");
+                null, null, null);
 
         FieldsResponse result = TestInitializer.wordsApi.getFields(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 
     /*
      * Test for getting field from document
      */
-    public void testGetField() throws ApiException {
+    public void testGetField() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestGetField.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        GetFieldRequest request = new GetFieldRequest(remoteName, index,
+        GetFieldRequest request = new GetFieldRequest(remoteName, "sections/0", index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
-                null, null, null, "sections/0");
+                null, null, null);
 
         FieldResponse result = TestInitializer.wordsApi.getField(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 
     /*
      * Test for updating document field
      */
-    public void testPostField() throws ApiException {
+    public void testPostField() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestPostField.docx";
         Integer index = 0;
         Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        PostFieldRequest request = new PostFieldRequest(remoteName, body, index,
+        UpdateFieldRequest request = new UpdateFieldRequest(remoteName, body, "sections/0/paragraphs/0", index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null,
-                null, "sections/0/paragraphs/0");
+                null);
 
-        FieldResponse result = TestInitializer.wordsApi.postField(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        FieldResponse result = TestInitializer.wordsApi.updateField(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for inserting document field
      */
-    public void testPutField() throws ApiException {
+    public void testPutField() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestPutField.docx";
         Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        PutFieldRequest request = new PutFieldRequest(remoteName, body,
+        InsertFieldRequest request = new InsertFieldRequest(remoteName, body, "sections/0/paragraphs/0",
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null,
-                null, "sections/0/paragraphs/0", null);
+                null, null);
 
-        FieldResponse result = TestInitializer.wordsApi.putField(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        FieldResponse result = TestInitializer.wordsApi.insertField(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for reevaluating fields in document
      */
-    public void testPostUpdateDocumentFields() throws ApiException {
+    public void testPostUpdateDocumentFields() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostUpdateDocumentFields.docx";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        PostUpdateDocumentFieldsRequest request = new PostUpdateDocumentFieldsRequest(remoteName,
+        UpdateFieldsRequest request = new UpdateFieldsRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
 
-        DocumentResponse result = TestInitializer.wordsApi.postUpdateDocumentFields(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        DocumentResponse result = TestInitializer.wordsApi.updateFields(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for reevaluating fields in document
      */
-    public void testPostInsertPageNumbers() throws ApiException {
+    public void testPostInsertPageNumbers() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostInsertPageNumbers.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         PageNumber body = new PageNumber().format("{PAGE} of { NUMPAGES }").alignment("center").isTop(false);
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        PostInsertPageNumbersRequest request = new PostInsertPageNumbersRequest(remoteName, body,
+        InsertPageNumbersRequest request = new InsertPageNumbersRequest(remoteName, body,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, destName, null, null);
 
-        DocumentResponse result = TestInitializer.wordsApi.postInsertPageNumbers(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        DocumentResponse result = TestInitializer.wordsApi.insertPageNumbers(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for removing field
      */
-    public void testDeleteField() throws ApiException {
+    public void testDeleteField() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestDeleteField.docx";
         Integer index = 0;
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        DeleteFieldRequest request = new DeleteFieldRequest(remoteName, index,
+        DeleteFieldRequest request = new DeleteFieldRequest(remoteName, "sections/0/paragraphs/0", index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null,
-                null, "sections/0/paragraphs/0");
-
-        AsposeResponse result = TestInitializer.wordsApi.deleteField(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+                null);
+        TestInitializer.wordsApi.deleteField(request);
     }
 
     /*
      * Test for removing fields
      */
-    public void testDeleteFields() throws ApiException {
+    public void testDeleteFields() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestDeleteFields.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        DeleteFieldsRequest request = new DeleteFieldsRequest(remoteName,
+        DeleteFieldsRequest request = new DeleteFieldsRequest(remoteName, "sections/0",
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null,
-                null, "sections/0");
+                null);
 
-        AsposeResponse result = TestInitializer.wordsApi.deleteFields(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        TestInitializer.wordsApi.deleteFields(request);
     }
 }

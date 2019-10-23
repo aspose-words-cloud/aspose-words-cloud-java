@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.HeaderFooterLinkCollection;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.HeaderFooterLinkCollection;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/headersfooters 
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/headersfooters.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/headersfooters ")
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/headersfooters.")
 
 public class HeaderFootersResponse extends WordsResponse {
   @SerializedName("HeaderFooters")
@@ -55,10 +55,10 @@ public class HeaderFootersResponse extends WordsResponse {
   }
 
    /**
-   * Collection of headers/footers
+   * Gets or sets collection of headers/footers.
    * @return headerFooters
   **/
-  @ApiModelProperty(value = "Collection of headers/footers")
+  @ApiModelProperty(value = "Gets or sets collection of headers/footers.")
   public HeaderFooterLinkCollection getHeaderFooters() {
     return headerFooters;
   }

@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.HtmlSaveOptionsData;
+import com.aspose.words.model.HtmlSaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,10 +54,10 @@ public class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
   }
 
    /**
-   * Specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             
+   * Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             
    * @return exportCidUrlsForMhtmlResources
   **/
-  @ApiModelProperty(value = "Specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             ")
+  @ApiModelProperty(value = "Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             ")
   public Boolean isisExportCidUrlsForMhtmlResources() {
     return exportCidUrlsForMhtmlResources;
   }

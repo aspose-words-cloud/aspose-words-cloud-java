@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Bookmark;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.Bookmark;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,10 +55,10 @@ public class BookmarkResponse extends WordsResponse {
   }
 
    /**
-   * Bookmark.
+   * Gets or sets bookmark.
    * @return bookmark
   **/
-  @ApiModelProperty(value = "Bookmark.")
+  @ApiModelProperty(value = "Gets or sets bookmark.")
   public Bookmark getBookmark() {
     return bookmark;
   }

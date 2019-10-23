@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateRunFontRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,7 +38,7 @@ public class UpdateRunFontRequest {
     private String Name;
 
     /*
-     * Font dto object
+     * Font dto object.
      */
     private Font FontDto;
 
@@ -91,7 +91,7 @@ public class UpdateRunFontRequest {
      * Initializes a new instance of the updateRunFontRequest class.
      *  
      * @param String name The document name.
-     * @param Font fontDto Font dto object
+     * @param Font fontDto Font dto object.
      * @param String paragraphPath Path to parent paragraph.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -131,14 +131,14 @@ public class UpdateRunFontRequest {
     }
 
     /*
-     *  Gets Font dto object
+     *  Gets Font dto object.
      */
     public Font getFontDto() {
         return FontDto;
     }
 
     /*
-     * Sets Font dto object
+     * Sets Font dto object.
      */
     public void setFontDto(Font value) {
         FontDto = value;
@@ -270,4 +270,3 @@ public class UpdateRunFontRequest {
         RevisionDateTime = value;
     }
 }
-/*

@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -45,7 +45,7 @@ import java.io.IOException;
 
 public class PreferredWidth {
   /**
-   * Gets the unit of measure used for this preferred width value.
+   * Gets or sets the unit of measure used for this preferred width value.
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -105,10 +105,10 @@ public class PreferredWidth {
   }
 
    /**
-   * Gets the unit of measure used for this preferred width value.
+   * Gets or sets the unit of measure used for this preferred width value.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "Gets the unit of measure used for this preferred width value.")
+  @ApiModelProperty(required = true, value = "Gets or sets the unit of measure used for this preferred width value.")
   public TypeEnum getType() {
     return type;
   }

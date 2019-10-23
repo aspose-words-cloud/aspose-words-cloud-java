@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud;
+package com.aspose.words;
 
 
 public class Configuration {

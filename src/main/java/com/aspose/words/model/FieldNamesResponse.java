@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FieldNames;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.FieldNames;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,10 +55,10 @@ public class FieldNamesResponse extends WordsResponse {
   }
 
    /**
-   * Collection of mail merge fields.
+   * Gets or sets collection of mail merge fields.
    * @return fieldNames
   **/
-  @ApiModelProperty(value = "Collection of mail merge fields.")
+  @ApiModelProperty(value = "Gets or sets collection of mail merge fields.")
   public FieldNames getFieldNames() {
     return fieldNames;
   }

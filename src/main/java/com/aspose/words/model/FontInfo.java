@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Font info
+ * Font info.
  */
-@ApiModel(description = "Font info")
+@ApiModel(description = "Font info.")
 
 public class FontInfo {
   @SerializedName("FontFamilyName")
@@ -62,10 +62,10 @@ public class FontInfo {
   }
 
    /**
-   * Family name of the font.
+   * Gets or sets family name of the font.
    * @return fontFamilyName
   **/
-  @ApiModelProperty(value = "Family name of the font.")
+  @ApiModelProperty(value = "Gets or sets family name of the font.")
   public String getFontFamilyName() {
     return fontFamilyName;
   }
@@ -80,10 +80,10 @@ public class FontInfo {
   }
 
    /**
-   * Full name of the font.
+   * Gets or sets full name of the font.
    * @return fullFontName
   **/
-  @ApiModelProperty(value = "Full name of the font.")
+  @ApiModelProperty(value = "Gets or sets full name of the font.")
   public String getFullFontName() {
     return fullFontName;
   }
@@ -98,10 +98,10 @@ public class FontInfo {
   }
 
    /**
-   * Version string of the font.
+   * Gets or sets version string of the font.
    * @return version
   **/
-  @ApiModelProperty(value = "Version string of the font.")
+  @ApiModelProperty(value = "Gets or sets version string of the font.")
   public String getVersion() {
     return version;
   }
@@ -116,10 +116,10 @@ public class FontInfo {
   }
 
    /**
-   * Path to the font file if any.
+   * Gets or sets path to the font file if any.
    * @return filePath
   **/
-  @ApiModelProperty(value = "Path to the font file if any.")
+  @ApiModelProperty(value = "Gets or sets path to the font file if any.")
   public String getFilePath() {
     return filePath;
   }

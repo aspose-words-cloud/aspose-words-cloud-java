@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.OfficeMathObject;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.OfficeMathObject;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,10 +66,10 @@ public class OfficeMathObjectsCollection extends LinkElement {
   }
 
    /**
-   * Collection of OfficeMath objects.
+   * Gets or sets collection of OfficeMath objects.
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of OfficeMath objects.")
+  @ApiModelProperty(value = "Gets or sets collection of OfficeMath objects.")
   public List<OfficeMathObject> getList() {
     return list;
   }

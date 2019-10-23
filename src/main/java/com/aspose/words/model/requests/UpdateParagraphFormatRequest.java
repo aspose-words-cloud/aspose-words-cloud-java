@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateParagraphFormatRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,7 +38,7 @@ public class UpdateParagraphFormatRequest {
     private String Name;
 
     /*
-     * Paragraph format object
+     * Paragraph format object.
      */
     private ParagraphFormat Dto;
 
@@ -91,7 +91,7 @@ public class UpdateParagraphFormatRequest {
      * Initializes a new instance of the updateParagraphFormatRequest class.
      *  
      * @param String name The document name.
-     * @param ParagraphFormat dto Paragraph format object
+     * @param ParagraphFormat dto Paragraph format object.
      * @param String nodePath Path to the node which contains paragraphs.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -131,14 +131,14 @@ public class UpdateParagraphFormatRequest {
     }
 
     /*
-     *  Gets Paragraph format object
+     *  Gets Paragraph format object.
      */
     public ParagraphFormat getDto() {
         return Dto;
     }
 
     /*
-     * Sets Paragraph format object
+     * Sets Paragraph format object.
      */
     public void setDto(ParagraphFormat value) {
         Dto = value;
@@ -270,4 +270,3 @@ public class UpdateParagraphFormatRequest {
         RevisionDateTime = value;
     }
 }
-/*

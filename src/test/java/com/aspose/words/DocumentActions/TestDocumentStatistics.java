@@ -24,15 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentActions;
+package com.aspose.words.DocumentActions;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.StatDataResponse;
-import com.aspose.words.cloud.model.requests.GetDocumentStatisticsRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.StatDataResponse;
+import com.aspose.words.model.requests.GetDocumentStatisticsRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
 public class TestDocumentStatistics extends TestCase {
@@ -47,19 +48,17 @@ public class TestDocumentStatistics extends TestCase {
     /*
      * Test for getting document statistics
      */
-    public void testGetDocumentStatistics() throws ApiException {
+    public void testGetDocumentStatistics() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentStatistics.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentStatisticsRequest request = new GetDocumentStatisticsRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null, null);
 
         StatDataResponse result = TestInitializer.wordsApi.getDocumentStatistics(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 }

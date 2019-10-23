@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.ApiError;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.ApiError;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Response for Api error
+ * Response for Api error.
  */
-@ApiModel(description = "Response for Api error")
+@ApiModel(description = "Response for Api error.")
 
 public class WordsApiErrorResponse extends WordsResponse {
   @SerializedName("Error")
@@ -55,10 +55,10 @@ public class WordsApiErrorResponse extends WordsResponse {
   }
 
    /**
-   * Error.
+   * Gets or sets error.
    * @return error
   **/
-  @ApiModelProperty(value = "Error.")
+  @ApiModelProperty(value = "Gets or sets error.")
   public ApiError getError() {
     return error;
   }

@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.SectionLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.SectionLink;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,9 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of links to sections
+ * Collection of links to sections.
  */
-@ApiModel(description = "Collection of links to sections")
+@ApiModel(description = "Collection of links to sections.")
 
 public class SectionLinkCollection extends LinkElement {
   @SerializedName("SectionLinkList")
@@ -66,10 +66,10 @@ public class SectionLinkCollection extends LinkElement {
   }
 
    /**
-   * Collection of section&#39;s links
+   * Gets or sets collection of section&#39;s links.
    * @return sectionLinkList
   **/
-  @ApiModelProperty(value = "Collection of section's links")
+  @ApiModelProperty(value = "Gets or sets collection of section's links.")
   public List<SectionLink> getSectionLinkList() {
     return sectionLinkList;
   }

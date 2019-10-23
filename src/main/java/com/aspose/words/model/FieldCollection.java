@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Field;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.Field;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,10 +66,10 @@ public class FieldCollection extends LinkElement {
   }
 
    /**
-   * Collection of fields
+   * Gets or sets collection of fields.
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of fields")
+  @ApiModelProperty(value = "Gets or sets collection of fields.")
   public List<Field> getList() {
     return list;
   }

@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -62,10 +62,10 @@ public class PageNumber {
   }
 
    /**
-   * Page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
+   * Gets or sets page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
    * @return format
   **/
-  @ApiModelProperty(value = "Page number format, e.g. \"{PAGE} of {NUMPAGES}\".")
+  @ApiModelProperty(value = "Gets or sets page number format, e.g. \"{PAGE} of {NUMPAGES}\".")
   public String getFormat() {
     return format;
   }
@@ -80,10 +80,10 @@ public class PageNumber {
   }
 
    /**
-   * Text alignment, possible values are left, right, center or justify.
+   * Gets or sets text alignment, possible values are left, right, center or justify.
    * @return alignment
   **/
-  @ApiModelProperty(value = "Text alignment, possible values are left, right, center or justify.")
+  @ApiModelProperty(value = "Gets or sets text alignment, possible values are left, right, center or justify.")
   public String getAlignment() {
     return alignment;
   }
@@ -98,10 +98,10 @@ public class PageNumber {
   }
 
    /**
-   * If true the page number is added at the top of the page, else at the bottom.
+   * Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
    * @return isTop
   **/
-  @ApiModelProperty(required = true, value = "If true the page number is added at the top of the page, else at the bottom.")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.")
   public Boolean isisIsTop() {
     return isTop;
   }
@@ -116,10 +116,10 @@ public class PageNumber {
   }
 
    /**
-   * If true the page number is added on first page too.
+   * Gets or sets a value indicating whether if true the page number is added on first page too.
    * @return setPageNumberOnFirstPage
   **/
-  @ApiModelProperty(required = true, value = "If true the page number is added on first page too.")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether if true the page number is added on first page too.")
   public Boolean isisSetPageNumberOnFirstPage() {
     return setPageNumberOnFirstPage;
   }

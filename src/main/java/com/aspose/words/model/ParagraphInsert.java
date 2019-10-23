@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Paragraph element
+ * Paragraph element.
  */
-@ApiModel(description = "Paragraph element")
+@ApiModel(description = "Paragraph element.")
 
 public class ParagraphInsert {
   @SerializedName("Text")
@@ -53,10 +53,10 @@ public class ParagraphInsert {
   }
 
    /**
-   * Paragraph&#39;s text
+   * Gets or sets paragraph&#39;s text.
    * @return text
   **/
-  @ApiModelProperty(value = "Paragraph's text")
+  @ApiModelProperty(value = "Gets or sets paragraph's text.")
   public String getText() {
     return text;
   }

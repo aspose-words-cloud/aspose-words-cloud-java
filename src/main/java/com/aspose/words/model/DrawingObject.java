@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DrawingObjectLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.DrawingObjectLink;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -61,7 +61,7 @@ public class DrawingObject extends DrawingObjectLink {
   private WordsApiLink oleDataLink = null;
 
   /**
-   * Specifies where the distance to the image is measured from.             
+   * Gets or sets specifies where the distance to the image is measured from.             
    */
   @JsonAdapter(RelativeHorizontalPositionEnum.Adapter.class)
   public enum RelativeHorizontalPositionEnum {
@@ -125,7 +125,7 @@ public class DrawingObject extends DrawingObjectLink {
   private RelativeHorizontalPositionEnum relativeHorizontalPosition = null;
 
   /**
-   * Specifies where the distance to the image measured from.
+   * Gets or sets specifies where the distance to the image measured from.
    */
   @JsonAdapter(RelativeVerticalPositionEnum.Adapter.class)
   public enum RelativeVerticalPositionEnum {
@@ -200,7 +200,7 @@ public class DrawingObject extends DrawingObjectLink {
   private Double width = null;
 
   /**
-   * Specifies how to wrap text around the image.
+   * Gets or sets specifies how to wrap text around the image.
    */
   @JsonAdapter(WrapTypeEnum.Adapter.class)
   public enum WrapTypeEnum {
@@ -263,10 +263,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Height of the drawing object in points.
+   * Gets or sets height of the drawing object in points.
    * @return height
   **/
-  @ApiModelProperty(value = "Height of the drawing object in points.")
+  @ApiModelProperty(value = "Gets or sets height of the drawing object in points.")
   public Double getHeight() {
     return height;
   }
@@ -281,10 +281,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Link to image data. Can be null if shape does not have an image.
+   * Gets or sets link to image data. Can be null if shape does not have an image.
    * @return imageDataLink
   **/
-  @ApiModelProperty(value = "Link to image data. Can be null if shape does not have an image.")
+  @ApiModelProperty(value = "Gets or sets link to image data. Can be null if shape does not have an image.")
   public WordsApiLink getImageDataLink() {
     return imageDataLink;
   }
@@ -299,10 +299,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Distance in points from the origin to the left side of the image.             
+   * Gets or sets distance in points from the origin to the left side of the image.             
    * @return left
   **/
-  @ApiModelProperty(value = "Distance in points from the origin to the left side of the image.             ")
+  @ApiModelProperty(value = "Gets or sets distance in points from the origin to the left side of the image.             ")
   public Double getLeft() {
     return left;
   }
@@ -317,10 +317,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Link to ole object. Can be null if shape does not have ole data.
+   * Gets or sets link to ole object. Can be null if shape does not have ole data.
    * @return oleDataLink
   **/
-  @ApiModelProperty(value = "Link to ole object. Can be null if shape does not have ole data.")
+  @ApiModelProperty(value = "Gets or sets link to ole object. Can be null if shape does not have ole data.")
   public WordsApiLink getOleDataLink() {
     return oleDataLink;
   }
@@ -335,10 +335,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Specifies where the distance to the image is measured from.             
+   * Gets or sets specifies where the distance to the image is measured from.             
    * @return relativeHorizontalPosition
   **/
-  @ApiModelProperty(value = "Specifies where the distance to the image is measured from.             ")
+  @ApiModelProperty(value = "Gets or sets specifies where the distance to the image is measured from.             ")
   public RelativeHorizontalPositionEnum getRelativeHorizontalPosition() {
     return relativeHorizontalPosition;
   }
@@ -353,10 +353,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Specifies where the distance to the image measured from.
+   * Gets or sets specifies where the distance to the image measured from.
    * @return relativeVerticalPosition
   **/
-  @ApiModelProperty(value = "Specifies where the distance to the image measured from.")
+  @ApiModelProperty(value = "Gets or sets specifies where the distance to the image measured from.")
   public RelativeVerticalPositionEnum getRelativeVerticalPosition() {
     return relativeVerticalPosition;
   }
@@ -379,10 +379,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * A list of links that originate from this .
+   * Gets or sets a list of links that originate from this .
    * @return renderLinks
   **/
-  @ApiModelProperty(value = "A list of links that originate from this .")
+  @ApiModelProperty(value = "Gets or sets a list of links that originate from this .")
   public List<WordsApiLink> getRenderLinks() {
     return renderLinks;
   }
@@ -397,10 +397,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Distance in points from the origin to the top side of the image.
+   * Gets or sets distance in points from the origin to the top side of the image.
    * @return top
   **/
-  @ApiModelProperty(value = "Distance in points from the origin to the top side of the image.")
+  @ApiModelProperty(value = "Gets or sets distance in points from the origin to the top side of the image.")
   public Double getTop() {
     return top;
   }
@@ -415,10 +415,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Width of the drawing objects in points.
+   * Gets or sets width of the drawing objects in points.
    * @return width
   **/
-  @ApiModelProperty(value = "Width of the drawing objects in points.")
+  @ApiModelProperty(value = "Gets or sets width of the drawing objects in points.")
   public Double getWidth() {
     return width;
   }
@@ -433,10 +433,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Specifies how to wrap text around the image.
+   * Gets or sets specifies how to wrap text around the image.
    * @return wrapType
   **/
-  @ApiModelProperty(value = "Specifies how to wrap text around the image.")
+  @ApiModelProperty(value = "Gets or sets specifies how to wrap text around the image.")
   public WrapTypeEnum getWrapType() {
     return wrapType;
   }

@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.GraphicsQualityOptionsData;
-import com.aspose.words.cloud.model.ImageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.GraphicsQualityOptionsData;
+import com.aspose.words.model.ImageSaveOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,10 +59,10 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
   }
 
    /**
-   * Specifies method used while converting images to 1 bpp format.
+   * Gets or sets specifies method used while converting images to 1 bpp format.
    * @return tiffBinarizationMethod
   **/
-  @ApiModelProperty(value = "Specifies method used while converting images to 1 bpp format.")
+  @ApiModelProperty(value = "Gets or sets specifies method used while converting images to 1 bpp format.")
   public String getTiffBinarizationMethod() {
     return tiffBinarizationMethod;
   }
@@ -77,10 +77,10 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
   }
 
    /**
-   * Type of compression.
+   * Gets or sets type of compression.
    * @return tiffCompression
   **/
-  @ApiModelProperty(value = "Type of compression.")
+  @ApiModelProperty(value = "Gets or sets type of compression.")
   public String getTiffCompression() {
     return tiffCompression;
   }

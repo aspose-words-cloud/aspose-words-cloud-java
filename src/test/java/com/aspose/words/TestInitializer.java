@@ -1,7 +1,12 @@
-package com.aspose.words.cloud;
-import com.aspose.words.cloud.api.WordsApi;
+package com.aspose.words;
+import com.aspose.words.ApiException;
+import com.aspose.words.api.WordsApi;
+import com.aspose.words.model.FilesUploadResult;
+import com.aspose.words.model.requests.UploadFileRequest;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Paths;
@@ -23,6 +28,11 @@ public final class TestInitializer {
 
         wordsApi = new WordsApi(new ApiClient());
         ApiClient client = wordsApi.getApiClient();
-        client.setBaseUrl(creds.get("BaseUrl")).setAppKey(creds.get("AppKey")).setAppSid(creds.get("AppSid"));
+        client.setDebugging(false).setBaseUrl(creds.get("BaseUrl")).setAppKey(creds.get("AppKey")).setAppSid(creds.get("AppSid"));
+    }
+
+    public static FilesUploadResult UploadFile(String file, String path) throws FileNotFoundException, ApiException {
+        UploadFileRequest request = new UploadFileRequest(new File(file), path, null);
+        return wordsApi.uploadFile(request);
     }
 }

@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DocumentPosition;
+import com.aspose.words.model.DocumentPosition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Table element
+ * Table element.
  */
-@ApiModel(description = "Table element")
+@ApiModel(description = "Table element.")
 
 public class TableInsert {
   @SerializedName("Position")
@@ -60,10 +60,10 @@ public class TableInsert {
   }
 
    /**
-   * Table will be inserted before specified position.
+   * Gets or sets table will be inserted before specified position.
    * @return position
   **/
-  @ApiModelProperty(value = "Table will be inserted before specified position.")
+  @ApiModelProperty(value = "Gets or sets table will be inserted before specified position.")
   public DocumentPosition getPosition() {
     return position;
   }
@@ -78,10 +78,10 @@ public class TableInsert {
   }
 
    /**
-   * Count of columns. Default is 2.
+   * Gets or sets count of columns. Default is 2.
    * @return columnsCount
   **/
-  @ApiModelProperty(required = true, value = "Count of columns. Default is 2.")
+  @ApiModelProperty(required = true, value = "Gets or sets count of columns. Default is 2.")
   public Integer getColumnsCount() {
     return columnsCount;
   }
@@ -96,10 +96,10 @@ public class TableInsert {
   }
 
    /**
-   * Count of rows. Default is 2.
+   * Gets or sets count of rows. Default is 2.
    * @return rowsCount
   **/
-  @ApiModelProperty(required = true, value = "Count of rows. Default is 2.")
+  @ApiModelProperty(required = true, value = "Gets or sets count of rows. Default is 2.")
   public Integer getRowsCount() {
     return rowsCount;
   }

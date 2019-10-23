@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DocumentEntry;
+import com.aspose.words.model.DocumentEntry;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -64,10 +64,10 @@ public class DocumentEntryList {
   }
 
    /**
-   * List of documents.
+   * Gets or sets list of documents.
    * @return documentEntries
   **/
-  @ApiModelProperty(value = "List of documents.")
+  @ApiModelProperty(value = "Gets or sets list of documents.")
   public List<DocumentEntry> getDocumentEntries() {
     return documentEntries;
   }

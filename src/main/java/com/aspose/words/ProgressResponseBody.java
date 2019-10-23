@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud;
+package com.aspose.words;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.ResponseBody;

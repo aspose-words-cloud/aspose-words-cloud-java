@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Footnote;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.Footnote;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/footnote/0 
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/footnote/0.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/footnote/0 ")
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/footnote/0.")
 
 public class FootnoteResponse extends WordsResponse {
   @SerializedName("Footnote")
@@ -55,10 +55,10 @@ public class FootnoteResponse extends WordsResponse {
   }
 
    /**
-   * Footnote information
+   * Gets or sets footnote information.
    * @return footnote
   **/
-  @ApiModelProperty(value = "Footnote information")
+  @ApiModelProperty(value = "Gets or sets footnote information.")
   public Footnote getFootnote() {
     return footnote;
   }

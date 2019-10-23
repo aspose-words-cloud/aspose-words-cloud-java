@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateDrawingObjectRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -48,14 +48,14 @@ public class UpdateDrawingObjectRequest {
     private File ImageFile;
 
     /*
-     * Object index.
-     */
-    private Integer Index;
-
-    /*
      * Path to the node, which contains collection of drawing objects.
      */
     private String NodePath;
+
+    /*
+     * Object index.
+     */
+    private Integer Index;
 
     /*
      * Original document folder.
@@ -98,8 +98,8 @@ public class UpdateDrawingObjectRequest {
      * @param String name The document name.
      * @param String drawingObject Drawing object parameters
      * @param File imageFile File with image
-     * @param Integer index Object index.
      * @param String nodePath Path to the node, which contains collection of drawing objects.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -108,12 +108,12 @@ public class UpdateDrawingObjectRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateDrawingObjectRequest(String name,  String drawingObject,  File imageFile,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateDrawingObjectRequest(String name,  String drawingObject,  File imageFile,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         DrawingObject = drawingObject;
         ImageFile = imageFile;
-        Index = index;
         NodePath = nodePath;
+        Index = index;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -166,20 +166,6 @@ public class UpdateDrawingObjectRequest {
     }
 
     /*
-     *  Gets Object index.
-     */
-    public Integer getIndex() {
-        return Index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        Index = value;
-    }
-
-    /*
      *  Gets Path to the node, which contains collection of drawing objects.
      */
     public String getNodePath() {
@@ -191,6 +177,20 @@ public class UpdateDrawingObjectRequest {
      */
     public void setNodePath(String value) {
         NodePath = value;
+    }
+
+    /*
+     *  Gets Object index.
+     */
+    public Integer getIndex() {
+        return Index;
+    }
+
+    /*
+     * Sets Object index.
+     */
+    public void setIndex(Integer value) {
+        Index = value;
     }
 
     /*
@@ -291,4 +291,3 @@ public class UpdateDrawingObjectRequest {
         RevisionDateTime = value;
     }
 }
-/*

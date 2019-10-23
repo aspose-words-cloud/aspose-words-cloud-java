@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableRowRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -78,7 +78,7 @@ public class InsertTableRowRequest {
     private String RevisionDateTime;
 
     /*
-     * Table row parameters/
+     * Table row parameters/.
      */
     private TableRowInsert Row;
     
@@ -94,7 +94,7 @@ public class InsertTableRowRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableRowInsert row Table row parameters/
+     * @param TableRowInsert row Table row parameters/.
      */
     public InsertTableRowRequest(String name,  String tablePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableRowInsert row) {
         Name = name;
@@ -236,17 +236,16 @@ public class InsertTableRowRequest {
     }
 
     /*
-     *  Gets Table row parameters/
+     *  Gets Table row parameters/.
      */
     public TableRowInsert getRow() {
         return Row;
     }
 
     /*
-     * Sets Table row parameters/
+     * Sets Table row parameters/.
      */
     public void setRow(TableRowInsert value) {
         Row = value;
     }
 }
-/*

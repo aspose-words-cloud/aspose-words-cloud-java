@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -56,10 +56,10 @@ public class DocumentEntry {
   }
 
    /**
-   * Path to document to append at the server.
+   * Gets or sets path to document to append at the server.
    * @return href
   **/
-  @ApiModelProperty(value = "Path to document to append at the server.")
+  @ApiModelProperty(value = "Gets or sets path to document to append at the server.")
   public String getHref() {
     return href;
   }
@@ -74,10 +74,10 @@ public class DocumentEntry {
   }
 
    /**
-   * Defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
+   * Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
    * @return importFormatMode
   **/
-  @ApiModelProperty(value = "Defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.")
+  @ApiModelProperty(value = "Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.")
   public String getImportFormatMode() {
     return importFormatMode;
   }

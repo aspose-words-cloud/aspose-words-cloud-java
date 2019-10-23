@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FileLink;
+import com.aspose.words.model.FileLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -62,10 +62,10 @@ public class SplitDocumentResult {
   }
 
    /**
-   * Linkt to the source document.
+   * Gets or sets linkt to the source document.
    * @return sourceDocument
   **/
-  @ApiModelProperty(value = "Linkt to the source document.")
+  @ApiModelProperty(value = "Gets or sets linkt to the source document.")
   public FileLink getSourceDocument() {
     return sourceDocument;
   }
@@ -88,10 +88,10 @@ public class SplitDocumentResult {
   }
 
    /**
-   * Array of pages.
+   * Gets or sets array of pages.
    * @return pages
   **/
-  @ApiModelProperty(value = "Array of pages.")
+  @ApiModelProperty(value = "Gets or sets array of pages.")
   public List<FileLink> getPages() {
     return pages;
   }
@@ -106,10 +106,10 @@ public class SplitDocumentResult {
   }
 
    /**
-   * Link to the file archive with pages.
+   * Gets or sets link to the file archive with pages.
    * @return zippedPages
   **/
-  @ApiModelProperty(value = "Link to the file archive with pages.")
+  @ApiModelProperty(value = "Gets or sets link to the file archive with pages.")
   public FileLink getZippedPages() {
     return zippedPages;
   }

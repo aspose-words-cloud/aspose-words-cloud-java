@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FootnotesStatData;
-import com.aspose.words.cloud.model.PageStatData;
+import com.aspose.words.model.FootnotesStatData;
+import com.aspose.words.model.PageStatData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,9 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Container for the document&#39;s statistical data
+ * Container for the document&#39;s statistical data.
  */
-@ApiModel(description = "Container for the document's statistical data")
+@ApiModel(description = "Container for the document's statistical data.")
 
 public class DocumentStatData {
   @SerializedName("WordCount")
@@ -69,10 +69,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Total count of words in the document
+   * Gets or sets total count of words in the document.
    * @return wordCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of words in the document")
+  @ApiModelProperty(required = true, value = "Gets or sets total count of words in the document.")
   public Integer getWordCount() {
     return wordCount;
   }
@@ -87,10 +87,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Total count of paragraphs in the document
+   * Gets or sets total count of paragraphs in the document.
    * @return paragraphCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of paragraphs in the document")
+  @ApiModelProperty(required = true, value = "Gets or sets total count of paragraphs in the document.")
   public Integer getParagraphCount() {
     return paragraphCount;
   }
@@ -105,10 +105,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Total count of pages in the document
+   * Gets or sets total count of pages in the document.
    * @return pageCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of pages in the document")
+  @ApiModelProperty(required = true, value = "Gets or sets total count of pages in the document.")
   public Integer getPageCount() {
     return pageCount;
   }
@@ -123,10 +123,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Detailed statistics of footnotes
+   * Gets or sets detailed statistics of footnotes.
    * @return footnotesStatData
   **/
-  @ApiModelProperty(value = "Detailed statistics of footnotes")
+  @ApiModelProperty(value = "Gets or sets detailed statistics of footnotes.")
   public FootnotesStatData getFootnotesStatData() {
     return footnotesStatData;
   }
@@ -149,10 +149,10 @@ public class DocumentStatData {
   }
 
    /**
-   * Detailed statistics of all pages
+   * Gets or sets detailed statistics of all pages.
    * @return pageStatData
   **/
-  @ApiModelProperty(value = "Detailed statistics of all pages")
+  @ApiModelProperty(value = "Gets or sets detailed statistics of all pages.")
   public List<PageStatData> getPageStatData() {
     return pageStatData;
   }

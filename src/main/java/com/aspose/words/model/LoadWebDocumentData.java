@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Contains data for load web document
+ * Contains data for load web document.
  */
-@ApiModel(description = "Contains data for load web document")
+@ApiModel(description = "Contains data for load web document.")
 
 public class LoadWebDocumentData {
   @SerializedName("LoadingDocumentUrl")
@@ -57,10 +57,10 @@ public class LoadWebDocumentData {
   }
 
    /**
-   * Web document url
+   * Gets or sets web document url.
    * @return loadingDocumentUrl
   **/
-  @ApiModelProperty(value = "Web document url")
+  @ApiModelProperty(value = "Gets or sets web document url.")
   public String getLoadingDocumentUrl() {
     return loadingDocumentUrl;
   }
@@ -75,10 +75,10 @@ public class LoadWebDocumentData {
   }
 
    /**
-   * Save options
+   * Gets or sets save options.
    * @return saveOptions
   **/
-  @ApiModelProperty(value = "Save options")
+  @ApiModelProperty(value = "Gets or sets save options.")
   public SaveOptionsData getSaveOptions() {
     return saveOptions;
   }

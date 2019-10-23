@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for options of metafile rendering
+ * container class for options of metafile rendering.
  */
-@ApiModel(description = "container class for options of metafile rendering")
+@ApiModel(description = "container class for options of metafile rendering.")
 
 public class MetafileRenderingOptionsData {
   @SerializedName("EmfPlusDualRenderingMode")
@@ -62,10 +62,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Determines how EMF+ Dual metafiles should be rendered
+   * Gets or sets determines how EMF+ Dual metafiles should be rendered.
    * @return emfPlusDualRenderingMode
   **/
-  @ApiModelProperty(value = "Determines how EMF+ Dual metafiles should be rendered")
+  @ApiModelProperty(value = "Gets or sets determines how EMF+ Dual metafiles should be rendered.")
   public String getEmfPlusDualRenderingMode() {
     return emfPlusDualRenderingMode;
   }
@@ -98,10 +98,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Determines how metafile images should be rendered
+   * Gets or sets determines how metafile images should be rendered.
    * @return renderingMode
   **/
-  @ApiModelProperty(value = "Determines how metafile images should be rendered")
+  @ApiModelProperty(value = "Gets or sets determines how metafile images should be rendered.")
   public String getRenderingMode() {
     return renderingMode;
   }
@@ -116,10 +116,10 @@ public class MetafileRenderingOptionsData {
   }
 
    /**
-   * Determines how WMF metafiles with embedded EMF metafiles should be rendered
+   * Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.
    * @return useEmfEmbeddedToWmf
   **/
-  @ApiModelProperty(value = "Determines how WMF metafiles with embedded EMF metafiles should be rendered")
+  @ApiModelProperty(value = "Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.")
   public Boolean isisUseEmfEmbeddedToWmf() {
     return useEmfEmbeddedToWmf;
   }

@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Footnote;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.Footnote;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,10 +66,10 @@ public class FootnoteCollection extends LinkElement {
   }
 
    /**
-   * Collection of foonotes links 
+   * Gets or sets collection of foonotes links.
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of foonotes links ")
+  @ApiModelProperty(value = "Gets or sets collection of foonotes links.")
   public List<Footnote> getList() {
     return list;
   }

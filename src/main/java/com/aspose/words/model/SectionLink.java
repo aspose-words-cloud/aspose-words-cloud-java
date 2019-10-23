@@ -25,18 +25,18 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import io.swagger.annotations.ApiModel;
 
 /**
- * Section link element
+ * Section link element.
  */
-@ApiModel(description = "Section link element")
+@ApiModel(description = "Section link element.")
 
 public class SectionLink extends LinkElement {
 

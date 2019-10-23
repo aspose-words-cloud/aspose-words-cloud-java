@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetSectionPageSetupRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,7 +38,7 @@ public class GetSectionPageSetupRequest {
     private String Name;
 
     /*
-     * Section index
+     * Section index.
      */
     private Integer SectionIndex;
 
@@ -66,7 +66,7 @@ public class GetSectionPageSetupRequest {
      * Initializes a new instance of the getSectionPageSetupRequest class.
      *  
      * @param String name The document name.
-     * @param Integer sectionIndex Section index
+     * @param Integer sectionIndex Section index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -96,14 +96,14 @@ public class GetSectionPageSetupRequest {
     }
 
     /*
-     *  Gets Section index
+     *  Gets Section index.
      */
     public Integer getSectionIndex() {
         return SectionIndex;
     }
 
     /*
-     * Sets Section index
+     * Sets Section index.
      */
     public void setSectionIndex(Integer value) {
         SectionIndex = value;
@@ -165,4 +165,3 @@ public class GetSectionPageSetupRequest {
         Password = value;
     }
 }
-/*

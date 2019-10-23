@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Container for the footnotes statistical data
+ * Container for the footnotes statistical data.
  */
-@ApiModel(description = "Container for the footnotes statistical data")
+@ApiModel(description = "Container for the footnotes statistical data.")
 
 public class FootnotesStatData {
   @SerializedName("WordCount")
@@ -56,10 +56,10 @@ public class FootnotesStatData {
   }
 
    /**
-   * Total count of words in footnotes
+   * Gets or sets total count of words in footnotes.
    * @return wordCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of words in footnotes")
+  @ApiModelProperty(required = true, value = "Gets or sets total count of words in footnotes.")
   public Integer getWordCount() {
     return wordCount;
   }
@@ -74,10 +74,10 @@ public class FootnotesStatData {
   }
 
    /**
-   * Total count of paragraphs in footnotes
+   * Gets or sets total count of paragraphs in footnotes.
    * @return paragraphCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of paragraphs in footnotes")
+  @ApiModelProperty(required = true, value = "Gets or sets total count of paragraphs in footnotes.")
   public Integer getParagraphCount() {
     return paragraphCount;
   }

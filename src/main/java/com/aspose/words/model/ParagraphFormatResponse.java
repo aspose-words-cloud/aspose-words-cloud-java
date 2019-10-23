@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.ParagraphFormat;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.ParagraphFormat;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/format
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/format.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/paragraphs/{0}/format")
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/format.")
 
 public class ParagraphFormatResponse extends WordsResponse {
   @SerializedName("ParagraphFormat")
@@ -55,10 +55,10 @@ public class ParagraphFormatResponse extends WordsResponse {
   }
 
    /**
-   * Represents all the formatting for a paragraph.
+   * Gets or sets represents all the formatting for a paragraph.
    * @return paragraphFormat
   **/
-  @ApiModelProperty(value = "Represents all the formatting for a paragraph.")
+  @ApiModelProperty(value = "Gets or sets represents all the formatting for a paragraph.")
   public ParagraphFormat getParagraphFormat() {
     return paragraphFormat;
   }

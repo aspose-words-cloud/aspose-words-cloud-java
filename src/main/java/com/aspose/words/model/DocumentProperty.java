@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -61,10 +61,10 @@ public class DocumentProperty extends LinkElement {
   }
 
    /**
-   * Flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+   * Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
    * @return builtIn
   **/
-  @ApiModelProperty(value = "Flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.")
+  @ApiModelProperty(value = "Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.")
   public Boolean isisBuiltIn() {
     return builtIn;
   }
@@ -79,10 +79,10 @@ public class DocumentProperty extends LinkElement {
   }
 
    /**
-   * Name of the document property.
+   * Gets or sets name of the document property.
    * @return name
   **/
-  @ApiModelProperty(value = "Name of the document property.")
+  @ApiModelProperty(value = "Gets or sets name of the document property.")
   public String getName() {
     return name;
   }
@@ -97,10 +97,10 @@ public class DocumentProperty extends LinkElement {
   }
 
    /**
-   * string value of the document property. 
+   * Gets or sets string value of the document property.
    * @return value
   **/
-  @ApiModelProperty(value = "string value of the document property. ")
+  @ApiModelProperty(value = "Gets or sets string value of the document property.")
   public String getValue() {
     return value;
   }

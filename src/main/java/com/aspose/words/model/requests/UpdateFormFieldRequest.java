@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateFormFieldRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -43,14 +43,14 @@ public class UpdateFormFieldRequest {
     private FormField FormField;
 
     /*
-     * Object index.
-     */
-    private Integer Index;
-
-    /*
      * Path to the node that contains collection of formfields.
      */
     private String NodePath;
+
+    /*
+     * Object index.
+     */
+    private Integer Index;
 
     /*
      * Original document folder.
@@ -92,8 +92,8 @@ public class UpdateFormFieldRequest {
      *  
      * @param String name The document name.
      * @param FormField formField From field data.
-     * @param Integer index Object index.
      * @param String nodePath Path to the node that contains collection of formfields.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,11 +102,11 @@ public class UpdateFormFieldRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateFormFieldRequest(String name,  FormField formField,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateFormFieldRequest(String name,  FormField formField,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         FormField = formField;
-        Index = index;
         NodePath = nodePath;
+        Index = index;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -145,20 +145,6 @@ public class UpdateFormFieldRequest {
     }
 
     /*
-     *  Gets Object index.
-     */
-    public Integer getIndex() {
-        return Index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        Index = value;
-    }
-
-    /*
      *  Gets Path to the node that contains collection of formfields.
      */
     public String getNodePath() {
@@ -170,6 +156,20 @@ public class UpdateFormFieldRequest {
      */
     public void setNodePath(String value) {
         NodePath = value;
+    }
+
+    /*
+     *  Gets Object index.
+     */
+    public Integer getIndex() {
+        return Index;
+    }
+
+    /*
+     * Sets Object index.
+     */
+    public void setIndex(Integer value) {
+        Index = value;
     }
 
     /*
@@ -270,4 +270,3 @@ public class UpdateFormFieldRequest {
         RevisionDateTime = value;
     }
 }
-/*

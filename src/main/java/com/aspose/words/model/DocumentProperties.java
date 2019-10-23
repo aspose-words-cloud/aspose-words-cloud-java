@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DocumentProperty;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.DocumentProperty;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,10 +66,10 @@ public class DocumentProperties extends LinkElement {
   }
 
    /**
-   * Collection of document properties.
+   * Gets or sets collection of document properties.
    * @return list
   **/
-  @ApiModelProperty(value = "Collection of document properties.")
+  @ApiModelProperty(value = "Gets or sets collection of document properties.")
   public List<DocumentProperty> getList() {
     return list;
   }

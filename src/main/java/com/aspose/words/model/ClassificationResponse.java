@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.ClassificationResult;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.ClassificationResult;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,9 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify
+ * This response should be returned by the service when handling: PUT http://api.aspose.com/v4.0/words/classify.
  */
-@ApiModel(description = "This response should be returned by the service when handling: PUT http://api.aspose.com/v1.1/words/classify")
+@ApiModel(description = "This response should be returned by the service when handling: PUT http://api.aspose.com/v4.0/words/classify.")
 
 public class ClassificationResponse extends WordsResponse {
   @SerializedName("BestClassName")
@@ -63,10 +63,10 @@ public class ClassificationResponse extends WordsResponse {
   }
 
    /**
-   * Best class name.        
+   * Gets or sets best class name.
    * @return bestClassName
   **/
-  @ApiModelProperty(value = "Best class name.        ")
+  @ApiModelProperty(value = "Gets or sets best class name.")
   public String getBestClassName() {
     return bestClassName;
   }
@@ -81,10 +81,10 @@ public class ClassificationResponse extends WordsResponse {
   }
 
    /**
-   * Best class probability.
+   * Gets or sets best class probability.
    * @return bestClassProbability
   **/
-  @ApiModelProperty(value = "Best class probability.")
+  @ApiModelProperty(value = "Gets or sets best class probability.")
   public Double getBestClassProbability() {
     return bestClassProbability;
   }
@@ -107,10 +107,10 @@ public class ClassificationResponse extends WordsResponse {
   }
 
    /**
-   * Array of best classes results.
+   * Gets or sets array of best classes results.
    * @return bestResults
   **/
-  @ApiModelProperty(value = "Array of best classes results.")
+  @ApiModelProperty(value = "Gets or sets array of best classes results.")
   public List<ClassificationResult> getBestResults() {
     return bestResults;
   }

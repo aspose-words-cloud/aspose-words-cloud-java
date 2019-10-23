@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Paragraph format element             
+ * Paragraph format element.             
  */
-@ApiModel(description = "Paragraph format element             ")
+@ApiModel(description = "Paragraph format element.             ")
 
 public class ParagraphFormat extends LinkElement {
   @SerializedName("AddSpaceBetweenFarEastAndAlpha")
@@ -245,7 +245,7 @@ public class ParagraphFormat extends LinkElement {
   private Boolean noSpaceBetweenParagraphsOfSameStyle = null;
 
   /**
-   * Specifies the outline level of the paragraph in the document.             
+   * Gets or sets specifies the outline level of the paragraph in the document.             
    */
   @JsonAdapter(OutlineLevelEnum.Adapter.class)
   public enum OutlineLevelEnum {
@@ -1246,10 +1246,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * True if all lines in the paragraph are to remain on the same page.             
+   * Gets or sets true if all lines in the paragraph are to remain on the same page.             
    * @return keepTogether
   **/
-  @ApiModelProperty(value = "True if all lines in the paragraph are to remain on the same page.             ")
+  @ApiModelProperty(value = "Gets or sets true if all lines in the paragraph are to remain on the same page.             ")
   public Boolean isisKeepTogether() {
     return keepTogether;
   }
@@ -1264,10 +1264,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * True if the paragraph is to remains on the same page as the paragraph that follows it.             
+   * Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.             
    * @return keepWithNext
   **/
-  @ApiModelProperty(value = "True if the paragraph is to remains on the same page as the paragraph that follows it.             ")
+  @ApiModelProperty(value = "Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.             ")
   public Boolean isisKeepWithNext() {
     return keepWithNext;
   }
@@ -1354,10 +1354,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * When true,  and  will be ignored between the paragraphs of the same style.             
+   * Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             
    * @return noSpaceBetweenParagraphsOfSameStyle
   **/
-  @ApiModelProperty(value = "When true,  and  will be ignored between the paragraphs of the same style.             ")
+  @ApiModelProperty(value = "Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             ")
   public Boolean isisNoSpaceBetweenParagraphsOfSameStyle() {
     return noSpaceBetweenParagraphsOfSameStyle;
   }
@@ -1372,10 +1372,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * Specifies the outline level of the paragraph in the document.             
+   * Gets or sets specifies the outline level of the paragraph in the document.             
    * @return outlineLevel
   **/
-  @ApiModelProperty(value = "Specifies the outline level of the paragraph in the document.             ")
+  @ApiModelProperty(value = "Gets or sets specifies the outline level of the paragraph in the document.             ")
   public OutlineLevelEnum getOutlineLevel() {
     return outlineLevel;
   }
@@ -1390,10 +1390,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * True if a page break is forced before the paragraph.             
+   * Gets or sets true if a page break is forced before the paragraph.             
    * @return pageBreakBefore
   **/
-  @ApiModelProperty(value = "True if a page break is forced before the paragraph.             ")
+  @ApiModelProperty(value = "Gets or sets true if a page break is forced before the paragraph.             ")
   public Boolean isisPageBreakBefore() {
     return pageBreakBefore;
   }
@@ -1444,10 +1444,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * True if the amount of spacing after the paragraph is set automatically.             
+   * Gets or sets true if the amount of spacing after the paragraph is set automatically.             
    * @return spaceAfterAuto
   **/
-  @ApiModelProperty(value = "True if the amount of spacing after the paragraph is set automatically.             ")
+  @ApiModelProperty(value = "Gets or sets true if the amount of spacing after the paragraph is set automatically.             ")
   public Boolean isisSpaceAfterAuto() {
     return spaceAfterAuto;
   }
@@ -1480,10 +1480,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * True if the amount of spacing before the paragraph is set automatically.             
+   * Gets or sets true if the amount of spacing before the paragraph is set automatically.             
    * @return spaceBeforeAuto
   **/
-  @ApiModelProperty(value = "True if the amount of spacing before the paragraph is set automatically.             ")
+  @ApiModelProperty(value = "Gets or sets true if the amount of spacing before the paragraph is set automatically.             ")
   public Boolean isisSpaceBeforeAuto() {
     return spaceBeforeAuto;
   }
@@ -1534,10 +1534,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * Specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.             
+   * Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.             
    * @return suppressAutoHyphens
   **/
-  @ApiModelProperty(value = "Specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.             ")
+  @ApiModelProperty(value = "Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.             ")
   public Boolean isisSuppressAutoHyphens() {
     return suppressAutoHyphens;
   }
@@ -1552,10 +1552,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * Specifies whether the current paragraph&#39;s lines should be exempted from line numbering which is applied in the parent section.             
+   * Gets or sets specifies whether the current paragraph&#39;s lines should be exempted from line numbering which is applied in the parent section.             
    * @return suppressLineNumbers
   **/
-  @ApiModelProperty(value = "Specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.             ")
+  @ApiModelProperty(value = "Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.             ")
   public Boolean isisSuppressLineNumbers() {
     return suppressLineNumbers;
   }
@@ -1570,10 +1570,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * True if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             
+   * Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             
    * @return widowControl
   **/
-  @ApiModelProperty(value = "True if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             ")
+  @ApiModelProperty(value = "Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             ")
   public Boolean isisWidowControl() {
     return widowControl;
   }

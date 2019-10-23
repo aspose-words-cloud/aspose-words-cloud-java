@@ -25,18 +25,18 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.RunLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.RunLink;
+import com.aspose.words.model.WordsApiLink;
 import io.swagger.annotations.ApiModel;
 
 /**
- * Run element
+ * Run element.
  */
-@ApiModel(description = "Run element")
+@ApiModel(description = "Run element.")
 
 public class Run extends RunLink {
 

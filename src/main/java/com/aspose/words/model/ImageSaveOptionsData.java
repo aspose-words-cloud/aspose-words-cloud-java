@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.GraphicsQualityOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.FixedPageSaveOptionsData;
+import com.aspose.words.model.GraphicsQualityOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,9 +42,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Container abstract class for image save options
+ * Container abstract class for image save options.
  */
-@ApiModel(description = "Container abstract class for image save options")
+@ApiModel(description = "Container abstract class for image save options.")
 
 public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("GraphicsQualityOptions")
@@ -92,10 +92,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Allows to specify additional System.Drawing.Graphics quality options.
+   * Gets or sets allows to specify additional System.Drawing.Graphics quality options.
    * @return graphicsQualityOptions
   **/
-  @ApiModelProperty(value = "Allows to specify additional System.Drawing.Graphics quality options.")
+  @ApiModelProperty(value = "Gets or sets allows to specify additional System.Drawing.Graphics quality options.")
   public GraphicsQualityOptionsData getGraphicsQualityOptions() {
     return graphicsQualityOptions;
   }
@@ -128,10 +128,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Brightness of image
+   * Gets or sets brightness of image.
    * @return imageBrightness
   **/
-  @ApiModelProperty(value = "Brightness of image")
+  @ApiModelProperty(value = "Gets or sets brightness of image.")
   public Double getImageBrightness() {
     return imageBrightness;
   }
@@ -146,10 +146,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Color mode of image
+   * Gets or sets color mode of image.
    * @return imageColorMode
   **/
-  @ApiModelProperty(value = "Color mode of image")
+  @ApiModelProperty(value = "Gets or sets color mode of image.")
   public String getImageColorMode() {
     return imageColorMode;
   }
@@ -164,10 +164,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Contrast of image
+   * Gets or sets contrast of image.
    * @return imageContrast
   **/
-  @ApiModelProperty(value = "Contrast of image")
+  @ApiModelProperty(value = "Gets or sets contrast of image.")
   public Double getImageContrast() {
     return imageContrast;
   }
@@ -182,10 +182,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Background (paper) color of image
+   * Gets or sets background (paper) color of image.
    * @return paperColor
   **/
-  @ApiModelProperty(value = "Background (paper) color of image")
+  @ApiModelProperty(value = "Gets or sets background (paper) color of image.")
   public String getPaperColor() {
     return paperColor;
   }
@@ -200,10 +200,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Pixel format of image
+   * Gets or sets pixel format of image.
    * @return pixelFormat
   **/
-  @ApiModelProperty(value = "Pixel format of image")
+  @ApiModelProperty(value = "Gets or sets pixel format of image.")
   public String getPixelFormat() {
     return pixelFormat;
   }
@@ -218,10 +218,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
+   * Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
    * @return resolution
   **/
-  @ApiModelProperty(value = "Sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.")
+  @ApiModelProperty(value = "Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.")
   public Double getResolution() {
     return resolution;
   }
@@ -236,10 +236,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Zoom factor of image
+   * Gets or sets zoom factor of image.
    * @return scale
   **/
-  @ApiModelProperty(value = "Zoom factor of image")
+  @ApiModelProperty(value = "Gets or sets zoom factor of image.")
   public Double getScale() {
     return scale;
   }
@@ -254,10 +254,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determine whether or not to use anti-aliasing for rendering
+   * Gets or sets determine whether or not to use anti-aliasing for rendering.
    * @return useAntiAliasing
   **/
-  @ApiModelProperty(value = "Determine whether or not to use anti-aliasing for rendering")
+  @ApiModelProperty(value = "Gets or sets determine whether or not to use anti-aliasing for rendering.")
   public Boolean isisUseAntiAliasing() {
     return useAntiAliasing;
   }
@@ -290,10 +290,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determine whether or not to use high quality (i.e. slow) rendering algorithms
+   * Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.
    * @return useHighQualityRendering
   **/
-  @ApiModelProperty(value = "Determine whether or not to use high quality (i.e. slow) rendering algorithms")
+  @ApiModelProperty(value = "Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.")
   public Boolean isisUseHighQualityRendering() {
     return useHighQualityRendering;
   }

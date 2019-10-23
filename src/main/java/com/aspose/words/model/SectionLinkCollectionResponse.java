@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SectionLinkCollection;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.SectionLinkCollection;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/sections 
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/sections.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/sections ")
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/sections.")
 
 public class SectionLinkCollectionResponse extends WordsResponse {
   @SerializedName("Sections")
@@ -55,10 +55,10 @@ public class SectionLinkCollectionResponse extends WordsResponse {
   }
 
    /**
-   * Collection of sections
+   * Gets or sets collection of sections.
    * @return sections
   **/
-  @ApiModelProperty(value = "Collection of sections")
+  @ApiModelProperty(value = "Gets or sets collection of sections.")
   public SectionLinkCollection getSections() {
     return sections;
   }

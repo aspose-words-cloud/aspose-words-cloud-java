@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FileLink;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.FileLink;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -58,10 +58,10 @@ public class ReplaceTextResponse extends WordsResponse {
   }
 
    /**
-   * Link to the document.
+   * Gets or sets link to the document.
    * @return documentLink
   **/
-  @ApiModelProperty(value = "Link to the document.")
+  @ApiModelProperty(value = "Gets or sets link to the document.")
   public FileLink getDocumentLink() {
     return documentLink;
   }
@@ -76,10 +76,10 @@ public class ReplaceTextResponse extends WordsResponse {
   }
 
    /**
-   * Number of occurrences of the captured text in the document.
+   * Gets or sets number of occurrences of the captured text in the document.
    * @return matches
   **/
-  @ApiModelProperty(value = "Number of occurrences of the captured text in the document.")
+  @ApiModelProperty(value = "Gets or sets number of occurrences of the captured text in the document.")
   public Integer getMatches() {
     return matches;
   }

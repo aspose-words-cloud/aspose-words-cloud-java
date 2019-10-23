@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.NodeLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.NodeLink;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,9 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Section element
+ * Section element.
  */
-@ApiModel(description = "Section element")
+@ApiModel(description = "Section element.")
 
 public class Section extends LinkElement {
   @SerializedName("ChildNodes")
@@ -78,10 +78,10 @@ public class Section extends LinkElement {
   }
 
    /**
-   * Child nodes.
+   * Gets or sets child nodes.
    * @return childNodes
   **/
-  @ApiModelProperty(value = "Child nodes.")
+  @ApiModelProperty(value = "Gets or sets child nodes.")
   public List<NodeLink> getChildNodes() {
     return childNodes;
   }
@@ -96,10 +96,10 @@ public class Section extends LinkElement {
   }
 
    /**
-   * Link to HeaderFooters resource
+   * Gets or sets link to HeaderFooters resource.
    * @return headerFooters
   **/
-  @ApiModelProperty(value = "Link to HeaderFooters resource")
+  @ApiModelProperty(value = "Gets or sets link to HeaderFooters resource.")
   public LinkElement getHeaderFooters() {
     return headerFooters;
   }
@@ -114,10 +114,10 @@ public class Section extends LinkElement {
   }
 
    /**
-   * Link to PageSetup resource
+   * Gets or sets link to PageSetup resource.
    * @return pageSetup
   **/
-  @ApiModelProperty(value = "Link to PageSetup resource")
+  @ApiModelProperty(value = "Gets or sets link to PageSetup resource.")
   public LinkElement getPageSetup() {
     return pageSetup;
   }
@@ -132,10 +132,10 @@ public class Section extends LinkElement {
   }
 
    /**
-   * Link to Paragraphs resource
+   * Gets or sets link to Paragraphs resource.
    * @return paragraphs
   **/
-  @ApiModelProperty(value = "Link to Paragraphs resource")
+  @ApiModelProperty(value = "Gets or sets link to Paragraphs resource.")
   public LinkElement getParagraphs() {
     return paragraphs;
   }
@@ -150,10 +150,10 @@ public class Section extends LinkElement {
   }
 
    /**
-   * Link to Tables resource
+   * Gets or sets link to Tables resource.
    * @return tables
   **/
-  @ApiModelProperty(value = "Link to Tables resource")
+  @ApiModelProperty(value = "Gets or sets link to Tables resource.")
   public LinkElement getTables() {
     return tables;
   }

@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.FixedPageSaveOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for fixed html save options
+ * container class for fixed html save options.
  */
-@ApiModel(description = "container class for fixed html save options")
+@ApiModel(description = "container class for fixed html save options.")
 
 public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("CssClassNamesPrefix")
@@ -91,10 +91,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies prefix which is added to all class names in style.css file. Default value is \&quot;aw\&quot;.
+   * Gets or sets specifies prefix which is added to all class names in style.css file. Default value is \&quot;aw\&quot;.
    * @return cssClassNamesPrefix
   **/
-  @ApiModelProperty(value = "Specifies prefix which is added to all class names in style.css file. Default value is \"aw\".")
+  @ApiModelProperty(value = "Gets or sets specifies prefix which is added to all class names in style.css file. Default value is \"aw\".")
   public String getCssClassNamesPrefix() {
     return cssClassNamesPrefix;
   }
@@ -109,10 +109,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Encoding.
+   * Gets or sets encoding.
    * @return encoding
   **/
-  @ApiModelProperty(value = "Encoding.")
+  @ApiModelProperty(value = "Gets or sets encoding.")
   public String getEncoding() {
     return encoding;
   }
@@ -127,10 +127,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.
+   * Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.
    * @return exportEmbeddedCss
   **/
-  @ApiModelProperty(value = "Specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.")
+  @ApiModelProperty(value = "Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.")
   public Boolean isisExportEmbeddedCss() {
     return exportEmbeddedCss;
   }
@@ -145,10 +145,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies whether fonts should be embedded into Html document in Base64 format.
+   * Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.
    * @return exportEmbeddedFonts
   **/
-  @ApiModelProperty(value = "Specifies whether fonts should be embedded into Html document in Base64 format.")
+  @ApiModelProperty(value = "Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.")
   public Boolean isisExportEmbeddedFonts() {
     return exportEmbeddedFonts;
   }
@@ -163,10 +163,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies whether images should be embedded into Html document in Base64 format.
+   * Gets or sets specifies whether images should be embedded into Html document in Base64 format.
    * @return exportEmbeddedImages
   **/
-  @ApiModelProperty(value = "Specifies whether images should be embedded into Html document in Base64 format.")
+  @ApiModelProperty(value = "Gets or sets specifies whether images should be embedded into Html document in Base64 format.")
   public Boolean isisExportEmbeddedImages() {
     return exportEmbeddedImages;
   }
@@ -199,10 +199,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies export format of fonts
+   * Gets or sets specifies export format of fonts.
    * @return fontFormat
   **/
-  @ApiModelProperty(value = "Specifies export format of fonts")
+  @ApiModelProperty(value = "Gets or sets specifies export format of fonts.")
   public String getFontFormat() {
     return fontFormat;
   }
@@ -217,10 +217,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.
+   * Gets or sets specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.
    * @return pageHorizontalAlignment
   **/
-  @ApiModelProperty(value = "Specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.")
+  @ApiModelProperty(value = "Gets or sets specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.")
   public String getPageHorizontalAlignment() {
     return pageHorizontalAlignment;
   }
@@ -235,10 +235,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.
+   * Gets or sets specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.
    * @return pageMargins
   **/
-  @ApiModelProperty(value = "Specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.")
+  @ApiModelProperty(value = "Gets or sets specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.")
   public Double getPageMargins() {
     return pageMargins;
   }
@@ -253,10 +253,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the physical folder where resources are saved when exporting a document
+   * Gets or sets specifies the physical folder where resources are saved when exporting a document.
    * @return resourcesFolder
   **/
-  @ApiModelProperty(value = "Specifies the physical folder where resources are saved when exporting a document")
+  @ApiModelProperty(value = "Gets or sets specifies the physical folder where resources are saved when exporting a document.")
   public String getResourcesFolder() {
     return resourcesFolder;
   }
@@ -271,10 +271,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the name of the folder used to construct resource URIs
+   * Gets or sets specifies the name of the folder used to construct resource URIs.
    * @return resourcesFolderAlias
   **/
-  @ApiModelProperty(value = "Specifies the name of the folder used to construct resource URIs")
+  @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct resource URIs.")
   public String getResourcesFolderAlias() {
     return resourcesFolderAlias;
   }
@@ -289,10 +289,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Flag indicates whether \&quot;@font-face\&quot; CSS rules should be placed into a separate file \&quot;fontFaces.css\&quot; when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \&quot;styles.css\&quot;.
+   * Gets or sets flag indicates whether \&quot;@font-face\&quot; CSS rules should be placed into a separate file \&quot;fontFaces.css\&quot; when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \&quot;styles.css\&quot;.
    * @return saveFontFaceCssSeparately
   **/
-  @ApiModelProperty(value = "Flag indicates whether \"@font-face\" CSS rules should be placed into a separate file \"fontFaces.css\" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \"styles.css\".")
+  @ApiModelProperty(value = "Gets or sets flag indicates whether \"@font-face\" CSS rules should be placed into a separate file \"fontFaces.css\" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \"styles.css\".")
   public Boolean isisSaveFontFaceCssSeparately() {
     return saveFontFaceCssSeparately;
   }
@@ -307,10 +307,10 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies whether border around pages should be shown.
+   * Gets or sets specifies whether border around pages should be shown.
    * @return showPageBorder
   **/
-  @ApiModelProperty(value = "Specifies whether border around pages should be shown.")
+  @ApiModelProperty(value = "Gets or sets specifies whether border around pages should be shown.")
   public Boolean isisShowPageBorder() {
     return showPageBorder;
   }

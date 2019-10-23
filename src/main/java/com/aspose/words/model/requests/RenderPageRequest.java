@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderPageRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,7 +38,7 @@ public class RenderPageRequest {
     private String Name;
 
     /*
-     * Comment index
+     * Comment index.
      */
     private Integer PageIndex;
 
@@ -76,7 +76,7 @@ public class RenderPageRequest {
      * Initializes a new instance of the renderPageRequest class.
      *  
      * @param String name The document name.
-     * @param Integer pageIndex Comment index
+     * @param Integer pageIndex Comment index.
      * @param String format The destination format.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -110,14 +110,14 @@ public class RenderPageRequest {
     }
 
     /*
-     *  Gets Comment index
+     *  Gets Comment index.
      */
     public Integer getPageIndex() {
         return PageIndex;
     }
 
     /*
-     * Sets Comment index
+     * Sets Comment index.
      */
     public void setPageIndex(Integer value) {
         PageIndex = value;
@@ -207,4 +207,3 @@ public class RenderPageRequest {
         FontsLocation = value;
     }
 }
-/*

@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DrawingObjectCollection;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.DrawingObjectCollection;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,10 +55,10 @@ public class DrawingObjectsResponse extends WordsResponse {
   }
 
    /**
-   * Collection of drawing objects.
+   * Gets or sets collection of drawing objects.
    * @return drawingObjects
   **/
-  @ApiModelProperty(value = "Collection of drawing objects.")
+  @ApiModelProperty(value = "Gets or sets collection of drawing objects.")
   public DrawingObjectCollection getDrawingObjects() {
     return drawingObjects;
   }

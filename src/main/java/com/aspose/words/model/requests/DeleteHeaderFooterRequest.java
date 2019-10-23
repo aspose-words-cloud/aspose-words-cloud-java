@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteHeaderFooterRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,14 +38,14 @@ public class DeleteHeaderFooterRequest {
     private String Name;
 
     /*
-     * Object index.
-     */
-    private Integer Index;
-
-    /*
      * Path to parent section.
      */
     private String SectionPath;
+
+    /*
+     * Object index.
+     */
+    private Integer Index;
 
     /*
      * Original document folder.
@@ -86,8 +86,8 @@ public class DeleteHeaderFooterRequest {
      * Initializes a new instance of the deleteHeaderFooterRequest class.
      *  
      * @param String name The document name.
-     * @param Integer index Object index.
      * @param String sectionPath Path to parent section.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -96,10 +96,10 @@ public class DeleteHeaderFooterRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public DeleteHeaderFooterRequest(String name,  Integer index,  String sectionPath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public DeleteHeaderFooterRequest(String name,  String sectionPath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
-        Index = index;
         SectionPath = sectionPath;
+        Index = index;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -124,20 +124,6 @@ public class DeleteHeaderFooterRequest {
     }
 
     /*
-     *  Gets Object index.
-     */
-    public Integer getIndex() {
-        return Index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        Index = value;
-    }
-
-    /*
      *  Gets Path to parent section.
      */
     public String getSectionPath() {
@@ -149,6 +135,20 @@ public class DeleteHeaderFooterRequest {
      */
     public void setSectionPath(String value) {
         SectionPath = value;
+    }
+
+    /*
+     *  Gets Object index.
+     */
+    public Integer getIndex() {
+        return Index;
+    }
+
+    /*
+     * Sets Object index.
+     */
+    public void setIndex(Integer value) {
+        Index = value;
     }
 
     /*
@@ -249,4 +249,3 @@ public class DeleteHeaderFooterRequest {
         RevisionDateTime = value;
     }
 }
-/*

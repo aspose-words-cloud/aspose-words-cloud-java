@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.ModificationOperationResult;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.ModificationOperationResult;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)
+ * response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
  */
-@ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll)")
+@ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).")
 
 public class RevisionsModificationResponse extends WordsResponse {
   @SerializedName("Result")
@@ -55,10 +55,10 @@ public class RevisionsModificationResponse extends WordsResponse {
   }
 
    /**
-   * result of the modification operations for the revisions collection
+   * Gets or sets result of the modification operations for the revisions collection.
    * @return result
   **/
-  @ApiModelProperty(value = "result of the modification operations for the revisions collection")
+  @ApiModelProperty(value = "Gets or sets result of the modification operations for the revisions collection.")
   public ModificationOperationResult getResult() {
     return result;
   }

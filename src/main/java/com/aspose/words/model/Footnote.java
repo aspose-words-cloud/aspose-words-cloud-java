@@ -25,14 +25,14 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DocumentPosition;
-import com.aspose.words.cloud.model.FootnoteLink;
-import com.aspose.words.cloud.model.StoryChildNodes;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.DocumentPosition;
+import com.aspose.words.model.FootnoteLink;
+import com.aspose.words.model.StoryChildNodes;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,7 +52,7 @@ public class Footnote extends FootnoteLink {
   private StoryChildNodes content = null;
 
   /**
-   * Returns a value that specifies whether this is a footnote or endnote.
+   * Gets or sets returns a value that specifies whether this is a footnote or endnote.
    */
   @JsonAdapter(FootnoteTypeEnum.Adapter.class)
   public enum FootnoteTypeEnum {
@@ -116,10 +116,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Content of footnote.
+   * Gets or sets content of footnote.
    * @return content
   **/
-  @ApiModelProperty(value = "Content of footnote.")
+  @ApiModelProperty(value = "Gets or sets content of footnote.")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -134,10 +134,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Returns a value that specifies whether this is a footnote or endnote.
+   * Gets or sets returns a value that specifies whether this is a footnote or endnote.
    * @return footnoteType
   **/
-  @ApiModelProperty(value = "Returns a value that specifies whether this is a footnote or endnote.")
+  @ApiModelProperty(value = "Gets or sets returns a value that specifies whether this is a footnote or endnote.")
   public FootnoteTypeEnum getFootnoteType() {
     return footnoteType;
   }
@@ -152,10 +152,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Link to comment range start node.
+   * Gets or sets link to comment range start node.
    * @return position
   **/
-  @ApiModelProperty(value = "Link to comment range start node.")
+  @ApiModelProperty(value = "Gets or sets link to comment range start node.")
   public DocumentPosition getPosition() {
     return position;
   }
@@ -170,10 +170,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Gets/sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.
+   * Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.
    * @return referenceMark
   **/
-  @ApiModelProperty(value = "Gets/sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.")
+  @ApiModelProperty(value = "Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.")
   public String getReferenceMark() {
     return referenceMark;
   }
@@ -188,10 +188,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * This is a convenience property that allows to easily get or set text of the footnote.
+   * Gets or sets this is a convenience property that allows to easily get or set text of the footnote.
    * @return text
   **/
-  @ApiModelProperty(value = "This is a convenience property that allows to easily get or set text of the footnote.")
+  @ApiModelProperty(value = "Gets or sets this is a convenience property that allows to easily get or set text of the footnote.")
   public String getText() {
     return text;
   }

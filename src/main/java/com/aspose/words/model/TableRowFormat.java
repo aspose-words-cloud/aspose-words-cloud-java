@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -113,10 +113,10 @@ public class TableRowFormat extends LinkElement {
   }
 
    /**
-   * True if the text in a table row is allowed to split across a page break.
+   * Gets or sets true if the text in a table row is allowed to split across a page break.
    * @return allowBreakAcrossPages
   **/
-  @ApiModelProperty(value = "True if the text in a table row is allowed to split across a page break.")
+  @ApiModelProperty(value = "Gets or sets true if the text in a table row is allowed to split across a page break.")
   public Boolean isisAllowBreakAcrossPages() {
     return allowBreakAcrossPages;
   }
@@ -131,10 +131,10 @@ public class TableRowFormat extends LinkElement {
   }
 
    /**
-   * True if the row is repeated as a table heading on every page when the table spans more than one page.
+   * Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
    * @return headingFormat
   **/
-  @ApiModelProperty(value = "True if the row is repeated as a table heading on every page when the table spans more than one page.")
+  @ApiModelProperty(value = "Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.")
   public Boolean isisHeadingFormat() {
     return headingFormat;
   }

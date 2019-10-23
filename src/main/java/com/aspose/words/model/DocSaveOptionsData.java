@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for doc/dot save options
+ * container class for doc/dot save options.
  */
-@ApiModel(description = "container class for doc/dot save options")
+@ApiModel(description = "container class for doc/dot save options.")
 
 public class DocSaveOptionsData extends SaveOptionsData {
   @SerializedName("Password")
@@ -57,10 +57,10 @@ public class DocSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Password
+   * Gets or sets password.
    * @return password
   **/
-  @ApiModelProperty(value = "Password")
+  @ApiModelProperty(value = "Gets or sets password.")
   public String getPassword() {
     return password;
   }
@@ -75,10 +75,10 @@ public class DocSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Determine whether or not save RoutingSlip data saved to output document
+   * Gets or sets determine whether or not save RoutingSlip data saved to output document.
    * @return saveRoutingSlip
   **/
-  @ApiModelProperty(value = "Determine whether or not save RoutingSlip data saved to output document")
+  @ApiModelProperty(value = "Gets or sets determine whether or not save RoutingSlip data saved to output document.")
   public Boolean isisSaveRoutingSlip() {
     return saveRoutingSlip;
   }

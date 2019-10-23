@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Class for insert watermark text request building. 
+ * Class for insert watermark text request building.
  */
-@ApiModel(description = "Class for insert watermark text request building. ")
+@ApiModel(description = "Class for insert watermark text request building.")
 
 public class WatermarkText {
   @SerializedName("Text")
@@ -56,10 +56,10 @@ public class WatermarkText {
   }
 
    /**
-   * The watermark text.
+   * Gets or sets the watermark text.
    * @return text
   **/
-  @ApiModelProperty(value = "The watermark text.")
+  @ApiModelProperty(value = "Gets or sets the watermark text.")
   public String getText() {
     return text;
   }
@@ -74,10 +74,10 @@ public class WatermarkText {
   }
 
    /**
-   * The watermark rotation angle.
+   * Gets or sets the watermark rotation angle.
    * @return rotationAngle
   **/
-  @ApiModelProperty(required = true, value = "The watermark rotation angle.")
+  @ApiModelProperty(required = true, value = "Gets or sets the watermark rotation angle.")
   public Double getRotationAngle() {
     return rotationAngle;
   }

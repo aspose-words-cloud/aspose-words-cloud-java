@@ -25,18 +25,18 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.NodeLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.NodeLink;
+import com.aspose.words.model.WordsApiLink;
 import io.swagger.annotations.ApiModel;
 
 /**
- * Table link element
+ * Table link element.
  */
-@ApiModel(description = "Table link element")
+@ApiModel(description = "Table link element.")
 
 public class TableLink extends NodeLink {
 

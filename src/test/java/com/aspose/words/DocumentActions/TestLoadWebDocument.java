@@ -24,14 +24,15 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentActions;
+package com.aspose.words.DocumentActions;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.LoadWebDocumentData;
-import com.aspose.words.cloud.model.SaveOptionsData;
-import com.aspose.words.cloud.model.SaveResponse;
-import com.aspose.words.cloud.model.requests.PostLoadWebDocumentRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.LoadWebDocumentData;
+import com.aspose.words.model.SaveOptionsData;
+import com.aspose.words.model.SaveResponse;
+import com.aspose.words.model.requests.LoadWebDocumentRequest;
+
 import junit.framework.TestCase;
 
 public class TestLoadWebDocument extends TestCase {
@@ -54,9 +55,9 @@ public class TestLoadWebDocument extends TestCase {
                 .zipOutput(false)
                 .updateLastSavedTimeProperty(false);
         LoadWebDocumentData body = new LoadWebDocumentData().loadingDocumentUrl("http://google.com").saveOptions(saveOptionsData);
-        PostLoadWebDocumentRequest request = new PostLoadWebDocumentRequest(body,null);
+        LoadWebDocumentRequest request = new LoadWebDocumentRequest(body,null);
 
-        SaveResponse result = TestInitializer.wordsApi.postLoadWebDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        SaveResponse result = TestInitializer.wordsApi.loadWebDocument(request);
+        assertNotNull(result);
     }
 }

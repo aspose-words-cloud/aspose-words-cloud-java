@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.ApiError;
+import com.aspose.words.model.ApiError;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -67,10 +67,10 @@ public class ApiError {
   }
 
    /**
-   * Api error code.
+   * Gets or sets api error code.
    * @return code
   **/
-  @ApiModelProperty(value = "Api error code.")
+  @ApiModelProperty(value = "Gets or sets api error code.")
   public String getCode() {
     return code;
   }
@@ -85,10 +85,10 @@ public class ApiError {
   }
 
    /**
-   * Error message.
+   * Gets or sets error message.
    * @return message
   **/
-  @ApiModelProperty(value = "Error message.")
+  @ApiModelProperty(value = "Gets or sets error message.")
   public String getMessage() {
     return message;
   }
@@ -103,10 +103,10 @@ public class ApiError {
   }
 
    /**
-   * Error description.
+   * Gets or sets error description.
    * @return description
   **/
-  @ApiModelProperty(value = "Error description.")
+  @ApiModelProperty(value = "Gets or sets error description.")
   public String getDescription() {
     return description;
   }
@@ -121,10 +121,10 @@ public class ApiError {
   }
 
    /**
-   * Server datetime.
+   * Gets or sets server datetime.
    * @return dateTime
   **/
-  @ApiModelProperty(value = "Server datetime.")
+  @ApiModelProperty(value = "Gets or sets server datetime.")
   public OffsetDateTime getDateTime() {
     return dateTime;
   }
@@ -139,10 +139,10 @@ public class ApiError {
   }
 
    /**
-   * Inner error.
+   * Gets or sets inner error.
    * @return innerError
   **/
-  @ApiModelProperty(value = "Inner error.")
+  @ApiModelProperty(value = "Gets or sets inner error.")
   public ApiError getInnerError() {
     return innerError;
   }

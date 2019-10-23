@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.Common;
+package com.aspose.words.Common;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.AsposeResponse;
-import com.aspose.words.cloud.model.AvailableFontsResponse;
-import com.aspose.words.cloud.model.requests.GetAvailableFontsRequest;
-import com.aspose.words.cloud.model.requests.ResetCacheRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.WordsResponse;
+import com.aspose.words.model.AvailableFontsResponse;
+import com.aspose.words.model.requests.GetAvailableFontsRequest;
+import com.aspose.words.model.requests.ResetCacheRequest;
 import junit.framework.TestCase;
 
 public class TestFont extends TestCase {
@@ -47,8 +47,7 @@ public class TestFont extends TestCase {
     public void testResetCache() throws ApiException {
         ResetCacheRequest request = new ResetCacheRequest();
 
-        AsposeResponse result = TestInitializer.wordsApi.resetCache(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        TestInitializer.wordsApi.resetCache(request);
     }
 
     /*
@@ -58,6 +57,6 @@ public class TestFont extends TestCase {
         GetAvailableFontsRequest request = new GetAvailableFontsRequest(null);
 
         AvailableFontsResponse result = TestInitializer.wordsApi.getAvailableFonts(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 }

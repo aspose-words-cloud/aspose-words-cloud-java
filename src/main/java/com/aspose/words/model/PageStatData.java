@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FootnotesStatData;
+import com.aspose.words.model.FootnotesStatData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Container for the page&#39;s statistical data
+ * Container for the page&#39;s statistical data.
  */
-@ApiModel(description = "Container for the page's statistical data")
+@ApiModel(description = "Container for the page's statistical data.")
 
 public class PageStatData {
   @SerializedName("PageNumber")
@@ -63,10 +63,10 @@ public class PageStatData {
   }
 
    /**
-   * Page number
+   * Gets or sets page number.
    * @return pageNumber
   **/
-  @ApiModelProperty(required = true, value = "Page number")
+  @ApiModelProperty(required = true, value = "Gets or sets page number.")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -81,10 +81,10 @@ public class PageStatData {
   }
 
    /**
-   * Total count of words in the page
+   * Gets or sets total count of words in the page.
    * @return wordCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of words in the page")
+  @ApiModelProperty(required = true, value = "Gets or sets total count of words in the page.")
   public Integer getWordCount() {
     return wordCount;
   }
@@ -99,10 +99,10 @@ public class PageStatData {
   }
 
    /**
-   * Total count of paragraphs in the page
+   * Gets or sets total count of paragraphs in the page.
    * @return paragraphCount
   **/
-  @ApiModelProperty(required = true, value = "Total count of paragraphs in the page")
+  @ApiModelProperty(required = true, value = "Gets or sets total count of paragraphs in the page.")
   public Integer getParagraphCount() {
     return paragraphCount;
   }
@@ -117,10 +117,10 @@ public class PageStatData {
   }
 
    /**
-   * Detailed statistics of footnotes
+   * Gets or sets detailed statistics of footnotes.
    * @return footnotesStatData
   **/
-  @ApiModelProperty(value = "Detailed statistics of footnotes")
+  @ApiModelProperty(value = "Gets or sets detailed statistics of footnotes.")
   public FootnotesStatData getFootnotesStatData() {
     return footnotesStatData;
   }

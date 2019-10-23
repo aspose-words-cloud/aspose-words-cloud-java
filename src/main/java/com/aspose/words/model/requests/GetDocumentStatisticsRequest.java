@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentStatisticsRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -58,7 +58,7 @@ public class GetDocumentStatisticsRequest {
     private String Password;
 
     /*
-     * Support including/excluding comments from the WordCount. Default value is \"true\".
+     * Support including/excluding comments from the WordCount. Default value is \"false\".
      */
     private Boolean IncludeComments;
 
@@ -68,7 +68,7 @@ public class GetDocumentStatisticsRequest {
     private Boolean IncludeFootnotes;
 
     /*
-     * Support including/excluding shape's text from the WordCount. Default value is \"false\"
+     * Support including/excluding shape's text from the WordCount. Default value is \"false\".
      */
     private Boolean IncludeTextInShapes;
     
@@ -80,9 +80,9 @@ public class GetDocumentStatisticsRequest {
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean includeComments Support including/excluding comments from the WordCount. Default value is \"true\".
+     * @param Boolean includeComments Support including/excluding comments from the WordCount. Default value is \"false\".
      * @param Boolean includeFootnotes Support including/excluding footnotes from the WordCount. Default value is \"false\".
-     * @param Boolean includeTextInShapes Support including/excluding shape's text from the WordCount. Default value is \"false\"
+     * @param Boolean includeTextInShapes Support including/excluding shape's text from the WordCount. Default value is \"false\".
      */
     public GetDocumentStatisticsRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  Boolean includeComments,  Boolean includeFootnotes,  Boolean includeTextInShapes) {
         Name = name;
@@ -166,14 +166,14 @@ public class GetDocumentStatisticsRequest {
     }
 
     /*
-     *  Gets Support including/excluding comments from the WordCount. Default value is \"true\".
+     *  Gets Support including/excluding comments from the WordCount. Default value is \"false\".
      */
     public Boolean getIncludeComments() {
         return IncludeComments;
     }
 
     /*
-     * Sets Support including/excluding comments from the WordCount. Default value is \"true\".
+     * Sets Support including/excluding comments from the WordCount. Default value is \"false\".
      */
     public void setIncludeComments(Boolean value) {
         IncludeComments = value;
@@ -194,17 +194,16 @@ public class GetDocumentStatisticsRequest {
     }
 
     /*
-     *  Gets Support including/excluding shape's text from the WordCount. Default value is \"false\"
+     *  Gets Support including/excluding shape's text from the WordCount. Default value is \"false\".
      */
     public Boolean getIncludeTextInShapes() {
         return IncludeTextInShapes;
     }
 
     /*
-     * Sets Support including/excluding shape's text from the WordCount. Default value is \"false\"
+     * Sets Support including/excluding shape's text from the WordCount. Default value is \"false\".
      */
     public void setIncludeTextInShapes(Boolean value) {
         IncludeTextInShapes = value;
     }
 }
-/*

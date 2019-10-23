@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.HtmlSaveOptionsData;
+import com.aspose.words.model.HtmlSaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,10 +54,10 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
   }
 
    /**
-   * Specifies the maximum level of headings populated to the navigation map when exporting
+   * Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
    * @return epubNavigationMapLevel
   **/
-  @ApiModelProperty(value = "Specifies the maximum level of headings populated to the navigation map when exporting")
+  @ApiModelProperty(value = "Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.")
   public Integer getEpubNavigationMapLevel() {
     return epubNavigationMapLevel;
   }

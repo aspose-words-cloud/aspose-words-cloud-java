@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.TableCellFormat;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.TableCellFormat;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat
+ * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v1.1/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat")
+@ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.")
 
 public class TableCellFormatResponse extends WordsResponse {
   @SerializedName("CellFormat")
@@ -55,10 +55,10 @@ public class TableCellFormatResponse extends WordsResponse {
   }
 
    /**
-   * Table.
+   * Gets or sets table.
    * @return cellFormat
   **/
-  @ApiModelProperty(value = "Table.")
+  @ApiModelProperty(value = "Gets or sets table.")
   public TableCellFormat getCellFormat() {
     return cellFormat;
   }

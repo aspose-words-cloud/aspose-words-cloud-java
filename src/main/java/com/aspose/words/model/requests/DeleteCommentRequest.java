@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteCommentRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,7 +38,7 @@ public class DeleteCommentRequest {
     private String Name;
 
     /*
-     * The comment index
+     * The comment index.
      */
     private Integer CommentIndex;
 
@@ -81,7 +81,7 @@ public class DeleteCommentRequest {
      * Initializes a new instance of the deleteCommentRequest class.
      *  
      * @param String name The document name.
-     * @param Integer commentIndex The comment index
+     * @param Integer commentIndex The comment index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -117,14 +117,14 @@ public class DeleteCommentRequest {
     }
 
     /*
-     *  Gets The comment index
+     *  Gets The comment index.
      */
     public Integer getCommentIndex() {
         return CommentIndex;
     }
 
     /*
-     * Sets The comment index
+     * Sets The comment index.
      */
     public void setCommentIndex(Integer value) {
         CommentIndex = value;
@@ -228,4 +228,3 @@ public class DeleteCommentRequest {
         RevisionDateTime = value;
     }
 }
-/*

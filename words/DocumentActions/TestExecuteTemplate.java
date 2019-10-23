@@ -24,13 +24,13 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentActions;
+package com.aspose.words.DocumentActions;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.DocumentResponse;
-import com.aspose.words.cloud.model.requests.PostExecuteTemplateRequest;
-import com.aspose.words.cloud.model.requests.PutExecuteTemplateOnlineRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.DocumentResponse;
+import com.aspose.words.model.requests.PostExecuteTemplateRequest;
+import com.aspose.words.model.requests.PutExecuteTemplateOnlineRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -54,9 +54,7 @@ public class TestExecuteTemplate extends TestCase {
         String fileName = "TestExecuteTemplate.doc";
         String remoteName = "TestPostExecuteTemplate.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).ToString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
         String data = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, testFolder, "TestExecuteTemplateData.txt")), "utf8");
 
         PostExecuteTemplateRequest request = new PostExecuteTemplateRequest(remoteName, data,
@@ -64,7 +62,7 @@ public class TestExecuteTemplate extends TestCase {
                 null, null, null, null, null, null, destName);
 
         DocumentResponse result = TestInitializer.wordsApi.postExecuteTemplate(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 
     /*

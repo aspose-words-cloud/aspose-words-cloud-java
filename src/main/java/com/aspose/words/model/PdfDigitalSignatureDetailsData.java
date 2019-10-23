@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -40,9 +40,9 @@ import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * container class for details of digital signature
+ * container class for details of digital signature.
  */
-@ApiModel(description = "container class for details of digital signature")
+@ApiModel(description = "container class for details of digital signature.")
 
 public class PdfDigitalSignatureDetailsData {
   @SerializedName("CertificateFilename")
@@ -66,10 +66,10 @@ public class PdfDigitalSignatureDetailsData {
   }
 
    /**
-   * certificate&#39;s filename using for signing
+   * Gets or sets certificate&#39;s filename using for signing.
    * @return certificateFilename
   **/
-  @ApiModelProperty(value = "certificate's filename using for signing")
+  @ApiModelProperty(value = "Gets or sets certificate's filename using for signing.")
   public String getCertificateFilename() {
     return certificateFilename;
   }
@@ -84,10 +84,10 @@ public class PdfDigitalSignatureDetailsData {
   }
 
    /**
-   * hash algorithm
+   * Gets or sets hash algorithm.
    * @return hashAlgorithm
   **/
-  @ApiModelProperty(value = "hash algorithm")
+  @ApiModelProperty(value = "Gets or sets hash algorithm.")
   public String getHashAlgorithm() {
     return hashAlgorithm;
   }
@@ -102,10 +102,10 @@ public class PdfDigitalSignatureDetailsData {
   }
 
    /**
-   * location of the signing
+   * Gets or sets location of the signing.
    * @return location
   **/
-  @ApiModelProperty(value = "location of the signing")
+  @ApiModelProperty(value = "Gets or sets location of the signing.")
   public String getLocation() {
     return location;
   }
@@ -120,10 +120,10 @@ public class PdfDigitalSignatureDetailsData {
   }
 
    /**
-   * reason for the signing
+   * Gets or sets reason for the signing.
    * @return reason
   **/
-  @ApiModelProperty(value = "reason for the signing")
+  @ApiModelProperty(value = "Gets or sets reason for the signing.")
   public String getReason() {
     return reason;
   }
@@ -138,10 +138,10 @@ public class PdfDigitalSignatureDetailsData {
   }
 
    /**
-   * date of the signing
+   * Gets or sets date of the signing.
    * @return signatureDate
   **/
-  @ApiModelProperty(value = "date of the signing")
+  @ApiModelProperty(value = "Gets or sets date of the signing.")
   public OffsetDateTime getSignatureDate() {
     return signatureDate;
   }

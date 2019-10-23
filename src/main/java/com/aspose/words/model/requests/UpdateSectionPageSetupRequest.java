@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateSectionPageSetupRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,12 +38,12 @@ public class UpdateSectionPageSetupRequest {
     private String Name;
 
     /*
-     * Section index
+     * Section index.
      */
     private Integer SectionIndex;
 
     /*
-     * Page setup properties dto
+     * Page setup properties dto.
      */
     private PageSetup PageSetup;
 
@@ -86,8 +86,8 @@ public class UpdateSectionPageSetupRequest {
      * Initializes a new instance of the updateSectionPageSetupRequest class.
      *  
      * @param String name The document name.
-     * @param Integer sectionIndex Section index
-     * @param PageSetup pageSetup Page setup properties dto
+     * @param Integer sectionIndex Section index.
+     * @param PageSetup pageSetup Page setup properties dto.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -124,28 +124,28 @@ public class UpdateSectionPageSetupRequest {
     }
 
     /*
-     *  Gets Section index
+     *  Gets Section index.
      */
     public Integer getSectionIndex() {
         return SectionIndex;
     }
 
     /*
-     * Sets Section index
+     * Sets Section index.
      */
     public void setSectionIndex(Integer value) {
         SectionIndex = value;
     }
 
     /*
-     *  Gets Page setup properties dto
+     *  Gets Page setup properties dto.
      */
     public PageSetup getPageSetup() {
         return PageSetup;
     }
 
     /*
-     * Sets Page setup properties dto
+     * Sets Page setup properties dto.
      */
     public void setPageSetup(PageSetup value) {
         PageSetup = value;
@@ -249,4 +249,3 @@ public class UpdateSectionPageSetupRequest {
         RevisionDateTime = value;
     }
 }
-/*

@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * base container class for save options data
+ * base container class for save options data.
  */
-@ApiModel(description = "base container class for save options data")
+@ApiModel(description = "base container class for save options data.")
 
 
 public class SaveOptionsData {
@@ -78,10 +78,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}
+   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
    * @return colorMode
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}")
+  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.")
   public String getColorMode() {
     return colorMode;
   }
@@ -96,10 +96,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * format of save
+   * Gets or sets format of save.
    * @return saveFormat
   **/
-  @ApiModelProperty(value = "format of save")
+  @ApiModelProperty(value = "Gets or sets format of save.")
   public String getSaveFormat() {
     return saveFormat;
   }
@@ -114,10 +114,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * name of destination file
+   * Gets or sets name of destination file.
    * @return fileName
   **/
-  @ApiModelProperty(value = "name of destination file")
+  @ApiModelProperty(value = "Gets or sets name of destination file.")
   public String getFileName() {
     return fileName;
   }
@@ -132,10 +132,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }
+   * Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.
    * @return dmlRenderingMode
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }")
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.")
   public String getDmlRenderingMode() {
     return dmlRenderingMode;
   }
@@ -150,10 +150,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }
+   * Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
    * @return dmlEffectsRenderingMode
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }")
+  @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.")
   public String getDmlEffectsRenderingMode() {
     return dmlEffectsRenderingMode;
   }
@@ -168,10 +168,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Controls zip output or not. Default value is false.
+   * Gets or sets controls zip output or not. Default value is false.
    * @return zipOutput
   **/
-  @ApiModelProperty(value = "Controls zip output or not. Default value is false.")
+  @ApiModelProperty(value = "Gets or sets controls zip output or not. Default value is false.")
   public Boolean isisZipOutput() {
     return zipOutput;
   }
@@ -222,10 +222,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true
+   * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true
    * @return updateFields
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is true")
+  @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true")
   public Boolean isisUpdateFields() {
     return updateFields;
   }

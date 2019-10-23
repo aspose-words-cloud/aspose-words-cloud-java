@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.BordersCollection;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.BordersCollection;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,10 +55,10 @@ public class BordersResponse extends WordsResponse {
   }
 
    /**
-   * Table.
+   * Gets or sets table.
    * @return borders
   **/
-  @ApiModelProperty(value = "Table.")
+  @ApiModelProperty(value = "Gets or sets table.")
   public BordersCollection getBorders() {
     return borders;
   }

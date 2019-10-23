@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Hyperlinks;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.Hyperlinks;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,10 +55,10 @@ public class HyperlinksResponse extends WordsResponse {
   }
 
    /**
-   * Collection of hyperlinks.
+   * Gets or sets collection of hyperlinks.
    * @return hyperlinks
   **/
-  @ApiModelProperty(value = "Collection of hyperlinks.")
+  @ApiModelProperty(value = "Gets or sets collection of hyperlinks.")
   public Hyperlinks getHyperlinks() {
     return hyperlinks;
   }

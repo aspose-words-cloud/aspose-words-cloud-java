@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Request on changing of protection
+ * Request on changing of protection.
  */
-@ApiModel(description = "Request on changing of protection")
+@ApiModel(description = "Request on changing of protection.")
 
 public class ProtectionRequest {
   @SerializedName("Password")
@@ -59,10 +59,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * Current password
+   * Gets or sets current password.
    * @return password
   **/
-  @ApiModelProperty(value = "Current password")
+  @ApiModelProperty(value = "Gets or sets current password.")
   public String getPassword() {
     return password;
   }
@@ -77,10 +77,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * New password
+   * Gets or sets new password.
    * @return newPassword
   **/
-  @ApiModelProperty(value = "New password")
+  @ApiModelProperty(value = "Gets or sets new password.")
   public String getNewPassword() {
     return newPassword;
   }
@@ -95,10 +95,10 @@ public class ProtectionRequest {
   }
 
    /**
-   * New type of protection
+   * Gets or sets new type of protection.
    * @return protectionType
   **/
-  @ApiModelProperty(value = "New type of protection")
+  @ApiModelProperty(value = "Gets or sets new type of protection.")
   public String getProtectionType() {
     return protectionType;
   }

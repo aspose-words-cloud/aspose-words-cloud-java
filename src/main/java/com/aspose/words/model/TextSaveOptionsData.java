@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,8 +51,8 @@ public class TextSaveOptionsData extends SaveOptionsData {
   @SerializedName("Encoding")
   private String encoding = null;
 
-  @SerializedName("ExportHeadersFooters")
-  private Boolean exportHeadersFooters = null;
+  @SerializedName("ExportHeadersFootersMode")
+  private Integer exportHeadersFootersMode = null;
 
   @SerializedName("ForcePageBreaks")
   private Boolean forcePageBreaks = null;
@@ -72,10 +72,10 @@ public class TextSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
+   * Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
    * @return addBidiMarks
   **/
-  @ApiModelProperty(value = "Specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.")
+  @ApiModelProperty(value = "Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.")
   public Boolean isisAddBidiMarks() {
     return addBidiMarks;
   }
@@ -90,10 +90,10 @@ public class TextSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies the encoding to use when exporting in plain text format
+   * Gets or sets specifies the encoding to use when exporting in plain text format.
    * @return encoding
   **/
-  @ApiModelProperty(value = "Specifies the encoding to use when exporting in plain text format")
+  @ApiModelProperty(value = "Gets or sets specifies the encoding to use when exporting in plain text format.")
   public String getEncoding() {
     return encoding;
   }
@@ -102,22 +102,22 @@ public class TextSaveOptionsData extends SaveOptionsData {
     this.encoding = encoding;
   }
 
-  public TextSaveOptionsData exportHeadersFooters(Boolean exportHeadersFooters) {
-    this.exportHeadersFooters = exportHeadersFooters;
+  public TextSaveOptionsData exportHeadersFootersMode(Integer exportHeadersFootersMode) {
+    this.exportHeadersFootersMode = exportHeadersFootersMode;
     return this;
   }
 
    /**
-   * Specifies whether to output headers and footers when exporting in plain text format
-   * @return exportHeadersFooters
+   * Gets or sets specifies whether to output headers and footers when exporting in plain text format.
+   * @return exportHeadersFootersMode
   **/
-  @ApiModelProperty(value = "Specifies whether to output headers and footers when exporting in plain text format")
-  public Boolean isisExportHeadersFooters() {
-    return exportHeadersFooters;
+  @ApiModelProperty(value = "Gets or sets specifies whether to output headers and footers when exporting in plain text format.")
+  public Integer getExportHeadersFootersMode() {
+    return exportHeadersFootersMode;
   }
 
-  public void setExportHeadersFooters(Boolean exportHeadersFooters) {
-    this.exportHeadersFooters = exportHeadersFooters;
+  public void setExportHeadersFootersMode(Integer exportHeadersFootersMode) {
+    this.exportHeadersFootersMode = exportHeadersFootersMode;
   }
 
   public TextSaveOptionsData forcePageBreaks(Boolean forcePageBreaks) {
@@ -126,10 +126,10 @@ public class TextSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Allows to specify whether the page breaks should be preserved during export. The default value is false.
+   * Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.
    * @return forcePageBreaks
   **/
-  @ApiModelProperty(value = "Allows to specify whether the page breaks should be preserved during export. The default value is false.")
+  @ApiModelProperty(value = "Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.")
   public Boolean isisForcePageBreaks() {
     return forcePageBreaks;
   }
@@ -144,10 +144,10 @@ public class TextSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies the string to use as a paragraph break when exporting in plain text format
+   * Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.
    * @return paragraphBreak
   **/
-  @ApiModelProperty(value = "Specifies the string to use as a paragraph break when exporting in plain text format")
+  @ApiModelProperty(value = "Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.")
   public String getParagraphBreak() {
     return paragraphBreak;
   }
@@ -162,10 +162,10 @@ public class TextSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether the program should attempt to preserve layout of tables when saving in the plain text format
+   * Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
    * @return preserveTableLayout
   **/
-  @ApiModelProperty(value = "Specifies whether the program should attempt to preserve layout of tables when saving in the plain text format")
+  @ApiModelProperty(value = "Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.")
   public Boolean isisPreserveTableLayout() {
     return preserveTableLayout;
   }
@@ -180,10 +180,10 @@ public class TextSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text
+   * Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
    * @return simplifyListLabels
   **/
-  @ApiModelProperty(value = "Specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text")
+  @ApiModelProperty(value = "Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.")
   public Boolean isisSimplifyListLabels() {
     return simplifyListLabels;
   }
@@ -204,7 +204,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
     TextSaveOptionsData textSaveOptionsData = (TextSaveOptionsData) o;
     return Objects.equals(this.addBidiMarks, textSaveOptionsData.addBidiMarks) &&
         Objects.equals(this.encoding, textSaveOptionsData.encoding) &&
-        Objects.equals(this.exportHeadersFooters, textSaveOptionsData.exportHeadersFooters) &&
+        Objects.equals(this.exportHeadersFootersMode, textSaveOptionsData.exportHeadersFootersMode) &&
         Objects.equals(this.forcePageBreaks, textSaveOptionsData.forcePageBreaks) &&
         Objects.equals(this.paragraphBreak, textSaveOptionsData.paragraphBreak) &&
         Objects.equals(this.preserveTableLayout, textSaveOptionsData.preserveTableLayout) &&
@@ -214,7 +214,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addBidiMarks, encoding, exportHeadersFooters, forcePageBreaks, paragraphBreak, preserveTableLayout, simplifyListLabels, super.hashCode());
+    return Objects.hash(addBidiMarks, encoding, exportHeadersFootersMode, forcePageBreaks, paragraphBreak, preserveTableLayout, simplifyListLabels, super.hashCode());
   }
 
 
@@ -225,7 +225,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    addBidiMarks: ").append(toIndentedString(addBidiMarks)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
-    sb.append("    exportHeadersFooters: ").append(toIndentedString(exportHeadersFooters)).append("\n");
+    sb.append("    exportHeadersFootersMode: ").append(toIndentedString(exportHeadersFootersMode)).append("\n");
     sb.append("    forcePageBreaks: ").append(toIndentedString(forcePageBreaks)).append("\n");
     sb.append("    paragraphBreak: ").append(toIndentedString(paragraphBreak)).append("\n");
     sb.append("    preserveTableLayout: ").append(toIndentedString(preserveTableLayout)).append("\n");

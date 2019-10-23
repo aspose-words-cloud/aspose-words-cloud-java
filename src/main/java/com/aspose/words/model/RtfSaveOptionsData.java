@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for rtf save options
+ * container class for rtf save options.
  */
-@ApiModel(description = "container class for rtf save options")
+@ApiModel(description = "container class for rtf save options.")
 
 public class RtfSaveOptionsData extends SaveOptionsData {
   @SerializedName("ExportCompactSize")
@@ -60,10 +60,10 @@ public class RtfSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly
+   * Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
    * @return exportCompactSize
   **/
-  @ApiModelProperty(value = "Allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly")
+  @ApiModelProperty(value = "Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.")
   public Boolean isisExportCompactSize() {
     return exportCompactSize;
   }
@@ -78,10 +78,10 @@ public class RtfSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether the keywords for \&quot;old readers\&quot; are written to RTF or not
+   * Gets or sets specifies whether the keywords for \&quot;old readers\&quot; are written to RTF or not.
    * @return exportImagesForOldReaders
   **/
-  @ApiModelProperty(value = "Specifies whether the keywords for \"old readers\" are written to RTF or not")
+  @ApiModelProperty(value = "Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.")
   public Boolean isisExportImagesForOldReaders() {
     return exportImagesForOldReaders;
   }
@@ -96,10 +96,10 @@ public class RtfSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether or not use pretty formats output
+   * Gets or sets specifies whether or not use pretty formats output.
    * @return prettyFormat
   **/
-  @ApiModelProperty(value = "Specifies whether or not use pretty formats output")
+  @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
   public Boolean isisPrettyFormat() {
     return prettyFormat;
   }

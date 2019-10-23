@@ -24,16 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud..Document;
+package com.aspose.words.Document;
 
-import com.aspose.words.cloud..ApiException;
-import com.aspose.words.cloud..TestInitializer;
-import com.aspose.words.cloud..model.DocumentResponse;
-import com.aspose.words.cloud..model.requests.GetDocumentRequest;
-import com.aspose.words.cloud..model.requests.PutCreateDocumentRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.DocumentResponse;
+import com.aspose.words.model.requests.GetDocumentRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
 public class TestDocument extends TestCase {
@@ -48,35 +48,17 @@ public class TestDocument extends TestCase {
     /*
      * Test for getting document
      */
-    public void testGetDocument() throws ApiException {
+    public void testGetDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocument.docx";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentRequest request = new GetDocumentRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null);
 
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
-    }
-
-    /*
-    * Test for creating document
-    */
-    public void testPutCreateDocument() throws ApiException {
-        String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPutCreateDocument.docx";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
-
-        PutCreateDocumentRequest request = new PutCreateDocumentRequest(null, remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString());
-        DocumentResponse result = TestInitializer.wordsApi.putCreateDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 }

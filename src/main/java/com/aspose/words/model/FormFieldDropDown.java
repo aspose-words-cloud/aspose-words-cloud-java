@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FormField;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.FormField;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,9 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * FormField dropdownlist element
+ * FormField dropdownlist element.
  */
-@ApiModel(description = "FormField dropdownlist element")
+@ApiModel(description = "FormField dropdownlist element.")
 
 public class FormFieldDropDown extends FormField {
   @SerializedName("DropDownItems")
@@ -68,10 +68,10 @@ public class FormFieldDropDown extends FormField {
   }
 
    /**
-   * Provides access to the items of a dropdown form field.
+   * Gets or sets provides access to the items of a dropdown form field.
    * @return dropDownItems
   **/
-  @ApiModelProperty(value = "Provides access to the items of a dropdown form field.")
+  @ApiModelProperty(value = "Gets or sets provides access to the items of a dropdown form field.")
   public List<String> getDropDownItems() {
     return dropDownItems;
   }

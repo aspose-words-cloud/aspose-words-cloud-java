@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FileLink;
-import com.aspose.words.cloud.model.ProtectionData;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.FileLink;
+import com.aspose.words.model.ProtectionData;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,9 +42,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Response for the request of data about protection
+ * Response for the request of data about protection.
  */
-@ApiModel(description = "Response for the request of data about protection")
+@ApiModel(description = "Response for the request of data about protection.")
 
 public class ProtectionDataResponse extends WordsResponse {
   @SerializedName("DocumentLink")
@@ -59,10 +59,10 @@ public class ProtectionDataResponse extends WordsResponse {
   }
 
    /**
-   * Link to the document
+   * Gets or sets link to the document.
    * @return documentLink
   **/
-  @ApiModelProperty(value = "Link to the document")
+  @ApiModelProperty(value = "Gets or sets link to the document.")
   public FileLink getDocumentLink() {
     return documentLink;
   }
@@ -77,10 +77,10 @@ public class ProtectionDataResponse extends WordsResponse {
   }
 
    /**
-   * Protection&#39;s data of the document
+   * Gets or sets protection&#39;s data of the document.
    * @return protectionData
   **/
-  @ApiModelProperty(value = "Protection's data of the document")
+  @ApiModelProperty(value = "Gets or sets protection's data of the document.")
   public ProtectionData getProtectionData() {
     return protectionData;
   }

@@ -24,19 +24,20 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentActions;
+package com.aspose.words.DocumentActions;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.ProtectionDataResponse;
-import com.aspose.words.cloud.model.ProtectionRequest;
-import com.aspose.words.cloud.model.requests.DeleteUnprotectDocumentRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentProtectionRequest;
-import com.aspose.words.cloud.model.requests.PostChangeDocumentProtectionRequest;
-import com.aspose.words.cloud.model.requests.PutProtectDocumentRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.ProtectionDataResponse;
+import com.aspose.words.model.ProtectionRequest;
+import com.aspose.words.model.requests.GetDocumentProtectionRequest;
+import com.aspose.words.model.requests.ProtectDocumentRequest;
+import com.aspose.words.model.requests.UnprotectDocumentRequest;
+
 import junit.framework.TestCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
 public class TestDocumentProtection extends TestCase {
@@ -51,73 +52,65 @@ public class TestDocumentProtection extends TestCase {
     /*
      * Test for getting document protection
      */
-    public void testGetDocumentProtection() throws ApiException {
+    public void testGetDocumentProtection() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentProtection.docx";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentProtectionRequest request = new GetDocumentProtectionRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null);
 
         ProtectionDataResponse result = TestInitializer.wordsApi.getDocumentProtection(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 
     /*
      * Test for inserting document protection
      */
-    public void testPutProtectDocument() throws ApiException {
+    public void testPutProtectDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutProtectDocument.docx";
         ProtectionRequest body = new ProtectionRequest().newPassword("123");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        PutProtectDocumentRequest request = new PutProtectDocumentRequest(remoteName, body,
+        ProtectDocumentRequest request = new ProtectDocumentRequest(remoteName, body,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
-        ProtectionDataResponse result = TestInitializer.wordsApi.putProtectDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        ProtectionDataResponse result = TestInitializer.wordsApi.protectDocument(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for updating document protection
      */
-    public void testPostChangeDocumentProtection() throws ApiException {
+    public void testPostChangeDocumentProtection() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostChangeDocumentProtection.docx";
         ProtectionRequest body = new ProtectionRequest().newPassword("");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        PostChangeDocumentProtectionRequest request = new PostChangeDocumentProtectionRequest(remoteName, body,
+        ProtectDocumentRequest request = new ProtectDocumentRequest(remoteName, body,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
 
-        ProtectionDataResponse result = TestInitializer.wordsApi.postChangeDocumentProtection(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        ProtectionDataResponse result = TestInitializer.wordsApi.protectDocument(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for updating document protection
      */
-    public void testDeleteUnprotectDocument() throws ApiException {
+    public void testDeleteUnprotectDocument() throws ApiException, FileNotFoundException {
         String fileName = "SampleProtectedBlankWordDocument.docx";
         String remoteName = "TestDeleteUnprotectDocument.docx";
         ProtectionRequest body = new ProtectionRequest().password("aspose");
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString()),
-                null, null);
-        DeleteUnprotectDocumentRequest request = new DeleteUnprotectDocumentRequest(remoteName, body,
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, "DocumentActions", "DocumentProtection", fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        UnprotectDocumentRequest request = new UnprotectDocumentRequest(remoteName, body,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
-        ProtectionDataResponse result = TestInitializer.wordsApi.deleteUnprotectDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        ProtectionDataResponse result = TestInitializer.wordsApi.unprotectDocument(request);
+        assertNotNull(result);
 
     }
 }

@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud;
+package com.aspose.words;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

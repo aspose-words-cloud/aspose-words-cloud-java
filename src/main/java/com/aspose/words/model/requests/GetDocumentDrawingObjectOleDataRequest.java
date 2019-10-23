@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentDrawingObjectOleDataRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,14 +38,14 @@ public class GetDocumentDrawingObjectOleDataRequest {
     private String Name;
 
     /*
-     * Object index.
-     */
-    private Integer Index;
-
-    /*
      * Path to the node, which contains collection of drawing objects.
      */
     private String NodePath;
+
+    /*
+     * Object index.
+     */
+    private Integer Index;
 
     /*
      * Original document folder.
@@ -71,17 +71,17 @@ public class GetDocumentDrawingObjectOleDataRequest {
      * Initializes a new instance of the getDocumentDrawingObjectOleDataRequest class.
      *  
      * @param String name The document name.
-     * @param Integer index Object index.
      * @param String nodePath Path to the node, which contains collection of drawing objects.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetDocumentDrawingObjectOleDataRequest(String name,  Integer index,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password) {
+    public GetDocumentDrawingObjectOleDataRequest(String name,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
-        Index = index;
         NodePath = nodePath;
+        Index = index;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -103,20 +103,6 @@ public class GetDocumentDrawingObjectOleDataRequest {
     }
 
     /*
-     *  Gets Object index.
-     */
-    public Integer getIndex() {
-        return Index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        Index = value;
-    }
-
-    /*
      *  Gets Path to the node, which contains collection of drawing objects.
      */
     public String getNodePath() {
@@ -128,6 +114,20 @@ public class GetDocumentDrawingObjectOleDataRequest {
      */
     public void setNodePath(String value) {
         NodePath = value;
+    }
+
+    /*
+     *  Gets Object index.
+     */
+    public Integer getIndex() {
+        return Index;
+    }
+
+    /*
+     * Sets Object index.
+     */
+    public void setIndex(Integer value) {
+        Index = value;
     }
 
     /*
@@ -186,4 +186,3 @@ public class GetDocumentDrawingObjectOleDataRequest {
         Password = value;
     }
 }
-/*

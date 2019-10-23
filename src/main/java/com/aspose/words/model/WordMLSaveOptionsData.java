@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for wml save options
+ * container class for wml save options.
  */
-@ApiModel(description = "container class for wml save options")
+@ApiModel(description = "container class for wml save options.")
 
 public class WordMLSaveOptionsData extends SaveOptionsData {
   @SerializedName("PrettyFormat")
@@ -54,10 +54,10 @@ public class WordMLSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether or not use pretty formats output
+   * Gets or sets specifies whether or not use pretty formats output.
    * @return prettyFormat
   **/
-  @ApiModelProperty(value = "Specifies whether or not use pretty formats output")
+  @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
   public Boolean isisPrettyFormat() {
     return prettyFormat;
   }

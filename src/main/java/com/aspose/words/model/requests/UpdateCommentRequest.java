@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateCommentRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,7 +38,7 @@ public class UpdateCommentRequest {
     private String Name;
 
     /*
-     * The comment index
+     * The comment index.
      */
     private Integer CommentIndex;
 
@@ -86,7 +86,7 @@ public class UpdateCommentRequest {
      * Initializes a new instance of the updateCommentRequest class.
      *  
      * @param String name The document name.
-     * @param Integer commentIndex The comment index
+     * @param Integer commentIndex The comment index.
      * @param Comment comment The comment data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -124,14 +124,14 @@ public class UpdateCommentRequest {
     }
 
     /*
-     *  Gets The comment index
+     *  Gets The comment index.
      */
     public Integer getCommentIndex() {
         return CommentIndex;
     }
 
     /*
-     * Sets The comment index
+     * Sets The comment index.
      */
     public void setCommentIndex(Integer value) {
         CommentIndex = value;
@@ -249,4 +249,3 @@ public class UpdateCommentRequest {
         RevisionDateTime = value;
     }
 }
-/*

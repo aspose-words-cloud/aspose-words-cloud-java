@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
-import com.aspose.words.cloud.model.OutlineOptionsData;
+import com.aspose.words.model.FixedPageSaveOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.OutlineOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,10 +65,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies the level in the XPS document outline at which to display Word bookmarks.
+   * Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
    * @return bookmarksOutlineLevel
   **/
-  @ApiModelProperty(value = "Specifies the level in the XPS document outline at which to display Word bookmarks.")
+  @ApiModelProperty(value = "Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.")
   public Integer getBookmarksOutlineLevel() {
     return bookmarksOutlineLevel;
   }
@@ -83,10 +83,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
+   * Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
    * @return headingsOutlineLevels
   **/
-  @ApiModelProperty(value = "Specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.")
+  @ApiModelProperty(value = "Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.")
   public Integer getHeadingsOutlineLevels() {
     return headingsOutlineLevels;
   }
@@ -101,10 +101,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Allows to specify outline options
+   * Gets or sets allows to specify outline options.
    * @return outlineOptions
   **/
-  @ApiModelProperty(value = "Allows to specify outline options")
+  @ApiModelProperty(value = "Gets or sets allows to specify outline options.")
   public OutlineOptionsData getOutlineOptions() {
     return outlineOptions;
   }
@@ -119,10 +119,10 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines whether the document should be saved using a booklet printing layout
+   * Gets or sets determines whether the document should be saved using a booklet printing layout.
    * @return useBookFoldPrintingSettings
   **/
-  @ApiModelProperty(value = "Determines whether the document should be saved using a booklet printing layout")
+  @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
   public Boolean isisUseBookFoldPrintingSettings() {
     return useBookFoldPrintingSettings;
   }

@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for docx/docm/dotx/dotm/flatopc save options
+ * container class for docx/docm/dotx/dotm/flatopc save options.
  */
-@ApiModel(description = "container class for docx/docm/dotx/dotm/flatopc save options")
+@ApiModel(description = "container class for docx/docm/dotx/dotm/flatopc save options.")
 
 public class OoxmlSaveOptionsData extends SaveOptionsData {
   @SerializedName("Compliance")
@@ -60,10 +60,10 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies the OOXML version for the output document
+   * Gets or sets specifies the OOXML version for the output document.
    * @return compliance
   **/
-  @ApiModelProperty(value = "Specifies the OOXML version for the output document")
+  @ApiModelProperty(value = "Gets or sets specifies the OOXML version for the output document.")
   public String getCompliance() {
     return compliance;
   }
@@ -78,10 +78,10 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies a password to encrypt document using ECMA376 Standard encryption algorithm
+   * Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
    * @return password
   **/
-  @ApiModelProperty(value = "Specifies a password to encrypt document using ECMA376 Standard encryption algorithm")
+  @ApiModelProperty(value = "Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.")
   public String getPassword() {
     return password;
   }
@@ -96,10 +96,10 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether or not use pretty formats output
+   * Gets or sets specifies whether or not use pretty formats output.
    * @return prettyFormat
   **/
-  @ApiModelProperty(value = "Specifies whether or not use pretty formats output")
+  @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
   public Boolean isisPrettyFormat() {
     return prettyFormat;
   }

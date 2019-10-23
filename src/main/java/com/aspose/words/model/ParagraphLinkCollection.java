@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.ParagraphLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.ParagraphLink;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,9 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of links to paragraphs
+ * Collection of links to paragraphs.
  */
-@ApiModel(description = "Collection of links to paragraphs")
+@ApiModel(description = "Collection of links to paragraphs.")
 
 public class ParagraphLinkCollection extends LinkElement {
   @SerializedName("ParagraphLinkList")
@@ -66,10 +66,10 @@ public class ParagraphLinkCollection extends LinkElement {
   }
 
    /**
-   * Collection of paragraph&#39;s links
+   * Gets or sets collection of paragraph&#39;s links.
    * @return paragraphLinkList
   **/
-  @ApiModelProperty(value = "Collection of paragraph's links")
+  @ApiModelProperty(value = "Gets or sets collection of paragraph's links.")
   public List<ParagraphLink> getParagraphLinkList() {
     return paragraphLinkList;
   }

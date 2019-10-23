@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateBorderRequest.java">
  *   Copyright (c) 2018 Aspose.Words for Cloud
@@ -24,8 +24,8 @@
  * </summary>
  * --------------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
+package com.aspose.words.model.requests;
+import com.aspose.words.model.*;
 import java.io.File;
 
 /*
@@ -38,7 +38,7 @@ public class UpdateBorderRequest {
     private String Name;
 
     /*
-     * Border properties
+     * Border properties.
      */
     private Border BorderProperties;
 
@@ -91,7 +91,7 @@ public class UpdateBorderRequest {
      * Initializes a new instance of the updateBorderRequest class.
      *  
      * @param String name The document name.
-     * @param Border borderProperties Border properties
+     * @param Border borderProperties Border properties.
      * @param String nodePath Path to the node with border(node should be cell or row).
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -131,14 +131,14 @@ public class UpdateBorderRequest {
     }
 
     /*
-     *  Gets Border properties
+     *  Gets Border properties.
      */
     public Border getBorderProperties() {
         return BorderProperties;
     }
 
     /*
-     * Sets Border properties
+     * Sets Border properties.
      */
     public void setBorderProperties(Border value) {
         BorderProperties = value;
@@ -270,4 +270,3 @@ public class UpdateBorderRequest {
         RevisionDateTime = value;
     }
 }
-/*

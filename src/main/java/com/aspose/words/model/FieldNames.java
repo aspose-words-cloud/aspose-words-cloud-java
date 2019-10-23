@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,9 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a collection of merge fields within a document. 
+ * Represents a collection of merge fields within a document.
  */
-@ApiModel(description = "Represents a collection of merge fields within a document. ")
+@ApiModel(description = "Represents a collection of merge fields within a document.")
 
 public class FieldNames extends LinkElement {
   @SerializedName("Names")
@@ -65,10 +65,10 @@ public class FieldNames extends LinkElement {
   }
 
    /**
-   * Collection of fields names.
+   * Gets or sets collection of fields names.
    * @return names
   **/
-  @ApiModelProperty(value = "Collection of fields names.")
+  @ApiModelProperty(value = "Gets or sets collection of fields names.")
   public List<String> getNames() {
     return names;
   }

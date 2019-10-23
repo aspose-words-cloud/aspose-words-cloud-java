@@ -25,18 +25,25 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud;
+package com.aspose.words;
 
 import java.util.Map;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import com.aspose.words.model.ApiError;
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
+import java.util.List;
 
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
 
-    public ApiException() { }
+    public ApiException() {
+    }
 
     public ApiException(Throwable throwable) {
         super(throwable);
@@ -46,11 +53,26 @@ public class ApiException extends Exception {
         super(message);
     }
 
-    public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders, String responseBody) {
+    public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders,
+            String responseBody) {
         super(message, throwable);
         this.code = code;
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody;
+        JSON json = new JSON();
+        if (!responseBody.isEmpty()) {
+            System.out.println("======");
+            System.out.println(responseBody);
+            String errorJson = responseBody.substring(responseBody.indexOf("\"Error\": ") + 9,
+                    responseBody.indexOf("\"RequestId") - 5);
+            System.out.println("======");
+            System.out.println(errorJson);            
+
+            ApiError error = new Gson().fromJson(errorJson, ApiError.class);
+            System.out.println("======");
+            System.out.println(error.toString());
+            System.out.println("======");
+        }
     }
 
     public ApiException(String message, int code, Map<String, List<String>> responseHeaders, String responseBody) {

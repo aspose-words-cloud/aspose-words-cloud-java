@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.NodeLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.NodeLink;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Field link
+ * Field link.
  */
-@ApiModel(description = "Field link")
+@ApiModel(description = "Field link.")
 
 public class FieldLink extends NodeLink {
   @SerializedName("FieldCode")
@@ -55,10 +55,10 @@ public class FieldLink extends NodeLink {
   }
 
    /**
-   * Field code
+   * Gets or sets field code.
    * @return fieldCode
   **/
-  @ApiModelProperty(value = "Field code")
+  @ApiModelProperty(value = "Gets or sets field code.")
   public String getFieldCode() {
     return fieldCode;
   }

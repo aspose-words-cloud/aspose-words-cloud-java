@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.FixedPageSaveOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for ps save options
+ * container class for ps save options.
  */
-@ApiModel(description = "container class for ps save options")
+@ApiModel(description = "container class for ps save options.")
 
 public class PsSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("UseBookFoldPrintingSettings")
@@ -55,10 +55,10 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Determines whether the document should be saved using a booklet printing layout
+   * Gets or sets determines whether the document should be saved using a booklet printing layout.
    * @return useBookFoldPrintingSettings
   **/
-  @ApiModelProperty(value = "Determines whether the document should be saved using a booklet printing layout")
+  @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
   public Boolean isisUseBookFoldPrintingSettings() {
     return useBookFoldPrintingSettings;
   }

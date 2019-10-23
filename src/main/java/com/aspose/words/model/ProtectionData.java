@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Container for the data about protection of the document
+ * Container for the data about protection of the document.
  */
-@ApiModel(description = "Container for the data about protection of the document")
+@ApiModel(description = "Container for the data about protection of the document.")
 
 public class ProtectionData {
   @SerializedName("ProtectionType")
@@ -53,10 +53,10 @@ public class ProtectionData {
   }
 
    /**
-   * Type of the protection
+   * Gets or sets type of the protection.
    * @return protectionType
   **/
-  @ApiModelProperty(value = "Type of the protection")
+  @ApiModelProperty(value = "Gets or sets type of the protection.")
   public String getProtectionType() {
     return protectionType;
   }

@@ -25,14 +25,14 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Border;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
-import com.aspose.words.cloud.model.XmlColor;
+import com.aspose.words.model.Border;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
+import com.aspose.words.model.XmlColor;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Font element             
+ * Font element.             
  */
-@ApiModel(description = "Font element             ")
+@ApiModel(description = "Font element.             ")
 
 public class Font extends LinkElement {
   @SerializedName("AllCaps")
@@ -1099,10 +1099,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as all capital letters.             
+   * Gets or sets true if the font is formatted as all capital letters.             
    * @return allCaps
   **/
-  @ApiModelProperty(value = "True if the font is formatted as all capital letters.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as all capital letters.             ")
   public Boolean isisAllCaps() {
     return allCaps;
   }
@@ -1117,10 +1117,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Specifies whether the contents of this run shall have right-to-left characteristics.             
+   * Gets or sets specifies whether the contents of this run shall have right-to-left characteristics.             
    * @return bidi
   **/
-  @ApiModelProperty(value = "Specifies whether the contents of this run shall have right-to-left characteristics.             ")
+  @ApiModelProperty(value = "Gets or sets specifies whether the contents of this run shall have right-to-left characteristics.             ")
   public Boolean isisBidi() {
     return bidi;
   }
@@ -1135,10 +1135,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as bold.             
+   * Gets or sets true if the font is formatted as bold.             
    * @return bold
   **/
-  @ApiModelProperty(value = "True if the font is formatted as bold.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as bold.             ")
   public Boolean isisBold() {
     return bold;
   }
@@ -1153,10 +1153,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the right-to-left text is formatted as bold.             
+   * Gets or sets true if the right-to-left text is formatted as bold.             
    * @return boldBi
   **/
-  @ApiModelProperty(value = "True if the right-to-left text is formatted as bold.             ")
+  @ApiModelProperty(value = "Gets or sets true if the right-to-left text is formatted as bold.             ")
   public Boolean isisBoldBi() {
     return boldBi;
   }
@@ -1171,10 +1171,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Border object that specifies border for the font.
+   * Gets or sets border object that specifies border for the font.
    * @return border
   **/
-  @ApiModelProperty(value = "Border object that specifies border for the font.")
+  @ApiModelProperty(value = "Gets or sets border object that specifies border for the font.")
   public Border getBorder() {
     return border;
   }
@@ -1207,10 +1207,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.             
+   * Gets or sets specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.             
    * @return complexScript
   **/
-  @ApiModelProperty(value = "Specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.             ")
+  @ApiModelProperty(value = "Gets or sets specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.             ")
   public Boolean isisComplexScript() {
     return complexScript;
   }
@@ -1225,10 +1225,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as double strikethrough text.             
+   * Gets or sets true if the font is formatted as double strikethrough text.             
    * @return doubleStrikeThrough
   **/
-  @ApiModelProperty(value = "True if the font is formatted as double strikethrough text.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as double strikethrough text.             ")
   public Boolean isisDoubleStrikeThrough() {
     return doubleStrikeThrough;
   }
@@ -1243,10 +1243,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as embossed.             
+   * Gets or sets true if the font is formatted as embossed.             
    * @return emboss
   **/
-  @ApiModelProperty(value = "True if the font is formatted as embossed.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as embossed.             ")
   public Boolean isisEmboss() {
     return emboss;
   }
@@ -1261,10 +1261,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as engraved.             
+   * Gets or sets true if the font is formatted as engraved.             
    * @return engrave
   **/
-  @ApiModelProperty(value = "True if the font is formatted as engraved.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as engraved.             ")
   public Boolean isisEngrave() {
     return engrave;
   }
@@ -1279,10 +1279,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as hidden text.             
+   * Gets or sets true if the font is formatted as hidden text.             
    * @return hidden
   **/
-  @ApiModelProperty(value = "True if the font is formatted as hidden text.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as hidden text.             ")
   public Boolean isisHidden() {
     return hidden;
   }
@@ -1315,10 +1315,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as italic.             
+   * Gets or sets true if the font is formatted as italic.             
    * @return italic
   **/
-  @ApiModelProperty(value = "True if the font is formatted as italic.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as italic.             ")
   public Boolean isisItalic() {
     return italic;
   }
@@ -1333,10 +1333,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the right-to-left text is formatted as italic.             
+   * Gets or sets true if the right-to-left text is formatted as italic.             
    * @return italicBi
   **/
-  @ApiModelProperty(value = "True if the right-to-left text is formatted as italic.             ")
+  @ApiModelProperty(value = "Gets or sets true if the right-to-left text is formatted as italic.             ")
   public Boolean isisItalicBi() {
     return italicBi;
   }
@@ -1423,10 +1423,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Gets or sets the name of the font             
+   * Gets or sets the name of the font.             
    * @return name
   **/
-  @ApiModelProperty(value = "Gets or sets the name of the font             ")
+  @ApiModelProperty(value = "Gets or sets the name of the font.             ")
   public String getName() {
     return name;
   }
@@ -1441,10 +1441,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Returns or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).             
+   * Gets or sets returns or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).             
    * @return nameAscii
   **/
-  @ApiModelProperty(value = "Returns or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).             ")
+  @ApiModelProperty(value = "Gets or sets returns or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).             ")
   public String getNameAscii() {
     return nameAscii;
   }
@@ -1459,10 +1459,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Returns or sets the name of the font in a right-to-left language document.             
+   * Gets or sets returns or sets the name of the font in a right-to-left language document.             
    * @return nameBi
   **/
-  @ApiModelProperty(value = "Returns or sets the name of the font in a right-to-left language document.             ")
+  @ApiModelProperty(value = "Gets or sets returns or sets the name of the font in a right-to-left language document.             ")
   public String getNameBi() {
     return nameBi;
   }
@@ -1477,10 +1477,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Returns or sets an East Asian font name.             
+   * Gets or sets returns or sets an East Asian font name.             
    * @return nameFarEast
   **/
-  @ApiModelProperty(value = "Returns or sets an East Asian font name.             ")
+  @ApiModelProperty(value = "Gets or sets returns or sets an East Asian font name.             ")
   public String getNameFarEast() {
     return nameFarEast;
   }
@@ -1495,10 +1495,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Returns or sets the font used for characters with character codes from 128 through 255.             
+   * Gets or sets returns or sets the font used for characters with character codes from 128 through 255.             
    * @return nameOther
   **/
-  @ApiModelProperty(value = "Returns or sets the font used for characters with character codes from 128 through 255.             ")
+  @ApiModelProperty(value = "Gets or sets returns or sets the font used for characters with character codes from 128 through 255.             ")
   public String getNameOther() {
     return nameOther;
   }
@@ -1513,10 +1513,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True when the formatted characters are not to be spell checked.
+   * Gets or sets true when the formatted characters are not to be spell checked.
    * @return noProofing
   **/
-  @ApiModelProperty(value = "True when the formatted characters are not to be spell checked.")
+  @ApiModelProperty(value = "Gets or sets true when the formatted characters are not to be spell checked.")
   public Boolean isisNoProofing() {
     return noProofing;
   }
@@ -1531,10 +1531,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as outline.             
+   * Gets or sets true if the font is formatted as outline.             
    * @return outline
   **/
-  @ApiModelProperty(value = "True if the font is formatted as outline.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as outline.             ")
   public Boolean isisOutline() {
     return outline;
   }
@@ -1585,10 +1585,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as shadowed.             
+   * Gets or sets true if the font is formatted as shadowed.             
    * @return shadow
   **/
-  @ApiModelProperty(value = "True if the font is formatted as shadowed.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as shadowed.             ")
   public Boolean isisShadow() {
     return shadow;
   }
@@ -1639,10 +1639,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as small capital letters.             
+   * Gets or sets true if the font is formatted as small capital letters.             
    * @return smallCaps
   **/
-  @ApiModelProperty(value = "True if the font is formatted as small capital letters.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as small capital letters.             ")
   public Boolean isisSmallCaps() {
     return smallCaps;
   }
@@ -1657,10 +1657,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Returns or sets the spacing (in points) between characters.             
+   * Gets or sets returns or sets the spacing (in points) between characters.             
    * @return spacing
   **/
-  @ApiModelProperty(value = "Returns or sets the spacing (in points) between characters.             ")
+  @ApiModelProperty(value = "Gets or sets returns or sets the spacing (in points) between characters.             ")
   public Double getSpacing() {
     return spacing;
   }
@@ -1675,10 +1675,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as strikethrough text.             
+   * Gets or sets true if the font is formatted as strikethrough text.             
    * @return strikeThrough
   **/
-  @ApiModelProperty(value = "True if the font is formatted as strikethrough text.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as strikethrough text.             ")
   public Boolean isisStrikeThrough() {
     return strikeThrough;
   }
@@ -1729,10 +1729,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as subscript.             
+   * Gets or sets true if the font is formatted as subscript.             
    * @return subscript
   **/
-  @ApiModelProperty(value = "True if the font is formatted as subscript.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as subscript.             ")
   public Boolean isisSubscript() {
     return subscript;
   }
@@ -1747,10 +1747,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * True if the font is formatted as superscript.             
+   * Gets or sets true if the font is formatted as superscript.             
    * @return superscript
   **/
-  @ApiModelProperty(value = "True if the font is formatted as superscript.             ")
+  @ApiModelProperty(value = "Gets or sets true if the font is formatted as superscript.             ")
   public Boolean isisSuperscript() {
     return superscript;
   }

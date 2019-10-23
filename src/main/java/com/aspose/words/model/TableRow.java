@@ -25,14 +25,14 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.NodeLink;
-import com.aspose.words.cloud.model.TableCell;
-import com.aspose.words.cloud.model.TableRowFormat;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.NodeLink;
+import com.aspose.words.model.TableCell;
+import com.aspose.words.model.TableRowFormat;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -62,10 +62,10 @@ public class TableRow extends NodeLink {
   }
 
    /**
-   * Provides access to the formatting properties of the row.
+   * Gets or sets provides access to the formatting properties of the row.
    * @return rowFormat
   **/
-  @ApiModelProperty(value = "Provides access to the formatting properties of the row.")
+  @ApiModelProperty(value = "Gets or sets provides access to the formatting properties of the row.")
   public TableRowFormat getRowFormat() {
     return rowFormat;
   }
@@ -88,10 +88,10 @@ public class TableRow extends NodeLink {
   }
 
    /**
-   * Collection of table&#39;s rows.
+   * Gets or sets collection of table&#39;s rows.
    * @return tableCellList
   **/
-  @ApiModelProperty(value = "Collection of table's rows.")
+  @ApiModelProperty(value = "Gets or sets collection of table's rows.")
   public List<TableCell> getTableCellList() {
     return tableCellList;
   }

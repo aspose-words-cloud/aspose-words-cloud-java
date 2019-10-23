@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.HeaderFooterLink;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.HeaderFooterLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,9 +42,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Section element
+ * Section element.
  */
-@ApiModel(description = "Section element")
+@ApiModel(description = "Section element.")
 
 public class HeaderFooter extends HeaderFooterLink {
   @SerializedName("DrawingObjects")
@@ -59,10 +59,10 @@ public class HeaderFooter extends HeaderFooterLink {
   }
 
    /**
-   * Link to DrawingObjects resource
+   * Gets or sets link to DrawingObjects resource.
    * @return drawingObjects
   **/
-  @ApiModelProperty(value = "Link to DrawingObjects resource")
+  @ApiModelProperty(value = "Gets or sets link to DrawingObjects resource.")
   public LinkElement getDrawingObjects() {
     return drawingObjects;
   }
@@ -77,10 +77,10 @@ public class HeaderFooter extends HeaderFooterLink {
   }
 
    /**
-   * Link to Paragraphs resource
+   * Gets or sets link to Paragraphs resource.
    * @return paragraphs
   **/
-  @ApiModelProperty(value = "Link to Paragraphs resource")
+  @ApiModelProperty(value = "Gets or sets link to Paragraphs resource.")
   public LinkElement getParagraphs() {
     return paragraphs;
   }

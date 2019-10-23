@@ -24,15 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentElements;
+package com.aspose.words.DocumentElements;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.AsposeResponse;
-import com.aspose.words.cloud.model.requests.DeleteDocumentMacrosRequest;
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.WordsResponse;
+import com.aspose.words.model.requests.DeleteMacrosRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
 public class TestMacros extends TestCase {
@@ -47,18 +48,15 @@ public class TestMacros extends TestCase {
     /*
      * Test for getting document hyperlink by index
      */
-    public void testDeleteDocumentMacros() throws ApiException {
+    public void testDeleteDocumentMacros() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteDocumentMacros.doc";
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        DeleteDocumentMacrosRequest request = new DeleteDocumentMacrosRequest(remoteName,
+        DeleteMacrosRequest request = new DeleteMacrosRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
-        AsposeResponse result = TestInitializer.wordsApi.deleteDocumentMacros(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        TestInitializer.wordsApi.deleteMacros(request);
     }
 }

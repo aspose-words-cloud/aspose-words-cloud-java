@@ -24,21 +24,20 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentElements;
+package com.aspose.words.DocumentElements;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.ReplaceTextRequest;
-import com.aspose.words.cloud.model.ReplaceTextResponse;
-import com.aspose.words.cloud.model.SearchResponse;
-import com.aspose.words.cloud.model.TextItemsResponse;
-import com.aspose.words.cloud.model.requests.GetDocumentTextItemsRequest;
-import com.aspose.words.cloud.model.requests.PostReplaceTextRequest;
-import com.aspose.words.cloud.model.requests.SearchRequest;
-import junit.framework.TestCase;
-
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Paths;
+
+import com.aspose.words.ApiException;
+import com.aspose.words.TestInitializer;
+import com.aspose.words.model.ReplaceTextParameters;
+import com.aspose.words.model.ReplaceTextResponse;
+import com.aspose.words.model.SearchResponse;
+import com.aspose.words.model.requests.ReplaceTextRequest;
+import com.aspose.words.model.requests.SearchRequest;
+
+import junit.framework.TestCase;
 
 public class TestText extends TestCase {
     private String testFolder = "DocumentElements/Text";
@@ -50,62 +49,39 @@ public class TestText extends TestCase {
     }
 
     /*
-     * Test for getting text
-     */
-    public void testGetDocumentTextItems() throws ApiException {
-        String fileName = "test_multi_pages.docx";
-        String remoteName = "TestGetDocumentTextItems.docx";
-
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
-
-        GetDocumentTextItemsRequest request = new GetDocumentTextItemsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
-                null);
-
-        TextItemsResponse result = TestInitializer.wordsApi.getDocumentTextItems(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
-    }
-
-    /*
      * Test for replacing text
      */
-    public void testPostReplaceText() throws ApiException {
+    public void testPostReplaceText() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostReplaceText.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
-        ReplaceTextRequest body = new ReplaceTextRequest().oldValue("aspose").newValue("aspose new");
+        ReplaceTextParameters body = new ReplaceTextParameters().oldValue("aspose").newValue("aspose new");
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        PostReplaceTextRequest request = new PostReplaceTextRequest(remoteName, body,
+        ReplaceTextRequest request = new ReplaceTextRequest(remoteName, body,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null);
 
-        ReplaceTextResponse result = TestInitializer.wordsApi.postReplaceText(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        ReplaceTextResponse result = TestInitializer.wordsApi.replaceText(request);
+        assertNotNull(result);
     }
 
     /*
      * Test for searching text
      */
-    public void testSearch() throws ApiException {
+    public void testSearch() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestSearch.docx";
         String pattern = "aspose";
 
-        TestInitializer.wordsApi.putCreate(Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"),
-                new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()),
-                null, null);
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         SearchRequest request = new SearchRequest(remoteName, pattern,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         SearchResponse result = TestInitializer.wordsApi.search(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 }

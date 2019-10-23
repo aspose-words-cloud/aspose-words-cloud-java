@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Table cell element
+ * Table cell element.
  */
-@ApiModel(description = "Table cell element")
+@ApiModel(description = "Table cell element.")
 
 public class TableCellInsert {
   @SerializedName("InsertAfter")
@@ -53,10 +53,10 @@ public class TableCellInsert {
   }
 
    /**
-   * Table cell will be inserted after cell with specified 0-based index.
+   * Gets or sets table cell will be inserted after cell with specified 0-based index.
    * @return insertAfter
   **/
-  @ApiModelProperty(value = "Table cell will be inserted after cell with specified 0-based index.")
+  @ApiModelProperty(value = "Gets or sets table cell will be inserted after cell with specified 0-based index.")
   public Integer getInsertAfter() {
     return insertAfter;
   }

@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.DocumentProperties;
-import com.aspose.words.cloud.model.WordsResponse;
+import com.aspose.words.model.DocumentProperties;
+import com.aspose.words.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,10 +55,10 @@ public class DocumentPropertiesResponse extends WordsResponse {
   }
 
    /**
-   * Collection of document properties.
+   * Gets or sets collection of document properties.
    * @return documentProperties
   **/
-  @ApiModelProperty(value = "Collection of document properties.")
+  @ApiModelProperty(value = "Gets or sets collection of document properties.")
   public DocumentProperties getDocumentProperties() {
     return documentProperties;
   }

@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,16 +40,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for odt/ott save options
+ * container class for odt/ott save options.
  */
-@ApiModel(description = "container class for odt/ott save options")
+@ApiModel(description = "container class for odt/ott save options.")
 
 public class OdtSaveOptionsData extends SaveOptionsData {
   @SerializedName("IsStrictSchema11")
   private Boolean isStrictSchema11 = null;
 
   /**
-   * Allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
+   * Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
    */
   @JsonAdapter(MeasureUnitEnum.Adapter.class)
   public enum MeasureUnitEnum {
@@ -107,10 +107,10 @@ public class OdtSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether export should correspond to ODT specification 1.1 strictly
+   * Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.
    * @return isStrictSchema11
   **/
-  @ApiModelProperty(value = "Specifies whether export should correspond to ODT specification 1.1 strictly")
+  @ApiModelProperty(value = "Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.")
   public Boolean isisIsStrictSchema11() {
     return isStrictSchema11;
   }
@@ -125,10 +125,10 @@ public class OdtSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
+   * Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
    * @return measureUnit
   **/
-  @ApiModelProperty(value = "Allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.")
+  @ApiModelProperty(value = "Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.")
   public MeasureUnitEnum getMeasureUnit() {
     return measureUnit;
   }
@@ -143,10 +143,10 @@ public class OdtSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies whether or not use pretty formats output
+   * Gets or sets specifies whether or not use pretty formats output.
    * @return prettyFormat
   **/
-  @ApiModelProperty(value = "Specifies whether or not use pretty formats output")
+  @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
   public Boolean isisPrettyFormat() {
     return prettyFormat;
   }

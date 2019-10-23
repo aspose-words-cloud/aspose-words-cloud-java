@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Bookmark;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.Bookmark;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,10 +66,10 @@ public class Bookmarks extends LinkElement {
   }
 
    /**
-   * Array of bookmarks.
+   * Gets or sets array of bookmarks.
    * @return bookmarkList
   **/
-  @ApiModelProperty(value = "Array of bookmarks.")
+  @ApiModelProperty(value = "Gets or sets array of bookmarks.")
   public List<Bookmark> getBookmarkList() {
     return bookmarkList;
   }

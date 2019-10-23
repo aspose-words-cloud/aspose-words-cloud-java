@@ -25,11 +25,11 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.SaveOptionsData;
+import com.aspose.words.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,9 +40,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for xaml flow save options
+ * container class for xaml flow save options.
  */
-@ApiModel(description = "container class for xaml flow save options")
+@ApiModel(description = "container class for xaml flow save options.")
 
 public class XamlFlowSaveOptionsData extends SaveOptionsData {
   @SerializedName("ImagesFolder")
@@ -57,10 +57,10 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies the physical folder where images are saved when exporting
+   * Gets or sets specifies the physical folder where images are saved when exporting.
    * @return imagesFolder
   **/
-  @ApiModelProperty(value = "Specifies the physical folder where images are saved when exporting")
+  @ApiModelProperty(value = "Gets or sets specifies the physical folder where images are saved when exporting.")
   public String getImagesFolder() {
     return imagesFolder;
   }
@@ -75,10 +75,10 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Specifies the name of the folder used to construct image URIs
+   * Gets or sets specifies the name of the folder used to construct image URIs.
    * @return imagesFolderAlias
   **/
-  @ApiModelProperty(value = "Specifies the name of the folder used to construct image URIs")
+  @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs.")
   public String getImagesFolderAlias() {
     return imagesFolderAlias;
   }

@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -39,9 +39,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * container class for individual bookmarks outline level
+ * container class for individual bookmarks outline level.
  */
-@ApiModel(description = "container class for individual bookmarks outline level")
+@ApiModel(description = "container class for individual bookmarks outline level.")
 
 public class BookmarksOutlineLevelData {
   @SerializedName("Name")
@@ -56,10 +56,10 @@ public class BookmarksOutlineLevelData {
   }
 
    /**
-   * Specify the bookmark&#39;s name
+   * Gets or sets specify the bookmark&#39;s name.
    * @return name
   **/
-  @ApiModelProperty(value = "Specify the bookmark's name")
+  @ApiModelProperty(value = "Gets or sets specify the bookmark's name.")
   public String getName() {
     return name;
   }
@@ -74,10 +74,10 @@ public class BookmarksOutlineLevelData {
   }
 
    /**
-   * Specify the bookmark&#39;s level
+   * Gets or sets specify the bookmark&#39;s level.
    * @return bookmarksOutlineLevel
   **/
-  @ApiModelProperty(required = true, value = "Specify the bookmark's level")
+  @ApiModelProperty(required = true, value = "Gets or sets specify the bookmark's level.")
   public Integer getBookmarksOutlineLevel() {
     return bookmarksOutlineLevel;
   }

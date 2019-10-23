@@ -25,7 +25,7 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -40,9 +40,9 @@ import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * Container class for compare documents
+ * Container class for compare documents.
  */
-@ApiModel(description = "Container class for compare documents")
+@ApiModel(description = "Container class for compare documents.")
 
 public class CompareData {
   @SerializedName("ComparingWithDocument")
@@ -60,10 +60,10 @@ public class CompareData {
   }
 
    /**
-   * Path to document to compare at the server.
+   * Gets or sets path to document to compare at the server.
    * @return comparingWithDocument
   **/
-  @ApiModelProperty(value = "Path to document to compare at the server.")
+  @ApiModelProperty(value = "Gets or sets path to document to compare at the server.")
   public String getComparingWithDocument() {
     return comparingWithDocument;
   }
@@ -78,10 +78,10 @@ public class CompareData {
   }
 
    /**
-   * Initials of the author to use for revisions.
+   * Gets or sets initials of the author to use for revisions.
    * @return author
   **/
-  @ApiModelProperty(value = "Initials of the author to use for revisions.")
+  @ApiModelProperty(value = "Gets or sets initials of the author to use for revisions.")
   public String getAuthor() {
     return author;
   }
@@ -96,10 +96,10 @@ public class CompareData {
   }
 
    /**
-   * The date and time to use for revisions.             
+   * Gets or sets the date and time to use for revisions.             
    * @return dateTime
   **/
-  @ApiModelProperty(value = "The date and time to use for revisions.             ")
+  @ApiModelProperty(value = "Gets or sets the date and time to use for revisions.             ")
   public OffsetDateTime getDateTime() {
     return dateTime;
   }

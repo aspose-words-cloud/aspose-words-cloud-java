@@ -25,12 +25,12 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
+import com.aspose.words.model.FixedPageSaveOptionsData;
+import com.aspose.words.model.MetafileRenderingOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,9 +41,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Container class for pcl save options
+ * Container class for pcl save options.
  */
-@ApiModel(description = "Container class for pcl save options")
+@ApiModel(description = "Container class for pcl save options.")
 
 public class PclSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("FalllbackFontName")
@@ -58,10 +58,10 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Name of the font that will be used if no expected font is found in printer and built-in fonts collections.
+   * Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
    * @return falllbackFontName
   **/
-  @ApiModelProperty(value = "Name of the font that will be used if no expected font is found in printer and built-in fonts collections.")
+  @ApiModelProperty(value = "Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.")
   public String getFalllbackFontName() {
     return falllbackFontName;
   }

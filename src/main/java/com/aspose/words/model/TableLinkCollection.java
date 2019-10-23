@@ -25,13 +25,13 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.TableLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.model.LinkElement;
+import com.aspose.words.model.TableLink;
+import com.aspose.words.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,9 +44,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of links to tables
+ * Collection of links to tables.
  */
-@ApiModel(description = "Collection of links to tables")
+@ApiModel(description = "Collection of links to tables.")
 
 public class TableLinkCollection extends LinkElement {
   @SerializedName("TableLinkList")
@@ -66,10 +66,10 @@ public class TableLinkCollection extends LinkElement {
   }
 
    /**
-   * Collection of table&#39;s links
+   * Gets or sets collection of table&#39;s links.
    * @return tableLinkList
   **/
-  @ApiModelProperty(value = "Collection of table's links")
+  @ApiModelProperty(value = "Gets or sets collection of table's links.")
   public List<TableLink> getTableLinkList() {
     return tableLinkList;
   }
