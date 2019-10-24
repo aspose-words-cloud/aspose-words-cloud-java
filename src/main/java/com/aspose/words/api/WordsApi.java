@@ -361,7 +361,7 @@ public class WordsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "plain/text"
+            "application/xml", "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2323,7 +2323,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes drawing object from document.
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2341,7 +2341,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes drawing object from document.
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2352,7 +2352,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes drawing object from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2603,7 +2603,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Deletes field from document.
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2621,7 +2621,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Deletes field from document.
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2632,7 +2632,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Deletes field from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2871,7 +2871,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes fields from section paragraph.
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2889,7 +2889,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes fields from section paragraph.
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2900,7 +2900,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes fields from section paragraph. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3403,7 +3403,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes footnote from document.
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3421,7 +3421,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes footnote from document.
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3432,7 +3432,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes footnote from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3683,7 +3683,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes form field from document.
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3701,7 +3701,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes form field from document.
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3712,7 +3712,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes form field from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4375,7 +4375,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes OfficeMath object from document.
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4393,7 +4393,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes OfficeMath object from document.
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4404,7 +4404,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes OfficeMath object from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4655,7 +4655,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes paragraph from section.
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4673,7 +4673,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Removes paragraph from section.
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4684,7 +4684,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Removes paragraph from section. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5364,7 +5364,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Deletes a table.
      * 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5382,7 +5382,7 @@ public class WordsApi {
     }
 
     /**
-     * 
+     * Deletes a table.
      * 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5393,7 +5393,7 @@ public class WordsApi {
     }
 
     /**
-     *  (asynchronously)
+     * Deletes a table. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7275,7 +7275,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads document drawing object common info by its index or convert to format specified.
      * 
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7296,7 +7296,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads document drawing object common info by its index or convert to format specified.
      * 
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7308,7 +7308,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7559,7 +7559,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads drawing object image data.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7580,7 +7580,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads drawing object image data.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7592,7 +7592,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Reads drawing object image data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7843,7 +7843,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets drawing object OLE data.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7864,7 +7864,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets drawing object OLE data.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7876,7 +7876,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Gets drawing object OLE data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8115,7 +8115,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads document drawing objects common info.
      * 
      * @return DrawingObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8136,7 +8136,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads document drawing objects common info.
      * 
      * @return ApiResponse&lt;DrawingObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8148,7 +8148,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Reads document drawing objects common info. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9618,7 +9618,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets field from document.
      * 
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9639,7 +9639,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets field from document.
      * 
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9651,7 +9651,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Gets field from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9890,7 +9890,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Get fields from document.
      * 
      * @return FieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9911,7 +9911,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Get fields from document.
      * 
      * @return ApiResponse&lt;FieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9923,7 +9923,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Get fields from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10304,7 +10304,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads footnote by index.
      * 
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10325,7 +10325,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads footnote by index.
      * 
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10337,7 +10337,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Reads footnote by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10576,7 +10576,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets footnotes from document.
      * 
      * @return FootnotesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10597,7 +10597,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets footnotes from document.
      * 
      * @return ApiResponse&lt;FootnotesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10609,7 +10609,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Gets footnotes from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10860,7 +10860,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns representation of an one of the form field.
      * 
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10881,7 +10881,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns representation of an one of the form field.
      * 
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10893,7 +10893,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Returns representation of an one of the form field. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11132,7 +11132,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets form fields from document.
      * 
      * @return FormFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11153,7 +11153,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets form fields from document.
      * 
      * @return ApiResponse&lt;FormFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11165,7 +11165,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Gets form fields from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11842,7 +11842,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads OfficeMath object by index.
      * 
      * @return OfficeMathObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11863,7 +11863,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Reads OfficeMath object by index.
      * 
      * @return ApiResponse&lt;OfficeMathObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11875,7 +11875,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Reads OfficeMath object by index. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12114,7 +12114,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets OfficeMath objects from document.
      * 
      * @return OfficeMathObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12135,7 +12135,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Gets OfficeMath objects from document.
      * 
      * @return ApiResponse&lt;OfficeMathObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12147,7 +12147,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Gets OfficeMath objects from document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12543,7 +12543,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Represents all the formatting for a paragraph.
      * 
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12564,7 +12564,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Represents all the formatting for a paragraph.
      * 
      * @return ApiResponse&lt;ParagraphFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12576,7 +12576,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Represents all the formatting for a paragraph. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12682,7 +12682,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * This resource represents one of the paragraphs contained in the document.
      * 
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12703,7 +12703,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * This resource represents one of the paragraphs contained in the document.
      * 
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12715,7 +12715,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * This resource represents one of the paragraphs contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -12954,7 +12954,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns a list of paragraphs that are contained in the document.
      * 
      * @return ParagraphLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12975,7 +12975,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns a list of paragraphs that are contained in the document.
      * 
      * @return ApiResponse&lt;ParagraphLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -12987,7 +12987,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Returns a list of paragraphs that are contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13160,145 +13160,6 @@ if (request.getData() != null)
         }
 
         com.squareup.okhttp.Call call = getRangeTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RangeTextResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getRangeText2
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getRangeText2Call(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getRangeText2ValidateBeforeCall(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getRangeText2");
-        }
-        
-        // verify the required parameter 'RangeStartIdentifier' is set
-        if (request.getRangeStartIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling getRangeText2");
-        }
-        
-
-        com.squareup.okhttp.Call call = getRangeText2Call(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Gets the text from the range.
-     * 
-     * @return RangeTextResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public RangeTextResponse getRangeText2(GetRangeTextRequest request) throws ApiException {
-        try {
-            ApiResponse<RangeTextResponse> resp = getRangeText2WithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<RangeTextResponse> resp = getRangeText2WithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Gets the text from the range.
-     * 
-     * @return ApiResponse&lt;RangeTextResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<RangeTextResponse> getRangeText2WithHttpInfo(GetRangeTextRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = getRangeText2ValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<RangeTextResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Gets the text from the range. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getRangeText2Async(GetRangeTextRequest request, final ApiCallback<RangeTextResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getRangeText2ValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<RangeTextResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -14797,7 +14658,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns a table properties.
      * 
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14818,7 +14679,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns a table properties.
      * 
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -14830,7 +14691,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Returns a table properties. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15226,7 +15087,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns a table.
      * 
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15247,7 +15108,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns a table.
      * 
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15259,7 +15120,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Returns a table. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15498,7 +15359,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns a list of tables that are contained in the document.
      * 
      * @return TableLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15519,7 +15380,7 @@ if (request.getData() != null)
     }
 
     /**
-     * 
+     * Returns a list of tables that are contained in the document.
      * 
      * @return ApiResponse&lt;TableLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15531,7 +15392,7 @@ if (request.getData() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Returns a list of tables that are contained in the document. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -15899,7 +15760,7 @@ if (request.getImageFile() != null)
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -15945,7 +15806,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds drawing object to document, returns added  drawing object&#39;s data.
      * 
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15966,7 +15827,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds drawing object to document, returns added  drawing object&#39;s data.
      * 
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -15978,7 +15839,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds drawing object to document, returns added  drawing object&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16235,7 +16096,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds field to document, returns inserted field&#39;s data.
      * 
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16256,7 +16117,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds field to document, returns inserted field&#39;s data.
      * 
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16268,7 +16129,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds field to document, returns inserted field&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16523,7 +16384,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds footnote to document, returns added footnote&#39;s data.
      * 
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16544,7 +16405,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds footnote to document, returns added footnote&#39;s data.
      * 
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16556,7 +16417,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds footnote to document, returns added footnote&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16813,7 +16674,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds form field to paragraph, returns added form field&#39;s data.
      * 
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16834,7 +16695,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds form field to paragraph, returns added form field&#39;s data.
      * 
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -16846,7 +16707,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds form field to paragraph, returns added form field&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -16914,7 +16775,7 @@ if (request.getImageFile() != null)
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "plain/text"
+            "application/xml", "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -17959,7 +17820,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds table to document, returns added table&#39;s data.             
      * 
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17980,7 +17841,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Adds table to document, returns added table&#39;s data.             
      * 
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -17992,7 +17853,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Adds table to document, returns added table&#39;s data.              (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -19119,146 +18980,6 @@ if (request.getImageFile() != null)
         return call;
     }
     /**
-     * Build call for removeRange2
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call removeRange2Call(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeRange2ValidateBeforeCall(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling removeRange2");
-        }
-        
-        // verify the required parameter 'RangeStartIdentifier' is set
-        if (request.getRangeStartIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling removeRange2");
-        }
-        
-
-        com.squareup.okhttp.Call call = removeRange2Call(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Removes the range from the document.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse removeRange2(RemoveRangeRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = removeRange2WithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = removeRange2WithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Removes the range from the document.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> removeRange2WithHttpInfo(RemoveRangeRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = removeRange2ValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Removes the range from the document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call removeRange2Async(RemoveRangeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = removeRange2ValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for renderDrawingObject
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -19491,7 +19212,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Renders drawing object to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -19512,7 +19233,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Renders drawing object to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -19524,7 +19245,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders drawing object to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -19789,7 +19510,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Renders math object to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -19810,7 +19531,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Renders math object to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -19822,7 +19543,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders math object to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -20233,7 +19954,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Renders paragraph to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -20254,7 +19975,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Renders paragraph to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -20266,7 +19987,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders paragraph to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -20531,7 +20252,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Renders table to specified format.
      * 
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -20552,7 +20273,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Renders table to specified format.
      * 
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -20564,7 +20285,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Renders table to specified format. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -20889,151 +20610,6 @@ if (request.getImageFile() != null)
         return call;
     }
     /**
-     * Build call for replaceWithText2
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call replaceWithText2Call(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getRangeText();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceWithText2ValidateBeforeCall(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling replaceWithText2");
-        }
-        
-        // verify the required parameter 'RangeStartIdentifier' is set
-        if (request.getRangeStartIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling replaceWithText2");
-        }
-        
-        // verify the required parameter 'RangeText' is set
-        if (request.getRangeText() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeText' when calling replaceWithText2");
-        }
-        
-
-        com.squareup.okhttp.Call call = replaceWithText2Call(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Replaces the content in the range.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse replaceWithText2(ReplaceWithTextRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = replaceWithText2WithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = replaceWithText2WithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Replaces the content in the range.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> replaceWithText2WithHttpInfo(ReplaceWithTextRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = replaceWithText2ValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Replaces the content in the range. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call replaceWithText2Async(ReplaceWithTextRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = replaceWithText2ValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for resetCache
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -21171,7 +20747,6 @@ if (request.getImageFile() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -21313,7 +20888,6 @@ if (request.getImageFile() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
@@ -21443,151 +21017,6 @@ if (request.getImageFile() != null)
         return call;
     }
     /**
-     * Build call for saveAsRange2
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call saveAsRange2Call(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request.getDocumentParameters();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/SaveAs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call saveAsRange2ValidateBeforeCall(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling saveAsRange2");
-        }
-        
-        // verify the required parameter 'RangeStartIdentifier' is set
-        if (request.getRangeStartIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling saveAsRange2");
-        }
-        
-        // verify the required parameter 'DocumentParameters' is set
-        if (request.getDocumentParameters() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'DocumentParameters' when calling saveAsRange2");
-        }
-        
-
-        com.squareup.okhttp.Call call = saveAsRange2Call(request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Saves the selected range as a new document.
-     * 
-     * @return DocumentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocumentResponse saveAsRange2(SaveAsRangeRequest request) throws ApiException {
-        try {
-            ApiResponse<DocumentResponse> resp = saveAsRange2WithHttpInfo(request);
-            return resp.getData();
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-                ApiResponse<DocumentResponse> resp = saveAsRange2WithHttpInfo(request);
-                return resp.getData();
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Saves the selected range as a new document.
-     * 
-     * @return ApiResponse&lt;DocumentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    private ApiResponse<DocumentResponse> saveAsRange2WithHttpInfo(SaveAsRangeRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = saveAsRange2ValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Saves the selected range as a new document. (asynchronously)
-     * 
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call saveAsRange2Async(SaveAsRangeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = saveAsRange2ValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for saveAsTiff
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -21607,8 +21036,6 @@ if (request.getImageFile() != null)
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "resultFile", request.getResultFile());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useAntiAliasing", request.getUseAntiAliasing());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useHighQualityRendering", request.getUseHighQualityRendering());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageBrightness", request.getImageBrightness());
@@ -22811,7 +22238,7 @@ if (request.getImageFile() != null)
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -22862,7 +22289,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates drawing object, returns updated  drawing object&#39;s data.
      * 
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -22883,7 +22310,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates drawing object, returns updated  drawing object&#39;s data.
      * 
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -22895,7 +22322,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates drawing object, returns updated  drawing object&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -23449,7 +22876,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates footnote&#39;s properties, returns updated run&#39;s data.
      * 
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -23470,7 +22897,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates footnote&#39;s properties, returns updated run&#39;s data.
      * 
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -23482,7 +22909,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates footnote&#39;s properties, returns updated run&#39;s data. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -23749,7 +23176,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates properties of form field, returns updated form field.
      * 
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -23770,7 +23197,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates properties of form field, returns updated form field.
      * 
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -23782,7 +23209,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates properties of form field, returns updated form field. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -24793,7 +24220,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates a table properties.
      * 
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -24814,7 +24241,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * 
+     * Updates a table properties.
      * 
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -24826,7 +24253,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     *  (asynchronously)
+     * Updates a table properties. (asynchronously)
      * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

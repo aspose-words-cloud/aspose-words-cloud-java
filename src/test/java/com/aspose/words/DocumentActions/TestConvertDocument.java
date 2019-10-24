@@ -65,7 +65,7 @@ public class TestConvertDocument extends TestCase {
 
         SaveAsRequest request = new SaveAsRequest(remoteName, saveOptionsData,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
-                null, null, null, null, null);
+                null, null, null, null);
 
         SaveResponse result = TestInitializer.wordsApi.saveAs(request);
         assertNotNull(result);
@@ -95,7 +95,7 @@ public class TestConvertDocument extends TestCase {
         Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
         SaveAsRequest request = new SaveAsRequest(remoteName, saveOptionsData,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
-                null, null, null, destName, null);
+                null, null, null, null);
         SaveResponse result = TestInitializer.wordsApi.saveAs(request);
         assertNotNull(result);
     }
@@ -111,10 +111,10 @@ public class TestConvertDocument extends TestCase {
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, "DocumentActions", "ConvertDocument", fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
         SaveAsTiffRequest request = new SaveAsTiffRequest(remoteName, saveOptionsData,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
-                null, null, null, destName, null, null, null,
                 null, null, null, null, null, null,
                 null, null, null, null, null, null,
-                null, null, null, null);
+                null, null, null, null, null, null,
+                null, null, null);
         SaveResponse result = TestInitializer.wordsApi.saveAsTiff(request);
         assertNotNull(result);
     }

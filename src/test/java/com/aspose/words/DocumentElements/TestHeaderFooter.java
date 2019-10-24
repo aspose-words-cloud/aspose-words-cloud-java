@@ -60,9 +60,9 @@ public class TestHeaderFooter extends TestCase {
         String footerType = "FooterEven";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        InsertHeaderFooterRequest request = new InsertHeaderFooterRequest(remoteName, footerType,
+        InsertHeaderFooterRequest request = new InsertHeaderFooterRequest(remoteName, footerType, "",
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
-                null, null, null, null, null);
+                null, null, null, null);
 
         HeaderFooterResponse result = TestInitializer.wordsApi.insertHeaderFooter(request);
         assertNotNull(result);

@@ -38,7 +38,7 @@ public class SaveAsRangeRequest {
     private String Name;
 
     /*
-     * The range start identifier.
+     * The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     private String RangeStartIdentifier;
 
@@ -71,26 +71,20 @@ public class SaveAsRangeRequest {
      * Password for opening an encrypted document.
      */
     private String Password;
-
-    /*
-     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
     
     /*
      * Initializes a new instance of the saveAsRangeRequest class.
      *  
      * @param String name The document.
-     * @param String rangeStartIdentifier The range start identifier.
+     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      * @param RangeDocument documentParameters Parameters of a new document.
      * @param String rangeEndIdentifier The range end identifier.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public SaveAsRangeRequest(String name,  String rangeStartIdentifier,  RangeDocument documentParameters,  String rangeEndIdentifier,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
+    public SaveAsRangeRequest(String name,  String rangeStartIdentifier,  RangeDocument documentParameters,  String rangeEndIdentifier,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
         RangeStartIdentifier = rangeStartIdentifier;
         DocumentParameters = documentParameters;
@@ -99,7 +93,6 @@ public class SaveAsRangeRequest {
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        DestFileName = destFileName;
     }
 
     /*
@@ -117,14 +110,14 @@ public class SaveAsRangeRequest {
     }
 
     /*
-     *  Gets The range start identifier.
+     *  Gets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     public String getRangeStartIdentifier() {
         return RangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier.
+     * Sets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     public void setRangeStartIdentifier(String value) {
         RangeStartIdentifier = value;
@@ -212,19 +205,5 @@ public class SaveAsRangeRequest {
      */
     public void setPassword(String value) {
         Password = value;
-    }
-
-    /*
-     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
     }
 }

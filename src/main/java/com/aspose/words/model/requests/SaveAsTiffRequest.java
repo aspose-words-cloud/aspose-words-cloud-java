@@ -63,16 +63,6 @@ public class SaveAsTiffRequest {
     private String Password;
 
     /*
-     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
-
-    /*
-     * The resulting file name.
-     */
-    private String ResultFile;
-
-    /*
      * Use antialiasing flag.
      */
     private Boolean UseAntiAliasing;
@@ -171,8 +161,6 @@ public class SaveAsTiffRequest {
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String resultFile The resulting file name.
      * @param Boolean useAntiAliasing Use antialiasing flag.
      * @param Boolean useHighQualityRendering Use high quality flag.
      * @param Double imageBrightness Brightness for the generated images.
@@ -192,15 +180,13 @@ public class SaveAsTiffRequest {
      * @param Boolean zipOutput Optional. A value determining zip output or not.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public SaveAsTiffRequest(String name,  TiffSaveOptionsData saveOptions,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String resultFile,  Boolean useAntiAliasing,  Boolean useHighQualityRendering,  Double imageBrightness,  String imageColorMode,  Double imageContrast,  String numeralFormat,  Integer pageCount,  Integer pageIndex,  String paperColor,  String pixelFormat,  Double resolution,  Double scale,  String tiffCompression,  String dmlRenderingMode,  String dmlEffectsRenderingMode,  String tiffBinarizationMethod,  Boolean zipOutput,  String fontsLocation) {
+    public SaveAsTiffRequest(String name,  TiffSaveOptionsData saveOptions,  String folder,  String storage,  String loadEncoding,  String password,  Boolean useAntiAliasing,  Boolean useHighQualityRendering,  Double imageBrightness,  String imageColorMode,  Double imageContrast,  String numeralFormat,  Integer pageCount,  Integer pageIndex,  String paperColor,  String pixelFormat,  Double resolution,  Double scale,  String tiffCompression,  String dmlRenderingMode,  String dmlEffectsRenderingMode,  String tiffBinarizationMethod,  Boolean zipOutput,  String fontsLocation) {
         Name = name;
         SaveOptions = saveOptions;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        DestFileName = destFileName;
-        ResultFile = resultFile;
         UseAntiAliasing = useAntiAliasing;
         UseHighQualityRendering = useHighQualityRendering;
         ImageBrightness = imageBrightness;
@@ -303,34 +289,6 @@ public class SaveAsTiffRequest {
      */
     public void setPassword(String value) {
         Password = value;
-    }
-
-    /*
-     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
-    }
-
-    /*
-     *  Gets The resulting file name.
-     */
-    public String getResultFile() {
-        return ResultFile;
-    }
-
-    /*
-     * Sets The resulting file name.
-     */
-    public void setResultFile(String value) {
-        ResultFile = value;
     }
 
     /*

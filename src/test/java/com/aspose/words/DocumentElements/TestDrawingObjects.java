@@ -33,6 +33,7 @@ import java.nio.file.Paths;
 import com.aspose.words.ApiException;
 import com.aspose.words.TestInitializer;
 import com.aspose.words.model.DrawingObjectResponse;
+import com.aspose.words.model.DrawingObjectsResponse;
 import com.aspose.words.model.requests.DeleteDrawingObjectRequest;
 import com.aspose.words.model.requests.GetDocumentDrawingObjectByIndexRequest;
 import com.aspose.words.model.requests.GetDocumentDrawingObjectImageDataRequest;
@@ -153,9 +154,9 @@ public class TestDrawingObjects extends TestCase {
 
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(remoteName, "{\"Left\": 0}", data,
+        InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(remoteName, "{\"Left\": 0}", data, "",
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
-                null, null, null, null, null);
+                null, null, null, null);
 
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
         assertNotNull(result);

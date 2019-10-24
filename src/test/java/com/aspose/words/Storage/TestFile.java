@@ -60,5 +60,5 @@ public class TestFile extends TestCase {
         assertTrue("File is not uploaded", result.getUploaded().size() == 1);
     }
 
-
+    
 }

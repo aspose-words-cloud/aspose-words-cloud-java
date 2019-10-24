@@ -51,8 +51,57 @@ public class TextSaveOptionsData extends SaveOptionsData {
   @SerializedName("Encoding")
   private String encoding = null;
 
+  /**
+   * Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
+   */
+  @JsonAdapter(ExportHeadersFootersModeEnum.Adapter.class)
+  public enum ExportHeadersFootersModeEnum {
+    NONE("None"),
+    
+    PRIMARYONLY("PrimaryOnly"),
+    
+    ALLATEND("AllAtEnd");
+
+    private String value;
+
+    ExportHeadersFootersModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ExportHeadersFootersModeEnum fromValue(String text) {
+      for (ExportHeadersFootersModeEnum b : ExportHeadersFootersModeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ExportHeadersFootersModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ExportHeadersFootersModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ExportHeadersFootersModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ExportHeadersFootersModeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("ExportHeadersFootersMode")
-  private Integer exportHeadersFootersMode = null;
+  private ExportHeadersFootersModeEnum exportHeadersFootersMode = null;
 
   @SerializedName("ForcePageBreaks")
   private Boolean forcePageBreaks = null;
@@ -102,21 +151,21 @@ public class TextSaveOptionsData extends SaveOptionsData {
     this.encoding = encoding;
   }
 
-  public TextSaveOptionsData exportHeadersFootersMode(Integer exportHeadersFootersMode) {
+  public TextSaveOptionsData exportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
     this.exportHeadersFootersMode = exportHeadersFootersMode;
     return this;
   }
 
    /**
-   * Gets or sets specifies whether to output headers and footers when exporting in plain text format.
+   * Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
    * @return exportHeadersFootersMode
   **/
-  @ApiModelProperty(value = "Gets or sets specifies whether to output headers and footers when exporting in plain text format.")
-  public Integer getExportHeadersFootersMode() {
+  @ApiModelProperty(value = "Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.")
+  public ExportHeadersFootersModeEnum getExportHeadersFootersMode() {
     return exportHeadersFootersMode;
   }
 
-  public void setExportHeadersFootersMode(Integer exportHeadersFootersMode) {
+  public void setExportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
     this.exportHeadersFootersMode = exportHeadersFootersMode;
   }
 

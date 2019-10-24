@@ -48,6 +48,9 @@ public class DocSaveOptionsData extends SaveOptionsData {
   @SerializedName("Password")
   private String password = null;
 
+  @SerializedName("SavePictureBullet")
+  private Boolean savePictureBullet = null;
+
   @SerializedName("SaveRoutingSlip")
   private Boolean saveRoutingSlip = null;
 
@@ -67,6 +70,24 @@ public class DocSaveOptionsData extends SaveOptionsData {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public DocSaveOptionsData savePictureBullet(Boolean savePictureBullet) {
+    this.savePictureBullet = savePictureBullet;
+    return this;
+  }
+
+   /**
+   * Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.
+   * @return savePictureBullet
+  **/
+  @ApiModelProperty(value = "Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.")
+  public Boolean isisSavePictureBullet() {
+    return savePictureBullet;
+  }
+
+  public void setSavePictureBullet(Boolean savePictureBullet) {
+    this.savePictureBullet = savePictureBullet;
   }
 
   public DocSaveOptionsData saveRoutingSlip(Boolean saveRoutingSlip) {
@@ -98,13 +119,14 @@ public class DocSaveOptionsData extends SaveOptionsData {
     }
     DocSaveOptionsData docSaveOptionsData = (DocSaveOptionsData) o;
     return Objects.equals(this.password, docSaveOptionsData.password) &&
+        Objects.equals(this.savePictureBullet, docSaveOptionsData.savePictureBullet) &&
         Objects.equals(this.saveRoutingSlip, docSaveOptionsData.saveRoutingSlip) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, saveRoutingSlip, super.hashCode());
+    return Objects.hash(password, savePictureBullet, saveRoutingSlip, super.hashCode());
   }
 
 
@@ -114,6 +136,7 @@ public class DocSaveOptionsData extends SaveOptionsData {
     sb.append("class DocSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    savePictureBullet: ").append(toIndentedString(savePictureBullet)).append("\n");
     sb.append("    saveRoutingSlip: ").append(toIndentedString(saveRoutingSlip)).append("\n");
     sb.append("}");
     return sb.toString();

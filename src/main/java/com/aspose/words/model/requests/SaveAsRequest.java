@@ -63,11 +63,6 @@ public class SaveAsRequest {
     private String Password;
 
     /*
-     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
-
-    /*
      * Folder in filestorage with custom fonts.
      */
     private String FontsLocation;
@@ -81,17 +76,15 @@ public class SaveAsRequest {
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public SaveAsRequest(String name,  SaveOptionsData saveOptionsData,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String fontsLocation) {
+    public SaveAsRequest(String name,  SaveOptionsData saveOptionsData,  String folder,  String storage,  String loadEncoding,  String password,  String fontsLocation) {
         Name = name;
         SaveOptionsData = saveOptionsData;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        DestFileName = destFileName;
         FontsLocation = fontsLocation;
     }
 
@@ -177,20 +170,6 @@ public class SaveAsRequest {
      */
     public void setPassword(String value) {
         Password = value;
-    }
-
-    /*
-     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
     }
 
     /*
