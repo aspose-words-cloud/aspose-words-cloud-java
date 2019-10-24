@@ -1063,8 +1063,7 @@ public class ApiClient {
                     .addEncoded("client_secret", getAppKey())
                     .build();
 
-            String url = "https://api-qa.aspose.cloud/connect/token";
-            // String url = baseUrl + "/connect/token";
+            String url =  this.baseUrl + "/connect/token";
             Request request = new Request.Builder()
                     .url(url)
                     .post(requestBody)
@@ -1073,7 +1072,7 @@ public class ApiClient {
 
             Response response = httpClient.newCall(request).execute();
             GetAccessTokenResult result = json.deserialize(response.body().string(), GetAccessTokenResult.class);
-            setAccessToken(result.access_token).setRefreshToken(result.refresh_token);
+            setAccessToken(result.access_token);
         }
         catch (Exception ex) {
             throw new ApiException(ex);
