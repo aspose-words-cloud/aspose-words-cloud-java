@@ -23,3 +23,5 @@ build
 .idea/
 .gitignore
 Settings/servercreds.json
+.classpath
+.project
