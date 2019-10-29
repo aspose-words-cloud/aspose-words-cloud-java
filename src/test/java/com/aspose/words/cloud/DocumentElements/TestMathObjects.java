@@ -28,7 +28,6 @@ package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.WordsResponse;
 import com.aspose.words.cloud.model.OfficeMathObjectResponse;
 import com.aspose.words.cloud.model.OfficeMathObjectsResponse;
 import com.aspose.words.cloud.model.requests.*;
@@ -64,6 +63,22 @@ public class TestMathObjects extends TestCase {
     }
 
     /*
+     * Test for removing math object from document without node path
+     */
+    public void testDeleteOfficeMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "MathObjects.docx";
+        String remoteName = "TestDeleteOfficeMathObjectWithoutNodePath.doc";
+        Integer index = 0;
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        DeleteOfficeMathObjectWithoutNodePathRequest request = new DeleteOfficeMathObjectWithoutNodePathRequest(remoteName, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null, null, null, null);
+
+        TestInitializer.wordsApi.deleteOfficeMathObjectWithoutNodePath(request);
+    }
+
+    /*
      * Test for getting math object from document
      */
     public void testGetOfficeMathObject() throws ApiException, FileNotFoundException {
@@ -77,6 +92,23 @@ public class TestMathObjects extends TestCase {
                 null);
 
         OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObject(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for getting math object from document without node path
+     */
+    public void testGetOfficeMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "MathObjects.docx";
+        String remoteName = "TestGetOfficeMathObjectWithoutNodePath.doc";
+        Integer index = 0;
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        GetOfficeMathObjectWithoutNodePathRequest request = new GetOfficeMathObjectWithoutNodePathRequest(remoteName, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null);
+
+        OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObjectWithoutNodePath(request);
         assertNotNull(result);
     }
 
@@ -97,6 +129,22 @@ public class TestMathObjects extends TestCase {
     }
 
     /*
+     * Test for getting math objects from document without node path
+     */
+    public void testGetOfficeMathObjectsWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "MathObjects.docx";
+        String remoteName = "TestGetOfficeMathObjectsWithoutNodePath.doc";
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        GetOfficeMathObjectsWithoutNodePathRequest request = new GetOfficeMathObjectsWithoutNodePathRequest(remoteName,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null);
+
+        OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjectsWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for getting math objects from document
      */
     public void testRenderMathObject() throws ApiException, FileNotFoundException {
@@ -111,6 +159,24 @@ public class TestMathObjects extends TestCase {
                 null, null);
 
         File result = TestInitializer.wordsApi.renderMathObject(request);
+        assertTrue(result.length() > 0);
+    }
+
+    /*
+     * Test for getting math objects from document without node path
+     */
+    public void testRenderMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "MathObjects.docx";
+        String remoteName = "TestRenderMathObjectWithoutNodePath.doc";
+        Integer index = 0;
+        String format = "png";
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        RenderMathObjectWithoutNodePathRequest request = new RenderMathObjectWithoutNodePathRequest(remoteName, format, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null, null);
+
+        File result = TestInitializer.wordsApi.renderMathObjectWithoutNodePath(request);
         assertTrue(result.length() > 0);
     }
 }

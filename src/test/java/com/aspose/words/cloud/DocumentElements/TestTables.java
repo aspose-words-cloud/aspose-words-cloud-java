@@ -63,6 +63,23 @@ public class TestTables extends TestCase {
     }
 
     /*
+     * Test for removing table
+     */
+    public void testDeleteTableWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "TablesGet.docx";
+        String remoteName = "TestDeleteTableWithoutNodePath.docx";
+        Integer index = 0;
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        DeleteTableWithoutNodePathRequest request = new DeleteTableWithoutNodePathRequest(remoteName, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null, null, null, null);
+
+        TestInitializer.wordsApi.deleteTableWithoutNodePath(request);
+    }
+
+    /*
      * Test for removing table cell
      */
     public void testDeleteTableCell() throws ApiException, FileNotFoundException {
@@ -150,6 +167,24 @@ public class TestTables extends TestCase {
                 null);
 
         TableResponse result = TestInitializer.wordsApi.getTable(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for getting table without node path
+     */
+    public void testGetTableWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "TablesGet.docx";
+        String remoteName = "TestGetTableWithoutNodePath.docx";
+        Integer index = 0;
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        GetTableWithoutNodePathRequest request = new GetTableWithoutNodePathRequest(remoteName, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null);
+
+        TableResponse result = TestInitializer.wordsApi.getTableWithoutNodePath(request);
         assertNotNull(result);
     }
 
@@ -247,6 +282,23 @@ public class TestTables extends TestCase {
     }
 
     /*
+     * Test for getting tables without node path
+     */
+    public void testGetTablesWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "TablesGet.docx";
+        String remoteName = "TestGetTablesWithoutNodePath.docx";
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        GetTablesWithoutNodePathRequest request = new GetTablesWithoutNodePathRequest(remoteName,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null);
+
+        TableLinkCollectionResponse result = TestInitializer.wordsApi.getTablesWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for inserting table
      */
     public void testInsertTable() throws ApiException, FileNotFoundException {
@@ -261,6 +313,24 @@ public class TestTables extends TestCase {
                 null, null, null, null, body);
 
         TableResponse result = TestInitializer.wordsApi.insertTable(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for inserting table without node path
+     */
+    public void testInsertTableWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "TablesGet.docx";
+        String remoteName = "TestInsertTableWithoutNodePath.docx";
+        TableInsert body = new TableInsert().columnsCount(3).rowsCount(5);
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        InsertTableWithoutNodePathRequest request = new InsertTableWithoutNodePathRequest(remoteName,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null, null, null, null, body);
+
+        TableResponse result = TestInitializer.wordsApi.insertTableWithoutNodePath(request);
         assertNotNull(result);
     }
 
@@ -321,6 +391,24 @@ public class TestTables extends TestCase {
     }
 
     /*
+     * Test for rendering table without node path
+     */
+    public void testRenderTableWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "TablesGet.docx";
+        String remoteName = "TestRenderTableWithoutNodePath.docx";
+        Integer index = 0;
+        String format = "png";
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        RenderTableWithoutNodePathRequest request = new RenderTableWithoutNodePathRequest(remoteName, format, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null, null);
+
+        File result = TestInitializer.wordsApi.renderTableWithoutNodePath(request);
+        assertTrue(result.length() > 0);
+    }
+
+    /*
      * Test for updating table cell format
      */
     public void testUpdateTableCellFormat() throws ApiException, FileNotFoundException {
@@ -360,6 +448,24 @@ public class TestTables extends TestCase {
     }
 
     /*
+     * Test for getting table properties without node path
+     */
+    public void testGetTablePropertiesWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "TablesGet.docx";
+        String remoteName = "TestGetTablePropertiesWithoutNodePath.docx";
+        Integer index = 0;
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        GetTablePropertiesWithoutNodePathRequest request = new GetTablePropertiesWithoutNodePathRequest(remoteName, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null);
+
+        TablePropertiesResponse result = TestInitializer.wordsApi.getTablePropertiesWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for updating table properties
      */
     public void testUpdateTableProperties() throws ApiException, FileNotFoundException {
@@ -377,6 +483,27 @@ public class TestTables extends TestCase {
                 null, null, null, null, body);
 
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTableProperties(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for updating table properties without node path
+     */
+    public void testUpdateTablePropertiesWithoutNodePath() throws ApiException, FileNotFoundException {
+        String fileName = "TablesGet.docx";
+        String remoteName = "TestUpdateTablePropertiesWithoutNodePath.docx";
+        Integer index = 0;
+        TableProperties body = new TableProperties().alignment(TableProperties.AlignmentEnum.RIGHT)
+                .allowAutoFit(false).bidi(true).bottomPadding(1.0).cellSpacing(2.0).leftIndent(3.0)
+                .rightPadding(5.0).styleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS).topPadding(6.0);
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+
+        UpdateTablePropertiesWithoutNodePathRequest request = new UpdateTablePropertiesWithoutNodePathRequest(remoteName, index,
+                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                null, null, null, null, body);
+
+        TablePropertiesResponse result = TestInitializer.wordsApi.updateTablePropertiesWithoutNodePath(request);
         assertNotNull(result);
     }
 

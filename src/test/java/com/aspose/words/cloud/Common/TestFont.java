@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose">
- *   Copyright (c) 2018 Aspose.Words for Cloud
+ *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,7 +28,6 @@ package com.aspose.words.cloud.Common;
 
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.WordsResponse;
 import com.aspose.words.cloud.model.AvailableFontsResponse;
 import com.aspose.words.cloud.model.requests.GetAvailableFontsRequest;
 import com.aspose.words.cloud.model.requests.ResetCacheRequest;

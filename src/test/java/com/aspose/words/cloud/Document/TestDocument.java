@@ -29,6 +29,7 @@ package com.aspose.words.cloud.Document;
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.DocumentResponse;
+import com.aspose.words.cloud.model.requests.CreateDocumentRequest;
 import com.aspose.words.cloud.model.requests.GetDocumentRequest;
 import junit.framework.TestCase;
 
@@ -60,5 +61,15 @@ public class TestDocument extends TestCase {
 
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
         assertNotNull(result);
+    }
+
+    public void testCreateDocument() throws ApiException {
+        String remoteName = "TestCreateDocument.docx",
+            subfolder = "DocumentActions/Document";
+        
+        CreateDocumentRequest request = new CreateDocumentRequest(null, remoteName, 
+            Paths.get(TestInitializer.RemoteTestFolder, subfolder).toString());
+        DocumentResponse response = TestInitializer.wordsApi.createDocument(request);
+        assertNotNull(response);
     }
 }
