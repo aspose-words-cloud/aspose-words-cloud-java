@@ -32,9 +32,10 @@ import com.aspose.words.cloud.model.SectionLinkCollectionResponse;
 import com.aspose.words.cloud.model.SectionResponse;
 import com.aspose.words.cloud.model.requests.GetSectionRequest;
 import com.aspose.words.cloud.model.requests.GetSectionsRequest;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -50,7 +51,8 @@ public class TestSections extends TestCase {
     /*
      * Test for getting section
      */
-    public void testGetSection() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetSection() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSection.docx";
         Integer index = 0;
@@ -68,7 +70,8 @@ public class TestSections extends TestCase {
     /*
      * Test for getting sections
      */
-    public void testGetSections() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetSections() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSections.docx";
 

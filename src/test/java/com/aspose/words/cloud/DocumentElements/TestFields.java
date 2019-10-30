@@ -36,19 +36,9 @@ import com.aspose.words.cloud.model.Field;
 import com.aspose.words.cloud.model.FieldResponse;
 import com.aspose.words.cloud.model.FieldsResponse;
 import com.aspose.words.cloud.model.PageNumber;
-import com.aspose.words.cloud.model.requests.DeleteFieldRequest;
-import com.aspose.words.cloud.model.requests.DeleteFieldWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.DeleteFieldsRequest;
-import com.aspose.words.cloud.model.requests.DeleteFieldsWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetFieldRequest;
-import com.aspose.words.cloud.model.requests.GetFieldWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetFieldsRequest;
-import com.aspose.words.cloud.model.requests.GetFieldsWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.InsertFieldRequest;
-import com.aspose.words.cloud.model.requests.InsertFieldWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.InsertPageNumbersRequest;
-import com.aspose.words.cloud.model.requests.UpdateFieldRequest;
-import com.aspose.words.cloud.model.requests.UpdateFieldsRequest;
+import com.aspose.words.cloud.model.requests.*;
+
+import org.junit.Test;
 
 import junit.framework.TestCase;
 
@@ -64,7 +54,8 @@ public class TestFields extends TestCase {
     /*
      * Test for getting fields from document
      */
-    public void testGetFields() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFields() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestGetFields.docx";
 
@@ -81,7 +72,8 @@ public class TestFields extends TestCase {
     /*
      * Test for getting fields from document without node path
      */
-    public void testGetFieldsWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFieldsWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestGetFieldsWithoutNodePath.docx";
 
@@ -98,7 +90,8 @@ public class TestFields extends TestCase {
     /*
      * Test for getting field from document
      */
-    public void testGetField() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetField() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestGetField.docx";
         Integer index = 0;
@@ -116,7 +109,8 @@ public class TestFields extends TestCase {
     /*
      * Test for getting field from document without node path
      */
-    public void testGetFieldWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestGetFieldWithoutNodePath.docx";
         Integer index = 0;
@@ -134,7 +128,8 @@ public class TestFields extends TestCase {
     /*
      * Test for updating document field
      */
-    public void testUpdateField() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateField() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestUpdateField.docx";
         Integer index = 0;
@@ -153,7 +148,8 @@ public class TestFields extends TestCase {
     /*
      * Test for inserting document field
      */
-    public void testInsertField() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertField() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestInsertField.docx";
         Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
@@ -171,7 +167,8 @@ public class TestFields extends TestCase {
     /*
      * Test for inserting document field without node path
      */
-    public void testInsertFieldWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestInsertFieldWithoutNodePath.docx";
         Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
@@ -189,7 +186,8 @@ public class TestFields extends TestCase {
     /*
      * Test for reevaluating fields in document
      */
-    public void testUpdateFields() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateFields() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUpdateFields.docx";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -205,7 +203,8 @@ public class TestFields extends TestCase {
     /*
      * Test for reevaluating fields in document
      */
-    public void testInsertPageNumbers() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertPageNumbers() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestInsertPageNumbers.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -223,7 +222,8 @@ public class TestFields extends TestCase {
     /*
      * Test for removing field
      */
-    public void testDeleteField() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteField() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestDeleteField.docx";
         Integer index = 0;
@@ -240,7 +240,8 @@ public class TestFields extends TestCase {
     /*
      * Test for removing field without node path
      */
-    public void testDeleteFieldWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestDeleteFieldWithoutNodePath.docx";
         Integer index = 0;
@@ -257,7 +258,8 @@ public class TestFields extends TestCase {
     /*
      * Test for removing fields
      */
-    public void testDeleteFields() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteFields() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestDeleteFields.docx";
 
@@ -274,7 +276,8 @@ public class TestFields extends TestCase {
     /*
      * Test for removing fields without node path
      */
-    public void testDeleteFieldsWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteFieldsWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "GetField.docx";
         String remoteName = "TestDeleteFieldsWithoutNodePath.docx";
 

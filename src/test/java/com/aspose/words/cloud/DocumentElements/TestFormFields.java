@@ -35,16 +35,9 @@ import com.aspose.words.cloud.model.FormField;
 import com.aspose.words.cloud.model.FormFieldResponse;
 import com.aspose.words.cloud.model.FormFieldTextInput;
 import com.aspose.words.cloud.model.FormFieldsResponse;
-import com.aspose.words.cloud.model.requests.DeleteFormFieldRequest;
-import com.aspose.words.cloud.model.requests.DeleteFormFieldWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetFormFieldRequest;
-import com.aspose.words.cloud.model.requests.GetFormFieldWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetFormFieldsRequest;
-import com.aspose.words.cloud.model.requests.GetFormFieldsWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.InsertFormFieldRequest;
-import com.aspose.words.cloud.model.requests.InsertFormFieldWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.UpdateFormFieldRequest;
-import com.aspose.words.cloud.model.requests.UpdateFormFieldWithoutNodePathRequest;
+import com.aspose.words.cloud.model.requests.*;
+
+import org.junit.Test;
 
 import junit.framework.TestCase;
 
@@ -60,7 +53,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for updating footnote from document
      */
-    public void testUpdateFormField() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateFormField() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestUpdateFormField.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -85,7 +79,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for updating footnote from document without node path
      */
-    public void testUpdateFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestUpdateFormFieldWithoutNodePath.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -110,7 +105,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for inserting footnote from document
      */
-    public void testInsertFormField() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertFormField() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestInsertFormField.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -134,7 +130,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for inserting footnote from document withput node path
      */
-    public void testInsertFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestInsertFormFieldWithoutNodePath.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -158,7 +155,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for removing form field
      */
-    public void testDeleteFormField() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteFormField() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestDeleteFormField.docx";
         Integer index = 0;
@@ -174,7 +172,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for removing form field without node path
      */
-    public void testDeleteFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestDeleteFormFieldWithoutNodePath.docx";
         Integer index = 0;
@@ -190,7 +189,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for getting form field
      */
-    public void testGetFormField() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFormField() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormField.docx";
         Integer index = 0;
@@ -207,7 +207,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for getting form field without node path
      */
-    public void testGetFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormFieldWithoutNodePath.docx";
         Integer index = 0;
@@ -225,7 +226,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for getting form field
      */
-    public void testGetFormFields() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFormFields() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormFields.docx";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -241,7 +243,8 @@ public class TestFormFields extends TestCase {
     /*
      * Test for getting form field without node path
      */
-    public void testGetFormFieldsWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFormFieldsWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormFieldsWithoutNodePath.docx";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));

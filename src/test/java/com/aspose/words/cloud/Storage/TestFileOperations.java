@@ -35,6 +35,7 @@ import com.aspose.words.cloud.model.requests.DownloadFileRequest;
 import com.aspose.words.cloud.model.requests.MoveFileRequest;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -53,7 +54,8 @@ public class TestFileOperations extends TestCase {
     /*
      * Test for uploading document
      */
-    public void testUploadFile() throws ApiException, FileNotFoundException {
+    @Test
+public void testUploadFile() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUploadFile.docx";
 
@@ -67,7 +69,8 @@ public class TestFileOperations extends TestCase {
     /*
     * Test for file deletion
     */
-    public void testDeleteFile() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteFile() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteFile.docx";
 
@@ -82,7 +85,8 @@ public class TestFileOperations extends TestCase {
     /*
     * Test for file copy
     */
-    public void testCopyFile() throws ApiException, FileNotFoundException {
+    @Test
+public void testCopyFile() throws ApiException, FileNotFoundException {
         String guid = UUID.randomUUID().toString();
         String fileName = "test_multi_pages.docx";
         String remoteNameSrc = String.format("TestDeleteFileSrc%s.docx", guid);
@@ -100,7 +104,8 @@ public class TestFileOperations extends TestCase {
     /*
     *
     */
-    public void testMoveFile() throws ApiException, FileNotFoundException {
+    @Test
+public void testMoveFile() throws ApiException, FileNotFoundException {
         String guid = UUID.randomUUID().toString();
         String fileName = "test_multi_pages.docx";
         String remoteNameSrc = String.format("TestDeleteFileSrc%s.docx", guid);
@@ -118,7 +123,8 @@ public class TestFileOperations extends TestCase {
     /*
     * Test for download file
     */
-    public void testDownloadFile() throws ApiException, FileNotFoundException {
+    @Test
+public void testDownloadFile() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteFileSrc%s.docx";
 

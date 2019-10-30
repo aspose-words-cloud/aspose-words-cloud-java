@@ -38,6 +38,7 @@ import com.aspose.words.cloud.model.requests.ReplaceWithTextRequest;
 import com.aspose.words.cloud.model.requests.SaveAsRangeRequest;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
@@ -51,7 +52,8 @@ public class TestRange extends TestCase {
         TestInitializer.Initialize();
     }
 
-    public void testGetRangeText() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetRangeText() throws ApiException, FileNotFoundException {
         String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", expectedText = "This is HEADER ",
                 folder = Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
                 remoteName = "TestGetRangeText.doc", fullName = Paths.get(folder, remoteName).toString();
@@ -65,7 +67,8 @@ public class TestRange extends TestCase {
         assertEquals(expectedText, result.getText());
     }
 
-    public void testRemoveRange() throws ApiException, FileNotFoundException {
+    @Test
+public void testRemoveRange() throws ApiException, FileNotFoundException {
         String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
                 remoteName = "TestRemoveRange.doc", fullName = Paths.get(folder, remoteName).toString();
 
@@ -77,7 +80,8 @@ public class TestRange extends TestCase {
         assertNotNull("Rexult cannot be null", result);
     }
 
-    public void testSaveAsRange() throws ApiException, FileNotFoundException {
+    @Test
+public void testSaveAsRange() throws ApiException, FileNotFoundException {
         String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
                 remoteName = "TestSaveAsRange.doc", fullName = Paths.get(folder, remoteName).toString(),
                 newDocName = TestInitializer.RemoteTestFolder + "/NewDoc.docx";
@@ -91,7 +95,8 @@ public class TestRange extends TestCase {
         assertNotNull("Rexult cannot be null", result);
     }
 
-    public void testReplaceWithText() throws ApiException, FileNotFoundException {
+    @Test
+public void testReplaceWithText() throws ApiException, FileNotFoundException {
         String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
                 remoteName = "TestReplaceWithText.doc", fullName = Paths.get(folder, remoteName).toString(),
                 newText = "Replace header";

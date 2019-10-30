@@ -31,6 +31,8 @@ import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.AvailableFontsResponse;
 import com.aspose.words.cloud.model.requests.GetAvailableFontsRequest;
 import com.aspose.words.cloud.model.requests.ResetCacheRequest;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class TestFont extends TestCase {
@@ -43,6 +45,7 @@ public class TestFont extends TestCase {
     /*
      * Test for resetting font cache
      */
+    @Test
     public void testResetCache() throws ApiException {
         ResetCacheRequest request = new ResetCacheRequest();
 
@@ -52,7 +55,8 @@ public class TestFont extends TestCase {
     /*
      * Test for resetting font cache
      */
-    public void testGetAvailableFonts() throws ApiException {
+    @Test
+public void testGetAvailableFonts() throws ApiException {
         GetAvailableFontsRequest request = new GetAvailableFontsRequest(null);
 
         AvailableFontsResponse result = TestInitializer.wordsApi.getAvailableFonts(request);

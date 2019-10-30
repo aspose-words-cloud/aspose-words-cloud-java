@@ -30,6 +30,8 @@ import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -48,7 +50,8 @@ public class TestTables extends TestCase {
     /*
      * Test for removing table
      */
-    public void testDeleteTable() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteTable() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestDeleteTable.docx";
         Integer index = 0;
@@ -65,7 +68,8 @@ public class TestTables extends TestCase {
     /*
      * Test for removing table
      */
-    public void testDeleteTableWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteTableWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestDeleteTableWithoutNodePath.docx";
         Integer index = 0;
@@ -82,7 +86,8 @@ public class TestTables extends TestCase {
     /*
      * Test for removing table cell
      */
-    public void testDeleteTableCell() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteTableCell() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestDeleteTableCell.docx";
         Integer index = 0;
@@ -100,7 +105,8 @@ public class TestTables extends TestCase {
     /*
      * Test for removing table row
      */
-    public void testDeleteTableRow() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteTableRow() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestDeleteTableRow.docx";
         Integer index = 0;
@@ -118,7 +124,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table border
      */
-    public void testGetBorder() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetBorder() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetBorder.docx";
         String sourcePath = "sections/0/tables/2/rows/0";
@@ -137,7 +144,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table borders
      */
-    public void testGetBorders() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetBorders() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetBorders.docx";
         String sourcePath = "sections/0/tables/2/rows/0";
@@ -155,7 +163,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table
      */
-    public void testGetTable() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTable() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTable.docx";
         Integer index = 0;
@@ -173,7 +182,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table without node path
      */
-    public void testGetTableWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTableWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTableWithoutNodePath.docx";
         Integer index = 0;
@@ -191,7 +201,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table cell
      */
-    public void testGetTableCell() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTableCell() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTableCell.docx";
         Integer index = 0;
@@ -210,7 +221,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table cell format
      */
-    public void testGetTableCellFormat() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTableCellFormat() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTableCellFormat.docx";
         Integer index = 0;
@@ -229,7 +241,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table row
      */
-    public void testGetTableRow() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTableRow() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTableRow.docx";
         Integer index = 0;
@@ -248,7 +261,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table row format
      */
-    public void testGetTableRowFormat() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTableRowFormat() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTableRowFormat.docx";
         Integer index = 0;
@@ -267,7 +281,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting tables
      */
-    public void testGetTables() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTables() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTables.docx";
 
@@ -284,7 +299,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting tables without node path
      */
-    public void testGetTablesWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTablesWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTablesWithoutNodePath.docx";
 
@@ -301,7 +317,8 @@ public class TestTables extends TestCase {
     /*
      * Test for inserting table
      */
-    public void testInsertTable() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertTable() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestInsertTable.docx";
         TableInsert body = new TableInsert().columnsCount(3).rowsCount(5);
@@ -319,7 +336,8 @@ public class TestTables extends TestCase {
     /*
      * Test for inserting table without node path
      */
-    public void testInsertTableWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertTableWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestInsertTableWithoutNodePath.docx";
         TableInsert body = new TableInsert().columnsCount(3).rowsCount(5);
@@ -337,7 +355,8 @@ public class TestTables extends TestCase {
     /*
      * Test for inserting table cell
      */
-    public void testInsertTableCell() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertTableCell() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestInsertTableCell.docx";
         TableCellInsert body = new TableCellInsert();
@@ -356,7 +375,8 @@ public class TestTables extends TestCase {
     /*
      * Test for inserting table row
      */
-    public void testInsertTableRow() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertTableRow() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestInsertTableRow.docx";
         TableRowInsert body = new TableRowInsert().columnsCount(5);
@@ -375,7 +395,8 @@ public class TestTables extends TestCase {
     /*
      * Test for rendering table
      */
-    public void testRenderTable() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderTable() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestRenderTable.docx";
         Integer index = 0;
@@ -393,7 +414,8 @@ public class TestTables extends TestCase {
     /*
      * Test for rendering table without node path
      */
-    public void testRenderTableWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderTableWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestRenderTableWithoutNodePath.docx";
         Integer index = 0;
@@ -411,7 +433,8 @@ public class TestTables extends TestCase {
     /*
      * Test for updating table cell format
      */
-    public void testUpdateTableCellFormat() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateTableCellFormat() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestUpdateTableCellFormat.docx";
         TableCellFormat body = new TableCellFormat().wrapText(true)
@@ -432,7 +455,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table properties
      */
-    public void testGetTableProperties() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTableProperties() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTableProperties.docx";
         Integer index = 0;
@@ -450,7 +474,8 @@ public class TestTables extends TestCase {
     /*
      * Test for getting table properties without node path
      */
-    public void testGetTablePropertiesWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetTablePropertiesWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTablePropertiesWithoutNodePath.docx";
         Integer index = 0;
@@ -468,7 +493,8 @@ public class TestTables extends TestCase {
     /*
      * Test for updating table properties
      */
-    public void testUpdateTableProperties() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateTableProperties() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestUpdateTableProperties.docx";
         Integer index = 0;
@@ -489,7 +515,8 @@ public class TestTables extends TestCase {
     /*
      * Test for updating table properties without node path
      */
-    public void testUpdateTablePropertiesWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateTablePropertiesWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestUpdateTablePropertiesWithoutNodePath.docx";
         Integer index = 0;
@@ -510,7 +537,8 @@ public class TestTables extends TestCase {
     /*
      * Test for updating table row format
      */
-    public void testUpdateTableRowFormat() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateTableRowFormat() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestUpdateTableRowFormat.docx";
         Integer index = 0;
@@ -531,7 +559,8 @@ public class TestTables extends TestCase {
     /*
      * Test for deleting table border
      */
-    public void testDeleteBorder() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteBorder() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestDeleteTableBorder.docx";
         Integer index = 0;
@@ -551,7 +580,8 @@ public class TestTables extends TestCase {
     /*
      * Test for deleting table borders
      */
-    public void testDeleteBorders() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteBorders() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestDeleteTableBorders.docx";
         String sourcePath = "tables/1/rows/0/cells/0/";
@@ -570,7 +600,8 @@ public class TestTables extends TestCase {
     /*
      * Test for updating table border
      */
-    public void testUpdateBorder() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateBorder() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestUpdateBorder.docx";
         Integer index = 0;

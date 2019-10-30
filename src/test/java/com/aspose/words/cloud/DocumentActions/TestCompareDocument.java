@@ -32,10 +32,11 @@ import com.aspose.words.cloud.model.CompareData;
 import com.aspose.words.cloud.model.DocumentResponse;
 import com.aspose.words.cloud.model.requests.CompareDocumentRequest;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 import org.threeten.bp.OffsetDateTime;
 
-import java.io.File;
+import junit.framework.TestCase;
+
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -51,7 +52,8 @@ public class TestCompareDocument extends TestCase {
         /*
          * Test for document comparison
          */
-        public void testPostCompareDocument() throws ApiException, FileNotFoundException {
+        @Test
+public void testPostCompareDocument() throws ApiException, FileNotFoundException {
                 String fileName1 = "compareTestDoc1.doc";
                 String fileName2 = "compareTestDoc2.doc";
                 String remoteName1 = "TestPostCompareDocument1.doc";

@@ -29,6 +29,9 @@ package com.aspose.words.cloud.Common;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.api.WordsApi;
 import com.squareup.okhttp.Call;
+
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 import java.lang.reflect.Method;
@@ -42,6 +45,7 @@ public class TestApiCoverage extends TestCase {
         TestInitializer.Initialize();
     }
 
+    @Test
     public void testApiCoverage() {
         Class[] testClasses = new Class[] { TestFont.class };
         ArrayList<String> testMethods = new ArrayList<>();

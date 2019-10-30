@@ -30,9 +30,10 @@ import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.StatDataResponse;
 import com.aspose.words.cloud.model.requests.GetDocumentStatisticsRequest;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -48,7 +49,8 @@ public class TestDocumentStatistics extends TestCase {
     /*
      * Test for getting document statistics
      */
-    public void testGetDocumentStatistics() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentStatistics() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentStatistics.docx";
 

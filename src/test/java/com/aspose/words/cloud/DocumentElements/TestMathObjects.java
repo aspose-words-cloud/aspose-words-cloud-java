@@ -31,6 +31,8 @@ import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.OfficeMathObjectResponse;
 import com.aspose.words.cloud.model.OfficeMathObjectsResponse;
 import com.aspose.words.cloud.model.requests.*;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -49,7 +51,8 @@ public class TestMathObjects extends TestCase {
     /*
      * Test for removing math object from document
      */
-    public void testDeleteOfficeMathObject() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteOfficeMathObject() throws ApiException, FileNotFoundException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestDeleteOfficeMathObject.doc";
         Integer index = 0;
@@ -65,7 +68,8 @@ public class TestMathObjects extends TestCase {
     /*
      * Test for removing math object from document without node path
      */
-    public void testDeleteOfficeMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteOfficeMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestDeleteOfficeMathObjectWithoutNodePath.doc";
         Integer index = 0;
@@ -81,7 +85,8 @@ public class TestMathObjects extends TestCase {
     /*
      * Test for getting math object from document
      */
-    public void testGetOfficeMathObject() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetOfficeMathObject() throws ApiException, FileNotFoundException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestGetOfficeMathObject.doc";
         Integer index = 0;
@@ -98,7 +103,8 @@ public class TestMathObjects extends TestCase {
     /*
      * Test for getting math object from document without node path
      */
-    public void testGetOfficeMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetOfficeMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestGetOfficeMathObjectWithoutNodePath.doc";
         Integer index = 0;
@@ -115,7 +121,8 @@ public class TestMathObjects extends TestCase {
     /*
      * Test for getting math objects from document
      */
-    public void testGetOfficeMathObjects() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetOfficeMathObjects() throws ApiException, FileNotFoundException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestGetOfficeMathObjects.doc";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -131,7 +138,8 @@ public class TestMathObjects extends TestCase {
     /*
      * Test for getting math objects from document without node path
      */
-    public void testGetOfficeMathObjectsWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetOfficeMathObjectsWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestGetOfficeMathObjectsWithoutNodePath.doc";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -147,7 +155,8 @@ public class TestMathObjects extends TestCase {
     /*
      * Test for getting math objects from document
      */
-    public void testRenderMathObject() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderMathObject() throws ApiException, FileNotFoundException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestRenderMathObject.doc";
         Integer index = 0;
@@ -165,7 +174,8 @@ public class TestMathObjects extends TestCase {
     /*
      * Test for getting math objects from document without node path
      */
-    public void testRenderMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderMathObjectWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "MathObjects.docx";
         String remoteName = "TestRenderMathObjectWithoutNodePath.doc";
         Integer index = 0;

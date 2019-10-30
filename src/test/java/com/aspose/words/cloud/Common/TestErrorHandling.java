@@ -29,8 +29,10 @@ package com.aspose.words.cloud.Common;
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.requests.GetSectionRequest;
-import junit.framework.TestCase;
 import org.junit.Assert;
+import org.junit.Test;
+
+import junit.framework.TestCase;
 
 public class TestErrorHandling extends TestCase {
     @Override
@@ -39,7 +41,8 @@ public class TestErrorHandling extends TestCase {
         TestInitializer.Initialize();
     }
 
-    public void testHandleServerErrors() {
+    @Test
+public void testHandleServerErrors() {
         String remoteName = "noFileWithThisName";
         GetSectionRequest request = new GetSectionRequest(remoteName, 0, null, null, null, null);
         try {

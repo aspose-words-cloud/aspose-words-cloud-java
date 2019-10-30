@@ -31,9 +31,10 @@ import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.RevisionsModificationResponse;
 import com.aspose.words.cloud.model.requests.AcceptAllRevisionsRequest;
 import com.aspose.words.cloud.model.requests.RejectAllRevisionsRequest;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -49,7 +50,8 @@ public class TestRevisions extends TestCase {
     /*
      * Test for accepting all revisions
      */
-    public void testAcceptAllRevisions() throws ApiException, FileNotFoundException {
+    @Test
+public void testAcceptAllRevisions() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestAcceptAllRevisions.docx";
 
@@ -66,7 +68,8 @@ public class TestRevisions extends TestCase {
     /*
      * Test for accepting all revisions
      */
-    public void testRejectAllRevisions() throws ApiException, FileNotFoundException {
+    @Test
+public void testRejectAllRevisions() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestRejectAllRevisions.docx";
 

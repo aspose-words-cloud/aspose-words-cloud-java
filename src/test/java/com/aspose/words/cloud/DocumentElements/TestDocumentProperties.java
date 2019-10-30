@@ -31,8 +31,8 @@ import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
 import junit.framework.TestCase;
+import org.junit.Test;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -48,7 +48,8 @@ public class TestDocumentProperties extends TestCase {
     /*
      * Test for adding/updating document property
      */
-    public void testCreateOrUpdateDocumentProperty() throws ApiException, FileNotFoundException {
+    @Test
+public void testCreateOrUpdateDocumentProperty() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutUpdateDocumentProperty.docx";
         String propertyName = "AsposeAuthor";
@@ -67,7 +68,8 @@ public class TestDocumentProperties extends TestCase {
     /*
      * Test for deleting document property
      */
-    public void testDeleteDocumentProperty() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteDocumentProperty() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteDocumentProperty.docx";
         String propertyName = "testProp";
@@ -85,7 +87,8 @@ public class TestDocumentProperties extends TestCase {
     /*
      * Test for getting document properties
      */
-    public void testGetDocumentProperties() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentProperties() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentProperties.docx";
 
@@ -102,7 +105,8 @@ public class TestDocumentProperties extends TestCase {
     /*
      * Test for getting document property
      */
-    public void testGetDocumentProperty() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentProperty() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentProperty.docx";
         String propName = "Author";

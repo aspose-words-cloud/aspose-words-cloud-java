@@ -41,22 +41,9 @@ import com.aspose.words.cloud.model.ParagraphLinkCollectionResponse;
 import com.aspose.words.cloud.model.ParagraphResponse;
 import com.aspose.words.cloud.model.RunResponse;
 import com.aspose.words.cloud.model.RunsResponse;
-import com.aspose.words.cloud.model.requests.DeleteParagraphRequest;
-import com.aspose.words.cloud.model.requests.DeleteParagraphWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetParagraphFormatRequest;
-import com.aspose.words.cloud.model.requests.GetParagraphFormatWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetParagraphRequest;
-import com.aspose.words.cloud.model.requests.GetParagraphWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetParagraphsRequest;
-import com.aspose.words.cloud.model.requests.GetParagraphsWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetRunFontRequest;
-import com.aspose.words.cloud.model.requests.GetRunRequest;
-import com.aspose.words.cloud.model.requests.GetRunsRequest;
-import com.aspose.words.cloud.model.requests.InsertParagraphRequest;
-import com.aspose.words.cloud.model.requests.RenderParagraphRequest;
-import com.aspose.words.cloud.model.requests.RenderParagraphWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.UpdateParagraphFormatRequest;
-import com.aspose.words.cloud.model.requests.UpdateRunFontRequest;
+import com.aspose.words.cloud.model.requests.*;
+
+import org.junit.Test;
 
 import junit.framework.TestCase;
 
@@ -72,7 +59,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for removing paragraph
      */
-    public void testDeleteParagraph() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteParagraph() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteParagraph.doc";
         Integer index = 0;
@@ -88,7 +76,8 @@ public class TestParagraphs extends TestCase {
         /*
      * Test for removing paragraph without node path
      */
-    public void testDeleteParagraphWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteParagraphWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteParagraphWithoutNodePath.doc";
         Integer index = 0;
@@ -104,7 +93,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for getting paragraph
      */
-    public void testGetParagraph() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetParagraph() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraph.doc";
         Integer index = 0;
@@ -121,7 +111,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for getting paragraph without node path
      */
-    public void testGetParagraphWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetParagraphWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphWithoutNodePath.doc";
         Integer index = 0;
@@ -138,7 +129,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for getting paragraph run
      */
-    public void testGetRun() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetRun() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetRun.doc";
         Integer index = 0;
@@ -156,7 +148,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for getting paragraph run
      */
-    public void testGetRunFont() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetRunFont() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetRunFont.doc";
         Integer index = 0;
@@ -174,7 +167,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for getting paragraph runs
      */
-    public void testGetRuns() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetRuns() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentParagraphRuns.doc";
         String paragraphPath = "sections/0/paragraphs/0";
@@ -191,7 +185,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for getting paragraphs
      */
-    public void testGetParagraphs() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetParagraphs() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphs.doc";
         String paragraphPath = "sections/0";
@@ -208,7 +203,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for getting paragraphs without node path
      */
-    public void testGetParagraphsWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetParagraphsWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphsWithoutNodePath.doc";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -224,7 +220,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for updating paragraph font
      */
-    public void testUpdateRunFont() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateRunFont() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUpdateRunFont.doc";
         Integer index = 0;
@@ -244,7 +241,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for inserting paragraph
      */
-    public void testInsertParagraph() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertParagraph() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestInsertParagraph.doc";
         String paragraphPath = "sections/0";
@@ -263,7 +261,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for rendering paragraph
      */
-    public void testRenderParagraph() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderParagraph() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestRenderParagraph.doc";
         Integer index = 0;
@@ -281,7 +280,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for rendering paragraph without node path
      */
-    public void testRenderParagraphWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderParagraphWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestRenderParagraphWithoutNodePath.doc";
         Integer index = 0;
@@ -299,7 +299,8 @@ public class TestParagraphs extends TestCase {
     /*
      * Test for updating paragraph format
      */
-    public void testUpdateParagraphFormat() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateParagraphFormat() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "UpdateParagraphFormat.doc";
         ParagraphFormat body = new ParagraphFormat().alignment(ParagraphFormat.AlignmentEnum.RIGHT);
@@ -313,7 +314,8 @@ public class TestParagraphs extends TestCase {
         assertNotNull(result);
     }
 
-    public void testGetParagraphFormat() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetParagraphFormat() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "GetParagraphFormat.doc";
         Integer index = 0;
@@ -327,7 +329,8 @@ public class TestParagraphs extends TestCase {
         assertNotNull(result);
     }
 
-    public void testGetParagraphFormatWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetParagraphFormatWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "GetParagraphFormatWithoutNodePath.doc";
         Integer index = 0;

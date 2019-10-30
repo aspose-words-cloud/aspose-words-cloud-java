@@ -35,8 +35,8 @@ import com.aspose.words.cloud.model.requests.GetBookmarkByNameRequest;
 import com.aspose.words.cloud.model.requests.GetBookmarksRequest;
 import com.aspose.words.cloud.model.requests.UpdateBookmarkRequest;
 import junit.framework.TestCase;
+import org.junit.Test;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -52,7 +52,8 @@ public class TestBookmarks  extends TestCase {
     /*
      * Test for getting document bookmark by name
      */
-    public void testGetDocumentBookmarkByName() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentBookmarkByName() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentBookmarkByName.docx";
         String bookmarkName = "aspose";
@@ -70,7 +71,8 @@ public class TestBookmarks  extends TestCase {
     /*
      * Test for getting document bookmarks
      */
-    public void testGetDocumentBookmarks() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentBookmarks() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentBookmarks.docx";
 
@@ -87,7 +89,8 @@ public class TestBookmarks  extends TestCase {
     /*
      * Test for updating document bookmark
      */
-    public void testPostUpdateDocumentBookmark() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostUpdateDocumentBookmark() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostUpdateDocumentBookmark.docx";
         String bookmarkName = "aspose";

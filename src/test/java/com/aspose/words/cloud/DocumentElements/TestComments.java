@@ -31,8 +31,8 @@ import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
 import junit.framework.TestCase;
+import org.junit.Test;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -48,7 +48,8 @@ public class TestComments extends TestCase {
     /*
      * Test for deleting comment
      */
-    public void testDeleteComment() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteComment() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteComment.docx";
         Integer index = 0;
@@ -65,7 +66,8 @@ public class TestComments extends TestCase {
     /*
      * Test for getting comment
      */
-    public void testGetComment() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetComment() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetComment.docx";
         Integer index = 0;
@@ -83,7 +85,8 @@ public class TestComments extends TestCase {
     /*
      * Test for getting comments
      */
-    public void testGetComments() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetComments() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetComments.docx";
 
@@ -100,7 +103,8 @@ public class TestComments extends TestCase {
     /*
      * Test for updating comment
      */
-    public void testPostComment() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostComment() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostComment.docx";
         Integer index = 0;
@@ -122,7 +126,8 @@ public class TestComments extends TestCase {
     /*
      * Test for adding comment
      */
-    public void testPutComment() throws ApiException, FileNotFoundException {
+    @Test
+public void testPutComment() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutComment.docx";
         NodeLink link = new NodeLink().nodeId("0.3.0.3");

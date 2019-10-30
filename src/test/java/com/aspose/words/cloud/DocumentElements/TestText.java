@@ -37,6 +37,8 @@ import com.aspose.words.cloud.model.SearchResponse;
 import com.aspose.words.cloud.model.requests.ReplaceTextRequest;
 import com.aspose.words.cloud.model.requests.SearchRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class TestText extends TestCase {
@@ -51,7 +53,8 @@ public class TestText extends TestCase {
     /*
      * Test for replacing text
      */
-    public void testPostReplaceText() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostReplaceText() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostReplaceText.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -70,7 +73,8 @@ public class TestText extends TestCase {
     /*
      * Test for searching text
      */
-    public void testSearch() throws ApiException, FileNotFoundException {
+    @Test
+public void testSearch() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestSearch.docx";
         String pattern = "aspose";

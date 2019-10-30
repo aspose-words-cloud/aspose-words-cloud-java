@@ -38,6 +38,8 @@ import com.aspose.words.cloud.model.requests.DeleteWatermarkRequest;
 import com.aspose.words.cloud.model.requests.InsertWatermarkImageRequest;
 import com.aspose.words.cloud.model.requests.InsertWatermarkTextRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class TestWatermarks extends TestCase {
@@ -52,7 +54,8 @@ public class TestWatermarks extends TestCase {
     /*
      * Test for removing watermark
      */
-    public void testDeleteDocumentWatermark() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteDocumentWatermark() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteDocumentWatermark.docx";
 
@@ -69,7 +72,8 @@ public class TestWatermarks extends TestCase {
     /*
      * Test for inserting watermark image
      */
-    public void testPostInsertDocumentWatermarkImage() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostInsertDocumentWatermarkImage() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostInsertDocumentWatermarkImage.docx";
         Double rotationAngle = 0.0;
@@ -89,7 +93,8 @@ public class TestWatermarks extends TestCase {
     /*
      * Test for inserting watermark text
      */
-    public void testPostInsertDocumentWatermarkText() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostInsertDocumentWatermarkText() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostInsertDocumentWatermarkText.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();

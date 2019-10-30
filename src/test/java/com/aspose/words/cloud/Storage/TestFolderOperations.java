@@ -35,6 +35,8 @@ import com.aspose.words.cloud.model.requests.DeleteFolderRequest;
 import com.aspose.words.cloud.model.requests.GetFilesListRequest;
 import com.aspose.words.cloud.model.requests.MoveFolderRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 import java.util.UUID;
@@ -49,7 +51,8 @@ public class TestFolderOperations extends TestCase {
     /*
      * Test for createFolder
      */
-    public void testCreateFolder() throws ApiException {
+    @Test
+public void testCreateFolder() throws ApiException {
         String subFolder = "Temp/SdkTests/TestData/Storage";
         String guid = UUID.randomUUID().toString();
         String folderPath = subFolder + "/TestCreateFolder" + guid;
@@ -61,7 +64,8 @@ public class TestFolderOperations extends TestCase {
     /*
     * Test for deleteFolder
     */
-    public void testDeleteFolder() throws ApiException {
+    @Test
+public void testDeleteFolder() throws ApiException {
         String subFolder = "Temp/SdkTests/TestData/Storage";
         String guid = UUID.randomUUID().toString();
         String folderPath = subFolder + "/TestDeleteFolder" + guid;
@@ -76,7 +80,8 @@ public class TestFolderOperations extends TestCase {
     /*
     * Test for copyFolder
     */
-    public void testCopyFolder() throws ApiException{
+    @Test
+public void testCopyFolder() throws ApiException{
         String subFolder = "Temp/SdkTests/TestData/Storage";
         String guid = UUID.randomUUID().toString();
         String folderPathSrc = subFolder + "/TestCopyFolderSrc" + guid;
@@ -92,7 +97,8 @@ public class TestFolderOperations extends TestCase {
     /*
     * Test for moveFolder
     */
-    public void testMovefolder() throws ApiException{
+    @Test
+public void testMovefolder() throws ApiException{
         String subFolder = "Temp/SdkTests/TestData/Storage";
         String guid = UUID.randomUUID().toString();
         String folderPathSrc = subFolder + "/TestMoveFolderSrc" + guid;
@@ -108,7 +114,8 @@ public class TestFolderOperations extends TestCase {
     /*
     * Test for getFilesList
     */
-    public void testGetFilesList() throws ApiException {
+    @Test
+public void testGetFilesList() throws ApiException {
         String subFolder = "Temp/SdkTests/TestData/Storage";
         GetFilesListRequest request = new GetFilesListRequest(subFolder, null);
         FilesList result = TestInitializer.wordsApi.getFilesList(request);

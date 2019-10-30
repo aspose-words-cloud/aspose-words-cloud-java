@@ -34,16 +34,9 @@ import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.Footnote;
 import com.aspose.words.cloud.model.FootnoteResponse;
 import com.aspose.words.cloud.model.FootnotesResponse;
-import com.aspose.words.cloud.model.requests.DeleteFootnoteRequest;
-import com.aspose.words.cloud.model.requests.DeleteFootnoteWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetFootnoteRequest;
-import com.aspose.words.cloud.model.requests.GetFootnoteWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetFootnotesRequest;
-import com.aspose.words.cloud.model.requests.GetFootnotesWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.InsertFootnoteRequest;
-import com.aspose.words.cloud.model.requests.InsertFootnoteWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.UpdateFootnoteRequest;
-import com.aspose.words.cloud.model.requests.UpdateFootnoteWithoutNodePathRequest;
+import com.aspose.words.cloud.model.requests.*;
+
+import org.junit.Test;
 
 import junit.framework.TestCase;
 
@@ -59,7 +52,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for getting footnote from document
      */
-    public void testGetFootnote() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFootnote() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnote.docx";
         Integer index = 0;
@@ -77,7 +71,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for getting footnote from document without node path
      */
-    public void testGetFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnoteWithoutNodePath.docx";
         Integer index = 0;
@@ -95,7 +90,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for getting footnotes from document
      */
-    public void testGetFootnotes() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFootnotes() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnotes.docx";
 
@@ -112,7 +108,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for getting footnotes from document without node path
      */
-    public void testGetFootnotesWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetFootnotesWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnotesWithoutNodePath.docx";
 
@@ -129,7 +126,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for delete footnote from document
      */
-    public void testDeleteFootnote() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteFootnote() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestDeleteFootnote.docx";
         Integer index = 0;
@@ -146,7 +144,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for delete footnote from document without node path
      */
-    public void testDeleteFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestDeleteFootnoteWithoutNodePath.docx";
         Integer index = 0;
@@ -163,7 +162,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for update footnote from document
      */
-    public void testUpdateFootnote() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateFootnote() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestUpdateFootnote.docx";
         Integer index = 0;
@@ -182,7 +182,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for update footnote from document without node path
      */
-    public void testUpdateFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestUpdateFootnoteWithoutNodePath.docx";
         Integer index = 0;
@@ -201,7 +202,8 @@ public class TestFootnote extends TestCase {
     /*
      * Test for insert footnote from document
      */
-    public void testInsertFootnote() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertFootnote() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestInsertFootnote.docx";
         Footnote body = new Footnote().text("new text is here").footnoteType(Footnote.FootnoteTypeEnum.ENDNOTE);
@@ -219,7 +221,8 @@ public class TestFootnote extends TestCase {
    /*
      * Test for insert footnote into document without node path
      */
-    public void testInsertFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "Footnote.doc";
         String remoteName = "TestInsertFootnoteWithoutNodePath.docx";
         Footnote body = new Footnote().text("new text is here").footnoteType(Footnote.FootnoteTypeEnum.ENDNOTE);

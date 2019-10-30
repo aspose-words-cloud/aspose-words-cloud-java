@@ -31,6 +31,8 @@ import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.FieldNamesResponse;
 import com.aspose.words.cloud.model.requests.GetDocumentFieldNamesOnlineRequest;
 import com.aspose.words.cloud.model.requests.GetDocumentFieldNamesRequest;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -49,7 +51,8 @@ public class TestMailMergeFields extends TestCase {
     /*
      * Test for getting document field names
      */
-    public void testGetDocumentFieldNames() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentFieldNames() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentFieldNames.docx";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -65,7 +68,8 @@ public class TestMailMergeFields extends TestCase {
     /*
      * Test for executing mail merge online
      */
-    public void testPutDocumentFieldNames() throws ApiException {
+    @Test
+public void testPutDocumentFieldNames() throws ApiException {
         String fileName = "SampleExecuteTemplate.docx";
         File file = Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toFile();
 

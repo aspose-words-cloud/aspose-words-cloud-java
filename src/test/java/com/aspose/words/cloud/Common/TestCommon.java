@@ -28,7 +28,6 @@ package com.aspose.words.cloud.Common;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;

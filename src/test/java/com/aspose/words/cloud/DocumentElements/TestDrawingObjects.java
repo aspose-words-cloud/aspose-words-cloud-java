@@ -34,22 +34,9 @@ import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.DrawingObjectResponse;
 import com.aspose.words.cloud.model.DrawingObjectsResponse;
-import com.aspose.words.cloud.model.requests.DeleteDrawingObjectRequest;
-import com.aspose.words.cloud.model.requests.DeleteDrawingObjectWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentDrawingObjectByIndexRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentDrawingObjectByIndexWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentDrawingObjectImageDataRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentDrawingObjectImageDataWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentDrawingObjectOleDataRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentDrawingObjectOleDataWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentDrawingObjectsRequest;
-import com.aspose.words.cloud.model.requests.GetDocumentDrawingObjectsWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.InsertDrawingObjectRequest;
-import com.aspose.words.cloud.model.requests.InsertDrawingObjectWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.RenderDrawingObjectRequest;
-import com.aspose.words.cloud.model.requests.RenderDrawingObjectWithoutNodePathRequest;
-import com.aspose.words.cloud.model.requests.UpdateDrawingObjectRequest;
-import com.aspose.words.cloud.model.requests.UpdateDrawingObjectWithoutNodePathRequest;
+import com.aspose.words.cloud.model.requests.*;
+
+import org.junit.Test;
 
 import junit.framework.TestCase;
 
@@ -65,7 +52,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for getting drawing object
      */
-    public void testGetDocumentDrawingObjectByIndex() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentDrawingObjectByIndex() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjectByIndex.docx";
         Integer index = 0;
@@ -84,7 +72,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for getting drawing object without node path
      */
-    public void testGetDocumentDrawingObjectByIndexWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentDrawingObjectByIndexWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjectByIndex.docx";
         Integer index = 0;
@@ -103,7 +92,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for getting drawing object
      */
-    public void testGetDocumentDrawingObjectImageData() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentDrawingObjectImageData() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx";
         Integer index = 0;
@@ -122,7 +112,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for getting drawing object without node path
      */
-    public void testGetDocumentDrawingObjectImageDataWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentDrawingObjectImageDataWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx";
         Integer index = 0;
@@ -141,7 +132,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for getting drawing object
      */
-    public void testGetDocumentDrawingObjectOleData() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentDrawingObjectOleData() throws ApiException, FileNotFoundException {
         String fileName = "sample_EmbeddedOLE.docx";
         String remoteName = "TestGetDocumentDrawingObjectOleData.docx";
         Integer index = 0;
@@ -160,7 +152,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for getting drawing object without node path
      */
-    public void testGetDocumentDrawingObjectOleDataWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentDrawingObjectOleDataWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "sample_EmbeddedOLE.docx";
         String remoteName = "TestGetDocumentDrawingObjectOleDataWithoutNodePath.docx";
         Integer index = 0;
@@ -179,7 +172,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for getting drawing objects
      */
-    public void testGetDocumentDrawingObjects() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentDrawingObjects() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjects.docx";
 
@@ -196,7 +190,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for getting drawing objects without node path
      */
-    public void testGetDocumentDrawingObjectsWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentDrawingObjectsWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjectsWithoutNodePath.docx";
 
@@ -213,7 +208,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for updating drawing object
      */
-    public void testUpdateDrawingObject() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateDrawingObject() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostDrawingObject.docx";
         File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
@@ -233,7 +229,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for updating drawing object without node path
      */
-    public void testUpdateDrawingObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateDrawingObjectWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostUpdateObjectWithoutNodePath.docx";
         File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
@@ -253,7 +250,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for adding drawing object
      */
-    public void testInsertDrawingObject() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertDrawingObject() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutDrawingObject.docx";
         File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
@@ -271,7 +269,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for adding drawing object without node path
      */
-    public void testInsertDrawingObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertDrawingObjectWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutDrawingObjectWithoutNodePath.docx";
         File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
@@ -289,7 +288,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for rendering drawing object
      */
-    public void testRenderDrawingObject() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderDrawingObject() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestRenderDrawingObject.docx";
         String format = "png";
@@ -308,7 +308,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for rendering drawing object without node path
      */
-    public void testRenderDrawingObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderDrawingObjectWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestRenderDrawingObjectWithoutNodePath.docx";
         String format = "png";
@@ -327,7 +328,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for removing drawing object from document
      */
-    public void testDeleteDrawingObject() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteDrawingObject() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteDrawingObject.docx";
         Integer index = 0;
@@ -344,7 +346,8 @@ public class TestDrawingObjects extends TestCase {
     /*
      * Test for removing drawing object from document without node path
      */
-    public void testDeleteDrawingObjectWithoutNodePath() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteDrawingObjectWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteDrawingObjectWithoutNodePath.docx";
         Integer index = 0;
