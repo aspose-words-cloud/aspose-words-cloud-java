@@ -71,9 +71,9 @@ public void testDeleteRun() throws ApiException, FileNotFoundException {
      * Test for updating run
      */
     @Test
-public void testPostRun() throws ApiException, FileNotFoundException {
+public void testUpdateRun() throws ApiException, FileNotFoundException {
         String fileName = "Run.doc";
-        String remoteName = "TestPostRun.doc";
+        String remoteName = "TestUpdateRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
         Run body = (Run) new Run().text("Run with text");
@@ -91,9 +91,9 @@ public void testPostRun() throws ApiException, FileNotFoundException {
      * Test for inserting run
      */
     @Test
-public void testPutRun() throws ApiException, FileNotFoundException {
+public void testInsertRun() throws ApiException, FileNotFoundException {
         String fileName = "Run.doc";
-        String remoteName = "TestPutRun.doc";
+        String remoteName = "TestInsertRun.doc";
         String paragraphPath = "paragraphs/1";
         Run body = (Run) new Run().text("Run with text");
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));

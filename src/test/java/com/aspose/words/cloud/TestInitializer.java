@@ -21,7 +21,6 @@ public final class TestInitializer {
 
 
     public static void Initialize() throws FileNotFoundException, ApiException {
-        System.out.println(System.getProperty("user.dir") + "<<<======");
         Map<String, String> creds = new Gson().fromJson(new JsonReader(new FileReader("Settings/servercreds.json")), Map.class);
         if (creds == null) {
             throw new FileNotFoundException("Please put your credentials into Settings/servercreds.json file");

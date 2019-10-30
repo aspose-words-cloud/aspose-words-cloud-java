@@ -51,9 +51,9 @@ public class TestSplitDocument extends TestCase {
      * Test for splitting document
      */
     @Test
-public void testPostSplitDocument() throws ApiException, FileNotFoundException {
+public void testSplitDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPostSplitDocument.docx";
+        String remoteName = "TestSplitDocument.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         String format = "text";
         Integer from = 1;

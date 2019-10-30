@@ -55,9 +55,9 @@ public class TestWatermarks extends TestCase {
      * Test for removing watermark
      */
     @Test
-public void testDeleteDocumentWatermark() throws ApiException, FileNotFoundException {
+public void testDeleteWatermark() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
-        String remoteName = "TestDeleteDocumentWatermark.docx";
+        String remoteName = "TestDeleteWatermark.docx";
 
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
@@ -73,9 +73,9 @@ public void testDeleteDocumentWatermark() throws ApiException, FileNotFoundExcep
      * Test for inserting watermark image
      */
     @Test
-public void testPostInsertDocumentWatermarkImage() throws ApiException, FileNotFoundException {
+public void testInsertWatermarkImage() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPostInsertDocumentWatermarkImage.docx";
+        String remoteName = "TestInsertDocumentWatermarkImage.docx";
         Double rotationAngle = 0.0;
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         File image = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
@@ -94,9 +94,9 @@ public void testPostInsertDocumentWatermarkImage() throws ApiException, FileNotF
      * Test for inserting watermark text
      */
     @Test
-public void testPostInsertDocumentWatermarkText() throws ApiException, FileNotFoundException {
+public void testInsertWatermarkText() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPostInsertDocumentWatermarkText.docx";
+        String remoteName = "TestInsertDocumentWatermarkText.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         WatermarkText body = new WatermarkText().rotationAngle(90.0).text("This is the text");
 

@@ -49,9 +49,9 @@ public class TestMacros extends TestCase {
      * Test for getting document hyperlink by index
      */
     @Test
-public void testDeleteDocumentMacros() throws ApiException, FileNotFoundException {
+public void testDeleteMacros() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestDeleteDocumentMacros.doc";
+        String remoteName = "TestDeleteMacros.doc";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteMacrosRequest request = new DeleteMacrosRequest(remoteName,

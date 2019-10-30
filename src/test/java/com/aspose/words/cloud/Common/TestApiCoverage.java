@@ -27,6 +27,11 @@
 package com.aspose.words.cloud.Common;
 
 import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.Document.TestDocument;
+import com.aspose.words.cloud.DocumentActions.*;
+import com.aspose.words.cloud.DocumentElements.*;
+import com.aspose.words.cloud.Range.TestRange;
+import com.aspose.words.cloud.Storage.*;
 import com.aspose.words.cloud.api.WordsApi;
 import com.squareup.okhttp.Call;
 
@@ -47,7 +52,14 @@ public class TestApiCoverage extends TestCase {
 
     @Test
     public void testApiCoverage() {
-        Class[] testClasses = new Class[] { TestFont.class };
+        Class[] testClasses = new Class[] { TestFont.class, TestFields.class, TestDocument.class, TestAppendDocument.class, TestDocumentProtection.class,
+                                            TestClassification.class, TestCompareDocument.class, TestConvertDocument.class, TestDocumentStatistics.class,
+                                            TestExecuteMailMerge.class, TestLoadWebDocument.class, TestMailMergeFields.class, TestRevisions.class,
+                                            TestBookmarks.class, TestComments.class, TestDocumentProperties.class, TestDrawingObjects.class, TestFootnote.class,
+                                            TestFormFields.class, TestHeaderFooter.class, TestHyperlinks.class, TestMacros.class, TestMathObjects.class,
+                                            TestPages.class, TestParagraphs.class, TestRuns.class,TestSections.class, TestTables.class, TestText.class,
+                                            TestText.class, TestWatermarks.class, TestRange.class, TestFileOperations.class, TestFolderOperations.class,
+                                        TestSplitDocument.class };
         ArrayList<String> testMethods = new ArrayList<>();
         ArrayList<String> apiMethods = new ArrayList<>();
         ArrayList<String> uncoveredMethods = new ArrayList<>();

@@ -53,9 +53,9 @@ public class TestBookmarks  extends TestCase {
      * Test for getting document bookmark by name
      */
     @Test
-public void testGetDocumentBookmarkByName() throws ApiException, FileNotFoundException {
+public void testGetBookmarkByName() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestGetDocumentBookmarkByName.docx";
+        String remoteName = "TestGetBookmarkByName.docx";
         String bookmarkName = "aspose";
 
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -72,7 +72,7 @@ public void testGetDocumentBookmarkByName() throws ApiException, FileNotFoundExc
      * Test for getting document bookmarks
      */
     @Test
-public void testGetDocumentBookmarks() throws ApiException, FileNotFoundException {
+public void testGetBookmarks() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentBookmarks.docx";
 
@@ -90,9 +90,9 @@ public void testGetDocumentBookmarks() throws ApiException, FileNotFoundExceptio
      * Test for updating document bookmark
      */
     @Test
-public void testPostUpdateDocumentBookmark() throws ApiException, FileNotFoundException {
+public void testUpdateBookmark() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPostUpdateDocumentBookmark.docx";
+        String remoteName = "TestUpdateBookmark.docx";
         String bookmarkName = "aspose";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         BookmarkData body = new BookmarkData().name(bookmarkName).text("This will be the text for Aspose");

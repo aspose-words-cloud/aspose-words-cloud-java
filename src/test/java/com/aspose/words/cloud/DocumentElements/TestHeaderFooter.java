@@ -56,9 +56,9 @@ public class TestHeaderFooter extends TestCase {
      * Test for updating footnote from document
      */
     @Test
-public void testPutHeaderFooter() throws ApiException, FileNotFoundException {
+public void testInsertHeaderFooter() throws ApiException, FileNotFoundException {
         String fileName = "HeadersFooters.doc";
-        String remoteName = "TestPutHeaderFooter.doc";
+        String remoteName = "TestInsertHeaderFooter.doc";
         String footerType = "FooterEven";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 

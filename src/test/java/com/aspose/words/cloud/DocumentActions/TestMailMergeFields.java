@@ -69,7 +69,7 @@ public void testGetDocumentFieldNames() throws ApiException, FileNotFoundExcepti
      * Test for executing mail merge online
      */
     @Test
-public void testPutDocumentFieldNames() throws ApiException {
+public void testGetDocumentFieldNamesOnline() throws ApiException {
         String fileName = "SampleExecuteTemplate.docx";
         File file = Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toFile();
 

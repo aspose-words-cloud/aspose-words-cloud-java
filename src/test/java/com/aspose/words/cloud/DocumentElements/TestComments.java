@@ -104,7 +104,7 @@ public void testGetComments() throws ApiException, FileNotFoundException {
      * Test for updating comment
      */
     @Test
-public void testPostComment() throws ApiException, FileNotFoundException {
+public void testUpdateComment() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostComment.docx";
         Integer index = 0;
@@ -127,9 +127,9 @@ public void testPostComment() throws ApiException, FileNotFoundException {
      * Test for adding comment
      */
     @Test
-public void testPutComment() throws ApiException, FileNotFoundException {
+public void testInsertComment() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPutComment.docx";
+        String remoteName = "TestInsertComment.docx";
         NodeLink link = new NodeLink().nodeId("0.3.0.3");
         DocumentPosition documentPosition = new DocumentPosition().node(link).offset(0);
         Comment body = new Comment().initial("YE").rangeStart(documentPosition).rangeEnd(documentPosition)
@@ -142,6 +142,7 @@ public void testPutComment() throws ApiException, FileNotFoundException {
                 null, null, null, null, null, null);
 
         CommentResponse result = TestInitializer.wordsApi.insertComment(request);
+        System.out.println(result.getComment());
         assertNotNull(result);
     }
 }
