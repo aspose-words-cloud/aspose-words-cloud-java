@@ -50,7 +50,8 @@ public void testHandleServerErrors() {
             Assert.fail();
         }
         catch (ApiException ex){
-            assertTrue(ex.getCode() == 400);
+            assertTrue(ex.getCode() == 404);
+            assertTrue(ex.getInnerError().getMessage().startsWith("Error while loading file 'noFileWithThisName'"));
         }
     }
 

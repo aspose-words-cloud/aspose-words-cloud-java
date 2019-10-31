@@ -28,10 +28,16 @@
 package com.aspose.words.cloud;
 
 import java.util.Map;
+
+import com.aspose.words.cloud.model.ApiError;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
 import java.util.List;
 
 
 public class ApiException extends Exception {
+    private ApiError innerError = null;
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
@@ -51,6 +57,7 @@ public class ApiException extends Exception {
         this.code = code;
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody;
+        setInnerError();
     }
 
     public ApiException(String message, int code, Map<String, List<String>> responseHeaders, String responseBody) {
@@ -74,8 +81,16 @@ public class ApiException extends Exception {
         this(code, message);
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody;
+        setInnerError();
     }
 
+    private void setInnerError() {
+        if (!responseBody.startsWith("{")) return;
+        JsonElement elem = new JsonParser().parse(responseBody);
+        this.innerError = new JSON().deserialize(
+                        elem.getAsJsonObject().get("Error").toString(), 
+                        ApiError.class);
+    }
     /**
      * Get the HTTP status code.
      *
@@ -101,5 +116,9 @@ public class ApiException extends Exception {
      */
     public String getResponseBody() {
         return responseBody;
+    }
+
+    public ApiError getInnerError() {
+        return innerError;
     }
 }

@@ -142,7 +142,6 @@ public void testInsertComment() throws ApiException, FileNotFoundException {
                 null, null, null, null, null, null);
 
         CommentResponse result = TestInitializer.wordsApi.insertComment(request);
-        System.out.println(result.getComment());
         assertNotNull(result);
     }
 }
