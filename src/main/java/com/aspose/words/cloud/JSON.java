@@ -51,7 +51,10 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -230,7 +233,12 @@ public class JSON {
                     if (date.endsWith("+0000")) {
                         date = date.substring(0, date.length() - 5) + "Z";
                     }
-                    String timeStampString = new Timestamp(Long.valueOf(date.substring(date.indexOf("(") + 1, date.indexOf(")") - 1))).toString();
+                    String timeStampString;
+                    if (date.indexOf('(') == -1) {
+                        timeStampString = date.replace('T', ' ');
+                    } else {
+                        timeStampString = new Timestamp(Long.valueOf(date.substring(date.indexOf("(") + 1, date.indexOf(")") - 1))).toString();
+                    }
                     Integer index = timeStampString.indexOf(" ");
                     String dateString = timeStampString.substring(0, index);
                     String[] timeString = timeStampString.substring(index + 1).split(":");

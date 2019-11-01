@@ -29,10 +29,11 @@ package com.aspose.words.cloud.Document;
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.DocumentResponse;
+import com.aspose.words.cloud.model.requests.CreateDocumentRequest;
 import com.aspose.words.cloud.model.requests.GetDocumentRequest;
 import junit.framework.TestCase;
+import org.junit.Test;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -48,7 +49,8 @@ public class TestDocument extends TestCase {
     /*
      * Test for getting document
      */
-    public void testGetDocument() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocument.docx";
 
@@ -60,5 +62,16 @@ public class TestDocument extends TestCase {
 
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
         assertNotNull(result);
+    }
+
+    @Test
+public void testCreateDocument() throws ApiException {
+        String remoteName = "TestCreateDocument.docx",
+            subfolder = "DocumentActions/Document";
+        
+        CreateDocumentRequest request = new CreateDocumentRequest(null, remoteName, 
+            Paths.get(TestInitializer.RemoteTestFolder, subfolder).toString());
+        DocumentResponse response = TestInitializer.wordsApi.createDocument(request);
+        assertNotNull(response);
     }
 }

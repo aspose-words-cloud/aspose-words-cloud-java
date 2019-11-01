@@ -38,6 +38,8 @@ import com.aspose.words.cloud.model.requests.DeleteWatermarkRequest;
 import com.aspose.words.cloud.model.requests.InsertWatermarkImageRequest;
 import com.aspose.words.cloud.model.requests.InsertWatermarkTextRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class TestWatermarks extends TestCase {
@@ -52,9 +54,10 @@ public class TestWatermarks extends TestCase {
     /*
      * Test for removing watermark
      */
-    public void testDeleteDocumentWatermark() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteWatermark() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
-        String remoteName = "TestDeleteDocumentWatermark.docx";
+        String remoteName = "TestDeleteWatermark.docx";
 
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
@@ -69,9 +72,10 @@ public class TestWatermarks extends TestCase {
     /*
      * Test for inserting watermark image
      */
-    public void testPostInsertDocumentWatermarkImage() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertWatermarkImage() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPostInsertDocumentWatermarkImage.docx";
+        String remoteName = "TestInsertDocumentWatermarkImage.docx";
         Double rotationAngle = 0.0;
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         File image = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
@@ -89,9 +93,10 @@ public class TestWatermarks extends TestCase {
     /*
      * Test for inserting watermark text
      */
-    public void testPostInsertDocumentWatermarkText() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertWatermarkText() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPostInsertDocumentWatermarkText.docx";
+        String remoteName = "TestInsertDocumentWatermarkText.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         WatermarkText body = new WatermarkText().rotationAngle(90.0).text("This is the text");
 

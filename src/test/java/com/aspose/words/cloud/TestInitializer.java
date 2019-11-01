@@ -19,9 +19,11 @@ public final class TestInitializer {
     public static String RemoteTestFolder = Paths.get("Temp", "SdkTests", "java").toString();
     public static String RemoteTestOut = Paths.get(RemoteTestFolder, "TestOut").toString();
 
-
     public static void Initialize() throws FileNotFoundException, ApiException {
-        Map<String, String> creds = new Gson().fromJson(new JsonReader(new FileReader("Settings/servercreds.json")), Map.class);
+        Initialize("Settings/servercreds.json");
+    }
+    public static void Initialize(String credsPath) throws FileNotFoundException, ApiException {
+        Map<String, String> creds = new Gson().fromJson(new JsonReader(new FileReader(credsPath)), Map.class);
         if (creds == null) {
             throw new FileNotFoundException("Please put your credentials into Settings/servercreds.json file");
         }

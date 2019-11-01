@@ -34,9 +34,10 @@ import com.aspose.words.cloud.model.requests.GetDocumentProtectionRequest;
 import com.aspose.words.cloud.model.requests.ProtectDocumentRequest;
 import com.aspose.words.cloud.model.requests.UnprotectDocumentRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -52,7 +53,8 @@ public class TestDocumentProtection extends TestCase {
     /*
      * Test for getting document protection
      */
-    public void testGetDocumentProtection() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentProtection() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentProtection.docx";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -68,7 +70,8 @@ public class TestDocumentProtection extends TestCase {
     /*
      * Test for inserting document protection
      */
-    public void testPutProtectDocument() throws ApiException, FileNotFoundException {
+    @Test
+public void testPutProtectDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutProtectDocument.docx";
         ProtectionRequest body = new ProtectionRequest().newPassword("123");
@@ -84,7 +87,8 @@ public class TestDocumentProtection extends TestCase {
     /*
      * Test for updating document protection
      */
-    public void testPostChangeDocumentProtection() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostChangeDocumentProtection() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostChangeDocumentProtection.docx";
         ProtectionRequest body = new ProtectionRequest().newPassword("");
@@ -101,7 +105,8 @@ public class TestDocumentProtection extends TestCase {
     /*
      * Test for updating document protection
      */
-    public void testDeleteUnprotectDocument() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteUnprotectDocument() throws ApiException, FileNotFoundException {
         String fileName = "SampleProtectedBlankWordDocument.docx";
         String remoteName = "TestDeleteUnprotectDocument.docx";
         ProtectionRequest body = new ProtectionRequest().password("aspose");

@@ -38,6 +38,8 @@ import com.aspose.words.cloud.model.requests.GetSectionPageSetupRequest;
 import com.aspose.words.cloud.model.requests.RenderPageRequest;
 import com.aspose.words.cloud.model.requests.UpdateSectionPageSetupRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class TestPages extends TestCase {
@@ -52,7 +54,8 @@ public class TestPages extends TestCase {
     /*
      * Test for page rendering
      */
-    public void testRenderPage() throws ApiException, FileNotFoundException {
+    @Test
+public void testRenderPage() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestRenderPage.doc";
         Integer pageNumber = 1;
@@ -70,7 +73,8 @@ public class TestPages extends TestCase {
     /*
      * Test for getting page setup
      */
-    public void testGetSectionPageSetup() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetSectionPageSetup() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSectionPageSetup.doc";
         Integer index = 0;
@@ -88,7 +92,8 @@ public class TestPages extends TestCase {
     /*
      * Test for updating page setup
      */
-    public void testUpdateSectionPageSetup() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateSectionPageSetup() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUpdateSectionPageSetup.doc";
         Integer index = 0;

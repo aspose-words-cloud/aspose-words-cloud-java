@@ -28,15 +28,15 @@ package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.WordsResponse;
 import com.aspose.words.cloud.model.Run;
 import com.aspose.words.cloud.model.RunResponse;
 import com.aspose.words.cloud.model.requests.DeleteRunRequest;
 import com.aspose.words.cloud.model.requests.UpdateRunRequest;
 import com.aspose.words.cloud.model.requests.InsertRunRequest;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -52,7 +52,8 @@ public class TestRuns extends TestCase {
     /*
      * Test for removing run
      */
-    public void testDeleteRun() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteRun() throws ApiException, FileNotFoundException {
         String fileName = "Run.doc";
         String remoteName = "TestDeleteRun.doc";
         Integer index = 0;
@@ -69,9 +70,10 @@ public class TestRuns extends TestCase {
     /*
      * Test for updating run
      */
-    public void testPostRun() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateRun() throws ApiException, FileNotFoundException {
         String fileName = "Run.doc";
-        String remoteName = "TestPostRun.doc";
+        String remoteName = "TestUpdateRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
         Run body = (Run) new Run().text("Run with text");
@@ -88,9 +90,10 @@ public class TestRuns extends TestCase {
     /*
      * Test for inserting run
      */
-    public void testPutRun() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertRun() throws ApiException, FileNotFoundException {
         String fileName = "Run.doc";
-        String remoteName = "TestPutRun.doc";
+        String remoteName = "TestInsertRun.doc";
         String paragraphPath = "paragraphs/1";
         Run body = (Run) new Run().text("Run with text");
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));

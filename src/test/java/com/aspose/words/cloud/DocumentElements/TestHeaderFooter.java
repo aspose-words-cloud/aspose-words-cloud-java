@@ -33,12 +33,13 @@ import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.HeaderFooterResponse;
 import com.aspose.words.cloud.model.HeaderFootersResponse;
-import com.aspose.words.cloud.model.WordsResponse;
 import com.aspose.words.cloud.model.requests.DeleteHeaderFooterRequest;
 import com.aspose.words.cloud.model.requests.GetHeaderFooterOfSectionRequest;
 import com.aspose.words.cloud.model.requests.GetHeaderFooterRequest;
 import com.aspose.words.cloud.model.requests.GetHeaderFootersRequest;
 import com.aspose.words.cloud.model.requests.InsertHeaderFooterRequest;
+
+import org.junit.Test;
 
 import junit.framework.TestCase;
 
@@ -54,9 +55,10 @@ public class TestHeaderFooter extends TestCase {
     /*
      * Test for updating footnote from document
      */
-    public void testPutHeaderFooter() throws ApiException, FileNotFoundException {
+    @Test
+public void testInsertHeaderFooter() throws ApiException, FileNotFoundException {
         String fileName = "HeadersFooters.doc";
-        String remoteName = "TestPutHeaderFooter.doc";
+        String remoteName = "TestInsertHeaderFooter.doc";
         String footerType = "FooterEven";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
@@ -71,7 +73,8 @@ public class TestHeaderFooter extends TestCase {
     /*
      * Test for getting header or footer
      */
-    public void testGetHeaderFooter() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetHeaderFooter() throws ApiException, FileNotFoundException {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestGetHeaderFooter.doc";
         Integer index = 0;
@@ -88,7 +91,8 @@ public class TestHeaderFooter extends TestCase {
     /*
      * Test for getting headers or footers
      */
-    public void testGetHeaderFooters() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetHeaderFooters() throws ApiException, FileNotFoundException {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestGetHeaderFooters.doc";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -104,7 +108,8 @@ public class TestHeaderFooter extends TestCase {
     /*
      * Test for getting section headers/footers
      */
-    public void testGetHeaderFooterOfSection() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetHeaderFooterOfSection() throws ApiException, FileNotFoundException {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestGetHeaderFooterOfSection.doc";
         Integer index = 0;
@@ -122,7 +127,8 @@ public class TestHeaderFooter extends TestCase {
     /*
      * Test for removing header/footer
      */
-    public void testDeleteHeaderFooter() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteHeaderFooter() throws ApiException, FileNotFoundException {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestDeleteHeaderFooter.doc";
         Integer index = 0;
@@ -138,7 +144,8 @@ public class TestHeaderFooter extends TestCase {
     /*
      * Test for removing headers/footers
      */
-    public void testDeleteHeadersFooters() throws ApiException, FileNotFoundException {
+    @Test
+public void testDeleteHeadersFooters() throws ApiException, FileNotFoundException {
         String fileName = "HeadersFooters.doc";
         String remoteName = "TestDeleteHeadersFooters.doc";
         Integer index = 0;

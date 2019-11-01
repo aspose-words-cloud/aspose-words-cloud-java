@@ -35,8 +35,8 @@ import com.aspose.words.cloud.model.requests.GetBookmarkByNameRequest;
 import com.aspose.words.cloud.model.requests.GetBookmarksRequest;
 import com.aspose.words.cloud.model.requests.UpdateBookmarkRequest;
 import junit.framework.TestCase;
+import org.junit.Test;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -52,9 +52,10 @@ public class TestBookmarks  extends TestCase {
     /*
      * Test for getting document bookmark by name
      */
-    public void testGetDocumentBookmarkByName() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetBookmarkByName() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestGetDocumentBookmarkByName.docx";
+        String remoteName = "TestGetBookmarkByName.docx";
         String bookmarkName = "aspose";
 
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
@@ -70,7 +71,8 @@ public class TestBookmarks  extends TestCase {
     /*
      * Test for getting document bookmarks
      */
-    public void testGetDocumentBookmarks() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetBookmarks() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentBookmarks.docx";
 
@@ -87,9 +89,10 @@ public class TestBookmarks  extends TestCase {
     /*
      * Test for updating document bookmark
      */
-    public void testPostUpdateDocumentBookmark() throws ApiException, FileNotFoundException {
+    @Test
+public void testUpdateBookmark() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPostUpdateDocumentBookmark.docx";
+        String remoteName = "TestUpdateBookmark.docx";
         String bookmarkName = "aspose";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         BookmarkData body = new BookmarkData().name(bookmarkName).text("This will be the text for Aspose");

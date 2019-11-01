@@ -33,8 +33,8 @@ import com.aspose.words.cloud.model.DocumentResponse;
 import com.aspose.words.cloud.model.requests.AppendDocumentRequest;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -50,7 +50,8 @@ public class TestAppendDocument extends TestCase {
     /*
      * Test for appending document
      */
-    public void testPostAppendDocument() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostAppendDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostAppendDocument.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();

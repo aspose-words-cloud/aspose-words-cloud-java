@@ -32,6 +32,8 @@ import com.aspose.words.cloud.model.DocumentResponse;
 import com.aspose.words.cloud.model.requests.ExecuteMailMergeOnlineRequest;
 import com.aspose.words.cloud.model.requests.ExecuteMailMergeRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -51,7 +53,8 @@ public class TestExecuteMailMerge extends TestCase {
     /*
      * Test for mail merge execution
      */
-    public void testPostDocumentExecuteMailMerge() throws ApiException, IOException {
+    @Test
+public void testPostDocumentExecuteMailMerge() throws ApiException, IOException {
         String fileName = "SampleMailMergeTemplate.docx";
         String remoteName = "TestPostDocumentExecuteMailMerge.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -70,7 +73,8 @@ public class TestExecuteMailMerge extends TestCase {
     /*
      * Test for executing mail merge online
      */
-    public void testPutExecuteMailMergeOnline() throws ApiException {
+    @Test
+public void testPutExecuteMailMergeOnline() throws ApiException {
         String fileName = "SampleMailMergeTemplate.docx";
         File file = Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toFile();
         File data = Paths.get(TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt").toFile();

@@ -32,9 +32,10 @@ import com.aspose.words.cloud.model.HyperlinkResponse;
 import com.aspose.words.cloud.model.HyperlinksResponse;
 import com.aspose.words.cloud.model.requests.GetDocumentHyperlinkByIndexRequest;
 import com.aspose.words.cloud.model.requests.GetDocumentHyperlinksRequest;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -50,7 +51,8 @@ public class TestHyperlinks  extends TestCase {
     /*
      * Test for getting document hyperlink by index
      */
-    public void testGetDocumentHyperlinkByIndex() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentHyperlinkByIndex() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestGetDocumentHyperlinkByIndex.doc";
         Integer index = 0;
@@ -67,7 +69,8 @@ public class TestHyperlinks  extends TestCase {
     /*
      * Test for getting document hyperlink by index
      */
-    public void testGetDocumentHyperlinks() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentHyperlinks() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestGetDocumentHyperlinks.doc";
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));

@@ -33,6 +33,8 @@ import com.aspose.words.cloud.model.SaveOptionsData;
 import com.aspose.words.cloud.model.SaveResponse;
 import com.aspose.words.cloud.model.requests.LoadWebDocumentRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
 public class TestLoadWebDocument extends TestCase {
@@ -45,7 +47,8 @@ public class TestLoadWebDocument extends TestCase {
     /*
      * Test for loading web document
      */
-    public void testPostLoadWebDocument() throws ApiException {
+    @Test
+public void testPostLoadWebDocument() throws ApiException {
         SaveOptionsData saveOptionsData = new SaveOptionsData()
                 .colorMode("1")
                 .saveFormat("doc")

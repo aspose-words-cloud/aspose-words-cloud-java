@@ -36,7 +36,10 @@ import com.aspose.words.cloud.model.requests.GetDocumentWithFormatRequest;
 import com.aspose.words.cloud.model.requests.SaveAsRequest;
 import com.aspose.words.cloud.model.requests.SaveAsTiffRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
+
 import org.junit.Ignore;
 
 import java.io.File;
@@ -55,7 +58,8 @@ public class TestConvertDocument extends TestCase {
     /*
      * Test for saving document with specified format
      */
-    public void testPostDocumentSaveAs() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostDocumentSaveAs() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostDocumentSaveAs.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
@@ -74,7 +78,8 @@ public class TestConvertDocument extends TestCase {
     /*
      * Test for document conversion without storage
      */
-    public void testPutConvertDocument() throws ApiException, FileNotFoundException {
+    @Test
+public void testPutConvertDocument() throws ApiException, FileNotFoundException {
         String format = "pdf";
         String fileName = "test_multi_pages.docx";
         ConvertDocumentRequest request = new ConvertDocumentRequest(new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()), format,
@@ -86,7 +91,8 @@ public class TestConvertDocument extends TestCase {
     /*
      * Test for saving document with specified format
      */
-    public void testPostSaveDocumentSaveAsFromPdfToDoc() throws ApiException, FileNotFoundException {
+    @Test
+public void testPostSaveDocumentSaveAsFromPdfToDoc() throws ApiException, FileNotFoundException {
         String fileName = "45.pdf";
         String remoteName = "TestPostDocumentSaveAsFromPdfToDoc.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, "TestPostDocumentSaveAs.docx").toString();
@@ -103,7 +109,8 @@ public class TestConvertDocument extends TestCase {
     /*
      * Test for saving document with specified format
      */
-    public void testPutDocumentSaveAsTiff() throws ApiException, FileNotFoundException {
+    @Test
+public void testPutDocumentSaveAsTiff() throws ApiException, FileNotFoundException {
         String fileName = "45.pdf";
         String remoteName = "TestPutDocumentSaveAsTiff.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, "TestPostDocumentSaveAsTiff.tiff").toString();
@@ -122,7 +129,8 @@ public class TestConvertDocument extends TestCase {
     /*
      * Test for saving document with specified format
      */
-    public void testGetDocumentWithFormat() throws ApiException, FileNotFoundException {
+    @Test
+public void testGetDocumentWithFormat() throws ApiException, FileNotFoundException {
         String format = "text";
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentWithFormat.docx";

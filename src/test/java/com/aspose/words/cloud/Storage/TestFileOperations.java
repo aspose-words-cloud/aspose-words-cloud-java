@@ -28,16 +28,21 @@ package com.aspose.words.cloud.Storage;
 
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.DocumentResponse;
 import com.aspose.words.cloud.model.FilesUploadResult;
-import com.aspose.words.cloud.model.requests.GetDocumentRequest;
+import com.aspose.words.cloud.model.requests.CopyFileRequest;
+import com.aspose.words.cloud.model.requests.DeleteFileRequest;
+import com.aspose.words.cloud.model.requests.DownloadFileRequest;
+import com.aspose.words.cloud.model.requests.MoveFileRequest;
+
 import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
+import java.util.UUID;
 
-public class TestFile extends TestCase {
+public class TestFileOperations extends TestCase {
     private String testFolder = "file";
 
     @Override
@@ -49,7 +54,8 @@ public class TestFile extends TestCase {
     /*
      * Test for uploading document
      */
-    public void testUploadFile() throws ApiException, FileNotFoundException {
+    @Test
+public void testUploadFile() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUploadFile.docx";
 
@@ -60,5 +66,75 @@ public class TestFile extends TestCase {
         assertTrue("File is not uploaded", result.getUploaded().size() == 1);
     }
 
+    /*
+    * Test for file deletion
+    */
+    @Test
+public void testDeleteFile() throws ApiException, FileNotFoundException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "TestDeleteFile.docx";
+
+        String remotePath = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/");
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePath);
+
+        DeleteFileRequest request = new DeleteFileRequest(remotePath,null, null);
+        TestInitializer.wordsApi.deleteFile(request);
+    }
+
+    /*
+    * Test for file copy
+    */
+    @Test
+public void testCopyFile() throws ApiException, FileNotFoundException {
+        String guid = UUID.randomUUID().toString();
+        String fileName = "test_multi_pages.docx";
+        String remoteNameSrc = String.format("TestDeleteFileSrc%s.docx", guid);
+        String remoteNameDst = String.format("TestDeleteFileDst%s.docx", guid);
+
+        String remotePathSrc = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteNameSrc).toString().replace("\\", "/");
+        String remotePathDst = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteNameDst).toString().replace("\\", "/");
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePathSrc);
+        
+        CopyFileRequest request = new CopyFileRequest(remotePathDst, remotePathSrc, null, null, null);
+        TestInitializer.wordsApi.copyFile(request);
+    }
+
+    /*
+    *
+    */
+    @Test
+public void testMoveFile() throws ApiException, FileNotFoundException {
+        String guid = UUID.randomUUID().toString();
+        String fileName = "test_multi_pages.docx";
+        String remoteNameSrc = String.format("TestDeleteFileSrc%s.docx", guid);
+        String remoteNameDst = String.format("TestDeleteFileDst%s.docx", guid);
+
+        String remotePathSrc = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteNameSrc).toString().replace("\\", "/");
+        String remotePathDst = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteNameDst).toString().replace("\\", "/");
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePathSrc);
+        
+        MoveFileRequest request = new MoveFileRequest(remotePathDst, remotePathSrc, null, null, null);
+        TestInitializer.wordsApi.moveFile(request);
+    }
+
+    /*
+    * Test for download file
+    */
+    @Test
+public void testDownloadFile() throws ApiException, FileNotFoundException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "TestDeleteFileSrc%s.docx";
+
+        String remotePath = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/");
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePath);
+        
+        DownloadFileRequest request = new DownloadFileRequest(remotePath, null, null);
+        File response = TestInitializer.wordsApi.downloadFile(request);
+        assertTrue("File should not be empty", response.length() > 0);
+    }
     
 }

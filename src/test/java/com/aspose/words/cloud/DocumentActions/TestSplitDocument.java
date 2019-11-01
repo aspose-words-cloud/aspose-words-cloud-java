@@ -31,9 +31,10 @@ import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.SplitDocumentResponse;
 import com.aspose.words.cloud.model.requests.SplitDocumentRequest;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -49,9 +50,10 @@ public class TestSplitDocument extends TestCase {
     /*
      * Test for splitting document
      */
-    public void testPostSplitDocument() throws ApiException, FileNotFoundException {
+    @Test
+public void testSplitDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestPostSplitDocument.docx";
+        String remoteName = "TestSplitDocument.docx";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         String format = "text";
         Integer from = 1;
