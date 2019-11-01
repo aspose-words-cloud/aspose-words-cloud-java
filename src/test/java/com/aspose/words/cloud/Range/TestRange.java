@@ -77,7 +77,7 @@ public void testRemoveRange() throws ApiException, FileNotFoundException {
 
         RemoveRangeRequest request = new RemoveRangeRequest(remoteName, rangeStart, rangeEnd, folder, null, null, null, null);
         DocumentResponse result = TestInitializer.wordsApi.removeRange(request);
-        assertNotNull("Rexult cannot be null", result);
+        assertNotNull("Result cannot be null", result);
     }
 
     @Test
