@@ -45,4 +45,19 @@ def runtests(directory)
 node('words-linux') {
 	cleanWs()
 	runtests("java-sdk")
+
+    stage('wait for publish confirmation'){
+	    timeout(time:1, unit:'DAYS') {
+		    input message:'Publish packet?'
+	    }
+    }
+
+    stage('Merge master to release'){			
+	    	sh "git checkout --merge release"
+	    	sh "git reset --hard origin/release"
+	    	sh "git merge --no-ff --allow-unrelated-histories origin/master"
+	    	sh "git diff --name-status"			
+	    	sh 'git commit -am "Merged master branch to release" || exit 0'
+	    	sh "git push ${gitRepoUrl} release"
+	    }
 }
