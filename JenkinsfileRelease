@@ -1,6 +1,7 @@
 parameters {		
 		string(name: 'version', defaultValue: '19.9.0', description: 'version of sdk')	
 		string(name: 'StartFromStep', defaultValue: '0', description: 'start step')	
+		string(name: 'testServerUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'server url')		
 }
 node('words-linux') {         
     try {
