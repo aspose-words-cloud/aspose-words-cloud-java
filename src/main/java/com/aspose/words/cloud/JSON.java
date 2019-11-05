@@ -236,7 +236,8 @@ public class JSON {
                     String timeStampString;
                     if (date.indexOf('(') == -1) {
                         timeStampString = date.replace('T', ' ');
-                    } else {
+                    } 
+                    else {
                         timeStampString = new Timestamp(Long.valueOf(date.substring(date.indexOf("(") + 1, date.indexOf(")") - 1))).toString();
                     }
                     Integer index = timeStampString.indexOf(" ");
