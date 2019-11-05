@@ -44,20 +44,26 @@ def runtests(directory)
 
 node('words-linux') {
 	cleanWs()
-	runtests("java-sdk")
+    if (params.branch != "release") {
+	    runtests("java-sdk")
 
-    stage('wait for publish confirmation'){
-	    timeout(time:1, unit:'DAYS') {
-		    input message:'Publish packet?'
-	    }
+        stage('wait for publish confirmation'){
+            timeout(time:1, unit:'DAYS') {
+                input message:'Publish packet?'
+            }
+        }
+
+        stage('Merge master to release'){	
+            if (params.branch == "master") {
+                    checkout([$class: 'GitSCM', branches: [[name: '*/release']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/words-cloud/words-cloud-java.git']]])
+                    sh "git checkout --merge release"
+                    sh "git reset --hard origin/release"
+                    sh "git merge --no-ff --allow-unrelated-histories origin/master"
+                    sh "git diff --name-status"			
+                    sh 'git commit -am "Merged master branch to release" || exit 0'
+                    sh "git push ${gitRepoUrl} release"
+            }  
+        }
     }
 
-    stage('Merge master to release'){			
-	    	sh "git checkout --merge release"
-	    	sh "git reset --hard origin/release"
-	    	sh "git merge --no-ff --allow-unrelated-histories origin/master"
-	    	sh "git diff --name-status"			
-	    	sh 'git commit -am "Merged master branch to release" || exit 0'
-	    	sh "git push ${gitRepoUrl} release"
-	    }
 }
