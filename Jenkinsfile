@@ -44,7 +44,7 @@ def runtests(directory)
 
 node('words-linux') {
 	cleanWs()
-    if (params.branch != "release") {
+    if (params.branch != "*/release") {
 	    runtests("java-sdk")
 
         stage('wait for publish confirmation'){
@@ -54,7 +54,7 @@ node('words-linux') {
         }
 
         stage('Merge master to release'){	
-            if (params.branch == "master") {
+            if (params.branch == "*/master") {
                     checkout([$class: 'GitSCM', branches: [[name: '*/release']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/words-cloud/words-cloud-java.git']]])
                     sh "git checkout --merge release"
                     sh "git reset --hard origin/release"
