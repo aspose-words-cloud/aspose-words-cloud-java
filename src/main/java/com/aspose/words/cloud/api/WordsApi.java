@@ -128,7 +128,8 @@ public class WordsApi {
 
     /**
      * Accepts all revisions in document.
-     * @param request Request objects
+     * 
+     * @param request Request object
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -150,6 +151,7 @@ public class WordsApi {
     /**
      * Accepts all revisions in document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;RevisionsModificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -162,7 +164,7 @@ public class WordsApi {
     /**
      * Accepts all revisions in document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -271,7 +273,7 @@ public class WordsApi {
     /**
      * Appends documents to original document.
      * 
-     * @param request Request objects
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -293,6 +295,7 @@ public class WordsApi {
     /**
      * Appends documents to original document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -305,7 +308,7 @@ public class WordsApi {
     /**
      * Appends documents to original document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -402,7 +405,7 @@ public class WordsApi {
     /**
      * Classifies raw text.
      * 
-     * @param request Request objects
+     * @param request Request object
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -424,6 +427,7 @@ public class WordsApi {
     /**
      * Classifies raw text.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ClassificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -436,7 +440,7 @@ public class WordsApi {
     /**
      * Classifies raw text. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -539,7 +543,7 @@ public class WordsApi {
     /**
      * Classifies document.
      * 
-     * @param request Request objects
+     * @param request Request object
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -561,6 +565,7 @@ public class WordsApi {
     /**
      * Classifies document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ClassificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -573,7 +578,7 @@ public class WordsApi {
     /**
      * Classifies document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -680,7 +685,7 @@ public class WordsApi {
     /**
      * Compares document with original document.
      * 
-     * @param request Request objects
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -702,6 +707,7 @@ public class WordsApi {
     /**
      * Compares document with original document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -714,7 +720,7 @@ public class WordsApi {
     /**
      * Compares document with original document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -822,7 +828,7 @@ public class WordsApi {
     /**
      * Converts document from the request&#39;s content to the specified format .
      * 
-     * @param request Request objects
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -844,6 +850,7 @@ public class WordsApi {
     /**
      * Converts document from the request&#39;s content to the specified format .
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -856,7 +863,7 @@ public class WordsApi {
     /**
      * Converts document from the request&#39;s content to the specified format . (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -962,7 +969,6 @@ public class WordsApi {
     /**
      * Copy file
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void copyFile(CopyFileRequest request) throws ApiException {
@@ -981,6 +987,7 @@ public class WordsApi {
     /**
      * Copy file
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -992,7 +999,7 @@ public class WordsApi {
     /**
      * Copy file (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1096,7 +1103,6 @@ public class WordsApi {
     /**
      * Copy folder
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void copyFolder(CopyFolderRequest request) throws ApiException {
@@ -1115,6 +1121,7 @@ public class WordsApi {
     /**
      * Copy folder
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1126,7 +1133,7 @@ public class WordsApi {
     /**
      * Copy folder (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1219,7 +1226,7 @@ public class WordsApi {
     /**
      * Creates new document. Document is created with format which is recognized from file extensions. Supported extensions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;.
      * 
-     * @param request Request objects
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1241,6 +1248,7 @@ public class WordsApi {
     /**
      * Creates new document. Document is created with format which is recognized from file extensions. Supported extensions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1253,7 +1261,7 @@ public class WordsApi {
     /**
      * Creates new document. Document is created with format which is recognized from file extensions. Supported extensions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1351,7 +1359,6 @@ public class WordsApi {
     /**
      * Create the folder
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void createFolder(CreateFolderRequest request) throws ApiException {
@@ -1370,6 +1377,7 @@ public class WordsApi {
     /**
      * Create the folder
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1381,7 +1389,7 @@ public class WordsApi {
     /**
      * Create the folder (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1495,7 +1503,7 @@ public class WordsApi {
     /**
      * Adds new or update existing document property.
      * 
-     * @param request Request objects
+     * @param request Request object
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1517,6 +1525,7 @@ public class WordsApi {
     /**
      * Adds new or update existing document property.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentPropertyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1529,7 +1538,7 @@ public class WordsApi {
     /**
      * Adds new or update existing document property. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1645,7 +1654,7 @@ public class WordsApi {
     /**
      * Resets border properties to default values.             
      * &#39;nodePath&#39; should refer to node with cell or row.
-     * @param request Request objects
+     * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1667,6 +1676,7 @@ public class WordsApi {
     /**
      * Resets border properties to default values.             
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1679,7 +1689,7 @@ public class WordsApi {
     /**
      * Resets border properties to default values.              (asynchronously)
      * &#39;nodePath&#39; should refer to node with cell or row.
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1789,7 +1799,7 @@ public class WordsApi {
     /**
      * Resets borders properties to default values.             
      * &#39;nodePath&#39; should refer to node with cell or row.
-     * @param request Request objects
+     * @param request Request object
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1811,6 +1821,7 @@ public class WordsApi {
     /**
      * Resets borders properties to default values.             
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1823,7 +1834,7 @@ public class WordsApi {
     /**
      * Resets borders properties to default values.              (asynchronously)
      * &#39;nodePath&#39; should refer to node with cell or row.
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1933,7 +1944,6 @@ public class WordsApi {
     /**
      * Removes comment from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteComment(DeleteCommentRequest request) throws ApiException {
@@ -1952,6 +1962,7 @@ public class WordsApi {
     /**
      * Removes comment from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1963,7 +1974,7 @@ public class WordsApi {
     /**
      * Removes comment from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2072,7 +2083,6 @@ public class WordsApi {
     /**
      * Deletes document property.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException {
@@ -2091,6 +2101,7 @@ public class WordsApi {
     /**
      * Deletes document property.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2102,7 +2113,7 @@ public class WordsApi {
     /**
      * Deletes document property. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2217,7 +2228,6 @@ public class WordsApi {
     /**
      * Removes drawing object from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException {
@@ -2236,6 +2246,7 @@ public class WordsApi {
     /**
      * Removes drawing object from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2247,7 +2258,7 @@ public class WordsApi {
     /**
      * Removes drawing object from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2356,7 +2367,6 @@ public class WordsApi {
     /**
      * Removes drawing object from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteDrawingObjectWithoutNodePath(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException {
@@ -2375,6 +2385,7 @@ public class WordsApi {
     /**
      * Removes drawing object from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2386,7 +2397,7 @@ public class WordsApi {
     /**
      * Removes drawing object from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2501,7 +2512,6 @@ public class WordsApi {
     /**
      * Deletes field from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteField(DeleteFieldRequest request) throws ApiException {
@@ -2520,6 +2530,7 @@ public class WordsApi {
     /**
      * Deletes field from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2531,7 +2542,7 @@ public class WordsApi {
     /**
      * Deletes field from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2640,7 +2651,6 @@ public class WordsApi {
     /**
      * Deletes field from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFieldWithoutNodePath(DeleteFieldWithoutNodePathRequest request) throws ApiException {
@@ -2659,6 +2669,7 @@ public class WordsApi {
     /**
      * Deletes field from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2670,7 +2681,7 @@ public class WordsApi {
     /**
      * Deletes field from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2779,7 +2790,6 @@ public class WordsApi {
     /**
      * Removes fields from section paragraph.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFields(DeleteFieldsRequest request) throws ApiException {
@@ -2798,6 +2808,7 @@ public class WordsApi {
     /**
      * Removes fields from section paragraph.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2809,7 +2820,7 @@ public class WordsApi {
     /**
      * Removes fields from section paragraph. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2912,7 +2923,6 @@ public class WordsApi {
     /**
      * Removes fields from section paragraph.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFieldsWithoutNodePath(DeleteFieldsWithoutNodePathRequest request) throws ApiException {
@@ -2931,6 +2941,7 @@ public class WordsApi {
     /**
      * Removes fields from section paragraph.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2942,7 +2953,7 @@ public class WordsApi {
     /**
      * Removes fields from section paragraph. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3040,7 +3051,6 @@ public class WordsApi {
     /**
      * Delete file
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFile(DeleteFileRequest request) throws ApiException {
@@ -3059,6 +3069,7 @@ public class WordsApi {
     /**
      * Delete file
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3070,7 +3081,7 @@ public class WordsApi {
     /**
      * Delete file (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3168,7 +3179,6 @@ public class WordsApi {
     /**
      * Delete folder
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFolder(DeleteFolderRequest request) throws ApiException {
@@ -3187,6 +3197,7 @@ public class WordsApi {
     /**
      * Delete folder
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3198,7 +3209,7 @@ public class WordsApi {
     /**
      * Delete folder (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3313,7 +3324,6 @@ public class WordsApi {
     /**
      * Removes footnote from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFootnote(DeleteFootnoteRequest request) throws ApiException {
@@ -3332,6 +3342,7 @@ public class WordsApi {
     /**
      * Removes footnote from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3343,7 +3354,7 @@ public class WordsApi {
     /**
      * Removes footnote from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3452,7 +3463,6 @@ public class WordsApi {
     /**
      * Removes footnote from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFootnoteWithoutNodePath(DeleteFootnoteWithoutNodePathRequest request) throws ApiException {
@@ -3471,6 +3481,7 @@ public class WordsApi {
     /**
      * Removes footnote from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3482,7 +3493,7 @@ public class WordsApi {
     /**
      * Removes footnote from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3597,7 +3608,6 @@ public class WordsApi {
     /**
      * Removes form field from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFormField(DeleteFormFieldRequest request) throws ApiException {
@@ -3616,6 +3626,7 @@ public class WordsApi {
     /**
      * Removes form field from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3627,7 +3638,7 @@ public class WordsApi {
     /**
      * Removes form field from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3736,7 +3747,6 @@ public class WordsApi {
     /**
      * Removes form field from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFormFieldWithoutNodePath(DeleteFormFieldWithoutNodePathRequest request) throws ApiException {
@@ -3755,6 +3765,7 @@ public class WordsApi {
     /**
      * Removes form field from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3766,7 +3777,7 @@ public class WordsApi {
     /**
      * Removes form field from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3881,7 +3892,6 @@ public class WordsApi {
     /**
      * Deletes header/footer from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException {
@@ -3900,6 +3910,7 @@ public class WordsApi {
     /**
      * Deletes header/footer from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3911,7 +3922,7 @@ public class WordsApi {
     /**
      * Deletes header/footer from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4021,7 +4032,6 @@ public class WordsApi {
     /**
      * Deletes document headers and footers.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException {
@@ -4040,6 +4050,7 @@ public class WordsApi {
     /**
      * Deletes document headers and footers.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4051,7 +4062,7 @@ public class WordsApi {
     /**
      * Deletes document headers and footers. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4154,7 +4165,6 @@ public class WordsApi {
     /**
      * Removes macros from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteMacros(DeleteMacrosRequest request) throws ApiException {
@@ -4173,6 +4183,7 @@ public class WordsApi {
     /**
      * Removes macros from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4184,7 +4195,7 @@ public class WordsApi {
     /**
      * Removes macros from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4299,7 +4310,6 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document.
      * 
-     * @param request Request objects
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException {
@@ -4318,6 +4328,7 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4329,7 +4340,7 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document. (asynchronously)
      * 
-     * @param request Request objects
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4438,7 +4449,6 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document.
      * 
-     * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteOfficeMathObjectWithoutNodePath(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException {
@@ -4457,6 +4467,7 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4583,7 +4594,6 @@ public class WordsApi {
     /**
      * Removes paragraph from section.
      * 
-     * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteParagraph(DeleteParagraphRequest request) throws ApiException {
@@ -4602,6 +4612,7 @@ public class WordsApi {
     /**
      * Removes paragraph from section.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4722,7 +4733,6 @@ public class WordsApi {
     /**
      * Removes paragraph from section.
      * 
-     * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteParagraphWithoutNodePath(DeleteParagraphWithoutNodePathRequest request) throws ApiException {
@@ -4741,6 +4751,7 @@ public class WordsApi {
     /**
      * Removes paragraph from section.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4867,7 +4878,6 @@ public class WordsApi {
     /**
      * Removes run from document.
      * 
-     * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteRun(DeleteRunRequest request) throws ApiException {
@@ -4886,6 +4896,7 @@ public class WordsApi {
     /**
      * Removes run from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5012,7 +5023,6 @@ public class WordsApi {
     /**
      * Deletes a table.
      * 
-     * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteTable(DeleteTableRequest request) throws ApiException {
@@ -5031,6 +5041,7 @@ public class WordsApi {
     /**
      * Deletes a table.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5157,7 +5168,6 @@ public class WordsApi {
     /**
      * Deletes a table cell.
      * 
-     * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteTableCell(DeleteTableCellRequest request) throws ApiException {
@@ -5176,6 +5186,7 @@ public class WordsApi {
     /**
      * Deletes a table cell.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5302,7 +5313,6 @@ public class WordsApi {
     /**
      * Deletes a table row.
      * 
-     * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteTableRow(DeleteTableRowRequest request) throws ApiException {
@@ -5321,6 +5331,7 @@ public class WordsApi {
     /**
      * Deletes a table row.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5441,7 +5452,6 @@ public class WordsApi {
     /**
      * Deletes a table.
      * 
-     * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteTableWithoutNodePath(DeleteTableWithoutNodePathRequest request) throws ApiException {
@@ -5460,6 +5470,7 @@ public class WordsApi {
     /**
      * Deletes a table.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5596,6 +5607,7 @@ public class WordsApi {
     /**
      * Deletes watermark (for deleting last watermark from the document).
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5729,6 +5741,7 @@ public class WordsApi {
     /**
      * Download file
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5871,6 +5884,7 @@ public class WordsApi {
     /**
      * Executes document mail merge operation.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6013,6 +6027,7 @@ if (request.getData() != null)
     /**
      * Executes document mail merge online.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6139,6 +6154,7 @@ if (request.getData() != null)
     /**
      * Gets the list of fonts, available for document processing.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;AvailableFontsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6280,6 +6296,7 @@ if (request.getData() != null)
     /**
      * Reads document bookmark data by its name.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;BookmarkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6415,6 +6432,7 @@ if (request.getData() != null)
     /**
      * Reads document bookmarks common info.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;BookmarksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6562,6 +6580,7 @@ if (request.getData() != null)
     /**
      * Returns a border.
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6681,6 +6700,7 @@ if (request.getData() != null)
     /**
      * Returns a collection of borders.
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6702,6 +6722,7 @@ if (request.getData() != null)
     /**
      * Returns a collection of borders.
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6714,6 +6735,7 @@ if (request.getData() != null)
     /**
      * Returns a collection of borders. (asynchronously)
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6820,6 +6842,7 @@ if (request.getData() != null)
     /**
      * Gets comment from document.
      * 
+     * @param request Request object
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6841,6 +6864,7 @@ if (request.getData() != null)
     /**
      * Gets comment from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6853,6 +6877,7 @@ if (request.getData() != null)
     /**
      * Gets comment from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6953,6 +6978,7 @@ if (request.getData() != null)
     /**
      * Gets comments from document.
      * 
+     * @param request Request object
      * @return CommentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6974,6 +7000,7 @@ if (request.getData() != null)
     /**
      * Gets comments from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;CommentsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -6986,6 +7013,7 @@ if (request.getData() != null)
     /**
      * Gets comments from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7086,6 +7114,7 @@ if (request.getData() != null)
     /**
      * Reads document common info.
      * 
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7107,6 +7136,7 @@ if (request.getData() != null)
     /**
      * Reads document common info.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7119,6 +7149,7 @@ if (request.getData() != null)
     /**
      * Reads document common info. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7231,6 +7262,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing object common info by its index or convert to format specified.
      * 
+     * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7252,6 +7284,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing object common info by its index or convert to format specified.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7264,6 +7297,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7370,6 +7404,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing object common info by its index or convert to format specified.
      * 
+     * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7391,6 +7426,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing object common info by its index or convert to format specified.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7403,6 +7439,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7515,6 +7552,7 @@ if (request.getData() != null)
     /**
      * Reads drawing object image data.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7536,6 +7574,7 @@ if (request.getData() != null)
     /**
      * Reads drawing object image data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7548,6 +7587,7 @@ if (request.getData() != null)
     /**
      * Reads drawing object image data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7654,6 +7694,7 @@ if (request.getData() != null)
     /**
      * Reads drawing object image data.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7675,6 +7716,7 @@ if (request.getData() != null)
     /**
      * Reads drawing object image data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7687,6 +7729,7 @@ if (request.getData() != null)
     /**
      * Reads drawing object image data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7799,6 +7842,7 @@ if (request.getData() != null)
     /**
      * Gets drawing object OLE data.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7820,6 +7864,7 @@ if (request.getData() != null)
     /**
      * Gets drawing object OLE data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7832,6 +7877,7 @@ if (request.getData() != null)
     /**
      * Gets drawing object OLE data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7938,6 +7984,7 @@ if (request.getData() != null)
     /**
      * Gets drawing object OLE data.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7959,6 +8006,7 @@ if (request.getData() != null)
     /**
      * Gets drawing object OLE data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -7971,6 +8019,7 @@ if (request.getData() != null)
     /**
      * Gets drawing object OLE data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8077,6 +8126,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing objects common info.
      * 
+     * @param request Request object
      * @return DrawingObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8098,6 +8148,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing objects common info.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DrawingObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8110,6 +8161,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing objects common info. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8210,6 +8262,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing objects common info.
      * 
+     * @param request Request object
      * @return DrawingObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8231,6 +8284,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing objects common info.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DrawingObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8243,6 +8297,7 @@ if (request.getData() != null)
     /**
      * Reads document drawing objects common info. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8344,6 +8399,7 @@ if (request.getData() != null)
     /**
      * Reads document field names.
      * 
+     * @param request Request object
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8365,6 +8421,7 @@ if (request.getData() != null)
     /**
      * Reads document field names.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8377,6 +8434,7 @@ if (request.getData() != null)
     /**
      * Reads document field names. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8475,6 +8533,7 @@ if (request.getData() != null)
     /**
      * Reads document field names.
      * 
+     * @param request Request object
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8496,6 +8555,7 @@ if (request.getData() != null)
     /**
      * Reads document field names.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8508,6 +8568,7 @@ if (request.getData() != null)
     /**
      * Reads document field names. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8614,6 +8675,7 @@ if (request.getData() != null)
     /**
      * Reads document hyperlink by its index.
      * 
+     * @param request Request object
      * @return HyperlinkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8635,6 +8697,7 @@ if (request.getData() != null)
     /**
      * Reads document hyperlink by its index.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;HyperlinkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8647,6 +8710,7 @@ if (request.getData() != null)
     /**
      * Reads document hyperlink by its index. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8747,6 +8811,7 @@ if (request.getData() != null)
     /**
      * Reads document hyperlinks common info.
      * 
+     * @param request Request object
      * @return HyperlinksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8768,6 +8833,7 @@ if (request.getData() != null)
     /**
      * Reads document hyperlinks common info.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;HyperlinksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8780,6 +8846,7 @@ if (request.getData() != null)
     /**
      * Reads document hyperlinks common info. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8880,6 +8947,7 @@ if (request.getData() != null)
     /**
      * Reads document properties info.
      * 
+     * @param request Request object
      * @return DocumentPropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8901,6 +8969,7 @@ if (request.getData() != null)
     /**
      * Reads document properties info.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentPropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -8913,6 +8982,7 @@ if (request.getData() != null)
     /**
      * Reads document properties info. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9019,6 +9089,7 @@ if (request.getData() != null)
     /**
      * Reads document property info by the property name.
      * 
+     * @param request Request object
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9040,6 +9111,7 @@ if (request.getData() != null)
     /**
      * Reads document property info by the property name.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentPropertyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9052,6 +9124,7 @@ if (request.getData() != null)
     /**
      * Reads document property info by the property name. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9152,6 +9225,7 @@ if (request.getData() != null)
     /**
      * Reads document protection common info.
      * 
+     * @param request Request object
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9173,6 +9247,7 @@ if (request.getData() != null)
     /**
      * Reads document protection common info.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9185,6 +9260,7 @@ if (request.getData() != null)
     /**
      * Reads document protection common info. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9288,6 +9364,7 @@ if (request.getData() != null)
     /**
      * Reads document statistics.
      * 
+     * @param request Request object
      * @return StatDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9309,6 +9386,7 @@ if (request.getData() != null)
     /**
      * Reads document statistics.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;StatDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9321,6 +9399,7 @@ if (request.getData() != null)
     /**
      * Reads document statistics. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9429,6 +9508,7 @@ if (request.getData() != null)
     /**
      * Exports the document into the specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9450,6 +9530,7 @@ if (request.getData() != null)
     /**
      * Exports the document into the specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9462,6 +9543,7 @@ if (request.getData() != null)
     /**
      * Exports the document into the specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9574,6 +9656,7 @@ if (request.getData() != null)
     /**
      * Gets field from document.
      * 
+     * @param request Request object
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9595,6 +9678,7 @@ if (request.getData() != null)
     /**
      * Gets field from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9607,6 +9691,7 @@ if (request.getData() != null)
     /**
      * Gets field from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9713,6 +9798,7 @@ if (request.getData() != null)
     /**
      * Gets field from document.
      * 
+     * @param request Request object
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9734,6 +9820,7 @@ if (request.getData() != null)
     /**
      * Gets field from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9746,6 +9833,7 @@ if (request.getData() != null)
     /**
      * Gets field from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9852,6 +9940,7 @@ if (request.getData() != null)
     /**
      * Get fields from document.
      * 
+     * @param request Request object
      * @return FieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9873,6 +9962,7 @@ if (request.getData() != null)
     /**
      * Get fields from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -9885,6 +9975,7 @@ if (request.getData() != null)
     /**
      * Get fields from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9985,6 +10076,7 @@ if (request.getData() != null)
     /**
      * Get fields from document.
      * 
+     * @param request Request object
      * @return FieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10006,6 +10098,7 @@ if (request.getData() != null)
     /**
      * Get fields from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10018,6 +10111,7 @@ if (request.getData() != null)
     /**
      * Get fields from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10115,6 +10209,7 @@ if (request.getData() != null)
     /**
      * Get all files and folders within a folder
      * 
+     * @param request Request object
      * @return FilesList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10136,6 +10231,7 @@ if (request.getData() != null)
     /**
      * Get all files and folders within a folder
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FilesList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10148,6 +10244,7 @@ if (request.getData() != null)
     /**
      * Get all files and folders within a folder (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10260,6 +10357,7 @@ if (request.getData() != null)
     /**
      * Reads footnote by index.
      * 
+     * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10281,6 +10379,7 @@ if (request.getData() != null)
     /**
      * Reads footnote by index.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10293,6 +10392,7 @@ if (request.getData() != null)
     /**
      * Reads footnote by index. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10399,6 +10499,7 @@ if (request.getData() != null)
     /**
      * Reads footnote by index.
      * 
+     * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10420,6 +10521,7 @@ if (request.getData() != null)
     /**
      * Reads footnote by index.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10432,6 +10534,7 @@ if (request.getData() != null)
     /**
      * Reads footnote by index. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10538,6 +10641,7 @@ if (request.getData() != null)
     /**
      * Gets footnotes from document.
      * 
+     * @param request Request object
      * @return FootnotesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10559,6 +10663,7 @@ if (request.getData() != null)
     /**
      * Gets footnotes from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FootnotesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10571,6 +10676,7 @@ if (request.getData() != null)
     /**
      * Gets footnotes from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10671,6 +10777,7 @@ if (request.getData() != null)
     /**
      * Gets footnotes from document.
      * 
+     * @param request Request object
      * @return FootnotesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10692,6 +10799,7 @@ if (request.getData() != null)
     /**
      * Gets footnotes from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FootnotesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10704,6 +10812,7 @@ if (request.getData() != null)
     /**
      * Gets footnotes from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10816,6 +10925,7 @@ if (request.getData() != null)
     /**
      * Returns representation of an one of the form field.
      * 
+     * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10837,6 +10947,7 @@ if (request.getData() != null)
     /**
      * Returns representation of an one of the form field.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10849,6 +10960,7 @@ if (request.getData() != null)
     /**
      * Returns representation of an one of the form field. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10955,6 +11067,7 @@ if (request.getData() != null)
     /**
      * Returns representation of an one of the form field.
      * 
+     * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10976,6 +11089,7 @@ if (request.getData() != null)
     /**
      * Returns representation of an one of the form field.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -10988,6 +11102,7 @@ if (request.getData() != null)
     /**
      * Returns representation of an one of the form field. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11094,6 +11209,7 @@ if (request.getData() != null)
     /**
      * Gets form fields from document.
      * 
+     * @param request Request object
      * @return FormFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11115,6 +11231,7 @@ if (request.getData() != null)
     /**
      * Gets form fields from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FormFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11127,6 +11244,7 @@ if (request.getData() != null)
     /**
      * Gets form fields from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11227,6 +11345,7 @@ if (request.getData() != null)
     /**
      * Gets form fields from document.
      * 
+     * @param request Request object
      * @return FormFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11248,6 +11367,7 @@ if (request.getData() != null)
     /**
      * Gets form fields from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FormFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11260,6 +11380,7 @@ if (request.getData() != null)
     /**
      * Gets form fields from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11367,6 +11488,7 @@ if (request.getData() != null)
     /**
      * Returns a header/footer from the document by index.
      * 
+     * @param request Request object
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11388,6 +11510,7 @@ if (request.getData() != null)
     /**
      * Returns a header/footer from the document by index.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11400,6 +11523,7 @@ if (request.getData() != null)
     /**
      * Returns a header/footer from the document by index. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11513,6 +11637,7 @@ if (request.getData() != null)
     /**
      * Returns a header/footer from the document section.
      * 
+     * @param request Request object
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11534,6 +11659,7 @@ if (request.getData() != null)
     /**
      * Returns a header/footer from the document section.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11546,6 +11672,7 @@ if (request.getData() != null)
     /**
      * Returns a header/footer from the document section. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11653,6 +11780,7 @@ if (request.getData() != null)
     /**
      * Returns a list of header/footers from the document.
      * 
+     * @param request Request object
      * @return HeaderFootersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11674,6 +11802,7 @@ if (request.getData() != null)
     /**
      * Returns a list of header/footers from the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;HeaderFootersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11686,6 +11815,7 @@ if (request.getData() != null)
     /**
      * Returns a list of header/footers from the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11798,6 +11928,7 @@ if (request.getData() != null)
     /**
      * Reads OfficeMath object by index.
      * 
+     * @param request Request object
      * @return OfficeMathObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11819,6 +11950,7 @@ if (request.getData() != null)
     /**
      * Reads OfficeMath object by index.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;OfficeMathObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11831,6 +11963,7 @@ if (request.getData() != null)
     /**
      * Reads OfficeMath object by index. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11937,6 +12070,7 @@ if (request.getData() != null)
     /**
      * Reads OfficeMath object by index.
      * 
+     * @param request Request object
      * @return OfficeMathObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11958,6 +12092,7 @@ if (request.getData() != null)
     /**
      * Reads OfficeMath object by index.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;OfficeMathObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -11970,6 +12105,7 @@ if (request.getData() != null)
     /**
      * Reads OfficeMath object by index. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -12076,6 +12212,7 @@ if (request.getData() != null)
     /**
      * Gets OfficeMath objects from document.
      * 
+     * @param request Request object
      * @return OfficeMathObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12097,6 +12234,7 @@ if (request.getData() != null)
     /**
      * Gets OfficeMath objects from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;OfficeMathObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12109,6 +12247,7 @@ if (request.getData() != null)
     /**
      * Gets OfficeMath objects from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -12209,6 +12348,7 @@ if (request.getData() != null)
     /**
      * Gets OfficeMath objects from document.
      * 
+     * @param request Request object
      * @return OfficeMathObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12230,6 +12370,7 @@ if (request.getData() != null)
     /**
      * Gets OfficeMath objects from document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;OfficeMathObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12242,6 +12383,7 @@ if (request.getData() != null)
     /**
      * Gets OfficeMath objects from document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -12354,6 +12496,7 @@ if (request.getData() != null)
     /**
      * This resource represents one of the paragraphs contained in the document.
      * 
+     * @param request Request object
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12375,6 +12518,7 @@ if (request.getData() != null)
     /**
      * This resource represents one of the paragraphs contained in the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12387,6 +12531,7 @@ if (request.getData() != null)
     /**
      * This resource represents one of the paragraphs contained in the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -12499,6 +12644,7 @@ if (request.getData() != null)
     /**
      * Represents all the formatting for a paragraph.
      * 
+     * @param request Request object
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12520,6 +12666,7 @@ if (request.getData() != null)
     /**
      * Represents all the formatting for a paragraph.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ParagraphFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12532,6 +12679,7 @@ if (request.getData() != null)
     /**
      * Represents all the formatting for a paragraph. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -12638,6 +12786,7 @@ if (request.getData() != null)
     /**
      * Represents all the formatting for a paragraph.
      * 
+     * @param request Request object
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12659,6 +12808,7 @@ if (request.getData() != null)
     /**
      * Represents all the formatting for a paragraph.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ParagraphFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12671,6 +12821,7 @@ if (request.getData() != null)
     /**
      * Represents all the formatting for a paragraph. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -12777,6 +12928,7 @@ if (request.getData() != null)
     /**
      * This resource represents one of the paragraphs contained in the document.
      * 
+     * @param request Request object
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12798,6 +12950,7 @@ if (request.getData() != null)
     /**
      * This resource represents one of the paragraphs contained in the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12810,6 +12963,7 @@ if (request.getData() != null)
     /**
      * This resource represents one of the paragraphs contained in the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -12916,6 +13070,7 @@ if (request.getData() != null)
     /**
      * Returns a list of paragraphs that are contained in the document.
      * 
+     * @param request Request object
      * @return ParagraphLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12937,6 +13092,7 @@ if (request.getData() != null)
     /**
      * Returns a list of paragraphs that are contained in the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ParagraphLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -12949,6 +13105,7 @@ if (request.getData() != null)
     /**
      * Returns a list of paragraphs that are contained in the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -13049,6 +13206,7 @@ if (request.getData() != null)
     /**
      * Returns a list of paragraphs that are contained in the document.
      * 
+     * @param request Request object
      * @return ParagraphLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13070,6 +13228,7 @@ if (request.getData() != null)
     /**
      * Returns a list of paragraphs that are contained in the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ParagraphLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13082,6 +13241,7 @@ if (request.getData() != null)
     /**
      * Returns a list of paragraphs that are contained in the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -13194,6 +13354,7 @@ if (request.getData() != null)
     /**
      * Gets the text from the range.
      * 
+     * @param request Request object
      * @return RangeTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13215,6 +13376,7 @@ if (request.getData() != null)
     /**
      * Gets the text from the range.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;RangeTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13227,6 +13389,7 @@ if (request.getData() != null)
     /**
      * Gets the text from the range. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -13339,6 +13502,7 @@ if (request.getData() != null)
     /**
      * This resource represents run of text contained in the document.
      * 
+     * @param request Request object
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13360,6 +13524,7 @@ if (request.getData() != null)
     /**
      * This resource represents run of text contained in the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13372,6 +13537,7 @@ if (request.getData() != null)
     /**
      * This resource represents run of text contained in the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -13484,6 +13650,7 @@ if (request.getData() != null)
     /**
      * This resource represents font of run.
      * 
+     * @param request Request object
      * @return FontResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13505,6 +13672,7 @@ if (request.getData() != null)
     /**
      * This resource represents font of run.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FontResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13517,6 +13685,7 @@ if (request.getData() != null)
     /**
      * This resource represents font of run. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -13623,6 +13792,7 @@ if (request.getData() != null)
     /**
      * This resource represents collection of runs in the paragraph.
      * 
+     * @param request Request object
      * @return RunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13644,6 +13814,7 @@ if (request.getData() != null)
     /**
      * This resource represents collection of runs in the paragraph.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;RunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13656,6 +13827,7 @@ if (request.getData() != null)
     /**
      * This resource represents collection of runs in the paragraph. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -13762,6 +13934,7 @@ if (request.getData() != null)
     /**
      * Gets document section by index.
      * 
+     * @param request Request object
      * @return SectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13783,6 +13956,7 @@ if (request.getData() != null)
     /**
      * Gets document section by index.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13795,6 +13969,7 @@ if (request.getData() != null)
     /**
      * Gets document section by index. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -13901,6 +14076,7 @@ if (request.getData() != null)
     /**
      * Gets page setup of section.
      * 
+     * @param request Request object
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13922,6 +14098,7 @@ if (request.getData() != null)
     /**
      * Gets page setup of section.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SectionPageSetupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -13934,6 +14111,7 @@ if (request.getData() != null)
     /**
      * Gets page setup of section. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -14034,6 +14212,7 @@ if (request.getData() != null)
     /**
      * Returns a list of sections that are contained in the document.
      * 
+     * @param request Request object
      * @return SectionLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14055,6 +14234,7 @@ if (request.getData() != null)
     /**
      * Returns a list of sections that are contained in the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SectionLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14067,6 +14247,7 @@ if (request.getData() != null)
     /**
      * Returns a list of sections that are contained in the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -14179,6 +14360,7 @@ if (request.getData() != null)
     /**
      * Returns a table.
      * 
+     * @param request Request object
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14200,6 +14382,7 @@ if (request.getData() != null)
     /**
      * Returns a table.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14212,6 +14395,7 @@ if (request.getData() != null)
     /**
      * Returns a table. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -14324,6 +14508,7 @@ if (request.getData() != null)
     /**
      * Returns a table cell.
      * 
+     * @param request Request object
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14345,6 +14530,7 @@ if (request.getData() != null)
     /**
      * Returns a table cell.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableCellResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14357,6 +14543,7 @@ if (request.getData() != null)
     /**
      * Returns a table cell. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -14469,6 +14656,7 @@ if (request.getData() != null)
     /**
      * Returns a table cell format.
      * 
+     * @param request Request object
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14490,6 +14678,7 @@ if (request.getData() != null)
     /**
      * Returns a table cell format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableCellFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14502,6 +14691,7 @@ if (request.getData() != null)
     /**
      * Returns a table cell format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -14614,6 +14804,7 @@ if (request.getData() != null)
     /**
      * Returns a table properties.
      * 
+     * @param request Request object
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14635,6 +14826,7 @@ if (request.getData() != null)
     /**
      * Returns a table properties.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14647,6 +14839,7 @@ if (request.getData() != null)
     /**
      * Returns a table properties. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -14753,6 +14946,7 @@ if (request.getData() != null)
     /**
      * Returns a table properties.
      * 
+     * @param request Request object
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14774,6 +14968,7 @@ if (request.getData() != null)
     /**
      * Returns a table properties.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14786,6 +14981,7 @@ if (request.getData() != null)
     /**
      * Returns a table properties. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -14898,6 +15094,7 @@ if (request.getData() != null)
     /**
      * Returns a table row.
      * 
+     * @param request Request object
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14919,6 +15116,7 @@ if (request.getData() != null)
     /**
      * Returns a table row.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableRowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -14931,6 +15129,7 @@ if (request.getData() != null)
     /**
      * Returns a table row. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -15043,6 +15242,7 @@ if (request.getData() != null)
     /**
      * Returns a table row format.
      * 
+     * @param request Request object
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15064,6 +15264,7 @@ if (request.getData() != null)
     /**
      * Returns a table row format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableRowFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15076,6 +15277,7 @@ if (request.getData() != null)
     /**
      * Returns a table row format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -15182,6 +15384,7 @@ if (request.getData() != null)
     /**
      * Returns a table.
      * 
+     * @param request Request object
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15203,6 +15406,7 @@ if (request.getData() != null)
     /**
      * Returns a table.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15215,6 +15419,7 @@ if (request.getData() != null)
     /**
      * Returns a table. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -15321,6 +15526,7 @@ if (request.getData() != null)
     /**
      * Returns a list of tables that are contained in the document.
      * 
+     * @param request Request object
      * @return TableLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15342,6 +15548,7 @@ if (request.getData() != null)
     /**
      * Returns a list of tables that are contained in the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15354,6 +15561,7 @@ if (request.getData() != null)
     /**
      * Returns a list of tables that are contained in the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -15454,6 +15662,7 @@ if (request.getData() != null)
     /**
      * Returns a list of tables that are contained in the document.
      * 
+     * @param request Request object
      * @return TableLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15475,6 +15684,7 @@ if (request.getData() != null)
     /**
      * Returns a list of tables that are contained in the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15487,6 +15697,7 @@ if (request.getData() != null)
     /**
      * Returns a list of tables that are contained in the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -15595,6 +15806,7 @@ if (request.getData() != null)
     /**
      * Adds comment to document, returns inserted comment data.
      * 
+     * @param request Request object
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15616,6 +15828,7 @@ if (request.getData() != null)
     /**
      * Adds comment to document, returns inserted comment data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15628,6 +15841,7 @@ if (request.getData() != null)
     /**
      * Adds comment to document, returns inserted comment data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -15751,6 +15965,7 @@ if (request.getImageFile() != null)
     /**
      * Adds drawing object to document, returns added  drawing object&#39;s data.
      * 
+     * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15772,6 +15987,7 @@ if (request.getImageFile() != null)
     /**
      * Adds drawing object to document, returns added  drawing object&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15784,6 +16000,7 @@ if (request.getImageFile() != null)
     /**
      * Adds drawing object to document, returns added  drawing object&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -15901,6 +16118,7 @@ if (request.getImageFile() != null)
     /**
      * Adds drawing object to document, returns added  drawing object&#39;s data.
      * 
+     * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15922,6 +16140,7 @@ if (request.getImageFile() != null)
     /**
      * Adds drawing object to document, returns added  drawing object&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -15934,6 +16153,7 @@ if (request.getImageFile() != null)
     /**
      * Adds drawing object to document, returns added  drawing object&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -16049,6 +16269,7 @@ if (request.getImageFile() != null)
     /**
      * Adds field to document, returns inserted field&#39;s data.
      * 
+     * @param request Request object
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16070,6 +16291,7 @@ if (request.getImageFile() != null)
     /**
      * Adds field to document, returns inserted field&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16082,6 +16304,7 @@ if (request.getImageFile() != null)
     /**
      * Adds field to document, returns inserted field&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -16191,6 +16414,7 @@ if (request.getImageFile() != null)
     /**
      * Adds field to document, returns inserted field&#39;s data.
      * 
+     * @param request Request object
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16212,6 +16436,7 @@ if (request.getImageFile() != null)
     /**
      * Adds field to document, returns inserted field&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16224,6 +16449,7 @@ if (request.getImageFile() != null)
     /**
      * Adds field to document, returns inserted field&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -16338,6 +16564,7 @@ if (request.getImageFile() != null)
     /**
      * Adds footnote to document, returns added footnote&#39;s data.
      * 
+     * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16359,6 +16586,7 @@ if (request.getImageFile() != null)
     /**
      * Adds footnote to document, returns added footnote&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16371,6 +16599,7 @@ if (request.getImageFile() != null)
     /**
      * Adds footnote to document, returns added footnote&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -16479,6 +16708,7 @@ if (request.getImageFile() != null)
     /**
      * Adds footnote to document, returns added footnote&#39;s data.
      * 
+     * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16500,6 +16730,7 @@ if (request.getImageFile() != null)
     /**
      * Adds footnote to document, returns added footnote&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16512,6 +16743,7 @@ if (request.getImageFile() != null)
     /**
      * Adds footnote to document, returns added footnote&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -16627,6 +16859,7 @@ if (request.getImageFile() != null)
     /**
      * Adds form field to paragraph, returns added form field&#39;s data.
      * 
+     * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16648,6 +16881,7 @@ if (request.getImageFile() != null)
     /**
      * Adds form field to paragraph, returns added form field&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16660,6 +16894,7 @@ if (request.getImageFile() != null)
     /**
      * Adds form field to paragraph, returns added form field&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -16769,6 +17004,7 @@ if (request.getImageFile() != null)
     /**
      * Adds form field to paragraph, returns added form field&#39;s data.
      * 
+     * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16790,6 +17026,7 @@ if (request.getImageFile() != null)
     /**
      * Adds form field to paragraph, returns added form field&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16802,6 +17039,7 @@ if (request.getImageFile() != null)
     /**
      * Adds form field to paragraph, returns added form field&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -16916,6 +17154,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts to document header or footer.
      * 
+     * @param request Request object
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16937,6 +17176,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts to document header or footer.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -16949,6 +17189,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts to document header or footer. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -17057,6 +17298,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document page numbers.
      * 
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17078,6 +17320,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document page numbers.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17090,6 +17333,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document page numbers. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -17205,6 +17449,7 @@ if (request.getImageFile() != null)
     /**
      * Adds paragraph to document, returns added paragraph&#39;s data.
      * 
+     * @param request Request object
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17226,6 +17471,7 @@ if (request.getImageFile() != null)
     /**
      * Adds paragraph to document, returns added paragraph&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17238,6 +17484,7 @@ if (request.getImageFile() != null)
     /**
      * Adds paragraph to document, returns added paragraph&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -17353,6 +17600,7 @@ if (request.getImageFile() != null)
     /**
      * Adds run to document, returns added paragraph&#39;s data.
      * 
+     * @param request Request object
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17374,6 +17622,7 @@ if (request.getImageFile() != null)
     /**
      * Adds run to document, returns added paragraph&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17386,6 +17635,7 @@ if (request.getImageFile() != null)
     /**
      * Adds run to document, returns added paragraph&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -17495,6 +17745,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table to document, returns added table&#39;s data.             
      * 
+     * @param request Request object
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17516,6 +17767,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table to document, returns added table&#39;s data.             
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17528,6 +17780,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table to document, returns added table&#39;s data.              (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -17637,6 +17890,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table cell to table, returns added cell&#39;s data.             
      * 
+     * @param request Request object
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17658,6 +17912,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table cell to table, returns added cell&#39;s data.             
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableCellResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17670,6 +17925,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table cell to table, returns added cell&#39;s data.              (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -17779,6 +18035,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table row to table, returns added row&#39;s data.             
      * 
+     * @param request Request object
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17800,6 +18057,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table row to table, returns added row&#39;s data.             
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableRowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17812,6 +18070,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table row to table, returns added row&#39;s data.              (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -17915,6 +18174,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table to document, returns added table&#39;s data.             
      * 
+     * @param request Request object
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17936,6 +18196,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table to document, returns added table&#39;s data.             
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -17948,6 +18209,7 @@ if (request.getImageFile() != null)
     /**
      * Adds table to document, returns added table&#39;s data.              (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -18055,6 +18317,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document watermark image.
      * 
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18076,6 +18339,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document watermark image.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18088,6 +18352,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document watermark image. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -18196,6 +18461,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document watermark text.
      * 
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18217,6 +18483,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document watermark text.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18229,6 +18496,7 @@ if (request.getImageFile() != null)
     /**
      * Inserts document watermark text. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -18325,6 +18593,7 @@ if (request.getImageFile() != null)
     /**
      * Loads new document from web into the file with any supported format of data.
      * 
+     * @param request Request object
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18346,6 +18615,7 @@ if (request.getImageFile() != null)
     /**
      * Loads new document from web into the file with any supported format of data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18358,6 +18628,7 @@ if (request.getImageFile() != null)
     /**
      * Loads new document from web into the file with any supported format of data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -18481,6 +18752,7 @@ if (request.getImageFile() != null)
     /**
      * Move file
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18492,6 +18764,7 @@ if (request.getImageFile() != null)
     /**
      * Move file (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -18613,6 +18886,7 @@ if (request.getImageFile() != null)
     /**
      * Move folder
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18624,6 +18898,7 @@ if (request.getImageFile() != null)
     /**
      * Move folder (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -18729,6 +19004,7 @@ if (request.getImageFile() != null)
     /**
      * Protects document.
      * 
+     * @param request Request object
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18750,6 +19026,7 @@ if (request.getImageFile() != null)
     /**
      * Protects document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18762,6 +19039,7 @@ if (request.getImageFile() != null)
     /**
      * Protects document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -18863,6 +19141,7 @@ if (request.getImageFile() != null)
     /**
      * Rejects all revisions in document.
      * 
+     * @param request Request object
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18884,6 +19163,7 @@ if (request.getImageFile() != null)
     /**
      * Rejects all revisions in document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;RevisionsModificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -18896,6 +19176,7 @@ if (request.getImageFile() != null)
     /**
      * Rejects all revisions in document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19009,6 +19290,7 @@ if (request.getImageFile() != null)
     /**
      * Removes the range from the document.
      * 
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19030,6 +19312,7 @@ if (request.getImageFile() != null)
     /**
      * Removes the range from the document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19042,6 +19325,7 @@ if (request.getImageFile() != null)
     /**
      * Removes the range from the document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19161,6 +19445,7 @@ if (request.getImageFile() != null)
     /**
      * Renders drawing object to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19182,6 +19467,7 @@ if (request.getImageFile() != null)
     /**
      * Renders drawing object to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19194,6 +19480,7 @@ if (request.getImageFile() != null)
     /**
      * Renders drawing object to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19307,6 +19594,7 @@ if (request.getImageFile() != null)
     /**
      * Renders drawing object to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19328,6 +19616,7 @@ if (request.getImageFile() != null)
     /**
      * Renders drawing object to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19340,6 +19629,7 @@ if (request.getImageFile() != null)
     /**
      * Renders drawing object to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19459,6 +19749,7 @@ if (request.getImageFile() != null)
     /**
      * Renders math object to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19480,6 +19771,7 @@ if (request.getImageFile() != null)
     /**
      * Renders math object to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19492,6 +19784,7 @@ if (request.getImageFile() != null)
     /**
      * Renders math object to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19605,6 +19898,7 @@ if (request.getImageFile() != null)
     /**
      * Renders math object to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19626,6 +19920,7 @@ if (request.getImageFile() != null)
     /**
      * Renders math object to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19638,6 +19933,7 @@ if (request.getImageFile() != null)
     /**
      * Renders math object to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19751,6 +20047,7 @@ if (request.getImageFile() != null)
     /**
      * Renders page to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19772,6 +20069,7 @@ if (request.getImageFile() != null)
     /**
      * Renders page to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19784,6 +20082,7 @@ if (request.getImageFile() != null)
     /**
      * Renders page to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -19903,6 +20202,7 @@ if (request.getImageFile() != null)
     /**
      * Renders paragraph to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19924,6 +20224,7 @@ if (request.getImageFile() != null)
     /**
      * Renders paragraph to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -19936,6 +20237,7 @@ if (request.getImageFile() != null)
     /**
      * Renders paragraph to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20049,6 +20351,7 @@ if (request.getImageFile() != null)
     /**
      * Renders paragraph to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20070,6 +20373,7 @@ if (request.getImageFile() != null)
     /**
      * Renders paragraph to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20082,6 +20386,7 @@ if (request.getImageFile() != null)
     /**
      * Renders paragraph to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20201,6 +20506,7 @@ if (request.getImageFile() != null)
     /**
      * Renders table to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20222,6 +20528,7 @@ if (request.getImageFile() != null)
     /**
      * Renders table to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20234,6 +20541,7 @@ if (request.getImageFile() != null)
     /**
      * Renders table to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20347,6 +20655,7 @@ if (request.getImageFile() != null)
     /**
      * Renders table to specified format.
      * 
+     * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20368,6 +20677,7 @@ if (request.getImageFile() != null)
     /**
      * Renders table to specified format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20380,6 +20690,7 @@ if (request.getImageFile() != null)
     /**
      * Renders table to specified format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20488,6 +20799,7 @@ if (request.getImageFile() != null)
     /**
      * Replaces document text.
      * 
+     * @param request Request object
      * @return ReplaceTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20509,6 +20821,7 @@ if (request.getImageFile() != null)
     /**
      * Replaces document text.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ReplaceTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20521,6 +20834,7 @@ if (request.getImageFile() != null)
     /**
      * Replaces document text. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20639,6 +20953,7 @@ if (request.getImageFile() != null)
     /**
      * Replaces the content in the range.
      * 
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20660,6 +20975,7 @@ if (request.getImageFile() != null)
     /**
      * Replaces the content in the range.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20672,6 +20988,7 @@ if (request.getImageFile() != null)
     /**
      * Replaces the content in the range. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20780,6 +21097,7 @@ if (request.getImageFile() != null)
     /**
      * Resets font&#39;s cache.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20791,6 +21109,7 @@ if (request.getImageFile() != null)
     /**
      * Resets font&#39;s cache. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20896,6 +21215,7 @@ if (request.getImageFile() != null)
     /**
      * Converts document to destination format with detailed settings and saves result to storage.
      * 
+     * @param request Request object
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20917,6 +21237,7 @@ if (request.getImageFile() != null)
     /**
      * Converts document to destination format with detailed settings and saves result to storage.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -20929,6 +21250,7 @@ if (request.getImageFile() != null)
     /**
      * Converts document to destination format with detailed settings and saves result to storage. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21046,6 +21368,7 @@ if (request.getImageFile() != null)
     /**
      * Saves the selected range as a new document.
      * 
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21067,6 +21390,7 @@ if (request.getImageFile() != null)
     /**
      * Saves the selected range as a new document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21079,6 +21403,7 @@ if (request.getImageFile() != null)
     /**
      * Saves the selected range as a new document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21202,6 +21527,7 @@ if (request.getImageFile() != null)
     /**
      * Converts document to tiff with detailed settings and saves result to storage.
      * 
+     * @param request Request object
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21223,6 +21549,7 @@ if (request.getImageFile() != null)
     /**
      * Converts document to tiff with detailed settings and saves result to storage.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21235,6 +21562,7 @@ if (request.getImageFile() != null)
     /**
      * Converts document to tiff with detailed settings and saves result to storage. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21341,6 +21669,7 @@ if (request.getImageFile() != null)
     /**
      * Searches text in document.
      * 
+     * @param request Request object
      * @return SearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21362,6 +21691,7 @@ if (request.getImageFile() != null)
     /**
      * Searches text in document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21374,6 +21704,7 @@ if (request.getImageFile() != null)
     /**
      * Searches text in document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21480,6 +21811,7 @@ if (request.getImageFile() != null)
     /**
      * Splits document.
      * 
+     * @param request Request object
      * @return SplitDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21501,6 +21833,7 @@ if (request.getImageFile() != null)
     /**
      * Splits document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SplitDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21513,6 +21846,7 @@ if (request.getImageFile() != null)
     /**
      * Splits document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21619,6 +21953,7 @@ if (request.getImageFile() != null)
     /**
      * Unprotects document.
      * 
+     * @param request Request object
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21640,6 +21975,7 @@ if (request.getImageFile() != null)
     /**
      * Unprotects document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21652,6 +21988,7 @@ if (request.getImageFile() != null)
     /**
      * Unprotects document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21766,6 +22103,7 @@ if (request.getImageFile() != null)
     /**
      * Updates document bookmark.
      * 
+     * @param request Request object
      * @return BookmarkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21787,6 +22125,7 @@ if (request.getImageFile() != null)
     /**
      * Updates document bookmark.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;BookmarkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21799,6 +22138,7 @@ if (request.getImageFile() != null)
     /**
      * Updates document bookmark. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21919,6 +22259,7 @@ if (request.getImageFile() != null)
     /**
      * Updates border properties.             
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21940,6 +22281,7 @@ if (request.getImageFile() != null)
     /**
      * Updates border properties.             
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -21952,6 +22294,7 @@ if (request.getImageFile() != null)
     /**
      * Updates border properties.              (asynchronously)
      * &#39;nodePath&#39; should refer to node with cell or row.
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22066,6 +22409,7 @@ if (request.getImageFile() != null)
     /**
      * Updates the comment, returns updated comment data.
      * 
+     * @param request Request object
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22087,6 +22431,7 @@ if (request.getImageFile() != null)
     /**
      * Updates the comment, returns updated comment data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22099,6 +22444,7 @@ if (request.getImageFile() != null)
     /**
      * Updates the comment, returns updated comment data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22228,6 +22574,7 @@ if (request.getImageFile() != null)
     /**
      * Updates drawing object, returns updated  drawing object&#39;s data.
      * 
+     * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22249,6 +22596,7 @@ if (request.getImageFile() != null)
     /**
      * Updates drawing object, returns updated  drawing object&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22261,6 +22609,7 @@ if (request.getImageFile() != null)
     /**
      * Updates drawing object, returns updated  drawing object&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22384,6 +22733,7 @@ if (request.getImageFile() != null)
     /**
      * Updates drawing object, returns updated  drawing object&#39;s data.
      * 
+     * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22405,6 +22755,7 @@ if (request.getImageFile() != null)
     /**
      * Updates drawing object, returns updated  drawing object&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22417,6 +22768,7 @@ if (request.getImageFile() != null)
     /**
      * Updates drawing object, returns updated  drawing object&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22537,6 +22889,7 @@ if (request.getImageFile() != null)
     /**
      * Updates field&#39;s properties, returns updated field&#39;s data.
      * 
+     * @param request Request object
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22558,6 +22911,7 @@ if (request.getImageFile() != null)
     /**
      * Updates field&#39;s properties, returns updated field&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22570,6 +22924,7 @@ if (request.getImageFile() != null)
     /**
      * Updates field&#39;s properties, returns updated field&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22671,6 +23026,7 @@ if (request.getImageFile() != null)
     /**
      * Updates (reevaluate) fields in document.
      * 
+     * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22692,6 +23048,7 @@ if (request.getImageFile() != null)
     /**
      * Updates (reevaluate) fields in document.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22704,6 +23061,7 @@ if (request.getImageFile() != null)
     /**
      * Updates (reevaluate) fields in document. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22824,6 +23182,7 @@ if (request.getImageFile() != null)
     /**
      * Updates footnote&#39;s properties, returns updated run&#39;s data.
      * 
+     * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22845,6 +23204,7 @@ if (request.getImageFile() != null)
     /**
      * Updates footnote&#39;s properties, returns updated run&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22857,6 +23217,7 @@ if (request.getImageFile() != null)
     /**
      * Updates footnote&#39;s properties, returns updated run&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22971,6 +23332,7 @@ if (request.getImageFile() != null)
     /**
      * Updates footnote&#39;s properties, returns updated run&#39;s data.
      * 
+     * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -22992,6 +23354,7 @@ if (request.getImageFile() != null)
     /**
      * Updates footnote&#39;s properties, returns updated run&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23004,6 +23367,7 @@ if (request.getImageFile() != null)
     /**
      * Updates footnote&#39;s properties, returns updated run&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -23124,6 +23488,7 @@ if (request.getImageFile() != null)
     /**
      * Updates properties of form field, returns updated form field.
      * 
+     * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23145,6 +23510,7 @@ if (request.getImageFile() != null)
     /**
      * Updates properties of form field, returns updated form field.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23157,6 +23523,7 @@ if (request.getImageFile() != null)
     /**
      * Updates properties of form field, returns updated form field. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -23271,6 +23638,7 @@ if (request.getImageFile() != null)
     /**
      * Updates properties of form field, returns updated form field.
      * 
+     * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23292,6 +23660,7 @@ if (request.getImageFile() != null)
     /**
      * Updates properties of form field, returns updated form field.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23304,6 +23673,7 @@ if (request.getImageFile() != null)
     /**
      * Updates properties of form field, returns updated form field. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -23424,6 +23794,7 @@ if (request.getImageFile() != null)
     /**
      * Updates paragraph format properties, returns updated format properties.
      * 
+     * @param request Request object
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23445,6 +23816,7 @@ if (request.getImageFile() != null)
     /**
      * Updates paragraph format properties, returns updated format properties.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;ParagraphFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23457,6 +23829,7 @@ if (request.getImageFile() != null)
     /**
      * Updates paragraph format properties, returns updated format properties. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -23577,6 +23950,7 @@ if (request.getImageFile() != null)
     /**
      * Updates run&#39;s properties, returns updated run&#39;s data.
      * 
+     * @param request Request object
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23598,6 +23972,7 @@ if (request.getImageFile() != null)
     /**
      * Updates run&#39;s properties, returns updated run&#39;s data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23610,6 +23985,7 @@ if (request.getImageFile() != null)
     /**
      * Updates run&#39;s properties, returns updated run&#39;s data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -23730,6 +24106,7 @@ if (request.getImageFile() != null)
     /**
      * Updates font properties, returns updated font data.
      * 
+     * @param request Request object
      * @return FontResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23751,6 +24128,7 @@ if (request.getImageFile() != null)
     /**
      * Updates font properties, returns updated font data.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FontResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23763,6 +24141,7 @@ if (request.getImageFile() != null)
     /**
      * Updates font properties, returns updated font data. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -23877,6 +24256,7 @@ if (request.getImageFile() != null)
     /**
      * Updates page setup of section.
      * 
+     * @param request Request object
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23898,6 +24278,7 @@ if (request.getImageFile() != null)
     /**
      * Updates page setup of section.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;SectionPageSetupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -23910,6 +24291,7 @@ if (request.getImageFile() != null)
     /**
      * Updates page setup of section. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -24025,6 +24407,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table cell format.
      * 
+     * @param request Request object
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24046,6 +24429,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table cell format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableCellFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24058,6 +24442,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table cell format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -24173,6 +24558,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table properties.
      * 
+     * @param request Request object
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24194,6 +24580,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table properties.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24206,6 +24593,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table properties. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -24315,6 +24703,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table properties.
      * 
+     * @param request Request object
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24336,6 +24725,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table properties.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24348,6 +24738,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table properties. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -24463,6 +24854,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table row format.
      * 
+     * @param request Request object
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24484,6 +24876,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table row format.
      * 
+     * @param request Request object
      * @return ApiResponse&lt;TableRowFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24496,6 +24889,7 @@ if (request.getImageFile() != null)
     /**
      * Updates a table row format. (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -24600,6 +24994,7 @@ if (request.getImageFile() != null)
     /**
      * Upload file
      * 
+     * @param request Request object
      * @return FilesUploadResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24621,6 +25016,7 @@ if (request.getImageFile() != null)
     /**
      * Upload file
      * 
+     * @param request Request object
      * @return ApiResponse&lt;FilesUploadResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -24633,6 +25029,7 @@ if (request.getImageFile() != null)
     /**
      * Upload file (asynchronously)
      * 
+     * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
