@@ -969,6 +969,8 @@ public class WordsApi {
     /**
      * Copy file
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void copyFile(CopyFileRequest request) throws ApiException {
@@ -1103,6 +1105,8 @@ public class WordsApi {
     /**
      * Copy folder
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void copyFolder(CopyFolderRequest request) throws ApiException {
@@ -1359,6 +1363,8 @@ public class WordsApi {
     /**
      * Create the folder
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void createFolder(CreateFolderRequest request) throws ApiException {
@@ -1944,6 +1950,8 @@ public class WordsApi {
     /**
      * Removes comment from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteComment(DeleteCommentRequest request) throws ApiException {
@@ -2083,6 +2091,8 @@ public class WordsApi {
     /**
      * Deletes document property.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException {
@@ -2228,6 +2238,8 @@ public class WordsApi {
     /**
      * Removes drawing object from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException {
@@ -2367,6 +2379,8 @@ public class WordsApi {
     /**
      * Removes drawing object from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteDrawingObjectWithoutNodePath(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException {
@@ -2512,6 +2526,8 @@ public class WordsApi {
     /**
      * Deletes field from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteField(DeleteFieldRequest request) throws ApiException {
@@ -2651,6 +2667,8 @@ public class WordsApi {
     /**
      * Deletes field from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFieldWithoutNodePath(DeleteFieldWithoutNodePathRequest request) throws ApiException {
@@ -2790,6 +2808,8 @@ public class WordsApi {
     /**
      * Removes fields from section paragraph.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFields(DeleteFieldsRequest request) throws ApiException {
@@ -2923,6 +2943,8 @@ public class WordsApi {
     /**
      * Removes fields from section paragraph.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFieldsWithoutNodePath(DeleteFieldsWithoutNodePathRequest request) throws ApiException {
@@ -3051,6 +3073,8 @@ public class WordsApi {
     /**
      * Delete file
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFile(DeleteFileRequest request) throws ApiException {
@@ -3179,6 +3203,8 @@ public class WordsApi {
     /**
      * Delete folder
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFolder(DeleteFolderRequest request) throws ApiException {
@@ -3324,6 +3350,8 @@ public class WordsApi {
     /**
      * Removes footnote from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFootnote(DeleteFootnoteRequest request) throws ApiException {
@@ -3463,6 +3491,8 @@ public class WordsApi {
     /**
      * Removes footnote from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFootnoteWithoutNodePath(DeleteFootnoteWithoutNodePathRequest request) throws ApiException {
@@ -3608,6 +3638,8 @@ public class WordsApi {
     /**
      * Removes form field from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFormField(DeleteFormFieldRequest request) throws ApiException {
@@ -3747,6 +3779,8 @@ public class WordsApi {
     /**
      * Removes form field from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteFormFieldWithoutNodePath(DeleteFormFieldWithoutNodePathRequest request) throws ApiException {
@@ -3892,6 +3926,8 @@ public class WordsApi {
     /**
      * Deletes header/footer from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException {
@@ -4032,6 +4068,8 @@ public class WordsApi {
     /**
      * Deletes document headers and footers.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException {
@@ -4165,6 +4203,8 @@ public class WordsApi {
     /**
      * Removes macros from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteMacros(DeleteMacrosRequest request) throws ApiException {
@@ -4310,6 +4350,8 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException {
@@ -4449,6 +4491,8 @@ public class WordsApi {
     /**
      * Removes OfficeMath object from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteOfficeMathObjectWithoutNodePath(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException {
@@ -4594,6 +4638,8 @@ public class WordsApi {
     /**
      * Removes paragraph from section.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteParagraph(DeleteParagraphRequest request) throws ApiException {
@@ -4733,6 +4779,8 @@ public class WordsApi {
     /**
      * Removes paragraph from section.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteParagraphWithoutNodePath(DeleteParagraphWithoutNodePathRequest request) throws ApiException {
@@ -4878,6 +4926,8 @@ public class WordsApi {
     /**
      * Removes run from document.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteRun(DeleteRunRequest request) throws ApiException {
@@ -5023,6 +5073,8 @@ public class WordsApi {
     /**
      * Deletes a table.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteTable(DeleteTableRequest request) throws ApiException {
@@ -5168,6 +5220,8 @@ public class WordsApi {
     /**
      * Deletes a table cell.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteTableCell(DeleteTableCellRequest request) throws ApiException {
@@ -5313,6 +5367,8 @@ public class WordsApi {
     /**
      * Deletes a table row.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteTableRow(DeleteTableRowRequest request) throws ApiException {
@@ -5452,6 +5508,8 @@ public class WordsApi {
     /**
      * Deletes a table.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void deleteTableWithoutNodePath(DeleteTableWithoutNodePathRequest request) throws ApiException {
@@ -18734,6 +18792,8 @@ if (request.getImageFile() != null)
     /**
      * Move file
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void moveFile(MoveFileRequest request) throws ApiException {
@@ -18868,6 +18928,8 @@ if (request.getImageFile() != null)
     /**
      * Move folder
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void moveFolder(MoveFolderRequest request) throws ApiException {
@@ -21079,6 +21141,8 @@ if (request.getImageFile() != null)
     /**
      * Resets font&#39;s cache.
      * 
+     * @param request Request object
+
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void resetCache(ResetCacheRequest request) throws ApiException {
