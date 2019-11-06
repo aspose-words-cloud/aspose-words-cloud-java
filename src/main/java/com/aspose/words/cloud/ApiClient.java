@@ -117,6 +117,7 @@ public class ApiClient {
      * Set App Key
      *
      * @param appKey App Key
+     * @return An instance of OkHttpClient
      */
     public ApiClient setAppKey(String appKey) {
         this.appKey = appKey;
@@ -136,6 +137,7 @@ public class ApiClient {
      * Set App Sid
      *
      * @param appSid App Sid
+     * @return An instance of OkHttpClient
      */
     public ApiClient setAppSid(String appSid) {
         this.appSid = appSid;
@@ -155,6 +157,7 @@ public class ApiClient {
      * Set ApiVersion
      *
      * @param apiVersion Api Version
+     * @return An instance of OkHttpClient
      */
     public ApiClient setApiVersion(String apiVersion) {
         this.apiVersion = apiVersion;
@@ -175,6 +178,7 @@ public class ApiClient {
      * Set BaseUrl
      *
      * @param baseUrl Base Url
+     * @return An instance of OkHttpClient
      */
     public ApiClient setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -243,6 +247,7 @@ public class ApiClient {
      * Set access token for the OAuth2 authentication.
      *
      * @param accessToken Access token
+     * @return An instance of OkHttpClient
      */
     public ApiClient setAccessToken(String accessToken) {
         this.accessToken = accessToken;
@@ -253,6 +258,7 @@ public class ApiClient {
      * Set refresh token for the OAuth2 authentication.
      *
      * @param refreshToken Access token
+     * @return An instance of OkHttpClient
      */
     public ApiClient setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
@@ -1081,6 +1087,7 @@ public class ApiClient {
 
      /**
      * Request OAuth token
+     * @throws ApiException If fails to authorize
      */
     public void requestToken() throws ApiException {
         try {
