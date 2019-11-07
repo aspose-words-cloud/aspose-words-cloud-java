@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateFootnoteRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -270,3 +270,4 @@ public class UpdateFootnoteRequest {
         RevisionDateTime = value;
     }
 }
+/*

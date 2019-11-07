@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteFootnoteWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -228,3 +228,4 @@ public class DeleteFootnoteWithoutNodePathRequest {
         RevisionDateTime = value;
     }
 }
+/*

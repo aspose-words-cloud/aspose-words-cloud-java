@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CopyFileRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -144,3 +144,4 @@ public class CopyFileRequest {
         VersionId = value;
     }
 }
+/*

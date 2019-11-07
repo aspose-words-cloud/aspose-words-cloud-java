@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UploadFileRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud

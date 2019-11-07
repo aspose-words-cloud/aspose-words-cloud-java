@@ -1,6 +1,6 @@
 
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetDocumentStatisticsRequest.java">
+ * <copyright company="Aspose" file="DeleteSectionRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,13 +29,18 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for getDocumentStatistics operation.
+ * Request model for deleteSection operation.
  */
-public class GetDocumentStatisticsRequest {
+public class DeleteSectionRequest {
     /*
      * The document name.
      */
     private String Name;
+
+    /*
+     * Section index.
+     */
+    private Integer SectionIndex;
 
     /*
      * Original document folder.
@@ -58,41 +63,43 @@ public class GetDocumentStatisticsRequest {
     private String Password;
 
     /*
-     * Support including/excluding comments from the WordCount. Default value is \"false\".
+     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private Boolean IncludeComments;
+    private String DestFileName;
 
     /*
-     * Support including/excluding footnotes from the WordCount. Default value is \"false\".
+     * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    private Boolean IncludeFootnotes;
+    private String RevisionAuthor;
 
     /*
-     * Support including/excluding shape's text from the WordCount. Default value is \"false\".
+     * The date and time to use for revisions.
      */
-    private Boolean IncludeTextInShapes;
+    private String RevisionDateTime;
     
     /*
-     * Initializes a new instance of the getDocumentStatisticsRequest class.
+     * Initializes a new instance of the deleteSectionRequest class.
      *  
      * @param String name The document name.
+     * @param Integer sectionIndex Section index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean includeComments Support including/excluding comments from the WordCount. Default value is \"false\".
-     * @param Boolean includeFootnotes Support including/excluding footnotes from the WordCount. Default value is \"false\".
-     * @param Boolean includeTextInShapes Support including/excluding shape's text from the WordCount. Default value is \"false\".
+     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     * @param String revisionDateTime The date and time to use for revisions.
      */
-    public GetDocumentStatisticsRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  Boolean includeComments,  Boolean includeFootnotes,  Boolean includeTextInShapes) {
+    public DeleteSectionRequest(String name,  Integer sectionIndex,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
+        SectionIndex = sectionIndex;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        IncludeComments = includeComments;
-        IncludeFootnotes = includeFootnotes;
-        IncludeTextInShapes = includeTextInShapes;
+        DestFileName = destFileName;
+        RevisionAuthor = revisionAuthor;
+        RevisionDateTime = revisionDateTime;
     }
 
     /*
@@ -107,6 +114,20 @@ public class GetDocumentStatisticsRequest {
      */
     public void setName(String value) {
         Name = value;
+    }
+
+    /*
+     *  Gets Section index.
+     */
+    public Integer getSectionIndex() {
+        return SectionIndex;
+    }
+
+    /*
+     * Sets Section index.
+     */
+    public void setSectionIndex(Integer value) {
+        SectionIndex = value;
     }
 
     /*
@@ -166,45 +187,45 @@ public class GetDocumentStatisticsRequest {
     }
 
     /*
-     *  Gets Support including/excluding comments from the WordCount. Default value is \"false\".
+     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public Boolean getIncludeComments() {
-        return IncludeComments;
+    public String getDestFileName() {
+        return DestFileName;
     }
 
     /*
-     * Sets Support including/excluding comments from the WordCount. Default value is \"false\".
+     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setIncludeComments(Boolean value) {
-        IncludeComments = value;
+    public void setDestFileName(String value) {
+        DestFileName = value;
     }
 
     /*
-     *  Gets Support including/excluding footnotes from the WordCount. Default value is \"false\".
+     *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public Boolean getIncludeFootnotes() {
-        return IncludeFootnotes;
+    public String getRevisionAuthor() {
+        return RevisionAuthor;
     }
 
     /*
-     * Sets Support including/excluding footnotes from the WordCount. Default value is \"false\".
+     * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public void setIncludeFootnotes(Boolean value) {
-        IncludeFootnotes = value;
+    public void setRevisionAuthor(String value) {
+        RevisionAuthor = value;
     }
 
     /*
-     *  Gets Support including/excluding shape's text from the WordCount. Default value is \"false\".
+     *  Gets The date and time to use for revisions.
      */
-    public Boolean getIncludeTextInShapes() {
-        return IncludeTextInShapes;
+    public String getRevisionDateTime() {
+        return RevisionDateTime;
     }
 
     /*
-     * Sets Support including/excluding shape's text from the WordCount. Default value is \"false\".
+     * Sets The date and time to use for revisions.
      */
-    public void setIncludeTextInShapes(Boolean value) {
-        IncludeTextInShapes = value;
+    public void setRevisionDateTime(String value) {
+        RevisionDateTime = value;
     }
 }
 /*

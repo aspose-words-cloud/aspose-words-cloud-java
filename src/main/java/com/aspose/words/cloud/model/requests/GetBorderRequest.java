@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetBorderRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -38,7 +38,7 @@ public class GetBorderRequest {
     private String Name;
 
     /*
-     * Path to the node with border(node should be cell or row).
+     * Path to the node with border(node should be paragraph, cell or row).
      */
     private String NodePath;
 
@@ -71,7 +71,7 @@ public class GetBorderRequest {
      * Initializes a new instance of the getBorderRequest class.
      *  
      * @param String name The document name.
-     * @param String nodePath Path to the node with border(node should be cell or row).
+     * @param String nodePath Path to the node with border(node should be paragraph, cell or row).
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -103,14 +103,14 @@ public class GetBorderRequest {
     }
 
     /*
-     *  Gets Path to the node with border(node should be cell or row).
+     *  Gets Path to the node with border(node should be paragraph, cell or row).
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * Sets Path to the node with border(node should be cell or row).
+     * Sets Path to the node with border(node should be paragraph, cell or row).
      */
     public void setNodePath(String value) {
         NodePath = value;
@@ -186,3 +186,4 @@ public class GetBorderRequest {
         Password = value;
     }
 }
+/*

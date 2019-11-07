@@ -29,7 +29,7 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
+import com.aspose.words.cloud.model.NodeLink;
 import com.aspose.words.cloud.model.WordsApiLink;
 import io.swagger.annotations.ApiModel;
 
@@ -38,7 +38,7 @@ import io.swagger.annotations.ApiModel;
  */
 @ApiModel(description = "Section link element.")
 
-public class SectionLink extends LinkElement {
+public class SectionLink extends NodeLink {
 
   @Override
   public boolean equals(java.lang.Object o) {

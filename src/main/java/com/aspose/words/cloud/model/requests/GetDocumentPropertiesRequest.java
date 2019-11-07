@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentPropertiesRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -144,3 +144,4 @@ public class GetDocumentPropertiesRequest {
         Password = value;
     }
 }
+/*

@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ReplaceWithTextRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -38,7 +38,7 @@ public class ReplaceWithTextRequest {
     private String Name;
 
     /*
-     * The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     private String RangeStartIdentifier;
 
@@ -81,7 +81,7 @@ public class ReplaceWithTextRequest {
      * Initializes a new instance of the replaceWithTextRequest class.
      *  
      * @param String name The document.
-     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      * @param ReplaceRange rangeText Model with text for replacement.
      * @param String rangeEndIdentifier The range end identifier.
      * @param String folder Original document folder.
@@ -117,14 +117,14 @@ public class ReplaceWithTextRequest {
     }
 
     /*
-     *  Gets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     *  Gets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     public String getRangeStartIdentifier() {
         return RangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Sets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     public void setRangeStartIdentifier(String value) {
         RangeStartIdentifier = value;
@@ -228,3 +228,4 @@ public class ReplaceWithTextRequest {
         DestFileName = value;
     }
 }
+/*

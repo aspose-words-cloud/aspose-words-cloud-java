@@ -1659,7 +1659,7 @@ public class WordsApi {
 
     /**
      * Resets border properties to default values.             
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1681,7 +1681,7 @@ public class WordsApi {
 
     /**
      * Resets border properties to default values.             
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1694,7 +1694,7 @@ public class WordsApi {
 
     /**
      * Resets border properties to default values.              (asynchronously)
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1804,7 +1804,7 @@ public class WordsApi {
 
     /**
      * Resets borders properties to default values.             
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1826,7 +1826,7 @@ public class WordsApi {
 
     /**
      * Resets borders properties to default values.             
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1839,7 +1839,7 @@ public class WordsApi {
 
     /**
      * Resets borders properties to default values.              (asynchronously)
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4989,6 +4989,147 @@ public class WordsApi {
         return call;
     }
     /**
+     * Build call for deleteSection
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteSectionCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/sections/{sectionIndex}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
+            .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteSectionValidateBeforeCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteSection");
+        }
+        
+        // verify the required parameter 'SectionIndex' is set
+        if (request.getSectionIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'SectionIndex' when calling deleteSection");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteSectionCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Removes section from document.
+     * 
+     * @param request Request object
+
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteSection(DeleteSectionRequest request) throws ApiException {
+        try {
+            deleteSectionWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                deleteSectionWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes section from document.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<Void> deleteSectionWithHttpInfo(DeleteSectionRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes section from document. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteSectionAsync(DeleteSectionRequest request, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for deleteTable
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -6615,7 +6756,7 @@ if (request.getData() != null)
 
     /**
      * Returns a border.
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6637,7 +6778,7 @@ if (request.getData() != null)
 
     /**
      * Returns a border.
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6650,7 +6791,7 @@ if (request.getData() != null)
 
     /**
      * Returns a border. (asynchronously)
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6757,7 +6898,7 @@ if (request.getData() != null)
 
     /**
      * Returns a collection of borders.
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6779,7 +6920,7 @@ if (request.getData() != null)
 
     /**
      * Returns a collection of borders.
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6792,7 +6933,7 @@ if (request.getData() != null)
 
     /**
      * Returns a collection of borders. (asynchronously)
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -22322,7 +22463,7 @@ if (request.getImageFile() != null)
 
     /**
      * Updates border properties.             
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -22344,7 +22485,7 @@ if (request.getImageFile() != null)
 
     /**
      * Updates border properties.             
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -22357,7 +22498,7 @@ if (request.getImageFile() != null)
 
     /**
      * Updates border properties.              (asynchronously)
-     * &#39;nodePath&#39; should refer to node with cell or row.
+     * &#39;nodePath&#39; should refer to paragraph, cell or row.
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -25139,3 +25280,4 @@ if (request.getImageFile() != null)
         return path;
     }
 }
+/*

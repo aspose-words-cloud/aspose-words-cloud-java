@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteDrawingObjectWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -228,3 +228,4 @@ public class DeleteDrawingObjectWithoutNodePathRequest {
         RevisionDateTime = value;
     }
 }
+/*

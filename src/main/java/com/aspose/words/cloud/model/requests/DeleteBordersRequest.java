@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteBordersRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -38,7 +38,7 @@ public class DeleteBordersRequest {
     private String Name;
 
     /*
-     * Path to the node with borders(node should be cell or row).
+     * Path to the node with borders(node should be paragraph, cell or row).
      */
     private String NodePath;
 
@@ -81,7 +81,7 @@ public class DeleteBordersRequest {
      * Initializes a new instance of the deleteBordersRequest class.
      *  
      * @param String name The document name.
-     * @param String nodePath Path to the node with borders(node should be cell or row).
+     * @param String nodePath Path to the node with borders(node should be paragraph, cell or row).
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -117,14 +117,14 @@ public class DeleteBordersRequest {
     }
 
     /*
-     *  Gets Path to the node with borders(node should be cell or row).
+     *  Gets Path to the node with borders(node should be paragraph, cell or row).
      */
     public String getNodePath() {
         return NodePath;
     }
 
     /*
-     * Sets Path to the node with borders(node should be cell or row).
+     * Sets Path to the node with borders(node should be paragraph, cell or row).
      */
     public void setNodePath(String value) {
         NodePath = value;
@@ -228,3 +228,4 @@ public class DeleteBordersRequest {
         RevisionDateTime = value;
     }
 }
+/*
