@@ -30,6 +30,7 @@ import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.SectionLinkCollectionResponse;
 import com.aspose.words.cloud.model.SectionResponse;
+import com.aspose.words.cloud.model.requests.DeleteSectionRequest;
 import com.aspose.words.cloud.model.requests.GetSectionRequest;
 import com.aspose.words.cloud.model.requests.GetSectionsRequest;
 import org.junit.Test;
@@ -83,5 +84,22 @@ public void testGetSections() throws ApiException, FileNotFoundException {
 
         SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSections(request);
         assertNotNull(result);
+    }
+
+    /*
+     * Test for delete section
+     */
+    @Test
+public void testDeleteSections() throws ApiException, FileNotFoundException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "TestDeleteSection.docx";
+        String folder = Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString();
+
+        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(folder, remoteName).toString().replace("\\", "/"));
+
+        DeleteSectionRequest request = new DeleteSectionRequest(remoteName, 0, folder, null, null, null,
+         null, null, null);
+
+        TestInitializer.wordsApi.deleteSection(request);
     }
 }
