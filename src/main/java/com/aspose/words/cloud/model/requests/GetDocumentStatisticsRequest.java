@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentStatisticsRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -207,3 +207,4 @@ public class GetDocumentStatisticsRequest {
         IncludeTextInShapes = value;
     }
 }
+/*

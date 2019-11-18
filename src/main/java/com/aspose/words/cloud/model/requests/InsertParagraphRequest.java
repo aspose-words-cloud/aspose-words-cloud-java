@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertParagraphRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -270,3 +270,4 @@ public class InsertParagraphRequest {
         InsertBeforeNode = value;
     }
 }
+/*

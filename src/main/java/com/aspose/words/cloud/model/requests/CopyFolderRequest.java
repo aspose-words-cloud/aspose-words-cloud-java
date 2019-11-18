@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CopyFolderRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -123,3 +123,4 @@ public class CopyFolderRequest {
         DestStorageName = value;
     }
 }
+/*

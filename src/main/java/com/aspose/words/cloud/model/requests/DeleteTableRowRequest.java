@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteTableRowRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -249,3 +249,4 @@ public class DeleteTableRowRequest {
         RevisionDateTime = value;
     }
 }
+/*

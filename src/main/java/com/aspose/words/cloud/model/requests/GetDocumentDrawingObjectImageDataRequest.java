@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentDrawingObjectImageDataRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -186,3 +186,4 @@ public class GetDocumentDrawingObjectImageDataRequest {
         Password = value;
     }
 }
+/*

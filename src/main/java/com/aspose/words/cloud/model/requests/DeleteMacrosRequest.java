@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteMacrosRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -207,3 +207,4 @@ public class DeleteMacrosRequest {
         RevisionDateTime = value;
     }
 }
+/*

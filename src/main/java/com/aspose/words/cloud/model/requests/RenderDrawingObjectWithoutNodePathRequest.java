@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderDrawingObjectWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -207,3 +207,4 @@ public class RenderDrawingObjectWithoutNodePathRequest {
         FontsLocation = value;
     }
 }
+/*

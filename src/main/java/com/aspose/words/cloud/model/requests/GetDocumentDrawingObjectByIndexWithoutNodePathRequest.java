@@ -1,4 +1,4 @@
-/*
+
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentDrawingObjectByIndexWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -165,3 +165,4 @@ public class GetDocumentDrawingObjectByIndexWithoutNodePathRequest {
         Password = value;
     }
 }
+/*
