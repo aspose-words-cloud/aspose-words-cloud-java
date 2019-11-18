@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="DeleteBordersRequest.java">
+ * <copyright company="Aspose" file="DeleteSectionRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,18 +29,18 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for deleteBorders operation.
+ * Request model for deleteSection operation.
  */
-public class DeleteBordersRequest {
+public class DeleteSectionRequest {
     /*
      * The document name.
      */
     private String Name;
 
     /*
-     * Path to the node with borders(node should be paragraph, cell or row).
+     * Section index.
      */
-    private String NodePath;
+    private Integer SectionIndex;
 
     /*
      * Original document folder.
@@ -78,10 +78,10 @@ public class DeleteBordersRequest {
     private String RevisionDateTime;
     
     /*
-     * Initializes a new instance of the deleteBordersRequest class.
+     * Initializes a new instance of the deleteSectionRequest class.
      *  
      * @param String name The document name.
-     * @param String nodePath Path to the node with borders(node should be paragraph, cell or row).
+     * @param Integer sectionIndex Section index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -90,9 +90,9 @@ public class DeleteBordersRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public DeleteBordersRequest(String name,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public DeleteSectionRequest(String name,  Integer sectionIndex,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
-        NodePath = nodePath;
+        SectionIndex = sectionIndex;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -117,17 +117,17 @@ public class DeleteBordersRequest {
     }
 
     /*
-     *  Gets Path to the node with borders(node should be paragraph, cell or row).
+     *  Gets Section index.
      */
-    public String getNodePath() {
-        return NodePath;
+    public Integer getSectionIndex() {
+        return SectionIndex;
     }
 
     /*
-     * Sets Path to the node with borders(node should be paragraph, cell or row).
+     * Sets Section index.
      */
-    public void setNodePath(String value) {
-        NodePath = value;
+    public void setSectionIndex(Integer value) {
+        SectionIndex = value;
     }
 
     /*

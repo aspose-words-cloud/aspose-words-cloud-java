@@ -174,6 +174,9 @@ public class ParagraphFormat extends LinkElement {
   @SerializedName("FirstLineIndent")
   private Double firstLineIndent = null;
 
+  @SerializedName("IsListItem")
+  private Boolean isListItem = null;
+
   @SerializedName("KeepTogether")
   private Boolean keepTogether = null;
 
@@ -1240,6 +1243,24 @@ public class ParagraphFormat extends LinkElement {
     this.firstLineIndent = firstLineIndent;
   }
 
+  public ParagraphFormat isListItem(Boolean isListItem) {
+    this.isListItem = isListItem;
+    return this;
+  }
+
+   /**
+   * Gets or sets True when the paragraph is an item in a bulleted or numbered list.
+   * @return isListItem
+  **/
+  @ApiModelProperty(value = "Gets or sets True when the paragraph is an item in a bulleted or numbered list.")
+  public Boolean isisIsListItem() {
+    return isListItem;
+  }
+
+  public void setIsListItem(Boolean isListItem) {
+    this.isListItem = isListItem;
+  }
+
   public ParagraphFormat keepTogether(Boolean keepTogether) {
     this.keepTogether = keepTogether;
     return this;
@@ -1598,6 +1619,7 @@ public class ParagraphFormat extends LinkElement {
         Objects.equals(this.bidi, paragraphFormat.bidi) &&
         Objects.equals(this.dropCapPosition, paragraphFormat.dropCapPosition) &&
         Objects.equals(this.firstLineIndent, paragraphFormat.firstLineIndent) &&
+        Objects.equals(this.isListItem, paragraphFormat.isListItem) &&
         Objects.equals(this.keepTogether, paragraphFormat.keepTogether) &&
         Objects.equals(this.keepWithNext, paragraphFormat.keepWithNext) &&
         Objects.equals(this.leftIndent, paragraphFormat.leftIndent) &&
@@ -1622,7 +1644,7 @@ public class ParagraphFormat extends LinkElement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl, super.hashCode());
+    return Objects.hash(addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, isListItem, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl, super.hashCode());
   }
 
 
@@ -1637,6 +1659,7 @@ public class ParagraphFormat extends LinkElement {
     sb.append("    bidi: ").append(toIndentedString(bidi)).append("\n");
     sb.append("    dropCapPosition: ").append(toIndentedString(dropCapPosition)).append("\n");
     sb.append("    firstLineIndent: ").append(toIndentedString(firstLineIndent)).append("\n");
+    sb.append("    isListItem: ").append(toIndentedString(isListItem)).append("\n");
     sb.append("    keepTogether: ").append(toIndentedString(keepTogether)).append("\n");
     sb.append("    keepWithNext: ").append(toIndentedString(keepWithNext)).append("\n");
     sb.append("    leftIndent: ").append(toIndentedString(leftIndent)).append("\n");

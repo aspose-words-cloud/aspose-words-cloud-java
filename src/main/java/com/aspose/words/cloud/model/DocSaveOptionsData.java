@@ -45,6 +45,9 @@ import java.io.IOException;
 @ApiModel(description = "container class for doc/dot save options.")
 
 public class DocSaveOptionsData extends SaveOptionsData {
+  @SerializedName("AlwaysCompressMetafiles")
+  private Boolean alwaysCompressMetafiles = null;
+
   @SerializedName("Password")
   private String password = null;
 
@@ -53,6 +56,24 @@ public class DocSaveOptionsData extends SaveOptionsData {
 
   @SerializedName("SaveRoutingSlip")
   private Boolean saveRoutingSlip = null;
+
+  public DocSaveOptionsData alwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
+    this.alwaysCompressMetafiles = alwaysCompressMetafiles;
+    return this;
+  }
+
+   /**
+   * Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.
+   * @return alwaysCompressMetafiles
+  **/
+  @ApiModelProperty(value = "Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.")
+  public Boolean isisAlwaysCompressMetafiles() {
+    return alwaysCompressMetafiles;
+  }
+
+  public void setAlwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
+    this.alwaysCompressMetafiles = alwaysCompressMetafiles;
+  }
 
   public DocSaveOptionsData password(String password) {
     this.password = password;
@@ -118,7 +139,8 @@ public class DocSaveOptionsData extends SaveOptionsData {
       return false;
     }
     DocSaveOptionsData docSaveOptionsData = (DocSaveOptionsData) o;
-    return Objects.equals(this.password, docSaveOptionsData.password) &&
+    return Objects.equals(this.alwaysCompressMetafiles, docSaveOptionsData.alwaysCompressMetafiles) &&
+        Objects.equals(this.password, docSaveOptionsData.password) &&
         Objects.equals(this.savePictureBullet, docSaveOptionsData.savePictureBullet) &&
         Objects.equals(this.saveRoutingSlip, docSaveOptionsData.saveRoutingSlip) &&
         super.equals(o);
@@ -126,7 +148,7 @@ public class DocSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(password, savePictureBullet, saveRoutingSlip, super.hashCode());
+    return Objects.hash(alwaysCompressMetafiles, password, savePictureBullet, saveRoutingSlip, super.hashCode());
   }
 
 
@@ -135,6 +157,7 @@ public class DocSaveOptionsData extends SaveOptionsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    alwaysCompressMetafiles: ").append(toIndentedString(alwaysCompressMetafiles)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    savePictureBullet: ").append(toIndentedString(savePictureBullet)).append("\n");
     sb.append("    saveRoutingSlip: ").append(toIndentedString(saveRoutingSlip)).append("\n");
