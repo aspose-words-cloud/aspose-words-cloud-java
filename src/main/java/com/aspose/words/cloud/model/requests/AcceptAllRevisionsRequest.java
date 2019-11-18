@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="AcceptAllRevisionsRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -165,4 +165,3 @@ public class AcceptAllRevisionsRequest {
         DestFileName = value;
     }
 }
-/*

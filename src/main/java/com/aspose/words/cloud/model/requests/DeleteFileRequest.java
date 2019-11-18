@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteFileRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -102,4 +102,3 @@ public class DeleteFileRequest {
         VersionId = value;
     }
 }
-/*

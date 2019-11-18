@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CreateFolderRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -81,4 +81,3 @@ public class CreateFolderRequest {
         StorageName = value;
     }
 }
-/*
