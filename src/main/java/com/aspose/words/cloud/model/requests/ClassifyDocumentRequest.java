@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ClassifyDocumentRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -186,4 +186,3 @@ public class ClassifyDocumentRequest {
         Taxonomy = value;
     }
 }
-/*

@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderTableWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -207,4 +207,3 @@ public class RenderTableWithoutNodePathRequest {
         FontsLocation = value;
     }
 }
-/*

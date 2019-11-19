@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetSectionsRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -144,4 +144,3 @@ public class GetSectionsRequest {
         Password = value;
     }
 }
-/*

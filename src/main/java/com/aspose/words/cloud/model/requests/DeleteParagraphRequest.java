@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteParagraphRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -249,4 +249,3 @@ public class DeleteParagraphRequest {
         RevisionDateTime = value;
     }
 }
-/*

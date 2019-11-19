@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTableRowFormatRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -270,4 +270,3 @@ public class UpdateTableRowFormatRequest {
         Format = value;
     }
 }
-/*

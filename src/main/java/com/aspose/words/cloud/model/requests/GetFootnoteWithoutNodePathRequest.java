@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetFootnoteWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -165,4 +165,3 @@ public class GetFootnoteWithoutNodePathRequest {
         Password = value;
     }
 }
-/*

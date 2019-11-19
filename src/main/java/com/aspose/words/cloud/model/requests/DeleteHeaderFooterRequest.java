@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteHeaderFooterRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -249,4 +249,3 @@ public class DeleteHeaderFooterRequest {
         RevisionDateTime = value;
     }
 }
-/*

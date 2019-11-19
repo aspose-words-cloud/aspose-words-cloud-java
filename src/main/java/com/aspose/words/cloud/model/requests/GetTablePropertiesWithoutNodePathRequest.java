@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetTablePropertiesWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -165,4 +165,3 @@ public class GetTablePropertiesWithoutNodePathRequest {
         Password = value;
     }
 }
-/*

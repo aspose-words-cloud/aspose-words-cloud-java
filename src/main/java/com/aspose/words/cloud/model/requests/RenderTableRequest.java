@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderTableRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -228,4 +228,3 @@ public class RenderTableRequest {
         FontsLocation = value;
     }
 }
-/*

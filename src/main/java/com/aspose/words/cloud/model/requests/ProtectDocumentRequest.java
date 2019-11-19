@@ -1,4 +1,4 @@
-
+/*
  * --------------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ProtectDocumentRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
@@ -186,4 +186,3 @@ public class ProtectDocumentRequest {
         DestFileName = value;
     }
 }
-/*
