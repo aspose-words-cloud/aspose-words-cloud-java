@@ -16,7 +16,8 @@ node('words-linux') {
 			  sh "git config user.name \"jenkins\""
            }
 		   	withCredentials([usernamePassword(credentialsId: 'f0c4f9b6-8ffe-4ea8-8981-e99263fdb788', passwordVariable: 'mavenPass', usernameVariable: 'mavenUser')]) {
-					sh 'echo "<settings xmlns=\\"http://maven.apache.org/SETTINGS/1.0.0\\" \\n xmlns:xsi=\\"http://www.w3.org/2001/XMLSchema-instance\\" \\n xsi:schemaLocation=\\"http://maven.apache.org/SETTINGS/1.0.0\\"> \\n<servers> \\n <server> \\n<id>aspose</id>\\n<username>${mavenUser}</username>\\n<password>${mavenPass}</password>\\n</server>\\n</servers>\\n</settings>" > wordsSettings.xml'				
+					sh 'echo "<settings xmlns=\\"http://maven.apache.org/SETTINGS/1.0.0\\" \\n xmlns:xsi=\\"http://www.w3.org/2001/XMLSchema-instance\\" \\n xsi:schemaLocation=\\"http://maven.apache.org/SETTINGS/1.0.0\\"> \\n<servers> \\n <server> \\n<id>aspose</id>\\n<username>${mavenUser}</username>\\n<password>${mavenPass}</password>\\n</server>\\n</servers>\\n</settings>" > wordsSettings.xml'
+					sh 'cat wordsSettings.xml'
 				}
 			}
 		}
