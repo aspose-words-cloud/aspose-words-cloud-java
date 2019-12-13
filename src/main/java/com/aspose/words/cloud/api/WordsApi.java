@@ -25146,8 +25146,8 @@ if (request.getImageFile() != null)
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getFileContent() != null)
-          localVarFormParams.put("FileContent", request.getFileContent());
+        if (request.getFile() != null)
+          localVarFormParams.put("File", request.getFile());
 
         final String[] localVarAccepts = {
             "application/xml", "application/json"
@@ -25180,9 +25180,9 @@ if (request.getImageFile() != null)
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call uploadFileValidateBeforeCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'FileContent' is set
-        if (request.getFileContent() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'FileContent' when calling uploadFile");
+        // verify the required parameter 'File' is set
+        if (request.getFile() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'File' when calling uploadFile");
         }
         
         // verify the required parameter 'Path' is set
