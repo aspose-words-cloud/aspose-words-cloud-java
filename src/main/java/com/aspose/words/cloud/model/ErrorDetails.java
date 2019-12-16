@@ -48,8 +48,8 @@ public class ErrorDetails {
   @SerializedName("RequestId")
   private String requestId = null;
 
-  @SerializedName("ErrorDateTime")
-  private OffsetDateTime errorDateTime = null;
+  @SerializedName("Date")
+  private OffsetDateTime date = null;
 
   public ErrorDetails requestId(String requestId) {
     this.requestId = requestId;
@@ -57,10 +57,10 @@ public class ErrorDetails {
   }
 
    /**
-   * The request id.
+   * The request id
    * @return requestId
   **/
-  @ApiModelProperty(value = "The request id.")
+  @ApiModelProperty(value = "The request id")
   public String getRequestId() {
     return requestId;
   }
@@ -69,22 +69,22 @@ public class ErrorDetails {
     this.requestId = requestId;
   }
 
-  public ErrorDetails errorDateTime(OffsetDateTime errorDateTime) {
-    this.errorDateTime = errorDateTime;
+  public ErrorDetails date(OffsetDateTime date) {
+    this.date = date;
     return this;
   }
 
    /**
-   * Error datetime.
-   * @return errorDateTime
+   * Date
+   * @return date
   **/
-  @ApiModelProperty(required = true, value = "Error datetime.")
-  public OffsetDateTime getErrorDateTime() {
-    return errorDateTime;
+  @ApiModelProperty(required = true, value = "Date")
+  public OffsetDateTime getDate() {
+    return date;
   }
 
-  public void setErrorDateTime(OffsetDateTime errorDateTime) {
-    this.errorDateTime = errorDateTime;
+  public void setDate(OffsetDateTime date) {
+    this.date = date;
   }
 
 
@@ -98,12 +98,12 @@ public class ErrorDetails {
     }
     ErrorDetails errorDetails = (ErrorDetails) o;
     return Objects.equals(this.requestId, errorDetails.requestId) &&
-        Objects.equals(this.errorDateTime, errorDetails.errorDateTime);
+        Objects.equals(this.date, errorDetails.date);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, errorDateTime);
+    return Objects.hash(requestId, date);
   }
 
 
@@ -113,7 +113,7 @@ public class ErrorDetails {
     sb.append("class ErrorDetails {\n");
     
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    errorDateTime: ").append(toIndentedString(errorDateTime)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("}");
     return sb.toString();
   }
