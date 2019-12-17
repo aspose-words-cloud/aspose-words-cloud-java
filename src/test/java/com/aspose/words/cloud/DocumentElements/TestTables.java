@@ -129,11 +129,11 @@ public void testGetBorder() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetBorder.docx";
         String sourcePath = "sections/0/tables/2/rows/0";
-        Integer index = 0;
+        String borderType = "left";
 
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        GetBorderRequest request = new GetBorderRequest(remoteName, sourcePath, index,
+        GetBorderRequest request = new GetBorderRequest(remoteName, sourcePath, borderType,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
@@ -563,13 +563,13 @@ public void testUpdateTableRowFormat() throws ApiException, FileNotFoundExceptio
 public void testDeleteBorder() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestDeleteTableBorder.docx";
-        Integer index = 0;
+        String borderType = "left";
         String sourcePath = "tables/1/rows/0/cells/0/";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
 
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        DeleteBorderRequest request = new DeleteBorderRequest(remoteName, sourcePath, index,
+        DeleteBorderRequest request = new DeleteBorderRequest(remoteName, sourcePath, borderType,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null);
 
@@ -604,14 +604,14 @@ public void testDeleteBorders() throws ApiException, FileNotFoundException {
 public void testUpdateBorder() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestUpdateBorder.docx";
-        Integer index = 0;
+        String borderType = "left";
         String sourcePath = "tables/1/rows/0/cells/0/";
         Border body = new Border().borderType(Border.BorderTypeEnum.LEFT).color(new XmlColor().alpha(2)).distanceFromText(6.0)
                 .lineStyle(Border.LineStyleEnum.DASHDOTSTROKER).lineWidth(2.0).shadow(true);
 
         TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
-        UpdateBorderRequest request = new UpdateBorderRequest(remoteName, body, sourcePath, index,
+        UpdateBorderRequest request = new UpdateBorderRequest(remoteName, body, sourcePath, borderType,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
