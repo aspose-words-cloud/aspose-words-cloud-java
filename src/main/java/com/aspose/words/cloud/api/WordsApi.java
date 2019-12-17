@@ -1586,10 +1586,10 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{index}"
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1646,9 +1646,9 @@ public class WordsApi {
           throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteBorder");
         }
         
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteBorder");
+        // verify the required parameter 'BorderType' is set
+        if (request.getBorderType() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'BorderType' when calling deleteBorder");
         }
         
 
@@ -6686,10 +6686,10 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{index}"
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6743,9 +6743,9 @@ if (request.getData() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getBorder");
         }
         
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getBorder");
+        // verify the required parameter 'BorderType' is set
+        if (request.getBorderType() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'BorderType' when calling getBorder");
         }
         
 
@@ -22385,10 +22385,10 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getBorderProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{index}"
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22450,9 +22450,9 @@ if (request.getImageFile() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateBorder");
         }
         
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateBorder");
+        // verify the required parameter 'BorderType' is set
+        if (request.getBorderType() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'BorderType' when calling updateBorder");
         }
         
 

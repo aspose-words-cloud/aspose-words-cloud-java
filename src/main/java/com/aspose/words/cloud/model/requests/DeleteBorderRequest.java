@@ -43,9 +43,9 @@ public class DeleteBorderRequest {
     private String NodePath;
 
     /*
-     * Object index.
+     * Border type.
      */
-    private Integer Index;
+    private String BorderType;
 
     /*
      * Original document folder.
@@ -87,7 +87,7 @@ public class DeleteBorderRequest {
      *  
      * @param String name The document name.
      * @param String nodePath Path to the node with border(node should be paragraph, cell or row).
-     * @param Integer index Object index.
+     * @param String borderType Border type.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -96,10 +96,10 @@ public class DeleteBorderRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public DeleteBorderRequest(String name,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public DeleteBorderRequest(String name,  String nodePath,  String borderType,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         NodePath = nodePath;
-        Index = index;
+        BorderType = borderType;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -138,17 +138,17 @@ public class DeleteBorderRequest {
     }
 
     /*
-     *  Gets Object index.
+     *  Gets Border type.
      */
-    public Integer getIndex() {
-        return Index;
+    public String getBorderType() {
+        return BorderType;
     }
 
     /*
-     * Sets Object index.
+     * Sets Border type.
      */
-    public void setIndex(Integer value) {
-        Index = value;
+    public void setBorderType(String value) {
+        BorderType = value;
     }
 
     /*

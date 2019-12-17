@@ -43,9 +43,9 @@ public class GetBorderRequest {
     private String NodePath;
 
     /*
-     * Object index.
+     * Border type.
      */
-    private Integer Index;
+    private String BorderType;
 
     /*
      * Original document folder.
@@ -72,16 +72,16 @@ public class GetBorderRequest {
      *  
      * @param String name The document name.
      * @param String nodePath Path to the node with border(node should be paragraph, cell or row).
-     * @param Integer index Object index.
+     * @param String borderType Border type.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetBorderRequest(String name,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password) {
+    public GetBorderRequest(String name,  String nodePath,  String borderType,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
         NodePath = nodePath;
-        Index = index;
+        BorderType = borderType;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -117,17 +117,17 @@ public class GetBorderRequest {
     }
 
     /*
-     *  Gets Object index.
+     *  Gets Border type.
      */
-    public Integer getIndex() {
-        return Index;
+    public String getBorderType() {
+        return BorderType;
     }
 
     /*
-     * Sets Object index.
+     * Sets Border type.
      */
-    public void setIndex(Integer value) {
-        Index = value;
+    public void setBorderType(String value) {
+        BorderType = value;
     }
 
     /*
