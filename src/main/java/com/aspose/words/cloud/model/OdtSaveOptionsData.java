@@ -111,7 +111,7 @@ public class OdtSaveOptionsData extends SaveOptionsData {
    * @return isStrictSchema11
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.")
-  public Boolean isisIsStrictSchema11() {
+  public Boolean isIsStrictSchema11() {
     return isStrictSchema11;
   }
 
@@ -147,7 +147,7 @@ public class OdtSaveOptionsData extends SaveOptionsData {
    * @return prettyFormat
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
-  public Boolean isisPrettyFormat() {
+  public Boolean isPrettyFormat() {
     return prettyFormat;
   }
 

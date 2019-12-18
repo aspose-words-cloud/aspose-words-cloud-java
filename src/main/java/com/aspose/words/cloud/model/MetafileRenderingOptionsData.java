@@ -87,7 +87,7 @@ public class MetafileRenderingOptionsData {
    * @return emulateRasterOperations
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether or not the raster operations should be emulated.             ")
-  public Boolean isisEmulateRasterOperations() {
+  public Boolean isEmulateRasterOperations() {
     return emulateRasterOperations;
   }
 
@@ -123,7 +123,7 @@ public class MetafileRenderingOptionsData {
    * @return useEmfEmbeddedToWmf
   **/
   @ApiModelProperty(value = "Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.")
-  public Boolean isisUseEmfEmbeddedToWmf() {
+  public Boolean isUseEmfEmbeddedToWmf() {
     return useEmfEmbeddedToWmf;
   }
 
@@ -141,7 +141,7 @@ public class MetafileRenderingOptionsData {
    * @return scaleWmfFontsToMetafileSize
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.")
-  public Boolean isisScaleWmfFontsToMetafileSize() {
+  public Boolean isScaleWmfFontsToMetafileSize() {
     return scaleWmfFontsToMetafileSize;
   }
 

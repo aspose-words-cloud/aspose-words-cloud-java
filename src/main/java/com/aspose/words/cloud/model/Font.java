@@ -1103,7 +1103,7 @@ public class Font extends LinkElement {
    * @return allCaps
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as all capital letters.             ")
-  public Boolean isisAllCaps() {
+  public Boolean isAllCaps() {
     return allCaps;
   }
 
@@ -1121,7 +1121,7 @@ public class Font extends LinkElement {
    * @return bidi
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the contents of this run shall have right-to-left characteristics.             ")
-  public Boolean isisBidi() {
+  public Boolean isBidi() {
     return bidi;
   }
 
@@ -1139,7 +1139,7 @@ public class Font extends LinkElement {
    * @return bold
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as bold.             ")
-  public Boolean isisBold() {
+  public Boolean isBold() {
     return bold;
   }
 
@@ -1157,7 +1157,7 @@ public class Font extends LinkElement {
    * @return boldBi
   **/
   @ApiModelProperty(value = "Gets or sets true if the right-to-left text is formatted as bold.             ")
-  public Boolean isisBoldBi() {
+  public Boolean isBoldBi() {
     return boldBi;
   }
 
@@ -1211,7 +1211,7 @@ public class Font extends LinkElement {
    * @return complexScript
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.             ")
-  public Boolean isisComplexScript() {
+  public Boolean isComplexScript() {
     return complexScript;
   }
 
@@ -1229,7 +1229,7 @@ public class Font extends LinkElement {
    * @return doubleStrikeThrough
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as double strikethrough text.             ")
-  public Boolean isisDoubleStrikeThrough() {
+  public Boolean isDoubleStrikeThrough() {
     return doubleStrikeThrough;
   }
 
@@ -1247,7 +1247,7 @@ public class Font extends LinkElement {
    * @return emboss
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as embossed.             ")
-  public Boolean isisEmboss() {
+  public Boolean isEmboss() {
     return emboss;
   }
 
@@ -1265,7 +1265,7 @@ public class Font extends LinkElement {
    * @return engrave
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as engraved.             ")
-  public Boolean isisEngrave() {
+  public Boolean isEngrave() {
     return engrave;
   }
 
@@ -1283,7 +1283,7 @@ public class Font extends LinkElement {
    * @return hidden
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as hidden text.             ")
-  public Boolean isisHidden() {
+  public Boolean isHidden() {
     return hidden;
   }
 
@@ -1319,7 +1319,7 @@ public class Font extends LinkElement {
    * @return italic
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as italic.             ")
-  public Boolean isisItalic() {
+  public Boolean isItalic() {
     return italic;
   }
 
@@ -1337,7 +1337,7 @@ public class Font extends LinkElement {
    * @return italicBi
   **/
   @ApiModelProperty(value = "Gets or sets true if the right-to-left text is formatted as italic.             ")
-  public Boolean isisItalicBi() {
+  public Boolean isItalicBi() {
     return italicBi;
   }
 
@@ -1517,7 +1517,7 @@ public class Font extends LinkElement {
    * @return noProofing
   **/
   @ApiModelProperty(value = "Gets or sets true when the formatted characters are not to be spell checked.")
-  public Boolean isisNoProofing() {
+  public Boolean isNoProofing() {
     return noProofing;
   }
 
@@ -1535,7 +1535,7 @@ public class Font extends LinkElement {
    * @return outline
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as outline.             ")
-  public Boolean isisOutline() {
+  public Boolean isOutline() {
     return outline;
   }
 
@@ -1589,7 +1589,7 @@ public class Font extends LinkElement {
    * @return shadow
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as shadowed.             ")
-  public Boolean isisShadow() {
+  public Boolean isShadow() {
     return shadow;
   }
 
@@ -1643,7 +1643,7 @@ public class Font extends LinkElement {
    * @return smallCaps
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as small capital letters.             ")
-  public Boolean isisSmallCaps() {
+  public Boolean isSmallCaps() {
     return smallCaps;
   }
 
@@ -1679,7 +1679,7 @@ public class Font extends LinkElement {
    * @return strikeThrough
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as strikethrough text.             ")
-  public Boolean isisStrikeThrough() {
+  public Boolean isStrikeThrough() {
     return strikeThrough;
   }
 
@@ -1733,7 +1733,7 @@ public class Font extends LinkElement {
    * @return subscript
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as subscript.             ")
-  public Boolean isisSubscript() {
+  public Boolean isSubscript() {
     return subscript;
   }
 
@@ -1751,7 +1751,7 @@ public class Font extends LinkElement {
    * @return superscript
   **/
   @ApiModelProperty(value = "Gets or sets true if the font is formatted as superscript.             ")
-  public Boolean isisSuperscript() {
+  public Boolean isSuperscript() {
     return superscript;
   }
 

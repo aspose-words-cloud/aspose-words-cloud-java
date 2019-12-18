@@ -64,7 +64,7 @@ public class RtfSaveOptionsData extends SaveOptionsData {
    * @return exportCompactSize
   **/
   @ApiModelProperty(value = "Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.")
-  public Boolean isisExportCompactSize() {
+  public Boolean isExportCompactSize() {
     return exportCompactSize;
   }
 
@@ -82,7 +82,7 @@ public class RtfSaveOptionsData extends SaveOptionsData {
    * @return exportImagesForOldReaders
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.")
-  public Boolean isisExportImagesForOldReaders() {
+  public Boolean isExportImagesForOldReaders() {
     return exportImagesForOldReaders;
   }
 
@@ -100,7 +100,7 @@ public class RtfSaveOptionsData extends SaveOptionsData {
    * @return prettyFormat
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
-  public Boolean isisPrettyFormat() {
+  public Boolean isPrettyFormat() {
     return prettyFormat;
   }
 

@@ -63,7 +63,7 @@ public class DownsampleOptionsData {
    * @return downsampleImages
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether images should be downsampled.")
-  public Boolean isisDownsampleImages() {
+  public Boolean isDownsampleImages() {
     return downsampleImages;
   }
 

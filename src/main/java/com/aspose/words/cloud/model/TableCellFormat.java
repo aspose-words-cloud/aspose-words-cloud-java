@@ -313,7 +313,7 @@ public class TableCellFormat extends LinkElement {
    * @return fitText
   **/
   @ApiModelProperty(value = "Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.")
-  public Boolean isisFitText() {
+  public Boolean isFitText() {
     return fitText;
   }
 
@@ -493,7 +493,7 @@ public class TableCellFormat extends LinkElement {
    * @return wrapText
   **/
   @ApiModelProperty(value = "Gets or sets if true, wrap text for the cell.")
-  public Boolean isisWrapText() {
+  public Boolean isWrapText() {
     return wrapText;
   }
 

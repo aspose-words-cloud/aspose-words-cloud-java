@@ -1145,7 +1145,7 @@ public class ParagraphFormat extends LinkElement {
    * @return addSpaceBetweenFarEastAndAlpha
   **/
   @ApiModelProperty(value = "Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.             ")
-  public Boolean isisAddSpaceBetweenFarEastAndAlpha() {
+  public Boolean isAddSpaceBetweenFarEastAndAlpha() {
     return addSpaceBetweenFarEastAndAlpha;
   }
 
@@ -1163,7 +1163,7 @@ public class ParagraphFormat extends LinkElement {
    * @return addSpaceBetweenFarEastAndDigit
   **/
   @ApiModelProperty(value = "Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.             ")
-  public Boolean isisAddSpaceBetweenFarEastAndDigit() {
+  public Boolean isAddSpaceBetweenFarEastAndDigit() {
     return addSpaceBetweenFarEastAndDigit;
   }
 
@@ -1199,7 +1199,7 @@ public class ParagraphFormat extends LinkElement {
    * @return bidi
   **/
   @ApiModelProperty(value = "Gets or sets whether this is a right-to-left paragraph.             ")
-  public Boolean isisBidi() {
+  public Boolean isBidi() {
     return bidi;
   }
 
@@ -1253,7 +1253,7 @@ public class ParagraphFormat extends LinkElement {
    * @return isListItem
   **/
   @ApiModelProperty(value = "Gets or sets True when the paragraph is an item in a bulleted or numbered list.")
-  public Boolean isisIsListItem() {
+  public Boolean isIsListItem() {
     return isListItem;
   }
 
@@ -1271,7 +1271,7 @@ public class ParagraphFormat extends LinkElement {
    * @return keepTogether
   **/
   @ApiModelProperty(value = "Gets or sets true if all lines in the paragraph are to remain on the same page.             ")
-  public Boolean isisKeepTogether() {
+  public Boolean isKeepTogether() {
     return keepTogether;
   }
 
@@ -1289,7 +1289,7 @@ public class ParagraphFormat extends LinkElement {
    * @return keepWithNext
   **/
   @ApiModelProperty(value = "Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.             ")
-  public Boolean isisKeepWithNext() {
+  public Boolean isKeepWithNext() {
     return keepWithNext;
   }
 
@@ -1379,7 +1379,7 @@ public class ParagraphFormat extends LinkElement {
    * @return noSpaceBetweenParagraphsOfSameStyle
   **/
   @ApiModelProperty(value = "Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             ")
-  public Boolean isisNoSpaceBetweenParagraphsOfSameStyle() {
+  public Boolean isNoSpaceBetweenParagraphsOfSameStyle() {
     return noSpaceBetweenParagraphsOfSameStyle;
   }
 
@@ -1415,7 +1415,7 @@ public class ParagraphFormat extends LinkElement {
    * @return pageBreakBefore
   **/
   @ApiModelProperty(value = "Gets or sets true if a page break is forced before the paragraph.             ")
-  public Boolean isisPageBreakBefore() {
+  public Boolean isPageBreakBefore() {
     return pageBreakBefore;
   }
 
@@ -1469,7 +1469,7 @@ public class ParagraphFormat extends LinkElement {
    * @return spaceAfterAuto
   **/
   @ApiModelProperty(value = "Gets or sets true if the amount of spacing after the paragraph is set automatically.             ")
-  public Boolean isisSpaceAfterAuto() {
+  public Boolean isSpaceAfterAuto() {
     return spaceAfterAuto;
   }
 
@@ -1505,7 +1505,7 @@ public class ParagraphFormat extends LinkElement {
    * @return spaceBeforeAuto
   **/
   @ApiModelProperty(value = "Gets or sets true if the amount of spacing before the paragraph is set automatically.             ")
-  public Boolean isisSpaceBeforeAuto() {
+  public Boolean isSpaceBeforeAuto() {
     return spaceBeforeAuto;
   }
 
@@ -1559,7 +1559,7 @@ public class ParagraphFormat extends LinkElement {
    * @return suppressAutoHyphens
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.             ")
-  public Boolean isisSuppressAutoHyphens() {
+  public Boolean isSuppressAutoHyphens() {
     return suppressAutoHyphens;
   }
 
@@ -1577,7 +1577,7 @@ public class ParagraphFormat extends LinkElement {
    * @return suppressLineNumbers
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.             ")
-  public Boolean isisSuppressLineNumbers() {
+  public Boolean isSuppressLineNumbers() {
     return suppressLineNumbers;
   }
 
@@ -1595,7 +1595,7 @@ public class ParagraphFormat extends LinkElement {
    * @return widowControl
   **/
   @ApiModelProperty(value = "Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             ")
-  public Boolean isisWidowControl() {
+  public Boolean isWidowControl() {
     return widowControl;
   }
 

@@ -125,7 +125,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
    * @return addBidiMarks
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.")
-  public Boolean isisAddBidiMarks() {
+  public Boolean isAddBidiMarks() {
     return addBidiMarks;
   }
 
@@ -179,7 +179,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
    * @return forcePageBreaks
   **/
   @ApiModelProperty(value = "Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.")
-  public Boolean isisForcePageBreaks() {
+  public Boolean isForcePageBreaks() {
     return forcePageBreaks;
   }
 
@@ -215,7 +215,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
    * @return preserveTableLayout
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.")
-  public Boolean isisPreserveTableLayout() {
+  public Boolean isPreserveTableLayout() {
     return preserveTableLayout;
   }
 
@@ -233,7 +233,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
    * @return simplifyListLabels
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.")
-  public Boolean isisSimplifyListLabels() {
+  public Boolean isSimplifyListLabels() {
     return simplifyListLabels;
   }
 

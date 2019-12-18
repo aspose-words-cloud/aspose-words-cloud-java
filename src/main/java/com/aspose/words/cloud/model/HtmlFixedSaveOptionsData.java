@@ -131,7 +131,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
    * @return exportEmbeddedCss
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.")
-  public Boolean isisExportEmbeddedCss() {
+  public Boolean isExportEmbeddedCss() {
     return exportEmbeddedCss;
   }
 
@@ -149,7 +149,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
    * @return exportEmbeddedFonts
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.")
-  public Boolean isisExportEmbeddedFonts() {
+  public Boolean isExportEmbeddedFonts() {
     return exportEmbeddedFonts;
   }
 
@@ -167,7 +167,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
    * @return exportEmbeddedImages
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether images should be embedded into Html document in Base64 format.")
-  public Boolean isisExportEmbeddedImages() {
+  public Boolean isExportEmbeddedImages() {
     return exportEmbeddedImages;
   }
 
@@ -185,7 +185,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
    * @return exportFormFields
   **/
   @ApiModelProperty(value = "Gets or sets indication of whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.")
-  public Boolean isisExportFormFields() {
+  public Boolean isExportFormFields() {
     return exportFormFields;
   }
 
@@ -293,7 +293,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
    * @return saveFontFaceCssSeparately
   **/
   @ApiModelProperty(value = "Gets or sets flag indicates whether \"@font-face\" CSS rules should be placed into a separate file \"fontFaces.css\" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \"styles.css\".")
-  public Boolean isisSaveFontFaceCssSeparately() {
+  public Boolean isSaveFontFaceCssSeparately() {
     return saveFontFaceCssSeparately;
   }
 
@@ -311,7 +311,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
    * @return showPageBorder
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether border around pages should be shown.")
-  public Boolean isisShowPageBorder() {
+  public Boolean isShowPageBorder() {
     return showPageBorder;
   }
 

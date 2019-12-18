@@ -317,7 +317,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return allowNegativeIndent
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether negative left and right indents of paragraphs are allowed (not normalized).")
-  public Boolean isisAllowNegativeIndent() {
+  public Boolean isAllowNegativeIndent() {
     return allowNegativeIndent;
   }
 
@@ -443,7 +443,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportDocumentProperties
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether to export built-in and custom document properties.")
-  public Boolean isisExportDocumentProperties() {
+  public Boolean isExportDocumentProperties() {
     return exportDocumentProperties;
   }
 
@@ -461,7 +461,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportDropDownFormFieldAsText
   **/
   @ApiModelProperty(value = "Gets or sets controls how drop-down form fields are saved to HTML. Default value is false.")
-  public Boolean isisExportDropDownFormFieldAsText() {
+  public Boolean isExportDropDownFormFieldAsText() {
     return exportDropDownFormFieldAsText;
   }
 
@@ -479,7 +479,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportFontResources
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether font resources should be exported.")
-  public Boolean isisExportFontResources() {
+  public Boolean isExportFontResources() {
     return exportFontResources;
   }
 
@@ -497,7 +497,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportFontsAsBase64
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether fonts resources should be embedded to HTML in Base64 encoding.  Default is false.")
-  public Boolean isisExportFontsAsBase64() {
+  public Boolean isExportFontsAsBase64() {
     return exportFontsAsBase64;
   }
 
@@ -533,7 +533,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportImagesAsBase64
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether images are saved in Base64 format.")
-  public Boolean isisExportImagesAsBase64() {
+  public Boolean isExportImagesAsBase64() {
     return exportImagesAsBase64;
   }
 
@@ -551,7 +551,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportLanguageInformation
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether language information is exported.")
-  public Boolean isisExportLanguageInformation() {
+  public Boolean isExportLanguageInformation() {
     return exportLanguageInformation;
   }
 
@@ -587,7 +587,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportOriginalUrlForLinkedImages
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether original URL should be used as the URL of the linked images. Default value is false.")
-  public Boolean isisExportOriginalUrlForLinkedImages() {
+  public Boolean isExportOriginalUrlForLinkedImages() {
     return exportOriginalUrlForLinkedImages;
   }
 
@@ -605,7 +605,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportPageMargins
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether page margins is exported to HTML, MHTML or EPUB. Default is false.")
-  public Boolean isisExportPageMargins() {
+  public Boolean isExportPageMargins() {
     return exportPageMargins;
   }
 
@@ -623,7 +623,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportPageSetup
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether page setup is exported.")
-  public Boolean isisExportPageSetup() {
+  public Boolean isExportPageSetup() {
     return exportPageSetup;
   }
 
@@ -641,7 +641,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportRelativeFontSize
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether font sizes should be output in relative units when saving.")
-  public Boolean isisExportRelativeFontSize() {
+  public Boolean isExportRelativeFontSize() {
     return exportRelativeFontSize;
   }
 
@@ -659,7 +659,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportRoundtripInformation
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether to write the roundtrip information when saving to HTML Default value is true.")
-  public Boolean isisExportRoundtripInformation() {
+  public Boolean isExportRoundtripInformation() {
     return exportRoundtripInformation;
   }
 
@@ -677,7 +677,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportTextBoxAsSvg
   **/
   @ApiModelProperty(value = "Gets or sets controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. Default value is false.    When set to true, exports textboxes as inline \"svg\" elements. When false, exports as \"image\" elements.")
-  public Boolean isisExportTextBoxAsSvg() {
+  public Boolean isExportTextBoxAsSvg() {
     return exportTextBoxAsSvg;
   }
 
@@ -695,7 +695,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportTextInputFormFieldAsText
   **/
   @ApiModelProperty(value = "Gets or sets controls how text input form fields are saved.")
-  public Boolean isisExportTextInputFormFieldAsText() {
+  public Boolean isExportTextInputFormFieldAsText() {
     return exportTextInputFormFieldAsText;
   }
 
@@ -713,7 +713,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportTocPageNumbers
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether to write page numbers to table of contents when saving.")
-  public Boolean isisExportTocPageNumbers() {
+  public Boolean isExportTocPageNumbers() {
     return exportTocPageNumbers;
   }
 
@@ -731,7 +731,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return exportXhtmlTransitional
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether to write the DOCTYPE declaration when saving.")
-  public Boolean isisExportXhtmlTransitional() {
+  public Boolean isExportXhtmlTransitional() {
     return exportXhtmlTransitional;
   }
 
@@ -911,7 +911,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return prettyFormat
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
-  public Boolean isisPrettyFormat() {
+  public Boolean isPrettyFormat() {
     return prettyFormat;
   }
 
@@ -929,7 +929,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return resolveFontNames
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether font family names used in the document are resolved and substituted according to FontSettings when being written into HTML-based formats. default value is false.")
-  public Boolean isisResolveFontNames() {
+  public Boolean isResolveFontNames() {
     return resolveFontNames;
   }
 
@@ -983,7 +983,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
    * @return scaleImageToShapeSize
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether images are scaled by Aspose.Words to the bounding shape size when exporting.")
-  public Boolean isisScaleImageToShapeSize() {
+  public Boolean isScaleImageToShapeSize() {
     return scaleImageToShapeSize;
   }
 

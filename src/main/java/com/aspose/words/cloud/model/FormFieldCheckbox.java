@@ -83,7 +83,7 @@ public class FormFieldCheckbox extends FormField {
    * @return checked
   **/
   @ApiModelProperty(value = "Gets or sets the checked status of the check box form field.")
-  public Boolean isisChecked() {
+  public Boolean isChecked() {
     return checked;
   }
 
@@ -101,7 +101,7 @@ public class FormFieldCheckbox extends FormField {
    * @return isCheckBoxExactSize
   **/
   @ApiModelProperty(value = "Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.")
-  public Boolean isisIsCheckBoxExactSize() {
+  public Boolean isIsCheckBoxExactSize() {
     return isCheckBoxExactSize;
   }
 

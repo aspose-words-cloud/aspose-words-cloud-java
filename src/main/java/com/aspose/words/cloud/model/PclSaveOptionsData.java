@@ -80,7 +80,7 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
    * @return rasterizeTransformedElements
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.")
-  public Boolean isisRasterizeTransformedElements() {
+  public Boolean isRasterizeTransformedElements() {
     return rasterizeTransformedElements;
   }
 
