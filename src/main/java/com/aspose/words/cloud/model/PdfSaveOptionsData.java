@@ -199,7 +199,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return createNoteHyperlinks
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. Default is false.")
-  public Boolean isisCreateNoteHyperlinks() {
+  public Boolean isCreateNoteHyperlinks() {
     return createNoteHyperlinks;
   }
 
@@ -253,7 +253,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return displayDocTitle
   **/
   @ApiModelProperty(value = "Gets or sets a flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.")
-  public Boolean isisDisplayDocTitle() {
+  public Boolean isDisplayDocTitle() {
     return displayDocTitle;
   }
 
@@ -289,7 +289,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return embedFullFonts
   **/
   @ApiModelProperty(value = "Gets or sets controls how fonts are embedded into the resulting PDF documents.")
-  public Boolean isisEmbedFullFonts() {
+  public Boolean isEmbedFullFonts() {
     return embedFullFonts;
   }
 
@@ -325,7 +325,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return escapeUri
   **/
   @ApiModelProperty(value = "Gets or sets a flag specifying whether URI should be escaped before writing.             ")
-  public Boolean isisEscapeUri() {
+  public Boolean isEscapeUri() {
     return escapeUri;
   }
 
@@ -343,7 +343,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return exportDocumentStructure
   **/
   @ApiModelProperty(value = "Gets or sets determines whether or not to export document structure.")
-  public Boolean isisExportDocumentStructure() {
+  public Boolean isExportDocumentStructure() {
     return exportDocumentStructure;
   }
 
@@ -433,7 +433,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return openHyperlinksInNewWindow
   **/
   @ApiModelProperty(value = "Gets or sets determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.")
-  public Boolean isisOpenHyperlinksInNewWindow() {
+  public Boolean isOpenHyperlinksInNewWindow() {
     return openHyperlinksInNewWindow;
   }
 
@@ -487,7 +487,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return preblendImages
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether or not to preblend transparent images with black background color.")
-  public Boolean isisPreblendImages() {
+  public Boolean isPreblendImages() {
     return preblendImages;
   }
 
@@ -505,7 +505,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return preserveFormFields
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.")
-  public Boolean isisPreserveFormFields() {
+  public Boolean isPreserveFormFields() {
     return preserveFormFields;
   }
 
@@ -541,7 +541,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return useBookFoldPrintingSettings
   **/
   @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
-  public Boolean isisUseBookFoldPrintingSettings() {
+  public Boolean isUseBookFoldPrintingSettings() {
     return useBookFoldPrintingSettings;
   }
 
@@ -559,7 +559,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
    * @return useCoreFonts
   **/
   @ApiModelProperty(value = "Gets or sets determines whether or not to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.")
-  public Boolean isisUseCoreFonts() {
+  public Boolean isUseCoreFonts() {
     return useCoreFonts;
   }
 

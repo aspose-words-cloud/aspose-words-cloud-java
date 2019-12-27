@@ -123,7 +123,7 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
    * @return useBookFoldPrintingSettings
   **/
   @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
-  public Boolean isisUseBookFoldPrintingSettings() {
+  public Boolean isUseBookFoldPrintingSettings() {
     return useBookFoldPrintingSettings;
   }
 

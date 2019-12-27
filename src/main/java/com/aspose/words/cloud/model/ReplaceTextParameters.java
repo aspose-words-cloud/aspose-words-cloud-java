@@ -105,7 +105,7 @@ public class ReplaceTextParameters {
    * @return isMatchCase
   **/
   @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
-  public Boolean isisIsMatchCase() {
+  public Boolean isIsMatchCase() {
     return isMatchCase;
   }
 
@@ -123,7 +123,7 @@ public class ReplaceTextParameters {
    * @return isMatchWholeWord
   **/
   @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, means that only whole word matched are replaced.")
-  public Boolean isisIsMatchWholeWord() {
+  public Boolean isIsMatchWholeWord() {
     return isMatchWholeWord;
   }
 
@@ -141,7 +141,7 @@ public class ReplaceTextParameters {
    * @return isOldValueRegex
   **/
   @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, means that  contains regex expression.")
-  public Boolean isisIsOldValueRegex() {
+  public Boolean isIsOldValueRegex() {
     return isOldValueRegex;
   }
 

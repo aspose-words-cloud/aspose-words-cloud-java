@@ -74,7 +74,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
    * @return exportEmbeddedImages
   **/
   @ApiModelProperty(value = "Gets or sets specified whether images should be embedded into SVG document as base64.")
-  public Boolean isisExportEmbeddedImages() {
+  public Boolean isExportEmbeddedImages() {
     return exportEmbeddedImages;
   }
 
@@ -92,7 +92,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
    * @return fitToViewPort
   **/
   @ApiModelProperty(value = "Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.")
-  public Boolean isisFitToViewPort() {
+  public Boolean isFitToViewPort() {
     return fitToViewPort;
   }
 
@@ -146,7 +146,7 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
    * @return showPageBorder
   **/
   @ApiModelProperty(value = "Gets or sets show/hide page stepper.")
-  public Boolean isisShowPageBorder() {
+  public Boolean isShowPageBorder() {
     return showPageBorder;
   }
 

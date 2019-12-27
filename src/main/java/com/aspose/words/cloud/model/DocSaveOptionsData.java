@@ -67,7 +67,7 @@ public class DocSaveOptionsData extends SaveOptionsData {
    * @return alwaysCompressMetafiles
   **/
   @ApiModelProperty(value = "Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.")
-  public Boolean isisAlwaysCompressMetafiles() {
+  public Boolean isAlwaysCompressMetafiles() {
     return alwaysCompressMetafiles;
   }
 
@@ -103,7 +103,7 @@ public class DocSaveOptionsData extends SaveOptionsData {
    * @return savePictureBullet
   **/
   @ApiModelProperty(value = "Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.")
-  public Boolean isisSavePictureBullet() {
+  public Boolean isSavePictureBullet() {
     return savePictureBullet;
   }
 
@@ -121,7 +121,7 @@ public class DocSaveOptionsData extends SaveOptionsData {
    * @return saveRoutingSlip
   **/
   @ApiModelProperty(value = "Gets or sets determine whether or not save RoutingSlip data saved to output document.")
-  public Boolean isisSaveRoutingSlip() {
+  public Boolean isSaveRoutingSlip() {
     return saveRoutingSlip;
   }
 

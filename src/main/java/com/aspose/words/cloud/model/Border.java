@@ -323,7 +323,7 @@ public class Border extends LinkElement {
    * @return shadow
   **/
   @ApiModelProperty(value = "Gets or sets a value indicating whether the border has a shadow.")
-  public Boolean isisShadow() {
+  public Boolean isShadow() {
     return shadow;
   }
 

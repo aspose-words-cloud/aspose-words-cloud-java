@@ -1065,7 +1065,7 @@ public class TableProperties extends LinkElement {
    * @return allowAutoFit
   **/
   @ApiModelProperty(value = "Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.")
-  public Boolean isisAllowAutoFit() {
+  public Boolean isAllowAutoFit() {
     return allowAutoFit;
   }
 
@@ -1083,7 +1083,7 @@ public class TableProperties extends LinkElement {
    * @return bidi
   **/
   @ApiModelProperty(value = "Gets or sets whether this is a right-to-left table.")
-  public Boolean isisBidi() {
+  public Boolean isBidi() {
     return bidi;
   }
 

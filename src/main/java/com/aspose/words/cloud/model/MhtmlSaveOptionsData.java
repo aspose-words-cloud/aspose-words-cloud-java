@@ -58,7 +58,7 @@ public class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
    * @return exportCidUrlsForMhtmlResources
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             ")
-  public Boolean isisExportCidUrlsForMhtmlResources() {
+  public Boolean isExportCidUrlsForMhtmlResources() {
     return exportCidUrlsForMhtmlResources;
   }
 

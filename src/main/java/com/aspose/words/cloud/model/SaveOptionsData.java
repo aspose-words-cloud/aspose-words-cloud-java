@@ -172,7 +172,7 @@ public class SaveOptionsData {
    * @return zipOutput
   **/
   @ApiModelProperty(value = "Gets or sets controls zip output or not. Default value is false.")
-  public Boolean isisZipOutput() {
+  public Boolean isZipOutput() {
     return zipOutput;
   }
 
@@ -190,7 +190,7 @@ public class SaveOptionsData {
    * @return updateLastSavedTimeProperty
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
-  public Boolean isisUpdateLastSavedTimeProperty() {
+  public Boolean isUpdateLastSavedTimeProperty() {
     return updateLastSavedTimeProperty;
   }
 
@@ -208,7 +208,7 @@ public class SaveOptionsData {
    * @return updateSdtContent
   **/
   @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
-  public Boolean isisUpdateSdtContent() {
+  public Boolean isUpdateSdtContent() {
     return updateSdtContent;
   }
 
@@ -226,7 +226,7 @@ public class SaveOptionsData {
    * @return updateFields
   **/
   @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true")
-  public Boolean isisUpdateFields() {
+  public Boolean isUpdateFields() {
     return updateFields;
   }
 

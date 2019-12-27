@@ -88,7 +88,7 @@ public class StorageFile {
    * @return isFolder
   **/
   @ApiModelProperty(required = true, value = "True if it is a folder.")
-  public Boolean isisIsFolder() {
+  public Boolean isIsFolder() {
     return isFolder;
   }
 

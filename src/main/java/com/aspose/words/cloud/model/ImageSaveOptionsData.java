@@ -258,7 +258,7 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
    * @return useAntiAliasing
   **/
   @ApiModelProperty(value = "Gets or sets determine whether or not to use anti-aliasing for rendering.")
-  public Boolean isisUseAntiAliasing() {
+  public Boolean isUseAntiAliasing() {
     return useAntiAliasing;
   }
 
@@ -276,7 +276,7 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
    * @return useGdiEmfRenderer
   **/
   @ApiModelProperty(value = "Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.")
-  public Boolean isisUseGdiEmfRenderer() {
+  public Boolean isUseGdiEmfRenderer() {
     return useGdiEmfRenderer;
   }
 
@@ -294,7 +294,7 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
    * @return useHighQualityRendering
   **/
   @ApiModelProperty(value = "Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.")
-  public Boolean isisUseHighQualityRendering() {
+  public Boolean isUseHighQualityRendering() {
     return useHighQualityRendering;
   }
 

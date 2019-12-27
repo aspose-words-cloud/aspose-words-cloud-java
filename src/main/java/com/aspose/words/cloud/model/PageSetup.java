@@ -683,7 +683,7 @@ public class PageSetup extends LinkElement {
    * @return bidi
   **/
   @ApiModelProperty(value = "Gets or sets specifies that this section contains bidirectional (complex scripts) text.             ")
-  public Boolean isisBidi() {
+  public Boolean isBidi() {
     return bidi;
   }
 
@@ -701,7 +701,7 @@ public class PageSetup extends LinkElement {
    * @return borderAlwaysInFront
   **/
   @ApiModelProperty(value = "Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.             ")
-  public Boolean isisBorderAlwaysInFront() {
+  public Boolean isBorderAlwaysInFront() {
     return borderAlwaysInFront;
   }
 
@@ -773,7 +773,7 @@ public class PageSetup extends LinkElement {
    * @return differentFirstPageHeaderFooter
   **/
   @ApiModelProperty(value = "Gets or sets true if a different header or footer is used on the first page.             ")
-  public Boolean isisDifferentFirstPageHeaderFooter() {
+  public Boolean isDifferentFirstPageHeaderFooter() {
     return differentFirstPageHeaderFooter;
   }
 
@@ -1079,7 +1079,7 @@ public class PageSetup extends LinkElement {
    * @return restartPageNumbering
   **/
   @ApiModelProperty(value = "Gets or sets true if page numbering restarts at the beginning of the section.             ")
-  public Boolean isisRestartPageNumbering() {
+  public Boolean isRestartPageNumbering() {
     return restartPageNumbering;
   }
 
@@ -1115,7 +1115,7 @@ public class PageSetup extends LinkElement {
    * @return rtlGutter
   **/
   @ApiModelProperty(value = "Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.             ")
-  public Boolean isisRtlGutter() {
+  public Boolean isRtlGutter() {
     return rtlGutter;
   }
 
@@ -1151,7 +1151,7 @@ public class PageSetup extends LinkElement {
    * @return suppressEndnotes
   **/
   @ApiModelProperty(value = "Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.             ")
-  public Boolean isisSuppressEndnotes() {
+  public Boolean isSuppressEndnotes() {
     return suppressEndnotes;
   }
 

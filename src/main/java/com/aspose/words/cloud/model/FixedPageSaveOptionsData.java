@@ -128,7 +128,7 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
    * @return optimizeOutput
   **/
   @ApiModelProperty(value = "Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.")
-  public Boolean isisOptimizeOutput() {
+  public Boolean isOptimizeOutput() {
     return optimizeOutput;
   }
 

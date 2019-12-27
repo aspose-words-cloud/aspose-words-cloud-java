@@ -117,7 +117,7 @@ public class TableRowFormat extends LinkElement {
    * @return allowBreakAcrossPages
   **/
   @ApiModelProperty(value = "Gets or sets true if the text in a table row is allowed to split across a page break.")
-  public Boolean isisAllowBreakAcrossPages() {
+  public Boolean isAllowBreakAcrossPages() {
     return allowBreakAcrossPages;
   }
 
@@ -135,7 +135,7 @@ public class TableRowFormat extends LinkElement {
    * @return headingFormat
   **/
   @ApiModelProperty(value = "Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.")
-  public Boolean isisHeadingFormat() {
+  public Boolean isHeadingFormat() {
     return headingFormat;
   }
 

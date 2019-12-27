@@ -83,7 +83,7 @@ public class FormField extends NodeLink {
    * @return calculateOnExit
   **/
   @ApiModelProperty(value = "Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.")
-  public Boolean isisCalculateOnExit() {
+  public Boolean isCalculateOnExit() {
     return calculateOnExit;
   }
 
@@ -101,7 +101,7 @@ public class FormField extends NodeLink {
    * @return enabled
   **/
   @ApiModelProperty(value = "Gets or sets true if a form field is enabled.")
-  public Boolean isisEnabled() {
+  public Boolean isEnabled() {
     return enabled;
   }
 
@@ -191,7 +191,7 @@ public class FormField extends NodeLink {
    * @return ownHelp
   **/
   @ApiModelProperty(value = "Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.")
-  public Boolean isisOwnHelp() {
+  public Boolean isOwnHelp() {
     return ownHelp;
   }
 
@@ -209,7 +209,7 @@ public class FormField extends NodeLink {
    * @return ownStatus
   **/
   @ApiModelProperty(value = "Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.")
-  public Boolean isisOwnStatus() {
+  public Boolean isOwnStatus() {
     return ownStatus;
   }
 

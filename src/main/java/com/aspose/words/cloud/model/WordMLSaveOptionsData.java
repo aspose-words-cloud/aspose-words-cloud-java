@@ -58,7 +58,7 @@ public class WordMLSaveOptionsData extends SaveOptionsData {
    * @return prettyFormat
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
-  public Boolean isisPrettyFormat() {
+  public Boolean isPrettyFormat() {
     return prettyFormat;
   }
 
