@@ -38,6 +38,11 @@ public class InsertTableRowRequest {
     private String Name;
 
     /*
+     * Table row parameters/.
+     */
+    private TableRowInsert Row;
+
+    /*
      * Path to table.
      */
     private String TablePath;
@@ -76,16 +81,12 @@ public class InsertTableRowRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
-
-    /*
-     * Table row parameters/.
-     */
-    private TableRowInsert Row;
     
     /*
      * Initializes a new instance of the insertTableRowRequest class.
      *  
      * @param String name The document name.
+     * @param TableRowInsert row Table row parameters/.
      * @param String tablePath Path to table.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -94,10 +95,10 @@ public class InsertTableRowRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableRowInsert row Table row parameters/.
      */
-    public InsertTableRowRequest(String name,  String tablePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableRowInsert row) {
+    public InsertTableRowRequest(String name,  TableRowInsert row,  String tablePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
+        Row = row;
         TablePath = tablePath;
         Folder = folder;
         Storage = storage;
@@ -106,7 +107,6 @@ public class InsertTableRowRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
-        Row = row;
     }
 
     /*
@@ -121,6 +121,20 @@ public class InsertTableRowRequest {
      */
     public void setName(String value) {
         Name = value;
+    }
+
+    /*
+     *  Gets Table row parameters/.
+     */
+    public TableRowInsert getRow() {
+        return Row;
+    }
+
+    /*
+     * Sets Table row parameters/.
+     */
+    public void setRow(TableRowInsert value) {
+        Row = value;
     }
 
     /*
@@ -233,19 +247,5 @@ public class InsertTableRowRequest {
      */
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
-    }
-
-    /*
-     *  Gets Table row parameters/.
-     */
-    public TableRowInsert getRow() {
-        return Row;
-    }
-
-    /*
-     * Sets Table row parameters/.
-     */
-    public void setRow(TableRowInsert value) {
-        Row = value;
     }
 }

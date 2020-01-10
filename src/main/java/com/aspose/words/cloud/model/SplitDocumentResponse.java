@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling:  POST /{name}/split .")
 
 public class SplitDocumentResponse extends WordsResponse {
-  @SerializedName("SplitResult")
+  @SerializedName("splitResult")
   private SplitDocumentResult splitResult = null;
 
   public SplitDocumentResponse splitResult(SplitDocumentResult splitResult) {

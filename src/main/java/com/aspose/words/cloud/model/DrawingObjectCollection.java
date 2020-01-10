@@ -48,7 +48,7 @@ import java.util.List;
 @ApiModel(description = "Represents drawing objects collection DTO.")
 
 public class DrawingObjectCollection extends LinkElement {
-  @SerializedName("List")
+  @SerializedName("list")
   private List<LinkElement> list = null;
 
   public DrawingObjectCollection list(List<LinkElement> list) {

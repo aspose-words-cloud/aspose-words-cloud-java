@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of links to tables.")
 
 public class TableLinkCollection extends LinkElement {
-  @SerializedName("TableLinkList")
+  @SerializedName("tableLinkList")
   private List<TableLink> tableLinkList = null;
 
   public TableLinkCollection tableLinkList(List<TableLink> tableLinkList) {

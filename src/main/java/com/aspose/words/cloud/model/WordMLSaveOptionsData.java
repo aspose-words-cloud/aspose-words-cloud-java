@@ -45,7 +45,7 @@ import java.io.IOException;
 @ApiModel(description = "container class for wml save options.")
 
 public class WordMLSaveOptionsData extends SaveOptionsData {
-  @SerializedName("PrettyFormat")
+  @SerializedName("prettyFormat")
   private Boolean prettyFormat = null;
 
   public WordMLSaveOptionsData prettyFormat(Boolean prettyFormat) {

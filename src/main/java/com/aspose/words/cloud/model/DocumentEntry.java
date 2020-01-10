@@ -44,10 +44,10 @@ import java.io.IOException;
 @ApiModel(description = "Represents a document which will be appended to the original resource document.")
 
 public class DocumentEntry {
-  @SerializedName("Href")
+  @SerializedName("href")
   private String href = null;
 
-  @SerializedName("ImportFormatMode")
+  @SerializedName("importFormatMode")
   private String importFormatMode = null;
 
   public DocumentEntry href(String href) {

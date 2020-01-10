@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Represents DTO for collection of formfields.")
 
 public class FormFieldCollection extends LinkElement {
-  @SerializedName("List")
+  @SerializedName("list")
   private List<FormField> list = null;
 
   public FormFieldCollection list(List<FormField> list) {

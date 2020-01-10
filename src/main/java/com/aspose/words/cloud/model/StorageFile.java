@@ -45,19 +45,19 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "File or folder information")
 
 public class StorageFile {
-  @SerializedName("Name")
+  @SerializedName("name")
   private String name = null;
 
-  @SerializedName("IsFolder")
+  @SerializedName("isFolder")
   private Boolean isFolder = null;
 
-  @SerializedName("ModifiedDate")
+  @SerializedName("modifiedDate")
   private OffsetDateTime modifiedDate = null;
 
-  @SerializedName("Size")
+  @SerializedName("size")
   private Long size = null;
 
-  @SerializedName("Path")
+  @SerializedName("path")
   private String path = null;
 
   public StorageFile name(String name) {
@@ -102,10 +102,10 @@ public class StorageFile {
   }
 
    /**
-   * File or folder last modified .
+   * File or folder last modified DateTime.
    * @return modifiedDate
   **/
-  @ApiModelProperty(value = "File or folder last modified .")
+  @ApiModelProperty(value = "File or folder last modified DateTime.")
   public OffsetDateTime getModifiedDate() {
     return modifiedDate;
   }

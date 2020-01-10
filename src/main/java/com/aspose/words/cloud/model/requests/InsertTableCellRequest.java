@@ -38,6 +38,11 @@ public class InsertTableCellRequest {
     private String Name;
 
     /*
+     * Table cell parameters/.
+     */
+    private TableCellInsert Cell;
+
+    /*
      * Path to table row.
      */
     private String TableRowPath;
@@ -76,16 +81,12 @@ public class InsertTableCellRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
-
-    /*
-     * Table cell parameters/.
-     */
-    private TableCellInsert Cell;
     
     /*
      * Initializes a new instance of the insertTableCellRequest class.
      *  
      * @param String name The document name.
+     * @param TableCellInsert cell Table cell parameters/.
      * @param String tableRowPath Path to table row.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -94,10 +95,10 @@ public class InsertTableCellRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableCellInsert cell Table cell parameters/.
      */
-    public InsertTableCellRequest(String name,  String tableRowPath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableCellInsert cell) {
+    public InsertTableCellRequest(String name,  TableCellInsert cell,  String tableRowPath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
+        Cell = cell;
         TableRowPath = tableRowPath;
         Folder = folder;
         Storage = storage;
@@ -106,7 +107,6 @@ public class InsertTableCellRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
-        Cell = cell;
     }
 
     /*
@@ -121,6 +121,20 @@ public class InsertTableCellRequest {
      */
     public void setName(String value) {
         Name = value;
+    }
+
+    /*
+     *  Gets Table cell parameters/.
+     */
+    public TableCellInsert getCell() {
+        return Cell;
+    }
+
+    /*
+     * Sets Table cell parameters/.
+     */
+    public void setCell(TableCellInsert value) {
+        Cell = value;
     }
 
     /*
@@ -233,19 +247,5 @@ public class InsertTableCellRequest {
      */
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
-    }
-
-    /*
-     *  Gets Table cell parameters/.
-     */
-    public TableCellInsert getCell() {
-        return Cell;
-    }
-
-    /*
-     * Sets Table cell parameters/.
-     */
-    public void setCell(TableCellInsert value) {
-        Cell = value;
     }
 }

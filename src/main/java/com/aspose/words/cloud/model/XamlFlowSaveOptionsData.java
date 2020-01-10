@@ -45,10 +45,10 @@ import java.io.IOException;
 @ApiModel(description = "container class for xaml flow save options.")
 
 public class XamlFlowSaveOptionsData extends SaveOptionsData {
-  @SerializedName("ImagesFolder")
+  @SerializedName("imagesFolder")
   private String imagesFolder = null;
 
-  @SerializedName("ImagesFolderAlias")
+  @SerializedName("imagesFolderAlias")
   private String imagesFolderAlias = null;
 
   public XamlFlowSaveOptionsData imagesFolder(String imagesFolder) {

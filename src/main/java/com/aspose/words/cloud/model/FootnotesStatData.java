@@ -44,10 +44,10 @@ import java.io.IOException;
 @ApiModel(description = "Container for the footnotes statistical data.")
 
 public class FootnotesStatData {
-  @SerializedName("WordCount")
+  @SerializedName("wordCount")
   private Integer wordCount = null;
 
-  @SerializedName("ParagraphCount")
+  @SerializedName("paragraphCount")
   private Integer paragraphCount = null;
 
   public FootnotesStatData wordCount(Integer wordCount) {

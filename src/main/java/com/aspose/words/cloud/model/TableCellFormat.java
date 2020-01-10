@@ -47,10 +47,10 @@ import java.io.IOException;
 @ApiModel(description = "Represents all formatting for a table row.")
 
 public class TableCellFormat extends LinkElement {
-  @SerializedName("BottomPadding")
+  @SerializedName("bottomPadding")
   private Double bottomPadding = null;
 
-  @SerializedName("FitText")
+  @SerializedName("fitText")
   private Boolean fitText = null;
 
   /**
@@ -102,10 +102,10 @@ public class TableCellFormat extends LinkElement {
     }
   }
 
-  @SerializedName("HorizontalMerge")
+  @SerializedName("horizontalMerge")
   private HorizontalMergeEnum horizontalMerge = null;
 
-  @SerializedName("LeftPadding")
+  @SerializedName("leftPadding")
   private Double leftPadding = null;
 
   /**
@@ -163,16 +163,16 @@ public class TableCellFormat extends LinkElement {
     }
   }
 
-  @SerializedName("Orientation")
+  @SerializedName("orientation")
   private OrientationEnum orientation = null;
 
-  @SerializedName("PreferredWidth")
+  @SerializedName("preferredWidth")
   private PreferredWidth preferredWidth = null;
 
-  @SerializedName("RightPadding")
+  @SerializedName("rightPadding")
   private Double rightPadding = null;
 
-  @SerializedName("TopPadding")
+  @SerializedName("topPadding")
   private Double topPadding = null;
 
   /**
@@ -224,7 +224,7 @@ public class TableCellFormat extends LinkElement {
     }
   }
 
-  @SerializedName("VerticalAlignment")
+  @SerializedName("verticalAlignment")
   private VerticalAlignmentEnum verticalAlignment = null;
 
   /**
@@ -276,13 +276,13 @@ public class TableCellFormat extends LinkElement {
     }
   }
 
-  @SerializedName("VerticalMerge")
+  @SerializedName("verticalMerge")
   private VerticalMergeEnum verticalMerge = null;
 
-  @SerializedName("Width")
+  @SerializedName("width")
   private Double width = null;
 
-  @SerializedName("WrapText")
+  @SerializedName("wrapText")
   private Boolean wrapText = null;
 
   public TableCellFormat bottomPadding(Double bottomPadding) {

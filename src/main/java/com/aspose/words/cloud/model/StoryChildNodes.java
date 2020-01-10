@@ -42,12 +42,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Child nodes of  or .
+ * Child nodes of Story or InlineStory.
  */
-@ApiModel(description = "Child nodes of  or .")
+@ApiModel(description = "Child nodes of Story or InlineStory.")
 
 public class StoryChildNodes {
-  @SerializedName("ChildNodes")
+  @SerializedName("childNodes")
   private List<NodeLink> childNodes = null;
 
   public StoryChildNodes childNodes(List<NodeLink> childNodes) {

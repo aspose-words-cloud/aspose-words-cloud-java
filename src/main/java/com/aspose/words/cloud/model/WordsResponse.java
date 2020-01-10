@@ -45,7 +45,7 @@ import java.io.IOException;
 
 
 public class WordsResponse {
-  @SerializedName("RequestId")
+  @SerializedName("requestId")
   private String requestId = null;
 
   public WordsResponse requestId(String requestId) {

@@ -46,31 +46,31 @@ import java.io.IOException;
 @ApiModel(description = "FromField.")
 
 public class FormField extends NodeLink {
-  @SerializedName("CalculateOnExit")
+  @SerializedName("calculateOnExit")
   private Boolean calculateOnExit = null;
 
-  @SerializedName("Enabled")
+  @SerializedName("enabled")
   private Boolean enabled = null;
 
-  @SerializedName("EntryMacro")
+  @SerializedName("entryMacro")
   private String entryMacro = null;
 
-  @SerializedName("ExitMacro")
+  @SerializedName("exitMacro")
   private String exitMacro = null;
 
-  @SerializedName("HelpText")
+  @SerializedName("helpText")
   private String helpText = null;
 
-  @SerializedName("Name")
+  @SerializedName("name")
   private String name = null;
 
-  @SerializedName("OwnHelp")
+  @SerializedName("ownHelp")
   private Boolean ownHelp = null;
 
-  @SerializedName("OwnStatus")
+  @SerializedName("ownStatus")
   private Boolean ownStatus = null;
 
-  @SerializedName("StatusText")
+  @SerializedName("statusText")
   private String statusText = null;
 
   public FormField calculateOnExit(Boolean calculateOnExit) {

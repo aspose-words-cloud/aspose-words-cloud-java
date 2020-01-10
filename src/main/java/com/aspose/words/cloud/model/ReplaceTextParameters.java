@@ -44,19 +44,19 @@ import java.io.IOException;
 @ApiModel(description = "Class for document replace text request building.")
 
 public class ReplaceTextParameters {
-  @SerializedName("OldValue")
+  @SerializedName("oldValue")
   private String oldValue = null;
 
-  @SerializedName("NewValue")
+  @SerializedName("newValue")
   private String newValue = null;
 
-  @SerializedName("IsMatchCase")
+  @SerializedName("isMatchCase")
   private Boolean isMatchCase = null;
 
-  @SerializedName("IsMatchWholeWord")
+  @SerializedName("isMatchWholeWord")
   private Boolean isMatchWholeWord = null;
 
-  @SerializedName("IsOldValueRegex")
+  @SerializedName("isOldValueRegex")
   private Boolean isOldValueRegex = null;
 
   public ReplaceTextParameters oldValue(String oldValue) {
@@ -65,10 +65,10 @@ public class ReplaceTextParameters {
   }
 
    /**
-   * Gets or sets old text value (or regex pattern ) to replace.
+   * Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.
    * @return oldValue
   **/
-  @ApiModelProperty(value = "Gets or sets old text value (or regex pattern ) to replace.")
+  @ApiModelProperty(value = "Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.")
   public String getOldValue() {
     return oldValue;
   }
@@ -137,10 +137,10 @@ public class ReplaceTextParameters {
   }
 
    /**
-   * Gets or sets a value indicating whether flag, means that  contains regex expression.
+   * Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
    * @return isOldValueRegex
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, means that  contains regex expression.")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, means that OldValue contains regex expression.")
   public Boolean isIsOldValueRegex() {
     return isOldValueRegex;
   }

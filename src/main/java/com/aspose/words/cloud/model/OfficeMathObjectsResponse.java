@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/OfficeMathObjects.")
 
 public class OfficeMathObjectsResponse extends WordsResponse {
-  @SerializedName("OfficeMathObjects")
+  @SerializedName("officeMathObjects")
   private OfficeMathObjectsCollection officeMathObjects = null;
 
   public OfficeMathObjectsResponse officeMathObjects(OfficeMathObjectsCollection officeMathObjects) {

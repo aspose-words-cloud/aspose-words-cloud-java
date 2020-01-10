@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "Response for Api error.")
 
 public class WordsApiErrorResponse extends WordsResponse {
-  @SerializedName("Error")
+  @SerializedName("error")
   private ApiError error = null;
 
   public WordsApiErrorResponse error(ApiError error) {

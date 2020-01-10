@@ -44,7 +44,7 @@ import java.io.IOException;
 @ApiModel(description = "Container for the data about protection of the document.")
 
 public class ProtectionData {
-  @SerializedName("ProtectionType")
+  @SerializedName("protectionType")
   private String protectionType = null;
 
   public ProtectionData protectionType(String protectionType) {

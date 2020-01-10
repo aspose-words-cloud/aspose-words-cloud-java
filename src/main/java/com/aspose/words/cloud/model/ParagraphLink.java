@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "Paragraph link element.")
 
 public class ParagraphLink extends NodeLink {
-  @SerializedName("Text")
+  @SerializedName("text")
   private String text = null;
 
   public ParagraphLink text(String text) {

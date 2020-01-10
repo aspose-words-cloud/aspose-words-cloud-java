@@ -45,16 +45,16 @@ import java.io.IOException;
 @ApiModel(description = "Container for the page's statistical data.")
 
 public class PageStatData {
-  @SerializedName("PageNumber")
+  @SerializedName("pageNumber")
   private Integer pageNumber = null;
 
-  @SerializedName("WordCount")
+  @SerializedName("wordCount")
   private Integer wordCount = null;
 
-  @SerializedName("ParagraphCount")
+  @SerializedName("paragraphCount")
   private Integer paragraphCount = null;
 
-  @SerializedName("FootnotesStatData")
+  @SerializedName("footnotesStatData")
   private FootnotesStatData footnotesStatData = null;
 
   public PageStatData pageNumber(Integer pageNumber) {

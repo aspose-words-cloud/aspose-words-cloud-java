@@ -47,7 +47,7 @@ import java.util.List;
 @ApiModel(description = "Files list")
 
 public class FilesList {
-  @SerializedName("Value")
+  @SerializedName("value")
   private List<StorageFile> value = null;
 
   public FilesList value(List<StorageFile> value) {
@@ -64,10 +64,10 @@ public class FilesList {
   }
 
    /**
-   * Files and folders contained by folder .
+   * Files and folders contained by folder StorageFile.
    * @return value
   **/
-  @ApiModelProperty(value = "Files and folders contained by folder .")
+  @ApiModelProperty(value = "Files and folders contained by folder StorageFile.")
   public List<StorageFile> getValue() {
     return value;
   }

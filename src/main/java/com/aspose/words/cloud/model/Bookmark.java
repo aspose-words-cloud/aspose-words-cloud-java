@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "Represents a single bookmark.")
 
 public class Bookmark extends LinkElement {
-  @SerializedName("Name")
+  @SerializedName("name")
   private String name = null;
 
-  @SerializedName("Text")
+  @SerializedName("text")
   private String text = null;
 
   public Bookmark name(String name) {

@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling:  GET documentProperties/{propertyName}.")
 
 public class DocumentPropertyResponse extends WordsResponse {
-  @SerializedName("DocumentProperty")
+  @SerializedName("documentProperty")
   private DocumentProperty documentProperty = null;
 
   public DocumentPropertyResponse documentProperty(DocumentProperty documentProperty) {

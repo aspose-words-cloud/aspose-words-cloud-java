@@ -108,13 +108,13 @@ public class Border extends LinkElement {
     }
   }
 
-  @SerializedName("BorderType")
+  @SerializedName("borderType")
   private BorderTypeEnum borderType = null;
 
-  @SerializedName("Color")
+  @SerializedName("color")
   private XmlColor color = null;
 
-  @SerializedName("DistanceFromText")
+  @SerializedName("distanceFromText")
   private Double distanceFromText = null;
 
   /**
@@ -214,13 +214,13 @@ public class Border extends LinkElement {
     }
   }
 
-  @SerializedName("LineStyle")
+  @SerializedName("lineStyle")
   private LineStyleEnum lineStyle = null;
 
-  @SerializedName("LineWidth")
+  @SerializedName("lineWidth")
   private Double lineWidth = null;
 
-  @SerializedName("Shadow")
+  @SerializedName("shadow")
   private Boolean shadow = null;
 
   public Border borderType(BorderTypeEnum borderType) {

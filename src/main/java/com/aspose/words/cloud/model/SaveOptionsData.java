@@ -45,31 +45,31 @@ import java.io.IOException;
 
 
 public class SaveOptionsData {
-  @SerializedName("ColorMode")
+  @SerializedName("colorMode")
   private String colorMode = null;
 
-  @SerializedName("SaveFormat")
+  @SerializedName("saveFormat")
   private String saveFormat = null;
 
-  @SerializedName("FileName")
+  @SerializedName("fileName")
   private String fileName = null;
 
-  @SerializedName("DmlRenderingMode")
+  @SerializedName("dmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @SerializedName("DmlEffectsRenderingMode")
+  @SerializedName("dmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @SerializedName("ZipOutput")
+  @SerializedName("zipOutput")
   private Boolean zipOutput = null;
 
-  @SerializedName("UpdateLastSavedTimeProperty")
+  @SerializedName("updateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @SerializedName("UpdateSdtContent")
+  @SerializedName("updateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @SerializedName("UpdateFields")
+  @SerializedName("updateFields")
   private Boolean updateFields = null;
 
   public SaveOptionsData colorMode(String colorMode) {
@@ -204,10 +204,10 @@ public class SaveOptionsData {
   }
 
    /**
-   * Gets or sets value determining whether content of  is updated before saving.
+   * Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.
    * @return updateSdtContent
   **/
-  @ApiModelProperty(value = "Gets or sets value determining whether content of  is updated before saving.")
+  @ApiModelProperty(value = "Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.")
   public Boolean isUpdateSdtContent() {
     return updateSdtContent;
   }

@@ -48,7 +48,7 @@ import java.io.IOException;
 @ApiModel(description = "Footnote.")
 
 public class Footnote extends FootnoteLink {
-  @SerializedName("Content")
+  @SerializedName("content")
   private StoryChildNodes content = null;
 
   /**
@@ -98,16 +98,16 @@ public class Footnote extends FootnoteLink {
     }
   }
 
-  @SerializedName("FootnoteType")
+  @SerializedName("footnoteType")
   private FootnoteTypeEnum footnoteType = null;
 
-  @SerializedName("Position")
+  @SerializedName("position")
   private DocumentPosition position = null;
 
-  @SerializedName("ReferenceMark")
+  @SerializedName("referenceMark")
   private String referenceMark = null;
 
-  @SerializedName("Text")
+  @SerializedName("text")
   private String text = null;
 
   public Footnote content(StoryChildNodes content) {
@@ -170,10 +170,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.
+   * Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
    * @return referenceMark
   **/
-  @ApiModelProperty(value = "Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.")
+  @ApiModelProperty(value = "Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.")
   public String getReferenceMark() {
     return referenceMark;
   }

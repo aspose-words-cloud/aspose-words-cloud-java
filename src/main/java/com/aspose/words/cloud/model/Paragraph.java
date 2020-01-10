@@ -48,7 +48,7 @@ import java.util.List;
 @ApiModel(description = "Paragraph element.")
 
 public class Paragraph extends NodeLink {
-  @SerializedName("ChildNodes")
+  @SerializedName("childNodes")
   private List<NodeLink> childNodes = null;
 
   public Paragraph childNodes(List<NodeLink> childNodes) {

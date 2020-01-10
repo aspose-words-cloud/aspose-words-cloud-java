@@ -47,7 +47,7 @@ import java.io.IOException;
 @ApiModel(description = "OfficeMath object.")
 
 public class OfficeMathObject extends OfficeMathLink {
-  @SerializedName("Content")
+  @SerializedName("content")
   private StoryChildNodes content = null;
 
   /**
@@ -97,7 +97,7 @@ public class OfficeMathObject extends OfficeMathLink {
     }
   }
 
-  @SerializedName("DisplayType")
+  @SerializedName("displayType")
   private DisplayTypeEnum displayType = null;
 
   /**
@@ -155,7 +155,7 @@ public class OfficeMathObject extends OfficeMathLink {
     }
   }
 
-  @SerializedName("Justification")
+  @SerializedName("justification")
   private JustificationEnum justification = null;
 
   /**
@@ -261,7 +261,7 @@ public class OfficeMathObject extends OfficeMathLink {
     }
   }
 
-  @SerializedName("MathObjectType")
+  @SerializedName("mathObjectType")
   private MathObjectTypeEnum mathObjectType = null;
 
   public OfficeMathObject content(StoryChildNodes content) {

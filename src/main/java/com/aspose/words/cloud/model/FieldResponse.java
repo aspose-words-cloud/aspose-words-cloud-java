@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/fields/{1}.")
 
 public class FieldResponse extends WordsResponse {
-  @SerializedName("Field")
+  @SerializedName("field")
   private Field field = null;
 
   public FieldResponse field(Field field) {

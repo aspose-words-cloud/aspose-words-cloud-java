@@ -44,7 +44,7 @@ import java.io.IOException;
 @ApiModel(description = "Paragraph element.")
 
 public class ParagraphInsert {
-  @SerializedName("Text")
+  @SerializedName("text")
   private String text = null;
 
   public ParagraphInsert text(String text) {

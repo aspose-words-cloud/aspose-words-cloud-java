@@ -44,10 +44,10 @@ import java.io.IOException;
 @ApiModel(description = "container class for individual bookmarks outline level.")
 
 public class BookmarksOutlineLevelData {
-  @SerializedName("Name")
+  @SerializedName("name")
   private String name = null;
 
-  @SerializedName("BookmarksOutlineLevel")
+  @SerializedName("bookmarksOutlineLevel")
   private Integer bookmarksOutlineLevel = null;
 
   public BookmarksOutlineLevelData name(String name) {

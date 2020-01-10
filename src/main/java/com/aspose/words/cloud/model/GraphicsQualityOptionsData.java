@@ -92,7 +92,7 @@ public class GraphicsQualityOptionsData {
     }
   }
 
-  @SerializedName("CompositingMode")
+  @SerializedName("compositingMode")
   private CompositingModeEnum compositingMode = null;
 
   /**
@@ -150,7 +150,7 @@ public class GraphicsQualityOptionsData {
     }
   }
 
-  @SerializedName("CompositingQuality")
+  @SerializedName("compositingQuality")
   private CompositingQualityEnum compositingQuality = null;
 
   /**
@@ -214,7 +214,7 @@ public class GraphicsQualityOptionsData {
     }
   }
 
-  @SerializedName("InterpolationMode")
+  @SerializedName("interpolationMode")
   private InterpolationModeEnum interpolationMode = null;
 
   /**
@@ -272,10 +272,10 @@ public class GraphicsQualityOptionsData {
     }
   }
 
-  @SerializedName("SmoothingMode")
+  @SerializedName("smoothingMode")
   private SmoothingModeEnum smoothingMode = null;
 
-  @SerializedName("StringFormat")
+  @SerializedName("stringFormat")
   private StringFormatData stringFormat = null;
 
   /**
@@ -333,7 +333,7 @@ public class GraphicsQualityOptionsData {
     }
   }
 
-  @SerializedName("TextRenderingHint")
+  @SerializedName("textRenderingHint")
   private TextRenderingHintEnum textRenderingHint = null;
 
   public GraphicsQualityOptionsData compositingMode(CompositingModeEnum compositingMode) {

@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "Response for \"Replace text\" action.")
 
 public class ReplaceTextResponse extends WordsResponse {
-  @SerializedName("DocumentLink")
+  @SerializedName("documentLink")
   private FileLink documentLink = null;
 
-  @SerializedName("Matches")
+  @SerializedName("matches")
   private Integer matches = null;
 
   public ReplaceTextResponse documentLink(FileLink documentLink) {

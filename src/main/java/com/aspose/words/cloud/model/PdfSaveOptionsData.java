@@ -50,37 +50,37 @@ import java.io.IOException;
 @ApiModel(description = "container class for pdf save options.")
 
 public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("Compliance")
+  @SerializedName("compliance")
   private String compliance = null;
 
-  @SerializedName("CreateNoteHyperlinks")
+  @SerializedName("createNoteHyperlinks")
   private Boolean createNoteHyperlinks = null;
 
-  @SerializedName("CustomPropertiesExport")
+  @SerializedName("customPropertiesExport")
   private String customPropertiesExport = null;
 
-  @SerializedName("DigitalSignatureDetails")
+  @SerializedName("digitalSignatureDetails")
   private PdfDigitalSignatureDetailsData digitalSignatureDetails = null;
 
-  @SerializedName("DisplayDocTitle")
+  @SerializedName("displayDocTitle")
   private Boolean displayDocTitle = null;
 
-  @SerializedName("DownsampleOptions")
+  @SerializedName("downsampleOptions")
   private DownsampleOptionsData downsampleOptions = null;
 
-  @SerializedName("EmbedFullFonts")
+  @SerializedName("embedFullFonts")
   private Boolean embedFullFonts = null;
 
-  @SerializedName("EncryptionDetails")
+  @SerializedName("encryptionDetails")
   private PdfEncryptionDetailsData encryptionDetails = null;
 
-  @SerializedName("EscapeUri")
+  @SerializedName("escapeUri")
   private Boolean escapeUri = null;
 
-  @SerializedName("ExportDocumentStructure")
+  @SerializedName("exportDocumentStructure")
   private Boolean exportDocumentStructure = null;
 
-  @SerializedName("FontEmbeddingMode")
+  @SerializedName("fontEmbeddingMode")
   private String fontEmbeddingMode = null;
 
   /**
@@ -132,43 +132,43 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
   }
 
-  @SerializedName("HeaderFooterBookmarksExportMode")
+  @SerializedName("headerFooterBookmarksExportMode")
   private HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode = null;
 
-  @SerializedName("ImageColorSpaceExportMode")
+  @SerializedName("imageColorSpaceExportMode")
   private String imageColorSpaceExportMode = null;
 
-  @SerializedName("ImageCompression")
+  @SerializedName("imageCompression")
   private String imageCompression = null;
 
-  @SerializedName("OpenHyperlinksInNewWindow")
+  @SerializedName("openHyperlinksInNewWindow")
   private Boolean openHyperlinksInNewWindow = null;
 
-  @SerializedName("OutlineOptions")
+  @SerializedName("outlineOptions")
   private OutlineOptionsData outlineOptions = null;
 
-  @SerializedName("PageMode")
+  @SerializedName("pageMode")
   private String pageMode = null;
 
-  @SerializedName("PreblendImages")
+  @SerializedName("preblendImages")
   private Boolean preblendImages = null;
 
-  @SerializedName("PreserveFormFields")
+  @SerializedName("preserveFormFields")
   private Boolean preserveFormFields = null;
 
-  @SerializedName("TextCompression")
+  @SerializedName("textCompression")
   private String textCompression = null;
 
-  @SerializedName("UseBookFoldPrintingSettings")
+  @SerializedName("useBookFoldPrintingSettings")
   private Boolean useBookFoldPrintingSettings = null;
 
-  @SerializedName("UseCoreFonts")
+  @SerializedName("useCoreFonts")
   private Boolean useCoreFonts = null;
 
-  @SerializedName("ZoomBehavior")
+  @SerializedName("zoomBehavior")
   private String zoomBehavior = null;
 
-  @SerializedName("ZoomFactor")
+  @SerializedName("zoomFactor")
   private Integer zoomFactor = null;
 
   public PdfSaveOptionsData compliance(String compliance) {
@@ -213,10 +213,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining the way  are exported to PDF file. Default value is .
+   * Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.
    * @return customPropertiesExport
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining the way  are exported to PDF file. Default value is .")
+  @ApiModelProperty(value = "Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.")
   public String getCustomPropertiesExport() {
     return customPropertiesExport;
   }

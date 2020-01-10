@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of document properties.")
 
 public class DocumentProperties extends LinkElement {
-  @SerializedName("List")
+  @SerializedName("list")
   private List<DocumentProperty> list = null;
 
   public DocumentProperties list(List<DocumentProperty> list) {

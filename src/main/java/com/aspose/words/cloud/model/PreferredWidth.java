@@ -93,10 +93,10 @@ public class PreferredWidth {
     }
   }
 
-  @SerializedName("Type")
+  @SerializedName("type")
   private TypeEnum type = null;
 
-  @SerializedName("Value")
+  @SerializedName("value")
   private Double value = null;
 
   public PreferredWidth type(TypeEnum type) {
@@ -123,10 +123,10 @@ public class PreferredWidth {
   }
 
    /**
-   * Gets or sets the preferred width value. The unit of measure is specified in the  property.
+   * Gets or sets the preferred width value. The unit of measure is specified in the Type property.
    * @return value
   **/
-  @ApiModelProperty(value = "Gets or sets the preferred width value. The unit of measure is specified in the  property.")
+  @ApiModelProperty(value = "Gets or sets the preferred width value. The unit of measure is specified in the Type property.")
   public Double getValue() {
     return value;
   }

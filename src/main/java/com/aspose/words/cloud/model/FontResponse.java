@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.")
 
 public class FontResponse extends WordsResponse {
-  @SerializedName("Font")
+  @SerializedName("font")
   private Font font = null;
 
   public FontResponse font(Font font) {

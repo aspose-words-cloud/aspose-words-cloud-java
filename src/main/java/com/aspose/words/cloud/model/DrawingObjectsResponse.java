@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling:  GET /drawingObjects.")
 
 public class DrawingObjectsResponse extends WordsResponse {
-  @SerializedName("DrawingObjects")
+  @SerializedName("drawingObjects")
   private DrawingObjectCollection drawingObjects = null;
 
   public DrawingObjectsResponse drawingObjects(DrawingObjectCollection drawingObjects) {

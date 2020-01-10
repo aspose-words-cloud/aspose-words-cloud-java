@@ -44,10 +44,10 @@ import java.io.IOException;
 @ApiModel(description = "Class for insert watermark text request building.")
 
 public class WatermarkText {
-  @SerializedName("Text")
+  @SerializedName("text")
   private String text = null;
 
-  @SerializedName("RotationAngle")
+  @SerializedName("rotationAngle")
   private Double rotationAngle = null;
 
   public WatermarkText text(String text) {

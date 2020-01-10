@@ -49,19 +49,19 @@ import java.util.List;
 @ApiModel(description = "Section element.")
 
 public class Section extends LinkElement {
-  @SerializedName("ChildNodes")
+  @SerializedName("childNodes")
   private List<NodeLink> childNodes = null;
 
-  @SerializedName("HeaderFooters")
+  @SerializedName("headerFooters")
   private LinkElement headerFooters = null;
 
-  @SerializedName("PageSetup")
+  @SerializedName("pageSetup")
   private LinkElement pageSetup = null;
 
-  @SerializedName("Paragraphs")
+  @SerializedName("paragraphs")
   private LinkElement paragraphs = null;
 
-  @SerializedName("Tables")
+  @SerializedName("tables")
   private LinkElement tables = null;
 
   public Section childNodes(List<NodeLink> childNodes) {

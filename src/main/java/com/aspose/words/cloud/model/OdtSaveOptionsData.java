@@ -45,7 +45,7 @@ import java.io.IOException;
 @ApiModel(description = "container class for odt/ott save options.")
 
 public class OdtSaveOptionsData extends SaveOptionsData {
-  @SerializedName("IsStrictSchema11")
+  @SerializedName("isStrictSchema11")
   private Boolean isStrictSchema11 = null;
 
   /**
@@ -95,10 +95,10 @@ public class OdtSaveOptionsData extends SaveOptionsData {
     }
   }
 
-  @SerializedName("MeasureUnit")
+  @SerializedName("measureUnit")
   private MeasureUnitEnum measureUnit = null;
 
-  @SerializedName("PrettyFormat")
+  @SerializedName("prettyFormat")
   private Boolean prettyFormat = null;
 
   public OdtSaveOptionsData isStrictSchema11(Boolean isStrictSchema11) {

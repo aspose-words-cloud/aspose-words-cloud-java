@@ -48,103 +48,103 @@ import java.io.IOException;
 @ApiModel(description = "Font element.             ")
 
 public class Font extends LinkElement {
-  @SerializedName("AllCaps")
+  @SerializedName("allCaps")
   private Boolean allCaps = null;
 
-  @SerializedName("Bidi")
+  @SerializedName("bidi")
   private Boolean bidi = null;
 
-  @SerializedName("Bold")
+  @SerializedName("bold")
   private Boolean bold = null;
 
-  @SerializedName("BoldBi")
+  @SerializedName("boldBi")
   private Boolean boldBi = null;
 
-  @SerializedName("Border")
+  @SerializedName("border")
   private Border border = null;
 
-  @SerializedName("Color")
+  @SerializedName("color")
   private XmlColor color = null;
 
-  @SerializedName("ComplexScript")
+  @SerializedName("complexScript")
   private Boolean complexScript = null;
 
-  @SerializedName("DoubleStrikeThrough")
+  @SerializedName("doubleStrikeThrough")
   private Boolean doubleStrikeThrough = null;
 
-  @SerializedName("Emboss")
+  @SerializedName("emboss")
   private Boolean emboss = null;
 
-  @SerializedName("Engrave")
+  @SerializedName("engrave")
   private Boolean engrave = null;
 
-  @SerializedName("Hidden")
+  @SerializedName("hidden")
   private Boolean hidden = null;
 
-  @SerializedName("HighlightColor")
+  @SerializedName("highlightColor")
   private XmlColor highlightColor = null;
 
-  @SerializedName("Italic")
+  @SerializedName("italic")
   private Boolean italic = null;
 
-  @SerializedName("ItalicBi")
+  @SerializedName("italicBi")
   private Boolean italicBi = null;
 
-  @SerializedName("Kerning")
+  @SerializedName("kerning")
   private Double kerning = null;
 
-  @SerializedName("LocaleId")
+  @SerializedName("localeId")
   private Integer localeId = null;
 
-  @SerializedName("LocaleIdBi")
+  @SerializedName("localeIdBi")
   private Integer localeIdBi = null;
 
-  @SerializedName("LocaleIdFarEast")
+  @SerializedName("localeIdFarEast")
   private Integer localeIdFarEast = null;
 
-  @SerializedName("Name")
+  @SerializedName("name")
   private String name = null;
 
-  @SerializedName("NameAscii")
+  @SerializedName("nameAscii")
   private String nameAscii = null;
 
-  @SerializedName("NameBi")
+  @SerializedName("nameBi")
   private String nameBi = null;
 
-  @SerializedName("NameFarEast")
+  @SerializedName("nameFarEast")
   private String nameFarEast = null;
 
-  @SerializedName("NameOther")
+  @SerializedName("nameOther")
   private String nameOther = null;
 
-  @SerializedName("NoProofing")
+  @SerializedName("noProofing")
   private Boolean noProofing = null;
 
-  @SerializedName("Outline")
+  @SerializedName("outline")
   private Boolean outline = null;
 
-  @SerializedName("Position")
+  @SerializedName("position")
   private Double position = null;
 
-  @SerializedName("Scaling")
+  @SerializedName("scaling")
   private Integer scaling = null;
 
-  @SerializedName("Shadow")
+  @SerializedName("shadow")
   private Boolean shadow = null;
 
-  @SerializedName("Size")
+  @SerializedName("size")
   private Double size = null;
 
-  @SerializedName("SizeBi")
+  @SerializedName("sizeBi")
   private Double sizeBi = null;
 
-  @SerializedName("SmallCaps")
+  @SerializedName("smallCaps")
   private Boolean smallCaps = null;
 
-  @SerializedName("Spacing")
+  @SerializedName("spacing")
   private Double spacing = null;
 
-  @SerializedName("StrikeThrough")
+  @SerializedName("strikeThrough")
   private Boolean strikeThrough = null;
 
   /**
@@ -936,16 +936,16 @@ public class Font extends LinkElement {
     }
   }
 
-  @SerializedName("StyleIdentifier")
+  @SerializedName("styleIdentifier")
   private StyleIdentifierEnum styleIdentifier = null;
 
-  @SerializedName("StyleName")
+  @SerializedName("styleName")
   private String styleName = null;
 
-  @SerializedName("Subscript")
+  @SerializedName("subscript")
   private Boolean subscript = null;
 
-  @SerializedName("Superscript")
+  @SerializedName("superscript")
   private Boolean superscript = null;
 
   /**
@@ -1005,7 +1005,7 @@ public class Font extends LinkElement {
     }
   }
 
-  @SerializedName("TextEffect")
+  @SerializedName("textEffect")
   private TextEffectEnum textEffect = null;
 
   /**
@@ -1087,10 +1087,10 @@ public class Font extends LinkElement {
     }
   }
 
-  @SerializedName("Underline")
+  @SerializedName("underline")
   private UnderlineEnum underline = null;
 
-  @SerializedName("UnderlineColor")
+  @SerializedName("underlineColor")
   private XmlColor underlineColor = null;
 
   public Font allCaps(Boolean allCaps) {

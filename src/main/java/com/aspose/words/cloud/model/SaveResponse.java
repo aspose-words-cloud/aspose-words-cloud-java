@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "Save response.")
 
 public class SaveResponse extends WordsResponse {
-  @SerializedName("SaveResult")
+  @SerializedName("saveResult")
   private SaveResult saveResult = null;
 
   public SaveResponse saveResult(SaveResult saveResult) {

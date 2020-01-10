@@ -38,7 +38,7 @@ public class CompareDocumentRequest {
     private String Name;
 
     /*
-     * with a document to compare.            
+     * CompareData with a document to compare.
      */
     private CompareData CompareData;
 
@@ -71,7 +71,7 @@ public class CompareDocumentRequest {
      * Initializes a new instance of the compareDocumentRequest class.
      *  
      * @param String name Original document name.
-     * @param CompareData compareData with a document to compare.            
+     * @param CompareData compareData CompareData with a document to compare.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -103,14 +103,14 @@ public class CompareDocumentRequest {
     }
 
     /*
-     *  Gets with a document to compare.            
+     *  Gets CompareData with a document to compare.
      */
     public CompareData getCompareData() {
         return CompareData;
     }
 
     /*
-     * Sets with a document to compare.            
+     * Sets CompareData with a document to compare.
      */
     public void setCompareData(CompareData value) {
         CompareData = value;

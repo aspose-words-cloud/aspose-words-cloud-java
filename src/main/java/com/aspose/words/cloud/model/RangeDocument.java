@@ -44,7 +44,7 @@ import java.io.IOException;
 @ApiModel(description = "Range element.")
 
 public class RangeDocument {
-  @SerializedName("DocumentName")
+  @SerializedName("documentName")
   private String documentName = null;
 
   public RangeDocument documentName(String documentName) {

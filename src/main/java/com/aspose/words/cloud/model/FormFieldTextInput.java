@@ -46,13 +46,13 @@ import java.io.IOException;
 @ApiModel(description = "FormField text input element.")
 
 public class FormFieldTextInput extends FormField {
-  @SerializedName("MaxLength")
+  @SerializedName("maxLength")
   private Integer maxLength = null;
 
-  @SerializedName("TextInputDefault")
+  @SerializedName("textInputDefault")
   private String textInputDefault = null;
 
-  @SerializedName("TextInputFormat")
+  @SerializedName("textInputFormat")
   private String textInputFormat = null;
 
   /**
@@ -110,7 +110,7 @@ public class FormFieldTextInput extends FormField {
     }
   }
 
-  @SerializedName("TextInputType")
+  @SerializedName("textInputType")
   private TextInputTypeEnum textInputType = null;
 
   public FormFieldTextInput maxLength(Integer maxLength) {

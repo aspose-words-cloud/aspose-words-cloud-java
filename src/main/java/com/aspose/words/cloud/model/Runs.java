@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Represents DTO for collection of runs.")
 
 public class Runs extends LinkElement {
-  @SerializedName("List")
+  @SerializedName("list")
   private List<Run> list = null;
 
   public Runs list(List<Run> list) {

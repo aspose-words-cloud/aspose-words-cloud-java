@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Represents DTO for collection of fields.")
 
 public class FieldCollection extends LinkElement {
-  @SerializedName("List")
+  @SerializedName("list")
   private List<Field> list = null;
 
   public FieldCollection list(List<Field> list) {

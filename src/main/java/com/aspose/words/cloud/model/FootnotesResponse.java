@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/footnotes.")
 
 public class FootnotesResponse extends WordsResponse {
-  @SerializedName("Footnotes")
+  @SerializedName("footnotes")
   private FootnoteCollection footnotes = null;
 
   public FootnotesResponse footnotes(FootnoteCollection footnotes) {

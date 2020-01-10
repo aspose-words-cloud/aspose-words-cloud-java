@@ -45,13 +45,13 @@ import java.io.IOException;
 @ApiModel(description = "Table element.")
 
 public class TableInsert {
-  @SerializedName("Position")
+  @SerializedName("position")
   private DocumentPosition position = null;
 
-  @SerializedName("ColumnsCount")
+  @SerializedName("columnsCount")
   private Integer columnsCount = null;
 
-  @SerializedName("RowsCount")
+  @SerializedName("rowsCount")
   private Integer rowsCount = null;
 
   public TableInsert position(DocumentPosition position) {

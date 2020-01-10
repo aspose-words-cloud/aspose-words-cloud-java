@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.")
 
 public class FieldNamesResponse extends WordsResponse {
-  @SerializedName("FieldNames")
+  @SerializedName("fieldNames")
   private FieldNames fieldNames = null;
 
   public FieldNamesResponse fieldNames(FieldNames fieldNames) {

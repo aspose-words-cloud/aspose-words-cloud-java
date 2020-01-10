@@ -45,7 +45,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/range/{0}/{1}/.")
 
 public class RangeTextResponse extends WordsResponse {
-  @SerializedName("Text")
+  @SerializedName("text")
   private String text = null;
 
   public RangeTextResponse text(String text) {

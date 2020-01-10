@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.")
 
 public class TableRowFormatResponse extends WordsResponse {
-  @SerializedName("RowFormat")
+  @SerializedName("rowFormat")
   private TableRowFormat rowFormat = null;
 
   public TableRowFormatResponse rowFormat(TableRowFormat rowFormat) {

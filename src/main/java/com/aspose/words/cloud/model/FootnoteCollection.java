@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of footnotes.")
 
 public class FootnoteCollection extends LinkElement {
-  @SerializedName("List")
+  @SerializedName("list")
   private List<Footnote> list = null;
 
   public FootnoteCollection list(List<Footnote> list) {

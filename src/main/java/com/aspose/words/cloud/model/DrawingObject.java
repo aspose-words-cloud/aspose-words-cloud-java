@@ -48,16 +48,16 @@ import java.util.List;
 @ApiModel(description = "Represents Drawing Object DTO.")
 
 public class DrawingObject extends DrawingObjectLink {
-  @SerializedName("Height")
+  @SerializedName("height")
   private Double height = null;
 
-  @SerializedName("ImageDataLink")
+  @SerializedName("imageDataLink")
   private WordsApiLink imageDataLink = null;
 
-  @SerializedName("Left")
+  @SerializedName("left")
   private Double left = null;
 
-  @SerializedName("OleDataLink")
+  @SerializedName("oleDataLink")
   private WordsApiLink oleDataLink = null;
 
   /**
@@ -121,7 +121,7 @@ public class DrawingObject extends DrawingObjectLink {
     }
   }
 
-  @SerializedName("RelativeHorizontalPosition")
+  @SerializedName("relativeHorizontalPosition")
   private RelativeHorizontalPositionEnum relativeHorizontalPosition = null;
 
   /**
@@ -187,16 +187,16 @@ public class DrawingObject extends DrawingObjectLink {
     }
   }
 
-  @SerializedName("RelativeVerticalPosition")
+  @SerializedName("relativeVerticalPosition")
   private RelativeVerticalPositionEnum relativeVerticalPosition = null;
 
-  @SerializedName("RenderLinks")
+  @SerializedName("renderLinks")
   private List<WordsApiLink> renderLinks = null;
 
-  @SerializedName("Top")
+  @SerializedName("top")
   private Double top = null;
 
-  @SerializedName("Width")
+  @SerializedName("width")
   private Double width = null;
 
   /**
@@ -254,7 +254,7 @@ public class DrawingObject extends DrawingObjectLink {
     }
   }
 
-  @SerializedName("WrapType")
+  @SerializedName("wrapType")
   private WrapTypeEnum wrapType = null;
 
   public DrawingObject height(Double height) {
@@ -379,10 +379,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Gets or sets a list of links that originate from this .
+   * Gets or sets a list of links that originate from this DrawingObjectDto.
    * @return renderLinks
   **/
-  @ApiModelProperty(value = "Gets or sets a list of links that originate from this .")
+  @ApiModelProperty(value = "Gets or sets a list of links that originate from this DrawingObjectDto.")
   public List<WordsApiLink> getRenderLinks() {
     return renderLinks;
   }

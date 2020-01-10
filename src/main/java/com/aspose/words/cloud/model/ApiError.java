@@ -46,19 +46,19 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "Api error.")
 
 public class ApiError {
-  @SerializedName("Code")
+  @SerializedName("code")
   private String code = null;
 
-  @SerializedName("Message")
+  @SerializedName("message")
   private String message = null;
 
-  @SerializedName("Description")
+  @SerializedName("description")
   private String description = null;
 
-  @SerializedName("DateTime")
+  @SerializedName("dateTime")
   private OffsetDateTime dateTime = null;
 
-  @SerializedName("InnerError")
+  @SerializedName("innerError")
   private ApiError innerError = null;
 
   public ApiError code(String code) {

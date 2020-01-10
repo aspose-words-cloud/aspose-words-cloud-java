@@ -45,7 +45,7 @@ import java.io.IOException;
 @ApiModel(description = "Container class for mhtml save options.")
 
 public class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
-  @SerializedName("ExportCidUrlsForMhtmlResources")
+  @SerializedName("exportCidUrlsForMhtmlResources")
   private Boolean exportCidUrlsForMhtmlResources = null;
 
   public MhtmlSaveOptionsData exportCidUrlsForMhtmlResources(Boolean exportCidUrlsForMhtmlResources) {

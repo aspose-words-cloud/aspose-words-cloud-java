@@ -38,6 +38,11 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
     private String Name;
 
     /*
+     * The properties.
+     */
+    private TableProperties Properties;
+
+    /*
      * Object index.
      */
     private Integer Index;
@@ -76,16 +81,12 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
-
-    /*
-     * The properties.
-     */
-    private TableProperties Properties;
     
     /*
      * Initializes a new instance of the updateTablePropertiesWithoutNodePathRequest class.
      *  
      * @param String name The document name.
+     * @param TableProperties properties The properties.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -94,10 +95,10 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableProperties properties The properties.
      */
-    public UpdateTablePropertiesWithoutNodePathRequest(String name,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableProperties properties) {
+    public UpdateTablePropertiesWithoutNodePathRequest(String name,  TableProperties properties,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
+        Properties = properties;
         Index = index;
         Folder = folder;
         Storage = storage;
@@ -106,7 +107,6 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
-        Properties = properties;
     }
 
     /*
@@ -121,6 +121,20 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
      */
     public void setName(String value) {
         Name = value;
+    }
+
+    /*
+     *  Gets The properties.
+     */
+    public TableProperties getProperties() {
+        return Properties;
+    }
+
+    /*
+     * Sets The properties.
+     */
+    public void setProperties(TableProperties value) {
+        Properties = value;
     }
 
     /*
@@ -233,19 +247,5 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
      */
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
-    }
-
-    /*
-     *  Gets The properties.
-     */
-    public TableProperties getProperties() {
-        return Properties;
-    }
-
-    /*
-     * Sets The properties.
-     */
-    public void setProperties(TableProperties value) {
-        Properties = value;
     }
 }

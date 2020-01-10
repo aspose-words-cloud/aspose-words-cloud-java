@@ -46,43 +46,43 @@ import java.io.IOException;
 @ApiModel(description = "container class for fixed html save options.")
 
 public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("CssClassNamesPrefix")
+  @SerializedName("cssClassNamesPrefix")
   private String cssClassNamesPrefix = null;
 
-  @SerializedName("Encoding")
+  @SerializedName("encoding")
   private String encoding = null;
 
-  @SerializedName("ExportEmbeddedCss")
+  @SerializedName("exportEmbeddedCss")
   private Boolean exportEmbeddedCss = null;
 
-  @SerializedName("ExportEmbeddedFonts")
+  @SerializedName("exportEmbeddedFonts")
   private Boolean exportEmbeddedFonts = null;
 
-  @SerializedName("ExportEmbeddedImages")
+  @SerializedName("exportEmbeddedImages")
   private Boolean exportEmbeddedImages = null;
 
-  @SerializedName("ExportFormFields")
+  @SerializedName("exportFormFields")
   private Boolean exportFormFields = null;
 
-  @SerializedName("FontFormat")
+  @SerializedName("fontFormat")
   private String fontFormat = null;
 
-  @SerializedName("PageHorizontalAlignment")
+  @SerializedName("pageHorizontalAlignment")
   private String pageHorizontalAlignment = null;
 
-  @SerializedName("PageMargins")
+  @SerializedName("pageMargins")
   private Double pageMargins = null;
 
-  @SerializedName("ResourcesFolder")
+  @SerializedName("resourcesFolder")
   private String resourcesFolder = null;
 
-  @SerializedName("ResourcesFolderAlias")
+  @SerializedName("resourcesFolderAlias")
   private String resourcesFolderAlias = null;
 
-  @SerializedName("SaveFontFaceCssSeparately")
+  @SerializedName("saveFontFaceCssSeparately")
   private Boolean saveFontFaceCssSeparately = null;
 
-  @SerializedName("ShowPageBorder")
+  @SerializedName("showPageBorder")
   private Boolean showPageBorder = null;
 
   public HtmlFixedSaveOptionsData cssClassNamesPrefix(String cssClassNamesPrefix) {

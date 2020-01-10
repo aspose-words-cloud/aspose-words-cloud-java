@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "Field.")
 
 public class Field extends FieldLink {
-  @SerializedName("LocaleId")
+  @SerializedName("localeId")
   private String localeId = null;
 
-  @SerializedName("Result")
+  @SerializedName("result")
   private String result = null;
 
   public Field localeId(String localeId) {

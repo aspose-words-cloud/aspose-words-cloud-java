@@ -44,13 +44,13 @@ import java.io.IOException;
 @ApiModel(description = "Request on changing of protection.")
 
 public class ProtectionRequest {
-  @SerializedName("Password")
+  @SerializedName("password")
   private String password = null;
 
-  @SerializedName("NewPassword")
+  @SerializedName("newPassword")
   private String newPassword = null;
 
-  @SerializedName("ProtectionType")
+  @SerializedName("protectionType")
   private String protectionType = null;
 
   public ProtectionRequest password(String password) {

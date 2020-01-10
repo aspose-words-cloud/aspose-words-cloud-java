@@ -44,10 +44,10 @@ import java.io.IOException;
 @ApiModel(description = "Represents a single classification result.")
 
 public class ClassificationResult {
-  @SerializedName("ClassName")
+  @SerializedName("className")
   private String className = null;
 
-  @SerializedName("ClassProbability")
+  @SerializedName("classProbability")
   private Double classProbability = null;
 
   public ClassificationResult className(String className) {

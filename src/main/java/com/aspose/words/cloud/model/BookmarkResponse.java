@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.")
 
 public class BookmarkResponse extends WordsResponse {
-  @SerializedName("Bookmark")
+  @SerializedName("bookmark")
   private Bookmark bookmark = null;
 
   public BookmarkResponse bookmark(Bookmark bookmark) {

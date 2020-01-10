@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/search.")
 
 public class SearchResponse extends WordsResponse {
-  @SerializedName("SearchingPattern")
+  @SerializedName("searchingPattern")
   private String searchingPattern = null;
 
-  @SerializedName("SearchResults")
+  @SerializedName("searchResults")
   private SearchResultsCollection searchResults = null;
 
   public SearchResponse searchingPattern(String searchingPattern) {

@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/hyperlinks .")
 
 public class HyperlinksResponse extends WordsResponse {
-  @SerializedName("Hyperlinks")
+  @SerializedName("hyperlinks")
   private Hyperlinks hyperlinks = null;
 
   public HyperlinksResponse hyperlinks(Hyperlinks hyperlinks) {

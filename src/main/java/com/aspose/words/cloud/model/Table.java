@@ -50,10 +50,10 @@ import java.util.List;
 @ApiModel(description = "Table element.")
 
 public class Table extends NodeLink {
-  @SerializedName("TableProperties")
+  @SerializedName("tableProperties")
   private TableProperties tableProperties = null;
 
-  @SerializedName("TableRowList")
+  @SerializedName("tableRowList")
   private List<TableRow> tableRowList = null;
 
   public Table tableProperties(TableProperties tableProperties) {

@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "Paragraph format element.             ")
 
 public class ParagraphFormat extends LinkElement {
-  @SerializedName("AddSpaceBetweenFarEastAndAlpha")
+  @SerializedName("addSpaceBetweenFarEastAndAlpha")
   private Boolean addSpaceBetweenFarEastAndAlpha = null;
 
-  @SerializedName("AddSpaceBetweenFarEastAndDigit")
+  @SerializedName("addSpaceBetweenFarEastAndDigit")
   private Boolean addSpaceBetweenFarEastAndDigit = null;
 
   /**
@@ -113,10 +113,10 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("Alignment")
+  @SerializedName("alignment")
   private AlignmentEnum alignment = null;
 
-  @SerializedName("Bidi")
+  @SerializedName("bidi")
   private Boolean bidi = null;
 
   /**
@@ -168,25 +168,25 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("DropCapPosition")
+  @SerializedName("dropCapPosition")
   private DropCapPositionEnum dropCapPosition = null;
 
-  @SerializedName("FirstLineIndent")
+  @SerializedName("firstLineIndent")
   private Double firstLineIndent = null;
 
-  @SerializedName("IsListItem")
+  @SerializedName("isListItem")
   private Boolean isListItem = null;
 
-  @SerializedName("KeepTogether")
+  @SerializedName("keepTogether")
   private Boolean keepTogether = null;
 
-  @SerializedName("KeepWithNext")
+  @SerializedName("keepWithNext")
   private Boolean keepWithNext = null;
 
-  @SerializedName("LeftIndent")
+  @SerializedName("leftIndent")
   private Double leftIndent = null;
 
-  @SerializedName("LineSpacing")
+  @SerializedName("lineSpacing")
   private Double lineSpacing = null;
 
   /**
@@ -238,13 +238,13 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("LineSpacingRule")
+  @SerializedName("lineSpacingRule")
   private LineSpacingRuleEnum lineSpacingRule = null;
 
-  @SerializedName("LinesToDrop")
+  @SerializedName("linesToDrop")
   private Integer linesToDrop = null;
 
-  @SerializedName("NoSpaceBetweenParagraphsOfSameStyle")
+  @SerializedName("noSpaceBetweenParagraphsOfSameStyle")
   private Boolean noSpaceBetweenParagraphsOfSameStyle = null;
 
   /**
@@ -310,25 +310,25 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("OutlineLevel")
+  @SerializedName("outlineLevel")
   private OutlineLevelEnum outlineLevel = null;
 
-  @SerializedName("PageBreakBefore")
+  @SerializedName("pageBreakBefore")
   private Boolean pageBreakBefore = null;
 
-  @SerializedName("RightIndent")
+  @SerializedName("rightIndent")
   private Double rightIndent = null;
 
-  @SerializedName("SpaceAfter")
+  @SerializedName("spaceAfter")
   private Double spaceAfter = null;
 
-  @SerializedName("SpaceAfterAuto")
+  @SerializedName("spaceAfterAuto")
   private Boolean spaceAfterAuto = null;
 
-  @SerializedName("SpaceBefore")
+  @SerializedName("spaceBefore")
   private Double spaceBefore = null;
 
-  @SerializedName("SpaceBeforeAuto")
+  @SerializedName("spaceBeforeAuto")
   private Boolean spaceBeforeAuto = null;
 
   /**
@@ -1120,19 +1120,19 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("StyleIdentifier")
+  @SerializedName("styleIdentifier")
   private StyleIdentifierEnum styleIdentifier = null;
 
-  @SerializedName("StyleName")
+  @SerializedName("styleName")
   private String styleName = null;
 
-  @SerializedName("SuppressAutoHyphens")
+  @SerializedName("suppressAutoHyphens")
   private Boolean suppressAutoHyphens = null;
 
-  @SerializedName("SuppressLineNumbers")
+  @SerializedName("suppressLineNumbers")
   private Boolean suppressLineNumbers = null;
 
-  @SerializedName("WidowControl")
+  @SerializedName("widowControl")
   private Boolean widowControl = null;
 
   public ParagraphFormat addSpaceBetweenFarEastAndAlpha(Boolean addSpaceBetweenFarEastAndAlpha) {
@@ -1375,10 +1375,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             
+   * Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.             
    * @return noSpaceBetweenParagraphsOfSameStyle
   **/
-  @ApiModelProperty(value = "Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             ")
+  @ApiModelProperty(value = "Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.             ")
   public Boolean isNoSpaceBetweenParagraphsOfSameStyle() {
     return noSpaceBetweenParagraphsOfSameStyle;
   }

@@ -96,31 +96,31 @@ public class TableProperties extends LinkElement {
     }
   }
 
-  @SerializedName("Alignment")
+  @SerializedName("alignment")
   private AlignmentEnum alignment = null;
 
-  @SerializedName("AllowAutoFit")
+  @SerializedName("allowAutoFit")
   private Boolean allowAutoFit = null;
 
-  @SerializedName("Bidi")
+  @SerializedName("bidi")
   private Boolean bidi = null;
 
-  @SerializedName("BottomPadding")
+  @SerializedName("bottomPadding")
   private Double bottomPadding = null;
 
-  @SerializedName("CellSpacing")
+  @SerializedName("cellSpacing")
   private Double cellSpacing = null;
 
-  @SerializedName("LeftIndent")
+  @SerializedName("leftIndent")
   private Double leftIndent = null;
 
-  @SerializedName("LeftPadding")
+  @SerializedName("leftPadding")
   private Double leftPadding = null;
 
-  @SerializedName("PreferredWidth")
+  @SerializedName("preferredWidth")
   private PreferredWidth preferredWidth = null;
 
-  @SerializedName("RightPadding")
+  @SerializedName("rightPadding")
   private Double rightPadding = null;
 
   /**
@@ -912,10 +912,10 @@ public class TableProperties extends LinkElement {
     }
   }
 
-  @SerializedName("StyleIdentifier")
+  @SerializedName("styleIdentifier")
   private StyleIdentifierEnum styleIdentifier = null;
 
-  @SerializedName("StyleName")
+  @SerializedName("styleName")
   private String styleName = null;
 
   /**
@@ -979,11 +979,11 @@ public class TableProperties extends LinkElement {
     }
   }
 
-  @SerializedName("StyleOptions")
+  @SerializedName("styleOptions")
   private StyleOptionsEnum styleOptions = null;
 
   /**
-   * Gets or sets get or sets TextWrapping  for table.
+   * Gets or sets get or sets TextWrapping for table.
    */
   @JsonAdapter(TextWrappingEnum.Adapter.class)
   public enum TextWrappingEnum {
@@ -1031,10 +1031,10 @@ public class TableProperties extends LinkElement {
     }
   }
 
-  @SerializedName("TextWrapping")
+  @SerializedName("textWrapping")
   private TextWrappingEnum textWrapping = null;
 
-  @SerializedName("TopPadding")
+  @SerializedName("topPadding")
   private Double topPadding = null;
 
   public TableProperties alignment(AlignmentEnum alignment) {
@@ -1259,10 +1259,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Gets or sets get or sets TextWrapping  for table.
+   * Gets or sets get or sets TextWrapping for table.
    * @return textWrapping
   **/
-  @ApiModelProperty(value = "Gets or sets get or sets TextWrapping  for table.")
+  @ApiModelProperty(value = "Gets or sets get or sets TextWrapping for table.")
   public TextWrappingEnum getTextWrapping() {
     return textWrapping;
   }

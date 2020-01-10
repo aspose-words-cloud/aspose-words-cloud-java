@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "Hyperlink element.")
 
 public class Hyperlink extends LinkElement {
-  @SerializedName("DisplayText")
+  @SerializedName("displayText")
   private String displayText = null;
 
-  @SerializedName("Value")
+  @SerializedName("value")
   private String value = null;
 
   public Hyperlink displayText(String displayText) {

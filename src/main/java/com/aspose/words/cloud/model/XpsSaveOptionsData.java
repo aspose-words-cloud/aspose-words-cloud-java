@@ -47,16 +47,16 @@ import java.io.IOException;
 @ApiModel(description = "Container class for xps save options.")
 
 public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("BookmarksOutlineLevel")
+  @SerializedName("bookmarksOutlineLevel")
   private Integer bookmarksOutlineLevel = null;
 
-  @SerializedName("HeadingsOutlineLevels")
+  @SerializedName("headingsOutlineLevels")
   private Integer headingsOutlineLevels = null;
 
-  @SerializedName("OutlineOptions")
+  @SerializedName("outlineOptions")
   private OutlineOptionsData outlineOptions = null;
 
-  @SerializedName("UseBookFoldPrintingSettings")
+  @SerializedName("useBookFoldPrintingSettings")
   private Boolean useBookFoldPrintingSettings = null;
 
   public XpsSaveOptionsData bookmarksOutlineLevel(Integer bookmarksOutlineLevel) {

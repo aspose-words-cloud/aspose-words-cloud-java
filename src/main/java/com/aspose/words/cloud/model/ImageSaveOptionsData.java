@@ -47,43 +47,43 @@ import java.io.IOException;
 @ApiModel(description = "Container abstract class for image save options.")
 
 public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("GraphicsQualityOptions")
+  @SerializedName("graphicsQualityOptions")
   private GraphicsQualityOptionsData graphicsQualityOptions = null;
 
-  @SerializedName("HorizontalResolution")
+  @SerializedName("horizontalResolution")
   private Double horizontalResolution = null;
 
-  @SerializedName("ImageBrightness")
+  @SerializedName("imageBrightness")
   private Double imageBrightness = null;
 
-  @SerializedName("ImageColorMode")
+  @SerializedName("imageColorMode")
   private String imageColorMode = null;
 
-  @SerializedName("ImageContrast")
+  @SerializedName("imageContrast")
   private Double imageContrast = null;
 
-  @SerializedName("PaperColor")
+  @SerializedName("paperColor")
   private String paperColor = null;
 
-  @SerializedName("PixelFormat")
+  @SerializedName("pixelFormat")
   private String pixelFormat = null;
 
-  @SerializedName("Resolution")
+  @SerializedName("resolution")
   private Double resolution = null;
 
-  @SerializedName("Scale")
+  @SerializedName("scale")
   private Double scale = null;
 
-  @SerializedName("UseAntiAliasing")
+  @SerializedName("useAntiAliasing")
   private Boolean useAntiAliasing = null;
 
-  @SerializedName("UseGdiEmfRenderer")
+  @SerializedName("useGdiEmfRenderer")
   private Boolean useGdiEmfRenderer = null;
 
-  @SerializedName("UseHighQualityRendering")
+  @SerializedName("useHighQualityRendering")
   private Boolean useHighQualityRendering = null;
 
-  @SerializedName("VerticalResolution")
+  @SerializedName("verticalResolution")
   private Double verticalResolution = null;
 
   public ImageSaveOptionsData graphicsQualityOptions(GraphicsQualityOptionsData graphicsQualityOptions) {

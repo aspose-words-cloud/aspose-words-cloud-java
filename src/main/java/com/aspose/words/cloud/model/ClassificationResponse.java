@@ -48,13 +48,13 @@ import java.util.List;
 @ApiModel(description = "This response should be returned by the service when handling: PUT http://api.aspose.com/v4.0/words/classify.")
 
 public class ClassificationResponse extends WordsResponse {
-  @SerializedName("BestClassName")
+  @SerializedName("bestClassName")
   private String bestClassName = null;
 
-  @SerializedName("BestClassProbability")
+  @SerializedName("bestClassProbability")
   private Double bestClassProbability = null;
 
-  @SerializedName("BestResults")
+  @SerializedName("bestResults")
   private List<ClassificationResult> bestResults = null;
 
   public ClassificationResponse bestClassName(String bestClassName) {

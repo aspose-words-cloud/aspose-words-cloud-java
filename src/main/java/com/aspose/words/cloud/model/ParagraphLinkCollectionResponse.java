@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs.")
 
 public class ParagraphLinkCollectionResponse extends WordsResponse {
-  @SerializedName("Paragraphs")
+  @SerializedName("paragraphs")
   private ParagraphLinkCollection paragraphs = null;
 
   public ParagraphLinkCollectionResponse paragraphs(ParagraphLinkCollection paragraphs) {

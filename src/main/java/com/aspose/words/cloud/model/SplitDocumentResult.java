@@ -47,13 +47,13 @@ import java.util.List;
 @ApiModel(description = "Result of splitting document.")
 
 public class SplitDocumentResult {
-  @SerializedName("SourceDocument")
+  @SerializedName("sourceDocument")
   private FileLink sourceDocument = null;
 
-  @SerializedName("Pages")
+  @SerializedName("pages")
   private List<FileLink> pages = null;
 
-  @SerializedName("ZippedPages")
+  @SerializedName("zippedPages")
   private FileLink zippedPages = null;
 
   public SplitDocumentResult sourceDocument(FileLink sourceDocument) {

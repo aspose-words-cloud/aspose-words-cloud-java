@@ -44,12 +44,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Collection of .
+ * Collection of Hyperlink.
  */
-@ApiModel(description = "Collection of .")
+@ApiModel(description = "Collection of Hyperlink.")
 
 public class Hyperlinks extends LinkElement {
-  @SerializedName("HyperlinkList")
+  @SerializedName("hyperlinkList")
   private List<Hyperlink> hyperlinkList = null;
 
   public Hyperlinks hyperlinkList(List<Hyperlink> hyperlinkList) {
@@ -66,10 +66,10 @@ public class Hyperlinks extends LinkElement {
   }
 
    /**
-   * Gets or sets array of .
+   * Gets or sets array of Hyperlink.
    * @return hyperlinkList
   **/
-  @ApiModelProperty(value = "Gets or sets array of .")
+  @ApiModelProperty(value = "Gets or sets array of Hyperlink.")
   public List<Hyperlink> getHyperlinkList() {
     return hyperlinkList;
   }

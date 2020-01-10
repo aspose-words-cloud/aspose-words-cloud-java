@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "Represents the response with document description.")
 
 public class DocumentResponse extends WordsResponse {
-  @SerializedName("Document")
+  @SerializedName("document")
   private Document document = null;
 
   public DocumentResponse document(Document document) {

@@ -39,15 +39,15 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Utility class for  serialization.
+ * Utility class for Color serialization.
  */
-@ApiModel(description = "Utility class for  serialization.")
+@ApiModel(description = "Utility class for Color serialization.")
 
 public class XmlColor {
-  @SerializedName("Web")
+  @SerializedName("web")
   private String web = null;
 
-  @SerializedName("Alpha")
+  @SerializedName("alpha")
   private Integer alpha = null;
 
   public XmlColor web(String web) {

@@ -38,7 +38,7 @@ public class ReplaceTextRequest {
     private String Name;
 
     /*
-     * with the replace operation settings.            
+     * ReplaceTextResponse with the replace operation settings.
      */
     private ReplaceTextParameters ReplaceText;
 
@@ -81,7 +81,7 @@ public class ReplaceTextRequest {
      * Initializes a new instance of the replaceTextRequest class.
      *  
      * @param String name The document name.
-     * @param ReplaceTextParameters replaceText with the replace operation settings.            
+     * @param ReplaceTextParameters replaceText ReplaceTextResponse with the replace operation settings.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -117,14 +117,14 @@ public class ReplaceTextRequest {
     }
 
     /*
-     *  Gets with the replace operation settings.            
+     *  Gets ReplaceTextResponse with the replace operation settings.
      */
     public ReplaceTextParameters getReplaceText() {
         return ReplaceText;
     }
 
     /*
-     * Sets with the replace operation settings.            
+     * Sets ReplaceTextResponse with the replace operation settings.
      */
     public void setReplaceText(ReplaceTextParameters value) {
         ReplaceText = value;

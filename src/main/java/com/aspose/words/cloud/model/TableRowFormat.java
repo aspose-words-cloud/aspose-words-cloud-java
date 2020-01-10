@@ -46,13 +46,13 @@ import java.io.IOException;
 @ApiModel(description = "Represents all formatting for a table row.")
 
 public class TableRowFormat extends LinkElement {
-  @SerializedName("AllowBreakAcrossPages")
+  @SerializedName("allowBreakAcrossPages")
   private Boolean allowBreakAcrossPages = null;
 
-  @SerializedName("HeadingFormat")
+  @SerializedName("headingFormat")
   private Boolean headingFormat = null;
 
-  @SerializedName("Height")
+  @SerializedName("height")
   private Double height = null;
 
   /**
@@ -104,7 +104,7 @@ public class TableRowFormat extends LinkElement {
     }
   }
 
-  @SerializedName("HeightRule")
+  @SerializedName("heightRule")
   private HeightRuleEnum heightRule = null;
 
   public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {

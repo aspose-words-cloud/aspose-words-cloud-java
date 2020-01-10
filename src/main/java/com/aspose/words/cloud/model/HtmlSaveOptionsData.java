@@ -45,85 +45,85 @@ import java.io.IOException;
 @ApiModel(description = "container class for html save options.")
 
 public class HtmlSaveOptionsData extends SaveOptionsData {
-  @SerializedName("AllowNegativeIndent")
+  @SerializedName("allowNegativeIndent")
   private Boolean allowNegativeIndent = null;
 
-  @SerializedName("CssClassNamePrefix")
+  @SerializedName("cssClassNamePrefix")
   private String cssClassNamePrefix = null;
 
-  @SerializedName("CssStyleSheetFileName")
+  @SerializedName("cssStyleSheetFileName")
   private String cssStyleSheetFileName = null;
 
-  @SerializedName("CssStyleSheetType")
+  @SerializedName("cssStyleSheetType")
   private String cssStyleSheetType = null;
 
-  @SerializedName("DocumentSplitCriteria")
+  @SerializedName("documentSplitCriteria")
   private String documentSplitCriteria = null;
 
-  @SerializedName("DocumentSplitHeadingLevel")
+  @SerializedName("documentSplitHeadingLevel")
   private Integer documentSplitHeadingLevel = null;
 
-  @SerializedName("Encoding")
+  @SerializedName("encoding")
   private String encoding = null;
 
-  @SerializedName("ExportDocumentProperties")
+  @SerializedName("exportDocumentProperties")
   private Boolean exportDocumentProperties = null;
 
-  @SerializedName("ExportDropDownFormFieldAsText")
+  @SerializedName("exportDropDownFormFieldAsText")
   private Boolean exportDropDownFormFieldAsText = null;
 
-  @SerializedName("ExportFontResources")
+  @SerializedName("exportFontResources")
   private Boolean exportFontResources = null;
 
-  @SerializedName("ExportFontsAsBase64")
+  @SerializedName("exportFontsAsBase64")
   private Boolean exportFontsAsBase64 = null;
 
-  @SerializedName("ExportHeadersFootersMode")
+  @SerializedName("exportHeadersFootersMode")
   private String exportHeadersFootersMode = null;
 
-  @SerializedName("ExportImagesAsBase64")
+  @SerializedName("exportImagesAsBase64")
   private Boolean exportImagesAsBase64 = null;
 
-  @SerializedName("ExportLanguageInformation")
+  @SerializedName("exportLanguageInformation")
   private Boolean exportLanguageInformation = null;
 
-  @SerializedName("ExportListLabels")
+  @SerializedName("exportListLabels")
   private String exportListLabels = null;
 
-  @SerializedName("ExportOriginalUrlForLinkedImages")
+  @SerializedName("exportOriginalUrlForLinkedImages")
   private Boolean exportOriginalUrlForLinkedImages = null;
 
-  @SerializedName("ExportPageMargins")
+  @SerializedName("exportPageMargins")
   private Boolean exportPageMargins = null;
 
-  @SerializedName("ExportPageSetup")
+  @SerializedName("exportPageSetup")
   private Boolean exportPageSetup = null;
 
-  @SerializedName("ExportRelativeFontSize")
+  @SerializedName("exportRelativeFontSize")
   private Boolean exportRelativeFontSize = null;
 
-  @SerializedName("ExportRoundtripInformation")
+  @SerializedName("exportRoundtripInformation")
   private Boolean exportRoundtripInformation = null;
 
-  @SerializedName("ExportTextBoxAsSvg")
+  @SerializedName("exportTextBoxAsSvg")
   private Boolean exportTextBoxAsSvg = null;
 
-  @SerializedName("ExportTextInputFormFieldAsText")
+  @SerializedName("exportTextInputFormFieldAsText")
   private Boolean exportTextInputFormFieldAsText = null;
 
-  @SerializedName("ExportTocPageNumbers")
+  @SerializedName("exportTocPageNumbers")
   private Boolean exportTocPageNumbers = null;
 
-  @SerializedName("ExportXhtmlTransitional")
+  @SerializedName("exportXhtmlTransitional")
   private Boolean exportXhtmlTransitional = null;
 
-  @SerializedName("FontResourcesSubsettingSizeThreshold")
+  @SerializedName("fontResourcesSubsettingSizeThreshold")
   private Integer fontResourcesSubsettingSizeThreshold = null;
 
-  @SerializedName("FontsFolder")
+  @SerializedName("fontsFolder")
   private String fontsFolder = null;
 
-  @SerializedName("FontsFolderAlias")
+  @SerializedName("fontsFolderAlias")
   private String fontsFolderAlias = null;
 
   /**
@@ -173,16 +173,16 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     }
   }
 
-  @SerializedName("HtmlVersion")
+  @SerializedName("htmlVersion")
   private HtmlVersionEnum htmlVersion = null;
 
-  @SerializedName("ImageResolution")
+  @SerializedName("imageResolution")
   private Integer imageResolution = null;
 
-  @SerializedName("ImagesFolder")
+  @SerializedName("imagesFolder")
   private String imagesFolder = null;
 
-  @SerializedName("ImagesFolderAlias")
+  @SerializedName("imagesFolderAlias")
   private String imagesFolderAlias = null;
 
   /**
@@ -234,7 +234,7 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     }
   }
 
-  @SerializedName("MetafileFormat")
+  @SerializedName("metafileFormat")
   private MetafileFormatEnum metafileFormat = null;
 
   /**
@@ -286,25 +286,25 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
     }
   }
 
-  @SerializedName("OfficeMathOutputMode")
+  @SerializedName("officeMathOutputMode")
   private OfficeMathOutputModeEnum officeMathOutputMode = null;
 
-  @SerializedName("PrettyFormat")
+  @SerializedName("prettyFormat")
   private Boolean prettyFormat = null;
 
-  @SerializedName("ResolveFontNames")
+  @SerializedName("resolveFontNames")
   private Boolean resolveFontNames = null;
 
-  @SerializedName("ResourceFolder")
+  @SerializedName("resourceFolder")
   private String resourceFolder = null;
 
-  @SerializedName("ResourceFolderAlias")
+  @SerializedName("resourceFolderAlias")
   private String resourceFolderAlias = null;
 
-  @SerializedName("ScaleImageToShapeSize")
+  @SerializedName("scaleImageToShapeSize")
   private Boolean scaleImageToShapeSize = null;
 
-  @SerializedName("TableWidthOutputMode")
+  @SerializedName("tableWidthOutputMode")
   private String tableWidthOutputMode = null;
 
   public HtmlSaveOptionsData allowNegativeIndent(Boolean allowNegativeIndent) {

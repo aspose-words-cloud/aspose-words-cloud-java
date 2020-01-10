@@ -45,10 +45,10 @@ import java.io.IOException;
 @ApiModel(description = "Contains data for load web document.")
 
 public class LoadWebDocumentData {
-  @SerializedName("LoadingDocumentUrl")
+  @SerializedName("loadingDocumentUrl")
   private String loadingDocumentUrl = null;
 
-  @SerializedName("SaveOptions")
+  @SerializedName("saveOptions")
   private SaveOptionsData saveOptions = null;
 
   public LoadWebDocumentData loadingDocumentUrl(String loadingDocumentUrl) {

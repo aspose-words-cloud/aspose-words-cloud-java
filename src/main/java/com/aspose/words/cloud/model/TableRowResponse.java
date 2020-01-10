@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/tables/{0}.")
 
 public class TableRowResponse extends WordsResponse {
-  @SerializedName("Row")
+  @SerializedName("row")
   private TableRow row = null;
 
   public TableRowResponse row(TableRow row) {

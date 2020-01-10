@@ -46,13 +46,13 @@ import java.io.IOException;
 @ApiModel(description = "Words document property DTO.")
 
 public class DocumentProperty extends LinkElement {
-  @SerializedName("BuiltIn")
+  @SerializedName("builtIn")
   private Boolean builtIn = null;
 
-  @SerializedName("Name")
+  @SerializedName("name")
   private String name = null;
 
-  @SerializedName("Value")
+  @SerializedName("value")
   private String value = null;
 
   public DocumentProperty builtIn(Boolean builtIn) {
