@@ -1,7 +1,7 @@
 apply plugin: 'idea'
 
 group = 'com.aspose'
-version = '18.11.0'
+version = '19.12.0'
 
 buildscript {
     repositories {
