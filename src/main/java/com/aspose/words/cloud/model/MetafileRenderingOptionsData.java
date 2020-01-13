@@ -44,19 +44,19 @@ import java.io.IOException;
 @ApiModel(description = "container class for options of metafile rendering.")
 
 public class MetafileRenderingOptionsData {
-  @SerializedName("emfPlusDualRenderingMode")
+  @SerializedName("EmfPlusDualRenderingMode")
   private String emfPlusDualRenderingMode = null;
 
-  @SerializedName("emulateRasterOperations")
+  @SerializedName("EmulateRasterOperations")
   private Boolean emulateRasterOperations = null;
 
-  @SerializedName("renderingMode")
+  @SerializedName("RenderingMode")
   private String renderingMode = null;
 
-  @SerializedName("useEmfEmbeddedToWmf")
+  @SerializedName("UseEmfEmbeddedToWmf")
   private Boolean useEmfEmbeddedToWmf = null;
 
-  @SerializedName("scaleWmfFontsToMetafileSize")
+  @SerializedName("ScaleWmfFontsToMetafileSize")
   private Boolean scaleWmfFontsToMetafileSize = null;
 
   public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {

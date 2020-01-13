@@ -44,7 +44,7 @@ import java.io.IOException;
 @ApiModel(description = "Table cell element.")
 
 public class TableCellInsert {
-  @SerializedName("insertAfter")
+  @SerializedName("InsertAfter")
   private Integer insertAfter = null;
 
   public TableCellInsert insertAfter(Integer insertAfter) {

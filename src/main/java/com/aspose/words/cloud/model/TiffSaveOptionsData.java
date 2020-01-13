@@ -47,13 +47,13 @@ import java.io.IOException;
 @ApiModel(description = "Container class for tiff save options.")
 
 public class TiffSaveOptionsData extends ImageSaveOptionsData {
-  @SerializedName("thresholdForFloydSteinbergDithering")
+  @SerializedName("ThresholdForFloydSteinbergDithering")
   private Integer thresholdForFloydSteinbergDithering = null;
 
-  @SerializedName("tiffBinarizationMethod")
+  @SerializedName("TiffBinarizationMethod")
   private String tiffBinarizationMethod = null;
 
-  @SerializedName("tiffCompression")
+  @SerializedName("TiffCompression")
   private String tiffCompression = null;
 
   public TiffSaveOptionsData thresholdForFloydSteinbergDithering(Integer thresholdForFloydSteinbergDithering) {

@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET {nodeWithBorders}/borders.")
 
 public class BordersResponse extends WordsResponse {
-  @SerializedName("borders")
+  @SerializedName("Borders")
   private BordersCollection borders = null;
 
   public BordersResponse borders(BordersCollection borders) {

@@ -44,10 +44,10 @@ import java.io.IOException;
 @ApiModel(description = "Utility class for Color serialization.")
 
 public class XmlColor {
-  @SerializedName("web")
+  @SerializedName("Web")
   private String web = null;
 
-  @SerializedName("alpha")
+  @SerializedName("Alpha")
   private Integer alpha = null;
 
   public XmlColor web(String web) {

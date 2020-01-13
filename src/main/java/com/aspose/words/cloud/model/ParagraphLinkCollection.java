@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of links to paragraphs.")
 
 public class ParagraphLinkCollection extends LinkElement {
-  @SerializedName("paragraphLinkList")
+  @SerializedName("ParagraphLinkList")
   private List<ParagraphLink> paragraphLinkList = null;
 
   public ParagraphLinkCollection paragraphLinkList(List<ParagraphLink> paragraphLinkList) {

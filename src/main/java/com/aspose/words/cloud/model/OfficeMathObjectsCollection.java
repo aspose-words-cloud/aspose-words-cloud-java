@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of OfficeMath objects.")
 
 public class OfficeMathObjectsCollection extends LinkElement {
-  @SerializedName("list")
+  @SerializedName("List")
   private List<OfficeMathObject> list = null;
 
   public OfficeMathObjectsCollection list(List<OfficeMathObject> list) {

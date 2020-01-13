@@ -44,7 +44,7 @@ import java.io.IOException;
 @ApiModel(description = "Range element.")
 
 public class ReplaceRange {
-  @SerializedName("text")
+  @SerializedName("Text")
   private String text = null;
 
   /**
@@ -94,7 +94,7 @@ public class ReplaceRange {
     }
   }
 
-  @SerializedName("textType")
+  @SerializedName("TextType")
   private TextTypeEnum textType = null;
 
   public ReplaceRange text(String text) {

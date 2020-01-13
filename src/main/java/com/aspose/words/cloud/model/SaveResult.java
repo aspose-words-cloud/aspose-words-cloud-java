@@ -47,13 +47,13 @@ import java.util.List;
 @ApiModel(description = "Result of saving.")
 
 public class SaveResult {
-  @SerializedName("sourceDocument")
+  @SerializedName("SourceDocument")
   private FileLink sourceDocument = null;
 
-  @SerializedName("destDocument")
+  @SerializedName("DestDocument")
   private FileLink destDocument = null;
 
-  @SerializedName("additionalItems")
+  @SerializedName("AdditionalItems")
   private List<FileLink> additionalItems = null;
 
   public SaveResult sourceDocument(FileLink sourceDocument) {

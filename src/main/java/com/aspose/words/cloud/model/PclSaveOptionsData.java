@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "Container class for pcl save options.")
 
 public class PclSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("falllbackFontName")
+  @SerializedName("FalllbackFontName")
   private String falllbackFontName = null;
 
-  @SerializedName("rasterizeTransformedElements")
+  @SerializedName("RasterizeTransformedElements")
   private Boolean rasterizeTransformedElements = null;
 
   public PclSaveOptionsData falllbackFontName(String falllbackFontName) {

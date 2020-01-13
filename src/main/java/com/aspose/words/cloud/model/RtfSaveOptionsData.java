@@ -45,13 +45,13 @@ import java.io.IOException;
 @ApiModel(description = "container class for rtf save options.")
 
 public class RtfSaveOptionsData extends SaveOptionsData {
-  @SerializedName("exportCompactSize")
+  @SerializedName("ExportCompactSize")
   private Boolean exportCompactSize = null;
 
-  @SerializedName("exportImagesForOldReaders")
+  @SerializedName("ExportImagesForOldReaders")
   private Boolean exportImagesForOldReaders = null;
 
-  @SerializedName("prettyFormat")
+  @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
 
   public RtfSaveOptionsData exportCompactSize(Boolean exportCompactSize) {

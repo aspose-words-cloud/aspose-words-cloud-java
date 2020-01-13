@@ -50,13 +50,13 @@ import java.util.List;
 @ApiModel(description = "Section element.")
 
 public class HeaderFooter extends HeaderFooterLink {
-  @SerializedName("childNodes")
+  @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;
 
-  @SerializedName("drawingObjects")
+  @SerializedName("DrawingObjects")
   private LinkElement drawingObjects = null;
 
-  @SerializedName("paragraphs")
+  @SerializedName("Paragraphs")
   private LinkElement paragraphs = null;
 
   public HeaderFooter childNodes(List<NodeLink> childNodes) {

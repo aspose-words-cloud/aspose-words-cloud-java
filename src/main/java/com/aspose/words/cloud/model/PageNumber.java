@@ -44,16 +44,16 @@ import java.io.IOException;
 @ApiModel(description = "Class is used for insert page number request building.")
 
 public class PageNumber {
-  @SerializedName("format")
+  @SerializedName("Format")
   private String format = null;
 
-  @SerializedName("alignment")
+  @SerializedName("Alignment")
   private String alignment = null;
 
-  @SerializedName("isTop")
+  @SerializedName("IsTop")
   private Boolean isTop = null;
 
-  @SerializedName("setPageNumberOnFirstPage")
+  @SerializedName("SetPageNumberOnFirstPage")
   private Boolean setPageNumberOnFirstPage = null;
 
   public PageNumber format(String format) {

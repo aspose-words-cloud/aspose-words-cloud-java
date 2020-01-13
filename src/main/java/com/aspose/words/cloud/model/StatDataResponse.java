@@ -47,10 +47,10 @@ import java.io.IOException;
 @ApiModel(description = "Response for the request of the document's statistical data.")
 
 public class StatDataResponse extends WordsResponse {
-  @SerializedName("documentLink")
+  @SerializedName("DocumentLink")
   private FileLink documentLink = null;
 
-  @SerializedName("statData")
+  @SerializedName("StatData")
   private DocumentStatData statData = null;
 
   public StatDataResponse documentLink(FileLink documentLink) {

@@ -48,10 +48,10 @@ import java.util.List;
 @ApiModel(description = "Represents Words document DTO.")
 
 public class Document {
-  @SerializedName("links")
+  @SerializedName("Links")
   private List<Link> links = null;
 
-  @SerializedName("fileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
   /**
@@ -139,16 +139,16 @@ public class Document {
     }
   }
 
-  @SerializedName("sourceFormat")
+  @SerializedName("SourceFormat")
   private SourceFormatEnum sourceFormat = null;
 
-  @SerializedName("isEncrypted")
+  @SerializedName("IsEncrypted")
   private Boolean isEncrypted = null;
 
-  @SerializedName("isSigned")
+  @SerializedName("IsSigned")
   private Boolean isSigned = null;
 
-  @SerializedName("documentProperties")
+  @SerializedName("DocumentProperties")
   private DocumentProperties documentProperties = null;
 
   public Document links(List<Link> links) {

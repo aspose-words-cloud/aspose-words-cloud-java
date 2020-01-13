@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "container class for xaml fixed save options.")
 
 public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("resourcesFolder")
+  @SerializedName("ResourcesFolder")
   private String resourcesFolder = null;
 
-  @SerializedName("resourcesFolderAlias")
+  @SerializedName("ResourcesFolderAlias")
   private String resourcesFolderAlias = null;
 
   public XamlFixedSaveOptionsData resourcesFolder(String resourcesFolder) {

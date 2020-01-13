@@ -45,16 +45,16 @@ import java.io.IOException;
 @ApiModel(description = "container class for doc/dot save options.")
 
 public class DocSaveOptionsData extends SaveOptionsData {
-  @SerializedName("alwaysCompressMetafiles")
+  @SerializedName("AlwaysCompressMetafiles")
   private Boolean alwaysCompressMetafiles = null;
 
-  @SerializedName("password")
+  @SerializedName("Password")
   private String password = null;
 
-  @SerializedName("savePictureBullet")
+  @SerializedName("SavePictureBullet")
   private Boolean savePictureBullet = null;
 
-  @SerializedName("saveRoutingSlip")
+  @SerializedName("SaveRoutingSlip")
   private Boolean saveRoutingSlip = null;
 
   public DocSaveOptionsData alwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {

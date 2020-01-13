@@ -45,16 +45,16 @@ import java.io.IOException;
 
 
 public class Link {
-  @SerializedName("href")
+  @SerializedName("Href")
   private String href = null;
 
-  @SerializedName("rel")
+  @SerializedName("Rel")
   private String rel = null;
 
-  @SerializedName("type")
+  @SerializedName("Type")
   private String type = null;
 
-  @SerializedName("title")
+  @SerializedName("Title")
   private String title = null;
 
   public Link href(String href) {

@@ -44,10 +44,10 @@ import java.io.IOException;
 @ApiModel(description = "DTO for bookmark updating.")
 
 public class BookmarkData {
-  @SerializedName("name")
+  @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("text")
+  @SerializedName("Text")
   private String text = null;
 
   public BookmarkData name(String name) {

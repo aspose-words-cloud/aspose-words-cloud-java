@@ -45,7 +45,7 @@ import java.io.IOException;
 @ApiModel(description = "Container class for epub save options.")
 
 public class EpubSaveOptionsData extends HtmlSaveOptionsData {
-  @SerializedName("epubNavigationMapLevel")
+  @SerializedName("EpubNavigationMapLevel")
   private Integer epubNavigationMapLevel = null;
 
   public EpubSaveOptionsData epubNavigationMapLevel(Integer epubNavigationMapLevel) {

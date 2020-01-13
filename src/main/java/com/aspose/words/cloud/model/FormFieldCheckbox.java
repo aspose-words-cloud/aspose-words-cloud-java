@@ -46,13 +46,13 @@ import java.io.IOException;
 @ApiModel(description = "FormField checkbox element.")
 
 public class FormFieldCheckbox extends FormField {
-  @SerializedName("checkBoxSize")
+  @SerializedName("CheckBoxSize")
   private Double checkBoxSize = null;
 
-  @SerializedName("checked")
+  @SerializedName("Checked")
   private Boolean checked = null;
 
-  @SerializedName("isCheckBoxExactSize")
+  @SerializedName("IsCheckBoxExactSize")
   private Boolean isCheckBoxExactSize = null;
 
   public FormFieldCheckbox checkBoxSize(Double checkBoxSize) {

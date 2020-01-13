@@ -44,16 +44,16 @@ import java.io.IOException;
 @ApiModel(description = "container class for details of encryption.")
 
 public class PdfEncryptionDetailsData {
-  @SerializedName("encryptionAlgorithm")
+  @SerializedName("EncryptionAlgorithm")
   private String encryptionAlgorithm = null;
 
-  @SerializedName("ownerPassword")
+  @SerializedName("OwnerPassword")
   private String ownerPassword = null;
 
-  @SerializedName("permissions")
+  @SerializedName("Permissions")
   private String permissions = null;
 
-  @SerializedName("userPassword")
+  @SerializedName("UserPassword")
   private String userPassword = null;
 
   public PdfEncryptionDetailsData encryptionAlgorithm(String encryptionAlgorithm) {

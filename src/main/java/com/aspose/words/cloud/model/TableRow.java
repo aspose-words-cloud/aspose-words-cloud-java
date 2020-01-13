@@ -50,10 +50,10 @@ import java.util.List;
 @ApiModel(description = "Table row element.")
 
 public class TableRow extends NodeLink {
-  @SerializedName("rowFormat")
+  @SerializedName("RowFormat")
   private TableRowFormat rowFormat = null;
 
-  @SerializedName("tableCellList")
+  @SerializedName("TableCellList")
   private List<TableCell> tableCellList = null;
 
   public TableRow rowFormat(TableRowFormat rowFormat) {

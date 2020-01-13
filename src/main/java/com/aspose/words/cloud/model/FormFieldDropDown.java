@@ -48,10 +48,10 @@ import java.util.List;
 @ApiModel(description = "FormField dropdownlist element.")
 
 public class FormFieldDropDown extends FormField {
-  @SerializedName("dropDownItems")
+  @SerializedName("DropDownItems")
   private List<String> dropDownItems = null;
 
-  @SerializedName("dropDownSelectedIndex")
+  @SerializedName("DropDownSelectedIndex")
   private Integer dropDownSelectedIndex = null;
 
   public FormFieldDropDown dropDownItems(List<String> dropDownItems) {

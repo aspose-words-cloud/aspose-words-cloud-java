@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).")
 
 public class RevisionsModificationResponse extends WordsResponse {
-  @SerializedName("result")
+  @SerializedName("Result")
   private ModificationOperationResult result = null;
 
   public RevisionsModificationResponse result(ModificationOperationResult result) {

@@ -93,7 +93,7 @@ public class StringFormatData {
     }
   }
 
-  @SerializedName("alignment")
+  @SerializedName("Alignment")
   private AlignmentEnum alignment = null;
 
   /**
@@ -157,7 +157,7 @@ public class StringFormatData {
     }
   }
 
-  @SerializedName("formatFlags")
+  @SerializedName("FormatFlags")
   private FormatFlagsEnum formatFlags = null;
 
   /**
@@ -209,7 +209,7 @@ public class StringFormatData {
     }
   }
 
-  @SerializedName("hotkeyPrefix")
+  @SerializedName("HotkeyPrefix")
   private HotkeyPrefixEnum hotkeyPrefix = null;
 
   /**
@@ -261,7 +261,7 @@ public class StringFormatData {
     }
   }
 
-  @SerializedName("lineAlignment")
+  @SerializedName("LineAlignment")
   private LineAlignmentEnum lineAlignment = null;
 
   /**
@@ -319,7 +319,7 @@ public class StringFormatData {
     }
   }
 
-  @SerializedName("trimming")
+  @SerializedName("Trimming")
   private TrimmingEnum trimming = null;
 
   public StringFormatData alignment(AlignmentEnum alignment) {

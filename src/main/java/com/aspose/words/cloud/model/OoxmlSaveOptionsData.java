@@ -45,13 +45,13 @@ import java.io.IOException;
 @ApiModel(description = "container class for docx/docm/dotx/dotm/flatopc save options.")
 
 public class OoxmlSaveOptionsData extends SaveOptionsData {
-  @SerializedName("compliance")
+  @SerializedName("Compliance")
   private String compliance = null;
 
-  @SerializedName("password")
+  @SerializedName("Password")
   private String password = null;
 
-  @SerializedName("prettyFormat")
+  @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
 
   public OoxmlSaveOptionsData compliance(String compliance) {

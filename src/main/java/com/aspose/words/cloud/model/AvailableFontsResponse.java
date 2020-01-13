@@ -48,13 +48,13 @@ import java.util.List;
 @ApiModel(description = "The list of fonts, available for document processing.")
 
 public class AvailableFontsResponse extends WordsResponse {
-  @SerializedName("additionalFonts")
+  @SerializedName("AdditionalFonts")
   private List<FontInfo> additionalFonts = null;
 
-  @SerializedName("customFonts")
+  @SerializedName("CustomFonts")
   private List<FontInfo> customFonts = null;
 
-  @SerializedName("systemFonts")
+  @SerializedName("SystemFonts")
   private List<FontInfo> systemFonts = null;
 
   public AvailableFontsResponse additionalFonts(List<FontInfo> additionalFonts) {

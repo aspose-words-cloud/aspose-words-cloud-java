@@ -50,37 +50,37 @@ import java.io.IOException;
 @ApiModel(description = "container class for pdf save options.")
 
 public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("compliance")
+  @SerializedName("Compliance")
   private String compliance = null;
 
-  @SerializedName("createNoteHyperlinks")
+  @SerializedName("CreateNoteHyperlinks")
   private Boolean createNoteHyperlinks = null;
 
-  @SerializedName("customPropertiesExport")
+  @SerializedName("CustomPropertiesExport")
   private String customPropertiesExport = null;
 
-  @SerializedName("digitalSignatureDetails")
+  @SerializedName("DigitalSignatureDetails")
   private PdfDigitalSignatureDetailsData digitalSignatureDetails = null;
 
-  @SerializedName("displayDocTitle")
+  @SerializedName("DisplayDocTitle")
   private Boolean displayDocTitle = null;
 
-  @SerializedName("downsampleOptions")
+  @SerializedName("DownsampleOptions")
   private DownsampleOptionsData downsampleOptions = null;
 
-  @SerializedName("embedFullFonts")
+  @SerializedName("EmbedFullFonts")
   private Boolean embedFullFonts = null;
 
-  @SerializedName("encryptionDetails")
+  @SerializedName("EncryptionDetails")
   private PdfEncryptionDetailsData encryptionDetails = null;
 
-  @SerializedName("escapeUri")
+  @SerializedName("EscapeUri")
   private Boolean escapeUri = null;
 
-  @SerializedName("exportDocumentStructure")
+  @SerializedName("ExportDocumentStructure")
   private Boolean exportDocumentStructure = null;
 
-  @SerializedName("fontEmbeddingMode")
+  @SerializedName("FontEmbeddingMode")
   private String fontEmbeddingMode = null;
 
   /**
@@ -132,43 +132,43 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     }
   }
 
-  @SerializedName("headerFooterBookmarksExportMode")
+  @SerializedName("HeaderFooterBookmarksExportMode")
   private HeaderFooterBookmarksExportModeEnum headerFooterBookmarksExportMode = null;
 
-  @SerializedName("imageColorSpaceExportMode")
+  @SerializedName("ImageColorSpaceExportMode")
   private String imageColorSpaceExportMode = null;
 
-  @SerializedName("imageCompression")
+  @SerializedName("ImageCompression")
   private String imageCompression = null;
 
-  @SerializedName("openHyperlinksInNewWindow")
+  @SerializedName("OpenHyperlinksInNewWindow")
   private Boolean openHyperlinksInNewWindow = null;
 
-  @SerializedName("outlineOptions")
+  @SerializedName("OutlineOptions")
   private OutlineOptionsData outlineOptions = null;
 
-  @SerializedName("pageMode")
+  @SerializedName("PageMode")
   private String pageMode = null;
 
-  @SerializedName("preblendImages")
+  @SerializedName("PreblendImages")
   private Boolean preblendImages = null;
 
-  @SerializedName("preserveFormFields")
+  @SerializedName("PreserveFormFields")
   private Boolean preserveFormFields = null;
 
-  @SerializedName("textCompression")
+  @SerializedName("TextCompression")
   private String textCompression = null;
 
-  @SerializedName("useBookFoldPrintingSettings")
+  @SerializedName("UseBookFoldPrintingSettings")
   private Boolean useBookFoldPrintingSettings = null;
 
-  @SerializedName("useCoreFonts")
+  @SerializedName("UseCoreFonts")
   private Boolean useCoreFonts = null;
 
-  @SerializedName("zoomBehavior")
+  @SerializedName("ZoomBehavior")
   private String zoomBehavior = null;
 
-  @SerializedName("zoomFactor")
+  @SerializedName("ZoomFactor")
   private Integer zoomFactor = null;
 
   public PdfSaveOptionsData compliance(String compliance) {

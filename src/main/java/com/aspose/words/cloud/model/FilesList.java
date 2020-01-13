@@ -47,7 +47,7 @@ import java.util.List;
 @ApiModel(description = "Files list")
 
 public class FilesList {
-  @SerializedName("value")
+  @SerializedName("Value")
   private List<StorageFile> value = null;
 
   public FilesList value(List<StorageFile> value) {

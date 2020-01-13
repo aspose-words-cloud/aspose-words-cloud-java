@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "Paragraph format element.             ")
 
 public class ParagraphFormat extends LinkElement {
-  @SerializedName("addSpaceBetweenFarEastAndAlpha")
+  @SerializedName("AddSpaceBetweenFarEastAndAlpha")
   private Boolean addSpaceBetweenFarEastAndAlpha = null;
 
-  @SerializedName("addSpaceBetweenFarEastAndDigit")
+  @SerializedName("AddSpaceBetweenFarEastAndDigit")
   private Boolean addSpaceBetweenFarEastAndDigit = null;
 
   /**
@@ -113,10 +113,10 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("alignment")
+  @SerializedName("Alignment")
   private AlignmentEnum alignment = null;
 
-  @SerializedName("bidi")
+  @SerializedName("Bidi")
   private Boolean bidi = null;
 
   /**
@@ -168,25 +168,25 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("dropCapPosition")
+  @SerializedName("DropCapPosition")
   private DropCapPositionEnum dropCapPosition = null;
 
-  @SerializedName("firstLineIndent")
+  @SerializedName("FirstLineIndent")
   private Double firstLineIndent = null;
 
-  @SerializedName("isListItem")
+  @SerializedName("IsListItem")
   private Boolean isListItem = null;
 
-  @SerializedName("keepTogether")
+  @SerializedName("KeepTogether")
   private Boolean keepTogether = null;
 
-  @SerializedName("keepWithNext")
+  @SerializedName("KeepWithNext")
   private Boolean keepWithNext = null;
 
-  @SerializedName("leftIndent")
+  @SerializedName("LeftIndent")
   private Double leftIndent = null;
 
-  @SerializedName("lineSpacing")
+  @SerializedName("LineSpacing")
   private Double lineSpacing = null;
 
   /**
@@ -238,13 +238,13 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("lineSpacingRule")
+  @SerializedName("LineSpacingRule")
   private LineSpacingRuleEnum lineSpacingRule = null;
 
-  @SerializedName("linesToDrop")
+  @SerializedName("LinesToDrop")
   private Integer linesToDrop = null;
 
-  @SerializedName("noSpaceBetweenParagraphsOfSameStyle")
+  @SerializedName("NoSpaceBetweenParagraphsOfSameStyle")
   private Boolean noSpaceBetweenParagraphsOfSameStyle = null;
 
   /**
@@ -310,25 +310,25 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("outlineLevel")
+  @SerializedName("OutlineLevel")
   private OutlineLevelEnum outlineLevel = null;
 
-  @SerializedName("pageBreakBefore")
+  @SerializedName("PageBreakBefore")
   private Boolean pageBreakBefore = null;
 
-  @SerializedName("rightIndent")
+  @SerializedName("RightIndent")
   private Double rightIndent = null;
 
-  @SerializedName("spaceAfter")
+  @SerializedName("SpaceAfter")
   private Double spaceAfter = null;
 
-  @SerializedName("spaceAfterAuto")
+  @SerializedName("SpaceAfterAuto")
   private Boolean spaceAfterAuto = null;
 
-  @SerializedName("spaceBefore")
+  @SerializedName("SpaceBefore")
   private Double spaceBefore = null;
 
-  @SerializedName("spaceBeforeAuto")
+  @SerializedName("SpaceBeforeAuto")
   private Boolean spaceBeforeAuto = null;
 
   /**
@@ -1120,19 +1120,19 @@ public class ParagraphFormat extends LinkElement {
     }
   }
 
-  @SerializedName("styleIdentifier")
+  @SerializedName("StyleIdentifier")
   private StyleIdentifierEnum styleIdentifier = null;
 
-  @SerializedName("styleName")
+  @SerializedName("StyleName")
   private String styleName = null;
 
-  @SerializedName("suppressAutoHyphens")
+  @SerializedName("SuppressAutoHyphens")
   private Boolean suppressAutoHyphens = null;
 
-  @SerializedName("suppressLineNumbers")
+  @SerializedName("SuppressLineNumbers")
   private Boolean suppressLineNumbers = null;
 
-  @SerializedName("widowControl")
+  @SerializedName("WidowControl")
   private Boolean widowControl = null;
 
   public ParagraphFormat addSpaceBetweenFarEastAndAlpha(Boolean addSpaceBetweenFarEastAndAlpha) {

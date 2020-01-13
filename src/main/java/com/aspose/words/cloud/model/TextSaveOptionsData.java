@@ -45,10 +45,10 @@ import java.io.IOException;
 @ApiModel(description = "Container class for text save options.")
 
 public class TextSaveOptionsData extends SaveOptionsData {
-  @SerializedName("addBidiMarks")
+  @SerializedName("AddBidiMarks")
   private Boolean addBidiMarks = null;
 
-  @SerializedName("encoding")
+  @SerializedName("Encoding")
   private String encoding = null;
 
   /**
@@ -100,19 +100,19 @@ public class TextSaveOptionsData extends SaveOptionsData {
     }
   }
 
-  @SerializedName("exportHeadersFootersMode")
+  @SerializedName("ExportHeadersFootersMode")
   private ExportHeadersFootersModeEnum exportHeadersFootersMode = null;
 
-  @SerializedName("forcePageBreaks")
+  @SerializedName("ForcePageBreaks")
   private Boolean forcePageBreaks = null;
 
-  @SerializedName("paragraphBreak")
+  @SerializedName("ParagraphBreak")
   private String paragraphBreak = null;
 
-  @SerializedName("preserveTableLayout")
+  @SerializedName("PreserveTableLayout")
   private Boolean preserveTableLayout = null;
 
-  @SerializedName("simplifyListLabels")
+  @SerializedName("SimplifyListLabels")
   private Boolean simplifyListLabels = null;
 
   public TextSaveOptionsData addBidiMarks(Boolean addBidiMarks) {

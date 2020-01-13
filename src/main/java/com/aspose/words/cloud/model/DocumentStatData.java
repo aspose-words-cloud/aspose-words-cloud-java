@@ -48,19 +48,19 @@ import java.util.List;
 @ApiModel(description = "Container for the document's statistical data.")
 
 public class DocumentStatData {
-  @SerializedName("wordCount")
+  @SerializedName("WordCount")
   private Integer wordCount = null;
 
-  @SerializedName("paragraphCount")
+  @SerializedName("ParagraphCount")
   private Integer paragraphCount = null;
 
-  @SerializedName("pageCount")
+  @SerializedName("PageCount")
   private Integer pageCount = null;
 
-  @SerializedName("footnotesStatData")
+  @SerializedName("FootnotesStatData")
   private FootnotesStatData footnotesStatData = null;
 
-  @SerializedName("pageStatData")
+  @SerializedName("PageStatData")
   private List<PageStatData> pageStatData = null;
 
   public DocumentStatData wordCount(Integer wordCount) {

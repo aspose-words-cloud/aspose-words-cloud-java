@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "Response for \"drawingObjects/n\" resource.")
 
 public class DrawingObjectResponse extends WordsResponse {
-  @SerializedName("drawingObject")
+  @SerializedName("DrawingObject")
   private DrawingObject drawingObject = null;
 
   public DrawingObjectResponse drawingObject(DrawingObject drawingObject) {

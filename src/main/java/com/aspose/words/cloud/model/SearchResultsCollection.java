@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of search results.")
 
 public class SearchResultsCollection extends LinkElement {
-  @SerializedName("resultsList")
+  @SerializedName("ResultsList")
   private List<SearchResult> resultsList = null;
 
   public SearchResultsCollection resultsList(List<SearchResult> resultsList) {

@@ -48,7 +48,7 @@ import java.util.List;
 @ApiModel(description = "Represents a collection of merge fields within a document.")
 
 public class FieldNames extends LinkElement {
-  @SerializedName("names")
+  @SerializedName("Names")
   private List<String> names = null;
 
   public FieldNames names(List<String> names) {

@@ -44,13 +44,13 @@ import java.io.IOException;
 @ApiModel(description = "Container class for Downsample options.")
 
 public class DownsampleOptionsData {
-  @SerializedName("downsampleImages")
+  @SerializedName("DownsampleImages")
   private Boolean downsampleImages = null;
 
-  @SerializedName("resolution")
+  @SerializedName("Resolution")
   private Integer resolution = null;
 
-  @SerializedName("resolutionThreshold")
+  @SerializedName("ResolutionThreshold")
   private Integer resolutionThreshold = null;
 
   public DownsampleOptionsData downsampleImages(Boolean downsampleImages) {

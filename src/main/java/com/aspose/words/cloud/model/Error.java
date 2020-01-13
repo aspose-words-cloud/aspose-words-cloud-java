@@ -45,16 +45,16 @@ import java.io.IOException;
 @ApiModel(description = "Error")
 
 public class Error {
-  @SerializedName("code")
+  @SerializedName("Code")
   private String code = null;
 
-  @SerializedName("message")
+  @SerializedName("Message")
   private String message = null;
 
-  @SerializedName("description")
+  @SerializedName("Description")
   private String description = null;
 
-  @SerializedName("innerError")
+  @SerializedName("InnerError")
   private ErrorDetails innerError = null;
 
   public Error code(String code) {

@@ -101,7 +101,7 @@ public class HeaderFooterLink extends LinkElement {
     }
   }
 
-  @SerializedName("type")
+  @SerializedName("Type")
   private TypeEnum type = null;
 
   public HeaderFooterLink type(TypeEnum type) {

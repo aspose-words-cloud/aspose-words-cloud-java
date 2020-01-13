@@ -44,10 +44,10 @@ import java.io.IOException;
 @ApiModel(description = "Table row element.")
 
 public class TableRowInsert {
-  @SerializedName("insertAfter")
+  @SerializedName("InsertAfter")
   private Integer insertAfter = null;
 
-  @SerializedName("columnsCount")
+  @SerializedName("ColumnsCount")
   private Integer columnsCount = null;
 
   public TableRowInsert insertAfter(Integer insertAfter) {

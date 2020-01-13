@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of links to header/footers.")
 
 public class HeaderFooterLinkCollection extends LinkElement {
-  @SerializedName("list")
+  @SerializedName("List")
   private List<HeaderFooterLink> list = null;
 
   public HeaderFooterLinkCollection list(List<HeaderFooterLink> list) {

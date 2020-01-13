@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "container class for ps save options.")
 
 public class PsSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("useBookFoldPrintingSettings")
+  @SerializedName("UseBookFoldPrintingSettings")
   private Boolean useBookFoldPrintingSettings = null;
 
   public PsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {

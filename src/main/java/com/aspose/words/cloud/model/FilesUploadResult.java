@@ -47,10 +47,10 @@ import java.util.List;
 @ApiModel(description = "File upload result")
 
 public class FilesUploadResult {
-  @SerializedName("uploaded")
+  @SerializedName("Uploaded")
   private List<String> uploaded = null;
 
-  @SerializedName("errors")
+  @SerializedName("Errors")
   private List<Error> errors = null;
 
   public FilesUploadResult uploaded(List<String> uploaded) {

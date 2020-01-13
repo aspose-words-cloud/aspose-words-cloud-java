@@ -45,19 +45,19 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "container class for details of digital signature.")
 
 public class PdfDigitalSignatureDetailsData {
-  @SerializedName("certificateFilename")
+  @SerializedName("CertificateFilename")
   private String certificateFilename = null;
 
-  @SerializedName("hashAlgorithm")
+  @SerializedName("HashAlgorithm")
   private String hashAlgorithm = null;
 
-  @SerializedName("location")
+  @SerializedName("Location")
   private String location = null;
 
-  @SerializedName("reason")
+  @SerializedName("Reason")
   private String reason = null;
 
-  @SerializedName("signatureDate")
+  @SerializedName("SignatureDate")
   private OffsetDateTime signatureDate = null;
 
   public PdfDigitalSignatureDetailsData certificateFilename(String certificateFilename) {

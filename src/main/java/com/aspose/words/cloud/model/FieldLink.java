@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "Field link.")
 
 public class FieldLink extends NodeLink {
-  @SerializedName("fieldCode")
+  @SerializedName("FieldCode")
   private String fieldCode = null;
 
   public FieldLink fieldCode(String fieldCode) {

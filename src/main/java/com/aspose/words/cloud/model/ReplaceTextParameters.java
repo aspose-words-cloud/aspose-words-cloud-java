@@ -44,19 +44,19 @@ import java.io.IOException;
 @ApiModel(description = "Class for document replace text request building.")
 
 public class ReplaceTextParameters {
-  @SerializedName("oldValue")
+  @SerializedName("OldValue")
   private String oldValue = null;
 
-  @SerializedName("newValue")
+  @SerializedName("NewValue")
   private String newValue = null;
 
-  @SerializedName("isMatchCase")
+  @SerializedName("IsMatchCase")
   private Boolean isMatchCase = null;
 
-  @SerializedName("isMatchWholeWord")
+  @SerializedName("IsMatchWholeWord")
   private Boolean isMatchWholeWord = null;
 
-  @SerializedName("isOldValueRegex")
+  @SerializedName("IsOldValueRegex")
   private Boolean isOldValueRegex = null;
 
   public ReplaceTextParameters oldValue(String oldValue) {

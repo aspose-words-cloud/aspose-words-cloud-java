@@ -46,22 +46,22 @@ import java.io.IOException;
 @ApiModel(description = "Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).")
 
 public class FixedPageSaveOptionsData extends SaveOptionsData {
-  @SerializedName("jpegQuality")
+  @SerializedName("JpegQuality")
   private Integer jpegQuality = null;
 
-  @SerializedName("metafileRenderingOptions")
+  @SerializedName("MetafileRenderingOptions")
   private MetafileRenderingOptionsData metafileRenderingOptions = null;
 
-  @SerializedName("numeralFormat")
+  @SerializedName("NumeralFormat")
   private String numeralFormat = null;
 
-  @SerializedName("optimizeOutput")
+  @SerializedName("OptimizeOutput")
   private Boolean optimizeOutput = null;
 
-  @SerializedName("pageCount")
+  @SerializedName("PageCount")
   private Integer pageCount = null;
 
-  @SerializedName("pageIndex")
+  @SerializedName("PageIndex")
   private Integer pageIndex = null;
 
   public FixedPageSaveOptionsData jpegQuality(Integer jpegQuality) {

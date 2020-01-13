@@ -45,31 +45,31 @@ import java.io.IOException;
 
 
 public class SaveOptionsData {
-  @SerializedName("colorMode")
+  @SerializedName("ColorMode")
   private String colorMode = null;
 
-  @SerializedName("saveFormat")
+  @SerializedName("SaveFormat")
   private String saveFormat = null;
 
-  @SerializedName("fileName")
+  @SerializedName("FileName")
   private String fileName = null;
 
-  @SerializedName("dmlRenderingMode")
+  @SerializedName("DmlRenderingMode")
   private String dmlRenderingMode = null;
 
-  @SerializedName("dmlEffectsRenderingMode")
+  @SerializedName("DmlEffectsRenderingMode")
   private String dmlEffectsRenderingMode = null;
 
-  @SerializedName("zipOutput")
+  @SerializedName("ZipOutput")
   private Boolean zipOutput = null;
 
-  @SerializedName("updateLastSavedTimeProperty")
+  @SerializedName("UpdateLastSavedTimeProperty")
   private Boolean updateLastSavedTimeProperty = null;
 
-  @SerializedName("updateSdtContent")
+  @SerializedName("UpdateSdtContent")
   private Boolean updateSdtContent = null;
 
-  @SerializedName("updateFields")
+  @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
   public SaveOptionsData colorMode(String colorMode) {

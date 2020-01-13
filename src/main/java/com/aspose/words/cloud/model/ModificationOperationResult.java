@@ -45,10 +45,10 @@ import java.io.IOException;
 @ApiModel(description = "result of the operation which modifies the original document and saves the result.")
 
 public class ModificationOperationResult {
-  @SerializedName("source")
+  @SerializedName("Source")
   private FileLink source = null;
 
-  @SerializedName("dest")
+  @SerializedName("Dest")
   private FileLink dest = null;
 
   public ModificationOperationResult source(FileLink source) {

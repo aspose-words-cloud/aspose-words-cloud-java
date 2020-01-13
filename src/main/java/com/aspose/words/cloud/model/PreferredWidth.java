@@ -93,10 +93,10 @@ public class PreferredWidth {
     }
   }
 
-  @SerializedName("type")
+  @SerializedName("Type")
   private TypeEnum type = null;
 
-  @SerializedName("value")
+  @SerializedName("Value")
   private Double value = null;
 
   public PreferredWidth type(TypeEnum type) {

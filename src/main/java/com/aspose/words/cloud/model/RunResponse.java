@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}.")
 
 public class RunResponse extends WordsResponse {
-  @SerializedName("run")
+  @SerializedName("Run")
   private Run run = null;
 
   public RunResponse run(Run run) {

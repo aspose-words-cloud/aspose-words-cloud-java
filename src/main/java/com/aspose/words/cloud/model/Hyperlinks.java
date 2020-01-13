@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of Hyperlink.")
 
 public class Hyperlinks extends LinkElement {
-  @SerializedName("hyperlinkList")
+  @SerializedName("HyperlinkList")
   private List<Hyperlink> hyperlinkList = null;
 
   public Hyperlinks hyperlinkList(List<Hyperlink> hyperlinkList) {

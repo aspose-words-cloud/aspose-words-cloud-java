@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Represents an array of bookmarks.")
 
 public class Bookmarks extends LinkElement {
-  @SerializedName("bookmarkList")
+  @SerializedName("BookmarkList")
   private List<Bookmark> bookmarkList = null;
 
   public Bookmarks bookmarkList(List<Bookmark> bookmarkList) {

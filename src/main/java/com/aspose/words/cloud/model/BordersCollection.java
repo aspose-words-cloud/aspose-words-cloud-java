@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of borders.")
 
 public class BordersCollection extends LinkElement {
-  @SerializedName("list")
+  @SerializedName("List")
   private List<Border> list = null;
 
   public BordersCollection list(List<Border> list) {

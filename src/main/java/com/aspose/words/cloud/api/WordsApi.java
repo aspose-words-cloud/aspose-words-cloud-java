@@ -69,7 +69,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/revisions/acceptAll"
+        String localVarPath = "/words/{name}/revisions/acceptAll"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -206,7 +206,7 @@ public class WordsApi {
         Object localVarPostBody = request.getDocumentList();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/appendDocument"
+        String localVarPath = "/words/{name}/appendDocument"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -482,7 +482,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{DocumentName}/classify"
+        String localVarPath = "/words/{documentName}/classify"
             .replaceAll("\\{" + "documentName" + "\\}", apiClient.escapeString(request.getDocumentName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -620,7 +620,7 @@ public class WordsApi {
         Object localVarPostBody = request.getCompareData();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/compareDocument"
+        String localVarPath = "/words/{name}/compareDocument"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -905,7 +905,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/copy/{SrcPath}"
+        String localVarPath = "/words/storage/file/copy/{srcPath}"
             .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1042,7 +1042,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/copy/{SrcPath}"
+        String localVarPath = "/words/storage/folder/copy/{srcPath}"
             .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1307,7 +1307,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{Path}"
+        String localVarPath = "/words/storage/folder/{path}"
             .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1436,7 +1436,7 @@ public class WordsApi {
         Object localVarPostBody = request.getProperty();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/documentProperties/{PropertyName}"
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "propertyName" + "\\}", apiClient.escapeString(request.getPropertyName().toString()));
 
@@ -1586,7 +1586,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/borders/{BorderType}"
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
@@ -1737,7 +1737,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/borders"
+        String localVarPath = "/words/{name}/{nodePath}/borders"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -1882,7 +1882,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/comments/{CommentIndex}"
+        String localVarPath = "/words/{name}/comments/{commentIndex}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "commentIndex" + "\\}", apiClient.escapeString(request.getCommentIndex().toString()));
 
@@ -2023,7 +2023,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/documentProperties/{PropertyName}"
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "propertyName" + "\\}", apiClient.escapeString(request.getPropertyName().toString()));
 
@@ -2164,7 +2164,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/drawingObjects/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -2311,7 +2311,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/drawingObjects/{Index}"
+        String localVarPath = "/words/{name}/drawingObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -2452,7 +2452,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/fields/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -2599,7 +2599,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/fields/{Index}"
+        String localVarPath = "/words/{name}/fields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -2740,7 +2740,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/fields"
+        String localVarPath = "/words/{name}/{nodePath}/fields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -2881,7 +2881,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/fields"
+        String localVarPath = "/words/{name}/fields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3016,7 +3016,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{Path}"
+        String localVarPath = "/words/storage/file/{path}"
             .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3146,7 +3146,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{Path}"
+        String localVarPath = "/words/storage/folder/{path}"
             .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3276,7 +3276,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/footnotes/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -3423,7 +3423,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/footnotes/{Index}"
+        String localVarPath = "/words/{name}/footnotes/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -3564,7 +3564,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/formfields/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -3711,7 +3711,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/formfields/{Index}"
+        String localVarPath = "/words/{name}/formfields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -3852,7 +3852,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{SectionPath}/headersfooters/{Index}"
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -3999,7 +3999,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{SectionPath}/headersfooters"
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
 
@@ -4141,7 +4141,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/macros"
+        String localVarPath = "/words/{name}/macros"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4276,7 +4276,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/OfficeMathObjects/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -4423,7 +4423,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/OfficeMathObjects/{Index}"
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -4564,7 +4564,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/paragraphs/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -4711,7 +4711,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/paragraphs/{Index}"
+        String localVarPath = "/words/{name}/paragraphs/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -4852,7 +4852,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{ParagraphPath}/runs/{Index}"
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -4999,7 +4999,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/sections/{SectionIndex}"
+        String localVarPath = "/words/{name}/sections/{sectionIndex}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
 
@@ -5140,7 +5140,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/tables/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -5287,7 +5287,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TableRowPath}/cells/{Index}"
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -5434,7 +5434,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TablePath}/rows/{Index}"
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -5581,7 +5581,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/tables/{Index}"
+        String localVarPath = "/words/{name}/tables/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -5722,7 +5722,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/watermarks/deleteLast"
+        String localVarPath = "/words/{name}/watermarks/deleteLast"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5861,7 +5861,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{Path}"
+        String localVarPath = "/words/storage/file/{path}"
             .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5995,7 +5995,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/MailMerge"
+        String localVarPath = "/words/{name}/MailMerge"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6408,7 +6408,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/bookmarks/{BookmarkName}"
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "bookmarkName" + "\\}", apiClient.escapeString(request.getBookmarkName().toString()));
 
@@ -6550,7 +6550,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/bookmarks"
+        String localVarPath = "/words/{name}/bookmarks"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6686,7 +6686,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/borders/{BorderType}"
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
@@ -6834,7 +6834,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/borders"
+        String localVarPath = "/words/{name}/{nodePath}/borders"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -6976,7 +6976,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/comments/{CommentIndex}"
+        String localVarPath = "/words/{name}/comments/{commentIndex}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "commentIndex" + "\\}", apiClient.escapeString(request.getCommentIndex().toString()));
 
@@ -7118,7 +7118,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/comments"
+        String localVarPath = "/words/{name}/comments"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7254,7 +7254,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{DocumentName}"
+        String localVarPath = "/words/{documentName}"
             .replaceAll("\\{" + "documentName" + "\\}", apiClient.escapeString(request.getDocumentName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7390,7 +7390,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/drawingObjects/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -7538,7 +7538,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/drawingObjects/{Index}"
+        String localVarPath = "/words/{name}/drawingObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -7680,7 +7680,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/drawingObjects/{Index}/imageData"
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -7828,7 +7828,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/drawingObjects/{Index}/imageData"
+        String localVarPath = "/words/{name}/drawingObjects/{index}/imageData"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -7970,7 +7970,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/drawingObjects/{Index}/oleData"
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -8118,7 +8118,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/drawingObjects/{Index}/oleData"
+        String localVarPath = "/words/{name}/drawingObjects/{index}/oleData"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -8260,7 +8260,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/drawingObjects"
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -8402,7 +8402,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/drawingObjects"
+        String localVarPath = "/words/{name}/drawingObjects"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -8538,7 +8538,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/mailMerge/FieldNames"
+        String localVarPath = "/words/{name}/mailMerge/FieldNames"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -8809,7 +8809,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/hyperlinks/{HyperlinkIndex}"
+        String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "hyperlinkIndex" + "\\}", apiClient.escapeString(request.getHyperlinkIndex().toString()));
 
@@ -8951,7 +8951,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/hyperlinks"
+        String localVarPath = "/words/{name}/hyperlinks"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -9087,7 +9087,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/documentProperties"
+        String localVarPath = "/words/{name}/documentProperties"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -9223,7 +9223,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/documentProperties/{PropertyName}"
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "propertyName" + "\\}", apiClient.escapeString(request.getPropertyName().toString()));
 
@@ -9365,7 +9365,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/protection"
+        String localVarPath = "/words/{name}/protection"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -9501,7 +9501,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/statistics"
+        String localVarPath = "/words/{name}/statistics"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -9640,7 +9640,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}"
+        String localVarPath = "/words/{name}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -9784,7 +9784,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/fields/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -9932,7 +9932,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/fields/{Index}"
+        String localVarPath = "/words/{name}/fields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -10074,7 +10074,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/fields"
+        String localVarPath = "/words/{name}/{nodePath}/fields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -10216,7 +10216,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/fields"
+        String localVarPath = "/words/{name}/fields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -10352,7 +10352,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{Path}"
+        String localVarPath = "/words/storage/folder/{path}"
             .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -10485,7 +10485,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/footnotes/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -10633,7 +10633,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/footnotes/{Index}"
+        String localVarPath = "/words/{name}/footnotes/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -10775,7 +10775,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/footnotes"
+        String localVarPath = "/words/{name}/{nodePath}/footnotes"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -10917,7 +10917,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/footnotes"
+        String localVarPath = "/words/{name}/footnotes"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -11053,7 +11053,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/formfields/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -11201,7 +11201,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/formfields/{Index}"
+        String localVarPath = "/words/{name}/formfields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -11343,7 +11343,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/formfields"
+        String localVarPath = "/words/{name}/{nodePath}/formfields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -11485,7 +11485,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/formfields"
+        String localVarPath = "/words/{name}/formfields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -11621,7 +11621,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/headersfooters/{HeaderFooterIndex}"
+        String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "headerFooterIndex" + "\\}", apiClient.escapeString(request.getHeaderFooterIndex().toString()));
 
@@ -11764,7 +11764,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/sections/{SectionIndex}/headersfooters/{HeaderFooterIndex}"
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "headerFooterIndex" + "\\}", apiClient.escapeString(request.getHeaderFooterIndex().toString()))
             .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
@@ -11913,7 +11913,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{SectionPath}/headersfooters"
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
 
@@ -12056,7 +12056,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/OfficeMathObjects/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -12204,7 +12204,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/OfficeMathObjects/{Index}"
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -12346,7 +12346,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/OfficeMathObjects"
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -12488,7 +12488,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/OfficeMathObjects"
+        String localVarPath = "/words/{name}/OfficeMathObjects"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -12624,7 +12624,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/paragraphs/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -12772,7 +12772,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/paragraphs/{Index}/format"
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -12920,7 +12920,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/paragraphs/{Index}/format"
+        String localVarPath = "/words/{name}/paragraphs/{index}/format"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -13062,7 +13062,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/paragraphs/{Index}"
+        String localVarPath = "/words/{name}/paragraphs/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -13204,7 +13204,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/paragraphs"
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -13346,7 +13346,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/paragraphs"
+        String localVarPath = "/words/{name}/paragraphs"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -13482,7 +13482,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/range/{RangeStartIdentifier}/{RangeEndIdentifier}"
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()))
             .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", apiClient.escapeString(request.getRangeEndIdentifier().toString()));
@@ -13630,7 +13630,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{ParagraphPath}/runs/{Index}"
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -13778,7 +13778,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{ParagraphPath}/runs/{Index}/font"
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -13926,7 +13926,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{ParagraphPath}/runs"
+        String localVarPath = "/words/{name}/{paragraphPath}/runs"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()));
 
@@ -14068,7 +14068,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/sections/{SectionIndex}"
+        String localVarPath = "/words/{name}/sections/{sectionIndex}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
 
@@ -14210,7 +14210,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/sections/{SectionIndex}/pageSetup"
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
 
@@ -14352,7 +14352,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/sections"
+        String localVarPath = "/words/{name}/sections"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -14488,7 +14488,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/tables/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -14636,7 +14636,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TableRowPath}/cells/{Index}"
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -14784,7 +14784,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TableRowPath}/cells/{Index}/cellformat"
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -14932,7 +14932,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/tables/{Index}/properties"
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -15080,7 +15080,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/tables/{Index}/properties"
+        String localVarPath = "/words/{name}/tables/{index}/properties"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -15222,7 +15222,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TablePath}/rows/{Index}"
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -15370,7 +15370,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TablePath}/rows/{Index}/rowformat"
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -15518,7 +15518,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/tables/{Index}"
+        String localVarPath = "/words/{name}/tables/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -15660,7 +15660,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/tables"
+        String localVarPath = "/words/{name}/{nodePath}/tables"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -15802,7 +15802,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/tables"
+        String localVarPath = "/words/{name}/tables"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -15938,7 +15938,7 @@ if (request.getData() != null)
         Object localVarPostBody = request.getComment();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/comments"
+        String localVarPath = "/words/{name}/comments"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -16082,7 +16082,7 @@ if (request.getData() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/drawingObjects"
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -16241,7 +16241,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/drawingObjects"
+        String localVarPath = "/words/{name}/drawingObjects"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -16394,7 +16394,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getField();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/fields"
+        String localVarPath = "/words/{name}/{nodePath}/fields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -16545,7 +16545,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getField();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/fields"
+        String localVarPath = "/words/{name}/fields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -16690,7 +16690,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/footnotes"
+        String localVarPath = "/words/{name}/{nodePath}/footnotes"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -16840,7 +16840,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/footnotes"
+        String localVarPath = "/words/{name}/footnotes"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -16984,7 +16984,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/formfields"
+        String localVarPath = "/words/{name}/{nodePath}/formfields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -17135,7 +17135,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/formfields"
+        String localVarPath = "/words/{name}/formfields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -17280,7 +17280,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getHeaderFooterType();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{SectionPath}/headersfooters"
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
 
@@ -17430,7 +17430,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getPageNumber();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/PageNumbers"
+        String localVarPath = "/words/{name}/PageNumbers"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -17574,7 +17574,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getParagraph();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/paragraphs"
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -17725,7 +17725,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getRun();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{ParagraphPath}/runs"
+        String localVarPath = "/words/{name}/{paragraphPath}/runs"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()));
 
@@ -17876,7 +17876,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getTable();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/tables"
+        String localVarPath = "/words/{name}/{nodePath}/tables"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
 
@@ -18026,7 +18026,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getCell();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TableRowPath}/cells"
+        String localVarPath = "/words/{name}/{tableRowPath}/cells"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()));
 
@@ -18176,7 +18176,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getRow();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TablePath}/rows"
+        String localVarPath = "/words/{name}/{tablePath}/rows"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()));
 
@@ -18326,7 +18326,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getTable();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/tables"
+        String localVarPath = "/words/{name}/tables"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -18470,7 +18470,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/watermarks/images"
+        String localVarPath = "/words/{name}/watermarks/images"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -18613,7 +18613,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getWatermarkText();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/watermarks/texts"
+        String localVarPath = "/words/{name}/watermarks/texts"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -18889,7 +18889,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/move/{SrcPath}"
+        String localVarPath = "/words/storage/file/move/{srcPath}"
             .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -19026,7 +19026,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/move/{SrcPath}"
+        String localVarPath = "/words/storage/folder/move/{srcPath}"
             .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -19162,7 +19162,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/protection"
+        String localVarPath = "/words/{name}/protection"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -19304,7 +19304,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/revisions/rejectAll"
+        String localVarPath = "/words/{name}/revisions/rejectAll"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -19441,7 +19441,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/range/{RangeStartIdentifier}/{RangeEndIdentifier}"
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()))
             .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", apiClient.escapeString(request.getRangeEndIdentifier().toString()));
@@ -19590,7 +19590,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/drawingObjects/{Index}/render"
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -19745,7 +19745,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/drawingObjects/{Index}/render"
+        String localVarPath = "/words/{name}/drawingObjects/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -19894,7 +19894,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/OfficeMathObjects/{Index}/render"
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -20049,7 +20049,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/OfficeMathObjects/{Index}/render"
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -20198,7 +20198,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/pages/{PageIndex}/render"
+        String localVarPath = "/words/{name}/pages/{pageIndex}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "pageIndex" + "\\}", apiClient.escapeString(request.getPageIndex().toString()));
 
@@ -20347,7 +20347,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/paragraphs/{Index}/render"
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -20502,7 +20502,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/paragraphs/{Index}/render"
+        String localVarPath = "/words/{name}/paragraphs/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -20651,7 +20651,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/tables/{Index}/render"
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -20806,7 +20806,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/tables/{Index}/render"
+        String localVarPath = "/words/{name}/tables/{index}/render"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -20955,7 +20955,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getReplaceText();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/replaceText"
+        String localVarPath = "/words/{name}/replaceText"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -21099,7 +21099,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getRangeText();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/range/{RangeStartIdentifier}/{RangeEndIdentifier}"
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()))
             .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", apiClient.escapeString(request.getRangeEndIdentifier().toString()));
@@ -21375,7 +21375,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getSaveOptionsData();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/saveAs"
+        String localVarPath = "/words/{name}/saveAs"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -21517,7 +21517,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getDocumentParameters();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/range/{RangeStartIdentifier}/{RangeEndIdentifier}/SaveAs"
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()))
             .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", apiClient.escapeString(request.getRangeEndIdentifier().toString()));
@@ -21670,7 +21670,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getSaveOptions();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/saveAs/tiff"
+        String localVarPath = "/words/{name}/saveAs/tiff"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -21829,7 +21829,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/search"
+        String localVarPath = "/words/{name}/search"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -21971,7 +21971,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/split"
+        String localVarPath = "/words/{name}/split"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -22113,7 +22113,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/protection"
+        String localVarPath = "/words/{name}/protection"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -22255,7 +22255,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getBookmarkData();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/bookmarks/{BookmarkName}"
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "bookmarkName" + "\\}", apiClient.escapeString(request.getBookmarkName().toString()));
 
@@ -22405,7 +22405,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getBorderProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/borders/{BorderType}"
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
@@ -22561,7 +22561,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getComment();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/comments/{CommentIndex}"
+        String localVarPath = "/words/{name}/comments/{commentIndex}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "commentIndex" + "\\}", apiClient.escapeString(request.getCommentIndex().toString()));
 
@@ -22711,7 +22711,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/drawingObjects/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -22876,7 +22876,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/drawingObjects/{Index}"
+        String localVarPath = "/words/{name}/drawingObjects/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -23035,7 +23035,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getField();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/fields/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -23191,7 +23191,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/updateFields"
+        String localVarPath = "/words/{name}/updateFields"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -23328,7 +23328,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/footnotes/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -23484,7 +23484,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/footnotes/{Index}"
+        String localVarPath = "/words/{name}/footnotes/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -23634,7 +23634,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/formfields/{Index}"
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -23790,7 +23790,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/formfields/{Index}"
+        String localVarPath = "/words/{name}/formfields/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -23940,7 +23940,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getDto();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/paragraphs/{Index}/format"
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -24096,7 +24096,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getRun();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{ParagraphPath}/runs/{Index}"
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -24252,7 +24252,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFontDto();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{ParagraphPath}/runs/{Index}/font"
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -24408,7 +24408,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getPageSetup();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/sections/{SectionIndex}/pageSetup"
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
 
@@ -24558,7 +24558,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFormat();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TableRowPath}/cells/{Index}/cellformat"
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -24714,7 +24714,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{NodePath}/tables/{Index}/properties"
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -24870,7 +24870,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/tables/{Index}/properties"
+        String localVarPath = "/words/{name}/tables/{index}/properties"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
 
@@ -25020,7 +25020,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getFormat();
 
         // create path and map variables
-        String localVarPath = "/words/{Name}/{TablePath}/rows/{Index}/rowformat"
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
             .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
             .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
             .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
@@ -25176,7 +25176,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{Path}"
+        String localVarPath = "/words/storage/file/{path}"
             .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();

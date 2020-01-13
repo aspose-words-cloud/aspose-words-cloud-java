@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "Reference to node.")
 
 public class NodeLink extends LinkElement {
-  @SerializedName("nodeId")
+  @SerializedName("NodeId")
   private String nodeId = null;
 
   public NodeLink nodeId(String nodeId) {

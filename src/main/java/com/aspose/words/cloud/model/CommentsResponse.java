@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/comments.")
 
 public class CommentsResponse extends WordsResponse {
-  @SerializedName("comments")
+  @SerializedName("Comments")
   private CommentsCollection comments = null;
 
   public CommentsResponse comments(CommentsCollection comments) {

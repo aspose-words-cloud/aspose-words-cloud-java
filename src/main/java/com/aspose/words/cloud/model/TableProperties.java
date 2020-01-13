@@ -96,31 +96,31 @@ public class TableProperties extends LinkElement {
     }
   }
 
-  @SerializedName("alignment")
+  @SerializedName("Alignment")
   private AlignmentEnum alignment = null;
 
-  @SerializedName("allowAutoFit")
+  @SerializedName("AllowAutoFit")
   private Boolean allowAutoFit = null;
 
-  @SerializedName("bidi")
+  @SerializedName("Bidi")
   private Boolean bidi = null;
 
-  @SerializedName("bottomPadding")
+  @SerializedName("BottomPadding")
   private Double bottomPadding = null;
 
-  @SerializedName("cellSpacing")
+  @SerializedName("CellSpacing")
   private Double cellSpacing = null;
 
-  @SerializedName("leftIndent")
+  @SerializedName("LeftIndent")
   private Double leftIndent = null;
 
-  @SerializedName("leftPadding")
+  @SerializedName("LeftPadding")
   private Double leftPadding = null;
 
-  @SerializedName("preferredWidth")
+  @SerializedName("PreferredWidth")
   private PreferredWidth preferredWidth = null;
 
-  @SerializedName("rightPadding")
+  @SerializedName("RightPadding")
   private Double rightPadding = null;
 
   /**
@@ -912,10 +912,10 @@ public class TableProperties extends LinkElement {
     }
   }
 
-  @SerializedName("styleIdentifier")
+  @SerializedName("StyleIdentifier")
   private StyleIdentifierEnum styleIdentifier = null;
 
-  @SerializedName("styleName")
+  @SerializedName("StyleName")
   private String styleName = null;
 
   /**
@@ -979,7 +979,7 @@ public class TableProperties extends LinkElement {
     }
   }
 
-  @SerializedName("styleOptions")
+  @SerializedName("StyleOptions")
   private StyleOptionsEnum styleOptions = null;
 
   /**
@@ -1031,10 +1031,10 @@ public class TableProperties extends LinkElement {
     }
   }
 
-  @SerializedName("textWrapping")
+  @SerializedName("TextWrapping")
   private TextWrappingEnum textWrapping = null;
 
-  @SerializedName("topPadding")
+  @SerializedName("TopPadding")
   private Double topPadding = null;
 
   public TableProperties alignment(AlignmentEnum alignment) {

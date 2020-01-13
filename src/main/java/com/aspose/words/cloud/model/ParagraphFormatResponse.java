@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/format.")
 
 public class ParagraphFormatResponse extends WordsResponse {
-  @SerializedName("paragraphFormat")
+  @SerializedName("ParagraphFormat")
   private ParagraphFormat paragraphFormat = null;
 
   public ParagraphFormatResponse paragraphFormat(ParagraphFormat paragraphFormat) {

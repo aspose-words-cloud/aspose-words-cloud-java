@@ -46,7 +46,7 @@ import java.io.IOException;
 @ApiModel(description = "Run link element.")
 
 public class RunLink extends NodeLink {
-  @SerializedName("text")
+  @SerializedName("Text")
   private String text = null;
 
   public RunLink text(String text) {

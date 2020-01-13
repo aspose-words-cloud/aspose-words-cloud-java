@@ -46,10 +46,10 @@ import java.io.IOException;
 @ApiModel(description = "Represents the page setup properties of a section.             ")
 
 public class PageSetup extends LinkElement {
-  @SerializedName("bidi")
+  @SerializedName("Bidi")
   private Boolean bidi = null;
 
-  @SerializedName("borderAlwaysInFront")
+  @SerializedName("BorderAlwaysInFront")
   private Boolean borderAlwaysInFront = null;
 
   /**
@@ -101,7 +101,7 @@ public class PageSetup extends LinkElement {
     }
   }
 
-  @SerializedName("borderAppliesTo")
+  @SerializedName("BorderAppliesTo")
   private BorderAppliesToEnum borderAppliesTo = null;
 
   /**
@@ -151,34 +151,34 @@ public class PageSetup extends LinkElement {
     }
   }
 
-  @SerializedName("borderDistanceFrom")
+  @SerializedName("BorderDistanceFrom")
   private BorderDistanceFromEnum borderDistanceFrom = null;
 
-  @SerializedName("bottomMargin")
+  @SerializedName("BottomMargin")
   private Double bottomMargin = null;
 
-  @SerializedName("differentFirstPageHeaderFooter")
+  @SerializedName("DifferentFirstPageHeaderFooter")
   private Boolean differentFirstPageHeaderFooter = null;
 
-  @SerializedName("firstPageTray")
+  @SerializedName("FirstPageTray")
   private Integer firstPageTray = null;
 
-  @SerializedName("footerDistance")
+  @SerializedName("FooterDistance")
   private Double footerDistance = null;
 
-  @SerializedName("gutter")
+  @SerializedName("Gutter")
   private Double gutter = null;
 
-  @SerializedName("headerDistance")
+  @SerializedName("HeaderDistance")
   private Double headerDistance = null;
 
-  @SerializedName("leftMargin")
+  @SerializedName("LeftMargin")
   private Double leftMargin = null;
 
-  @SerializedName("lineNumberCountBy")
+  @SerializedName("LineNumberCountBy")
   private Integer lineNumberCountBy = null;
 
-  @SerializedName("lineNumberDistanceFromText")
+  @SerializedName("LineNumberDistanceFromText")
   private Double lineNumberDistanceFromText = null;
 
   /**
@@ -230,10 +230,10 @@ public class PageSetup extends LinkElement {
     }
   }
 
-  @SerializedName("lineNumberRestartMode")
+  @SerializedName("LineNumberRestartMode")
   private LineNumberRestartModeEnum lineNumberRestartMode = null;
 
-  @SerializedName("lineStartingNumber")
+  @SerializedName("LineStartingNumber")
   private Integer lineStartingNumber = null;
 
   /**
@@ -283,13 +283,13 @@ public class PageSetup extends LinkElement {
     }
   }
 
-  @SerializedName("orientation")
+  @SerializedName("Orientation")
   private OrientationEnum orientation = null;
 
-  @SerializedName("otherPagesTray")
+  @SerializedName("OtherPagesTray")
   private Integer otherPagesTray = null;
 
-  @SerializedName("pageHeight")
+  @SerializedName("PageHeight")
   private Double pageHeight = null;
 
   /**
@@ -459,13 +459,13 @@ public class PageSetup extends LinkElement {
     }
   }
 
-  @SerializedName("pageNumberStyle")
+  @SerializedName("PageNumberStyle")
   private PageNumberStyleEnum pageNumberStyle = null;
 
-  @SerializedName("pageStartingNumber")
+  @SerializedName("PageStartingNumber")
   private Integer pageStartingNumber = null;
 
-  @SerializedName("pageWidth")
+  @SerializedName("PageWidth")
   private Double pageWidth = null;
 
   /**
@@ -545,16 +545,16 @@ public class PageSetup extends LinkElement {
     }
   }
 
-  @SerializedName("paperSize")
+  @SerializedName("PaperSize")
   private PaperSizeEnum paperSize = null;
 
-  @SerializedName("restartPageNumbering")
+  @SerializedName("RestartPageNumbering")
   private Boolean restartPageNumbering = null;
 
-  @SerializedName("rightMargin")
+  @SerializedName("RightMargin")
   private Double rightMargin = null;
 
-  @SerializedName("rtlGutter")
+  @SerializedName("RtlGutter")
   private Boolean rtlGutter = null;
 
   /**
@@ -610,13 +610,13 @@ public class PageSetup extends LinkElement {
     }
   }
 
-  @SerializedName("sectionStart")
+  @SerializedName("SectionStart")
   private SectionStartEnum sectionStart = null;
 
-  @SerializedName("suppressEndnotes")
+  @SerializedName("SuppressEndnotes")
   private Boolean suppressEndnotes = null;
 
-  @SerializedName("topMargin")
+  @SerializedName("TopMargin")
   private Double topMargin = null;
 
   /**
@@ -670,7 +670,7 @@ public class PageSetup extends LinkElement {
     }
   }
 
-  @SerializedName("verticalAlignment")
+  @SerializedName("VerticalAlignment")
   private VerticalAlignmentEnum verticalAlignment = null;
 
   public PageSetup bidi(Boolean bidi) {

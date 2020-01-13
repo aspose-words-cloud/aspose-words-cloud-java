@@ -45,10 +45,10 @@ import java.io.IOException;
 @ApiModel(description = "Represents a position in the document tree.")
 
 public class DocumentPosition {
-  @SerializedName("node")
+  @SerializedName("Node")
   private NodeLink node = null;
 
-  @SerializedName("offset")
+  @SerializedName("Offset")
   private Integer offset = null;
 
   public DocumentPosition node(NodeLink node) {

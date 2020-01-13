@@ -45,10 +45,10 @@ import java.io.IOException;
 @ApiModel(description = "Result of search operation.")
 
 public class SearchResult {
-  @SerializedName("rangeStart")
+  @SerializedName("RangeStart")
   private DocumentPosition rangeStart = null;
 
-  @SerializedName("rangeEnd")
+  @SerializedName("RangeEnd")
   private DocumentPosition rangeEnd = null;
 
   public SearchResult rangeStart(DocumentPosition rangeStart) {

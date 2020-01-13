@@ -47,22 +47,22 @@ import java.util.List;
 @ApiModel(description = "container class for outline options.")
 
 public class OutlineOptionsData {
-  @SerializedName("bookmarksOutlineLevels")
+  @SerializedName("BookmarksOutlineLevels")
   private List<BookmarksOutlineLevelData> bookmarksOutlineLevels = null;
 
-  @SerializedName("defaultBookmarksOutlineLevel")
+  @SerializedName("DefaultBookmarksOutlineLevel")
   private Integer defaultBookmarksOutlineLevel = null;
 
-  @SerializedName("createMissingOutlineLevels")
+  @SerializedName("CreateMissingOutlineLevels")
   private Boolean createMissingOutlineLevels = null;
 
-  @SerializedName("createOutlinesForHeadingsInTables")
+  @SerializedName("CreateOutlinesForHeadingsInTables")
   private Boolean createOutlinesForHeadingsInTables = null;
 
-  @SerializedName("expandedOutlineLevels")
+  @SerializedName("ExpandedOutlineLevels")
   private Integer expandedOutlineLevels = null;
 
-  @SerializedName("headingsOutlineLevels")
+  @SerializedName("HeadingsOutlineLevels")
   private Integer headingsOutlineLevels = null;
 
   public OutlineOptionsData bookmarksOutlineLevels(List<BookmarksOutlineLevelData> bookmarksOutlineLevels) {

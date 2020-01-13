@@ -46,22 +46,22 @@ import java.io.IOException;
 @ApiModel(description = "container class for svg save options.")
 
 public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("exportEmbeddedImages")
+  @SerializedName("ExportEmbeddedImages")
   private Boolean exportEmbeddedImages = null;
 
-  @SerializedName("fitToViewPort")
+  @SerializedName("FitToViewPort")
   private Boolean fitToViewPort = null;
 
-  @SerializedName("resourcesFolder")
+  @SerializedName("ResourcesFolder")
   private String resourcesFolder = null;
 
-  @SerializedName("resourcesFolderAlias")
+  @SerializedName("ResourcesFolderAlias")
   private String resourcesFolderAlias = null;
 
-  @SerializedName("showPageBorder")
+  @SerializedName("ShowPageBorder")
   private Boolean showPageBorder = null;
 
-  @SerializedName("textOutputMode")
+  @SerializedName("TextOutputMode")
   private String textOutputMode = null;
 
   public SvgSaveOptionsData exportEmbeddedImages(Boolean exportEmbeddedImages) {

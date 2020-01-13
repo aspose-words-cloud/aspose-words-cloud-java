@@ -47,7 +47,7 @@ import java.util.List;
 @ApiModel(description = "Represents a list of documents which will be appended to the original resource document.")
 
 public class DocumentEntryList {
-  @SerializedName("documentEntries")
+  @SerializedName("DocumentEntries")
   private List<DocumentEntry> documentEntries = null;
 
   public DocumentEntryList documentEntries(List<DocumentEntry> documentEntries) {

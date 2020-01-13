@@ -48,7 +48,7 @@ import java.util.List;
 @ApiModel(description = "Table cell element.")
 
 public class TableCell extends NodeLink {
-  @SerializedName("childNodes")
+  @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;
 
   public TableCell childNodes(List<NodeLink> childNodes) {

@@ -45,13 +45,13 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "Container class for compare documents.")
 
 public class CompareData {
-  @SerializedName("comparingWithDocument")
+  @SerializedName("ComparingWithDocument")
   private String comparingWithDocument = null;
 
-  @SerializedName("author")
+  @SerializedName("Author")
   private String author = null;
 
-  @SerializedName("dateTime")
+  @SerializedName("DateTime")
   private OffsetDateTime dateTime = null;
 
   public CompareData comparingWithDocument(String comparingWithDocument) {

@@ -44,16 +44,16 @@ import java.io.IOException;
 @ApiModel(description = "Font info.")
 
 public class FontInfo {
-  @SerializedName("fontFamilyName")
+  @SerializedName("FontFamilyName")
   private String fontFamilyName = null;
 
-  @SerializedName("fullFontName")
+  @SerializedName("FullFontName")
   private String fullFontName = null;
 
-  @SerializedName("version")
+  @SerializedName("Version")
   private String version = null;
 
-  @SerializedName("filePath")
+  @SerializedName("FilePath")
   private String filePath = null;
 
   public FontInfo fontFamilyName(String fontFamilyName) {

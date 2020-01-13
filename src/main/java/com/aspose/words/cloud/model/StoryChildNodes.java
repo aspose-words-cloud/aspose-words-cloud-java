@@ -47,7 +47,7 @@ import java.util.List;
 @ApiModel(description = "Child nodes of Story or InlineStory.")
 
 public class StoryChildNodes {
-  @SerializedName("childNodes")
+  @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;
 
   public StoryChildNodes childNodes(List<NodeLink> childNodes) {

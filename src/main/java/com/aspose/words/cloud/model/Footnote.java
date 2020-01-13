@@ -48,7 +48,7 @@ import java.io.IOException;
 @ApiModel(description = "Footnote.")
 
 public class Footnote extends FootnoteLink {
-  @SerializedName("content")
+  @SerializedName("Content")
   private StoryChildNodes content = null;
 
   /**
@@ -98,16 +98,16 @@ public class Footnote extends FootnoteLink {
     }
   }
 
-  @SerializedName("footnoteType")
+  @SerializedName("FootnoteType")
   private FootnoteTypeEnum footnoteType = null;
 
-  @SerializedName("position")
+  @SerializedName("Position")
   private DocumentPosition position = null;
 
-  @SerializedName("referenceMark")
+  @SerializedName("ReferenceMark")
   private String referenceMark = null;
 
-  @SerializedName("text")
+  @SerializedName("Text")
   private String text = null;
 
   public Footnote content(StoryChildNodes content) {

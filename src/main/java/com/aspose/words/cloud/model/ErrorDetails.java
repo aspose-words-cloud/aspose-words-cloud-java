@@ -45,10 +45,10 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "The error details")
 
 public class ErrorDetails {
-  @SerializedName("requestId")
+  @SerializedName("RequestId")
   private String requestId = null;
 
-  @SerializedName("errorDateTime")
+  @SerializedName("ErrorDateTime")
   private OffsetDateTime errorDateTime = null;
 
   public ErrorDetails requestId(String requestId) {

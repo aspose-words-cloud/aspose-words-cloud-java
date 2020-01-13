@@ -49,25 +49,25 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "Comment.")
 
 public class Comment extends CommentLink {
-  @SerializedName("author")
+  @SerializedName("Author")
   private String author = null;
 
-  @SerializedName("content")
+  @SerializedName("Content")
   private StoryChildNodes content = null;
 
-  @SerializedName("dateTime")
+  @SerializedName("DateTime")
   private OffsetDateTime dateTime = null;
 
-  @SerializedName("initial")
+  @SerializedName("Initial")
   private String initial = null;
 
-  @SerializedName("rangeEnd")
+  @SerializedName("RangeEnd")
   private DocumentPosition rangeEnd = null;
 
-  @SerializedName("rangeStart")
+  @SerializedName("RangeStart")
   private DocumentPosition rangeStart = null;
 
-  @SerializedName("text")
+  @SerializedName("Text")
   private String text = null;
 
   public Comment author(String author) {

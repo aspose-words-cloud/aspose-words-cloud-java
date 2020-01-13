@@ -48,16 +48,16 @@ import java.util.List;
 @ApiModel(description = "Represents Drawing Object DTO.")
 
 public class DrawingObject extends DrawingObjectLink {
-  @SerializedName("height")
+  @SerializedName("Height")
   private Double height = null;
 
-  @SerializedName("imageDataLink")
+  @SerializedName("ImageDataLink")
   private WordsApiLink imageDataLink = null;
 
-  @SerializedName("left")
+  @SerializedName("Left")
   private Double left = null;
 
-  @SerializedName("oleDataLink")
+  @SerializedName("OleDataLink")
   private WordsApiLink oleDataLink = null;
 
   /**
@@ -121,7 +121,7 @@ public class DrawingObject extends DrawingObjectLink {
     }
   }
 
-  @SerializedName("relativeHorizontalPosition")
+  @SerializedName("RelativeHorizontalPosition")
   private RelativeHorizontalPositionEnum relativeHorizontalPosition = null;
 
   /**
@@ -187,16 +187,16 @@ public class DrawingObject extends DrawingObjectLink {
     }
   }
 
-  @SerializedName("relativeVerticalPosition")
+  @SerializedName("RelativeVerticalPosition")
   private RelativeVerticalPositionEnum relativeVerticalPosition = null;
 
-  @SerializedName("renderLinks")
+  @SerializedName("RenderLinks")
   private List<WordsApiLink> renderLinks = null;
 
-  @SerializedName("top")
+  @SerializedName("Top")
   private Double top = null;
 
-  @SerializedName("width")
+  @SerializedName("Width")
   private Double width = null;
 
   /**
@@ -254,7 +254,7 @@ public class DrawingObject extends DrawingObjectLink {
     }
   }
 
-  @SerializedName("wrapType")
+  @SerializedName("WrapType")
   private WrapTypeEnum wrapType = null;
 
   public DrawingObject height(Double height) {

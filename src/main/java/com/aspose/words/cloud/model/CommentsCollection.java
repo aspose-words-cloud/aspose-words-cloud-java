@@ -49,7 +49,7 @@ import java.util.List;
 @ApiModel(description = "Collection of comments.")
 
 public class CommentsCollection extends LinkElement {
-  @SerializedName("commentList")
+  @SerializedName("CommentList")
   private List<Comment> commentList = null;
 
   public CommentsCollection commentList(List<Comment> commentList) {

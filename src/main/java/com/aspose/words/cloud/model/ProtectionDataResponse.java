@@ -47,10 +47,10 @@ import java.io.IOException;
 @ApiModel(description = "Response for the request of data about protection.")
 
 public class ProtectionDataResponse extends WordsResponse {
-  @SerializedName("documentLink")
+  @SerializedName("DocumentLink")
   private FileLink documentLink = null;
 
-  @SerializedName("protectionData")
+  @SerializedName("ProtectionData")
   private ProtectionData protectionData = null;
 
   public ProtectionDataResponse documentLink(FileLink documentLink) {
