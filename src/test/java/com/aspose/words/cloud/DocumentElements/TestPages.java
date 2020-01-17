@@ -24,16 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.PageSetup;
-import com.aspose.words.model.SectionPageSetupResponse;
-import com.aspose.words.model.requests.GetSectionPageSetupRequest;
-import com.aspose.words.model.requests.RenderPageRequest;
-import com.aspose.words.model.requests.UpdateSectionPageSetupRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.PageSetup;
+import com.aspose.words.cloud.model.SectionPageSetupResponse;
+import com.aspose.words.cloud.model.requests.GetSectionPageSetupRequest;
+import com.aspose.words.cloud.model.requests.RenderPageRequest;
+import com.aspose.words.cloud.model.requests.UpdateSectionPageSetupRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -56,8 +56,8 @@ public class TestPages extends TestCase {
         Integer pageNumber = 1;
         String format = "png";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         RenderPageRequest request = new RenderPageRequest(remoteName, pageNumber, format,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
@@ -75,15 +75,15 @@ public class TestPages extends TestCase {
         String remoteName = "TestGetSectionPageSetup.doc";
         Integer index = 0;
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetSectionPageSetupRequest request = new GetSectionPageSetupRequest(remoteName, index,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.getSectionPageSetup(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getPageSetup());
     }
 
     /*
@@ -96,14 +96,14 @@ public class TestPages extends TestCase {
         PageSetup body = new PageSetup().rtlGutter(true).leftMargin(10.0)
                 .orientation(PageSetup.OrientationEnum.LANDSCAPE).paperSize(PageSetup.PaperSizeEnum.A5);
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         UpdateSectionPageSetupRequest request = new UpdateSectionPageSetupRequest(remoteName, index, body,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.updateSectionPageSetup(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getPageSetup());
     }
 }

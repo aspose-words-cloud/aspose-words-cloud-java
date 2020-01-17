@@ -58,7 +58,7 @@ public void testGetDocumentDrawingObjectByIndex() throws ApiException, FileNotFo
         String remoteName = "TestGetDocumentDrawingObjectByIndex.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentDrawingObjectByIndexRequest request = new GetDocumentDrawingObjectByIndexRequest(remoteName,
@@ -78,7 +78,7 @@ public void testGetDocumentDrawingObjectByIndexWithoutNodePath() throws ApiExcep
         String remoteName = "TestGetDocumentDrawingObjectByIndex.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentDrawingObjectByIndexWithoutNodePathRequest request = new GetDocumentDrawingObjectByIndexWithoutNodePathRequest(remoteName,
@@ -98,7 +98,7 @@ public void testGetDocumentDrawingObjectImageData() throws ApiException, FileNot
         String remoteName = "TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentDrawingObjectImageDataRequest request = new GetDocumentDrawingObjectImageDataRequest(remoteName,
@@ -118,7 +118,7 @@ public void testGetDocumentDrawingObjectImageDataWithoutNodePath() throws ApiExc
         String remoteName = "TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentDrawingObjectImageDataWithoutNodePathRequest request = new GetDocumentDrawingObjectImageDataWithoutNodePathRequest(remoteName,
@@ -138,7 +138,7 @@ public void testGetDocumentDrawingObjectOleData() throws ApiException, FileNotFo
         String remoteName = "TestGetDocumentDrawingObjectOleData.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentDrawingObjectOleDataRequest request = new GetDocumentDrawingObjectOleDataRequest(remoteName,
@@ -158,7 +158,7 @@ public void testGetDocumentDrawingObjectOleDataWithoutNodePath() throws ApiExcep
         String remoteName = "TestGetDocumentDrawingObjectOleDataWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentDrawingObjectOleDataWithoutNodePathRequest request = new GetDocumentDrawingObjectOleDataWithoutNodePathRequest(remoteName,
@@ -177,7 +177,7 @@ public void testGetDocumentDrawingObjects() throws ApiException, FileNotFoundExc
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjects.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentDrawingObjectsRequest request = new GetDocumentDrawingObjectsRequest(remoteName, "sections/0",
@@ -195,7 +195,7 @@ public void testGetDocumentDrawingObjectsWithoutNodePath() throws ApiException, 
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentDrawingObjectsWithoutNodePath.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentDrawingObjectsWithoutNodePathRequest request = new GetDocumentDrawingObjectsWithoutNodePathRequest(remoteName,
@@ -215,7 +215,7 @@ public void testUpdateDrawingObject() throws ApiException, FileNotFoundException
         File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(remoteName, "{\"Left\": 0}", data, "",
@@ -236,7 +236,7 @@ public void testUpdateDrawingObjectWithoutNodePath() throws ApiException, FileNo
         File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateDrawingObjectWithoutNodePathRequest request = new UpdateDrawingObjectWithoutNodePathRequest(remoteName, "{\"Left\": 0}", data,
@@ -256,7 +256,7 @@ public void testInsertDrawingObject() throws ApiException, FileNotFoundException
         String remoteName = "TestPutDrawingObject.docx";
         File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(remoteName, "{\"Left\": 0}", data, "",
@@ -275,7 +275,7 @@ public void testInsertDrawingObjectWithoutNodePath() throws ApiException, FileNo
         String remoteName = "TestPutDrawingObjectWithoutNodePath.docx";
         File data = Paths.get(TestInitializer.LocalCommonFolder, "aspose-cloud.png").toFile();
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertDrawingObjectWithoutNodePathRequest request = new InsertDrawingObjectWithoutNodePathRequest(remoteName, "{\"Left\": 0}", data,
@@ -295,7 +295,7 @@ public void testRenderDrawingObject() throws ApiException, FileNotFoundException
         String format = "png";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         RenderDrawingObjectRequest request = new RenderDrawingObjectRequest(remoteName, format, "sections/0", index,
@@ -315,7 +315,7 @@ public void testRenderDrawingObjectWithoutNodePath() throws ApiException, FileNo
         String format = "png";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         RenderDrawingObjectWithoutNodePathRequest request = new RenderDrawingObjectWithoutNodePathRequest(remoteName, format, index,
@@ -334,7 +334,7 @@ public void testDeleteDrawingObject() throws ApiException, FileNotFoundException
         String remoteName = "TestDeleteDrawingObject.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteDrawingObjectRequest request = new DeleteDrawingObjectRequest(remoteName, "", index,
@@ -352,7 +352,7 @@ public void testDeleteDrawingObjectWithoutNodePath() throws ApiException, FileNo
         String remoteName = "TestDeleteDrawingObjectWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteDrawingObjectWithoutNodePathRequest request = new DeleteDrawingObjectWithoutNodePathRequest(remoteName, index,

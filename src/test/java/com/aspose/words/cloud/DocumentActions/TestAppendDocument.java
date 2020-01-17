@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.DocumentEntry;
-import com.aspose.words.model.DocumentEntryList;
-import com.aspose.words.model.DocumentResponse;
-import com.aspose.words.model.requests.PostAppendDocumentRequest;
+package com.aspose.words.cloud.DocumentActions;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.DocumentEntry;
+import com.aspose.words.cloud.model.DocumentEntryList;
+import com.aspose.words.cloud.model.DocumentResponse;
+import com.aspose.words.cloud.model.requests.AppendDocumentRequest;
 import junit.framework.TestCase;
 
 public class TestAppendDocument extends TestCase {
@@ -55,12 +55,11 @@ public class TestAppendDocument extends TestCase {
                 .importFormatMode("KeepSourceFormatting");
         DocumentEntryList body = new DocumentEntryList().addDocumentEntriesItem(docEntry);
 
-        TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName), StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PostAppendDocumentRequest request = new PostAppendDocumentRequest(remoteName, body,
+        AppendDocumentRequest request = new AppendDocumentRequest(remoteName, body,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null, null, destName, null, null);
-        DocumentResponse result = TestInitializer.wordsApi.postAppendDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        DocumentResponse result = TestInitializer.wordsApi.appendDocument(request);
+        assertNotNull(result.getDocument());
     }
 }

@@ -58,7 +58,7 @@ public void testGetRangeText() throws ApiException, FileNotFoundException {
                 folder = Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
                 remoteName = "TestGetRangeText.doc", fullName = Paths.get(folder, remoteName).toString();
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
                 fullName);
 
         GetRangeTextRequest request = new GetRangeTextRequest(remoteName, rangeStart, rangeEnd, folder, null, null,
@@ -72,7 +72,7 @@ public void testRemoveRange() throws ApiException, FileNotFoundException {
         String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
                 remoteName = "TestRemoveRange.doc", fullName = Paths.get(folder, remoteName).toString();
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
                 fullName);
 
         RemoveRangeRequest request = new RemoveRangeRequest(remoteName, rangeStart, rangeEnd, folder, null, null, null, null);
@@ -87,7 +87,7 @@ public void testSaveAsRange() throws ApiException, FileNotFoundException {
                 newDocName = TestInitializer.RemoteTestFolder + "/NewDoc.docx";
         RangeDocument rangeDoc = new RangeDocument().documentName(newDocName);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
                 fullName);
 
         SaveAsRangeRequest request = new SaveAsRangeRequest(remoteName, rangeStart, rangeDoc, rangeEnd, folder, null, null, null);
@@ -102,7 +102,7 @@ public void testReplaceWithText() throws ApiException, FileNotFoundException {
                 newText = "Replace header";
         ReplaceRange replacement = new ReplaceRange().text(newText);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
                 fullName);
 
         ReplaceWithTextRequest request = new ReplaceWithTextRequest(remoteName, rangeStart, replacement, rangeEnd, folder, 

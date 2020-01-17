@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.FieldNamesResponse;
-import com.aspose.words.model.requests.GetDocumentFieldNamesRequest;
-import com.aspose.words.model.requests.PutDocumentFieldNamesRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.FieldNamesResponse;
+import com.aspose.words.cloud.model.requests.GetDocumentFieldNamesRequest;
+import com.aspose.words.cloud.model.requests.GetDocumentFieldNamesOnlineRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -52,15 +52,31 @@ public class TestMailMergeFields extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentFieldNames.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentFieldNamesRequest request = new GetDocumentFieldNamesRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNames(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getFieldNames());
+    }
+
+    /*
+     * Test for getting document field names online
+     */
+    public void testGetDocumentFieldNamesOnline() throws ApiException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "TestGetDocumentFieldNamesOnline.docx";
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
+
+        GetDocumentFieldNamesOnlineRequest request = new GetDocumentFieldNamesOnlineRequest(new File(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, "SampleExecuteTemplate.docx")), true);
+
+        FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNamesOnline(request);
+        assertNotNull(result.getFieldNames());
     }
 
     /*
@@ -70,9 +86,9 @@ public class TestMailMergeFields extends TestCase {
         String fileName = "SampleExecuteTemplate.docx";
         File file = new File(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
 
-        PutDocumentFieldNamesRequest request = new PutDocumentFieldNamesRequest(file, true);
+        GetDocumentFieldNamesOnlineRequest request = new GetDocumentFieldNamesOnlineRequest(file, true);
 
-        FieldNamesResponse result = TestInitializer.wordsApi.putDocumentFieldNames(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNamesOnline(request);
+        assertNotNull(result.getFieldNames());
     }
 }

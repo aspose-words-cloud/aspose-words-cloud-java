@@ -26,8 +26,8 @@
  */
 package com.aspose.words.cloud.Common;
 
-import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.Document.TestDocument;
+import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.DocumentActions.*;
 import com.aspose.words.cloud.DocumentElements.*;
 import com.aspose.words.cloud.Range.TestRange;

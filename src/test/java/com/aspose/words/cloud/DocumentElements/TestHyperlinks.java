@@ -24,15 +24,15 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.HyperlinkResponse;
-import com.aspose.words.model.HyperlinksResponse;
-import com.aspose.words.model.requests.GetDocumentHyperlinkByIndexRequest;
-import com.aspose.words.model.requests.GetDocumentHyperlinksRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.HyperlinkResponse;
+import com.aspose.words.cloud.model.HyperlinksResponse;
+import com.aspose.words.cloud.model.requests.GetDocumentHyperlinkByIndexRequest;
+import com.aspose.words.cloud.model.requests.GetDocumentHyperlinksRequest;
 import junit.framework.TestCase;
 
 public class TestHyperlinks  extends TestCase {
@@ -52,15 +52,15 @@ public class TestHyperlinks  extends TestCase {
         String remoteName = "TestGetDocumentHyperlinkByIndex.doc";
         Integer index = 0;
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentHyperlinkByIndexRequest request = new GetDocumentHyperlinkByIndexRequest(remoteName, index,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         HyperlinkResponse result = TestInitializer.wordsApi.getDocumentHyperlinkByIndex(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getHyperlink());
     }
 
     /*
@@ -70,13 +70,13 @@ public class TestHyperlinks  extends TestCase {
         String fileName = "test_doc.docx";
         String remoteName = "TestGetDocumentHyperlinks.doc";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentHyperlinksRequest request = new GetDocumentHyperlinksRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null, null);
 
         HyperlinksResponse result = TestInitializer.wordsApi.getDocumentHyperlinks(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getHyperlinks());
     }
 }

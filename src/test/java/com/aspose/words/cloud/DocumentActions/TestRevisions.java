@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.RevisionsModificationResponse;
-import com.aspose.words.model.requests.AcceptAllRevisionsRequest;
-import com.aspose.words.model.requests.RejectAllRevisionsRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.RevisionsModificationResponse;
+import com.aspose.words.cloud.model.requests.AcceptAllRevisionsRequest;
+import com.aspose.words.cloud.model.requests.RejectAllRevisionsRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -52,15 +52,15 @@ public class TestRevisions extends TestCase {
         String fileName = "test_doc.docx";
         String remoteName = "TestAcceptAllRevisions.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.acceptAllRevisions(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getResult());
     }
 
     /*
@@ -70,14 +70,14 @@ public class TestRevisions extends TestCase {
         String fileName = "test_doc.docx";
         String remoteName = "TestRejectAllRevisions.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         RejectAllRevisionsRequest request = new RejectAllRevisionsRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.rejectAllRevisions(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getResult());
     }
 }

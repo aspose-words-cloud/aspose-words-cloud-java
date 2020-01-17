@@ -62,10 +62,10 @@ public void testPostCompareDocument() throws ApiException, FileNotFoundException
                 CompareData compareData = new CompareData().author("author").comparingWithDocument(
                                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName2).toString())
                                 .dateTime(OffsetDateTime.now());
-                TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName1).toString(),
+                TestInitializer.uploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName1).toString(),
                                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName1).toString()
                                                 .replace("\\", "/"));
-                TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName2).toString(),
+                TestInitializer.uploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName2).toString(),
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName2).toString()
                 .replace("\\", "/"));
 

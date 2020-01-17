@@ -24,18 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.ReplaceTextRequest;
-import com.aspose.words.model.ReplaceTextResponse;
-import com.aspose.words.model.SearchResponse;
-import com.aspose.words.model.TextItemsResponse;
-import com.aspose.words.model.requests.GetDocumentTextItemsRequest;
-import com.aspose.words.model.requests.PostReplaceTextRequest;
-import com.aspose.words.model.requests.SearchRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.ReplaceTextParameters;
+import com.aspose.words.cloud.model.ReplaceTextResponse;
+import com.aspose.words.cloud.model.SearchResponse;
+import com.aspose.words.cloud.model.requests.ReplaceTextRequest;
+import com.aspose.words.cloud.model.requests.SearchRequest;
 import junit.framework.TestCase;
 
 
@@ -49,41 +47,23 @@ public class TestText extends TestCase {
     }
 
     /*
-     * Test for getting text
-     */
-    public void testGetDocumentTextItems() throws ApiException {
-        String fileName = "test_multi_pages.docx";
-        String remoteName = "TestGetDocumentTextItems.docx";
-
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
-
-        GetDocumentTextItemsRequest request = new GetDocumentTextItemsRequest(remoteName,
-                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null);
-
-        TextItemsResponse result = TestInitializer.wordsApi.getDocumentTextItems(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
-    }
-
-    /*
      * Test for replacing text
      */
     public void testPostReplaceText() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostReplaceText.docx";
         String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
-        ReplaceTextRequest body = new ReplaceTextRequest().oldValue("aspose").newValue("aspose new");
+        ReplaceTextParameters body = new ReplaceTextParameters().oldValue("aspose").newValue("aspose new");
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PostReplaceTextRequest request = new PostReplaceTextRequest(remoteName, body,
+        ReplaceTextRequest request = new ReplaceTextRequest(remoteName, body,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, destName, null, null);
 
-        ReplaceTextResponse result = TestInitializer.wordsApi.postReplaceText(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        ReplaceTextResponse result = TestInitializer.wordsApi.replaceText(request);
+        assertNotNull(result.getMatches());
     }
 
     /*
@@ -94,14 +74,14 @@ public class TestText extends TestCase {
         String remoteName = "TestSearch.docx";
         String pattern = "aspose";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         SearchRequest request = new SearchRequest(remoteName, pattern,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SearchResponse result = TestInitializer.wordsApi.search(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getSearchResults());
     }
 }

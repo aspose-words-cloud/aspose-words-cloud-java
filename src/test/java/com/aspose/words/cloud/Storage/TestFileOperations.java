@@ -59,7 +59,7 @@ public void testUploadFile() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUploadFile.docx";
 
-        FilesUploadResult result = TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        FilesUploadResult result = TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         
         assertNotNull(result);
@@ -76,7 +76,7 @@ public void testDeleteFile() throws ApiException, FileNotFoundException {
 
         String remotePath = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePath);
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePath);
 
         DeleteFileRequest request = new DeleteFileRequest(remotePath,null, null);
         TestInitializer.wordsApi.deleteFile(request);
@@ -95,7 +95,7 @@ public void testCopyFile() throws ApiException, FileNotFoundException {
         String remotePathSrc = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteNameSrc).toString().replace("\\", "/");
         String remotePathDst = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteNameDst).toString().replace("\\", "/");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePathSrc);
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePathSrc);
         
         CopyFileRequest request = new CopyFileRequest(remotePathDst, remotePathSrc, null, null, null);
         TestInitializer.wordsApi.copyFile(request);
@@ -114,7 +114,7 @@ public void testMoveFile() throws ApiException, FileNotFoundException {
         String remotePathSrc = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteNameSrc).toString().replace("\\", "/");
         String remotePathDst = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteNameDst).toString().replace("\\", "/");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePathSrc);
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePathSrc);
         
         MoveFileRequest request = new MoveFileRequest(remotePathDst, remotePathSrc, null, null, null);
         TestInitializer.wordsApi.moveFile(request);
@@ -130,7 +130,7 @@ public void testDownloadFile() throws ApiException, FileNotFoundException {
 
         String remotePath = Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePath);
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), remotePath);
         
         DownloadFileRequest request = new DownloadFileRequest(remotePath, null, null);
         File response = TestInitializer.wordsApi.downloadFile(request);

@@ -24,13 +24,12 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.AsposeResponse;
-import com.aspose.words.model.requests.DeleteDocumentMacrosRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.requests.DeleteMacrosRequest;
 import junit.framework.TestCase;
 
 public class TestMacros extends TestCase {
@@ -45,18 +44,17 @@ public class TestMacros extends TestCase {
     /*
      * Test for getting document hyperlink by index
      */
-    public void testDeleteDocumentMacros() throws ApiException {
+    public void testDeleteMacros() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteDocumentMacros.doc";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        DeleteDocumentMacrosRequest request = new DeleteDocumentMacrosRequest(remoteName,
+        DeleteMacrosRequest request = new DeleteMacrosRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
-        AsposeResponse result = TestInitializer.wordsApi.deleteDocumentMacros(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        TestInitializer.wordsApi.deleteMacros(request);
     }
 }

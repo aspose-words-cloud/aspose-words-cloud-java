@@ -64,7 +64,7 @@ public void testDeleteParagraph() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteParagraph.doc";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteParagraphRequest request = new DeleteParagraphRequest(remoteName, "", index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -81,7 +81,7 @@ public void testDeleteParagraphWithoutNodePath() throws ApiException, FileNotFou
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteParagraphWithoutNodePath.doc";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteParagraphWithoutNodePathRequest request = new DeleteParagraphWithoutNodePathRequest(remoteName, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -98,7 +98,7 @@ public void testGetParagraph() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraph.doc";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetParagraphRequest request = new GetParagraphRequest(remoteName, "", index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -116,7 +116,7 @@ public void testGetParagraphWithoutNodePath() throws ApiException, FileNotFoundE
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphWithoutNodePath.doc";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetParagraphWithoutNodePathRequest request = new GetParagraphWithoutNodePathRequest(remoteName, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -135,7 +135,7 @@ public void testGetRun() throws ApiException, FileNotFoundException {
         String remoteName = "TestGetRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/0";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetRunRequest request = new GetRunRequest(remoteName, paragraphPath, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -154,7 +154,7 @@ public void testGetRunFont() throws ApiException, FileNotFoundException {
         String remoteName = "TestGetRunFont.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/0";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetRunFontRequest request = new GetRunFontRequest(remoteName, paragraphPath, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -172,7 +172,7 @@ public void testGetRuns() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentParagraphRuns.doc";
         String paragraphPath = "sections/0/paragraphs/0";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetRunsRequest request = new GetRunsRequest(remoteName, paragraphPath,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -190,7 +190,7 @@ public void testGetParagraphs() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphs.doc";
         String paragraphPath = "sections/0";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetParagraphsRequest request = new GetParagraphsRequest(remoteName, paragraphPath,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -207,7 +207,7 @@ public void testGetParagraphs() throws ApiException, FileNotFoundException {
 public void testGetParagraphsWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphsWithoutNodePath.doc";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetParagraphsWithoutNodePathRequest request = new GetParagraphsWithoutNodePathRequest(remoteName,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -228,7 +228,7 @@ public void testUpdateRunFont() throws ApiException, FileNotFoundException {
         String paragraphPath = "paragraphs/0";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         Font body = new Font().bold(true);
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateRunFontRequest request = new UpdateRunFontRequest(remoteName, body, paragraphPath, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -248,7 +248,7 @@ public void testInsertParagraph() throws ApiException, FileNotFoundException {
         String paragraphPath = "sections/0";
         String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
         ParagraphInsert body = new ParagraphInsert().text("This is a new paragraph for your document");
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertParagraphRequest request = new InsertParagraphRequest(remoteName, body, paragraphPath,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -267,7 +267,7 @@ public void testRenderParagraph() throws ApiException, FileNotFoundException {
         String remoteName = "TestRenderParagraph.doc";
         Integer index = 0;
         String format = "png";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         RenderParagraphRequest request = new RenderParagraphRequest(remoteName, format, "", index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -286,7 +286,7 @@ public void testRenderParagraphWithoutNodePath() throws ApiException, FileNotFou
         String remoteName = "TestRenderParagraphWithoutNodePath.doc";
         Integer index = 0;
         String format = "png";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         RenderParagraphWithoutNodePathRequest request = new RenderParagraphWithoutNodePathRequest(remoteName, format, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -304,7 +304,7 @@ public void testUpdateParagraphFormat() throws ApiException, FileNotFoundExcepti
         String fileName = "test_multi_pages.docx";
         String remoteName = "UpdateParagraphFormat.doc";
         ParagraphFormat body = new ParagraphFormat().alignment(ParagraphFormat.AlignmentEnum.RIGHT);
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateParagraphFormatRequest request = new UpdateParagraphFormatRequest(remoteName, body, "", 0,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -319,7 +319,7 @@ public void testGetParagraphFormat() throws ApiException, FileNotFoundException 
         String fileName = "test_multi_pages.docx";
         String remoteName = "GetParagraphFormat.doc";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetParagraphFormatRequest request = new GetParagraphFormatRequest(remoteName, "", index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
@@ -334,7 +334,7 @@ public void testGetParagraphFormatWithoutNodePath() throws ApiException, FileNot
         String fileName = "test_multi_pages.docx";
         String remoteName = "GetParagraphFormatWithoutNodePath.doc";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.uploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetParagraphFormatWithoutNodePathRequest request = new GetParagraphFormatWithoutNodePathRequest(remoteName, index,
                 Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,

@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.DocumentResponse;
-import com.aspose.words.model.requests.PostDocumentExecuteMailMergeRequest;
-import com.aspose.words.model.requests.PutExecuteMailMergeOnlineRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.DocumentResponse;
+import com.aspose.words.cloud.model.requests.ExecuteMailMergeRequest;
+import com.aspose.words.cloud.model.requests.ExecuteMailMergeOnlineRequest;
 
 import junit.framework.TestCase;
 
@@ -55,18 +55,18 @@ public class TestExecuteMailMerge extends TestCase {
         String remoteName = "TestPostDocumentExecuteMailMerge.docx";
         String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         String data = StringUtil.readFileToString(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt"));
 
-        PostDocumentExecuteMailMergeRequest request = new PostDocumentExecuteMailMergeRequest(remoteName, data,
+        ExecuteMailMergeRequest request = new ExecuteMailMergeRequest(remoteName, data,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null,
                 null, destName);
 
-        DocumentResponse result = TestInitializer.wordsApi.postDocumentExecuteMailMerge(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        DocumentResponse result = TestInitializer.wordsApi.executeMailMerge(request);
+        assertNotNull(result.getDocument());
     }
 
     /*
@@ -77,10 +77,10 @@ public class TestExecuteMailMerge extends TestCase {
         File file = new File(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
         File data = new File(StringUtil.join("/",TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt"));
 
-        PutExecuteMailMergeOnlineRequest request = new PutExecuteMailMergeOnlineRequest(file, data,
+        ExecuteMailMergeOnlineRequest request = new ExecuteMailMergeOnlineRequest(file, data,
                 null, null, null);
 
-        File result = TestInitializer.wordsApi.putExecuteMailMergeOnline(request);
+        File result = TestInitializer.wordsApi.executeMailMergeOnline(request);
         assertTrue(result.length() > 0);
     }
 }

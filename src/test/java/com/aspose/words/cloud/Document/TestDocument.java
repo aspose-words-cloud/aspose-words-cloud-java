@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.Document;
+package com.aspose.words.cloud.Document;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.DocumentResponse;
-import com.aspose.words.model.requests.GetDocumentRequest;
-import com.aspose.words.model.requests.PutCreateDocumentRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.DocumentResponse;
+import com.aspose.words.cloud.model.requests.GetDocumentRequest;
+import com.aspose.words.cloud.model.requests.CreateDocumentRequest;
 import junit.framework.TestCase;
 
 public class TestDocument extends TestCase {
@@ -50,15 +50,15 @@ public class TestDocument extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocument.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentRequest request = new GetDocumentRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getDocument());
     }
 
     /*
@@ -68,12 +68,11 @@ public class TestDocument extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutCreateDocument.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PutCreateDocumentRequest request = new PutCreateDocumentRequest(null, remoteName,
+        CreateDocumentRequest request = new CreateDocumentRequest(null, remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder));
-        DocumentResponse result = TestInitializer.wordsApi.putCreateDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        DocumentResponse result = TestInitializer.wordsApi.createDocument(request);
+        assertNotNull(result.getDocument());
     }
 }

@@ -24,13 +24,13 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.*;
-import com.aspose.words.model.requests.*;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.requests.*;
 import junit.framework.TestCase;
 
 public class TestComments extends TestCase {
@@ -50,15 +50,14 @@ public class TestComments extends TestCase {
         String remoteName = "TestDeleteComment.docx";
         Integer index = 0;
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         DeleteCommentRequest request = new DeleteCommentRequest(remoteName, index,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
-        AsposeResponse result = TestInitializer.wordsApi.deleteComment(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        TestInitializer.wordsApi.deleteComment(request);
     }
 
     /*
@@ -69,15 +68,15 @@ public class TestComments extends TestCase {
         String remoteName = "TestGetComment.docx";
         Integer index = 0;
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetCommentRequest request = new GetCommentRequest(remoteName, index,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         CommentResponse result = TestInitializer.wordsApi.getComment(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getComment());
     }
 
     /*
@@ -87,59 +86,59 @@ public class TestComments extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetComments.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetCommentsRequest request = new GetCommentsRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         CommentsResponse result = TestInitializer.wordsApi.getComments(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getComments());
     }
 
     /*
      * Test for updating comment
      */
-    public void testPostComment() throws ApiException {
+    public void testUpdateComment() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostComment.docx";
         Integer index = 0;
-        NodeLink link = new NodeLink().nodeId("0.0.3");
+        NodeLink link = new NodeLink().nodeId("0.3.0");
         DocumentPosition documentPosition = new DocumentPosition().node(link).offset(0);
         Comment body = new Comment().initial("YE").rangeStart(documentPosition).rangeEnd(documentPosition)
                 .author("Yaroslaw Ekimov").text("A new comment");
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PostCommentRequest request = new PostCommentRequest(remoteName, index, body,
+        UpdateCommentRequest request = new UpdateCommentRequest(remoteName, index, body,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
-        CommentResponse result = TestInitializer.wordsApi.postComment(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        CommentResponse result = TestInitializer.wordsApi.updateComment(request);
+        assertNotNull(result.getComment());
     }
 
     /*
      * Test for adding comment
      */
-    public void testPutComment() throws ApiException {
+    public void testInsertComment() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutComment.docx";
-        NodeLink link = new NodeLink().nodeId("0.0.3");
+        NodeLink link = new NodeLink().nodeId("0.3.0.3");
         DocumentPosition documentPosition = new DocumentPosition().node(link).offset(0);
         Comment body = new Comment().initial("YE").rangeStart(documentPosition).rangeEnd(documentPosition)
                 .author("Yaroslaw Ekimov").text("A new comment");
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PutCommentRequest request = new PutCommentRequest(remoteName, body,
+        InsertCommentRequest request = new InsertCommentRequest(remoteName, body,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
-        CommentResponse result = TestInitializer.wordsApi.putComment(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        CommentResponse result = TestInitializer.wordsApi.insertComment(request);
+        assertNotNull(result.getComment());
     }
 }

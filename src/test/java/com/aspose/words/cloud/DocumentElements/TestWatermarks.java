@@ -24,16 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.DocumentResponse;
-import com.aspose.words.model.WatermarkText;
-import com.aspose.words.model.requests.DeleteDocumentWatermarkRequest;
-import com.aspose.words.model.requests.PostInsertDocumentWatermarkImageRequest;
-import com.aspose.words.model.requests.PostInsertDocumentWatermarkTextRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.DocumentResponse;
+import com.aspose.words.cloud.model.WatermarkText;
+import com.aspose.words.cloud.model.requests.DeleteWatermarkRequest;
+import com.aspose.words.cloud.model.requests.InsertWatermarkImageRequest;
+import com.aspose.words.cloud.model.requests.InsertWatermarkTextRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -50,59 +50,59 @@ public class TestWatermarks extends TestCase {
     /*
      * Test for removing watermark
      */
-    public void testDeleteDocumentWatermark() throws ApiException {
+    public void testDeleteWatermark() throws ApiException {
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteDocumentWatermark.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        DeleteDocumentWatermarkRequest request = new DeleteDocumentWatermarkRequest(remoteName,
+        DeleteWatermarkRequest request = new DeleteWatermarkRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
-        DocumentResponse result = TestInitializer.wordsApi.deleteDocumentWatermark(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        DocumentResponse result = TestInitializer.wordsApi.deleteWatermark(request);
+        assertNotNull(result.getDocument());
     }
 
     /*
      * Test for inserting watermark image
      */
-    public void testPostInsertDocumentWatermarkImage() throws ApiException {
+    public void testInsertWatermarkImage() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostInsertDocumentWatermarkImage.docx";
         Double rotationAngle = 0.0;
         String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         File image = new File(StringUtil.join("/",TestInitializer.LocalCommonFolder, "aspose-cloud.png"));
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PostInsertDocumentWatermarkImageRequest request = new PostInsertDocumentWatermarkImageRequest(remoteName, image,
+        InsertWatermarkImageRequest request = new InsertWatermarkImageRequest(remoteName, image,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, destName, null, null, rotationAngle, null);
 
-        DocumentResponse result = TestInitializer.wordsApi.postInsertDocumentWatermarkImage(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        DocumentResponse result = TestInitializer.wordsApi.insertWatermarkImage(request);
+        assertNotNull(result.getDocument());
     }
 
     /*
      * Test for inserting watermark text
      */
-    public void testPostInsertDocumentWatermarkText() throws ApiException {
+    public void testInsertWatermarkText() throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostInsertDocumentWatermarkText.docx";
         String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
         WatermarkText body = new WatermarkText().rotationAngle(90.0).text("This is the text");
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PostInsertDocumentWatermarkTextRequest request = new PostInsertDocumentWatermarkTextRequest(remoteName, body,
+        InsertWatermarkTextRequest request = new InsertWatermarkTextRequest(remoteName, body,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, destName, null, null);
 
-        DocumentResponse result = TestInitializer.wordsApi.postInsertDocumentWatermarkText(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        DocumentResponse result = TestInitializer.wordsApi.insertWatermarkText(request);
+        assertNotNull(result.getDocument());
     }
 }

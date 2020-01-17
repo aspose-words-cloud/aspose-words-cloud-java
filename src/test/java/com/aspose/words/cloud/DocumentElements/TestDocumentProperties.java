@@ -24,13 +24,13 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.*;
-import com.aspose.words.model.requests.*;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.requests.*;
 import junit.framework.TestCase;
 
 public class TestDocumentProperties extends TestCase {
@@ -51,15 +51,15 @@ public class TestDocumentProperties extends TestCase {
         String propertyName = "AsposeAuthor";
         DocumentProperty prop = new DocumentProperty().builtIn(false).name(propertyName).value("Yaroslaw Ekimov");
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         CreateOrUpdateDocumentPropertyRequest request = new CreateOrUpdateDocumentPropertyRequest(remoteName, propertyName,
                 prop, StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         DocumentPropertyResponse result = TestInitializer.wordsApi.createOrUpdateDocumentProperty(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getDocumentProperty());
     }
 
     /*
@@ -71,15 +71,14 @@ public class TestDocumentProperties extends TestCase {
         String propertyName = "testProp";
         String destName = StringUtil.join("/", TestInitializer.RemoteTestOut, remoteName);
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         DeleteDocumentPropertyRequest request = new DeleteDocumentPropertyRequest(remoteName, propertyName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, destName, null, null);
 
-        AsposeResponse result = TestInitializer.wordsApi.deleteDocumentProperty(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        TestInitializer.wordsApi.deleteDocumentProperty(request);
     }
 
     /*
@@ -89,15 +88,15 @@ public class TestDocumentProperties extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentProperties.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentPropertiesRequest request = new GetDocumentPropertiesRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         DocumentPropertiesResponse result = TestInitializer.wordsApi.getDocumentProperties(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getDocumentProperties());
     }
 
     /*
@@ -108,14 +107,14 @@ public class TestDocumentProperties extends TestCase {
         String remoteName = "TestGetDocumentProperty.docx";
         String propName = "Author";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentPropertyRequest request = new GetDocumentPropertyRequest(remoteName, propName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         DocumentPropertyResponse result = TestInitializer.wordsApi.getDocumentProperty(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getDocumentProperty());
     }
 }

@@ -24,13 +24,13 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.StatDataResponse;
-import com.aspose.words.model.requests.GetDocumentStatisticsRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.StatDataResponse;
+import com.aspose.words.cloud.model.requests.GetDocumentStatisticsRequest;
 import junit.framework.TestCase;
 
 public class TestDocumentStatistics extends TestCase {
@@ -49,14 +49,14 @@ public class TestDocumentStatistics extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentStatistics.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentStatisticsRequest request = new GetDocumentStatisticsRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         StatDataResponse result = TestInitializer.wordsApi.getDocumentStatistics(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getStatData());
     }
 }

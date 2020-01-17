@@ -24,15 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.SectionLinkCollectionResponse;
-import com.aspose.words.model.SectionResponse;
-import com.aspose.words.model.requests.GetSectionRequest;
-import com.aspose.words.model.requests.GetSectionsRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.SectionLinkCollectionResponse;
+import com.aspose.words.cloud.model.SectionResponse;
+import com.aspose.words.cloud.model.requests.DeleteSectionRequest;
+import com.aspose.words.cloud.model.requests.GetSectionRequest;
+import com.aspose.words.cloud.model.requests.GetSectionsRequest;
 import junit.framework.TestCase;
 
 public class TestSections extends TestCase {
@@ -52,15 +53,15 @@ public class TestSections extends TestCase {
         String remoteName = "TestGetSection.docx";
         Integer index = 0;
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetSectionRequest request = new GetSectionRequest(remoteName, index,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SectionResponse result = TestInitializer.wordsApi.getSection(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getSection());
     }
 
     /*
@@ -70,14 +71,32 @@ public class TestSections extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSections.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetSectionsRequest request = new GetSectionsRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSections(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result.getSections());
+    }
+
+    /*
+     * Test for deleting section
+     */
+    public void testDeleteSection() throws ApiException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "TestDeleteSection.docx";
+        Integer index = 0;
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
+
+        DeleteSectionRequest request = new DeleteSectionRequest(remoteName, index,
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
+                null, null, null, null);
+
+        TestInitializer.wordsApi.deleteSection(request);
     }
 }

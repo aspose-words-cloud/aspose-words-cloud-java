@@ -24,17 +24,16 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentElements;
+package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.AsposeResponse;
-import com.aspose.words.model.Run;
-import com.aspose.words.model.RunResponse;
-import com.aspose.words.model.requests.DeleteRunRequest;
-import com.aspose.words.model.requests.PostRunRequest;
-import com.aspose.words.model.requests.PutRunRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.Run;
+import com.aspose.words.cloud.model.RunResponse;
+import com.aspose.words.cloud.model.requests.DeleteRunRequest;
+import com.aspose.words.cloud.model.requests.InsertRunRequest;
+import com.aspose.words.cloud.model.requests.UpdateRunRequest;
 import junit.framework.TestCase;
 
 public class TestRuns extends TestCase {
@@ -55,21 +54,20 @@ public class TestRuns extends TestCase {
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         DeleteRunRequest request = new DeleteRunRequest(remoteName, paragraphPath, index,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
-        AsposeResponse result = TestInitializer.wordsApi.deleteRun(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        TestInitializer.wordsApi.deleteRun(request);
     }
 
     /*
      * Test for updating run
      */
-    public void testPostRun() throws ApiException {
+    public void testUpdateRun() throws ApiException {
         String fileName = "Run.doc";
         String remoteName = "TestPostRun.doc";
         Integer index = 0;
@@ -77,35 +75,35 @@ public class TestRuns extends TestCase {
         Run body = new Run();
         body.setText("Run with text");
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PostRunRequest request = new PostRunRequest(remoteName, body, paragraphPath, index,
+        UpdateRunRequest request = new UpdateRunRequest(remoteName, body, paragraphPath, index,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
-        RunResponse result = TestInitializer.wordsApi.postRun(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        RunResponse result = TestInitializer.wordsApi.updateRun(request);
+        assertNotNull(result.getRun());
     }
 
     /*
      * Test for inserting run
      */
-    public void testPutRun() throws ApiException {
+    public void testInsertRun() throws ApiException {
         String fileName = "Run.doc";
         String remoteName = "TestPutRun.doc";
         String paragraphPath = "paragraphs/1";
         Run body = new Run();
         body.setText("Run with text");
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalTestFolder, testFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PutRunRequest request = new PutRunRequest(remoteName, paragraphPath, body,
+        InsertRunRequest request = new InsertRunRequest(remoteName, paragraphPath, body,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null, null);
 
-        RunResponse result = TestInitializer.wordsApi.putRun(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        RunResponse result = TestInitializer.wordsApi.insertRun(request);
+        assertNotNull(result.getRun());
     }
 }

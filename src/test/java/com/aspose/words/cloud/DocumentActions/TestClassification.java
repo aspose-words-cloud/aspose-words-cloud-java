@@ -24,14 +24,14 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.ClassificationResponse;
-import com.aspose.words.model.requests.ClassifyDocumentRequest;
-import com.aspose.words.model.requests.ClassifyRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.ClassificationResponse;
+import com.aspose.words.cloud.model.requests.ClassifyDocumentRequest;
+import com.aspose.words.cloud.model.requests.ClassifyRequest;
 import junit.framework.TestCase;
 
 public class TestClassification extends TestCase {
@@ -49,7 +49,7 @@ public class TestClassification extends TestCase {
     public void testClassify() throws ApiException {
         ClassifyRequest request = new ClassifyRequest("Try text classification", "3");
         ClassificationResponse result = TestInitializer.wordsApi.classify(request);
-        assertEquals(result.getCode(), new Integer(200));
+        assertNotNull(result);
     }
 
     /*
@@ -59,15 +59,14 @@ public class TestClassification extends TestCase {
         String fileName = "test_multi_pages.docx";
         String remoteName = "Source.docx";
 
-        TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/",TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName), StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         ClassifyDocumentRequest request = new ClassifyDocumentRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null);
 
         ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 
     /*
@@ -76,15 +75,14 @@ public class TestClassification extends TestCase {
     public void testClassifyTaxonomyDocument()  throws ApiException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "Source.docx";
-        
-        TestInitializer.uploadFile(StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName), StringUtil.join("/",TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         ClassifyDocumentRequest request = new ClassifyDocumentRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, "documents");
 
         ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        assertNotNull(result);
     }
 }

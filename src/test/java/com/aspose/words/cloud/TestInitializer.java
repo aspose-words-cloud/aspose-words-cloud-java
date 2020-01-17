@@ -1,5 +1,7 @@
-package com.aspose.words;
-import com.aspose.words.api.WordsApi;
+package com.aspose.words.cloud;
+import com.aspose.words.cloud.api.WordsApi;
+import com.aspose.words.cloud.model.FilesUploadResult;
+import com.aspose.words.cloud.model.requests.UploadFileRequest;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
@@ -17,7 +19,11 @@ public final class TestInitializer {
 
 
     public static void Initialize() throws FileNotFoundException {
-        Map<String, String> creds = new Gson().fromJson(new JsonReader(new FileReader("Settings/servercreds.json")), Map.class);
+        Initialize("Settings/servercreds.json");
+    }
+
+    public static void Initialize(String fileName) throws FileNotFoundException {
+        Map<String, String> creds = new Gson().fromJson(new JsonReader(new FileReader(fileName)), Map.class);
         if (creds == null) {
             throw new FileNotFoundException("Please put your credentials into Settings/servercreds.json file");
         }
@@ -27,7 +33,7 @@ public final class TestInitializer {
         client.setBaseUrl(creds.get("BaseUrl")).setAppKey(creds.get("AppKey")).setAppSid(creds.get("AppSid"));
     }
 
-    public static void uploadFile(String remoteName, String fileName) throws ApiException {
-        wordsApi.putCreate(remoteName, new File(fileName),null, null);
+    public static FilesUploadResult uploadFile(String fileName, String remoteName) throws ApiException {
+        return wordsApi.uploadFile(new UploadFileRequest(new File(fileName), remoteName, null));
     }
 }

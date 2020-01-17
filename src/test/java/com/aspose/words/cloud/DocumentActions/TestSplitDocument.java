@@ -24,13 +24,13 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.DocumentActions;
+package com.aspose.words.cloud.DocumentActions;
 
-import com.aspose.words.ApiException;
-import com.aspose.words.StringUtil;
-import com.aspose.words.TestInitializer;
-import com.aspose.words.model.SplitDocumentResponse;
-import com.aspose.words.model.requests.PostSplitDocumentRequest;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.StringUtil;
+import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.SplitDocumentResponse;
+import com.aspose.words.cloud.model.requests.SplitDocumentRequest;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -55,14 +55,14 @@ public class TestSplitDocument extends TestCase {
         Integer from = 1;
         Integer to = 2;
 
-        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"),
-                StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName));
+        TestInitializer.uploadFile(StringUtil.join("/", TestInitializer.LocalCommonFolder, fileName),
+                StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        PostSplitDocumentRequest request = new PostSplitDocumentRequest(remoteName,
+        SplitDocumentRequest request = new SplitDocumentRequest(remoteName,
                 StringUtil.join("/", TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, destName, format, from, to, null, null);
 
-        SplitDocumentResponse result = TestInitializer.wordsApi.postSplitDocument(request);
-        assertEquals(result.getCode(), Integer.valueOf(200));
+        SplitDocumentResponse result = TestInitializer.wordsApi.splitDocument(request);
+        assertNotNull(result.getSplitResult());
     }
 }
