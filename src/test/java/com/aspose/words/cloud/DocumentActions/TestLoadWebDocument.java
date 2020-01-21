@@ -50,7 +50,6 @@ public class TestLoadWebDocument extends TestCase {
     @Test
 public void testPostLoadWebDocument() throws ApiException {
         SaveOptionsData saveOptionsData = new SaveOptionsData()
-                .colorMode("1")
                 .saveFormat("doc")
                 .fileName("google.doc")
                 .dmlRenderingMode("1")
