@@ -45,9 +45,6 @@ import java.io.IOException;
 
 
 public class SaveOptionsData {
-  @SerializedName("ColorMode")
-  private String colorMode = null;
-
   @SerializedName("SaveFormat")
   private String saveFormat = null;
 
@@ -71,24 +68,6 @@ public class SaveOptionsData {
 
   @SerializedName("UpdateFields")
   private Boolean updateFields = null;
-
-  public SaveOptionsData colorMode(String colorMode) {
-    this.colorMode = colorMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
-   * @return colorMode
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.")
-  public String getColorMode() {
-    return colorMode;
-  }
-
-  public void setColorMode(String colorMode) {
-    this.colorMode = colorMode;
-  }
 
   public SaveOptionsData saveFormat(String saveFormat) {
     this.saveFormat = saveFormat;
@@ -244,8 +223,7 @@ public class SaveOptionsData {
       return false;
     }
     SaveOptionsData saveOptionsData = (SaveOptionsData) o;
-    return Objects.equals(this.colorMode, saveOptionsData.colorMode) &&
-        Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
+    return Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
         Objects.equals(this.fileName, saveOptionsData.fileName) &&
         Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
         Objects.equals(this.dmlEffectsRenderingMode, saveOptionsData.dmlEffectsRenderingMode) &&
@@ -257,7 +235,7 @@ public class SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorMode, saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields);
+    return Objects.hash(saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields);
   }
 
 
@@ -266,7 +244,6 @@ public class SaveOptionsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class SaveOptionsData {\n");
     
-    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
     sb.append("    saveFormat: ").append(toIndentedString(saveFormat)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    dmlRenderingMode: ").append(toIndentedString(dmlRenderingMode)).append("\n");

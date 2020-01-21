@@ -46,6 +46,9 @@ import java.io.IOException;
 @ApiModel(description = "Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).")
 
 public class FixedPageSaveOptionsData extends SaveOptionsData {
+  @SerializedName("ColorMode")
+  private String colorMode = null;
+
   @SerializedName("JpegQuality")
   private Integer jpegQuality = null;
 
@@ -63,6 +66,24 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
 
   @SerializedName("PageIndex")
   private Integer pageIndex = null;
+
+  public FixedPageSaveOptionsData colorMode(String colorMode) {
+    this.colorMode = colorMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
+   * @return colorMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.")
+  public String getColorMode() {
+    return colorMode;
+  }
+
+  public void setColorMode(String colorMode) {
+    this.colorMode = colorMode;
+  }
 
   public FixedPageSaveOptionsData jpegQuality(Integer jpegQuality) {
     this.jpegQuality = jpegQuality;
@@ -182,7 +203,8 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
       return false;
     }
     FixedPageSaveOptionsData fixedPageSaveOptionsData = (FixedPageSaveOptionsData) o;
-    return Objects.equals(this.jpegQuality, fixedPageSaveOptionsData.jpegQuality) &&
+    return Objects.equals(this.colorMode, fixedPageSaveOptionsData.colorMode) &&
+        Objects.equals(this.jpegQuality, fixedPageSaveOptionsData.jpegQuality) &&
         Objects.equals(this.metafileRenderingOptions, fixedPageSaveOptionsData.metafileRenderingOptions) &&
         Objects.equals(this.numeralFormat, fixedPageSaveOptionsData.numeralFormat) &&
         Objects.equals(this.optimizeOutput, fixedPageSaveOptionsData.optimizeOutput) &&
@@ -193,7 +215,7 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex, super.hashCode());
+    return Objects.hash(colorMode, jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex, super.hashCode());
   }
 
 
@@ -202,6 +224,7 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class FixedPageSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
     sb.append("    jpegQuality: ").append(toIndentedString(jpegQuality)).append("\n");
     sb.append("    metafileRenderingOptions: ").append(toIndentedString(metafileRenderingOptions)).append("\n");
     sb.append("    numeralFormat: ").append(toIndentedString(numeralFormat)).append("\n");
