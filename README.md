@@ -65,10 +65,10 @@ public class WordsApiExample {
         WordsApi wordsApi = new WordsApi();
         String remoteName = "TestDeleteDocumentWatermark.docx";
 		String remoteFolder = "TestFolder"
-		DeleteDocumentWatermarkRequest request = new DeleteDocumentWatermarkRequest(remoteName,
+		DeleteWatermarkRequest request = new DeleteWatermarkRequest(remoteName,
                 remoteFolder, null, null, null, null, null, null);
 
-        DocumentResponse result = wordsApi.deleteDocumentWatermark(request);
+        DocumentResponse result = wordsApi.deleteWatermark(request);
     }
 }
 
