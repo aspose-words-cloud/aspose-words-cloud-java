@@ -54,6 +54,9 @@ public class RtfSaveOptionsData extends SaveOptionsData {
   @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
 
+  @SerializedName("SaveImagesAsWmf")
+  private Boolean saveImagesAsWmf = null;
+
   public RtfSaveOptionsData exportCompactSize(Boolean exportCompactSize) {
     this.exportCompactSize = exportCompactSize;
     return this;
@@ -108,6 +111,24 @@ public class RtfSaveOptionsData extends SaveOptionsData {
     this.prettyFormat = prettyFormat;
   }
 
+  public RtfSaveOptionsData saveImagesAsWmf(Boolean saveImagesAsWmf) {
+    this.saveImagesAsWmf = saveImagesAsWmf;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
+   * @return saveImagesAsWmf
+  **/
+  @ApiModelProperty(value = "Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.")
+  public Boolean isSaveImagesAsWmf() {
+    return saveImagesAsWmf;
+  }
+
+  public void setSaveImagesAsWmf(Boolean saveImagesAsWmf) {
+    this.saveImagesAsWmf = saveImagesAsWmf;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -121,12 +142,13 @@ public class RtfSaveOptionsData extends SaveOptionsData {
     return Objects.equals(this.exportCompactSize, rtfSaveOptionsData.exportCompactSize) &&
         Objects.equals(this.exportImagesForOldReaders, rtfSaveOptionsData.exportImagesForOldReaders) &&
         Objects.equals(this.prettyFormat, rtfSaveOptionsData.prettyFormat) &&
+        Objects.equals(this.saveImagesAsWmf, rtfSaveOptionsData.saveImagesAsWmf) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exportCompactSize, exportImagesForOldReaders, prettyFormat, super.hashCode());
+    return Objects.hash(exportCompactSize, exportImagesForOldReaders, prettyFormat, saveImagesAsWmf, super.hashCode());
   }
 
 
@@ -138,6 +160,7 @@ public class RtfSaveOptionsData extends SaveOptionsData {
     sb.append("    exportCompactSize: ").append(toIndentedString(exportCompactSize)).append("\n");
     sb.append("    exportImagesForOldReaders: ").append(toIndentedString(exportImagesForOldReaders)).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
+    sb.append("    saveImagesAsWmf: ").append(toIndentedString(saveImagesAsWmf)).append("\n");
     sb.append("}");
     return sb.toString();
   }

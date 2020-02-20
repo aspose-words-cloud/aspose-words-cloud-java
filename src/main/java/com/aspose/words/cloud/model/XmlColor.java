@@ -77,7 +77,7 @@ public class XmlColor {
    * Gets or sets alpha component of color structure.
    * @return alpha
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets alpha component of color structure.")
+  @ApiModelProperty(value = "Gets or sets alpha component of color structure.")
   public Integer getAlpha() {
     return alpha;
   }
