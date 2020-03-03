@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.Document;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.DocumentResponse;
 import com.aspose.words.cloud.model.requests.CreateDocumentRequest;
@@ -54,10 +55,10 @@ public void testGetDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocument.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentRequest request = new GetDocumentRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null);
 
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
@@ -70,7 +71,7 @@ public void testCreateDocument() throws ApiException {
             subfolder = "DocumentActions/Document";
         
         CreateDocumentRequest request = new CreateDocumentRequest(null, remoteName, 
-            Paths.get(TestInitializer.RemoteTestFolder, subfolder).toString());
+            PathUtil.get(TestInitializer.RemoteTestFolder, subfolder).toString());
         DocumentResponse response = TestInitializer.wordsApi.createDocument(request);
         assertNotNull(response);
     }

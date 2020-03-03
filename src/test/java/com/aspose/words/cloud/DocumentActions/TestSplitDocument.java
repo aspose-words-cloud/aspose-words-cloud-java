@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentActions;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.SplitDocumentResponse;
 import com.aspose.words.cloud.model.requests.SplitDocumentRequest;
@@ -36,7 +37,6 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 public class TestSplitDocument extends TestCase {
     private String testFolder = "DocumentActions/SplitDocument";
@@ -54,15 +54,15 @@ public class TestSplitDocument extends TestCase {
 public void testSplitDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestSplitDocument.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
         String format = "text";
         Integer from = 1;
         Integer to = 2;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         SplitDocumentRequest request = new SplitDocumentRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, destName, format, from, to, null, null);
 
         SplitDocumentResponse result = TestInitializer.wordsApi.splitDocument(request);

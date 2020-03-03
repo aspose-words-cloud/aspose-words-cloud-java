@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentActions;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.ClassificationResponse;
 import com.aspose.words.cloud.model.requests.ClassifyDocumentRequest;
@@ -36,7 +37,6 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 public class TestClassification extends TestCase {
     private String testFolder = "Common";
@@ -65,10 +65,10 @@ public void testClassifyDocument() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "Source.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         ClassifyDocumentRequest request = new ClassifyDocumentRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null);
 
         ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);
@@ -82,10 +82,10 @@ public void testClassifyDocument() throws ApiException, FileNotFoundException {
 public void testClassifyTaxonomyDocument()  throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "Source.docx";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         ClassifyDocumentRequest request = new ClassifyDocumentRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, "documents");
 
         ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);

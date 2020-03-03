@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentActions;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.SaveOptionsData;
 import com.aspose.words.cloud.model.SaveResponse;
@@ -62,13 +63,13 @@ public class TestConvertDocument extends TestCase {
 public void testPostDocumentSaveAs() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostDocumentSaveAs.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
         SaveOptionsData saveOptionsData = new SaveOptionsData().saveFormat("pdf").fileName(destName);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         SaveAsRequest request = new SaveAsRequest(remoteName, saveOptionsData,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
 
         SaveResponse result = TestInitializer.wordsApi.saveAs(request);
@@ -82,7 +83,7 @@ public void testPostDocumentSaveAs() throws ApiException, FileNotFoundException 
 public void testPutConvertDocument() throws ApiException, FileNotFoundException {
         String format = "pdf";
         String fileName = "test_multi_pages.docx";
-        ConvertDocumentRequest request = new ConvertDocumentRequest(new File(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString()), format,
+        ConvertDocumentRequest request = new ConvertDocumentRequest(new File(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString()), format,
                 null, null, null, null);
         File result = TestInitializer.wordsApi.convertDocument(request);
         assertTrue(result.length() > 0);
@@ -95,12 +96,12 @@ public void testPutConvertDocument() throws ApiException, FileNotFoundException 
 public void testPostSaveDocumentSaveAsFromPdfToDoc() throws ApiException, FileNotFoundException {
         String fileName = "45.pdf";
         String remoteName = "TestPostDocumentSaveAsFromPdfToDoc.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, "TestPostDocumentSaveAs.docx").toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, "TestPostDocumentSaveAs.docx").toString();
         SaveOptionsData saveOptionsData = new SaveOptionsData().saveFormat("docx").fileName(destName);
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, "DocumentActions", "ConvertDocument", fileName).toString(), 
-        Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, "DocumentActions", "ConvertDocument", fileName).toString(), 
+        PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
         SaveAsRequest request = new SaveAsRequest(remoteName, saveOptionsData,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
         SaveResponse result = TestInitializer.wordsApi.saveAs(request);
         assertNotNull(result);
@@ -113,11 +114,11 @@ public void testPostSaveDocumentSaveAsFromPdfToDoc() throws ApiException, FileNo
 public void testPutDocumentSaveAsTiff() throws ApiException, FileNotFoundException {
         String fileName = "45.pdf";
         String remoteName = "TestPutDocumentSaveAsTiff.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, "TestPostDocumentSaveAsTiff.tiff").toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, "TestPostDocumentSaveAsTiff.tiff").toString();
         TiffSaveOptionsData saveOptionsData = (TiffSaveOptionsData) new TiffSaveOptionsData().saveFormat("tiff").fileName(destName);
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, "DocumentActions", "ConvertDocument", fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, "DocumentActions", "ConvertDocument", fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
         SaveAsTiffRequest request = new SaveAsTiffRequest(remoteName, saveOptionsData,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null, null,
                 null, null, null, null, null, null,
                 null, null, null, null, null, null,
@@ -134,8 +135,8 @@ public void testGetDocumentWithFormat() throws ApiException, FileNotFoundExcepti
         String format = "text";
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentWithFormat.docx";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
-        GetDocumentWithFormatRequest request = new GetDocumentWithFormatRequest(remoteName, format, Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        GetDocumentWithFormatRequest request = new GetDocumentWithFormatRequest(remoteName, format, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null, null);
         File result = TestInitializer.wordsApi.getDocumentWithFormat(request);
         assertTrue(result.length() > 0);
@@ -149,9 +150,9 @@ public void testGetDocumentWithFormat() throws ApiException, FileNotFoundExcepti
         String format = "text";
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentWithFormat.docx";
-        String outPath = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
-        GetDocumentWithFormatRequest request = new GetDocumentWithFormatRequest(remoteName, format, Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+        String outPath = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        GetDocumentWithFormatRequest request = new GetDocumentWithFormatRequest(remoteName, format, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, outPath, null);
         File result = TestInitializer.wordsApi.getDocumentWithFormat(request);
         assertTrue(result.length() > 0);

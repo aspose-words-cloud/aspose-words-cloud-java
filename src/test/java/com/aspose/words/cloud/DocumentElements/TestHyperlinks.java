@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.HyperlinkResponse;
 import com.aspose.words.cloud.model.HyperlinksResponse;
@@ -37,7 +38,6 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 public class TestHyperlinks  extends TestCase {
     private String testFolder = "DocumentElements/Hyperlinks";
@@ -56,10 +56,10 @@ public void testGetDocumentHyperlinkByIndex() throws ApiException, FileNotFoundE
         String fileName = "test_doc.docx";
         String remoteName = "TestGetDocumentHyperlinkByIndex.doc";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentHyperlinkByIndexRequest request = new GetDocumentHyperlinkByIndexRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         HyperlinkResponse result = TestInitializer.wordsApi.getDocumentHyperlinkByIndex(request);
@@ -73,10 +73,10 @@ public void testGetDocumentHyperlinkByIndex() throws ApiException, FileNotFoundE
 public void testGetDocumentHyperlinks() throws ApiException, FileNotFoundException {
         String fileName = "test_doc.docx";
         String remoteName = "TestGetDocumentHyperlinks.doc";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentHyperlinksRequest request = new GetDocumentHyperlinksRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null, null);
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null, null);
 
         HyperlinksResponse result = TestInitializer.wordsApi.getDocumentHyperlinks(request);
         assertNotNull(result);

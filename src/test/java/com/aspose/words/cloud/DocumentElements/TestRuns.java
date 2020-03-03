@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.Run;
 import com.aspose.words.cloud.model.RunResponse;
@@ -38,7 +39,6 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 public class TestRuns extends TestCase {
     private String testFolder = "DocumentElements/Runs";
@@ -58,10 +58,10 @@ public void testDeleteRun() throws ApiException, FileNotFoundException {
         String remoteName = "TestDeleteRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteRunRequest request = new DeleteRunRequest(remoteName, paragraphPath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteRun(request);
@@ -77,10 +77,10 @@ public void testUpdateRun() throws ApiException, FileNotFoundException {
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
         Run body = (Run) new Run().text("Run with text");
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateRunRequest request = new UpdateRunRequest(remoteName, body, paragraphPath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         RunResponse result = TestInitializer.wordsApi.updateRun(request);
@@ -96,10 +96,10 @@ public void testInsertRun() throws ApiException, FileNotFoundException {
         String remoteName = "TestInsertRun.doc";
         String paragraphPath = "paragraphs/1";
         Run body = (Run) new Run().text("Run with text");
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertRunRequest request = new InsertRunRequest(remoteName, paragraphPath, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, null);
 
         RunResponse result = TestInitializer.wordsApi.insertRun(request);

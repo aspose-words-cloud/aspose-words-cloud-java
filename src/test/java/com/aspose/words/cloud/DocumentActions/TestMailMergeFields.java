@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentActions;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.FieldNamesResponse;
 import com.aspose.words.cloud.model.requests.GetDocumentFieldNamesOnlineRequest;
@@ -55,10 +56,10 @@ public class TestMailMergeFields extends TestCase {
 public void testGetDocumentFieldNames() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentFieldNames.docx";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetDocumentFieldNamesRequest request = new GetDocumentFieldNamesRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
 
         FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNames(request);

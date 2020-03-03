@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
@@ -36,7 +37,6 @@ import junit.framework.TestCase;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 public class TestTables extends TestCase {
     private String testFolder = "DocumentElements/Tables";
@@ -56,10 +56,10 @@ public void testDeleteTable() throws ApiException, FileNotFoundException {
         String remoteName = "TestDeleteTable.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteTableRequest request = new DeleteTableRequest(remoteName, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteTable(request);
@@ -74,10 +74,10 @@ public void testDeleteTableWithoutNodePath() throws ApiException, FileNotFoundEx
         String remoteName = "TestDeleteTableWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteTableWithoutNodePathRequest request = new DeleteTableWithoutNodePathRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteTableWithoutNodePath(request);
@@ -93,10 +93,10 @@ public void testDeleteTableCell() throws ApiException, FileNotFoundException {
         Integer index = 0;
         String sourcePath = "sections/0/tables/2/rows/0";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteTableCellRequest request = new DeleteTableCellRequest(remoteName, sourcePath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteTableCell(request);
@@ -112,10 +112,10 @@ public void testDeleteTableRow() throws ApiException, FileNotFoundException {
         Integer index = 0;
         String sourcePath = "tables/1";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteTableRowRequest request = new DeleteTableRowRequest(remoteName, sourcePath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteTableRow(request);
@@ -131,10 +131,10 @@ public void testGetBorder() throws ApiException, FileNotFoundException {
         String sourcePath = "sections/0/tables/2/rows/0";
         String borderType = "left";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetBorderRequest request = new GetBorderRequest(remoteName, sourcePath, borderType,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         BorderResponse result = TestInitializer.wordsApi.getBorder(request);
@@ -150,10 +150,10 @@ public void testGetBorders() throws ApiException, FileNotFoundException {
         String remoteName = "TestGetBorders.docx";
         String sourcePath = "sections/0/tables/2/rows/0";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetBordersRequest request = new GetBordersRequest(remoteName, sourcePath,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         BordersResponse result = TestInitializer.wordsApi.getBorders(request);
@@ -169,10 +169,10 @@ public void testGetTable() throws ApiException, FileNotFoundException {
         String remoteName = "TestGetTable.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTableRequest request = new GetTableRequest(remoteName, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TableResponse result = TestInitializer.wordsApi.getTable(request);
@@ -188,10 +188,10 @@ public void testGetTableWithoutNodePath() throws ApiException, FileNotFoundExcep
         String remoteName = "TestGetTableWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTableWithoutNodePathRequest request = new GetTableWithoutNodePathRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TableResponse result = TestInitializer.wordsApi.getTableWithoutNodePath(request);
@@ -208,10 +208,10 @@ public void testGetTableCell() throws ApiException, FileNotFoundException {
         Integer index = 0;
         String sourcePath = "sections/0/tables/2/rows/0";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTableCellRequest request = new GetTableCellRequest(remoteName, sourcePath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TableCellResponse result = TestInitializer.wordsApi.getTableCell(request);
@@ -228,10 +228,10 @@ public void testGetTableCellFormat() throws ApiException, FileNotFoundException 
         Integer index = 0;
         String sourcePath = "sections/0/tables/2/rows/0";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTableCellFormatRequest request = new GetTableCellFormatRequest(remoteName, sourcePath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TableCellFormatResponse result = TestInitializer.wordsApi.getTableCellFormat(request);
@@ -248,10 +248,10 @@ public void testGetTableRow() throws ApiException, FileNotFoundException {
         Integer index = 0;
         String sourcePath = "tables/1";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTableRowRequest request = new GetTableRowRequest(remoteName, sourcePath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TableRowResponse result = TestInitializer.wordsApi.getTableRow(request);
@@ -268,10 +268,10 @@ public void testGetTableRowFormat() throws ApiException, FileNotFoundException {
         Integer index = 0;
         String sourcePath = "sections/0/tables/2";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTableRowFormatRequest request = new GetTableRowFormatRequest(remoteName, sourcePath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TableRowFormatResponse result = TestInitializer.wordsApi.getTableRowFormat(request);
@@ -286,10 +286,10 @@ public void testGetTables() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTables.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTablesRequest request = new GetTablesRequest(remoteName,"",
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TableLinkCollectionResponse result = TestInitializer.wordsApi.getTables(request);
@@ -304,10 +304,10 @@ public void testGetTablesWithoutNodePath() throws ApiException, FileNotFoundExce
         String fileName = "TablesGet.docx";
         String remoteName = "TestGetTablesWithoutNodePath.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTablesWithoutNodePathRequest request = new GetTablesWithoutNodePathRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TableLinkCollectionResponse result = TestInitializer.wordsApi.getTablesWithoutNodePath(request);
@@ -323,10 +323,10 @@ public void testInsertTable() throws ApiException, FileNotFoundException {
         String remoteName = "TestInsertTable.docx";
         TableInsert body = new TableInsert().columnsCount(3).rowsCount(5);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertTableRequest request = new InsertTableRequest(remoteName, "",
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, body);
 
         TableResponse result = TestInitializer.wordsApi.insertTable(request);
@@ -342,10 +342,10 @@ public void testInsertTableWithoutNodePath() throws ApiException, FileNotFoundEx
         String remoteName = "TestInsertTableWithoutNodePath.docx";
         TableInsert body = new TableInsert().columnsCount(3).rowsCount(5);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertTableWithoutNodePathRequest request = new InsertTableWithoutNodePathRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, body);
 
         TableResponse result = TestInitializer.wordsApi.insertTableWithoutNodePath(request);
@@ -362,10 +362,10 @@ public void testInsertTableCell() throws ApiException, FileNotFoundException {
         TableCellInsert body = new TableCellInsert();
         String sourcePath = "sections/0/tables/2/rows/0";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertTableCellRequest request = new InsertTableCellRequest(remoteName, sourcePath,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, body);
 
         TableCellResponse result = TestInitializer.wordsApi.insertTableCell(request);
@@ -382,10 +382,10 @@ public void testInsertTableRow() throws ApiException, FileNotFoundException {
         TableRowInsert body = new TableRowInsert().columnsCount(5);
         String sourcePath = "sections/0/tables/2";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertTableRowRequest request = new InsertTableRowRequest(remoteName, sourcePath,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, body);
 
         TableRowResponse result = TestInitializer.wordsApi.insertTableRow(request);
@@ -401,10 +401,10 @@ public void testRenderTable() throws ApiException, FileNotFoundException {
         String remoteName = "TestRenderTable.docx";
         Integer index = 0;
         String format = "png";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         RenderTableRequest request = new RenderTableRequest(remoteName, format, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null);
 
         File result = TestInitializer.wordsApi.renderTable(request);
@@ -420,10 +420,10 @@ public void testRenderTableWithoutNodePath() throws ApiException, FileNotFoundEx
         String remoteName = "TestRenderTableWithoutNodePath.docx";
         Integer index = 0;
         String format = "png";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         RenderTableWithoutNodePathRequest request = new RenderTableWithoutNodePathRequest(remoteName, format, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null);
 
         File result = TestInitializer.wordsApi.renderTableWithoutNodePath(request);
@@ -442,10 +442,10 @@ public void testUpdateTableCellFormat() throws ApiException, FileNotFoundExcepti
         String sourcePath = "sections/0/tables/2/rows/0";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateTableCellFormatRequest request = new UpdateTableCellFormatRequest(remoteName, sourcePath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, body);
 
         TableCellFormatResponse result = TestInitializer.wordsApi.updateTableCellFormat(request);
@@ -461,10 +461,10 @@ public void testGetTableProperties() throws ApiException, FileNotFoundException 
         String remoteName = "TestGetTableProperties.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTablePropertiesRequest request = new GetTablePropertiesRequest(remoteName, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TablePropertiesResponse result = TestInitializer.wordsApi.getTableProperties(request);
@@ -480,10 +480,10 @@ public void testGetTablePropertiesWithoutNodePath() throws ApiException, FileNot
         String remoteName = "TestGetTablePropertiesWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetTablePropertiesWithoutNodePathRequest request = new GetTablePropertiesWithoutNodePathRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         TablePropertiesResponse result = TestInitializer.wordsApi.getTablePropertiesWithoutNodePath(request);
@@ -502,10 +502,10 @@ public void testUpdateTableProperties() throws ApiException, FileNotFoundExcepti
                 .allowAutoFit(false).bidi(true).bottomPadding(1.0).cellSpacing(2.0).leftIndent(3.0)
                 .rightPadding(5.0).styleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS).topPadding(6.0);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(remoteName, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, body);
 
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTableProperties(request);
@@ -524,10 +524,10 @@ public void testUpdateTablePropertiesWithoutNodePath() throws ApiException, File
                 .allowAutoFit(false).bidi(true).bottomPadding(1.0).cellSpacing(2.0).leftIndent(3.0)
                 .rightPadding(5.0).styleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS).topPadding(6.0);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateTablePropertiesWithoutNodePathRequest request = new UpdateTablePropertiesWithoutNodePathRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, body);
 
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTablePropertiesWithoutNodePath(request);
@@ -546,10 +546,10 @@ public void testUpdateTableRowFormat() throws ApiException, FileNotFoundExceptio
                 .height(10.0).heightRule(TableRowFormat.HeightRuleEnum.AUTO);
         String sourcePath = "sections/0/tables/2";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateTableRowFormatRequest request = new UpdateTableRowFormatRequest(remoteName, sourcePath, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null, body);
 
         TableRowFormatResponse result = TestInitializer.wordsApi.updateTableRowFormat(request);
@@ -565,12 +565,12 @@ public void testDeleteBorder() throws ApiException, FileNotFoundException {
         String remoteName = "TestDeleteTableBorder.docx";
         String borderType = "left";
         String sourcePath = "tables/1/rows/0/cells/0/";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteBorderRequest request = new DeleteBorderRequest(remoteName, sourcePath, borderType,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null);
 
         BorderResponse result = TestInitializer.wordsApi.deleteBorder(request);
@@ -585,12 +585,12 @@ public void testDeleteBorders() throws ApiException, FileNotFoundException {
         String fileName = "TablesGet.docx";
         String remoteName = "TestDeleteTableBorders.docx";
         String sourcePath = "tables/1/rows/0/cells/0/";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteBordersRequest request = new DeleteBordersRequest(remoteName, sourcePath,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null);
 
         BordersResponse result = TestInitializer.wordsApi.deleteBorders(request);
@@ -609,10 +609,10 @@ public void testUpdateBorder() throws ApiException, FileNotFoundException {
         Border body = new Border().borderType(Border.BorderTypeEnum.LEFT).color(new XmlColor().alpha(2)).distanceFromText(6.0)
                 .lineStyle(Border.LineStyleEnum.DASHDOTSTROKER).lineWidth(2.0).shadow(true);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateBorderRequest request = new UpdateBorderRequest(remoteName, body, sourcePath, borderType,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         BorderResponse result = TestInitializer.wordsApi.updateBorder(request);

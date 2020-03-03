@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.BookmarkData;
 import com.aspose.words.cloud.model.BookmarkResponse;
@@ -38,7 +39,6 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 public class TestBookmarks  extends TestCase {
     private String testFolder = "DocumentElements/Bookmarks";
@@ -58,10 +58,10 @@ public void testGetBookmarkByName() throws ApiException, FileNotFoundException {
         String remoteName = "TestGetBookmarkByName.docx";
         String bookmarkName = "aspose";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetBookmarkByNameRequest request = new GetBookmarkByNameRequest(remoteName, bookmarkName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null);
 
         BookmarkResponse result = TestInitializer.wordsApi.getBookmarkByName(request);
@@ -76,10 +76,10 @@ public void testGetBookmarks() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentBookmarks.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetBookmarksRequest request = new GetBookmarksRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null);
 
         BookmarksResponse result = TestInitializer.wordsApi.getBookmarks(request);
@@ -94,13 +94,13 @@ public void testUpdateBookmark() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUpdateBookmark.docx";
         String bookmarkName = "aspose";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
         BookmarkData body = new BookmarkData().name(bookmarkName).text("This will be the text for Aspose");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateBookmarkRequest request = new UpdateBookmarkRequest(remoteName, body, bookmarkName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, destName, null, null);
 
         BookmarkResponse result = TestInitializer.wordsApi.updateBookmark(request);

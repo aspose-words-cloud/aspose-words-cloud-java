@@ -1,5 +1,4 @@
 package com.aspose.words.cloud;
-import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.api.WordsApi;
 import com.aspose.words.cloud.model.FilesUploadResult;
 import com.aspose.words.cloud.model.requests.UploadFileRequest;
@@ -15,9 +14,10 @@ import java.util.Map;
 public final class TestInitializer {
     public static WordsApi wordsApi;
     public static String LocalTestFolder = "TestData";
-    public static String LocalCommonFolder = Paths.get(LocalTestFolder, "Common").toString();
-    public static String RemoteTestFolder = Paths.get("Temp", "SdkTests", "java").toString();
-    public static String RemoteTestOut = Paths.get(RemoteTestFolder, "TestOut").toString();
+    public static String LocalCommonFolder = PathUtil.get(LocalTestFolder, "Common").toString();
+    public static String RemoteTestFolder = PathUtil.get("Temp", "SdkTests", "java").toString();
+    public static String RemoteTestOut = PathUtil.get(RemoteTestFolder, "TestOut").toString();
+
 
     public static void Initialize() throws FileNotFoundException, ApiException {
         Initialize("Settings/servercreds.json");

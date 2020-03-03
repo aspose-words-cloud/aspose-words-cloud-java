@@ -27,9 +27,9 @@
 package com.aspose.words.cloud.DocumentElements;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.FormField;
 import com.aspose.words.cloud.model.FormFieldResponse;
@@ -57,7 +57,7 @@ public class TestFormFields extends TestCase {
 public void testUpdateFormField() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestUpdateFormField.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
         Integer index = 0;
         FormField body = new FormFieldTextInput()
                 .textInputFormat("")
@@ -66,10 +66,10 @@ public void testUpdateFormField() throws ApiException, FileNotFoundException {
                 .enabled(true)
                 .calculateOnExit(true)
                 .statusText("");
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(remoteName, body, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null);
 
         FormFieldResponse result = TestInitializer.wordsApi.updateFormField(request);
@@ -83,7 +83,7 @@ public void testUpdateFormField() throws ApiException, FileNotFoundException {
 public void testUpdateFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestUpdateFormFieldWithoutNodePath.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
         Integer index = 0;
         FormField body = new FormFieldTextInput()
                 .textInputFormat("")
@@ -92,10 +92,10 @@ public void testUpdateFormFieldWithoutNodePath() throws ApiException, FileNotFou
                 .enabled(true)
                 .calculateOnExit(true)
                 .statusText("");
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         UpdateFormFieldWithoutNodePathRequest request = new UpdateFormFieldWithoutNodePathRequest(remoteName, body, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null);
 
         FormFieldResponse result = TestInitializer.wordsApi.updateFormFieldWithoutNodePath(request);
@@ -109,7 +109,7 @@ public void testUpdateFormFieldWithoutNodePath() throws ApiException, FileNotFou
 public void testInsertFormField() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestInsertFormField.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
         FormField body = new FormFieldTextInput()
                 .textInputFormat("UPPERCASE")
                 .textInputDefault("123")
@@ -117,10 +117,10 @@ public void testInsertFormField() throws ApiException, FileNotFoundException {
                 .enabled(true)
                 .calculateOnExit(true)
                 .statusText("");
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertFormFieldRequest request = new InsertFormFieldRequest(remoteName, body, "sections/0",
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null, null);
 
         FormFieldResponse result = TestInitializer.wordsApi.insertFormField(request);
@@ -134,7 +134,7 @@ public void testInsertFormField() throws ApiException, FileNotFoundException {
 public void testInsertFormFieldWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestInsertFormFieldWithoutNodePath.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
         FormField body = new FormFieldTextInput()
                 .textInputFormat("UPPERCASE")
                 .textInputDefault("123")
@@ -142,10 +142,10 @@ public void testInsertFormFieldWithoutNodePath() throws ApiException, FileNotFou
                 .enabled(true)
                 .calculateOnExit(true)
                 .statusText("");
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         InsertFormFieldWithoutNodePathRequest request = new InsertFormFieldWithoutNodePathRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null, null);
 
         FormFieldResponse result = TestInitializer.wordsApi.insertFormFieldWithoutNodePath(request);
@@ -160,10 +160,10 @@ public void testDeleteFormField() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestDeleteFormField.docx";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteFormFieldRequest request = new DeleteFormFieldRequest(remoteName, "sections/0", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteFormField(request);
@@ -177,10 +177,10 @@ public void testDeleteFormFieldWithoutNodePath() throws ApiException, FileNotFou
         String fileName = "FormFilled.docx";
         String remoteName = "TestDeleteFormFieldWithoutNodePath.docx";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         DeleteFormFieldWithoutNodePathRequest request = new DeleteFormFieldWithoutNodePathRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteFormFieldWithoutNodePath(request);
@@ -194,10 +194,10 @@ public void testGetFormField() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormField.docx";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetFormFieldRequest request = new GetFormFieldRequest(remoteName, "sections/0", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         FormFieldResponse result = TestInitializer.wordsApi.getFormField(request);
@@ -212,10 +212,10 @@ public void testGetFormFieldWithoutNodePath() throws ApiException, FileNotFoundE
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormFieldWithoutNodePath.docx";
         Integer index = 0;
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetFormFieldWithoutNodePathRequest request = new GetFormFieldWithoutNodePathRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         FormFieldResponse result = TestInitializer.wordsApi.getFormFieldWithoutNodePath(request);
@@ -230,10 +230,10 @@ public void testGetFormFieldWithoutNodePath() throws ApiException, FileNotFoundE
 public void testGetFormFields() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormFields.docx";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetFormFieldsRequest request = new GetFormFieldsRequest(remoteName, "sections/0",
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         FormFieldsResponse result = TestInitializer.wordsApi.getFormFields(request);
@@ -247,10 +247,10 @@ public void testGetFormFields() throws ApiException, FileNotFoundException {
 public void testGetFormFieldsWithoutNodePath() throws ApiException, FileNotFoundException {
         String fileName = "FormFilled.docx";
         String remoteName = "TestGetFormFieldsWithoutNodePath.docx";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         GetFormFieldsWithoutNodePathRequest request = new GetFormFieldsWithoutNodePathRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         FormFieldsResponse result = TestInitializer.wordsApi.getFormFieldsWithoutNodePath(request);

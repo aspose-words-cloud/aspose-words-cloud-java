@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentActions;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.RevisionsModificationResponse;
 import com.aspose.words.cloud.model.requests.AcceptAllRevisionsRequest;
@@ -36,7 +37,6 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 public class TestRevisions extends TestCase {
     private String testFolder = "DocumentActions/Revisions";
@@ -55,10 +55,10 @@ public void testAcceptAllRevisions() throws ApiException, FileNotFoundException 
         String fileName = "test_doc.docx";
         String remoteName = "TestAcceptAllRevisions.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.acceptAllRevisions(request);
@@ -73,10 +73,10 @@ public void testRejectAllRevisions() throws ApiException, FileNotFoundException 
         String fileName = "test_doc.docx";
         String remoteName = "TestRejectAllRevisions.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         RejectAllRevisionsRequest request = new RejectAllRevisionsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
                 null, null, null, null);
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.rejectAllRevisions(request);

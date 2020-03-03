@@ -27,9 +27,9 @@
 package com.aspose.words.cloud.DocumentElements;
 
 import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.ReplaceTextParameters;
 import com.aspose.words.cloud.model.ReplaceTextResponse;
@@ -57,13 +57,13 @@ public class TestText extends TestCase {
 public void testPostReplaceText() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostReplaceText.docx";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
         ReplaceTextParameters body = new ReplaceTextParameters().oldValue("aspose").newValue("aspose new");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         ReplaceTextRequest request = new ReplaceTextRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null, destName, null, null);
 
         ReplaceTextResponse result = TestInitializer.wordsApi.replaceText(request);
@@ -79,10 +79,10 @@ public void testSearch() throws ApiException, FileNotFoundException {
         String remoteName = "TestSearch.docx";
         String pattern = "aspose";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
 
         SearchRequest request = new SearchRequest(remoteName, pattern,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
                 null);
 
         SearchResponse result = TestInitializer.wordsApi.search(request);
