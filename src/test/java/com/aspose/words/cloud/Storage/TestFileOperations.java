@@ -126,7 +126,7 @@ public void testMoveFile() throws ApiException, FileNotFoundException {
     @Test
 public void testDownloadFile() throws ApiException, FileNotFoundException {
         String fileName = "test_multi_pages.docx";
-        String remoteName = "TestDeleteFileSrc%s.docx";
+        String remoteName = "testDownloadFile.docx";
 
         String remotePath = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/");
 
