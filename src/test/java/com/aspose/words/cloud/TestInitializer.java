@@ -8,7 +8,6 @@ import com.google.gson.stream.JsonReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.nio.file.Paths;
 import java.util.Map;
 
 public final class TestInitializer {
@@ -30,7 +29,7 @@ public final class TestInitializer {
 
         wordsApi = new WordsApi(new ApiClient());
         ApiClient client = wordsApi.getApiClient();
-        client.setDebugging(false).setBaseUrl(creds.get("BaseUrl")).setAppKey(creds.get("AppKey")).setAppSid(creds.get("AppSid"));
+        client.setDebugging(Boolean.parseBoolean(creds.get("Debug"))).setBaseUrl(creds.get("BaseUrl")).setAppKey(creds.get("AppKey")).setAppSid(creds.get("AppSid"));
     }
 
     public static FilesUploadResult UploadFile(String file, String path) throws FileNotFoundException, ApiException {
