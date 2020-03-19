@@ -30,8 +30,7 @@ node('words-linux') {
 								sh 'mkdir -p Settings'
 								sh 'echo "{\\"AppSid\\": \\"$AppSid\\",\\"AppKey\\": \\"$AppKey\\", \\"BaseUrl\\": \\"$testServerUrl\\"}" > Settings/servercreds.json'
 							}
-							sh 'cat wordsSettings.xml'
-							sh "mvn --settings wordsSettings.xml deploy -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json"							
+							sh "mvn --settings wordsSettings.xml deploy -Dmaven.javadoc.skip=true -DcheckModificationExcludeList=wordsSettings.xml,Settings/servercreds.json"							
 						}
 					}
 				}
