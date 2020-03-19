@@ -37,6 +37,8 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
+import java.io.IOException;
+
 public class TestLoadWebDocument extends TestCase {
     @Override
     protected void setUp() throws Exception {
@@ -48,7 +50,7 @@ public class TestLoadWebDocument extends TestCase {
      * Test for loading web document
      */
     @Test
-public void testPostLoadWebDocument() throws ApiException {
+public void testPostLoadWebDocument() throws ApiException, IOException {
         SaveOptionsData saveOptionsData = new SaveOptionsData()
                 .saveFormat("doc")
                 .fileName("google.doc")

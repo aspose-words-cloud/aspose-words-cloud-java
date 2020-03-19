@@ -26,9 +26,6 @@
  */
 package com.aspose.words.cloud;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -37,29 +34,11 @@ import okio.BufferedSink;
 import okio.Okio;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.format.DateTimeFormatter;
 
-import javax.net.ssl.*;
-
-import java.io.Console;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.security.GeneralSecurityException;
-import java.security.KeyStore;
-import java.security.SecureRandom;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-import java.text.DateFormat;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -71,7 +50,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "19.10.0";
+    private String clientVersion = "20.3.0";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -85,6 +64,15 @@ public class ApiClient {
     private String refreshToken;
     private String appKey;
     private String appSid;
+    
+    public ApiClient(String appSid, String appKey, String baseUrl) {
+        this();
+        this.appSid = appSid;
+        this.appKey = appKey;
+        if (baseUrl != null) {
+            this.setBaseUrl(baseUrl);
+        }
+    }
 
     /*
      * Constructor for ApiClient
@@ -194,7 +182,7 @@ public class ApiClient {
      */
     public ApiClient setBasePath(String basePath) {
         this.basePath = basePath;
-        this.baseUrl = basePath.replace("/v4.0", "");
+        this.baseUrl = basePath.replace("/v1.1", "").replace("/v1", "").replace("/v2", "").replace("/v3", "");
         return this;
     }
 
@@ -893,7 +881,7 @@ public class ApiClient {
      * @return The HTTP call
      * @throws ApiException If fail to serialize the request body object
      */
-    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener);
 
         return httpClient.newCall(request);
@@ -914,7 +902,7 @@ public class ApiClient {
      * @return The HTTP request 
      * @throws ApiException If fail to serialize the request body object
      */
-    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         addOAuthAuthentication(headerParams);
         final String url = buildUrl(path, queryParams, collectionQueryParams);
         final Request.Builder reqBuilder = new Request.Builder().url(url);
@@ -1052,12 +1040,12 @@ public class ApiClient {
      * @param formParams Form parameters in the form of Map
      * @return RequestBody
      */
-    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) {
+    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) throws IOException {
         MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
         for (Entry<String, Object> param : formParams.entrySet()) {
-            if (param.getValue() instanceof File) {
-                File file = (File) param.getValue();
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
+            if (param.getValue() instanceof byte[]) {
+                byte[] file = (byte[]) param.getValue();
+                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + param.getKey() + "\"");
                 MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
                 mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
             } 
@@ -1075,8 +1063,8 @@ public class ApiClient {
      * @param file The given file
      * @return The guessed Content-Type
      */
-    public String guessContentTypeFromFile(File file) {
-        String contentType = URLConnection.guessContentTypeFromName(file.getName());
+    public String guessContentTypeFromFile(byte[] file) throws IOException {
+        String contentType = URLConnection.guessContentTypeFromStream(new ByteArrayInputStream(file));
         if (contentType == null) {
             return "application/octet-stream";
         } 
@@ -1087,7 +1075,7 @@ public class ApiClient {
 
      /**
      * Request OAuth token
-     * @throws ApiException If fails to authorize
+     @throw ApiException If authorization is failed
      */
     public void requestToken() throws ApiException {
         try {
@@ -1131,6 +1119,5 @@ public class ApiClient {
     */
     private class GetAccessTokenResult {
         public String access_token;
-        public String refresh_token;
     }
 }

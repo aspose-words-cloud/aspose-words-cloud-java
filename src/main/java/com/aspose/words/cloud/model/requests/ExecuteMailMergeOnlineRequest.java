@@ -25,8 +25,6 @@
  * --------------------------------------------------------------------------------------
  */
 package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
-import java.io.File;
 
 /*
  * Request model for executeMailMergeOnline operation.
@@ -35,12 +33,12 @@ public class ExecuteMailMergeOnlineRequest {
     /*
      * File with template
      */
-    private File Template;
+    private byte[] Template;
 
     /*
      * File with mailmerge data
      */
-    private File Data;
+    private byte[] Data;
 
     /*
      * With regions flag.
@@ -60,13 +58,13 @@ public class ExecuteMailMergeOnlineRequest {
     /*
      * Initializes a new instance of the executeMailMergeOnlineRequest class.
      *  
-     * @param File template File with template
-     * @param File data File with mailmerge data
+     * @param byte[] template File with template
+     * @param byte[] data File with mailmerge data
      * @param Boolean withRegions With regions flag.
      * @param String cleanup Clean up options.
      * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
      */
-    public ExecuteMailMergeOnlineRequest(File template,  File data,  Boolean withRegions,  String cleanup,  String documentFileName) {
+    public ExecuteMailMergeOnlineRequest(byte[] template,  byte[] data,  Boolean withRegions,  String cleanup,  String documentFileName) {
         Template = template;
         Data = data;
         WithRegions = withRegions;
@@ -77,28 +75,28 @@ public class ExecuteMailMergeOnlineRequest {
     /*
      *  Gets File with template
      */
-    public File getTemplate() {
+    public byte[] getTemplate() {
         return Template;
     }
 
     /*
      * Sets File with template
      */
-    public void setTemplate(File value) {
+    public void setTemplate(byte[] value) {
         Template = value;
     }
 
     /*
      *  Gets File with mailmerge data
      */
-    public File getData() {
+    public byte[] getData() {
         return Data;
     }
 
     /*
      * Sets File with mailmerge data
      */
-    public void setData(File value) {
+    public void setData(byte[] value) {
         Data = value;
     }
 

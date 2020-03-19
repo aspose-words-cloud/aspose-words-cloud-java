@@ -58,12 +58,12 @@ public class TestExecuteMailMerge extends TestCase {
 public void testPostDocumentExecuteMailMerge() throws ApiException, IOException {
         String fileName = "SampleMailMergeTemplate.docx";
         String remoteName = "TestPostDocumentExecuteMailMerge.docx";
-        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, "DocumentActions", "MailMerge", fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName);
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, "DocumentActions", "MailMerge", fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
         String data = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt")), "utf8");
 
         ExecuteMailMergeRequest request = new ExecuteMailMergeRequest(remoteName, data,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null,
                 null, destName);
 
@@ -75,10 +75,10 @@ public void testPostDocumentExecuteMailMerge() throws ApiException, IOException 
      * Test for executing mail merge online
      */
     @Test
-public void testPutExecuteMailMergeOnline() throws ApiException {
+public void testPutExecuteMailMergeOnline() throws ApiException, IOException {
         String fileName = "SampleMailMergeTemplate.docx";
-        File file = Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toFile();
-        File data = Paths.get(TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt").toFile();
+        byte[] file = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toAbsolutePath());
+        byte[] data = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, testFolder, "SampleMailMergeTemplateData.txt").toAbsolutePath());
 
         ExecuteMailMergeOnlineRequest request = new ExecuteMailMergeOnlineRequest(file, data,
                 null, null, null);

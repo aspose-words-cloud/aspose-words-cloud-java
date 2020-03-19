@@ -31,11 +31,10 @@ import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.StatDataResponse;
 import com.aspose.words.cloud.model.requests.GetDocumentStatisticsRequest;
+import junit.framework.TestCase;
 import org.junit.Test;
 
-import junit.framework.TestCase;
-
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class TestDocumentStatistics extends TestCase {
     private String testFolder = "DocumentActions/DocumentStatistics";
@@ -50,14 +49,14 @@ public class TestDocumentStatistics extends TestCase {
      * Test for getting document statistics
      */
     @Test
-public void testGetDocumentStatistics() throws ApiException, FileNotFoundException {
+public void testGetDocumentStatistics() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentStatistics.docx";
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentStatisticsRequest request = new GetDocumentStatisticsRequest(remoteName,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         StatDataResponse result = TestInitializer.wordsApi.getDocumentStatistics(request);

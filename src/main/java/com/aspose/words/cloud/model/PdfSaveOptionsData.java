@@ -28,10 +28,9 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.aspose.words.cloud.model.DownsampleOptionsData;
 import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
 import com.aspose.words.cloud.model.OutlineOptionsData;
 import com.aspose.words.cloud.model.PdfDigitalSignatureDetailsData;
 import com.aspose.words.cloud.model.PdfEncryptionDetailsData;

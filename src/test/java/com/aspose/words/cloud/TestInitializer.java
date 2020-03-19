@@ -8,14 +8,16 @@ import com.google.gson.stream.JsonReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Map;
 
 public final class TestInitializer {
     public static WordsApi wordsApi;
     public static String LocalTestFolder = "TestData";
-    public static String LocalCommonFolder = PathUtil.get(LocalTestFolder, "Common").toString();
-    public static String RemoteTestFolder = PathUtil.get("Temp", "SdkTests", "java").toString();
-    public static String RemoteTestOut = PathUtil.get(RemoteTestFolder, "TestOut").toString();
+    public static String LocalCommonFolder = PathUtil.get(LocalTestFolder, "Common");
+    public static String RemoteTestFolder = PathUtil.get("Temp", "SdkTests", "java");
+    public static String RemoteTestOut = PathUtil.get(RemoteTestFolder, "TestOut");
 
 
     public static void Initialize() throws FileNotFoundException, ApiException {
@@ -27,13 +29,11 @@ public final class TestInitializer {
             throw new FileNotFoundException("Please put your credentials into Settings/servercreds.json file");
         }
 
-        wordsApi = new WordsApi(new ApiClient());
-        ApiClient client = wordsApi.getApiClient();
-        client.setDebugging(Boolean.parseBoolean(creds.get("Debug"))).setBaseUrl(creds.get("BaseUrl")).setAppKey(creds.get("AppKey")).setAppSid(creds.get("AppSid"));
+        wordsApi = new WordsApi(creds.get("AppSid"), creds.get("AppKey"), creds.get("BaseUrl"));
     }
 
-    public static FilesUploadResult UploadFile(String file, String path) throws FileNotFoundException, ApiException {
-        UploadFileRequest request = new UploadFileRequest(new File(file), path, null);
+    public static FilesUploadResult UploadFile(String file, String path) throws IOException, ApiException {
+        UploadFileRequest request = new UploadFileRequest(Files.readAllBytes(new File(file).toPath()), path, null);
         return wordsApi.uploadFile(request);
     }
 }

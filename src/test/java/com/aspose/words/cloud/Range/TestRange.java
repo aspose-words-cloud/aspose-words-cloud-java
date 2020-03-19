@@ -37,11 +37,10 @@ import com.aspose.words.cloud.model.requests.GetRangeTextRequest;
 import com.aspose.words.cloud.model.requests.RemoveRangeRequest;
 import com.aspose.words.cloud.model.requests.ReplaceWithTextRequest;
 import com.aspose.words.cloud.model.requests.SaveAsRangeRequest;
-
 import junit.framework.TestCase;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class TestRange extends TestCase {
     private String testFolder = "DocumentElements/Range";
@@ -53,12 +52,12 @@ public class TestRange extends TestCase {
     }
 
     @Test
-public void testGetRangeText() throws ApiException, FileNotFoundException {
+public void testGetRangeText() throws ApiException, IOException {
         String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", expectedText = "This is HEADER ",
-                folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
-                remoteName = "TestGetRangeText.doc", fullName = PathUtil.get(folder, remoteName).toString();
+                folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), localName = "RangeGet.doc",
+                remoteName = "TestGetRangeText.doc", fullName = PathUtil.get(folder, remoteName);
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, localName),
                 fullName);
 
         GetRangeTextRequest request = new GetRangeTextRequest(remoteName, rangeStart, rangeEnd, folder, null, null,
@@ -68,11 +67,11 @@ public void testGetRangeText() throws ApiException, FileNotFoundException {
     }
 
     @Test
-public void testRemoveRange() throws ApiException, FileNotFoundException {
-        String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
-                remoteName = "TestRemoveRange.doc", fullName = PathUtil.get(folder, remoteName).toString();
+public void testRemoveRange() throws ApiException, IOException {
+        String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), localName = "RangeGet.doc",
+                remoteName = "TestRemoveRange.doc", fullName = PathUtil.get(folder, remoteName);
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, localName),
                 fullName);
 
         RemoveRangeRequest request = new RemoveRangeRequest(remoteName, rangeStart, rangeEnd, folder, null, null, null, null);
@@ -81,13 +80,13 @@ public void testRemoveRange() throws ApiException, FileNotFoundException {
     }
 
     @Test
-public void testSaveAsRange() throws ApiException, FileNotFoundException {
-        String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
-                remoteName = "TestSaveAsRange.doc", fullName = PathUtil.get(folder, remoteName).toString(),
+public void testSaveAsRange() throws ApiException, IOException {
+        String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), localName = "RangeGet.doc",
+                remoteName = "TestSaveAsRange.doc", fullName = PathUtil.get(folder, remoteName),
                 newDocName = TestInitializer.RemoteTestFolder + "/NewDoc.docx";
         RangeDocument rangeDoc = new RangeDocument().documentName(newDocName);
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, localName),
                 fullName);
 
         SaveAsRangeRequest request = new SaveAsRangeRequest(remoteName, rangeStart, rangeDoc, rangeEnd, folder, null, null, null);
@@ -96,13 +95,13 @@ public void testSaveAsRange() throws ApiException, FileNotFoundException {
     }
 
     @Test
-public void testReplaceWithText() throws ApiException, FileNotFoundException {
-        String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), localName = "RangeGet.doc",
-                remoteName = "TestReplaceWithText.doc", fullName = PathUtil.get(folder, remoteName).toString(),
+public void testReplaceWithText() throws ApiException, IOException {
+        String rangeStart = "id0.0.0", rangeEnd = "id0.0.1", folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), localName = "RangeGet.doc",
+                remoteName = "TestReplaceWithText.doc", fullName = PathUtil.get(folder, remoteName),
                 newText = "Replace header";
         ReplaceRange replacement = new ReplaceRange().text(newText);
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, localName).toString(),
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, localName),
                 fullName);
 
         ReplaceWithTextRequest request = new ReplaceWithTextRequest(remoteName, rangeStart, replacement, rangeEnd, folder, 

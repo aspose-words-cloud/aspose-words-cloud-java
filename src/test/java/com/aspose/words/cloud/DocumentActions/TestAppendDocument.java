@@ -33,11 +33,10 @@ import com.aspose.words.cloud.model.DocumentEntry;
 import com.aspose.words.cloud.model.DocumentEntryList;
 import com.aspose.words.cloud.model.DocumentResponse;
 import com.aspose.words.cloud.model.requests.AppendDocumentRequest;
-
 import junit.framework.TestCase;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class TestAppendDocument extends TestCase {
     private String testFolder = "DocumentActions/AppendDocument";
@@ -52,17 +51,17 @@ public class TestAppendDocument extends TestCase {
      * Test for appending document
      */
     @Test
-public void testPostAppendDocument() throws ApiException, FileNotFoundException {
+public void testPostAppendDocument() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPostAppendDocument.docx";
-        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName);
         DocumentEntry docEntry = new DocumentEntry()
-                .href(PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString())
+                .href(PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName))
                 .importFormatMode("KeepSourceFormatting");
         DocumentEntryList body = new DocumentEntryList().addDocumentEntriesItem(docEntry);
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
         AppendDocumentRequest request = new AppendDocumentRequest(remoteName, body,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null, null, destName, null, null);
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null, null, destName, null, null);
         DocumentResponse result = TestInitializer.wordsApi.appendDocument(request);
         assertNotNull(result);
     }

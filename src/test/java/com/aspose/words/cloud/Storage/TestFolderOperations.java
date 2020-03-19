@@ -39,6 +39,7 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
+import java.io.IOException;
 import java.util.UUID;
 
 public class TestFolderOperations extends TestCase {
@@ -52,7 +53,7 @@ public class TestFolderOperations extends TestCase {
      * Test for createFolder
      */
     @Test
-public void testCreateFolder() throws ApiException {
+public void testCreateFolder() throws ApiException, IOException {
         String subFolder = "Temp/SdkTests/TestData/Storage";
         String guid = UUID.randomUUID().toString();
         String folderPath = subFolder + "/TestCreateFolder" + guid;
@@ -65,7 +66,7 @@ public void testCreateFolder() throws ApiException {
     * Test for deleteFolder
     */
     @Test
-public void testDeleteFolder() throws ApiException {
+public void testDeleteFolder() throws ApiException, IOException {
         String subFolder = "Temp/SdkTests/TestData/Storage";
         String guid = UUID.randomUUID().toString();
         String folderPath = subFolder + "/TestDeleteFolder" + guid;
@@ -81,7 +82,7 @@ public void testDeleteFolder() throws ApiException {
     * Test for copyFolder
     */
     @Test
-public void testCopyFolder() throws ApiException{
+public void testCopyFolder() throws ApiException, IOException{
         String subFolder = "Temp/SdkTests/TestData/Storage";
         String guid = UUID.randomUUID().toString();
         String folderPathSrc = subFolder + "/TestCopyFolderSrc" + guid;
@@ -98,7 +99,7 @@ public void testCopyFolder() throws ApiException{
     * Test for moveFolder
     */
     @Test
-public void testMovefolder() throws ApiException{
+public void testMovefolder() throws ApiException, IOException{
         String subFolder = "Temp/SdkTests/TestData/Storage";
         String guid = UUID.randomUUID().toString();
         String folderPathSrc = subFolder + "/TestMoveFolderSrc" + guid;
@@ -115,7 +116,7 @@ public void testMovefolder() throws ApiException{
     * Test for getFilesList
     */
     @Test
-public void testGetFilesList() throws ApiException {
+public void testGetFilesList() throws ApiException, IOException {
         String subFolder = "Temp/SdkTests/TestData/Storage";
         GetFilesListRequest request = new GetFilesListRequest(subFolder, null);
         FilesList result = TestInitializer.wordsApi.getFilesList(request);

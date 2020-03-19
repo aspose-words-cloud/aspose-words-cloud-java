@@ -34,7 +34,7 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class TestMacros extends TestCase {
     private String testFolder = "DocumentElements/Macros";
@@ -49,13 +49,13 @@ public class TestMacros extends TestCase {
      * Test for getting document hyperlink by index
      */
     @Test
-public void testDeleteMacros() throws ApiException, FileNotFoundException {
+public void testDeleteMacros() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteMacros.doc";
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         DeleteMacrosRequest request = new DeleteMacrosRequest(remoteName,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteMacros(request);

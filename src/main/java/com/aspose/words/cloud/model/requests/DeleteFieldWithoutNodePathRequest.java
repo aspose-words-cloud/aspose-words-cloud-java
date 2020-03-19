@@ -25,8 +25,6 @@
  * --------------------------------------------------------------------------------------
  */
 package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
-import java.io.File;
 
 /*
  * Request model for deleteFieldWithoutNodePath operation.

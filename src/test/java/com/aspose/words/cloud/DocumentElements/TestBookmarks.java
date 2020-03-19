@@ -39,6 +39,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class TestBookmarks  extends TestCase {
     private String testFolder = "DocumentElements/Bookmarks";
@@ -53,15 +54,15 @@ public class TestBookmarks  extends TestCase {
      * Test for getting document bookmark by name
      */
     @Test
-public void testGetBookmarkByName() throws ApiException, FileNotFoundException {
+public void testGetBookmarkByName() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetBookmarkByName.docx";
         String bookmarkName = "aspose";
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetBookmarkByNameRequest request = new GetBookmarkByNameRequest(remoteName, bookmarkName,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         BookmarkResponse result = TestInitializer.wordsApi.getBookmarkByName(request);
@@ -72,14 +73,14 @@ public void testGetBookmarkByName() throws ApiException, FileNotFoundException {
      * Test for getting document bookmarks
      */
     @Test
-public void testGetBookmarks() throws ApiException, FileNotFoundException {
+public void testGetBookmarks() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentBookmarks.docx";
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetBookmarksRequest request = new GetBookmarksRequest(remoteName,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         BookmarksResponse result = TestInitializer.wordsApi.getBookmarks(request);
@@ -90,17 +91,17 @@ public void testGetBookmarks() throws ApiException, FileNotFoundException {
      * Test for updating document bookmark
      */
     @Test
-public void testUpdateBookmark() throws ApiException, FileNotFoundException {
+public void testUpdateBookmark() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUpdateBookmark.docx";
         String bookmarkName = "aspose";
-        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName);
         BookmarkData body = new BookmarkData().name(bookmarkName).text("This will be the text for Aspose");
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         UpdateBookmarkRequest request = new UpdateBookmarkRequest(remoteName, body, bookmarkName,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, destName, null, null);
 
         BookmarkResponse result = TestInitializer.wordsApi.updateBookmark(request);

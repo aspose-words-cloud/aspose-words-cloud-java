@@ -34,6 +34,8 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
+import java.io.IOException;
+
 public class TestErrorHandling extends TestCase {
     @Override
     protected void setUp() throws Exception {
@@ -42,7 +44,7 @@ public class TestErrorHandling extends TestCase {
     }
 
     @Test
-public void testHandleServerErrors() {
+public void testHandleServerErrors() throws IOException {
         String remoteName = "noFileWithThisName";
         GetSectionRequest request = new GetSectionRequest(remoteName, 0, null, null, null, null);
         try {

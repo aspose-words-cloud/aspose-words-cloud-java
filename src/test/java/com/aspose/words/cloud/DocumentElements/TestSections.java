@@ -38,7 +38,7 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class TestSections extends TestCase {
     private String testFolder = "DocumentElements/Sections";
@@ -53,15 +53,15 @@ public class TestSections extends TestCase {
      * Test for getting section
      */
     @Test
-public void testGetSection() throws ApiException, FileNotFoundException {
+public void testGetSection() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSection.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetSectionRequest request = new GetSectionRequest(remoteName, index,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SectionResponse result = TestInitializer.wordsApi.getSection(request);
@@ -72,14 +72,14 @@ public void testGetSection() throws ApiException, FileNotFoundException {
      * Test for getting sections
      */
     @Test
-public void testGetSections() throws ApiException, FileNotFoundException {
+public void testGetSections() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetSections.docx";
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetSectionsRequest request = new GetSectionsRequest(remoteName,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null);
 
         SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSections(request);
@@ -90,12 +90,12 @@ public void testGetSections() throws ApiException, FileNotFoundException {
      * Test for delete section
      */
     @Test
-public void testDeleteSections() throws ApiException, FileNotFoundException {
+public void testDeleteSections() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteSection.docx";
-        String folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).toString();
+        String folder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder);
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName).toString(), PathUtil.get(folder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(folder, remoteName).replace("\\", "/"));
 
         DeleteSectionRequest request = new DeleteSectionRequest(remoteName, 0, folder, null, null, null,
          null, null, null);
