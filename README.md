@@ -14,7 +14,7 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
 ## How to use the SDK?
-The complete source code is available in this repository folder. You can either directly use it in your project via source code or get [Maven](https://mvnrepository.com/artifact/com.aspose/aspose-cloud-words) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/wordscloud/Available+SDKs).
+The complete source code is available in this repository folder. You can either directly use it in your project via source code or get [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-words-cloud) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/wordscloud/Available+SDKs).
 
 ### Prerequisites
 
@@ -35,13 +35,8 @@ Add this dependency to your project's POM:
 <dependencies>
     <dependency>
         <groupId>com.aspose</groupId>
-        <artifactId>aspose-cloud-storage</artifactId>
-        <version>1.0.1</version>
-    </dependency>
-    <dependency>
-        <groupId>com.aspose</groupId>
         <artifactId>aspose-words-cloud</artifactId>
-        <version>18.9.0</version>
+        <version>20.3.0</version>
     </dependency>
 </dependencies>
 ```
@@ -50,22 +45,21 @@ Add this dependency to your project's POM:
 
 ```java
 
-import com.aspose.words.*;
-import com.aspose.words.auth.*;
-import com.aspose.words.model.*;
-import com.aspose.words.api.WordsApi;
+import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.api.WordsApi;
+import com.aspose.words.cloud.model.DocumentResponse;
+import com.aspose.words.cloud.model.requests.DeleteWatermarkRequest;
 
-import java.io.File;
-import java.util.*;
+import java.io.IOException;
 
 public class WordsApiExample {
 
-    public static void main(String[] args) {
-        
-        WordsApi wordsApi = new WordsApi();
+    public static void main(String[] args) throws ApiException, IOException {
+	// write your code here
+        WordsApi wordsApi = new WordsApi("appSid", "appKey", null);
         String remoteName = "TestDeleteDocumentWatermark.docx";
-		String remoteFolder = "TestFolder"
-		DeleteWatermarkRequest request = new DeleteWatermarkRequest(remoteName,
+        String remoteFolder = "TestFolder";
+        DeleteWatermarkRequest request = new DeleteWatermarkRequest(remoteName,
                 remoteFolder, null, null, null, null, null, null);
 
         DocumentResponse result = wordsApi.deleteWatermark(request);
@@ -74,8 +68,7 @@ public class WordsApiExample {
 
 ```
 
-[Test](src/test/java/com/aspose/words) contain various examples of using the SDK.
-Please put your credentials into [ApiClient](src/main/java/com/aspose/words/ApiClient.java).
+[Test](src/test/java/com/aspose/words/cloud) contain various examples of using the SDK.
 
 ## Dependencies
 - Java 1.7+
