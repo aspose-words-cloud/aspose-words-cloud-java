@@ -27,14 +27,19 @@
 package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.*;
-import com.aspose.words.cloud.model.requests.*;
+import com.aspose.words.cloud.model.DocumentPropertiesResponse;
+import com.aspose.words.cloud.model.DocumentProperty;
+import com.aspose.words.cloud.model.DocumentPropertyResponse;
+import com.aspose.words.cloud.model.requests.CreateOrUpdateDocumentPropertyRequest;
+import com.aspose.words.cloud.model.requests.DeleteDocumentPropertyRequest;
+import com.aspose.words.cloud.model.requests.GetDocumentPropertiesRequest;
+import com.aspose.words.cloud.model.requests.GetDocumentPropertyRequest;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
-import java.nio.file.Paths;
+import java.io.IOException;
 
 public class TestDocumentProperties extends TestCase {
     private String testFolder = "DocumentElements/DocumentProperties";
@@ -49,16 +54,16 @@ public class TestDocumentProperties extends TestCase {
      * Test for adding/updating document property
      */
     @Test
-public void testCreateOrUpdateDocumentProperty() throws ApiException, FileNotFoundException {
+public void testCreateOrUpdateDocumentProperty() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutUpdateDocumentProperty.docx";
         String propertyName = "AsposeAuthor";
         DocumentProperty prop = new DocumentProperty().builtIn(false).name(propertyName).value("Yaroslaw Ekimov");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         CreateOrUpdateDocumentPropertyRequest request = new CreateOrUpdateDocumentPropertyRequest(remoteName, propertyName,
-                prop, Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                prop, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         DocumentPropertyResponse result = TestInitializer.wordsApi.createOrUpdateDocumentProperty(request);
@@ -69,16 +74,16 @@ public void testCreateOrUpdateDocumentProperty() throws ApiException, FileNotFou
      * Test for deleting document property
      */
     @Test
-public void testDeleteDocumentProperty() throws ApiException, FileNotFoundException {
+public void testDeleteDocumentProperty() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteDocumentProperty.docx";
         String propertyName = "testProp";
-        String destName = Paths.get(TestInitializer.RemoteTestOut, remoteName).toString();
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         DeleteDocumentPropertyRequest request = new DeleteDocumentPropertyRequest(remoteName, propertyName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, destName, null, null);
 
         TestInitializer.wordsApi.deleteDocumentProperty(request);
@@ -88,14 +93,14 @@ public void testDeleteDocumentProperty() throws ApiException, FileNotFoundExcept
      * Test for getting document properties
      */
     @Test
-public void testGetDocumentProperties() throws ApiException, FileNotFoundException {
+public void testGetDocumentProperties() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentProperties.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentPropertiesRequest request = new GetDocumentPropertiesRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         DocumentPropertiesResponse result = TestInitializer.wordsApi.getDocumentProperties(request);
@@ -106,15 +111,15 @@ public void testGetDocumentProperties() throws ApiException, FileNotFoundExcepti
      * Test for getting document property
      */
     @Test
-public void testGetDocumentProperty() throws ApiException, FileNotFoundException {
+public void testGetDocumentProperty() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentProperty.docx";
         String propName = "Author";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentPropertyRequest request = new GetDocumentPropertyRequest(remoteName, propName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         DocumentPropertyResponse result = TestInitializer.wordsApi.getDocumentProperty(request);

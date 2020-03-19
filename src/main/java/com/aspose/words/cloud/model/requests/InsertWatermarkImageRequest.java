@@ -25,8 +25,6 @@
  * --------------------------------------------------------------------------------------
  */
 package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
-import java.io.File;
 
 /*
  * Request model for insertWatermarkImage operation.
@@ -40,7 +38,7 @@ public class InsertWatermarkImageRequest {
     /*
      * File with image
      */
-    private File ImageFile;
+    private byte[] ImageFile;
 
     /*
      * Original document folder.
@@ -91,7 +89,7 @@ public class InsertWatermarkImageRequest {
      * Initializes a new instance of the insertWatermarkImageRequest class.
      *  
      * @param String name The document name.
-     * @param File imageFile File with image
+     * @param byte[] imageFile File with image
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,7 +100,7 @@ public class InsertWatermarkImageRequest {
      * @param Double rotationAngle The watermark rotation angle.
      * @param String image The image file server full name. If the name is empty the image is expected in request content.
      */
-    public InsertWatermarkImageRequest(String name,  File imageFile,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  Double rotationAngle,  String image) {
+    public InsertWatermarkImageRequest(String name,  byte[] imageFile,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  Double rotationAngle,  String image) {
         Name = name;
         ImageFile = imageFile;
         Folder = folder;
@@ -133,14 +131,14 @@ public class InsertWatermarkImageRequest {
     /*
      *  Gets File with image
      */
-    public File getImageFile() {
+    public byte[] getImageFile() {
         return ImageFile;
     }
 
     /*
      * Sets File with image
      */
-    public void setImageFile(File value) {
+    public void setImageFile(byte[] value) {
         ImageFile = value;
     }
 

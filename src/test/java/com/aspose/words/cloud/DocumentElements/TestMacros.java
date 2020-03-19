@@ -27,14 +27,14 @@
 package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.requests.DeleteMacrosRequest;
 import org.junit.Test;
 
 import junit.framework.TestCase;
 
-import java.io.FileNotFoundException;
-import java.nio.file.Paths;
+import java.io.IOException;
 
 public class TestMacros extends TestCase {
     private String testFolder = "DocumentElements/Macros";
@@ -49,13 +49,13 @@ public class TestMacros extends TestCase {
      * Test for getting document hyperlink by index
      */
     @Test
-public void testDeleteMacros() throws ApiException, FileNotFoundException {
+public void testDeleteMacros() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestDeleteMacros.doc";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         DeleteMacrosRequest request = new DeleteMacrosRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
                 null, null, null, null);
 
         TestInitializer.wordsApi.deleteMacros(request);

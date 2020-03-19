@@ -28,6 +28,7 @@ package com.aspose.words.cloud.Common;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
@@ -63,7 +64,7 @@ public class TestCommon extends TestCase {
     }
 
     @Test
-    public void testTokenExpired() throws FileNotFoundException, ApiException {
+    public void testTokenExpired() throws  ApiException, IOException {
         TestInitializer.Initialize();
         TestInitializer.wordsApi.getApiClient().setAccessToken("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1Njc1ODg2OTksImV4cCI6MTU2NzY3NTA5OSwiaXNzIjoiaHR0cHM6Ly9hcGktcWEuYXNwb3NlLmNsb3VkIiwiYXVkIjpbImh0dHBzOi8vYXBpLXFhLmFzcG9zZS5jbG91ZC9yZXNvdXJjZXMiLCJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXSwiY2xpZW50X2lkIjoiNzhCNjM3RjYtQjRDQy00MURFLUE2MTktRDhCRDlGQzJCNkI2IiwiY2xpZW50X2lkU3J2SWQiOiIiLCJzY29wZSI6WyJhcGkucGxhdGZvcm0iLCJhcGkucHJvZHVjdHMiXX0.NcsvIWr8zpHIGKTtVQIevRUJchTc2NqwgjNIVg3J9uXowr6lbsLgV6v4KsVlR6yssjkfjZEsRNOExaxdga7Mrv6RvXhgZDs5-_6HrtMdIHUe_1F5kbS5Cz1evyOeQhfdeRnZWHR-BZOAzyB__1gXBo2MObPF3NIt6j6vPWbHU9DSLrjEWPCULVdmLtl6-NDYHvNR4AbiaH-qfU8j1bMLdBfyzK2uX376EpbinSZHeNeFp4dOOhAOpDR-p_kCt4O4z5Tjrcuyw9PrCBmyHWwMSa-8g95Jy-_d89VAZvS1xEFHNX_hZilEPseGPUzDMwg_oOIBfIVcRS3NxqWvEWof7A");
         ClassifyRequest request = new ClassifyRequest("Try text classification", "3");

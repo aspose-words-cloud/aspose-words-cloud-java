@@ -25,8 +25,6 @@
  * --------------------------------------------------------------------------------------
  */
 package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
-import java.io.File;
 
 /*
  * Request model for insertDrawingObjectWithoutNodePath operation.
@@ -45,7 +43,7 @@ public class InsertDrawingObjectWithoutNodePathRequest {
     /*
      * File with image
      */
-    private File ImageFile;
+    private byte[] ImageFile;
 
     /*
      * Original document folder.
@@ -87,7 +85,7 @@ public class InsertDrawingObjectWithoutNodePathRequest {
      *  
      * @param String name The document name.
      * @param String drawingObject Drawing object parameters
-     * @param File imageFile File with image
+     * @param byte[] imageFile File with image
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -96,7 +94,7 @@ public class InsertDrawingObjectWithoutNodePathRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertDrawingObjectWithoutNodePathRequest(String name,  String drawingObject,  File imageFile,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public InsertDrawingObjectWithoutNodePathRequest(String name,  String drawingObject,  byte[] imageFile,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         DrawingObject = drawingObject;
         ImageFile = imageFile;
@@ -140,14 +138,14 @@ public class InsertDrawingObjectWithoutNodePathRequest {
     /*
      *  Gets File with image
      */
-    public File getImageFile() {
+    public byte[] getImageFile() {
         return ImageFile;
     }
 
     /*
      * Sets File with image
      */
-    public void setImageFile(File value) {
+    public void setImageFile(byte[] value) {
         ImageFile = value;
     }
 

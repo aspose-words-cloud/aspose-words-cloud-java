@@ -25,56 +25,30 @@
  * --------------------------------------------------------------------------------
  */
 
-package com.aspose.words.cloud.model;
+package com.aspose.words.cloud;
 
-import java.util.Objects;
+import java.nio.file.Paths;
 
-import com.aspose.words.cloud.model.Link;
-import io.swagger.annotations.ApiModel;
-
-/**
- * Provides information for the words api resource link.
- */
-@ApiModel(description = "Provides information for the words api resource link.")
-
-public class WordsApiLink extends Link {
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return super.equals(o);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(super.hashCode());
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class WordsApiLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
+public class PathUtil {
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+     * Converts a path string, or a sequence of strings that when joined form
+     * a path string, to a {@code Path}.
+     *
+     * @param   first
+     *          the path string or initial part of the path string
+     * @param   more
+     *          additional strings to be joined to form the path string
+     *
+     * @return  the resulting {@code Path}
+     *
+     * @throws  InvalidPathException
+     *          if the path string cannot be converted to a {@code Path}
+     *
+     * @see FileSystem#getPath
+     */
+    public static String get(String first, String... more) {
+      String paths = Paths.get(first, more).toString();
+      paths = paths.replace('\\', '/');
+      return paths;
   }
-
 }
-

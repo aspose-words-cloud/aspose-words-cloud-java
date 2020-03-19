@@ -27,16 +27,15 @@
 package com.aspose.words.cloud.DocumentActions;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.RevisionsModificationResponse;
 import com.aspose.words.cloud.model.requests.AcceptAllRevisionsRequest;
 import com.aspose.words.cloud.model.requests.RejectAllRevisionsRequest;
+import junit.framework.TestCase;
 import org.junit.Test;
 
-import junit.framework.TestCase;
-
-import java.io.FileNotFoundException;
-import java.nio.file.Paths;
+import java.io.IOException;
 
 public class TestRevisions extends TestCase {
     private String testFolder = "DocumentActions/Revisions";
@@ -51,14 +50,14 @@ public class TestRevisions extends TestCase {
      * Test for accepting all revisions
      */
     @Test
-public void testAcceptAllRevisions() throws ApiException, FileNotFoundException {
+public void testAcceptAllRevisions() throws ApiException, IOException {
         String fileName = "test_doc.docx";
         String remoteName = "TestAcceptAllRevisions.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         AcceptAllRevisionsRequest request = new AcceptAllRevisionsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.acceptAllRevisions(request);
@@ -69,14 +68,14 @@ public void testAcceptAllRevisions() throws ApiException, FileNotFoundException 
      * Test for accepting all revisions
      */
     @Test
-public void testRejectAllRevisions() throws ApiException, FileNotFoundException {
+public void testRejectAllRevisions() throws ApiException, IOException {
         String fileName = "test_doc.docx";
         String remoteName = "TestRejectAllRevisions.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         RejectAllRevisionsRequest request = new RejectAllRevisionsRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.rejectAllRevisions(request);

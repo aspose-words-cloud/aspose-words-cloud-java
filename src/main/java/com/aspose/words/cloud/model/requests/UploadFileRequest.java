@@ -25,8 +25,6 @@
  * --------------------------------------------------------------------------------------
  */
 package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
-import java.io.File;
 
 /*
  * Request model for uploadFile operation.
@@ -35,7 +33,7 @@ public class UploadFileRequest {
     /*
      * File to upload
      */
-    private File FileContent;
+    private byte[] FileContent;
 
     /*
      * Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
@@ -50,11 +48,11 @@ public class UploadFileRequest {
     /*
      * Initializes a new instance of the uploadFileRequest class.
      *  
-     * @param File fileContent File to upload
+     * @param byte[] fileContent File to upload
      * @param String path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
      * @param String storageName Storage name
      */
-    public UploadFileRequest(File fileContent,  String path,  String storageName) {
+    public UploadFileRequest(byte[] fileContent,  String path,  String storageName) {
         FileContent = fileContent;
         Path = path;
         StorageName = storageName;
@@ -63,14 +61,14 @@ public class UploadFileRequest {
     /*
      *  Gets File to upload
      */
-    public File getFileContent() {
+    public byte[] getFileContent() {
         return FileContent;
     }
 
     /*
      * Sets File to upload
      */
-    public void setFileContent(File value) {
+    public void setFileContent(byte[] value) {
         FileContent = value;
     }
 

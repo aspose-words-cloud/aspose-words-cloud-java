@@ -26,7 +26,10 @@
  */
 package com.aspose.words.cloud.DocumentActions;
 
+import java.io.IOException;
+
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.CompareData;
 import com.aspose.words.cloud.model.DocumentResponse;
@@ -36,9 +39,6 @@ import org.junit.Test;
 import org.threeten.bp.OffsetDateTime;
 
 import junit.framework.TestCase;
-
-import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 
 public class TestCompareDocument extends TestCase {
         private String testFolder = "DocumentActions/CompareDocument";
@@ -53,24 +53,24 @@ public class TestCompareDocument extends TestCase {
          * Test for document comparison
          */
         @Test
-public void testPostCompareDocument() throws ApiException, FileNotFoundException {
+public void testPostCompareDocument() throws ApiException, IOException {
                 String fileName1 = "compareTestDoc1.doc";
                 String fileName2 = "compareTestDoc2.doc";
                 String remoteName1 = "TestPostCompareDocument1.doc";
                 String remoteName2 = "TestPostCompareDocument2.doc";
-                String dest_name = Paths.get(TestInitializer.RemoteTestOut, "TestCompareOut.doc").toString();
+                String dest_name = PathUtil.get(TestInitializer.RemoteTestOut, "TestCompareOut.doc");
                 CompareData compareData = new CompareData().author("author").comparingWithDocument(
-                                Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName2).toString())
+                        PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName2))
                                 .dateTime(OffsetDateTime.now());
-                TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName1).toString(),
-                                Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName1).toString()
+                TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName1),
+                                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName1)
                                                 .replace("\\", "/"));
-                TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName2).toString(),
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName2).toString()
+                TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName2),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName2)
                 .replace("\\", "/"));
 
                 CompareDocumentRequest request = new CompareDocumentRequest(remoteName1, compareData,
-                                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(), null, null, null,
+                        PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null, null,
                                 dest_name);
                 DocumentResponse result = TestInitializer.wordsApi.compareDocument(request);
                 assertNotNull(result);

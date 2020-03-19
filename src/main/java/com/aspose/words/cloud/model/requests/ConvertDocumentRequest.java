@@ -25,8 +25,6 @@
  * --------------------------------------------------------------------------------------
  */
 package com.aspose.words.cloud.model.requests;
-import com.aspose.words.cloud.model.*;
-import java.io.File;
 
 /*
  * Request model for convertDocument operation.
@@ -35,7 +33,7 @@ public class ConvertDocumentRequest {
     /*
      * Converting document
      */
-    private File Document;
+    private byte[] Document;
 
     /*
      * Format to convert.
@@ -65,14 +63,14 @@ public class ConvertDocumentRequest {
     /*
      * Initializes a new instance of the convertDocumentRequest class.
      *  
-     * @param File document Converting document
+     * @param byte[] document Converting document
      * @param String format Format to convert.
      * @param String storage Original document storage.
      * @param String outPath Path for saving operation result to the local storage.
      * @param String fileNameFieldValue This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public ConvertDocumentRequest(File document,  String format,  String storage,  String outPath,  String fileNameFieldValue,  String fontsLocation) {
+    public ConvertDocumentRequest(byte[] document,  String format,  String storage,  String outPath,  String fileNameFieldValue,  String fontsLocation) {
         Document = document;
         Format = format;
         Storage = storage;
@@ -84,14 +82,14 @@ public class ConvertDocumentRequest {
     /*
      *  Gets Converting document
      */
-    public File getDocument() {
+    public byte[] getDocument() {
         return Document;
     }
 
     /*
      * Sets Converting document
      */
-    public void setDocument(File value) {
+    public void setDocument(byte[] value) {
         Document = value;
     }
 

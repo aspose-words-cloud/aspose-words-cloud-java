@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.DocumentActions;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.FieldNamesResponse;
 import com.aspose.words.cloud.model.requests.GetDocumentFieldNamesOnlineRequest;
@@ -35,8 +36,8 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class TestMailMergeFields extends TestCase {
@@ -52,13 +53,13 @@ public class TestMailMergeFields extends TestCase {
      * Test for getting document field names
      */
     @Test
-public void testGetDocumentFieldNames() throws ApiException, FileNotFoundException {
+public void testGetDocumentFieldNames() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentFieldNames.docx";
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentFieldNamesRequest request = new GetDocumentFieldNamesRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null);
 
         FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNames(request);
@@ -69,9 +70,9 @@ public void testGetDocumentFieldNames() throws ApiException, FileNotFoundExcepti
      * Test for executing mail merge online
      */
     @Test
-public void testGetDocumentFieldNamesOnline() throws ApiException {
+public void testGetDocumentFieldNamesOnline() throws ApiException, IOException {
         String fileName = "SampleExecuteTemplate.docx";
-        File file = Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toFile();
+        byte[] file = Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toAbsolutePath());
 
         GetDocumentFieldNamesOnlineRequest request = new GetDocumentFieldNamesOnlineRequest(file, true);
 
