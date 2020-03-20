@@ -28,8 +28,10 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.aspose.words.cloud.model.GraphicsQualityOptionsData;
 import com.aspose.words.cloud.model.ImageSaveOptionsData;
+import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
 import io.swagger.annotations.ApiModel;
 
 /**
