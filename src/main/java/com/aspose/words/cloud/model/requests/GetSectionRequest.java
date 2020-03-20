@@ -35,44 +35,44 @@ public class GetSectionRequest {
     /*
      * The document name.
      */
-    private  Name;
+    private String Name;
 
     /*
      * Section index.
      */
-    private  SectionIndex;
+    private Integer SectionIndex;
 
     /*
      * Original document folder.
      */
-    private  Folder;
+    private String Folder;
 
     /*
      * Original document storage.
      */
-    private  Storage;
+    private String Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private  LoadEncoding;
+    private String LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private  Password;
+    private String Password;
     
     /*
      * Initializes a new instance of the getSectionRequest class.
      *  
-     * @param  name The document name.
-     * @param  sectionIndex Section index.
-     * @param  folder Original document folder.
-     * @param  storage Original document storage.
-     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param  password Password for opening an encrypted document.
+     * @param String name The document name.
+     * @param Integer sectionIndex Section index.
+     * @param String folder Original document folder.
+     * @param String storage Original document storage.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password for opening an encrypted document.
      */
-    public GetSectionRequest( name,   sectionIndex,   folder,   storage,   loadEncoding,   password) {
+    public GetSectionRequest(String name,  Integer sectionIndex,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
         SectionIndex = sectionIndex;
         Folder = folder;
@@ -84,84 +84,84 @@ public class GetSectionRequest {
     /*
      *  Gets The document name.
      */
-    public  getName() {
+    public String getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName( value) {
+    public void setName(String value) {
         Name = value;
     }
 
     /*
      *  Gets Section index.
      */
-    public  getSectionIndex() {
+    public Integer getSectionIndex() {
         return SectionIndex;
     }
 
     /*
      * Sets Section index.
      */
-    public void setSectionIndex( value) {
+    public void setSectionIndex(Integer value) {
         SectionIndex = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public  getFolder() {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder( value) {
+    public void setFolder(String value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public  getStorage() {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage( value) {
+    public void setStorage(String value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public  getLoadEncoding() {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding( value) {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public  getPassword() {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword( value) {
+    public void setPassword(String value) {
         Password = value;
     }
 }

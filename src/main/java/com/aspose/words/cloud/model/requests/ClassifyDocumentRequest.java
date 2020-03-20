@@ -35,50 +35,50 @@ public class ClassifyDocumentRequest {
     /*
      * The document name.
      */
-    private  DocumentName;
+    private String DocumentName;
 
     /*
      * Original document folder.
      */
-    private  Folder;
+    private String Folder;
 
     /*
      * Original document storage.
      */
-    private  Storage;
+    private String Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private  LoadEncoding;
+    private String LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private  Password;
+    private String Password;
 
     /*
      * Count of the best classes to return.
      */
-    private  BestClassesCount;
+    private String BestClassesCount;
 
     /*
      * Taxonomy to use for classification return.
      */
-    private  Taxonomy;
+    private String Taxonomy;
     
     /*
      * Initializes a new instance of the classifyDocumentRequest class.
      *  
-     * @param  documentName The document name.
-     * @param  folder Original document folder.
-     * @param  storage Original document storage.
-     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param  password Password for opening an encrypted document.
-     * @param  bestClassesCount Count of the best classes to return.
-     * @param  taxonomy Taxonomy to use for classification return.
+     * @param String documentName The document name.
+     * @param String folder Original document folder.
+     * @param String storage Original document storage.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password for opening an encrypted document.
+     * @param String bestClassesCount Count of the best classes to return.
+     * @param String taxonomy Taxonomy to use for classification return.
      */
-    public ClassifyDocumentRequest( documentName,   folder,   storage,   loadEncoding,   password,   bestClassesCount,   taxonomy) {
+    public ClassifyDocumentRequest(String documentName,  String folder,  String storage,  String loadEncoding,  String password,  String bestClassesCount,  String taxonomy) {
         DocumentName = documentName;
         Folder = folder;
         Storage = storage;
@@ -91,98 +91,98 @@ public class ClassifyDocumentRequest {
     /*
      *  Gets The document name.
      */
-    public  getDocumentName() {
+    public String getDocumentName() {
         return DocumentName;
     }
 
     /*
      * Sets The document name.
      */
-    public void setDocumentName( value) {
+    public void setDocumentName(String value) {
         DocumentName = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public  getFolder() {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder( value) {
+    public void setFolder(String value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public  getStorage() {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage( value) {
+    public void setStorage(String value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public  getLoadEncoding() {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding( value) {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public  getPassword() {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword( value) {
+    public void setPassword(String value) {
         Password = value;
     }
 
     /*
      *  Gets Count of the best classes to return.
      */
-    public  getBestClassesCount() {
+    public String getBestClassesCount() {
         return BestClassesCount;
     }
 
     /*
      * Sets Count of the best classes to return.
      */
-    public void setBestClassesCount( value) {
+    public void setBestClassesCount(String value) {
         BestClassesCount = value;
     }
 
     /*
      *  Gets Taxonomy to use for classification return.
      */
-    public  getTaxonomy() {
+    public String getTaxonomy() {
         return Taxonomy;
     }
 
     /*
      * Sets Taxonomy to use for classification return.
      */
-    public void setTaxonomy( value) {
+    public void setTaxonomy(String value) {
         Taxonomy = value;
     }
 }

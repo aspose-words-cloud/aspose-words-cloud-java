@@ -35,20 +35,20 @@ public class ClassifyRequest {
     /*
      * Text to classify.
      */
-    private  Text;
+    private String Text;
 
     /*
      * Number of the best classes to return.
      */
-    private  BestClassesCount;
+    private String BestClassesCount;
     
     /*
      * Initializes a new instance of the classifyRequest class.
      *  
-     * @param  text Text to classify.
-     * @param  bestClassesCount Number of the best classes to return.
+     * @param String text Text to classify.
+     * @param String bestClassesCount Number of the best classes to return.
      */
-    public ClassifyRequest( text,   bestClassesCount) {
+    public ClassifyRequest(String text,  String bestClassesCount) {
         Text = text;
         BestClassesCount = bestClassesCount;
     }
@@ -56,28 +56,28 @@ public class ClassifyRequest {
     /*
      *  Gets Text to classify.
      */
-    public  getText() {
+    public String getText() {
         return Text;
     }
 
     /*
      * Sets Text to classify.
      */
-    public void setText( value) {
+    public void setText(String value) {
         Text = value;
     }
 
     /*
      *  Gets Number of the best classes to return.
      */
-    public  getBestClassesCount() {
+    public String getBestClassesCount() {
         return BestClassesCount;
     }
 
     /*
      * Sets Number of the best classes to return.
      */
-    public void setBestClassesCount( value) {
+    public void setBestClassesCount(String value) {
         BestClassesCount = value;
     }
 }

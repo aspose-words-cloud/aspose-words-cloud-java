@@ -29,11 +29,6 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +36,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * File or folder information
  */
 @ApiModel(description = "File or folder information")
+
 public class StorageFile {
   @SerializedName("Name")
   private String name = null;
@@ -89,7 +87,7 @@ public class StorageFile {
    * True if it is a folder.
    * @return isFolder
   **/
-  @ApiModelProperty(value = "True if it is a folder.")
+  @ApiModelProperty(required = true, value = "True if it is a folder.")
   public Boolean isIsFolder() {
     return isFolder;
   }
@@ -125,7 +123,7 @@ public class StorageFile {
    * File or folder size.
    * @return size
   **/
-  @ApiModelProperty(value = "File or folder size.")
+  @ApiModelProperty(required = true, value = "File or folder size.")
   public Long getSize() {
     return size;
   }

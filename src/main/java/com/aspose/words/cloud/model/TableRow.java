@@ -29,11 +29,10 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.NodeLink;
+import com.aspose.words.cloud.model.TableCell;
+import com.aspose.words.cloud.model.TableRowFormat;
+import com.aspose.words.cloud.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +40,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Table row element.
  */
 @ApiModel(description = "Table row element.")
+
 public class TableRow extends NodeLink {
   @SerializedName("RowFormat")
   private TableRowFormat rowFormat = null;
@@ -59,10 +62,10 @@ public class TableRow extends NodeLink {
   }
 
    /**
-   * Get rowFormat
+   * Gets or sets provides access to the formatting properties of the row.
    * @return rowFormat
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets provides access to the formatting properties of the row.")
   public TableRowFormat getRowFormat() {
     return rowFormat;
   }

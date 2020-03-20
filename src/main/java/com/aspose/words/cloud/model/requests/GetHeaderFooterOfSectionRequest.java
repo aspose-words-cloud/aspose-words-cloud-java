@@ -35,56 +35,56 @@ public class GetHeaderFooterOfSectionRequest {
     /*
      * The document name.
      */
-    private  Name;
+    private String Name;
 
     /*
      * Header/footer index.
      */
-    private  HeaderFooterIndex;
+    private Integer HeaderFooterIndex;
 
     /*
      * Section index.
      */
-    private  SectionIndex;
+    private Integer SectionIndex;
 
     /*
      * Original document folder.
      */
-    private  Folder;
+    private String Folder;
 
     /*
      * Original document storage.
      */
-    private  Storage;
+    private String Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private  LoadEncoding;
+    private String LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private  Password;
+    private String Password;
 
     /*
      * List of types of headers and footers.
      */
-    private  FilterByType;
+    private String FilterByType;
     
     /*
      * Initializes a new instance of the getHeaderFooterOfSectionRequest class.
      *  
-     * @param  name The document name.
-     * @param  headerFooterIndex Header/footer index.
-     * @param  sectionIndex Section index.
-     * @param  folder Original document folder.
-     * @param  storage Original document storage.
-     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param  password Password for opening an encrypted document.
-     * @param  filterByType List of types of headers and footers.
+     * @param String name The document name.
+     * @param Integer headerFooterIndex Header/footer index.
+     * @param Integer sectionIndex Section index.
+     * @param String folder Original document folder.
+     * @param String storage Original document storage.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password for opening an encrypted document.
+     * @param String filterByType List of types of headers and footers.
      */
-    public GetHeaderFooterOfSectionRequest( name,   headerFooterIndex,   sectionIndex,   folder,   storage,   loadEncoding,   password,   filterByType) {
+    public GetHeaderFooterOfSectionRequest(String name,  Integer headerFooterIndex,  Integer sectionIndex,  String folder,  String storage,  String loadEncoding,  String password,  String filterByType) {
         Name = name;
         HeaderFooterIndex = headerFooterIndex;
         SectionIndex = sectionIndex;
@@ -98,112 +98,112 @@ public class GetHeaderFooterOfSectionRequest {
     /*
      *  Gets The document name.
      */
-    public  getName() {
+    public String getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName( value) {
+    public void setName(String value) {
         Name = value;
     }
 
     /*
      *  Gets Header/footer index.
      */
-    public  getHeaderFooterIndex() {
+    public Integer getHeaderFooterIndex() {
         return HeaderFooterIndex;
     }
 
     /*
      * Sets Header/footer index.
      */
-    public void setHeaderFooterIndex( value) {
+    public void setHeaderFooterIndex(Integer value) {
         HeaderFooterIndex = value;
     }
 
     /*
      *  Gets Section index.
      */
-    public  getSectionIndex() {
+    public Integer getSectionIndex() {
         return SectionIndex;
     }
 
     /*
      * Sets Section index.
      */
-    public void setSectionIndex( value) {
+    public void setSectionIndex(Integer value) {
         SectionIndex = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public  getFolder() {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder( value) {
+    public void setFolder(String value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public  getStorage() {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage( value) {
+    public void setStorage(String value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public  getLoadEncoding() {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding( value) {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public  getPassword() {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword( value) {
+    public void setPassword(String value) {
         Password = value;
     }
 
     /*
      *  Gets List of types of headers and footers.
      */
-    public  getFilterByType() {
+    public String getFilterByType() {
         return FilterByType;
     }
 
     /*
      * Sets List of types of headers and footers.
      */
-    public void setFilterByType( value) {
+    public void setFilterByType(String value) {
         FilterByType = value;
     }
 }

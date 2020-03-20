@@ -35,26 +35,26 @@ public class DeleteFileRequest {
     /*
      * Path of the file including file name and extension e.g. /Folder1/file.ext
      */
-    private  Path;
+    private String Path;
 
     /*
      * Storage name
      */
-    private  StorageName;
+    private String StorageName;
 
     /*
      * File version ID to delete
      */
-    private  VersionId;
+    private String VersionId;
     
     /*
      * Initializes a new instance of the deleteFileRequest class.
      *  
-     * @param  path Path of the file including file name and extension e.g. /Folder1/file.ext
-     * @param  storageName Storage name
-     * @param  versionId File version ID to delete
+     * @param String path Path of the file including file name and extension e.g. /Folder1/file.ext
+     * @param String storageName Storage name
+     * @param String versionId File version ID to delete
      */
-    public DeleteFileRequest( path,   storageName,   versionId) {
+    public DeleteFileRequest(String path,  String storageName,  String versionId) {
         Path = path;
         StorageName = storageName;
         VersionId = versionId;
@@ -63,42 +63,42 @@ public class DeleteFileRequest {
     /*
      *  Gets Path of the file including file name and extension e.g. /Folder1/file.ext
      */
-    public  getPath() {
+    public String getPath() {
         return Path;
     }
 
     /*
      * Sets Path of the file including file name and extension e.g. /Folder1/file.ext
      */
-    public void setPath( value) {
+    public void setPath(String value) {
         Path = value;
     }
 
     /*
      *  Gets Storage name
      */
-    public  getStorageName() {
+    public String getStorageName() {
         return StorageName;
     }
 
     /*
      * Sets Storage name
      */
-    public void setStorageName( value) {
+    public void setStorageName(String value) {
         StorageName = value;
     }
 
     /*
      *  Gets File version ID to delete
      */
-    public  getVersionId() {
+    public String getVersionId() {
         return VersionId;
     }
 
     /*
      * Sets File version ID to delete
      */
-    public void setVersionId( value) {
+    public void setVersionId(String value) {
         VersionId = value;
     }
 }

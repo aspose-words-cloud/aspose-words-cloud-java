@@ -29,11 +29,7 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.ErrorDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +37,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Error
  */
 @ApiModel(description = "Error")
+
 public class Error {
   @SerializedName("Code")
   private String code = null;
@@ -119,10 +117,10 @@ public class Error {
   }
 
    /**
-   * Get innerError
+   * Inner Error             
    * @return innerError
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Inner Error             ")
   public ErrorDetails getInnerError() {
     return innerError;
   }

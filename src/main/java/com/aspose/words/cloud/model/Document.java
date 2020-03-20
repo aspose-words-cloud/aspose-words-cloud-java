@@ -29,11 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.DocumentProperties;
+import com.aspose.words.cloud.model.Link;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +38,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents Words document DTO.
  */
 @ApiModel(description = "Represents Words document DTO.")
+
 public class Document {
   @SerializedName("Links")
   private List<Link> links = null;
@@ -203,7 +204,7 @@ public class Document {
    * Gets or sets the original format of the document.
    * @return sourceFormat
   **/
-  @ApiModelProperty(value = "Gets or sets the original format of the document.")
+  @ApiModelProperty(required = true, value = "Gets or sets the original format of the document.")
   public SourceFormatEnum getSourceFormat() {
     return sourceFormat;
   }
@@ -221,7 +222,7 @@ public class Document {
    * Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
    * @return isEncrypted
   **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.")
   public Boolean isIsEncrypted() {
     return isEncrypted;
   }
@@ -239,7 +240,7 @@ public class Document {
    * Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
    * @return isSigned
   **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.")
+  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.")
   public Boolean isIsSigned() {
     return isSigned;
   }
@@ -254,10 +255,10 @@ public class Document {
   }
 
    /**
-   * Get documentProperties
+   * Gets or sets returns document properties.
    * @return documentProperties
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets returns document properties.")
   public DocumentProperties getDocumentProperties() {
     return documentProperties;
   }

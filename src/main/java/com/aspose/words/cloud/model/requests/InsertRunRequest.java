@@ -35,74 +35,74 @@ public class InsertRunRequest {
     /*
      * The document name.
      */
-    private  Name;
+    private String Name;
 
     /*
      * Path to parent paragraph.
      */
-    private  ParagraphPath;
+    private String ParagraphPath;
 
     /*
      * Run data.
      */
-    private  Run;
+    private Run Run;
 
     /*
      * Original document folder.
      */
-    private  Folder;
+    private String Folder;
 
     /*
      * Original document storage.
      */
-    private  Storage;
+    private String Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private  LoadEncoding;
+    private String LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private  Password;
+    private String Password;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private  DestFileName;
+    private String DestFileName;
 
     /*
      * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    private  RevisionAuthor;
+    private String RevisionAuthor;
 
     /*
      * The date and time to use for revisions.
      */
-    private  RevisionDateTime;
+    private String RevisionDateTime;
 
     /*
      * Paragraph will be inserted before node with index.
      */
-    private  InsertBeforeNode;
+    private String InsertBeforeNode;
     
     /*
      * Initializes a new instance of the insertRunRequest class.
      *  
-     * @param  name The document name.
-     * @param  paragraphPath Path to parent paragraph.
-     * @param  run Run data.
-     * @param  folder Original document folder.
-     * @param  storage Original document storage.
-     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param  password Password for opening an encrypted document.
-     * @param  destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param  revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     * @param  revisionDateTime The date and time to use for revisions.
-     * @param  insertBeforeNode Paragraph will be inserted before node with index.
+     * @param String name The document name.
+     * @param String paragraphPath Path to parent paragraph.
+     * @param Run run Run data.
+     * @param String folder Original document folder.
+     * @param String storage Original document storage.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password for opening an encrypted document.
+     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     * @param String revisionDateTime The date and time to use for revisions.
+     * @param String insertBeforeNode Paragraph will be inserted before node with index.
      */
-    public InsertRunRequest( name,   paragraphPath,   run,   folder,   storage,   loadEncoding,   password,   destFileName,   revisionAuthor,   revisionDateTime,   insertBeforeNode) {
+    public InsertRunRequest(String name,  String paragraphPath,  Run run,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
         Name = name;
         ParagraphPath = paragraphPath;
         Run = run;
@@ -119,154 +119,154 @@ public class InsertRunRequest {
     /*
      *  Gets The document name.
      */
-    public  getName() {
+    public String getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName( value) {
+    public void setName(String value) {
         Name = value;
     }
 
     /*
      *  Gets Path to parent paragraph.
      */
-    public  getParagraphPath() {
+    public String getParagraphPath() {
         return ParagraphPath;
     }
 
     /*
      * Sets Path to parent paragraph.
      */
-    public void setParagraphPath( value) {
+    public void setParagraphPath(String value) {
         ParagraphPath = value;
     }
 
     /*
      *  Gets Run data.
      */
-    public  getRun() {
+    public Run getRun() {
         return Run;
     }
 
     /*
      * Sets Run data.
      */
-    public void setRun( value) {
+    public void setRun(Run value) {
         Run = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public  getFolder() {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder( value) {
+    public void setFolder(String value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public  getStorage() {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage( value) {
+    public void setStorage(String value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public  getLoadEncoding() {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding( value) {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public  getPassword() {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword( value) {
+    public void setPassword(String value) {
         Password = value;
     }
 
     /*
      *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public  getDestFileName() {
+    public String getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName( value) {
+    public void setDestFileName(String value) {
         DestFileName = value;
     }
 
     /*
      *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public  getRevisionAuthor() {
+    public String getRevisionAuthor() {
         return RevisionAuthor;
     }
 
     /*
      * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public void setRevisionAuthor( value) {
+    public void setRevisionAuthor(String value) {
         RevisionAuthor = value;
     }
 
     /*
      *  Gets The date and time to use for revisions.
      */
-    public  getRevisionDateTime() {
+    public String getRevisionDateTime() {
         return RevisionDateTime;
     }
 
     /*
      * Sets The date and time to use for revisions.
      */
-    public void setRevisionDateTime( value) {
+    public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
     }
 
     /*
      *  Gets Paragraph will be inserted before node with index.
      */
-    public  getInsertBeforeNode() {
+    public String getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
      * Sets Paragraph will be inserted before node with index.
      */
-    public void setInsertBeforeNode( value) {
+    public void setInsertBeforeNode(String value) {
         InsertBeforeNode = value;
     }
 }

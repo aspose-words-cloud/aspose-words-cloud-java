@@ -29,11 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.Run;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +38,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}.")
+
 public class RunResponse extends WordsResponse {
   @SerializedName("Run")
   private Run run = null;
@@ -56,10 +55,10 @@ public class RunResponse extends WordsResponse {
   }
 
    /**
-   * Get run
+   * Gets or sets run.
    * @return run
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets run.")
   public Run getRun() {
     return run;
   }

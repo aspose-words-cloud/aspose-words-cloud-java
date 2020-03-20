@@ -29,11 +29,9 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.LinkElement;
+import com.aspose.words.cloud.model.Run;
+import com.aspose.words.cloud.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +39,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents DTO for collection of runs.
  */
 @ApiModel(description = "Represents DTO for collection of runs.")
+
 public class Runs extends LinkElement {
   @SerializedName("List")
   private List<Run> list = null;

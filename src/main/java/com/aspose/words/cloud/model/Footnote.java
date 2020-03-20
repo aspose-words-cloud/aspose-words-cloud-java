@@ -29,11 +29,10 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.DocumentPosition;
+import com.aspose.words.cloud.model.FootnoteLink;
+import com.aspose.words.cloud.model.StoryChildNodes;
+import com.aspose.words.cloud.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +40,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Footnote.
  */
 @ApiModel(description = "Footnote.")
+
 public class Footnote extends FootnoteLink {
   @SerializedName("Content")
   private StoryChildNodes content = null;
@@ -115,10 +116,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Get content
+   * Gets or sets content of footnote.
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets content of footnote.")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -151,10 +152,10 @@ public class Footnote extends FootnoteLink {
   }
 
    /**
-   * Get position
+   * Gets or sets link to comment range start node.
    * @return position
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets link to comment range start node.")
   public DocumentPosition getPosition() {
     return position;
   }

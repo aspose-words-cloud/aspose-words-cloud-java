@@ -29,11 +29,9 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.LinkElement;
+import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.cloud.model.XmlColor;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +39,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Represents a border of an object.
  */
 @ApiModel(description = "Represents a border of an object.")
+
 public class Border extends LinkElement {
   /**
    * Gets or sets the border type.             
@@ -247,10 +247,10 @@ public class Border extends LinkElement {
   }
 
    /**
-   * Get color
+   * Gets or sets the border color.             
    * @return color
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the border color.             ")
   public XmlColor getColor() {
     return color;
   }

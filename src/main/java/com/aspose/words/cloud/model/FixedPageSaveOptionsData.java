@@ -29,11 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.MetafileRenderingOptionsData;
+import com.aspose.words.cloud.model.SaveOptionsData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,6 +38,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
@@ -48,9 +46,6 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).")
 
 public class FixedPageSaveOptionsData extends SaveOptionsData {
-  @SerializedName("ColorMode")
-  private String colorMode = null;
-
   @SerializedName("JpegQuality")
   private Integer jpegQuality = null;
 
@@ -68,24 +63,6 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
 
   @SerializedName("PageIndex")
   private Integer pageIndex = null;
-
-  public FixedPageSaveOptionsData colorMode(String colorMode) {
-    this.colorMode = colorMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
-   * @return colorMode
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.")
-  public String getColorMode() {
-    return colorMode;
-  }
-
-  public void setColorMode(String colorMode) {
-    this.colorMode = colorMode;
-  }
 
   public FixedPageSaveOptionsData jpegQuality(Integer jpegQuality) {
     this.jpegQuality = jpegQuality;
@@ -111,10 +88,10 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
   }
 
    /**
-   * Get metafileRenderingOptions
+   * Gets or sets allows to specify metafile rendering options.
    * @return metafileRenderingOptions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets allows to specify metafile rendering options.")
   public MetafileRenderingOptionsData getMetafileRenderingOptions() {
     return metafileRenderingOptions;
   }
@@ -205,8 +182,7 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
       return false;
     }
     FixedPageSaveOptionsData fixedPageSaveOptionsData = (FixedPageSaveOptionsData) o;
-    return Objects.equals(this.colorMode, fixedPageSaveOptionsData.colorMode) &&
-        Objects.equals(this.jpegQuality, fixedPageSaveOptionsData.jpegQuality) &&
+    return Objects.equals(this.jpegQuality, fixedPageSaveOptionsData.jpegQuality) &&
         Objects.equals(this.metafileRenderingOptions, fixedPageSaveOptionsData.metafileRenderingOptions) &&
         Objects.equals(this.numeralFormat, fixedPageSaveOptionsData.numeralFormat) &&
         Objects.equals(this.optimizeOutput, fixedPageSaveOptionsData.optimizeOutput) &&
@@ -217,7 +193,7 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorMode, jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex, super.hashCode());
+    return Objects.hash(jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex, super.hashCode());
   }
 
 
@@ -226,7 +202,6 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
     StringBuilder sb = new StringBuilder();
     sb.append("class FixedPageSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    colorMode: ").append(toIndentedString(colorMode)).append("\n");
     sb.append("    jpegQuality: ").append(toIndentedString(jpegQuality)).append("\n");
     sb.append("    metafileRenderingOptions: ").append(toIndentedString(metafileRenderingOptions)).append("\n");
     sb.append("    numeralFormat: ").append(toIndentedString(numeralFormat)).append("\n");

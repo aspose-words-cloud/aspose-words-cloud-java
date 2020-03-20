@@ -35,26 +35,26 @@ public class CreateDocumentRequest {
     /*
      * Original document storage.
      */
-    private  Storage;
+    private String Storage;
 
     /*
      * The document name.
      */
-    private  FileName;
+    private String FileName;
 
     /*
      * The document folder.
      */
-    private  Folder;
+    private String Folder;
     
     /*
      * Initializes a new instance of the createDocumentRequest class.
      *  
-     * @param  storage Original document storage.
-     * @param  fileName The document name.
-     * @param  folder The document folder.
+     * @param String storage Original document storage.
+     * @param String fileName The document name.
+     * @param String folder The document folder.
      */
-    public CreateDocumentRequest( storage,   fileName,   folder) {
+    public CreateDocumentRequest(String storage,  String fileName,  String folder) {
         Storage = storage;
         FileName = fileName;
         Folder = folder;
@@ -63,42 +63,42 @@ public class CreateDocumentRequest {
     /*
      *  Gets Original document storage.
      */
-    public  getStorage() {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage( value) {
+    public void setStorage(String value) {
         Storage = value;
     }
 
     /*
      *  Gets The document name.
      */
-    public  getFileName() {
+    public String getFileName() {
         return FileName;
     }
 
     /*
      * Sets The document name.
      */
-    public void setFileName( value) {
+    public void setFileName(String value) {
         FileName = value;
     }
 
     /*
      *  Gets The document folder.
      */
-    public  getFolder() {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets The document folder.
      */
-    public void setFolder( value) {
+    public void setFolder(String value) {
         Folder = value;
     }
 }

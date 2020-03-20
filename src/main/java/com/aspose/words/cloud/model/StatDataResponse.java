@@ -29,11 +29,9 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.DocumentStatData;
+import com.aspose.words.cloud.model.FileLink;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +39,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Response for the request of the document&#39;s statistical data.
  */
 @ApiModel(description = "Response for the request of the document's statistical data.")
+
 public class StatDataResponse extends WordsResponse {
   @SerializedName("DocumentLink")
   private FileLink documentLink = null;
@@ -59,10 +59,10 @@ public class StatDataResponse extends WordsResponse {
   }
 
    /**
-   * Get documentLink
+   * Gets or sets link to the document.
    * @return documentLink
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets link to the document.")
   public FileLink getDocumentLink() {
     return documentLink;
   }
@@ -77,10 +77,10 @@ public class StatDataResponse extends WordsResponse {
   }
 
    /**
-   * Get statData
+   * Gets or sets statistical data of the document.
    * @return statData
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets statistical data of the document.")
   public DocumentStatData getStatData() {
     return statData;
   }

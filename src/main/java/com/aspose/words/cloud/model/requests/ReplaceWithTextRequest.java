@@ -35,62 +35,62 @@ public class ReplaceWithTextRequest {
     /*
      * The document.
      */
-    private  Name;
+    private String Name;
 
     /*
-     * The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
-    private  RangeStartIdentifier;
+    private String RangeStartIdentifier;
 
     /*
      * Model with text for replacement.
      */
-    private  RangeText;
+    private ReplaceRange RangeText;
 
     /*
      * The range end identifier.
      */
-    private  RangeEndIdentifier;
+    private String RangeEndIdentifier;
 
     /*
      * Original document folder.
      */
-    private  Folder;
+    private String Folder;
 
     /*
      * Original document storage.
      */
-    private  Storage;
+    private String Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private  LoadEncoding;
+    private String LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private  Password;
+    private String Password;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private  DestFileName;
+    private String DestFileName;
     
     /*
      * Initializes a new instance of the replaceWithTextRequest class.
      *  
-     * @param  name The document.
-     * @param  rangeStartIdentifier The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
-     * @param  rangeText Model with text for replacement.
-     * @param  rangeEndIdentifier The range end identifier.
-     * @param  folder Original document folder.
-     * @param  storage Original document storage.
-     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param  password Password for opening an encrypted document.
-     * @param  destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String name The document.
+     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * @param ReplaceRange rangeText Model with text for replacement.
+     * @param String rangeEndIdentifier The range end identifier.
+     * @param String folder Original document folder.
+     * @param String storage Original document storage.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password for opening an encrypted document.
+     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public ReplaceWithTextRequest( name,   rangeStartIdentifier,   rangeText,   rangeEndIdentifier,   folder,   storage,   loadEncoding,   password,   destFileName) {
+    public ReplaceWithTextRequest(String name,  String rangeStartIdentifier,  ReplaceRange rangeText,  String rangeEndIdentifier,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
         Name = name;
         RangeStartIdentifier = rangeStartIdentifier;
         RangeText = rangeText;
@@ -105,126 +105,126 @@ public class ReplaceWithTextRequest {
     /*
      *  Gets The document.
      */
-    public  getName() {
+    public String getName() {
         return Name;
     }
 
     /*
      * Sets The document.
      */
-    public void setName( value) {
+    public void setName(String value) {
         Name = value;
     }
 
     /*
-     *  Gets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     *  Gets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
-    public  getRangeStartIdentifier() {
+    public String getRangeStartIdentifier() {
         return RangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Sets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
-    public void setRangeStartIdentifier( value) {
+    public void setRangeStartIdentifier(String value) {
         RangeStartIdentifier = value;
     }
 
     /*
      *  Gets Model with text for replacement.
      */
-    public  getRangeText() {
+    public ReplaceRange getRangeText() {
         return RangeText;
     }
 
     /*
      * Sets Model with text for replacement.
      */
-    public void setRangeText( value) {
+    public void setRangeText(ReplaceRange value) {
         RangeText = value;
     }
 
     /*
      *  Gets The range end identifier.
      */
-    public  getRangeEndIdentifier() {
+    public String getRangeEndIdentifier() {
         return RangeEndIdentifier;
     }
 
     /*
      * Sets The range end identifier.
      */
-    public void setRangeEndIdentifier( value) {
+    public void setRangeEndIdentifier(String value) {
         RangeEndIdentifier = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public  getFolder() {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder( value) {
+    public void setFolder(String value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public  getStorage() {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage( value) {
+    public void setStorage(String value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public  getLoadEncoding() {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding( value) {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public  getPassword() {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword( value) {
+    public void setPassword(String value) {
         Password = value;
     }
 
     /*
      *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public  getDestFileName() {
+    public String getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName( value) {
+    public void setDestFileName(String value) {
         DestFileName = value;
     }
 }

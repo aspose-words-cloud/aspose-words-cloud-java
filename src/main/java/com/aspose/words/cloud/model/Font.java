@@ -29,11 +29,10 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.Border;
+import com.aspose.words.cloud.model.LinkElement;
+import com.aspose.words.cloud.model.WordsApiLink;
+import com.aspose.words.cloud.model.XmlColor;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +40,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Font element.             
  */
 @ApiModel(description = "Font element.             ")
+
 public class Font extends LinkElement {
   @SerializedName("AllCaps")
   private Boolean allCaps = null;
@@ -1170,10 +1171,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Get border
+   * Gets or sets border object that specifies border for the font.
    * @return border
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets border object that specifies border for the font.")
   public Border getBorder() {
     return border;
   }
@@ -1188,10 +1189,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Get color
+   * Gets or sets the color of the font.             
    * @return color
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the color of the font.             ")
   public XmlColor getColor() {
     return color;
   }
@@ -1296,10 +1297,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Get highlightColor
+   * Gets or sets the highlight (marker) color.             
    * @return highlightColor
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the highlight (marker) color.             ")
   public XmlColor getHighlightColor() {
     return highlightColor;
   }
@@ -1800,10 +1801,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Get underlineColor
+   * Gets or sets the color of the underline applied to the font.
    * @return underlineColor
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets the color of the underline applied to the font.")
   public XmlColor getUnderlineColor() {
     return underlineColor;
   }

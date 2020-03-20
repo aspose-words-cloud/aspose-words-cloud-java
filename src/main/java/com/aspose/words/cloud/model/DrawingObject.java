@@ -29,11 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.DrawingObjectLink;
+import com.aspose.words.cloud.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +38,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents Drawing Object DTO.
  */
 @ApiModel(description = "Represents Drawing Object DTO.")
+
 public class DrawingObject extends DrawingObjectLink {
   @SerializedName("Height")
   private Double height = null;
@@ -280,10 +281,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Get imageDataLink
+   * Gets or sets link to image data. Can be null if shape does not have an image.
    * @return imageDataLink
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets link to image data. Can be null if shape does not have an image.")
   public WordsApiLink getImageDataLink() {
     return imageDataLink;
   }
@@ -316,10 +317,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Get oleDataLink
+   * Gets or sets link to ole object. Can be null if shape does not have ole data.
    * @return oleDataLink
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets link to ole object. Can be null if shape does not have ole data.")
   public WordsApiLink getOleDataLink() {
     return oleDataLink;
   }

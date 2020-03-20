@@ -35,68 +35,68 @@ public class DeleteBorderRequest {
     /*
      * The document name.
      */
-    private  Name;
+    private String Name;
 
     /*
      * Path to the node with border(node should be paragraph, cell or row).
      */
-    private  NodePath;
+    private String NodePath;
 
     /*
      * Border type.
      */
-    private  BorderType;
+    private String BorderType;
 
     /*
      * Original document folder.
      */
-    private  Folder;
+    private String Folder;
 
     /*
      * Original document storage.
      */
-    private  Storage;
+    private String Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private  LoadEncoding;
+    private String LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private  Password;
+    private String Password;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private  DestFileName;
+    private String DestFileName;
 
     /*
      * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    private  RevisionAuthor;
+    private String RevisionAuthor;
 
     /*
      * The date and time to use for revisions.
      */
-    private  RevisionDateTime;
+    private String RevisionDateTime;
     
     /*
      * Initializes a new instance of the deleteBorderRequest class.
      *  
-     * @param  name The document name.
-     * @param  nodePath Path to the node with border(node should be paragraph, cell or row).
-     * @param  borderType Border type.
-     * @param  folder Original document folder.
-     * @param  storage Original document storage.
-     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param  password Password for opening an encrypted document.
-     * @param  destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param  revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     * @param  revisionDateTime The date and time to use for revisions.
+     * @param String name The document name.
+     * @param String nodePath Path to the node with border(node should be paragraph, cell or row).
+     * @param String borderType Border type.
+     * @param String folder Original document folder.
+     * @param String storage Original document storage.
+     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param String password Password for opening an encrypted document.
+     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     * @param String revisionDateTime The date and time to use for revisions.
      */
-    public DeleteBorderRequest( name,   nodePath,   borderType,   folder,   storage,   loadEncoding,   password,   destFileName,   revisionAuthor,   revisionDateTime) {
+    public DeleteBorderRequest(String name,  String nodePath,  String borderType,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         NodePath = nodePath;
         BorderType = borderType;
@@ -112,140 +112,140 @@ public class DeleteBorderRequest {
     /*
      *  Gets The document name.
      */
-    public  getName() {
+    public String getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName( value) {
+    public void setName(String value) {
         Name = value;
     }
 
     /*
      *  Gets Path to the node with border(node should be paragraph, cell or row).
      */
-    public  getNodePath() {
+    public String getNodePath() {
         return NodePath;
     }
 
     /*
      * Sets Path to the node with border(node should be paragraph, cell or row).
      */
-    public void setNodePath( value) {
+    public void setNodePath(String value) {
         NodePath = value;
     }
 
     /*
      *  Gets Border type.
      */
-    public  getBorderType() {
+    public String getBorderType() {
         return BorderType;
     }
 
     /*
      * Sets Border type.
      */
-    public void setBorderType( value) {
+    public void setBorderType(String value) {
         BorderType = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public  getFolder() {
+    public String getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder( value) {
+    public void setFolder(String value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public  getStorage() {
+    public String getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage( value) {
+    public void setStorage(String value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public  getLoadEncoding() {
+    public String getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding( value) {
+    public void setLoadEncoding(String value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public  getPassword() {
+    public String getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword( value) {
+    public void setPassword(String value) {
         Password = value;
     }
 
     /*
      *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public  getDestFileName() {
+    public String getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName( value) {
+    public void setDestFileName(String value) {
         DestFileName = value;
     }
 
     /*
      *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public  getRevisionAuthor() {
+    public String getRevisionAuthor() {
         return RevisionAuthor;
     }
 
     /*
      * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public void setRevisionAuthor( value) {
+    public void setRevisionAuthor(String value) {
         RevisionAuthor = value;
     }
 
     /*
      *  Gets The date and time to use for revisions.
      */
-    public  getRevisionDateTime() {
+    public String getRevisionDateTime() {
         return RevisionDateTime;
     }
 
     /*
      * Sets The date and time to use for revisions.
      */
-    public void setRevisionDateTime( value) {
+    public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
     }
 }

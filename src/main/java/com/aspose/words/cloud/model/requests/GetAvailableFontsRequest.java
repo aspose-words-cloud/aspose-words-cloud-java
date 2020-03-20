@@ -35,28 +35,28 @@ public class GetAvailableFontsRequest {
     /*
      * Folder in filestorage with custom fonts.
      */
-    private  FontsLocation;
+    private String FontsLocation;
     
     /*
      * Initializes a new instance of the getAvailableFontsRequest class.
      *  
-     * @param  fontsLocation Folder in filestorage with custom fonts.
+     * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public GetAvailableFontsRequest( fontsLocation) {
+    public GetAvailableFontsRequest(String fontsLocation) {
         FontsLocation = fontsLocation;
     }
 
     /*
      *  Gets Folder in filestorage with custom fonts.
      */
-    public  getFontsLocation() {
+    public String getFontsLocation() {
         return FontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
-    public void setFontsLocation( value) {
+    public void setFontsLocation(String value) {
         FontsLocation = value;
     }
 }

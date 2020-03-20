@@ -29,11 +29,10 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.NodeLink;
+import com.aspose.words.cloud.model.TableProperties;
+import com.aspose.words.cloud.model.TableRow;
+import com.aspose.words.cloud.model.WordsApiLink;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +40,15 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Table element.
  */
 @ApiModel(description = "Table element.")
+
 public class Table extends NodeLink {
   @SerializedName("TableProperties")
   private TableProperties tableProperties = null;
@@ -59,10 +62,10 @@ public class Table extends NodeLink {
   }
 
    /**
-   * Get tableProperties
+   * Gets or sets table properties.
    * @return tableProperties
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets table properties.")
   public TableProperties getTableProperties() {
     return tableProperties;
   }

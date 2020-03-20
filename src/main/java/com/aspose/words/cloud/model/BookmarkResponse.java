@@ -29,11 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.Bookmark;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +38,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.")
+
 public class BookmarkResponse extends WordsResponse {
   @SerializedName("Bookmark")
   private Bookmark bookmark = null;
@@ -56,10 +55,10 @@ public class BookmarkResponse extends WordsResponse {
   }
 
    /**
-   * Get bookmark
+   * Gets or sets bookmark.
    * @return bookmark
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets bookmark.")
   public Bookmark getBookmark() {
     return bookmark;
   }

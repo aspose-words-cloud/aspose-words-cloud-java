@@ -29,11 +29,8 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
-import com.aspose.words.cloud.model.*;
+import com.aspose.words.cloud.model.Border;
+import com.aspose.words.cloud.model.WordsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,11 +38,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET {nodeWithBorders}/borders.")
+
 public class BorderResponse extends WordsResponse {
   @SerializedName("Border")
   private Border border = null;
@@ -56,10 +55,10 @@ public class BorderResponse extends WordsResponse {
   }
 
    /**
-   * Get border
+   * Gets or sets table.
    * @return border
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gets or sets table.")
   public Border getBorder() {
     return border;
   }
