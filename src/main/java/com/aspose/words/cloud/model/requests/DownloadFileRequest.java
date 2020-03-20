@@ -35,26 +35,26 @@ public class DownloadFileRequest {
     /*
      * Path of the file including the file name and extension e.g. /folder1/file.ext
      */
-    private String Path;
+    private  Path;
 
     /*
      * Storage name
      */
-    private String StorageName;
+    private  StorageName;
 
     /*
      * File version ID to download
      */
-    private String VersionId;
+    private  VersionId;
     
     /*
      * Initializes a new instance of the downloadFileRequest class.
      *  
-     * @param String path Path of the file including the file name and extension e.g. /folder1/file.ext
-     * @param String storageName Storage name
-     * @param String versionId File version ID to download
+     * @param  path Path of the file including the file name and extension e.g. /folder1/file.ext
+     * @param  storageName Storage name
+     * @param  versionId File version ID to download
      */
-    public DownloadFileRequest(String path,  String storageName,  String versionId) {
+    public DownloadFileRequest( path,   storageName,   versionId) {
         Path = path;
         StorageName = storageName;
         VersionId = versionId;
@@ -63,42 +63,42 @@ public class DownloadFileRequest {
     /*
      *  Gets Path of the file including the file name and extension e.g. /folder1/file.ext
      */
-    public String getPath() {
+    public  getPath() {
         return Path;
     }
 
     /*
      * Sets Path of the file including the file name and extension e.g. /folder1/file.ext
      */
-    public void setPath(String value) {
+    public void setPath( value) {
         Path = value;
     }
 
     /*
      *  Gets Storage name
      */
-    public String getStorageName() {
+    public  getStorageName() {
         return StorageName;
     }
 
     /*
      * Sets Storage name
      */
-    public void setStorageName(String value) {
+    public void setStorageName( value) {
         StorageName = value;
     }
 
     /*
      *  Gets File version ID to download
      */
-    public String getVersionId() {
+    public  getVersionId() {
         return VersionId;
     }
 
     /*
      * Sets File version ID to download
      */
-    public void setVersionId(String value) {
+    public void setVersionId( value) {
         VersionId = value;
     }
 }

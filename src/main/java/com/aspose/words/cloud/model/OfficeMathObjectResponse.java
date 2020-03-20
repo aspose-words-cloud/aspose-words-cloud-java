@@ -29,8 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.OfficeMathObject;
-import com.aspose.words.cloud.model.WordsResponse;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/officeMathObjects/0.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/officeMathObjects/0.")
-
 public class OfficeMathObjectResponse extends WordsResponse {
   @SerializedName("OfficeMathObject")
   private OfficeMathObject officeMathObject = null;
@@ -55,10 +56,10 @@ public class OfficeMathObjectResponse extends WordsResponse {
   }
 
    /**
-   * Gets or sets officeMathObject information.
+   * Get officeMathObject
    * @return officeMathObject
   **/
-  @ApiModelProperty(value = "Gets or sets officeMathObject information.")
+  @ApiModelProperty(value = "")
   public OfficeMathObject getOfficeMathObject() {
     return officeMathObject;
   }

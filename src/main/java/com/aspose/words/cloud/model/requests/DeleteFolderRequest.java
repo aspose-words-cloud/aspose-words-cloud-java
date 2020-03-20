@@ -35,26 +35,26 @@ public class DeleteFolderRequest {
     /*
      * Folder path e.g. /Folder1s
      */
-    private String Path;
+    private  Path;
 
     /*
      * Storage name
      */
-    private String StorageName;
+    private  StorageName;
 
     /*
      * Enable to delete folders, subfolders and files
      */
-    private Boolean Recursive;
+    private  Recursive;
     
     /*
      * Initializes a new instance of the deleteFolderRequest class.
      *  
-     * @param String path Folder path e.g. /Folder1s
-     * @param String storageName Storage name
-     * @param Boolean recursive Enable to delete folders, subfolders and files
+     * @param  path Folder path e.g. /Folder1s
+     * @param  storageName Storage name
+     * @param  recursive Enable to delete folders, subfolders and files
      */
-    public DeleteFolderRequest(String path,  String storageName,  Boolean recursive) {
+    public DeleteFolderRequest( path,   storageName,   recursive) {
         Path = path;
         StorageName = storageName;
         Recursive = recursive;
@@ -63,42 +63,42 @@ public class DeleteFolderRequest {
     /*
      *  Gets Folder path e.g. /Folder1s
      */
-    public String getPath() {
+    public  getPath() {
         return Path;
     }
 
     /*
      * Sets Folder path e.g. /Folder1s
      */
-    public void setPath(String value) {
+    public void setPath( value) {
         Path = value;
     }
 
     /*
      *  Gets Storage name
      */
-    public String getStorageName() {
+    public  getStorageName() {
         return StorageName;
     }
 
     /*
      * Sets Storage name
      */
-    public void setStorageName(String value) {
+    public void setStorageName( value) {
         StorageName = value;
     }
 
     /*
      *  Gets Enable to delete folders, subfolders and files
      */
-    public Boolean getRecursive() {
+    public  getRecursive() {
         return Recursive;
     }
 
     /*
      * Sets Enable to delete folders, subfolders and files
      */
-    public void setRecursive(Boolean value) {
+    public void setRecursive( value) {
         Recursive = value;
     }
 }

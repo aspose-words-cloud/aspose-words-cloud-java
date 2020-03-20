@@ -35,44 +35,44 @@ public class GetDocumentFieldNamesRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private  Name;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private  Folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private  LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private  Password;
 
     /*
-     * If true, result includes \"mustache\" field names.
+     * If true, result includes "mustache" field names.
      */
-    private Boolean UseNonMergeFields;
+    private  UseNonMergeFields;
     
     /*
      * Initializes a new instance of the getDocumentFieldNamesRequest class.
      *  
-     * @param String name The document name.
-     * @param String folder Original document folder.
-     * @param String storage Original document storage.
-     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
-     * @param Boolean useNonMergeFields If true, result includes \"mustache\" field names.
+     * @param  name The document name.
+     * @param  folder Original document folder.
+     * @param  storage Original document storage.
+     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param  password Password for opening an encrypted document.
+     * @param  useNonMergeFields If true, result includes "mustache" field names.
      */
-    public GetDocumentFieldNamesRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  Boolean useNonMergeFields) {
+    public GetDocumentFieldNamesRequest( name,   folder,   storage,   loadEncoding,   password,   useNonMergeFields) {
         Name = name;
         Folder = folder;
         Storage = storage;
@@ -84,84 +84,84 @@ public class GetDocumentFieldNamesRequest {
     /*
      *  Gets The document name.
      */
-    public String getName() {
+    public  getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName(String value) {
+    public void setName( value) {
         Name = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public String getFolder() {
+    public  getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value) {
+    public void setFolder( value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding() {
+    public  getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value) {
+    public void setLoadEncoding( value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword() {
+    public  getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value) {
+    public void setPassword( value) {
         Password = value;
     }
 
     /*
-     *  Gets If true, result includes \"mustache\" field names.
+     *  Gets If true, result includes "mustache" field names.
      */
-    public Boolean getUseNonMergeFields() {
+    public  getUseNonMergeFields() {
         return UseNonMergeFields;
     }
 
     /*
-     * Sets If true, result includes \"mustache\" field names.
+     * Sets If true, result includes "mustache" field names.
      */
-    public void setUseNonMergeFields(Boolean value) {
+    public void setUseNonMergeFields( value) {
         UseNonMergeFields = value;
     }
 }

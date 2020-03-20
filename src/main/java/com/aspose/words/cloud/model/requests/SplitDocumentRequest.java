@@ -35,74 +35,74 @@ public class SplitDocumentRequest {
     /*
      * Original document name.
      */
-    private String Name;
+    private  Name;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private  Folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private  LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private  Password;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private String DestFileName;
+    private  DestFileName;
 
     /*
      * Format to split.
      */
-    private String Format;
+    private  Format;
 
     /*
      * Start page.
      */
-    private Integer From;
+    private  From;
 
     /*
      * End page.
      */
-    private Integer To;
+    private  To;
 
     /*
      * ZipOutput or not.
      */
-    private Boolean ZipOutput;
+    private  ZipOutput;
 
     /*
      * Folder in filestorage with custom fonts.
      */
-    private String FontsLocation;
+    private  FontsLocation;
     
     /*
      * Initializes a new instance of the splitDocumentRequest class.
      *  
-     * @param String name Original document name.
-     * @param String folder Original document folder.
-     * @param String storage Original document storage.
-     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String format Format to split.
-     * @param Integer from Start page.
-     * @param Integer to End page.
-     * @param Boolean zipOutput ZipOutput or not.
-     * @param String fontsLocation Folder in filestorage with custom fonts.
+     * @param  name Original document name.
+     * @param  folder Original document folder.
+     * @param  storage Original document storage.
+     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param  password Password for opening an encrypted document.
+     * @param  destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param  format Format to split.
+     * @param  from Start page.
+     * @param  to End page.
+     * @param  zipOutput ZipOutput or not.
+     * @param  fontsLocation Folder in filestorage with custom fonts.
      */
-    public SplitDocumentRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String format,  Integer from,  Integer to,  Boolean zipOutput,  String fontsLocation) {
+    public SplitDocumentRequest( name,   folder,   storage,   loadEncoding,   password,   destFileName,   format,   from,   to,   zipOutput,   fontsLocation) {
         Name = name;
         Folder = folder;
         Storage = storage;
@@ -119,154 +119,154 @@ public class SplitDocumentRequest {
     /*
      *  Gets Original document name.
      */
-    public String getName() {
+    public  getName() {
         return Name;
     }
 
     /*
      * Sets Original document name.
      */
-    public void setName(String value) {
+    public void setName( value) {
         Name = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public String getFolder() {
+    public  getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value) {
+    public void setFolder( value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding() {
+    public  getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value) {
+    public void setLoadEncoding( value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword() {
+    public  getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value) {
+    public void setPassword( value) {
         Password = value;
     }
 
     /*
      *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getDestFileName() {
+    public  getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName(String value) {
+    public void setDestFileName( value) {
         DestFileName = value;
     }
 
     /*
      *  Gets Format to split.
      */
-    public String getFormat() {
+    public  getFormat() {
         return Format;
     }
 
     /*
      * Sets Format to split.
      */
-    public void setFormat(String value) {
+    public void setFormat( value) {
         Format = value;
     }
 
     /*
      *  Gets Start page.
      */
-    public Integer getFrom() {
+    public  getFrom() {
         return From;
     }
 
     /*
      * Sets Start page.
      */
-    public void setFrom(Integer value) {
+    public void setFrom( value) {
         From = value;
     }
 
     /*
      *  Gets End page.
      */
-    public Integer getTo() {
+    public  getTo() {
         return To;
     }
 
     /*
      * Sets End page.
      */
-    public void setTo(Integer value) {
+    public void setTo( value) {
         To = value;
     }
 
     /*
      *  Gets ZipOutput or not.
      */
-    public Boolean getZipOutput() {
+    public  getZipOutput() {
         return ZipOutput;
     }
 
     /*
      * Sets ZipOutput or not.
      */
-    public void setZipOutput(Boolean value) {
+    public void setZipOutput( value) {
         ZipOutput = value;
     }
 
     /*
      *  Gets Folder in filestorage with custom fonts.
      */
-    public String getFontsLocation() {
+    public  getFontsLocation() {
         return FontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
-    public void setFontsLocation(String value) {
+    public void setFontsLocation( value) {
         FontsLocation = value;
     }
 }

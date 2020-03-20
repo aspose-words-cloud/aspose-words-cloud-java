@@ -35,32 +35,32 @@ public class MoveFolderRequest {
     /*
      * Destination folder path to move to e.g '/dst'
      */
-    private String DestPath;
+    private  DestPath;
 
     /*
      * Source folder path e.g. /Folder1
      */
-    private String SrcPath;
+    private  SrcPath;
 
     /*
      * Source storage name
      */
-    private String SrcStorageName;
+    private  SrcStorageName;
 
     /*
      * Destination storage name
      */
-    private String DestStorageName;
+    private  DestStorageName;
     
     /*
      * Initializes a new instance of the moveFolderRequest class.
      *  
-     * @param String destPath Destination folder path to move to e.g '/dst'
-     * @param String srcPath Source folder path e.g. /Folder1
-     * @param String srcStorageName Source storage name
-     * @param String destStorageName Destination storage name
+     * @param  destPath Destination folder path to move to e.g '/dst'
+     * @param  srcPath Source folder path e.g. /Folder1
+     * @param  srcStorageName Source storage name
+     * @param  destStorageName Destination storage name
      */
-    public MoveFolderRequest(String destPath,  String srcPath,  String srcStorageName,  String destStorageName) {
+    public MoveFolderRequest( destPath,   srcPath,   srcStorageName,   destStorageName) {
         DestPath = destPath;
         SrcPath = srcPath;
         SrcStorageName = srcStorageName;
@@ -70,56 +70,56 @@ public class MoveFolderRequest {
     /*
      *  Gets Destination folder path to move to e.g '/dst'
      */
-    public String getDestPath() {
+    public  getDestPath() {
         return DestPath;
     }
 
     /*
      * Sets Destination folder path to move to e.g '/dst'
      */
-    public void setDestPath(String value) {
+    public void setDestPath( value) {
         DestPath = value;
     }
 
     /*
      *  Gets Source folder path e.g. /Folder1
      */
-    public String getSrcPath() {
+    public  getSrcPath() {
         return SrcPath;
     }
 
     /*
      * Sets Source folder path e.g. /Folder1
      */
-    public void setSrcPath(String value) {
+    public void setSrcPath( value) {
         SrcPath = value;
     }
 
     /*
      *  Gets Source storage name
      */
-    public String getSrcStorageName() {
+    public  getSrcStorageName() {
         return SrcStorageName;
     }
 
     /*
      * Sets Source storage name
      */
-    public void setSrcStorageName(String value) {
+    public void setSrcStorageName( value) {
         SrcStorageName = value;
     }
 
     /*
      *  Gets Destination storage name
      */
-    public String getDestStorageName() {
+    public  getDestStorageName() {
         return DestStorageName;
     }
 
     /*
      * Sets Destination storage name
      */
-    public void setDestStorageName(String value) {
+    public void setDestStorageName( value) {
         DestStorageName = value;
     }
 }

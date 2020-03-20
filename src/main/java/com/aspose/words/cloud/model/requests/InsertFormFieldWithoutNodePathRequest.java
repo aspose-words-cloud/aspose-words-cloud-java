@@ -35,68 +35,68 @@ public class InsertFormFieldWithoutNodePathRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private  Name;
 
     /*
      * From field data.
      */
-    private FormField FormField;
+    private  FormField;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private  Folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private  LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private  Password;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private String DestFileName;
+    private  DestFileName;
 
     /*
      * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    private String RevisionAuthor;
+    private  RevisionAuthor;
 
     /*
      * The date and time to use for revisions.
      */
-    private String RevisionDateTime;
+    private  RevisionDateTime;
 
     /*
      * Form field will be inserted before node with index.
      */
-    private String InsertBeforeNode;
+    private  InsertBeforeNode;
     
     /*
      * Initializes a new instance of the insertFormFieldWithoutNodePathRequest class.
      *  
-     * @param String name The document name.
-     * @param FormField formField From field data.
-     * @param String folder Original document folder.
-     * @param String storage Original document storage.
-     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     * @param String revisionDateTime The date and time to use for revisions.
-     * @param String insertBeforeNode Form field will be inserted before node with index.
+     * @param  name The document name.
+     * @param  formField From field data.
+     * @param  folder Original document folder.
+     * @param  storage Original document storage.
+     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param  password Password for opening an encrypted document.
+     * @param  destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param  revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     * @param  revisionDateTime The date and time to use for revisions.
+     * @param  insertBeforeNode Form field will be inserted before node with index.
      */
-    public InsertFormFieldWithoutNodePathRequest(String name,  FormField formField,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
+    public InsertFormFieldWithoutNodePathRequest( name,   formField,   folder,   storage,   loadEncoding,   password,   destFileName,   revisionAuthor,   revisionDateTime,   insertBeforeNode) {
         Name = name;
         FormField = formField;
         Folder = folder;
@@ -112,140 +112,140 @@ public class InsertFormFieldWithoutNodePathRequest {
     /*
      *  Gets The document name.
      */
-    public String getName() {
+    public  getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName(String value) {
+    public void setName( value) {
         Name = value;
     }
 
     /*
      *  Gets From field data.
      */
-    public FormField getFormField() {
+    public  getFormField() {
         return FormField;
     }
 
     /*
      * Sets From field data.
      */
-    public void setFormField(FormField value) {
+    public void setFormField( value) {
         FormField = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public String getFolder() {
+    public  getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value) {
+    public void setFolder( value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding() {
+    public  getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value) {
+    public void setLoadEncoding( value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword() {
+    public  getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value) {
+    public void setPassword( value) {
         Password = value;
     }
 
     /*
      *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getDestFileName() {
+    public  getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName(String value) {
+    public void setDestFileName( value) {
         DestFileName = value;
     }
 
     /*
      *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public String getRevisionAuthor() {
+    public  getRevisionAuthor() {
         return RevisionAuthor;
     }
 
     /*
      * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public void setRevisionAuthor(String value) {
+    public void setRevisionAuthor( value) {
         RevisionAuthor = value;
     }
 
     /*
      *  Gets The date and time to use for revisions.
      */
-    public String getRevisionDateTime() {
+    public  getRevisionDateTime() {
         return RevisionDateTime;
     }
 
     /*
      * Sets The date and time to use for revisions.
      */
-    public void setRevisionDateTime(String value) {
+    public void setRevisionDateTime( value) {
         RevisionDateTime = value;
     }
 
     /*
      *  Gets Form field will be inserted before node with index.
      */
-    public String getInsertBeforeNode() {
+    public  getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
      * Sets Form field will be inserted before node with index.
      */
-    public void setInsertBeforeNode(String value) {
+    public void setInsertBeforeNode( value) {
         InsertBeforeNode = value;
     }
 }

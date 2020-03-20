@@ -35,38 +35,38 @@ public class CopyFileRequest {
     /*
      * Destination file path
      */
-    private String DestPath;
+    private  DestPath;
 
     /*
      * Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'
      */
-    private String SrcPath;
+    private  SrcPath;
 
     /*
      * Source storage name
      */
-    private String SrcStorageName;
+    private  SrcStorageName;
 
     /*
      * Destination storage name
      */
-    private String DestStorageName;
+    private  DestStorageName;
 
     /*
      * File version ID to copy
      */
-    private String VersionId;
+    private  VersionId;
     
     /*
      * Initializes a new instance of the copyFileRequest class.
      *  
-     * @param String destPath Destination file path
-     * @param String srcPath Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'
-     * @param String srcStorageName Source storage name
-     * @param String destStorageName Destination storage name
-     * @param String versionId File version ID to copy
+     * @param  destPath Destination file path
+     * @param  srcPath Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'
+     * @param  srcStorageName Source storage name
+     * @param  destStorageName Destination storage name
+     * @param  versionId File version ID to copy
      */
-    public CopyFileRequest(String destPath,  String srcPath,  String srcStorageName,  String destStorageName,  String versionId) {
+    public CopyFileRequest( destPath,   srcPath,   srcStorageName,   destStorageName,   versionId) {
         DestPath = destPath;
         SrcPath = srcPath;
         SrcStorageName = srcStorageName;
@@ -77,70 +77,70 @@ public class CopyFileRequest {
     /*
      *  Gets Destination file path
      */
-    public String getDestPath() {
+    public  getDestPath() {
         return DestPath;
     }
 
     /*
      * Sets Destination file path
      */
-    public void setDestPath(String value) {
+    public void setDestPath( value) {
         DestPath = value;
     }
 
     /*
      *  Gets Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'
      */
-    public String getSrcPath() {
+    public  getSrcPath() {
         return SrcPath;
     }
 
     /*
      * Sets Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'
      */
-    public void setSrcPath(String value) {
+    public void setSrcPath( value) {
         SrcPath = value;
     }
 
     /*
      *  Gets Source storage name
      */
-    public String getSrcStorageName() {
+    public  getSrcStorageName() {
         return SrcStorageName;
     }
 
     /*
      * Sets Source storage name
      */
-    public void setSrcStorageName(String value) {
+    public void setSrcStorageName( value) {
         SrcStorageName = value;
     }
 
     /*
      *  Gets Destination storage name
      */
-    public String getDestStorageName() {
+    public  getDestStorageName() {
         return DestStorageName;
     }
 
     /*
      * Sets Destination storage name
      */
-    public void setDestStorageName(String value) {
+    public void setDestStorageName( value) {
         DestStorageName = value;
     }
 
     /*
      *  Gets File version ID to copy
      */
-    public String getVersionId() {
+    public  getVersionId() {
         return VersionId;
     }
 
     /*
      * Sets File version ID to copy
      */
-    public void setVersionId(String value) {
+    public void setVersionId( value) {
         VersionId = value;
     }
 }

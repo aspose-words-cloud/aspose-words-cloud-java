@@ -70,7 +70,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/revisions/acceptAll"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -85,13 +85,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -207,7 +207,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/appendDocument"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -224,13 +224,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -361,13 +361,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -483,7 +483,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{documentName}/classify"
-            .replaceAll("\\{" + "documentName" + "\\}", apiClient.escapeString(request.getDocumentName().toString()));
+            .replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -499,13 +499,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -621,7 +621,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/compareDocument"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -636,13 +636,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -779,13 +779,13 @@ public class WordsApi {
           localVarFormParams.put("Document", request.getDocument());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -906,7 +906,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/file/copy/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
+            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -920,13 +920,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1043,7 +1043,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/copy/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
+            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1056,13 +1056,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1191,13 +1191,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1308,7 +1308,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1319,13 +1319,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1437,8 +1437,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "propertyName" + "\\}", apiClient.escapeString(request.getPropertyName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1455,13 +1455,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1587,9 +1587,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1606,13 +1606,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1738,8 +1738,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1756,13 +1756,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -1883,8 +1883,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "commentIndex" + "\\}", apiClient.escapeString(request.getCommentIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1901,13 +1901,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2024,8 +2024,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "propertyName" + "\\}", apiClient.escapeString(request.getPropertyName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2042,13 +2042,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2165,9 +2165,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2184,13 +2184,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2312,8 +2312,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2330,13 +2330,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2453,9 +2453,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2472,13 +2472,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2600,8 +2600,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2618,13 +2618,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2741,8 +2741,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2759,13 +2759,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -2882,7 +2882,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2899,13 +2899,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3017,7 +3017,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3029,13 +3029,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3147,7 +3147,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3159,13 +3159,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3277,9 +3277,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3296,13 +3296,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3424,8 +3424,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3442,13 +3442,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3565,9 +3565,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3584,13 +3584,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3712,8 +3712,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3730,13 +3730,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -3853,9 +3853,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3872,13 +3872,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -4000,8 +4000,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4019,13 +4019,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -4142,7 +4142,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/macros"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4159,13 +4159,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -4277,9 +4277,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4296,13 +4296,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -4424,8 +4424,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4442,13 +4442,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -4565,9 +4565,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4584,13 +4584,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -4712,8 +4712,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4730,13 +4730,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -4853,9 +4853,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4872,13 +4872,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -5000,8 +5000,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5018,13 +5018,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -5141,9 +5141,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5160,13 +5160,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -5288,9 +5288,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5307,13 +5307,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -5435,9 +5435,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5454,13 +5454,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -5582,8 +5582,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5600,13 +5600,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -5723,7 +5723,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/deleteLast"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5740,13 +5740,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -5862,7 +5862,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5874,13 +5874,13 @@ public class WordsApi {
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -5996,7 +5996,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/MailMerge"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6017,13 +6017,13 @@ public class WordsApi {
           localVarFormParams.put("Data", request.getData());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -6155,13 +6155,13 @@ if (request.getData() != null)
           localVarFormParams.put("Data", request.getData());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -6292,13 +6292,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -6409,8 +6409,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "bookmarkName" + "\\}", apiClient.escapeString(request.getBookmarkName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6424,13 +6424,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -6551,7 +6551,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6565,13 +6565,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -6687,9 +6687,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6703,13 +6703,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -6835,8 +6835,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6850,13 +6850,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -6977,8 +6977,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "commentIndex" + "\\}", apiClient.escapeString(request.getCommentIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6992,13 +6992,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -7119,7 +7119,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7133,13 +7133,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -7255,7 +7255,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{documentName}"
-            .replaceAll("\\{" + "documentName" + "\\}", apiClient.escapeString(request.getDocumentName().toString()));
+            .replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7269,13 +7269,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -7391,9 +7391,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7407,13 +7407,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -7539,8 +7539,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7554,13 +7554,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -7681,9 +7681,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7697,13 +7697,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -7829,8 +7829,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}/imageData"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7844,13 +7844,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -7971,9 +7971,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7987,13 +7987,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8119,8 +8119,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}/oleData"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8134,13 +8134,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8261,8 +8261,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8276,13 +8276,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8403,7 +8403,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8417,13 +8417,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8539,7 +8539,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/mailMerge/FieldNames"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8554,13 +8554,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8688,13 +8688,13 @@ if (request.getData() != null)
           localVarFormParams.put("Template", request.getTemplate());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8810,8 +8810,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "hyperlinkIndex" + "\\}", apiClient.escapeString(request.getHyperlinkIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "hyperlinkIndex" + "\\}", request.getHyperlinkIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8825,13 +8825,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -8952,7 +8952,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/hyperlinks"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8966,13 +8966,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -9088,7 +9088,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9102,13 +9102,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -9224,8 +9224,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "propertyName" + "\\}", apiClient.escapeString(request.getPropertyName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9239,13 +9239,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -9366,7 +9366,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9380,13 +9380,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -9502,7 +9502,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/statistics"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9519,13 +9519,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -9641,7 +9641,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9658,13 +9658,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -9785,9 +9785,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9801,13 +9801,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -9933,8 +9933,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9948,13 +9948,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -10075,8 +10075,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10090,13 +10090,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -10217,7 +10217,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10231,13 +10231,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -10353,7 +10353,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10364,13 +10364,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -10486,9 +10486,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10502,13 +10502,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -10634,8 +10634,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10649,13 +10649,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -10776,8 +10776,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10791,13 +10791,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -10918,7 +10918,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10932,13 +10932,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -11054,9 +11054,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11070,13 +11070,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -11202,8 +11202,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11217,13 +11217,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -11344,8 +11344,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11359,13 +11359,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -11486,7 +11486,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11500,13 +11500,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -11622,8 +11622,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "headerFooterIndex" + "\\}", apiClient.escapeString(request.getHeaderFooterIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11638,13 +11638,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -11765,9 +11765,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "headerFooterIndex" + "\\}", apiClient.escapeString(request.getHeaderFooterIndex().toString()))
-            .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11782,13 +11782,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -11914,8 +11914,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11930,13 +11930,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -12057,9 +12057,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12073,13 +12073,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -12205,8 +12205,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12220,13 +12220,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -12347,8 +12347,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12362,13 +12362,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -12489,7 +12489,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/OfficeMathObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12503,13 +12503,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -12625,9 +12625,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12641,13 +12641,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -12773,9 +12773,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12789,13 +12789,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -12921,8 +12921,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12936,13 +12936,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -13063,8 +13063,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13078,13 +13078,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -13205,8 +13205,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13220,13 +13220,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -13347,7 +13347,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13361,13 +13361,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -13483,9 +13483,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()))
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", apiClient.escapeString(request.getRangeEndIdentifier().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13499,13 +13499,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -13537,11 +13537,6 @@ if (request.getData() != null)
         // verify the required parameter 'RangeStartIdentifier' is set
         if (request.getRangeStartIdentifier() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling getRangeText");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling getRangeText");
         }
         
 
@@ -13631,9 +13626,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13647,13 +13642,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -13779,9 +13774,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13795,13 +13790,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -13927,8 +13922,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13942,13 +13937,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -14069,8 +14064,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14084,13 +14079,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -14211,8 +14206,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14226,13 +14221,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -14353,7 +14348,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14367,13 +14362,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -14489,9 +14484,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14505,13 +14500,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -14637,9 +14632,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14653,13 +14648,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -14785,9 +14780,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14801,13 +14796,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -14933,9 +14928,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14949,13 +14944,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -15081,8 +15076,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15096,13 +15091,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -15223,9 +15218,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15239,13 +15234,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -15371,9 +15366,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15387,13 +15382,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -15519,8 +15514,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15534,13 +15529,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -15661,8 +15656,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15676,13 +15671,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -15803,7 +15798,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15817,13 +15812,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -15939,7 +15934,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15956,13 +15951,13 @@ if (request.getData() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -16083,8 +16078,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16105,13 +16100,13 @@ if (request.getImageFile() != null)
           localVarFormParams.put("ImageFile", request.getImageFile());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -16242,7 +16237,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16263,13 +16258,13 @@ if (request.getImageFile() != null)
           localVarFormParams.put("ImageFile", request.getImageFile());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -16395,8 +16390,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16414,13 +16409,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -16546,7 +16541,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16564,13 +16559,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -16691,8 +16686,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16709,13 +16704,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -16841,7 +16836,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16858,13 +16853,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -16985,8 +16980,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17004,13 +16999,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -17136,7 +17131,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17154,13 +17149,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -17281,8 +17276,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "sectionPath" + "\\}", apiClient.escapeString(request.getSectionPath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17299,13 +17294,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -17431,7 +17426,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/PageNumbers"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17448,13 +17443,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -17575,8 +17570,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17594,13 +17589,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -17726,8 +17721,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17745,13 +17740,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -17877,8 +17872,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17895,13 +17890,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -18027,8 +18022,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18045,13 +18040,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -18177,8 +18172,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18195,13 +18190,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -18327,7 +18322,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18344,13 +18339,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -18471,7 +18466,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/images"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18492,13 +18487,13 @@ if (request.getImageFile() != null)
           localVarFormParams.put("ImageFile", request.getImageFile());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -18614,7 +18609,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/texts"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18631,13 +18626,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -18768,13 +18763,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -18890,7 +18885,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/storage/file/move/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
+            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18904,13 +18899,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -19027,7 +19022,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/move/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", apiClient.escapeString(request.getSrcPath().toString()));
+            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19040,13 +19035,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -19163,7 +19158,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19178,13 +19173,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -19305,7 +19300,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/revisions/rejectAll"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19320,13 +19315,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -19442,9 +19437,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()))
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", apiClient.escapeString(request.getRangeEndIdentifier().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19459,13 +19454,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -19497,11 +19492,6 @@ if (request.getImageFile() != null)
         // verify the required parameter 'RangeStartIdentifier' is set
         if (request.getRangeStartIdentifier() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling removeRange");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling removeRange");
         }
         
 
@@ -19591,9 +19581,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19609,13 +19599,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -19746,8 +19736,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19763,13 +19753,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -19895,9 +19885,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19913,13 +19903,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -20050,8 +20040,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/OfficeMathObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20067,13 +20057,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -20199,8 +20189,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/pages/{pageIndex}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "pageIndex" + "\\}", apiClient.escapeString(request.getPageIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "pageIndex" + "\\}", request.getPageIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20216,13 +20206,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -20348,9 +20338,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20366,13 +20356,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -20503,8 +20493,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20520,13 +20510,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -20652,9 +20642,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20670,13 +20660,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -20807,8 +20797,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20824,13 +20814,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -20956,7 +20946,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/replaceText"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20973,13 +20963,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -21100,9 +21090,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()))
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", apiClient.escapeString(request.getRangeEndIdentifier().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21117,13 +21107,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -21160,11 +21150,6 @@ if (request.getImageFile() != null)
         // verify the required parameter 'RangeText' is set
         if (request.getRangeText() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeText' when calling replaceWithText");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling replaceWithText");
         }
         
 
@@ -21263,13 +21248,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -21376,7 +21361,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/saveAs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21391,13 +21376,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -21518,9 +21503,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", apiClient.escapeString(request.getRangeStartIdentifier().toString()))
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", apiClient.escapeString(request.getRangeEndIdentifier().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21534,13 +21519,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -21577,11 +21562,6 @@ if (request.getImageFile() != null)
         // verify the required parameter 'DocumentParameters' is set
         if (request.getDocumentParameters() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'DocumentParameters' when calling saveAsRange");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling saveAsRange");
         }
         
 
@@ -21671,7 +21651,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/saveAs/tiff"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21703,13 +21683,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -21830,7 +21810,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/search"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21845,13 +21825,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -21972,7 +21952,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/split"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21992,13 +21972,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -22114,7 +22094,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22129,13 +22109,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -22256,8 +22236,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "bookmarkName" + "\\}", apiClient.escapeString(request.getBookmarkName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22274,13 +22254,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -22406,9 +22386,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "borderType" + "\\}", apiClient.escapeString(request.getBorderType().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22425,13 +22405,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -22562,8 +22542,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "commentIndex" + "\\}", apiClient.escapeString(request.getCommentIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22580,13 +22560,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -22712,9 +22692,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22735,13 +22715,13 @@ if (request.getImageFile() != null)
           localVarFormParams.put("ImageFile", request.getImageFile());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -22877,8 +22857,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22899,13 +22879,13 @@ if (request.getImageFile() != null)
           localVarFormParams.put("ImageFile", request.getImageFile());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -23036,9 +23016,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23055,13 +23035,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -23192,7 +23172,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/updateFields"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23207,13 +23187,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -23329,9 +23309,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23348,13 +23328,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -23485,8 +23465,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23503,13 +23483,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -23635,9 +23615,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23654,13 +23634,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -23791,8 +23771,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23809,13 +23789,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -23941,9 +23921,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23960,13 +23940,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -24097,9 +24077,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24116,13 +24096,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -24253,9 +24233,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "paragraphPath" + "\\}", apiClient.escapeString(request.getParagraphPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24272,13 +24252,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -24409,8 +24389,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "sectionIndex" + "\\}", apiClient.escapeString(request.getSectionIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24427,13 +24407,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -24559,9 +24539,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tableRowPath" + "\\}", apiClient.escapeString(request.getTableRowPath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24578,13 +24558,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -24715,9 +24695,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "nodePath" + "\\}", apiClient.escapeString(request.getNodePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24734,13 +24714,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -24871,8 +24851,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24889,13 +24869,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -25021,9 +25001,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
-            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getName().toString()))
-            .replaceAll("\\{" + "tablePath" + "\\}", apiClient.escapeString(request.getTablePath().toString()))
-            .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(request.getIndex().toString()));
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25040,13 +25020,13 @@ if (request.getImageFile() != null)
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
         
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml", "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -25177,7 +25157,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(request.getPath().toString()));
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25190,13 +25170,13 @@ if (request.getImageFile() != null)
           localVarFormParams.put("FileContent", request.getFileContent());
 
         final String[] localVarAccepts = {
-            "application/xml", "application/json"
+            
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);

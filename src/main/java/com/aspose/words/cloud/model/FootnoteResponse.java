@@ -29,8 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Footnote;
-import com.aspose.words.cloud.model.WordsResponse;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/footnote/0.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/footnote/0.")
-
 public class FootnoteResponse extends WordsResponse {
   @SerializedName("Footnote")
   private Footnote footnote = null;
@@ -55,10 +56,10 @@ public class FootnoteResponse extends WordsResponse {
   }
 
    /**
-   * Gets or sets footnote information.
+   * Get footnote
    * @return footnote
   **/
-  @ApiModelProperty(value = "Gets or sets footnote information.")
+  @ApiModelProperty(value = "")
   public Footnote getFootnote() {
     return footnote;
   }

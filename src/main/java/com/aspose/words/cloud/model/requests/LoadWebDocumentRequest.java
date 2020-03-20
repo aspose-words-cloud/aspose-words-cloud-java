@@ -35,20 +35,20 @@ public class LoadWebDocumentRequest {
     /*
      * Parameters of loading.
      */
-    private LoadWebDocumentData Data;
+    private  Data;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
     
     /*
      * Initializes a new instance of the loadWebDocumentRequest class.
      *  
-     * @param LoadWebDocumentData data Parameters of loading.
-     * @param String storage Original document storage.
+     * @param  data Parameters of loading.
+     * @param  storage Original document storage.
      */
-    public LoadWebDocumentRequest(LoadWebDocumentData data,  String storage) {
+    public LoadWebDocumentRequest( data,   storage) {
         Data = data;
         Storage = storage;
     }
@@ -56,28 +56,28 @@ public class LoadWebDocumentRequest {
     /*
      *  Gets Parameters of loading.
      */
-    public LoadWebDocumentData getData() {
+    public  getData() {
         return Data;
     }
 
     /*
      * Sets Parameters of loading.
      */
-    public void setData(LoadWebDocumentData value) {
+    public void setData( value) {
         Data = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 }

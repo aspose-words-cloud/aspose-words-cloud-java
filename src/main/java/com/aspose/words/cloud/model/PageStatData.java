@@ -29,7 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.FootnotesStatData;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Container for the page&#39;s statistical data.
  */
 @ApiModel(description = "Container for the page's statistical data.")
-
 public class PageStatData {
   @SerializedName("PageNumber")
   private Integer pageNumber = null;
@@ -66,7 +68,7 @@ public class PageStatData {
    * Gets or sets page number.
    * @return pageNumber
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets page number.")
+  @ApiModelProperty(value = "Gets or sets page number.")
   public Integer getPageNumber() {
     return pageNumber;
   }
@@ -84,7 +86,7 @@ public class PageStatData {
    * Gets or sets total count of words in the page.
    * @return wordCount
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets total count of words in the page.")
+  @ApiModelProperty(value = "Gets or sets total count of words in the page.")
   public Integer getWordCount() {
     return wordCount;
   }
@@ -102,7 +104,7 @@ public class PageStatData {
    * Gets or sets total count of paragraphs in the page.
    * @return paragraphCount
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets total count of paragraphs in the page.")
+  @ApiModelProperty(value = "Gets or sets total count of paragraphs in the page.")
   public Integer getParagraphCount() {
     return paragraphCount;
   }
@@ -117,10 +119,10 @@ public class PageStatData {
   }
 
    /**
-   * Gets or sets detailed statistics of footnotes.
+   * Get footnotesStatData
    * @return footnotesStatData
   **/
-  @ApiModelProperty(value = "Gets or sets detailed statistics of footnotes.")
+  @ApiModelProperty(value = "")
   public FootnotesStatData getFootnotesStatData() {
     return footnotesStatData;
   }

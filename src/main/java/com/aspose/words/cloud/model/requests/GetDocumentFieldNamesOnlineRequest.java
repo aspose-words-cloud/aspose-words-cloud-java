@@ -35,20 +35,20 @@ public class GetDocumentFieldNamesOnlineRequest {
     /*
      * File with template
      */
-    private File Template;
+    private  Template;
 
     /*
      * Use non merge fields or not.
      */
-    private Boolean UseNonMergeFields;
+    private  UseNonMergeFields;
     
     /*
      * Initializes a new instance of the getDocumentFieldNamesOnlineRequest class.
      *  
-     * @param File template File with template
-     * @param Boolean useNonMergeFields Use non merge fields or not.
+     * @param  template File with template
+     * @param  useNonMergeFields Use non merge fields or not.
      */
-    public GetDocumentFieldNamesOnlineRequest(File template,  Boolean useNonMergeFields) {
+    public GetDocumentFieldNamesOnlineRequest( template,   useNonMergeFields) {
         Template = template;
         UseNonMergeFields = useNonMergeFields;
     }
@@ -56,28 +56,28 @@ public class GetDocumentFieldNamesOnlineRequest {
     /*
      *  Gets File with template
      */
-    public File getTemplate() {
+    public  getTemplate() {
         return Template;
     }
 
     /*
      * Sets File with template
      */
-    public void setTemplate(File value) {
+    public void setTemplate( value) {
         Template = value;
     }
 
     /*
      *  Gets Use non merge fields or not.
      */
-    public Boolean getUseNonMergeFields() {
+    public  getUseNonMergeFields() {
         return UseNonMergeFields;
     }
 
     /*
      * Sets Use non merge fields or not.
      */
-    public void setUseNonMergeFields(Boolean value) {
+    public void setUseNonMergeFields( value) {
         UseNonMergeFields = value;
     }
 }

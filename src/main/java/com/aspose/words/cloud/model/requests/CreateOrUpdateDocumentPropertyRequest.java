@@ -35,68 +35,68 @@ public class CreateOrUpdateDocumentPropertyRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private  Name;
 
     /*
      * The property name.
      */
-    private String PropertyName;
+    private  PropertyName;
 
     /*
      * The property with new value.
      */
-    private DocumentProperty Property;
+    private  Property;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private  Folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private  LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private  Password;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private String DestFileName;
+    private  DestFileName;
 
     /*
      * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    private String RevisionAuthor;
+    private  RevisionAuthor;
 
     /*
      * The date and time to use for revisions.
      */
-    private String RevisionDateTime;
+    private  RevisionDateTime;
     
     /*
      * Initializes a new instance of the createOrUpdateDocumentPropertyRequest class.
      *  
-     * @param String name The document name.
-     * @param String propertyName The property name.
-     * @param DocumentProperty property The property with new value.
-     * @param String folder Original document folder.
-     * @param String storage Original document storage.
-     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
-     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     * @param String revisionDateTime The date and time to use for revisions.
+     * @param  name The document name.
+     * @param  propertyName The property name.
+     * @param  property The property with new value.
+     * @param  folder Original document folder.
+     * @param  storage Original document storage.
+     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param  password Password for opening an encrypted document.
+     * @param  destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param  revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     * @param  revisionDateTime The date and time to use for revisions.
      */
-    public CreateOrUpdateDocumentPropertyRequest(String name,  String propertyName,  DocumentProperty property,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public CreateOrUpdateDocumentPropertyRequest( name,   propertyName,   property,   folder,   storage,   loadEncoding,   password,   destFileName,   revisionAuthor,   revisionDateTime) {
         Name = name;
         PropertyName = propertyName;
         Property = property;
@@ -112,140 +112,140 @@ public class CreateOrUpdateDocumentPropertyRequest {
     /*
      *  Gets The document name.
      */
-    public String getName() {
+    public  getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName(String value) {
+    public void setName( value) {
         Name = value;
     }
 
     /*
      *  Gets The property name.
      */
-    public String getPropertyName() {
+    public  getPropertyName() {
         return PropertyName;
     }
 
     /*
      * Sets The property name.
      */
-    public void setPropertyName(String value) {
+    public void setPropertyName( value) {
         PropertyName = value;
     }
 
     /*
      *  Gets The property with new value.
      */
-    public DocumentProperty getProperty() {
+    public  getProperty() {
         return Property;
     }
 
     /*
      * Sets The property with new value.
      */
-    public void setProperty(DocumentProperty value) {
+    public void setProperty( value) {
         Property = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public String getFolder() {
+    public  getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value) {
+    public void setFolder( value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding() {
+    public  getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value) {
+    public void setLoadEncoding( value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword() {
+    public  getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value) {
+    public void setPassword( value) {
         Password = value;
     }
 
     /*
      *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public String getDestFileName() {
+    public  getDestFileName() {
         return DestFileName;
     }
 
     /*
      * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setDestFileName(String value) {
+    public void setDestFileName( value) {
         DestFileName = value;
     }
 
     /*
      *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public String getRevisionAuthor() {
+    public  getRevisionAuthor() {
         return RevisionAuthor;
     }
 
     /*
      * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    public void setRevisionAuthor(String value) {
+    public void setRevisionAuthor( value) {
         RevisionAuthor = value;
     }
 
     /*
      *  Gets The date and time to use for revisions.
      */
-    public String getRevisionDateTime() {
+    public  getRevisionDateTime() {
         return RevisionDateTime;
     }
 
     /*
      * Sets The date and time to use for revisions.
      */
-    public void setRevisionDateTime(String value) {
+    public void setRevisionDateTime( value) {
         RevisionDateTime = value;
     }
 }

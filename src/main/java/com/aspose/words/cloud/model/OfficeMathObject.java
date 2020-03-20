@@ -29,9 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.OfficeMathLink;
-import com.aspose.words.cloud.model.StoryChildNodes;
-import com.aspose.words.cloud.model.WordsApiLink;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * OfficeMath object.
  */
 @ApiModel(description = "OfficeMath object.")
-
 public class OfficeMathObject extends OfficeMathLink {
   @SerializedName("Content")
   private StoryChildNodes content = null;
@@ -270,10 +270,10 @@ public class OfficeMathObject extends OfficeMathLink {
   }
 
    /**
-   * Gets or sets content of footnote.
+   * Get content
    * @return content
   **/
-  @ApiModelProperty(value = "Gets or sets content of footnote.")
+  @ApiModelProperty(value = "")
   public StoryChildNodes getContent() {
     return content;
   }

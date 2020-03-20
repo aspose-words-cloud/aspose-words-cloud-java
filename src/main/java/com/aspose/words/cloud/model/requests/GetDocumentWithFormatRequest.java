@@ -35,56 +35,56 @@ public class GetDocumentWithFormatRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private  Name;
 
     /*
      * The destination format.
      */
-    private String Format;
+    private  Format;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private  Folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private  LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private  Password;
 
     /*
      * Path to save the result.
      */
-    private String OutPath;
+    private  OutPath;
 
     /*
      * Folder in filestorage with custom fonts.
      */
-    private String FontsLocation;
+    private  FontsLocation;
     
     /*
      * Initializes a new instance of the getDocumentWithFormatRequest class.
      *  
-     * @param String name The document name.
-     * @param String format The destination format.
-     * @param String folder Original document folder.
-     * @param String storage Original document storage.
-     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
-     * @param String outPath Path to save the result.
-     * @param String fontsLocation Folder in filestorage with custom fonts.
+     * @param  name The document name.
+     * @param  format The destination format.
+     * @param  folder Original document folder.
+     * @param  storage Original document storage.
+     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param  password Password for opening an encrypted document.
+     * @param  outPath Path to save the result.
+     * @param  fontsLocation Folder in filestorage with custom fonts.
      */
-    public GetDocumentWithFormatRequest(String name,  String format,  String folder,  String storage,  String loadEncoding,  String password,  String outPath,  String fontsLocation) {
+    public GetDocumentWithFormatRequest( name,   format,   folder,   storage,   loadEncoding,   password,   outPath,   fontsLocation) {
         Name = name;
         Format = format;
         Folder = folder;
@@ -98,112 +98,112 @@ public class GetDocumentWithFormatRequest {
     /*
      *  Gets The document name.
      */
-    public String getName() {
+    public  getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName(String value) {
+    public void setName( value) {
         Name = value;
     }
 
     /*
      *  Gets The destination format.
      */
-    public String getFormat() {
+    public  getFormat() {
         return Format;
     }
 
     /*
      * Sets The destination format.
      */
-    public void setFormat(String value) {
+    public void setFormat( value) {
         Format = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public String getFolder() {
+    public  getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value) {
+    public void setFolder( value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding() {
+    public  getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value) {
+    public void setLoadEncoding( value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword() {
+    public  getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value) {
+    public void setPassword( value) {
         Password = value;
     }
 
     /*
      *  Gets Path to save the result.
      */
-    public String getOutPath() {
+    public  getOutPath() {
         return OutPath;
     }
 
     /*
      * Sets Path to save the result.
      */
-    public void setOutPath(String value) {
+    public void setOutPath( value) {
         OutPath = value;
     }
 
     /*
      *  Gets Folder in filestorage with custom fonts.
      */
-    public String getFontsLocation() {
+    public  getFontsLocation() {
         return FontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
-    public void setFontsLocation(String value) {
+    public void setFontsLocation( value) {
         FontsLocation = value;
     }
 }

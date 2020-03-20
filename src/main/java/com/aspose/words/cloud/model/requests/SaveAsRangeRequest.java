@@ -35,56 +35,56 @@ public class SaveAsRangeRequest {
     /*
      * The document.
      */
-    private String Name;
+    private  Name;
 
     /*
-     * The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
-    private String RangeStartIdentifier;
+    private  RangeStartIdentifier;
 
     /*
      * Parameters of a new document.
      */
-    private RangeDocument DocumentParameters;
+    private  DocumentParameters;
 
     /*
      * The range end identifier.
      */
-    private String RangeEndIdentifier;
+    private  RangeEndIdentifier;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private  Folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private  LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private  Password;
     
     /*
      * Initializes a new instance of the saveAsRangeRequest class.
      *  
-     * @param String name The document.
-     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
-     * @param RangeDocument documentParameters Parameters of a new document.
-     * @param String rangeEndIdentifier The range end identifier.
-     * @param String folder Original document folder.
-     * @param String storage Original document storage.
-     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
+     * @param  name The document.
+     * @param  rangeStartIdentifier The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * @param  documentParameters Parameters of a new document.
+     * @param  rangeEndIdentifier The range end identifier.
+     * @param  folder Original document folder.
+     * @param  storage Original document storage.
+     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param  password Password for opening an encrypted document.
      */
-    public SaveAsRangeRequest(String name,  String rangeStartIdentifier,  RangeDocument documentParameters,  String rangeEndIdentifier,  String folder,  String storage,  String loadEncoding,  String password) {
+    public SaveAsRangeRequest( name,   rangeStartIdentifier,   documentParameters,   rangeEndIdentifier,   folder,   storage,   loadEncoding,   password) {
         Name = name;
         RangeStartIdentifier = rangeStartIdentifier;
         DocumentParameters = documentParameters;
@@ -98,112 +98,112 @@ public class SaveAsRangeRequest {
     /*
      *  Gets The document.
      */
-    public String getName() {
+    public  getName() {
         return Name;
     }
 
     /*
      * Sets The document.
      */
-    public void setName(String value) {
+    public void setName( value) {
         Name = value;
     }
 
     /*
-     *  Gets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     *  Gets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
-    public String getRangeStartIdentifier() {
+    public  getRangeStartIdentifier() {
         return RangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Sets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
-    public void setRangeStartIdentifier(String value) {
+    public void setRangeStartIdentifier( value) {
         RangeStartIdentifier = value;
     }
 
     /*
      *  Gets Parameters of a new document.
      */
-    public RangeDocument getDocumentParameters() {
+    public  getDocumentParameters() {
         return DocumentParameters;
     }
 
     /*
      * Sets Parameters of a new document.
      */
-    public void setDocumentParameters(RangeDocument value) {
+    public void setDocumentParameters( value) {
         DocumentParameters = value;
     }
 
     /*
      *  Gets The range end identifier.
      */
-    public String getRangeEndIdentifier() {
+    public  getRangeEndIdentifier() {
         return RangeEndIdentifier;
     }
 
     /*
      * Sets The range end identifier.
      */
-    public void setRangeEndIdentifier(String value) {
+    public void setRangeEndIdentifier( value) {
         RangeEndIdentifier = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public String getFolder() {
+    public  getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value) {
+    public void setFolder( value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding() {
+    public  getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value) {
+    public void setLoadEncoding( value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword() {
+    public  getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value) {
+    public void setPassword( value) {
         Password = value;
     }
 }

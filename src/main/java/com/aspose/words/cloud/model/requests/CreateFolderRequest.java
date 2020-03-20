@@ -35,20 +35,20 @@ public class CreateFolderRequest {
     /*
      * Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
      */
-    private String Path;
+    private  Path;
 
     /*
      * Storage name
      */
-    private String StorageName;
+    private  StorageName;
     
     /*
      * Initializes a new instance of the createFolderRequest class.
      *  
-     * @param String path Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
-     * @param String storageName Storage name
+     * @param  path Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
+     * @param  storageName Storage name
      */
-    public CreateFolderRequest(String path,  String storageName) {
+    public CreateFolderRequest( path,   storageName) {
         Path = path;
         StorageName = storageName;
     }
@@ -56,28 +56,28 @@ public class CreateFolderRequest {
     /*
      *  Gets Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
      */
-    public String getPath() {
+    public  getPath() {
         return Path;
     }
 
     /*
      * Sets Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
      */
-    public void setPath(String value) {
+    public void setPath( value) {
         Path = value;
     }
 
     /*
      *  Gets Storage name
      */
-    public String getStorageName() {
+    public  getStorageName() {
         return StorageName;
     }
 
     /*
      * Sets Storage name
      */
-    public void setStorageName(String value) {
+    public void setStorageName( value) {
         StorageName = value;
     }
 }

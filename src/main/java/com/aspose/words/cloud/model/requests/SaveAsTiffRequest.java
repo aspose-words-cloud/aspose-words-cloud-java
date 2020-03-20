@@ -35,152 +35,152 @@ public class SaveAsTiffRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private  Name;
 
     /*
      * Tiff save options.
      */
-    private TiffSaveOptionsData SaveOptions;
+    private  SaveOptions;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private  Folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private  LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private  Password;
 
     /*
      * Use antialiasing flag.
      */
-    private Boolean UseAntiAliasing;
+    private  UseAntiAliasing;
 
     /*
      * Use high quality flag.
      */
-    private Boolean UseHighQualityRendering;
+    private  UseHighQualityRendering;
 
     /*
      * Brightness for the generated images.
      */
-    private Double ImageBrightness;
+    private  ImageBrightness;
 
     /*
      * Color mode for the generated images.
      */
-    private String ImageColorMode;
+    private  ImageColorMode;
 
     /*
      * The contrast for the generated images.
      */
-    private Double ImageContrast;
+    private  ImageContrast;
 
     /*
      * The images numeral format.
      */
-    private String NumeralFormat;
+    private  NumeralFormat;
 
     /*
      * Number of pages to render.
      */
-    private Integer PageCount;
+    private  PageCount;
 
     /*
      * Page index to start rendering.
      */
-    private Integer PageIndex;
+    private  PageIndex;
 
     /*
      * Background image color.
      */
-    private String PaperColor;
+    private  PaperColor;
 
     /*
      * The pixel format of generated images.
      */
-    private String PixelFormat;
+    private  PixelFormat;
 
     /*
      * The resolution of generated images.
      */
-    private Double Resolution;
+    private  Resolution;
 
     /*
      * Zoom factor for generated images.
      */
-    private Double Scale;
+    private  Scale;
 
     /*
      * The compression tipe.
      */
-    private String TiffCompression;
+    private  TiffCompression;
 
     /*
      * Optional, default is Fallback.
      */
-    private String DmlRenderingMode;
+    private  DmlRenderingMode;
 
     /*
      * Optional, default is Simplified.
      */
-    private String DmlEffectsRenderingMode;
+    private  DmlEffectsRenderingMode;
 
     /*
      * Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
      */
-    private String TiffBinarizationMethod;
+    private  TiffBinarizationMethod;
 
     /*
      * Optional. A value determining zip output or not.
      */
-    private Boolean ZipOutput;
+    private  ZipOutput;
 
     /*
      * Folder in filestorage with custom fonts.
      */
-    private String FontsLocation;
+    private  FontsLocation;
     
     /*
      * Initializes a new instance of the saveAsTiffRequest class.
      *  
-     * @param String name The document name.
-     * @param TiffSaveOptionsData saveOptions Tiff save options.
-     * @param String folder Original document folder.
-     * @param String storage Original document storage.
-     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
-     * @param Boolean useAntiAliasing Use antialiasing flag.
-     * @param Boolean useHighQualityRendering Use high quality flag.
-     * @param Double imageBrightness Brightness for the generated images.
-     * @param String imageColorMode Color mode for the generated images.
-     * @param Double imageContrast The contrast for the generated images.
-     * @param String numeralFormat The images numeral format.
-     * @param Integer pageCount Number of pages to render.
-     * @param Integer pageIndex Page index to start rendering.
-     * @param String paperColor Background image color.
-     * @param String pixelFormat The pixel format of generated images.
-     * @param Double resolution The resolution of generated images.
-     * @param Double scale Zoom factor for generated images.
-     * @param String tiffCompression The compression tipe.
-     * @param String dmlRenderingMode Optional, default is Fallback.
-     * @param String dmlEffectsRenderingMode Optional, default is Simplified.
-     * @param String tiffBinarizationMethod Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
-     * @param Boolean zipOutput Optional. A value determining zip output or not.
-     * @param String fontsLocation Folder in filestorage with custom fonts.
+     * @param  name The document name.
+     * @param  saveOptions Tiff save options.
+     * @param  folder Original document folder.
+     * @param  storage Original document storage.
+     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param  password Password for opening an encrypted document.
+     * @param  useAntiAliasing Use antialiasing flag.
+     * @param  useHighQualityRendering Use high quality flag.
+     * @param  imageBrightness Brightness for the generated images.
+     * @param  imageColorMode Color mode for the generated images.
+     * @param  imageContrast The contrast for the generated images.
+     * @param  numeralFormat The images numeral format.
+     * @param  pageCount Number of pages to render.
+     * @param  pageIndex Page index to start rendering.
+     * @param  paperColor Background image color.
+     * @param  pixelFormat The pixel format of generated images.
+     * @param  resolution The resolution of generated images.
+     * @param  scale Zoom factor for generated images.
+     * @param  tiffCompression The compression tipe.
+     * @param  dmlRenderingMode Optional, default is Fallback.
+     * @param  dmlEffectsRenderingMode Optional, default is Simplified.
+     * @param  tiffBinarizationMethod Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
+     * @param  zipOutput Optional. A value determining zip output or not.
+     * @param  fontsLocation Folder in filestorage with custom fonts.
      */
-    public SaveAsTiffRequest(String name,  TiffSaveOptionsData saveOptions,  String folder,  String storage,  String loadEncoding,  String password,  Boolean useAntiAliasing,  Boolean useHighQualityRendering,  Double imageBrightness,  String imageColorMode,  Double imageContrast,  String numeralFormat,  Integer pageCount,  Integer pageIndex,  String paperColor,  String pixelFormat,  Double resolution,  Double scale,  String tiffCompression,  String dmlRenderingMode,  String dmlEffectsRenderingMode,  String tiffBinarizationMethod,  Boolean zipOutput,  String fontsLocation) {
+    public SaveAsTiffRequest( name,   saveOptions,   folder,   storage,   loadEncoding,   password,   useAntiAliasing,   useHighQualityRendering,   imageBrightness,   imageColorMode,   imageContrast,   numeralFormat,   pageCount,   pageIndex,   paperColor,   pixelFormat,   resolution,   scale,   tiffCompression,   dmlRenderingMode,   dmlEffectsRenderingMode,   tiffBinarizationMethod,   zipOutput,   fontsLocation) {
         Name = name;
         SaveOptions = saveOptions;
         Folder = folder;
@@ -210,336 +210,336 @@ public class SaveAsTiffRequest {
     /*
      *  Gets The document name.
      */
-    public String getName() {
+    public  getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName(String value) {
+    public void setName( value) {
         Name = value;
     }
 
     /*
      *  Gets Tiff save options.
      */
-    public TiffSaveOptionsData getSaveOptions() {
+    public  getSaveOptions() {
         return SaveOptions;
     }
 
     /*
      * Sets Tiff save options.
      */
-    public void setSaveOptions(TiffSaveOptionsData value) {
+    public void setSaveOptions( value) {
         SaveOptions = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public String getFolder() {
+    public  getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value) {
+    public void setFolder( value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding() {
+    public  getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value) {
+    public void setLoadEncoding( value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword() {
+    public  getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value) {
+    public void setPassword( value) {
         Password = value;
     }
 
     /*
      *  Gets Use antialiasing flag.
      */
-    public Boolean getUseAntiAliasing() {
+    public  getUseAntiAliasing() {
         return UseAntiAliasing;
     }
 
     /*
      * Sets Use antialiasing flag.
      */
-    public void setUseAntiAliasing(Boolean value) {
+    public void setUseAntiAliasing( value) {
         UseAntiAliasing = value;
     }
 
     /*
      *  Gets Use high quality flag.
      */
-    public Boolean getUseHighQualityRendering() {
+    public  getUseHighQualityRendering() {
         return UseHighQualityRendering;
     }
 
     /*
      * Sets Use high quality flag.
      */
-    public void setUseHighQualityRendering(Boolean value) {
+    public void setUseHighQualityRendering( value) {
         UseHighQualityRendering = value;
     }
 
     /*
      *  Gets Brightness for the generated images.
      */
-    public Double getImageBrightness() {
+    public  getImageBrightness() {
         return ImageBrightness;
     }
 
     /*
      * Sets Brightness for the generated images.
      */
-    public void setImageBrightness(Double value) {
+    public void setImageBrightness( value) {
         ImageBrightness = value;
     }
 
     /*
      *  Gets Color mode for the generated images.
      */
-    public String getImageColorMode() {
+    public  getImageColorMode() {
         return ImageColorMode;
     }
 
     /*
      * Sets Color mode for the generated images.
      */
-    public void setImageColorMode(String value) {
+    public void setImageColorMode( value) {
         ImageColorMode = value;
     }
 
     /*
      *  Gets The contrast for the generated images.
      */
-    public Double getImageContrast() {
+    public  getImageContrast() {
         return ImageContrast;
     }
 
     /*
      * Sets The contrast for the generated images.
      */
-    public void setImageContrast(Double value) {
+    public void setImageContrast( value) {
         ImageContrast = value;
     }
 
     /*
      *  Gets The images numeral format.
      */
-    public String getNumeralFormat() {
+    public  getNumeralFormat() {
         return NumeralFormat;
     }
 
     /*
      * Sets The images numeral format.
      */
-    public void setNumeralFormat(String value) {
+    public void setNumeralFormat( value) {
         NumeralFormat = value;
     }
 
     /*
      *  Gets Number of pages to render.
      */
-    public Integer getPageCount() {
+    public  getPageCount() {
         return PageCount;
     }
 
     /*
      * Sets Number of pages to render.
      */
-    public void setPageCount(Integer value) {
+    public void setPageCount( value) {
         PageCount = value;
     }
 
     /*
      *  Gets Page index to start rendering.
      */
-    public Integer getPageIndex() {
+    public  getPageIndex() {
         return PageIndex;
     }
 
     /*
      * Sets Page index to start rendering.
      */
-    public void setPageIndex(Integer value) {
+    public void setPageIndex( value) {
         PageIndex = value;
     }
 
     /*
      *  Gets Background image color.
      */
-    public String getPaperColor() {
+    public  getPaperColor() {
         return PaperColor;
     }
 
     /*
      * Sets Background image color.
      */
-    public void setPaperColor(String value) {
+    public void setPaperColor( value) {
         PaperColor = value;
     }
 
     /*
      *  Gets The pixel format of generated images.
      */
-    public String getPixelFormat() {
+    public  getPixelFormat() {
         return PixelFormat;
     }
 
     /*
      * Sets The pixel format of generated images.
      */
-    public void setPixelFormat(String value) {
+    public void setPixelFormat( value) {
         PixelFormat = value;
     }
 
     /*
      *  Gets The resolution of generated images.
      */
-    public Double getResolution() {
+    public  getResolution() {
         return Resolution;
     }
 
     /*
      * Sets The resolution of generated images.
      */
-    public void setResolution(Double value) {
+    public void setResolution( value) {
         Resolution = value;
     }
 
     /*
      *  Gets Zoom factor for generated images.
      */
-    public Double getScale() {
+    public  getScale() {
         return Scale;
     }
 
     /*
      * Sets Zoom factor for generated images.
      */
-    public void setScale(Double value) {
+    public void setScale( value) {
         Scale = value;
     }
 
     /*
      *  Gets The compression tipe.
      */
-    public String getTiffCompression() {
+    public  getTiffCompression() {
         return TiffCompression;
     }
 
     /*
      * Sets The compression tipe.
      */
-    public void setTiffCompression(String value) {
+    public void setTiffCompression( value) {
         TiffCompression = value;
     }
 
     /*
      *  Gets Optional, default is Fallback.
      */
-    public String getDmlRenderingMode() {
+    public  getDmlRenderingMode() {
         return DmlRenderingMode;
     }
 
     /*
      * Sets Optional, default is Fallback.
      */
-    public void setDmlRenderingMode(String value) {
+    public void setDmlRenderingMode( value) {
         DmlRenderingMode = value;
     }
 
     /*
      *  Gets Optional, default is Simplified.
      */
-    public String getDmlEffectsRenderingMode() {
+    public  getDmlEffectsRenderingMode() {
         return DmlEffectsRenderingMode;
     }
 
     /*
      * Sets Optional, default is Simplified.
      */
-    public void setDmlEffectsRenderingMode(String value) {
+    public void setDmlEffectsRenderingMode( value) {
         DmlEffectsRenderingMode = value;
     }
 
     /*
      *  Gets Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
      */
-    public String getTiffBinarizationMethod() {
+    public  getTiffBinarizationMethod() {
         return TiffBinarizationMethod;
     }
 
     /*
      * Sets Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
      */
-    public void setTiffBinarizationMethod(String value) {
+    public void setTiffBinarizationMethod( value) {
         TiffBinarizationMethod = value;
     }
 
     /*
      *  Gets Optional. A value determining zip output or not.
      */
-    public Boolean getZipOutput() {
+    public  getZipOutput() {
         return ZipOutput;
     }
 
     /*
      * Sets Optional. A value determining zip output or not.
      */
-    public void setZipOutput(Boolean value) {
+    public void setZipOutput( value) {
         ZipOutput = value;
     }
 
     /*
      *  Gets Folder in filestorage with custom fonts.
      */
-    public String getFontsLocation() {
+    public  getFontsLocation() {
         return FontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
-    public void setFontsLocation(String value) {
+    public void setFontsLocation( value) {
         FontsLocation = value;
     }
 }

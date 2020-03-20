@@ -35,56 +35,56 @@ public class GetDocumentStatisticsRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private  Name;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private  Folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private  LoadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private  Password;
 
     /*
-     * Support including/excluding comments from the WordCount. Default value is \"false\".
+     * Support including/excluding comments from the WordCount. Default value is "false".
      */
-    private Boolean IncludeComments;
+    private  IncludeComments;
 
     /*
-     * Support including/excluding footnotes from the WordCount. Default value is \"false\".
+     * Support including/excluding footnotes from the WordCount. Default value is "false".
      */
-    private Boolean IncludeFootnotes;
+    private  IncludeFootnotes;
 
     /*
-     * Support including/excluding shape's text from the WordCount. Default value is \"false\".
+     * Support including/excluding shape's text from the WordCount. Default value is "false".
      */
-    private Boolean IncludeTextInShapes;
+    private  IncludeTextInShapes;
     
     /*
      * Initializes a new instance of the getDocumentStatisticsRequest class.
      *  
-     * @param String name The document name.
-     * @param String folder Original document folder.
-     * @param String storage Original document storage.
-     * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     * @param String password Password for opening an encrypted document.
-     * @param Boolean includeComments Support including/excluding comments from the WordCount. Default value is \"false\".
-     * @param Boolean includeFootnotes Support including/excluding footnotes from the WordCount. Default value is \"false\".
-     * @param Boolean includeTextInShapes Support including/excluding shape's text from the WordCount. Default value is \"false\".
+     * @param  name The document name.
+     * @param  folder Original document folder.
+     * @param  storage Original document storage.
+     * @param  loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * @param  password Password for opening an encrypted document.
+     * @param  includeComments Support including/excluding comments from the WordCount. Default value is "false".
+     * @param  includeFootnotes Support including/excluding footnotes from the WordCount. Default value is "false".
+     * @param  includeTextInShapes Support including/excluding shape's text from the WordCount. Default value is "false".
      */
-    public GetDocumentStatisticsRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  Boolean includeComments,  Boolean includeFootnotes,  Boolean includeTextInShapes) {
+    public GetDocumentStatisticsRequest( name,   folder,   storage,   loadEncoding,   password,   includeComments,   includeFootnotes,   includeTextInShapes) {
         Name = name;
         Folder = folder;
         Storage = storage;
@@ -98,112 +98,112 @@ public class GetDocumentStatisticsRequest {
     /*
      *  Gets The document name.
      */
-    public String getName() {
+    public  getName() {
         return Name;
     }
 
     /*
      * Sets The document name.
      */
-    public void setName(String value) {
+    public void setName( value) {
         Name = value;
     }
 
     /*
      *  Gets Original document folder.
      */
-    public String getFolder() {
+    public  getFolder() {
         return Folder;
     }
 
     /*
      * Sets Original document folder.
      */
-    public void setFolder(String value) {
+    public void setFolder( value) {
         Folder = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public String getLoadEncoding() {
+    public  getLoadEncoding() {
         return LoadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    public void setLoadEncoding(String value) {
+    public void setLoadEncoding( value) {
         LoadEncoding = value;
     }
 
     /*
      *  Gets Password for opening an encrypted document.
      */
-    public String getPassword() {
+    public  getPassword() {
         return Password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
-    public void setPassword(String value) {
+    public void setPassword( value) {
         Password = value;
     }
 
     /*
-     *  Gets Support including/excluding comments from the WordCount. Default value is \"false\".
+     *  Gets Support including/excluding comments from the WordCount. Default value is "false".
      */
-    public Boolean getIncludeComments() {
+    public  getIncludeComments() {
         return IncludeComments;
     }
 
     /*
-     * Sets Support including/excluding comments from the WordCount. Default value is \"false\".
+     * Sets Support including/excluding comments from the WordCount. Default value is "false".
      */
-    public void setIncludeComments(Boolean value) {
+    public void setIncludeComments( value) {
         IncludeComments = value;
     }
 
     /*
-     *  Gets Support including/excluding footnotes from the WordCount. Default value is \"false\".
+     *  Gets Support including/excluding footnotes from the WordCount. Default value is "false".
      */
-    public Boolean getIncludeFootnotes() {
+    public  getIncludeFootnotes() {
         return IncludeFootnotes;
     }
 
     /*
-     * Sets Support including/excluding footnotes from the WordCount. Default value is \"false\".
+     * Sets Support including/excluding footnotes from the WordCount. Default value is "false".
      */
-    public void setIncludeFootnotes(Boolean value) {
+    public void setIncludeFootnotes( value) {
         IncludeFootnotes = value;
     }
 
     /*
-     *  Gets Support including/excluding shape's text from the WordCount. Default value is \"false\".
+     *  Gets Support including/excluding shape's text from the WordCount. Default value is "false".
      */
-    public Boolean getIncludeTextInShapes() {
+    public  getIncludeTextInShapes() {
         return IncludeTextInShapes;
     }
 
     /*
-     * Sets Support including/excluding shape's text from the WordCount. Default value is \"false\".
+     * Sets Support including/excluding shape's text from the WordCount. Default value is "false".
      */
-    public void setIncludeTextInShapes(Boolean value) {
+    public void setIncludeTextInShapes( value) {
         IncludeTextInShapes = value;
     }
 }

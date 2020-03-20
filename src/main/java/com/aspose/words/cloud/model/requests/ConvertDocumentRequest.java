@@ -35,44 +35,44 @@ public class ConvertDocumentRequest {
     /*
      * Converting document
      */
-    private File Document;
+    private  Document;
 
     /*
      * Format to convert.
      */
-    private String Format;
+    private  Format;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private  Storage;
 
     /*
      * Path for saving operation result to the local storage.
      */
-    private String OutPath;
+    private  OutPath;
 
     /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
+     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
      */
-    private String FileNameFieldValue;
+    private  FileNameFieldValue;
 
     /*
      * Folder in filestorage with custom fonts.
      */
-    private String FontsLocation;
+    private  FontsLocation;
     
     /*
      * Initializes a new instance of the convertDocumentRequest class.
      *  
-     * @param File document Converting document
-     * @param String format Format to convert.
-     * @param String storage Original document storage.
-     * @param String outPath Path for saving operation result to the local storage.
-     * @param String fileNameFieldValue This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
-     * @param String fontsLocation Folder in filestorage with custom fonts.
+     * @param  document Converting document
+     * @param  format Format to convert.
+     * @param  storage Original document storage.
+     * @param  outPath Path for saving operation result to the local storage.
+     * @param  fileNameFieldValue This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
+     * @param  fontsLocation Folder in filestorage with custom fonts.
      */
-    public ConvertDocumentRequest(File document,  String format,  String storage,  String outPath,  String fileNameFieldValue,  String fontsLocation) {
+    public ConvertDocumentRequest( document,   format,   storage,   outPath,   fileNameFieldValue,   fontsLocation) {
         Document = document;
         Format = format;
         Storage = storage;
@@ -84,84 +84,84 @@ public class ConvertDocumentRequest {
     /*
      *  Gets Converting document
      */
-    public File getDocument() {
+    public  getDocument() {
         return Document;
     }
 
     /*
      * Sets Converting document
      */
-    public void setDocument(File value) {
+    public void setDocument( value) {
         Document = value;
     }
 
     /*
      *  Gets Format to convert.
      */
-    public String getFormat() {
+    public  getFormat() {
         return Format;
     }
 
     /*
      * Sets Format to convert.
      */
-    public void setFormat(String value) {
+    public void setFormat( value) {
         Format = value;
     }
 
     /*
      *  Gets Original document storage.
      */
-    public String getStorage() {
+    public  getStorage() {
         return Storage;
     }
 
     /*
      * Sets Original document storage.
      */
-    public void setStorage(String value) {
+    public void setStorage( value) {
         Storage = value;
     }
 
     /*
      *  Gets Path for saving operation result to the local storage.
      */
-    public String getOutPath() {
+    public  getOutPath() {
         return OutPath;
     }
 
     /*
      * Sets Path for saving operation result to the local storage.
      */
-    public void setOutPath(String value) {
+    public void setOutPath( value) {
         OutPath = value;
     }
 
     /*
-     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
+     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
      */
-    public String getFileNameFieldValue() {
+    public  getFileNameFieldValue() {
         return FileNameFieldValue;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
+     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
      */
-    public void setFileNameFieldValue(String value) {
+    public void setFileNameFieldValue( value) {
         FileNameFieldValue = value;
     }
 
     /*
      *  Gets Folder in filestorage with custom fonts.
      */
-    public String getFontsLocation() {
+    public  getFontsLocation() {
         return FontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
-    public void setFontsLocation(String value) {
+    public void setFontsLocation( value) {
         FontsLocation = value;
     }
 }

@@ -35,26 +35,26 @@ public class UploadFileRequest {
     /*
      * File to upload
      */
-    private File FileContent;
+    private  FileContent;
 
     /*
-     * Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
+     * Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
      */
-    private String Path;
+    private  Path;
 
     /*
      * Storage name
      */
-    private String StorageName;
+    private  StorageName;
     
     /*
      * Initializes a new instance of the uploadFileRequest class.
      *  
-     * @param File fileContent File to upload
-     * @param String path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
-     * @param String storageName Storage name
+     * @param  fileContent File to upload
+     * @param  path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
+     * @param  storageName Storage name
      */
-    public UploadFileRequest(File fileContent,  String path,  String storageName) {
+    public UploadFileRequest( fileContent,   path,   storageName) {
         FileContent = fileContent;
         Path = path;
         StorageName = storageName;
@@ -63,42 +63,42 @@ public class UploadFileRequest {
     /*
      *  Gets File to upload
      */
-    public File getFileContent() {
+    public  getFileContent() {
         return FileContent;
     }
 
     /*
      * Sets File to upload
      */
-    public void setFileContent(File value) {
+    public void setFileContent( value) {
         FileContent = value;
     }
 
     /*
-     *  Gets Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
+     *  Gets Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
      */
-    public String getPath() {
+    public  getPath() {
         return Path;
     }
 
     /*
-     * Sets Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
+     * Sets Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
      */
-    public void setPath(String value) {
+    public void setPath( value) {
         Path = value;
     }
 
     /*
      *  Gets Storage name
      */
-    public String getStorageName() {
+    public  getStorageName() {
         return StorageName;
     }
 
     /*
      * Sets Storage name
      */
-    public void setStorageName(String value) {
+    public void setStorageName( value) {
         StorageName = value;
     }
 }
