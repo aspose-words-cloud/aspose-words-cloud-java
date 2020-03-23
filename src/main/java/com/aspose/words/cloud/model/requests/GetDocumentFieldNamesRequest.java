@@ -58,7 +58,7 @@ public class GetDocumentFieldNamesRequest {
     private String Password;
 
     /*
-     * If true, result includes \"mustache\" field names.
+     * If true, result includes "mustache" field names.
      */
     private Boolean UseNonMergeFields;
     
@@ -70,7 +70,7 @@ public class GetDocumentFieldNamesRequest {
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean useNonMergeFields If true, result includes \"mustache\" field names.
+     * @param Boolean useNonMergeFields If true, result includes "mustache" field names.
      */
     public GetDocumentFieldNamesRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  Boolean useNonMergeFields) {
         Name = name;
@@ -152,14 +152,14 @@ public class GetDocumentFieldNamesRequest {
     }
 
     /*
-     *  Gets If true, result includes \"mustache\" field names.
+     *  Gets If true, result includes "mustache" field names.
      */
     public Boolean getUseNonMergeFields() {
         return UseNonMergeFields;
     }
 
     /*
-     * Sets If true, result includes \"mustache\" field names.
+     * Sets If true, result includes "mustache" field names.
      */
     public void setUseNonMergeFields(Boolean value) {
         UseNonMergeFields = value;

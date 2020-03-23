@@ -38,11 +38,6 @@ public class InsertTableWithoutNodePathRequest {
     private String Name;
 
     /*
-     * Table parameters/.
-     */
-    private TableInsert Table;
-
-    /*
      * Original document folder.
      */
     private String Folder;
@@ -76,12 +71,16 @@ public class InsertTableWithoutNodePathRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
+
+    /*
+     * Table parameters/.
+     */
+    private TableInsert Table;
     
     /*
      * Initializes a new instance of the insertTableWithoutNodePathRequest class.
      *  
      * @param String name The document name.
-     * @param TableInsert table Table parameters/.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -89,10 +88,10 @@ public class InsertTableWithoutNodePathRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
+     * @param TableInsert table Table parameters/.
      */
-    public InsertTableWithoutNodePathRequest(String name,  TableInsert table,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public InsertTableWithoutNodePathRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableInsert table) {
         Name = name;
-        Table = table;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -100,6 +99,7 @@ public class InsertTableWithoutNodePathRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
+        Table = table;
     }
 
     /*
@@ -114,20 +114,6 @@ public class InsertTableWithoutNodePathRequest {
      */
     public void setName(String value) {
         Name = value;
-    }
-
-    /*
-     *  Gets Table parameters/.
-     */
-    public TableInsert getTable() {
-        return Table;
-    }
-
-    /*
-     * Sets Table parameters/.
-     */
-    public void setTable(TableInsert value) {
-        Table = value;
     }
 
     /*
@@ -226,5 +212,19 @@ public class InsertTableWithoutNodePathRequest {
      */
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
+    }
+
+    /*
+     *  Gets Table parameters/.
+     */
+    public TableInsert getTable() {
+        return Table;
+    }
+
+    /*
+     * Sets Table parameters/.
+     */
+    public void setTable(TableInsert value) {
+        Table = value;
     }
 }

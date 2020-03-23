@@ -29,6 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -36,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Class for document replace text request building.
  */
 @ApiModel(description = "Class for document replace text request building.")
-
 public class ReplaceTextParameters {
   @SerializedName("OldValue")
   private String oldValue = null;
@@ -104,7 +107,7 @@ public class ReplaceTextParameters {
    * Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
    * @return isMatchCase
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
+  @ApiModelProperty(value = "Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
   public Boolean isIsMatchCase() {
     return isMatchCase;
   }
@@ -122,7 +125,7 @@ public class ReplaceTextParameters {
    * Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
    * @return isMatchWholeWord
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, means that only whole word matched are replaced.")
+  @ApiModelProperty(value = "Gets or sets a value indicating whether flag, means that only whole word matched are replaced.")
   public Boolean isIsMatchWholeWord() {
     return isMatchWholeWord;
   }
@@ -140,7 +143,7 @@ public class ReplaceTextParameters {
    * Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
    * @return isOldValueRegex
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets a value indicating whether flag, means that OldValue contains regex expression.")
+  @ApiModelProperty(value = "Gets or sets a value indicating whether flag, means that OldValue contains regex expression.")
   public Boolean isIsOldValueRegex() {
     return isOldValueRegex;
   }

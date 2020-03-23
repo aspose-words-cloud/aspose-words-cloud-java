@@ -38,11 +38,6 @@ public class UpdateTableRowFormatRequest {
     private String Name;
 
     /*
-     * Table row format.
-     */
-    private TableRowFormat Format;
-
-    /*
      * Path to table.
      */
     private String TablePath;
@@ -86,12 +81,16 @@ public class UpdateTableRowFormatRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
+
+    /*
+     * Table row format.
+     */
+    private TableRowFormat Format;
     
     /*
      * Initializes a new instance of the updateTableRowFormatRequest class.
      *  
      * @param String name The document name.
-     * @param TableRowFormat format Table row format.
      * @param String tablePath Path to table.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -101,10 +100,10 @@ public class UpdateTableRowFormatRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
+     * @param TableRowFormat format Table row format.
      */
-    public UpdateTableRowFormatRequest(String name,  TableRowFormat format,  String tablePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateTableRowFormatRequest(String name,  String tablePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableRowFormat format) {
         Name = name;
-        Format = format;
         TablePath = tablePath;
         Index = index;
         Folder = folder;
@@ -114,6 +113,7 @@ public class UpdateTableRowFormatRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
+        Format = format;
     }
 
     /*
@@ -128,20 +128,6 @@ public class UpdateTableRowFormatRequest {
      */
     public void setName(String value) {
         Name = value;
-    }
-
-    /*
-     *  Gets Table row format.
-     */
-    public TableRowFormat getFormat() {
-        return Format;
-    }
-
-    /*
-     * Sets Table row format.
-     */
-    public void setFormat(TableRowFormat value) {
-        Format = value;
     }
 
     /*
@@ -268,5 +254,19 @@ public class UpdateTableRowFormatRequest {
      */
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
+    }
+
+    /*
+     *  Gets Table row format.
+     */
+    public TableRowFormat getFormat() {
+        return Format;
+    }
+
+    /*
+     * Sets Table row format.
+     */
+    public void setFormat(TableRowFormat value) {
+        Format = value;
     }
 }

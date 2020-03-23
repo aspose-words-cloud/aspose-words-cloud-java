@@ -38,11 +38,6 @@ public class UpdateTablePropertiesRequest {
     private String Name;
 
     /*
-     * The properties.
-     */
-    private TableProperties Properties;
-
-    /*
      * Path to the node, which contains tables.
      */
     private String NodePath;
@@ -86,12 +81,16 @@ public class UpdateTablePropertiesRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
+
+    /*
+     * The properties.
+     */
+    private TableProperties Properties;
     
     /*
      * Initializes a new instance of the updateTablePropertiesRequest class.
      *  
      * @param String name The document name.
-     * @param TableProperties properties The properties.
      * @param String nodePath Path to the node, which contains tables.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -101,10 +100,10 @@ public class UpdateTablePropertiesRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
+     * @param TableProperties properties The properties.
      */
-    public UpdateTablePropertiesRequest(String name,  TableProperties properties,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateTablePropertiesRequest(String name,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableProperties properties) {
         Name = name;
-        Properties = properties;
         NodePath = nodePath;
         Index = index;
         Folder = folder;
@@ -114,6 +113,7 @@ public class UpdateTablePropertiesRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
+        Properties = properties;
     }
 
     /*
@@ -128,20 +128,6 @@ public class UpdateTablePropertiesRequest {
      */
     public void setName(String value) {
         Name = value;
-    }
-
-    /*
-     *  Gets The properties.
-     */
-    public TableProperties getProperties() {
-        return Properties;
-    }
-
-    /*
-     * Sets The properties.
-     */
-    public void setProperties(TableProperties value) {
-        Properties = value;
     }
 
     /*
@@ -268,5 +254,19 @@ public class UpdateTablePropertiesRequest {
      */
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
+    }
+
+    /*
+     *  Gets The properties.
+     */
+    public TableProperties getProperties() {
+        return Properties;
+    }
+
+    /*
+     * Sets The properties.
+     */
+    public void setProperties(TableProperties value) {
+        Properties = value;
     }
 }

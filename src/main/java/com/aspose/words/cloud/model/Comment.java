@@ -29,10 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.CommentLink;
-import com.aspose.words.cloud.model.DocumentPosition;
-import com.aspose.words.cloud.model.StoryChildNodes;
-import com.aspose.words.cloud.model.WordsApiLink;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,14 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * Comment.
  */
 @ApiModel(description = "Comment.")
-
 public class Comment extends CommentLink {
   @SerializedName("Author")
   private String author = null;
@@ -94,10 +92,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Gets or sets content of comment.
+   * Get content
    * @return content
   **/
-  @ApiModelProperty(value = "Gets or sets content of comment.")
+  @ApiModelProperty(value = "")
   public StoryChildNodes getContent() {
     return content;
   }
@@ -148,10 +146,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Gets or sets link to comment range end node.
+   * Get rangeEnd
    * @return rangeEnd
   **/
-  @ApiModelProperty(value = "Gets or sets link to comment range end node.")
+  @ApiModelProperty(value = "")
   public DocumentPosition getRangeEnd() {
     return rangeEnd;
   }
@@ -166,10 +164,10 @@ public class Comment extends CommentLink {
   }
 
    /**
-   * Gets or sets link to comment range start node.
+   * Get rangeStart
    * @return rangeStart
   **/
-  @ApiModelProperty(value = "Gets or sets link to comment range start node.")
+  @ApiModelProperty(value = "")
   public DocumentPosition getRangeStart() {
     return rangeStart;
   }

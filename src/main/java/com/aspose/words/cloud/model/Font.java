@@ -29,10 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Border;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.WordsApiLink;
-import com.aspose.words.cloud.model.XmlColor;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Font element.             
  */
 @ApiModel(description = "Font element.             ")
-
 public class Font extends LinkElement {
   @SerializedName("AllCaps")
   private Boolean allCaps = null;
@@ -1171,10 +1170,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Gets or sets border object that specifies border for the font.
+   * Get border
    * @return border
   **/
-  @ApiModelProperty(value = "Gets or sets border object that specifies border for the font.")
+  @ApiModelProperty(value = "")
   public Border getBorder() {
     return border;
   }
@@ -1189,10 +1188,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Gets or sets the color of the font.             
+   * Get color
    * @return color
   **/
-  @ApiModelProperty(value = "Gets or sets the color of the font.             ")
+  @ApiModelProperty(value = "")
   public XmlColor getColor() {
     return color;
   }
@@ -1297,10 +1296,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Gets or sets the highlight (marker) color.             
+   * Get highlightColor
    * @return highlightColor
   **/
-  @ApiModelProperty(value = "Gets or sets the highlight (marker) color.             ")
+  @ApiModelProperty(value = "")
   public XmlColor getHighlightColor() {
     return highlightColor;
   }
@@ -1801,10 +1800,10 @@ public class Font extends LinkElement {
   }
 
    /**
-   * Gets or sets the color of the underline applied to the font.
+   * Get underlineColor
    * @return underlineColor
   **/
-  @ApiModelProperty(value = "Gets or sets the color of the underline applied to the font.")
+  @ApiModelProperty(value = "")
   public XmlColor getUnderlineColor() {
     return underlineColor;
   }
