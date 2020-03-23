@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose">
- *   Copyright (c) 2018 Aspose.Words for Cloud
+ *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- *
+ * 
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- *
+ * 
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,40 +24,31 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.DocumentElements;
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.PathUtil;
-import com.aspose.words.cloud.TestInitializer;
-import com.aspose.words.cloud.model.requests.DeleteMacrosRequest;
-import org.junit.Test;
+package com.aspose.words.cloud;
 
-import junit.framework.TestCase;
+import java.nio.file.Paths;
 
-import java.io.IOException;
-
-public class TestMacros extends TestCase {
-    private String testFolder = "DocumentElements/Macros";
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        TestInitializer.Initialize();
-    }
-
-    /*
-     * Test for getting document hyperlink by index
+public class PathUtil {
+  /**
+     * Converts a path string, or a sequence of strings that when joined form
+     * a path string, to a {@code Path}.
+     *
+     * @param   first
+     *          the path string or initial part of the path string
+     * @param   more
+     *          additional strings to be joined to form the path string
+     *
+     * @return  the resulting {@code Path}
+     *
+     * @throws  InvalidPathException
+     *          if the path string cannot be converted to a {@code Path}
+     *
+     * @see FileSystem#getPath
      */
-    @Test
-public void testDeleteMacros() throws ApiException, IOException {
-        String fileName = "test_multi_pages.docx";
-        String remoteName = "TestDeleteMacros.doc";
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
-
-        DeleteMacrosRequest request = new DeleteMacrosRequest(remoteName,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null);
-
-        TestInitializer.wordsApi.deleteMacros(request);
-    }
+    public static String get(String first, String... more) {
+      String paths = Paths.get(first, more).toString();
+      paths = paths.replace('\\', '/');
+      return paths;
+  }
 }

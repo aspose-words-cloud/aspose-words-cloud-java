@@ -26,10 +26,10 @@
  */
 package com.aspose.words.cloud.DocumentElements;
 
-import java.io.FileNotFoundException;
-import java.nio.file.Paths;
+import java.io.IOException;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.Footnote;
 import com.aspose.words.cloud.model.FootnoteResponse;
@@ -53,15 +53,15 @@ public class TestFootnote extends TestCase {
      * Test for getting footnote from document
      */
     @Test
-public void testGetFootnote() throws ApiException, FileNotFoundException {
+public void testGetFootnote() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnote.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetFootnoteRequest request = new GetFootnoteRequest(remoteName, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.getFootnote(request);
@@ -72,15 +72,15 @@ public void testGetFootnote() throws ApiException, FileNotFoundException {
      * Test for getting footnote from document without node path
      */
     @Test
-public void testGetFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
+public void testGetFootnoteWithoutNodePath() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnoteWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetFootnoteWithoutNodePathRequest request = new GetFootnoteWithoutNodePathRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.getFootnoteWithoutNodePath(request);
@@ -91,14 +91,14 @@ public void testGetFootnoteWithoutNodePath() throws ApiException, FileNotFoundEx
      * Test for getting footnotes from document
      */
     @Test
-public void testGetFootnotes() throws ApiException, FileNotFoundException {
+public void testGetFootnotes() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnotes.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetFootnotesRequest request = new GetFootnotesRequest(remoteName, "",
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         FootnotesResponse result = TestInitializer.wordsApi.getFootnotes(request);
@@ -109,14 +109,14 @@ public void testGetFootnotes() throws ApiException, FileNotFoundException {
      * Test for getting footnotes from document without node path
      */
     @Test
-public void testGetFootnotesWithoutNodePath() throws ApiException, FileNotFoundException {
+public void testGetFootnotesWithoutNodePath() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestGetFootnotesWithoutNodePath.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetFootnotesWithoutNodePathRequest request = new GetFootnotesWithoutNodePathRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         FootnotesResponse result = TestInitializer.wordsApi.getFootnotesWithoutNodePath(request);
@@ -127,15 +127,15 @@ public void testGetFootnotesWithoutNodePath() throws ApiException, FileNotFoundE
      * Test for delete footnote from document
      */
     @Test
-public void testDeleteFootnote() throws ApiException, FileNotFoundException {
+public void testDeleteFootnote() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestDeleteFootnote.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         DeleteFootnoteRequest request = new DeleteFootnoteRequest(remoteName, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         TestInitializer.wordsApi.deleteFootnote(request);
@@ -145,15 +145,15 @@ public void testDeleteFootnote() throws ApiException, FileNotFoundException {
      * Test for delete footnote from document without node path
      */
     @Test
-public void testDeleteFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
+public void testDeleteFootnoteWithoutNodePath() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestDeleteFootnoteWithoutNodePath.docx";
         Integer index = 0;
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         DeleteFootnoteWithoutNodePathRequest request = new DeleteFootnoteWithoutNodePathRequest(remoteName, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         TestInitializer.wordsApi.deleteFootnoteWithoutNodePath(request);
@@ -163,16 +163,16 @@ public void testDeleteFootnoteWithoutNodePath() throws ApiException, FileNotFoun
      * Test for update footnote from document
      */
     @Test
-public void testUpdateFootnote() throws ApiException, FileNotFoundException {
+public void testUpdateFootnote() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestUpdateFootnote.docx";
         Integer index = 0;
         Footnote body = new Footnote().text("new text is here");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(remoteName, body, "", index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.updateFootnote(request);
@@ -183,16 +183,16 @@ public void testUpdateFootnote() throws ApiException, FileNotFoundException {
      * Test for update footnote from document without node path
      */
     @Test
-public void testUpdateFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
+public void testUpdateFootnoteWithoutNodePath() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestUpdateFootnoteWithoutNodePath.docx";
         Integer index = 0;
         Footnote body = new Footnote().text("new text is here");
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         UpdateFootnoteWithoutNodePathRequest request = new UpdateFootnoteWithoutNodePathRequest(remoteName, body, index,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.updateFootnoteWithoutNodePath(request);
@@ -203,15 +203,15 @@ public void testUpdateFootnoteWithoutNodePath() throws ApiException, FileNotFoun
      * Test for insert footnote from document
      */
     @Test
-public void testInsertFootnote() throws ApiException, FileNotFoundException {
+public void testInsertFootnote() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestInsertFootnote.docx";
         Footnote body = new Footnote().text("new text is here").footnoteType(Footnote.FootnoteTypeEnum.ENDNOTE);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         InsertFootnoteRequest request = new InsertFootnoteRequest(remoteName, body, "",
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.insertFootnote(request);
@@ -222,15 +222,15 @@ public void testInsertFootnote() throws ApiException, FileNotFoundException {
      * Test for insert footnote into document without node path
      */
     @Test
-public void testInsertFootnoteWithoutNodePath() throws ApiException, FileNotFoundException {
+public void testInsertFootnoteWithoutNodePath() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestInsertFootnoteWithoutNodePath.docx";
         Footnote body = new Footnote().text("new text is here").footnoteType(Footnote.FootnoteTypeEnum.ENDNOTE);
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalTestFolder, testFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         InsertFootnoteWithoutNodePathRequest request = new InsertFootnoteWithoutNodePathRequest(remoteName, body,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null, null, null, null);
 
         FootnoteResponse result = TestInitializer.wordsApi.insertFootnoteWithoutNodePath(request);

@@ -45,7 +45,7 @@ public class InsertDrawingObjectRequest {
     /*
      * File with image
      */
-    private File ImageFile;
+    private byte[] ImageFile;
 
     /*
      * Path to the node, which contains collection of drawing objects.
@@ -92,7 +92,7 @@ public class InsertDrawingObjectRequest {
      *  
      * @param String name The document name.
      * @param String drawingObject Drawing object parameters
-     * @param File imageFile File with image
+     * @param byte[] imageFile File with image
      * @param String nodePath Path to the node, which contains collection of drawing objects.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -102,7 +102,7 @@ public class InsertDrawingObjectRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertDrawingObjectRequest(String name,  String drawingObject,  File imageFile,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public InsertDrawingObjectRequest(String name,  String drawingObject,  byte[] imageFile,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         DrawingObject = drawingObject;
         ImageFile = imageFile;
@@ -147,14 +147,14 @@ public class InsertDrawingObjectRequest {
     /*
      *  Gets File with image
      */
-    public File getImageFile() {
+    public byte[] getImageFile() {
         return ImageFile;
     }
 
     /*
      * Sets File with image
      */
-    public void setImageFile(File value) {
+    public void setImageFile(byte[] value) {
         ImageFile = value;
     }
 

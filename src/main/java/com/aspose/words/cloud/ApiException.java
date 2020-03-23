@@ -85,12 +85,13 @@ public class ApiException extends Exception {
     }
 
     private void setInnerError() {
-        if (!responseBody.startsWith("{")) return;
+        if (!responseBody.contains("Error") || !responseBody.startsWith("{")) return;
         JsonElement elem = new JsonParser().parse(responseBody);
         this.innerError = new JSON().deserialize(
-                        elem.getAsJsonObject().get("Error").toString(), 
-                        ApiError.class);
+                elem.getAsJsonObject().get("Error").toString(),
+                ApiError.class);
     }
+
     /**
      * Get the HTTP status code.
      *

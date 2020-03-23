@@ -27,6 +27,7 @@
 package com.aspose.words.cloud.Document;
 
 import com.aspose.words.cloud.ApiException;
+import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.DocumentResponse;
 import com.aspose.words.cloud.model.requests.CreateDocumentRequest;
@@ -34,8 +35,7 @@ import com.aspose.words.cloud.model.requests.GetDocumentRequest;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
-import java.nio.file.Paths;
+import java.io.IOException;
 
 public class TestDocument extends TestCase {
     private String testFolder = "document";
@@ -50,14 +50,14 @@ public class TestDocument extends TestCase {
      * Test for getting document
      */
     @Test
-public void testGetDocument() throws ApiException, FileNotFoundException {
+public void testGetDocument() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocument.docx";
 
-        TestInitializer.UploadFile(Paths.get(TestInitializer.LocalCommonFolder, fileName).toString(), Paths.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).toString().replace("\\", "/"));
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         GetDocumentRequest request = new GetDocumentRequest(remoteName,
-                Paths.get(TestInitializer.RemoteTestFolder, testFolder).toString(),
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
                 null, null, null);
 
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
@@ -65,12 +65,12 @@ public void testGetDocument() throws ApiException, FileNotFoundException {
     }
 
     @Test
-public void testCreateDocument() throws ApiException {
+public void testCreateDocument() throws ApiException, IOException {
         String remoteName = "TestCreateDocument.docx",
             subfolder = "DocumentActions/Document";
         
-        CreateDocumentRequest request = new CreateDocumentRequest(null, remoteName, 
-            Paths.get(TestInitializer.RemoteTestFolder, subfolder).toString());
+        CreateDocumentRequest request = new CreateDocumentRequest(null, remoteName,
+                PathUtil.get(TestInitializer.RemoteTestFolder, subfolder));
         DocumentResponse response = TestInitializer.wordsApi.createDocument(request);
         assertNotNull(response);
     }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: PUT http://api.aspose.com/v4.0/words/classify.
+ * This response should be returned by the service when handling: PUT https://api.aspose.cloud/v4.0/words/classify.
  */
-@ApiModel(description = "This response should be returned by the service when handling: PUT http://api.aspose.com/v4.0/words/classify.")
+@ApiModel(description = "This response should be returned by the service when handling: PUT https://api.aspose.cloud/v4.0/words/classify.")
 public class ClassificationResponse extends WordsResponse {
   @SerializedName("BestClassName")
   private String bestClassName = null;

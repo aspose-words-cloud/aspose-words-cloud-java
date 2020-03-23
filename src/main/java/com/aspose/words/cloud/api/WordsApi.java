@@ -42,6 +42,10 @@ public class WordsApi {
     private Integer BadRequest = 400;
     private ApiClient apiClient;
 
+    public WordsApi(String appSid, String appKey, String baseUrl) {
+        this(new ApiClient(appSid, appKey, baseUrl));
+    }
+
     public WordsApi() {
         this(Configuration.getDefaultApiClient());
     }
@@ -65,7 +69,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call acceptAllRevisionsCall(AcceptAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call acceptAllRevisionsCall(AcceptAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -113,7 +117,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call acceptAllRevisionsValidateBeforeCall(AcceptAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call acceptAllRevisionsValidateBeforeCall(AcceptAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -133,7 +137,7 @@ public class WordsApi {
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RevisionsModificationResponse acceptAllRevisions(AcceptAllRevisionsRequest request) throws ApiException {
+    public RevisionsModificationResponse acceptAllRevisions(AcceptAllRevisionsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<RevisionsModificationResponse> resp = acceptAllRevisionsWithHttpInfo(request);
             return resp.getData();
@@ -155,7 +159,7 @@ public class WordsApi {
      * @return ApiResponse&lt;RevisionsModificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<RevisionsModificationResponse> acceptAllRevisionsWithHttpInfo(AcceptAllRevisionsRequest request) throws ApiException {
+    private ApiResponse<RevisionsModificationResponse> acceptAllRevisionsWithHttpInfo(AcceptAllRevisionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = acceptAllRevisionsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<RevisionsModificationResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -169,7 +173,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call acceptAllRevisionsAsync(AcceptAllRevisionsRequest request, final ApiCallback<RevisionsModificationResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call acceptAllRevisionsAsync(AcceptAllRevisionsRequest request, final ApiCallback<RevisionsModificationResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -202,7 +206,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call appendDocumentCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call appendDocumentCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDocumentList();
 
         // create path and map variables
@@ -252,7 +256,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call appendDocumentValidateBeforeCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call appendDocumentValidateBeforeCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -277,7 +281,7 @@ public class WordsApi {
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse appendDocument(AppendDocumentRequest request) throws ApiException {
+    public DocumentResponse appendDocument(AppendDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = appendDocumentWithHttpInfo(request);
             return resp.getData();
@@ -299,7 +303,7 @@ public class WordsApi {
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> appendDocumentWithHttpInfo(AppendDocumentRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> appendDocumentWithHttpInfo(AppendDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -313,7 +317,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call appendDocumentAsync(AppendDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call appendDocumentAsync(AppendDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -346,7 +350,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call classifyCall(ClassifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call classifyCall(ClassifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getText();
 
         // create path and map variables
@@ -389,7 +393,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call classifyValidateBeforeCall(ClassifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call classifyValidateBeforeCall(ClassifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Text' is set
         if (request.getText() == null) {
@@ -409,7 +413,7 @@ public class WordsApi {
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ClassificationResponse classify(ClassifyRequest request) throws ApiException {
+    public ClassificationResponse classify(ClassifyRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ClassificationResponse> resp = classifyWithHttpInfo(request);
             return resp.getData();
@@ -431,7 +435,7 @@ public class WordsApi {
      * @return ApiResponse&lt;ClassificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ClassificationResponse> classifyWithHttpInfo(ClassifyRequest request) throws ApiException {
+    private ApiResponse<ClassificationResponse> classifyWithHttpInfo(ClassifyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = classifyValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ClassificationResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -445,7 +449,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call classifyAsync(ClassifyRequest request, final ApiCallback<ClassificationResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call classifyAsync(ClassifyRequest request, final ApiCallback<ClassificationResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -478,7 +482,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call classifyDocumentCall(ClassifyDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call classifyDocumentCall(ClassifyDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -527,7 +531,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call classifyDocumentValidateBeforeCall(ClassifyDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call classifyDocumentValidateBeforeCall(ClassifyDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'DocumentName' is set
         if (request.getDocumentName() == null) {
@@ -547,7 +551,7 @@ public class WordsApi {
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ClassificationResponse classifyDocument(ClassifyDocumentRequest request) throws ApiException {
+    public ClassificationResponse classifyDocument(ClassifyDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ClassificationResponse> resp = classifyDocumentWithHttpInfo(request);
             return resp.getData();
@@ -569,7 +573,7 @@ public class WordsApi {
      * @return ApiResponse&lt;ClassificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ClassificationResponse> classifyDocumentWithHttpInfo(ClassifyDocumentRequest request) throws ApiException {
+    private ApiResponse<ClassificationResponse> classifyDocumentWithHttpInfo(ClassifyDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = classifyDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ClassificationResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -583,7 +587,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call classifyDocumentAsync(ClassifyDocumentRequest request, final ApiCallback<ClassificationResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call classifyDocumentAsync(ClassifyDocumentRequest request, final ApiCallback<ClassificationResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -616,7 +620,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call compareDocumentCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call compareDocumentCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getCompareData();
 
         // create path and map variables
@@ -664,7 +668,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call compareDocumentValidateBeforeCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call compareDocumentValidateBeforeCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -689,7 +693,7 @@ public class WordsApi {
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse compareDocument(CompareDocumentRequest request) throws ApiException {
+    public DocumentResponse compareDocument(CompareDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = compareDocumentWithHttpInfo(request);
             return resp.getData();
@@ -711,7 +715,7 @@ public class WordsApi {
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> compareDocumentWithHttpInfo(CompareDocumentRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> compareDocumentWithHttpInfo(CompareDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -725,7 +729,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call compareDocumentAsync(CompareDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call compareDocumentAsync(CompareDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -758,7 +762,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call convertDocumentCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDocumentCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -807,7 +811,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call convertDocumentValidateBeforeCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call convertDocumentValidateBeforeCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Document' is set
         if (request.getDocument() == null) {
@@ -832,7 +836,7 @@ public class WordsApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File convertDocument(ConvertDocumentRequest request) throws ApiException {
+    public File convertDocument(ConvertDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = convertDocumentWithHttpInfo(request);
             return resp.getData();
@@ -854,7 +858,7 @@ public class WordsApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException {
+    private ApiResponse<File> convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -868,7 +872,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call convertDocumentAsync(ConvertDocumentRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call convertDocumentAsync(ConvertDocumentRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -901,7 +905,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call copyFileCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call copyFileCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -948,7 +952,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call copyFileValidateBeforeCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call copyFileValidateBeforeCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'DestPath' is set
         if (request.getDestPath() == null) {
@@ -973,7 +977,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void copyFile(CopyFileRequest request) throws ApiException {
+    public void copyFile(CopyFileRequest request) throws ApiException, IOException {
         try {
             copyFileWithHttpInfo(request);
         }
@@ -993,7 +997,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> copyFileWithHttpInfo(CopyFileRequest request) throws ApiException {
+    private ApiResponse<Void> copyFileWithHttpInfo(CopyFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = copyFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -1006,7 +1010,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call copyFileAsync(CopyFileRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call copyFileAsync(CopyFileRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1038,7 +1042,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call copyFolderCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call copyFolderCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1084,7 +1088,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call copyFolderValidateBeforeCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call copyFolderValidateBeforeCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'DestPath' is set
         if (request.getDestPath() == null) {
@@ -1109,7 +1113,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void copyFolder(CopyFolderRequest request) throws ApiException {
+    public void copyFolder(CopyFolderRequest request) throws ApiException, IOException {
         try {
             copyFolderWithHttpInfo(request);
         }
@@ -1129,7 +1133,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> copyFolderWithHttpInfo(CopyFolderRequest request) throws ApiException {
+    private ApiResponse<Void> copyFolderWithHttpInfo(CopyFolderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = copyFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -1142,7 +1146,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call copyFolderAsync(CopyFolderRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call copyFolderAsync(CopyFolderRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1174,7 +1178,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call createDocumentCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createDocumentCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1219,7 +1223,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createDocumentValidateBeforeCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createDocumentValidateBeforeCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
 
         com.squareup.okhttp.Call call = createDocumentCall(request, progressListener, progressRequestListener);
@@ -1234,7 +1238,7 @@ public class WordsApi {
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse createDocument(CreateDocumentRequest request) throws ApiException {
+    public DocumentResponse createDocument(CreateDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = createDocumentWithHttpInfo(request);
             return resp.getData();
@@ -1256,7 +1260,7 @@ public class WordsApi {
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> createDocumentWithHttpInfo(CreateDocumentRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> createDocumentWithHttpInfo(CreateDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1270,7 +1274,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createDocumentAsync(CreateDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createDocumentAsync(CreateDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1303,7 +1307,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call createFolderCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createFolderCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1347,7 +1351,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createFolderValidateBeforeCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createFolderValidateBeforeCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Path' is set
         if (request.getPath() == null) {
@@ -1367,7 +1371,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void createFolder(CreateFolderRequest request) throws ApiException {
+    public void createFolder(CreateFolderRequest request) throws ApiException, IOException {
         try {
             createFolderWithHttpInfo(request);
         }
@@ -1387,7 +1391,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> createFolderWithHttpInfo(CreateFolderRequest request) throws ApiException {
+    private ApiResponse<Void> createFolderWithHttpInfo(CreateFolderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = createFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -1400,7 +1404,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createFolderAsync(CreateFolderRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call createFolderAsync(CreateFolderRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1432,7 +1436,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call createOrUpdateDocumentPropertyCall(CreateOrUpdateDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createOrUpdateDocumentPropertyCall(CreateOrUpdateDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProperty();
 
         // create path and map variables
@@ -1483,7 +1487,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createOrUpdateDocumentPropertyValidateBeforeCall(CreateOrUpdateDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createOrUpdateDocumentPropertyValidateBeforeCall(CreateOrUpdateDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -1513,7 +1517,7 @@ public class WordsApi {
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentPropertyResponse createOrUpdateDocumentProperty(CreateOrUpdateDocumentPropertyRequest request) throws ApiException {
+    public DocumentPropertyResponse createOrUpdateDocumentProperty(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentPropertyResponse> resp = createOrUpdateDocumentPropertyWithHttpInfo(request);
             return resp.getData();
@@ -1535,7 +1539,7 @@ public class WordsApi {
      * @return ApiResponse&lt;DocumentPropertyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentPropertyResponse> createOrUpdateDocumentPropertyWithHttpInfo(CreateOrUpdateDocumentPropertyRequest request) throws ApiException {
+    private ApiResponse<DocumentPropertyResponse> createOrUpdateDocumentPropertyWithHttpInfo(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentPropertyResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1549,7 +1553,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createOrUpdateDocumentPropertyAsync(CreateOrUpdateDocumentPropertyRequest request, final ApiCallback<DocumentPropertyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call createOrUpdateDocumentPropertyAsync(CreateOrUpdateDocumentPropertyRequest request, final ApiCallback<DocumentPropertyResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1582,7 +1586,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteBorderCall(DeleteBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteBorderCall(DeleteBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1634,7 +1638,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteBorderValidateBeforeCall(DeleteBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteBorderValidateBeforeCall(DeleteBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -1664,7 +1668,7 @@ public class WordsApi {
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BorderResponse deleteBorder(DeleteBorderRequest request) throws ApiException {
+    public BorderResponse deleteBorder(DeleteBorderRequest request) throws ApiException, IOException {
         try {
             ApiResponse<BorderResponse> resp = deleteBorderWithHttpInfo(request);
             return resp.getData();
@@ -1686,7 +1690,7 @@ public class WordsApi {
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<BorderResponse> deleteBorderWithHttpInfo(DeleteBorderRequest request) throws ApiException {
+    private ApiResponse<BorderResponse> deleteBorderWithHttpInfo(DeleteBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteBorderValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<BorderResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1700,7 +1704,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteBorderAsync(DeleteBorderRequest request, final ApiCallback<BorderResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteBorderAsync(DeleteBorderRequest request, final ApiCallback<BorderResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1733,7 +1737,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteBordersCall(DeleteBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteBordersCall(DeleteBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1784,7 +1788,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteBordersValidateBeforeCall(DeleteBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteBordersValidateBeforeCall(DeleteBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -1809,7 +1813,7 @@ public class WordsApi {
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BordersResponse deleteBorders(DeleteBordersRequest request) throws ApiException {
+    public BordersResponse deleteBorders(DeleteBordersRequest request) throws ApiException, IOException {
         try {
             ApiResponse<BordersResponse> resp = deleteBordersWithHttpInfo(request);
             return resp.getData();
@@ -1831,7 +1835,7 @@ public class WordsApi {
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<BordersResponse> deleteBordersWithHttpInfo(DeleteBordersRequest request) throws ApiException {
+    private ApiResponse<BordersResponse> deleteBordersWithHttpInfo(DeleteBordersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteBordersValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<BordersResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1845,7 +1849,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteBordersAsync(DeleteBordersRequest request, final ApiCallback<BordersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteBordersAsync(DeleteBordersRequest request, final ApiCallback<BordersResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1878,7 +1882,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteCommentCall(DeleteCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteCommentCall(DeleteCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1929,7 +1933,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteCommentValidateBeforeCall(DeleteCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteCommentValidateBeforeCall(DeleteCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -1954,7 +1958,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteComment(DeleteCommentRequest request) throws ApiException {
+    public void deleteComment(DeleteCommentRequest request) throws ApiException, IOException {
         try {
             deleteCommentWithHttpInfo(request);
         }
@@ -1974,7 +1978,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteCommentWithHttpInfo(DeleteCommentRequest request) throws ApiException {
+    private ApiResponse<Void> deleteCommentWithHttpInfo(DeleteCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteCommentValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -1987,7 +1991,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteCommentAsync(DeleteCommentRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteCommentAsync(DeleteCommentRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2019,7 +2023,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteDocumentPropertyCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteDocumentPropertyCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2070,7 +2074,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteDocumentPropertyValidateBeforeCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteDocumentPropertyValidateBeforeCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -2095,7 +2099,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException {
+    public void deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException, IOException {
         try {
             deleteDocumentPropertyWithHttpInfo(request);
         }
@@ -2115,7 +2119,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteDocumentPropertyWithHttpInfo(DeleteDocumentPropertyRequest request) throws ApiException {
+    private ApiResponse<Void> deleteDocumentPropertyWithHttpInfo(DeleteDocumentPropertyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteDocumentPropertyValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2128,7 +2132,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteDocumentPropertyAsync(DeleteDocumentPropertyRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteDocumentPropertyAsync(DeleteDocumentPropertyRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2160,7 +2164,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteDrawingObjectCall(DeleteDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteDrawingObjectCall(DeleteDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2212,7 +2216,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteDrawingObjectValidateBeforeCall(DeleteDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteDrawingObjectValidateBeforeCall(DeleteDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -2242,7 +2246,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException {
+    public void deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException, IOException {
         try {
             deleteDrawingObjectWithHttpInfo(request);
         }
@@ -2262,7 +2266,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteDrawingObjectWithHttpInfo(DeleteDrawingObjectRequest request) throws ApiException {
+    private ApiResponse<Void> deleteDrawingObjectWithHttpInfo(DeleteDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteDrawingObjectValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2275,7 +2279,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteDrawingObjectAsync(DeleteDrawingObjectRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteDrawingObjectAsync(DeleteDrawingObjectRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2307,7 +2311,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathCall(DeleteDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathCall(DeleteDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2358,7 +2362,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathValidateBeforeCall(DeleteDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathValidateBeforeCall(DeleteDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -2383,7 +2387,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteDrawingObjectWithoutNodePath(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException {
+    public void deleteDrawingObjectWithoutNodePath(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             deleteDrawingObjectWithoutNodePathWithHttpInfo(request);
         }
@@ -2403,7 +2407,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteDrawingObjectWithoutNodePathWithHttpInfo(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<Void> deleteDrawingObjectWithoutNodePathWithHttpInfo(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2416,7 +2420,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathAsync(DeleteDrawingObjectWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathAsync(DeleteDrawingObjectWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2448,7 +2452,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFieldCall(DeleteFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFieldCall(DeleteFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2500,7 +2504,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFieldValidateBeforeCall(DeleteFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFieldValidateBeforeCall(DeleteFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -2530,7 +2534,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteField(DeleteFieldRequest request) throws ApiException {
+    public void deleteField(DeleteFieldRequest request) throws ApiException, IOException {
         try {
             deleteFieldWithHttpInfo(request);
         }
@@ -2550,7 +2554,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFieldWithHttpInfo(DeleteFieldRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFieldWithHttpInfo(DeleteFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFieldValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2563,7 +2567,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldAsync(DeleteFieldRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFieldAsync(DeleteFieldRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2595,7 +2599,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFieldWithoutNodePathCall(DeleteFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFieldWithoutNodePathCall(DeleteFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2646,7 +2650,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFieldWithoutNodePathValidateBeforeCall(DeleteFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFieldWithoutNodePathValidateBeforeCall(DeleteFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -2671,7 +2675,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFieldWithoutNodePath(DeleteFieldWithoutNodePathRequest request) throws ApiException {
+    public void deleteFieldWithoutNodePath(DeleteFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             deleteFieldWithoutNodePathWithHttpInfo(request);
         }
@@ -2691,7 +2695,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFieldWithoutNodePathWithHttpInfo(DeleteFieldWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFieldWithoutNodePathWithHttpInfo(DeleteFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFieldWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2704,7 +2708,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldWithoutNodePathAsync(DeleteFieldWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFieldWithoutNodePathAsync(DeleteFieldWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2736,7 +2740,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFieldsCall(DeleteFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFieldsCall(DeleteFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2787,7 +2791,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFieldsValidateBeforeCall(DeleteFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFieldsValidateBeforeCall(DeleteFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -2812,7 +2816,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFields(DeleteFieldsRequest request) throws ApiException {
+    public void deleteFields(DeleteFieldsRequest request) throws ApiException, IOException {
         try {
             deleteFieldsWithHttpInfo(request);
         }
@@ -2832,7 +2836,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFieldsWithHttpInfo(DeleteFieldsRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFieldsWithHttpInfo(DeleteFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFieldsValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2845,7 +2849,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldsAsync(DeleteFieldsRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFieldsAsync(DeleteFieldsRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2877,7 +2881,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFieldsWithoutNodePathCall(DeleteFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFieldsWithoutNodePathCall(DeleteFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2927,7 +2931,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFieldsWithoutNodePathValidateBeforeCall(DeleteFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFieldsWithoutNodePathValidateBeforeCall(DeleteFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -2947,7 +2951,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFieldsWithoutNodePath(DeleteFieldsWithoutNodePathRequest request) throws ApiException {
+    public void deleteFieldsWithoutNodePath(DeleteFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             deleteFieldsWithoutNodePathWithHttpInfo(request);
         }
@@ -2967,7 +2971,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFieldsWithoutNodePathWithHttpInfo(DeleteFieldsWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFieldsWithoutNodePathWithHttpInfo(DeleteFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFieldsWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -2980,7 +2984,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFieldsWithoutNodePathAsync(DeleteFieldsWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFieldsWithoutNodePathAsync(DeleteFieldsWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3012,7 +3016,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFileCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFileCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3057,7 +3061,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFileValidateBeforeCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFileValidateBeforeCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Path' is set
         if (request.getPath() == null) {
@@ -3077,7 +3081,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFile(DeleteFileRequest request) throws ApiException {
+    public void deleteFile(DeleteFileRequest request) throws ApiException, IOException {
         try {
             deleteFileWithHttpInfo(request);
         }
@@ -3097,7 +3101,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFileWithHttpInfo(DeleteFileRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFileWithHttpInfo(DeleteFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3110,7 +3114,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFileAsync(DeleteFileRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFileAsync(DeleteFileRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3142,7 +3146,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFolderCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFolderCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3187,7 +3191,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFolderValidateBeforeCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFolderValidateBeforeCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Path' is set
         if (request.getPath() == null) {
@@ -3207,7 +3211,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFolder(DeleteFolderRequest request) throws ApiException {
+    public void deleteFolder(DeleteFolderRequest request) throws ApiException, IOException {
         try {
             deleteFolderWithHttpInfo(request);
         }
@@ -3227,7 +3231,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFolderWithHttpInfo(DeleteFolderRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFolderWithHttpInfo(DeleteFolderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3240,7 +3244,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFolderAsync(DeleteFolderRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFolderAsync(DeleteFolderRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3272,7 +3276,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFootnoteCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFootnoteCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3324,7 +3328,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFootnoteValidateBeforeCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFootnoteValidateBeforeCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -3354,7 +3358,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFootnote(DeleteFootnoteRequest request) throws ApiException {
+    public void deleteFootnote(DeleteFootnoteRequest request) throws ApiException, IOException {
         try {
             deleteFootnoteWithHttpInfo(request);
         }
@@ -3374,7 +3378,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFootnoteWithHttpInfo(DeleteFootnoteRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFootnoteWithHttpInfo(DeleteFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFootnoteValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3387,7 +3391,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFootnoteAsync(DeleteFootnoteRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFootnoteAsync(DeleteFootnoteRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3419,7 +3423,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFootnoteWithoutNodePathCall(DeleteFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFootnoteWithoutNodePathCall(DeleteFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3470,7 +3474,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFootnoteWithoutNodePathValidateBeforeCall(DeleteFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFootnoteWithoutNodePathValidateBeforeCall(DeleteFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -3495,7 +3499,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFootnoteWithoutNodePath(DeleteFootnoteWithoutNodePathRequest request) throws ApiException {
+    public void deleteFootnoteWithoutNodePath(DeleteFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             deleteFootnoteWithoutNodePathWithHttpInfo(request);
         }
@@ -3515,7 +3519,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFootnoteWithoutNodePathWithHttpInfo(DeleteFootnoteWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFootnoteWithoutNodePathWithHttpInfo(DeleteFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3528,7 +3532,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFootnoteWithoutNodePathAsync(DeleteFootnoteWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFootnoteWithoutNodePathAsync(DeleteFootnoteWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3560,7 +3564,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFormFieldCall(DeleteFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFormFieldCall(DeleteFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3612,7 +3616,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFormFieldValidateBeforeCall(DeleteFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFormFieldValidateBeforeCall(DeleteFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -3642,7 +3646,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFormField(DeleteFormFieldRequest request) throws ApiException {
+    public void deleteFormField(DeleteFormFieldRequest request) throws ApiException, IOException {
         try {
             deleteFormFieldWithHttpInfo(request);
         }
@@ -3662,7 +3666,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFormFieldWithHttpInfo(DeleteFormFieldRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFormFieldWithHttpInfo(DeleteFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFormFieldValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3675,7 +3679,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFormFieldAsync(DeleteFormFieldRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFormFieldAsync(DeleteFormFieldRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3707,7 +3711,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteFormFieldWithoutNodePathCall(DeleteFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFormFieldWithoutNodePathCall(DeleteFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3758,7 +3762,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteFormFieldWithoutNodePathValidateBeforeCall(DeleteFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteFormFieldWithoutNodePathValidateBeforeCall(DeleteFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -3783,7 +3787,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteFormFieldWithoutNodePath(DeleteFormFieldWithoutNodePathRequest request) throws ApiException {
+    public void deleteFormFieldWithoutNodePath(DeleteFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             deleteFormFieldWithoutNodePathWithHttpInfo(request);
         }
@@ -3803,7 +3807,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteFormFieldWithoutNodePathWithHttpInfo(DeleteFormFieldWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<Void> deleteFormFieldWithoutNodePathWithHttpInfo(DeleteFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3816,7 +3820,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteFormFieldWithoutNodePathAsync(DeleteFormFieldWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteFormFieldWithoutNodePathAsync(DeleteFormFieldWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3848,7 +3852,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteHeaderFooterCall(DeleteHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteHeaderFooterCall(DeleteHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3900,7 +3904,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteHeaderFooterValidateBeforeCall(DeleteHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteHeaderFooterValidateBeforeCall(DeleteHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -3930,7 +3934,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException {
+    public void deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException, IOException {
         try {
             deleteHeaderFooterWithHttpInfo(request);
         }
@@ -3950,7 +3954,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteHeaderFooterWithHttpInfo(DeleteHeaderFooterRequest request) throws ApiException {
+    private ApiResponse<Void> deleteHeaderFooterWithHttpInfo(DeleteHeaderFooterRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteHeaderFooterValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -3963,7 +3967,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteHeaderFooterAsync(DeleteHeaderFooterRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteHeaderFooterAsync(DeleteHeaderFooterRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -3995,7 +3999,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteHeadersFootersCall(DeleteHeadersFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteHeadersFootersCall(DeleteHeadersFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4047,7 +4051,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteHeadersFootersValidateBeforeCall(DeleteHeadersFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteHeadersFootersValidateBeforeCall(DeleteHeadersFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -4072,7 +4076,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException {
+    public void deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException, IOException {
         try {
             deleteHeadersFootersWithHttpInfo(request);
         }
@@ -4092,7 +4096,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteHeadersFootersWithHttpInfo(DeleteHeadersFootersRequest request) throws ApiException {
+    private ApiResponse<Void> deleteHeadersFootersWithHttpInfo(DeleteHeadersFootersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteHeadersFootersValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4105,7 +4109,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteHeadersFootersAsync(DeleteHeadersFootersRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteHeadersFootersAsync(DeleteHeadersFootersRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4137,7 +4141,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteMacrosCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteMacrosCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4187,7 +4191,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteMacrosValidateBeforeCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteMacrosValidateBeforeCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -4207,7 +4211,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteMacros(DeleteMacrosRequest request) throws ApiException {
+    public void deleteMacros(DeleteMacrosRequest request) throws ApiException, IOException {
         try {
             deleteMacrosWithHttpInfo(request);
         }
@@ -4227,7 +4231,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteMacrosWithHttpInfo(DeleteMacrosRequest request) throws ApiException {
+    private ApiResponse<Void> deleteMacrosWithHttpInfo(DeleteMacrosRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteMacrosValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4240,7 +4244,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteMacrosAsync(DeleteMacrosRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteMacrosAsync(DeleteMacrosRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4272,7 +4276,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteOfficeMathObjectCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteOfficeMathObjectCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4324,7 +4328,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteOfficeMathObjectValidateBeforeCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteOfficeMathObjectValidateBeforeCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -4354,7 +4358,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException {
+    public void deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException, IOException {
         try {
             deleteOfficeMathObjectWithHttpInfo(request);
         }
@@ -4374,7 +4378,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteOfficeMathObjectWithHttpInfo(DeleteOfficeMathObjectRequest request) throws ApiException {
+    private ApiResponse<Void> deleteOfficeMathObjectWithHttpInfo(DeleteOfficeMathObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4387,7 +4391,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteOfficeMathObjectAsync(DeleteOfficeMathObjectRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteOfficeMathObjectAsync(DeleteOfficeMathObjectRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4419,7 +4423,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathCall(DeleteOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathCall(DeleteOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4470,7 +4474,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathValidateBeforeCall(DeleteOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathValidateBeforeCall(DeleteOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -4495,7 +4499,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteOfficeMathObjectWithoutNodePath(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException {
+    public void deleteOfficeMathObjectWithoutNodePath(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             deleteOfficeMathObjectWithoutNodePathWithHttpInfo(request);
         }
@@ -4515,7 +4519,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteOfficeMathObjectWithoutNodePathWithHttpInfo(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<Void> deleteOfficeMathObjectWithoutNodePathWithHttpInfo(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4528,7 +4532,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathAsync(DeleteOfficeMathObjectWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathAsync(DeleteOfficeMathObjectWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4560,7 +4564,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteParagraphCall(DeleteParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteParagraphCall(DeleteParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4612,7 +4616,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteParagraphValidateBeforeCall(DeleteParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteParagraphValidateBeforeCall(DeleteParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -4642,7 +4646,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteParagraph(DeleteParagraphRequest request) throws ApiException {
+    public void deleteParagraph(DeleteParagraphRequest request) throws ApiException, IOException {
         try {
             deleteParagraphWithHttpInfo(request);
         }
@@ -4662,7 +4666,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteParagraphWithHttpInfo(DeleteParagraphRequest request) throws ApiException {
+    private ApiResponse<Void> deleteParagraphWithHttpInfo(DeleteParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4675,7 +4679,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphAsync(DeleteParagraphRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteParagraphAsync(DeleteParagraphRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4707,7 +4711,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteParagraphWithoutNodePathCall(DeleteParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteParagraphWithoutNodePathCall(DeleteParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4758,7 +4762,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteParagraphWithoutNodePathValidateBeforeCall(DeleteParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteParagraphWithoutNodePathValidateBeforeCall(DeleteParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -4783,7 +4787,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteParagraphWithoutNodePath(DeleteParagraphWithoutNodePathRequest request) throws ApiException {
+    public void deleteParagraphWithoutNodePath(DeleteParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             deleteParagraphWithoutNodePathWithHttpInfo(request);
         }
@@ -4803,7 +4807,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteParagraphWithoutNodePathWithHttpInfo(DeleteParagraphWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<Void> deleteParagraphWithoutNodePathWithHttpInfo(DeleteParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4816,7 +4820,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteParagraphWithoutNodePathAsync(DeleteParagraphWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteParagraphWithoutNodePathAsync(DeleteParagraphWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4848,7 +4852,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteRunCall(DeleteRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteRunCall(DeleteRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4900,7 +4904,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteRunValidateBeforeCall(DeleteRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteRunValidateBeforeCall(DeleteRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -4930,7 +4934,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteRun(DeleteRunRequest request) throws ApiException {
+    public void deleteRun(DeleteRunRequest request) throws ApiException, IOException {
         try {
             deleteRunWithHttpInfo(request);
         }
@@ -4950,7 +4954,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteRunWithHttpInfo(DeleteRunRequest request) throws ApiException {
+    private ApiResponse<Void> deleteRunWithHttpInfo(DeleteRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteRunValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -4963,7 +4967,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteRunAsync(DeleteRunRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteRunAsync(DeleteRunRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -4995,7 +4999,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteSectionCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteSectionCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5046,7 +5050,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteSectionValidateBeforeCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteSectionValidateBeforeCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -5071,7 +5075,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteSection(DeleteSectionRequest request) throws ApiException {
+    public void deleteSection(DeleteSectionRequest request) throws ApiException, IOException {
         try {
             deleteSectionWithHttpInfo(request);
         }
@@ -5091,7 +5095,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteSectionWithHttpInfo(DeleteSectionRequest request) throws ApiException {
+    private ApiResponse<Void> deleteSectionWithHttpInfo(DeleteSectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -5104,7 +5108,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteSectionAsync(DeleteSectionRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteSectionAsync(DeleteSectionRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5136,7 +5140,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteTableCall(DeleteTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTableCall(DeleteTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5188,7 +5192,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteTableValidateBeforeCall(DeleteTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTableValidateBeforeCall(DeleteTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -5218,7 +5222,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteTable(DeleteTableRequest request) throws ApiException {
+    public void deleteTable(DeleteTableRequest request) throws ApiException, IOException {
         try {
             deleteTableWithHttpInfo(request);
         }
@@ -5238,7 +5242,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteTableWithHttpInfo(DeleteTableRequest request) throws ApiException {
+    private ApiResponse<Void> deleteTableWithHttpInfo(DeleteTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteTableValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -5251,7 +5255,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTableAsync(DeleteTableRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTableAsync(DeleteTableRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5283,7 +5287,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteTableCellCall(DeleteTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTableCellCall(DeleteTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5335,7 +5339,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteTableCellValidateBeforeCall(DeleteTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTableCellValidateBeforeCall(DeleteTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -5365,7 +5369,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteTableCell(DeleteTableCellRequest request) throws ApiException {
+    public void deleteTableCell(DeleteTableCellRequest request) throws ApiException, IOException {
         try {
             deleteTableCellWithHttpInfo(request);
         }
@@ -5385,7 +5389,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteTableCellWithHttpInfo(DeleteTableCellRequest request) throws ApiException {
+    private ApiResponse<Void> deleteTableCellWithHttpInfo(DeleteTableCellRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteTableCellValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -5398,7 +5402,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTableCellAsync(DeleteTableCellRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTableCellAsync(DeleteTableCellRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5430,7 +5434,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteTableRowCall(DeleteTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTableRowCall(DeleteTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5482,7 +5486,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteTableRowValidateBeforeCall(DeleteTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTableRowValidateBeforeCall(DeleteTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -5512,7 +5516,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteTableRow(DeleteTableRowRequest request) throws ApiException {
+    public void deleteTableRow(DeleteTableRowRequest request) throws ApiException, IOException {
         try {
             deleteTableRowWithHttpInfo(request);
         }
@@ -5532,7 +5536,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteTableRowWithHttpInfo(DeleteTableRowRequest request) throws ApiException {
+    private ApiResponse<Void> deleteTableRowWithHttpInfo(DeleteTableRowRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteTableRowValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -5545,7 +5549,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTableRowAsync(DeleteTableRowRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTableRowAsync(DeleteTableRowRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5577,7 +5581,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteTableWithoutNodePathCall(DeleteTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTableWithoutNodePathCall(DeleteTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5628,7 +5632,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteTableWithoutNodePathValidateBeforeCall(DeleteTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteTableWithoutNodePathValidateBeforeCall(DeleteTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -5653,7 +5657,7 @@ public class WordsApi {
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void deleteTableWithoutNodePath(DeleteTableWithoutNodePathRequest request) throws ApiException {
+    public void deleteTableWithoutNodePath(DeleteTableWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             deleteTableWithoutNodePathWithHttpInfo(request);
         }
@@ -5673,7 +5677,7 @@ public class WordsApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> deleteTableWithoutNodePathWithHttpInfo(DeleteTableWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<Void> deleteTableWithoutNodePathWithHttpInfo(DeleteTableWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteTableWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -5686,7 +5690,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteTableWithoutNodePathAsync(DeleteTableWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteTableWithoutNodePathAsync(DeleteTableWithoutNodePathRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5718,7 +5722,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call deleteWatermarkCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteWatermarkCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5768,7 +5772,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteWatermarkValidateBeforeCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call deleteWatermarkValidateBeforeCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -5788,7 +5792,7 @@ public class WordsApi {
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse deleteWatermark(DeleteWatermarkRequest request) throws ApiException {
+    public DocumentResponse deleteWatermark(DeleteWatermarkRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = deleteWatermarkWithHttpInfo(request);
             return resp.getData();
@@ -5810,7 +5814,7 @@ public class WordsApi {
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> deleteWatermarkWithHttpInfo(DeleteWatermarkRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> deleteWatermarkWithHttpInfo(DeleteWatermarkRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5824,7 +5828,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call deleteWatermarkAsync(DeleteWatermarkRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call deleteWatermarkAsync(DeleteWatermarkRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5857,7 +5861,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call downloadFileCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call downloadFileCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -5902,7 +5906,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call downloadFileValidateBeforeCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call downloadFileValidateBeforeCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Path' is set
         if (request.getPath() == null) {
@@ -5922,7 +5926,7 @@ public class WordsApi {
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File downloadFile(DownloadFileRequest request) throws ApiException {
+    public File downloadFile(DownloadFileRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = downloadFileWithHttpInfo(request);
             return resp.getData();
@@ -5944,7 +5948,7 @@ public class WordsApi {
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException {
+    private ApiResponse<File> downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -5958,7 +5962,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call downloadFileAsync(DownloadFileRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call downloadFileAsync(DownloadFileRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -5991,7 +5995,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call executeMailMergeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call executeMailMergeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6045,7 +6049,7 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call executeMailMergeValidateBeforeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call executeMailMergeValidateBeforeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -6065,7 +6069,7 @@ public class WordsApi {
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse executeMailMerge(ExecuteMailMergeRequest request) throws ApiException {
+    public DocumentResponse executeMailMerge(ExecuteMailMergeRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = executeMailMergeWithHttpInfo(request);
             return resp.getData();
@@ -6087,7 +6091,7 @@ public class WordsApi {
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> executeMailMergeWithHttpInfo(ExecuteMailMergeRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> executeMailMergeWithHttpInfo(ExecuteMailMergeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6101,7 +6105,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call executeMailMergeAsync(ExecuteMailMergeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call executeMailMergeAsync(ExecuteMailMergeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6134,7 +6138,7 @@ public class WordsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call executeMailMergeOnlineCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call executeMailMergeOnlineCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6183,7 +6187,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call executeMailMergeOnlineValidateBeforeCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call executeMailMergeOnlineValidateBeforeCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Template' is set
         if (request.getTemplate() == null) {
@@ -6208,7 +6212,7 @@ if (request.getData() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) throws ApiException {
+    public File executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = executeMailMergeOnlineWithHttpInfo(request);
             return resp.getData();
@@ -6230,7 +6234,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException {
+    private ApiResponse<File> executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6244,7 +6248,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call executeMailMergeOnlineAsync(ExecuteMailMergeOnlineRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call executeMailMergeOnlineAsync(ExecuteMailMergeOnlineRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6277,7 +6281,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getAvailableFontsCall(GetAvailableFontsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAvailableFontsCall(GetAvailableFontsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6320,7 +6324,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getAvailableFontsValidateBeforeCall(GetAvailableFontsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getAvailableFontsValidateBeforeCall(GetAvailableFontsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
 
         com.squareup.okhttp.Call call = getAvailableFontsCall(request, progressListener, progressRequestListener);
@@ -6335,7 +6339,7 @@ if (request.getData() != null)
      * @return AvailableFontsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public AvailableFontsResponse getAvailableFonts(GetAvailableFontsRequest request) throws ApiException {
+    public AvailableFontsResponse getAvailableFonts(GetAvailableFontsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<AvailableFontsResponse> resp = getAvailableFontsWithHttpInfo(request);
             return resp.getData();
@@ -6357,7 +6361,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;AvailableFontsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<AvailableFontsResponse> getAvailableFontsWithHttpInfo(GetAvailableFontsRequest request) throws ApiException {
+    private ApiResponse<AvailableFontsResponse> getAvailableFontsWithHttpInfo(GetAvailableFontsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getAvailableFontsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<AvailableFontsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6371,7 +6375,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getAvailableFontsAsync(GetAvailableFontsRequest request, final ApiCallback<AvailableFontsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getAvailableFontsAsync(GetAvailableFontsRequest request, final ApiCallback<AvailableFontsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6404,7 +6408,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getBookmarkByNameCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBookmarkByNameCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6452,7 +6456,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getBookmarkByNameValidateBeforeCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBookmarkByNameValidateBeforeCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -6477,7 +6481,7 @@ if (request.getData() != null)
      * @return BookmarkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BookmarkResponse getBookmarkByName(GetBookmarkByNameRequest request) throws ApiException {
+    public BookmarkResponse getBookmarkByName(GetBookmarkByNameRequest request) throws ApiException, IOException {
         try {
             ApiResponse<BookmarkResponse> resp = getBookmarkByNameWithHttpInfo(request);
             return resp.getData();
@@ -6499,7 +6503,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;BookmarkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<BookmarkResponse> getBookmarkByNameWithHttpInfo(GetBookmarkByNameRequest request) throws ApiException {
+    private ApiResponse<BookmarkResponse> getBookmarkByNameWithHttpInfo(GetBookmarkByNameRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6513,7 +6517,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getBookmarkByNameAsync(GetBookmarkByNameRequest request, final ApiCallback<BookmarkResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBookmarkByNameAsync(GetBookmarkByNameRequest request, final ApiCallback<BookmarkResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6546,7 +6550,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getBookmarksCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBookmarksCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6593,7 +6597,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getBookmarksValidateBeforeCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBookmarksValidateBeforeCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -6613,7 +6617,7 @@ if (request.getData() != null)
      * @return BookmarksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BookmarksResponse getBookmarks(GetBookmarksRequest request) throws ApiException {
+    public BookmarksResponse getBookmarks(GetBookmarksRequest request) throws ApiException, IOException {
         try {
             ApiResponse<BookmarksResponse> resp = getBookmarksWithHttpInfo(request);
             return resp.getData();
@@ -6635,7 +6639,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;BookmarksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<BookmarksResponse> getBookmarksWithHttpInfo(GetBookmarksRequest request) throws ApiException {
+    private ApiResponse<BookmarksResponse> getBookmarksWithHttpInfo(GetBookmarksRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<BookmarksResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6649,7 +6653,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getBookmarksAsync(GetBookmarksRequest request, final ApiCallback<BookmarksResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBookmarksAsync(GetBookmarksRequest request, final ApiCallback<BookmarksResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6682,7 +6686,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getBorderCall(GetBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBorderCall(GetBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6731,7 +6735,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getBorderValidateBeforeCall(GetBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBorderValidateBeforeCall(GetBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -6761,7 +6765,7 @@ if (request.getData() != null)
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BorderResponse getBorder(GetBorderRequest request) throws ApiException {
+    public BorderResponse getBorder(GetBorderRequest request) throws ApiException, IOException {
         try {
             ApiResponse<BorderResponse> resp = getBorderWithHttpInfo(request);
             return resp.getData();
@@ -6783,7 +6787,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<BorderResponse> getBorderWithHttpInfo(GetBorderRequest request) throws ApiException {
+    private ApiResponse<BorderResponse> getBorderWithHttpInfo(GetBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBorderValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<BorderResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6797,7 +6801,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getBorderAsync(GetBorderRequest request, final ApiCallback<BorderResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBorderAsync(GetBorderRequest request, final ApiCallback<BorderResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6830,7 +6834,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getBordersCall(GetBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBordersCall(GetBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6878,7 +6882,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getBordersValidateBeforeCall(GetBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBordersValidateBeforeCall(GetBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -6903,7 +6907,7 @@ if (request.getData() != null)
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BordersResponse getBorders(GetBordersRequest request) throws ApiException {
+    public BordersResponse getBorders(GetBordersRequest request) throws ApiException, IOException {
         try {
             ApiResponse<BordersResponse> resp = getBordersWithHttpInfo(request);
             return resp.getData();
@@ -6925,7 +6929,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;BordersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<BordersResponse> getBordersWithHttpInfo(GetBordersRequest request) throws ApiException {
+    private ApiResponse<BordersResponse> getBordersWithHttpInfo(GetBordersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBordersValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<BordersResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -6939,7 +6943,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getBordersAsync(GetBordersRequest request, final ApiCallback<BordersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBordersAsync(GetBordersRequest request, final ApiCallback<BordersResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6972,7 +6976,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getCommentCall(GetCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCommentCall(GetCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7020,7 +7024,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCommentValidateBeforeCall(GetCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCommentValidateBeforeCall(GetCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -7045,7 +7049,7 @@ if (request.getData() != null)
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommentResponse getComment(GetCommentRequest request) throws ApiException {
+    public CommentResponse getComment(GetCommentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<CommentResponse> resp = getCommentWithHttpInfo(request);
             return resp.getData();
@@ -7067,7 +7071,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<CommentResponse> getCommentWithHttpInfo(GetCommentRequest request) throws ApiException {
+    private ApiResponse<CommentResponse> getCommentWithHttpInfo(GetCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getCommentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7081,7 +7085,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCommentAsync(GetCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCommentAsync(GetCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7114,7 +7118,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getCommentsCall(GetCommentsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCommentsCall(GetCommentsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7161,7 +7165,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCommentsValidateBeforeCall(GetCommentsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCommentsValidateBeforeCall(GetCommentsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -7181,7 +7185,7 @@ if (request.getData() != null)
      * @return CommentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommentsResponse getComments(GetCommentsRequest request) throws ApiException {
+    public CommentsResponse getComments(GetCommentsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<CommentsResponse> resp = getCommentsWithHttpInfo(request);
             return resp.getData();
@@ -7203,7 +7207,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;CommentsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<CommentsResponse> getCommentsWithHttpInfo(GetCommentsRequest request) throws ApiException {
+    private ApiResponse<CommentsResponse> getCommentsWithHttpInfo(GetCommentsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getCommentsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<CommentsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7217,7 +7221,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCommentsAsync(GetCommentsRequest request, final ApiCallback<CommentsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCommentsAsync(GetCommentsRequest request, final ApiCallback<CommentsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7250,7 +7254,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentCall(GetDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentCall(GetDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7297,7 +7301,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentValidateBeforeCall(GetDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentValidateBeforeCall(GetDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'DocumentName' is set
         if (request.getDocumentName() == null) {
@@ -7317,7 +7321,7 @@ if (request.getData() != null)
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse getDocument(GetDocumentRequest request) throws ApiException {
+    public DocumentResponse getDocument(GetDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = getDocumentWithHttpInfo(request);
             return resp.getData();
@@ -7339,7 +7343,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> getDocumentWithHttpInfo(GetDocumentRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> getDocumentWithHttpInfo(GetDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7353,7 +7357,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentAsync(GetDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentAsync(GetDocumentRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7386,7 +7390,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexCall(GetDocumentDrawingObjectByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexCall(GetDocumentDrawingObjectByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7435,7 +7439,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexValidateBeforeCall(GetDocumentDrawingObjectByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexValidateBeforeCall(GetDocumentDrawingObjectByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -7465,7 +7469,7 @@ if (request.getData() != null)
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DrawingObjectResponse getDocumentDrawingObjectByIndex(GetDocumentDrawingObjectByIndexRequest request) throws ApiException {
+    public DrawingObjectResponse getDocumentDrawingObjectByIndex(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DrawingObjectResponse> resp = getDocumentDrawingObjectByIndexWithHttpInfo(request);
             return resp.getData();
@@ -7487,7 +7491,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DrawingObjectResponse> getDocumentDrawingObjectByIndexWithHttpInfo(GetDocumentDrawingObjectByIndexRequest request) throws ApiException {
+    private ApiResponse<DrawingObjectResponse> getDocumentDrawingObjectByIndexWithHttpInfo(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7501,7 +7505,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexAsync(GetDocumentDrawingObjectByIndexRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexAsync(GetDocumentDrawingObjectByIndexRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7534,7 +7538,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathCall(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathCall(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7582,7 +7586,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -7607,7 +7611,7 @@ if (request.getData() != null)
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DrawingObjectResponse getDocumentDrawingObjectByIndexWithoutNodePath(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request) throws ApiException {
+    public DrawingObjectResponse getDocumentDrawingObjectByIndexWithoutNodePath(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DrawingObjectResponse> resp = getDocumentDrawingObjectByIndexWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -7629,7 +7633,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DrawingObjectResponse> getDocumentDrawingObjectByIndexWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<DrawingObjectResponse> getDocumentDrawingObjectByIndexWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7643,7 +7647,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathAsync(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathAsync(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7676,7 +7680,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataCall(GetDocumentDrawingObjectImageDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataCall(GetDocumentDrawingObjectImageDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7725,7 +7729,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataValidateBeforeCall(GetDocumentDrawingObjectImageDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataValidateBeforeCall(GetDocumentDrawingObjectImageDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -7755,7 +7759,7 @@ if (request.getData() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) throws ApiException {
+    public File getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
             return resp.getData();
@@ -7777,7 +7781,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> getDocumentDrawingObjectImageDataWithHttpInfo(GetDocumentDrawingObjectImageDataRequest request) throws ApiException {
+    private ApiResponse<File> getDocumentDrawingObjectImageDataWithHttpInfo(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7791,7 +7795,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataAsync(GetDocumentDrawingObjectImageDataRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataAsync(GetDocumentDrawingObjectImageDataRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7824,7 +7828,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathCall(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathCall(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7872,7 +7876,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -7897,7 +7901,7 @@ if (request.getData() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File getDocumentDrawingObjectImageDataWithoutNodePath(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request) throws ApiException {
+    public File getDocumentDrawingObjectImageDataWithoutNodePath(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = getDocumentDrawingObjectImageDataWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -7919,7 +7923,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> getDocumentDrawingObjectImageDataWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<File> getDocumentDrawingObjectImageDataWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -7933,7 +7937,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathAsync(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathAsync(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -7966,7 +7970,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataCall(GetDocumentDrawingObjectOleDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataCall(GetDocumentDrawingObjectOleDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8015,7 +8019,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataValidateBeforeCall(GetDocumentDrawingObjectOleDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataValidateBeforeCall(GetDocumentDrawingObjectOleDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -8045,7 +8049,7 @@ if (request.getData() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File getDocumentDrawingObjectOleData(GetDocumentDrawingObjectOleDataRequest request) throws ApiException {
+    public File getDocumentDrawingObjectOleData(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
             return resp.getData();
@@ -8067,7 +8071,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> getDocumentDrawingObjectOleDataWithHttpInfo(GetDocumentDrawingObjectOleDataRequest request) throws ApiException {
+    private ApiResponse<File> getDocumentDrawingObjectOleDataWithHttpInfo(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8081,7 +8085,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataAsync(GetDocumentDrawingObjectOleDataRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataAsync(GetDocumentDrawingObjectOleDataRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8114,7 +8118,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathCall(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathCall(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8162,7 +8166,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -8187,7 +8191,7 @@ if (request.getData() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File getDocumentDrawingObjectOleDataWithoutNodePath(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request) throws ApiException {
+    public File getDocumentDrawingObjectOleDataWithoutNodePath(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = getDocumentDrawingObjectOleDataWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -8209,7 +8213,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> getDocumentDrawingObjectOleDataWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<File> getDocumentDrawingObjectOleDataWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8223,7 +8227,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathAsync(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathAsync(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8256,7 +8260,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectsCall(GetDocumentDrawingObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectsCall(GetDocumentDrawingObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8304,7 +8308,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentDrawingObjectsValidateBeforeCall(GetDocumentDrawingObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectsValidateBeforeCall(GetDocumentDrawingObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -8329,7 +8333,7 @@ if (request.getData() != null)
      * @return DrawingObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DrawingObjectsResponse getDocumentDrawingObjects(GetDocumentDrawingObjectsRequest request) throws ApiException {
+    public DrawingObjectsResponse getDocumentDrawingObjects(GetDocumentDrawingObjectsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DrawingObjectsResponse> resp = getDocumentDrawingObjectsWithHttpInfo(request);
             return resp.getData();
@@ -8351,7 +8355,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;DrawingObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DrawingObjectsResponse> getDocumentDrawingObjectsWithHttpInfo(GetDocumentDrawingObjectsRequest request) throws ApiException {
+    private ApiResponse<DrawingObjectsResponse> getDocumentDrawingObjectsWithHttpInfo(GetDocumentDrawingObjectsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DrawingObjectsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8365,7 +8369,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectsAsync(GetDocumentDrawingObjectsRequest request, final ApiCallback<DrawingObjectsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectsAsync(GetDocumentDrawingObjectsRequest request, final ApiCallback<DrawingObjectsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8398,7 +8402,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathCall(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathCall(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8445,7 +8449,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -8465,7 +8469,7 @@ if (request.getData() != null)
      * @return DrawingObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DrawingObjectsResponse getDocumentDrawingObjectsWithoutNodePath(GetDocumentDrawingObjectsWithoutNodePathRequest request) throws ApiException {
+    public DrawingObjectsResponse getDocumentDrawingObjectsWithoutNodePath(GetDocumentDrawingObjectsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DrawingObjectsResponse> resp = getDocumentDrawingObjectsWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -8487,7 +8491,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;DrawingObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DrawingObjectsResponse> getDocumentDrawingObjectsWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectsWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<DrawingObjectsResponse> getDocumentDrawingObjectsWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DrawingObjectsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8501,7 +8505,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathAsync(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ApiCallback<DrawingObjectsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathAsync(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ApiCallback<DrawingObjectsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8534,7 +8538,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentFieldNamesCall(GetDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentFieldNamesCall(GetDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8582,7 +8586,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentFieldNamesValidateBeforeCall(GetDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentFieldNamesValidateBeforeCall(GetDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -8602,7 +8606,7 @@ if (request.getData() != null)
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldNamesResponse getDocumentFieldNames(GetDocumentFieldNamesRequest request) throws ApiException {
+    public FieldNamesResponse getDocumentFieldNames(GetDocumentFieldNamesRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldNamesResponse> resp = getDocumentFieldNamesWithHttpInfo(request);
             return resp.getData();
@@ -8624,7 +8628,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FieldNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldNamesResponse> getDocumentFieldNamesWithHttpInfo(GetDocumentFieldNamesRequest request) throws ApiException {
+    private ApiResponse<FieldNamesResponse> getDocumentFieldNamesWithHttpInfo(GetDocumentFieldNamesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldNamesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8638,7 +8642,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentFieldNamesAsync(GetDocumentFieldNamesRequest request, final ApiCallback<FieldNamesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentFieldNamesAsync(GetDocumentFieldNamesRequest request, final ApiCallback<FieldNamesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8671,7 +8675,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentFieldNamesOnlineCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentFieldNamesOnlineCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8716,7 +8720,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentFieldNamesOnlineValidateBeforeCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentFieldNamesOnlineValidateBeforeCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Template' is set
         if (request.getTemplate() == null) {
@@ -8736,7 +8740,7 @@ if (request.getData() != null)
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldNamesResponse getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) throws ApiException {
+    public FieldNamesResponse getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldNamesResponse> resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
             return resp.getData();
@@ -8758,7 +8762,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FieldNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldNamesResponse> getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException {
+    private ApiResponse<FieldNamesResponse> getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldNamesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8772,7 +8776,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentFieldNamesOnlineAsync(GetDocumentFieldNamesOnlineRequest request, final ApiCallback<FieldNamesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentFieldNamesOnlineAsync(GetDocumentFieldNamesOnlineRequest request, final ApiCallback<FieldNamesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8805,7 +8809,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentHyperlinkByIndexCall(GetDocumentHyperlinkByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentHyperlinkByIndexCall(GetDocumentHyperlinkByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8853,7 +8857,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentHyperlinkByIndexValidateBeforeCall(GetDocumentHyperlinkByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentHyperlinkByIndexValidateBeforeCall(GetDocumentHyperlinkByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -8878,7 +8882,7 @@ if (request.getData() != null)
      * @return HyperlinkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public HyperlinkResponse getDocumentHyperlinkByIndex(GetDocumentHyperlinkByIndexRequest request) throws ApiException {
+    public HyperlinkResponse getDocumentHyperlinkByIndex(GetDocumentHyperlinkByIndexRequest request) throws ApiException, IOException {
         try {
             ApiResponse<HyperlinkResponse> resp = getDocumentHyperlinkByIndexWithHttpInfo(request);
             return resp.getData();
@@ -8900,7 +8904,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;HyperlinkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<HyperlinkResponse> getDocumentHyperlinkByIndexWithHttpInfo(GetDocumentHyperlinkByIndexRequest request) throws ApiException {
+    private ApiResponse<HyperlinkResponse> getDocumentHyperlinkByIndexWithHttpInfo(GetDocumentHyperlinkByIndexRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<HyperlinkResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -8914,7 +8918,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentHyperlinkByIndexAsync(GetDocumentHyperlinkByIndexRequest request, final ApiCallback<HyperlinkResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentHyperlinkByIndexAsync(GetDocumentHyperlinkByIndexRequest request, final ApiCallback<HyperlinkResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8947,7 +8951,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentHyperlinksCall(GetDocumentHyperlinksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentHyperlinksCall(GetDocumentHyperlinksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -8994,7 +8998,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentHyperlinksValidateBeforeCall(GetDocumentHyperlinksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentHyperlinksValidateBeforeCall(GetDocumentHyperlinksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -9014,7 +9018,7 @@ if (request.getData() != null)
      * @return HyperlinksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public HyperlinksResponse getDocumentHyperlinks(GetDocumentHyperlinksRequest request) throws ApiException {
+    public HyperlinksResponse getDocumentHyperlinks(GetDocumentHyperlinksRequest request) throws ApiException, IOException {
         try {
             ApiResponse<HyperlinksResponse> resp = getDocumentHyperlinksWithHttpInfo(request);
             return resp.getData();
@@ -9036,7 +9040,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;HyperlinksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<HyperlinksResponse> getDocumentHyperlinksWithHttpInfo(GetDocumentHyperlinksRequest request) throws ApiException {
+    private ApiResponse<HyperlinksResponse> getDocumentHyperlinksWithHttpInfo(GetDocumentHyperlinksRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinksValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<HyperlinksResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -9050,7 +9054,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentHyperlinksAsync(GetDocumentHyperlinksRequest request, final ApiCallback<HyperlinksResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentHyperlinksAsync(GetDocumentHyperlinksRequest request, final ApiCallback<HyperlinksResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9083,7 +9087,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentPropertiesCall(GetDocumentPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentPropertiesCall(GetDocumentPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9130,7 +9134,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentPropertiesValidateBeforeCall(GetDocumentPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentPropertiesValidateBeforeCall(GetDocumentPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -9150,7 +9154,7 @@ if (request.getData() != null)
      * @return DocumentPropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentPropertiesResponse getDocumentProperties(GetDocumentPropertiesRequest request) throws ApiException {
+    public DocumentPropertiesResponse getDocumentProperties(GetDocumentPropertiesRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentPropertiesResponse> resp = getDocumentPropertiesWithHttpInfo(request);
             return resp.getData();
@@ -9172,7 +9176,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;DocumentPropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentPropertiesResponse> getDocumentPropertiesWithHttpInfo(GetDocumentPropertiesRequest request) throws ApiException {
+    private ApiResponse<DocumentPropertiesResponse> getDocumentPropertiesWithHttpInfo(GetDocumentPropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertiesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentPropertiesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -9186,7 +9190,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentPropertiesAsync(GetDocumentPropertiesRequest request, final ApiCallback<DocumentPropertiesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentPropertiesAsync(GetDocumentPropertiesRequest request, final ApiCallback<DocumentPropertiesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9219,7 +9223,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentPropertyCall(GetDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentPropertyCall(GetDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9267,7 +9271,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentPropertyValidateBeforeCall(GetDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentPropertyValidateBeforeCall(GetDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -9292,7 +9296,7 @@ if (request.getData() != null)
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentPropertyResponse getDocumentProperty(GetDocumentPropertyRequest request) throws ApiException {
+    public DocumentPropertyResponse getDocumentProperty(GetDocumentPropertyRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentPropertyResponse> resp = getDocumentPropertyWithHttpInfo(request);
             return resp.getData();
@@ -9314,7 +9318,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;DocumentPropertyResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentPropertyResponse> getDocumentPropertyWithHttpInfo(GetDocumentPropertyRequest request) throws ApiException {
+    private ApiResponse<DocumentPropertyResponse> getDocumentPropertyWithHttpInfo(GetDocumentPropertyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertyValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentPropertyResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -9328,7 +9332,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentPropertyAsync(GetDocumentPropertyRequest request, final ApiCallback<DocumentPropertyResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentPropertyAsync(GetDocumentPropertyRequest request, final ApiCallback<DocumentPropertyResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9361,7 +9365,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentProtectionCall(GetDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentProtectionCall(GetDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9408,7 +9412,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentProtectionValidateBeforeCall(GetDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentProtectionValidateBeforeCall(GetDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -9428,7 +9432,7 @@ if (request.getData() != null)
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProtectionDataResponse getDocumentProtection(GetDocumentProtectionRequest request) throws ApiException {
+    public ProtectionDataResponse getDocumentProtection(GetDocumentProtectionRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ProtectionDataResponse> resp = getDocumentProtectionWithHttpInfo(request);
             return resp.getData();
@@ -9450,7 +9454,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ProtectionDataResponse> getDocumentProtectionWithHttpInfo(GetDocumentProtectionRequest request) throws ApiException {
+    private ApiResponse<ProtectionDataResponse> getDocumentProtectionWithHttpInfo(GetDocumentProtectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentProtectionValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -9464,7 +9468,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentProtectionAsync(GetDocumentProtectionRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentProtectionAsync(GetDocumentProtectionRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9497,7 +9501,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentStatisticsCall(GetDocumentStatisticsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentStatisticsCall(GetDocumentStatisticsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9547,7 +9551,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentStatisticsValidateBeforeCall(GetDocumentStatisticsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentStatisticsValidateBeforeCall(GetDocumentStatisticsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -9567,7 +9571,7 @@ if (request.getData() != null)
      * @return StatDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public StatDataResponse getDocumentStatistics(GetDocumentStatisticsRequest request) throws ApiException {
+    public StatDataResponse getDocumentStatistics(GetDocumentStatisticsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<StatDataResponse> resp = getDocumentStatisticsWithHttpInfo(request);
             return resp.getData();
@@ -9589,7 +9593,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;StatDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<StatDataResponse> getDocumentStatisticsWithHttpInfo(GetDocumentStatisticsRequest request) throws ApiException {
+    private ApiResponse<StatDataResponse> getDocumentStatisticsWithHttpInfo(GetDocumentStatisticsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentStatisticsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<StatDataResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -9603,7 +9607,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentStatisticsAsync(GetDocumentStatisticsRequest request, final ApiCallback<StatDataResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentStatisticsAsync(GetDocumentStatisticsRequest request, final ApiCallback<StatDataResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9636,7 +9640,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getDocumentWithFormatCall(GetDocumentWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentWithFormatCall(GetDocumentWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9686,7 +9690,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentWithFormatValidateBeforeCall(GetDocumentWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getDocumentWithFormatValidateBeforeCall(GetDocumentWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -9711,7 +9715,7 @@ if (request.getData() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File getDocumentWithFormat(GetDocumentWithFormatRequest request) throws ApiException {
+    public File getDocumentWithFormat(GetDocumentWithFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = getDocumentWithFormatWithHttpInfo(request);
             return resp.getData();
@@ -9733,7 +9737,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> getDocumentWithFormatWithHttpInfo(GetDocumentWithFormatRequest request) throws ApiException {
+    private ApiResponse<File> getDocumentWithFormatWithHttpInfo(GetDocumentWithFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentWithFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -9747,7 +9751,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentWithFormatAsync(GetDocumentWithFormatRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call getDocumentWithFormatAsync(GetDocumentWithFormatRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9780,7 +9784,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFieldCall(GetFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFieldCall(GetFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9829,7 +9833,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFieldValidateBeforeCall(GetFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFieldValidateBeforeCall(GetFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -9859,7 +9863,7 @@ if (request.getData() != null)
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldResponse getField(GetFieldRequest request) throws ApiException {
+    public FieldResponse getField(GetFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldResponse> resp = getFieldWithHttpInfo(request);
             return resp.getData();
@@ -9881,7 +9885,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldResponse> getFieldWithHttpInfo(GetFieldRequest request) throws ApiException {
+    private ApiResponse<FieldResponse> getFieldWithHttpInfo(GetFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -9895,7 +9899,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFieldAsync(GetFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFieldAsync(GetFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -9928,7 +9932,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFieldWithoutNodePathCall(GetFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFieldWithoutNodePathCall(GetFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -9976,7 +9980,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFieldWithoutNodePathValidateBeforeCall(GetFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFieldWithoutNodePathValidateBeforeCall(GetFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -10001,7 +10005,7 @@ if (request.getData() != null)
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldResponse getFieldWithoutNodePath(GetFieldWithoutNodePathRequest request) throws ApiException {
+    public FieldResponse getFieldWithoutNodePath(GetFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldResponse> resp = getFieldWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -10023,7 +10027,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldResponse> getFieldWithoutNodePathWithHttpInfo(GetFieldWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FieldResponse> getFieldWithoutNodePathWithHttpInfo(GetFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -10037,7 +10041,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFieldWithoutNodePathAsync(GetFieldWithoutNodePathRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFieldWithoutNodePathAsync(GetFieldWithoutNodePathRequest request, final ApiCallback<FieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10070,7 +10074,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFieldsCall(GetFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFieldsCall(GetFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -10118,7 +10122,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFieldsValidateBeforeCall(GetFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFieldsValidateBeforeCall(GetFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -10143,7 +10147,7 @@ if (request.getData() != null)
      * @return FieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldsResponse getFields(GetFieldsRequest request) throws ApiException {
+    public FieldsResponse getFields(GetFieldsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldsResponse> resp = getFieldsWithHttpInfo(request);
             return resp.getData();
@@ -10165,7 +10169,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldsResponse> getFieldsWithHttpInfo(GetFieldsRequest request) throws ApiException {
+    private ApiResponse<FieldsResponse> getFieldsWithHttpInfo(GetFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -10179,7 +10183,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFieldsAsync(GetFieldsRequest request, final ApiCallback<FieldsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFieldsAsync(GetFieldsRequest request, final ApiCallback<FieldsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10212,7 +10216,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFieldsWithoutNodePathCall(GetFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFieldsWithoutNodePathCall(GetFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -10259,7 +10263,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFieldsWithoutNodePathValidateBeforeCall(GetFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFieldsWithoutNodePathValidateBeforeCall(GetFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -10279,7 +10283,7 @@ if (request.getData() != null)
      * @return FieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldsResponse getFieldsWithoutNodePath(GetFieldsWithoutNodePathRequest request) throws ApiException {
+    public FieldsResponse getFieldsWithoutNodePath(GetFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldsResponse> resp = getFieldsWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -10301,7 +10305,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldsResponse> getFieldsWithoutNodePathWithHttpInfo(GetFieldsWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FieldsResponse> getFieldsWithoutNodePathWithHttpInfo(GetFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -10315,7 +10319,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFieldsWithoutNodePathAsync(GetFieldsWithoutNodePathRequest request, final ApiCallback<FieldsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFieldsWithoutNodePathAsync(GetFieldsWithoutNodePathRequest request, final ApiCallback<FieldsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10348,7 +10352,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFilesListCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFilesListCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -10392,7 +10396,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFilesListValidateBeforeCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFilesListValidateBeforeCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Path' is set
         if (request.getPath() == null) {
@@ -10412,7 +10416,7 @@ if (request.getData() != null)
      * @return FilesList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FilesList getFilesList(GetFilesListRequest request) throws ApiException {
+    public FilesList getFilesList(GetFilesListRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FilesList> resp = getFilesListWithHttpInfo(request);
             return resp.getData();
@@ -10434,7 +10438,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FilesList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FilesList> getFilesListWithHttpInfo(GetFilesListRequest request) throws ApiException {
+    private ApiResponse<FilesList> getFilesListWithHttpInfo(GetFilesListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FilesList>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -10448,7 +10452,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFilesListAsync(GetFilesListRequest request, final ApiCallback<FilesList> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFilesListAsync(GetFilesListRequest request, final ApiCallback<FilesList> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10481,7 +10485,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFootnoteCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFootnoteCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -10530,7 +10534,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFootnoteValidateBeforeCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFootnoteValidateBeforeCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -10560,7 +10564,7 @@ if (request.getData() != null)
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FootnoteResponse getFootnote(GetFootnoteRequest request) throws ApiException {
+    public FootnoteResponse getFootnote(GetFootnoteRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FootnoteResponse> resp = getFootnoteWithHttpInfo(request);
             return resp.getData();
@@ -10582,7 +10586,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FootnoteResponse> getFootnoteWithHttpInfo(GetFootnoteRequest request) throws ApiException {
+    private ApiResponse<FootnoteResponse> getFootnoteWithHttpInfo(GetFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnoteValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -10596,7 +10600,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFootnoteAsync(GetFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFootnoteAsync(GetFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10629,7 +10633,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFootnoteWithoutNodePathCall(GetFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFootnoteWithoutNodePathCall(GetFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -10677,7 +10681,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFootnoteWithoutNodePathValidateBeforeCall(GetFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFootnoteWithoutNodePathValidateBeforeCall(GetFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -10702,7 +10706,7 @@ if (request.getData() != null)
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FootnoteResponse getFootnoteWithoutNodePath(GetFootnoteWithoutNodePathRequest request) throws ApiException {
+    public FootnoteResponse getFootnoteWithoutNodePath(GetFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FootnoteResponse> resp = getFootnoteWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -10724,7 +10728,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FootnoteResponse> getFootnoteWithoutNodePathWithHttpInfo(GetFootnoteWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FootnoteResponse> getFootnoteWithoutNodePathWithHttpInfo(GetFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -10738,7 +10742,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFootnoteWithoutNodePathAsync(GetFootnoteWithoutNodePathRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFootnoteWithoutNodePathAsync(GetFootnoteWithoutNodePathRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10771,7 +10775,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFootnotesCall(GetFootnotesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFootnotesCall(GetFootnotesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -10819,7 +10823,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFootnotesValidateBeforeCall(GetFootnotesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFootnotesValidateBeforeCall(GetFootnotesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -10844,7 +10848,7 @@ if (request.getData() != null)
      * @return FootnotesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FootnotesResponse getFootnotes(GetFootnotesRequest request) throws ApiException {
+    public FootnotesResponse getFootnotes(GetFootnotesRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FootnotesResponse> resp = getFootnotesWithHttpInfo(request);
             return resp.getData();
@@ -10866,7 +10870,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FootnotesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FootnotesResponse> getFootnotesWithHttpInfo(GetFootnotesRequest request) throws ApiException {
+    private ApiResponse<FootnotesResponse> getFootnotesWithHttpInfo(GetFootnotesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnotesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FootnotesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -10880,7 +10884,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFootnotesAsync(GetFootnotesRequest request, final ApiCallback<FootnotesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFootnotesAsync(GetFootnotesRequest request, final ApiCallback<FootnotesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -10913,7 +10917,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFootnotesWithoutNodePathCall(GetFootnotesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFootnotesWithoutNodePathCall(GetFootnotesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -10960,7 +10964,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFootnotesWithoutNodePathValidateBeforeCall(GetFootnotesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFootnotesWithoutNodePathValidateBeforeCall(GetFootnotesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -10980,7 +10984,7 @@ if (request.getData() != null)
      * @return FootnotesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FootnotesResponse getFootnotesWithoutNodePath(GetFootnotesWithoutNodePathRequest request) throws ApiException {
+    public FootnotesResponse getFootnotesWithoutNodePath(GetFootnotesWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FootnotesResponse> resp = getFootnotesWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -11002,7 +11006,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FootnotesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FootnotesResponse> getFootnotesWithoutNodePathWithHttpInfo(GetFootnotesWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FootnotesResponse> getFootnotesWithoutNodePathWithHttpInfo(GetFootnotesWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnotesWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FootnotesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -11016,7 +11020,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFootnotesWithoutNodePathAsync(GetFootnotesWithoutNodePathRequest request, final ApiCallback<FootnotesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFootnotesWithoutNodePathAsync(GetFootnotesWithoutNodePathRequest request, final ApiCallback<FootnotesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11049,7 +11053,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFormFieldCall(GetFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFormFieldCall(GetFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -11098,7 +11102,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFormFieldValidateBeforeCall(GetFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFormFieldValidateBeforeCall(GetFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -11128,7 +11132,7 @@ if (request.getData() != null)
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormFieldResponse getFormField(GetFormFieldRequest request) throws ApiException {
+    public FormFieldResponse getFormField(GetFormFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FormFieldResponse> resp = getFormFieldWithHttpInfo(request);
             return resp.getData();
@@ -11150,7 +11154,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FormFieldResponse> getFormFieldWithHttpInfo(GetFormFieldRequest request) throws ApiException {
+    private ApiResponse<FormFieldResponse> getFormFieldWithHttpInfo(GetFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -11164,7 +11168,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFormFieldAsync(GetFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFormFieldAsync(GetFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11197,7 +11201,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFormFieldWithoutNodePathCall(GetFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFormFieldWithoutNodePathCall(GetFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -11245,7 +11249,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFormFieldWithoutNodePathValidateBeforeCall(GetFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFormFieldWithoutNodePathValidateBeforeCall(GetFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -11270,7 +11274,7 @@ if (request.getData() != null)
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormFieldResponse getFormFieldWithoutNodePath(GetFormFieldWithoutNodePathRequest request) throws ApiException {
+    public FormFieldResponse getFormFieldWithoutNodePath(GetFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FormFieldResponse> resp = getFormFieldWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -11292,7 +11296,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FormFieldResponse> getFormFieldWithoutNodePathWithHttpInfo(GetFormFieldWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FormFieldResponse> getFormFieldWithoutNodePathWithHttpInfo(GetFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -11306,7 +11310,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFormFieldWithoutNodePathAsync(GetFormFieldWithoutNodePathRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFormFieldWithoutNodePathAsync(GetFormFieldWithoutNodePathRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11339,7 +11343,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFormFieldsCall(GetFormFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFormFieldsCall(GetFormFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -11387,7 +11391,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFormFieldsValidateBeforeCall(GetFormFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFormFieldsValidateBeforeCall(GetFormFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -11412,7 +11416,7 @@ if (request.getData() != null)
      * @return FormFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormFieldsResponse getFormFields(GetFormFieldsRequest request) throws ApiException {
+    public FormFieldsResponse getFormFields(GetFormFieldsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FormFieldsResponse> resp = getFormFieldsWithHttpInfo(request);
             return resp.getData();
@@ -11434,7 +11438,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FormFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FormFieldsResponse> getFormFieldsWithHttpInfo(GetFormFieldsRequest request) throws ApiException {
+    private ApiResponse<FormFieldsResponse> getFormFieldsWithHttpInfo(GetFormFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FormFieldsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -11448,7 +11452,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFormFieldsAsync(GetFormFieldsRequest request, final ApiCallback<FormFieldsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFormFieldsAsync(GetFormFieldsRequest request, final ApiCallback<FormFieldsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11481,7 +11485,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getFormFieldsWithoutNodePathCall(GetFormFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFormFieldsWithoutNodePathCall(GetFormFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -11528,7 +11532,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFormFieldsWithoutNodePathValidateBeforeCall(GetFormFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getFormFieldsWithoutNodePathValidateBeforeCall(GetFormFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -11548,7 +11552,7 @@ if (request.getData() != null)
      * @return FormFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormFieldsResponse getFormFieldsWithoutNodePath(GetFormFieldsWithoutNodePathRequest request) throws ApiException {
+    public FormFieldsResponse getFormFieldsWithoutNodePath(GetFormFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FormFieldsResponse> resp = getFormFieldsWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -11570,7 +11574,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FormFieldsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FormFieldsResponse> getFormFieldsWithoutNodePathWithHttpInfo(GetFormFieldsWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FormFieldsResponse> getFormFieldsWithoutNodePathWithHttpInfo(GetFormFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FormFieldsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -11584,7 +11588,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFormFieldsWithoutNodePathAsync(GetFormFieldsWithoutNodePathRequest request, final ApiCallback<FormFieldsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getFormFieldsWithoutNodePathAsync(GetFormFieldsWithoutNodePathRequest request, final ApiCallback<FormFieldsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11617,7 +11621,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getHeaderFooterCall(GetHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHeaderFooterCall(GetHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -11666,7 +11670,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getHeaderFooterValidateBeforeCall(GetHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHeaderFooterValidateBeforeCall(GetHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -11691,7 +11695,7 @@ if (request.getData() != null)
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public HeaderFooterResponse getHeaderFooter(GetHeaderFooterRequest request) throws ApiException {
+    public HeaderFooterResponse getHeaderFooter(GetHeaderFooterRequest request) throws ApiException, IOException {
         try {
             ApiResponse<HeaderFooterResponse> resp = getHeaderFooterWithHttpInfo(request);
             return resp.getData();
@@ -11713,7 +11717,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<HeaderFooterResponse> getHeaderFooterWithHttpInfo(GetHeaderFooterRequest request) throws ApiException {
+    private ApiResponse<HeaderFooterResponse> getHeaderFooterWithHttpInfo(GetHeaderFooterRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<HeaderFooterResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -11727,7 +11731,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFooterAsync(GetHeaderFooterRequest request, final ApiCallback<HeaderFooterResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getHeaderFooterAsync(GetHeaderFooterRequest request, final ApiCallback<HeaderFooterResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11760,7 +11764,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getHeaderFooterOfSectionCall(GetHeaderFooterOfSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHeaderFooterOfSectionCall(GetHeaderFooterOfSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -11810,7 +11814,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getHeaderFooterOfSectionValidateBeforeCall(GetHeaderFooterOfSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHeaderFooterOfSectionValidateBeforeCall(GetHeaderFooterOfSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -11840,7 +11844,7 @@ if (request.getData() != null)
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public HeaderFooterResponse getHeaderFooterOfSection(GetHeaderFooterOfSectionRequest request) throws ApiException {
+    public HeaderFooterResponse getHeaderFooterOfSection(GetHeaderFooterOfSectionRequest request) throws ApiException, IOException {
         try {
             ApiResponse<HeaderFooterResponse> resp = getHeaderFooterOfSectionWithHttpInfo(request);
             return resp.getData();
@@ -11862,7 +11866,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<HeaderFooterResponse> getHeaderFooterOfSectionWithHttpInfo(GetHeaderFooterOfSectionRequest request) throws ApiException {
+    private ApiResponse<HeaderFooterResponse> getHeaderFooterOfSectionWithHttpInfo(GetHeaderFooterOfSectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<HeaderFooterResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -11876,7 +11880,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFooterOfSectionAsync(GetHeaderFooterOfSectionRequest request, final ApiCallback<HeaderFooterResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getHeaderFooterOfSectionAsync(GetHeaderFooterOfSectionRequest request, final ApiCallback<HeaderFooterResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11909,7 +11913,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getHeaderFootersCall(GetHeaderFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHeaderFootersCall(GetHeaderFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -11958,7 +11962,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getHeaderFootersValidateBeforeCall(GetHeaderFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getHeaderFootersValidateBeforeCall(GetHeaderFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -11983,7 +11987,7 @@ if (request.getData() != null)
      * @return HeaderFootersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public HeaderFootersResponse getHeaderFooters(GetHeaderFootersRequest request) throws ApiException {
+    public HeaderFootersResponse getHeaderFooters(GetHeaderFootersRequest request) throws ApiException, IOException {
         try {
             ApiResponse<HeaderFootersResponse> resp = getHeaderFootersWithHttpInfo(request);
             return resp.getData();
@@ -12005,7 +12009,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;HeaderFootersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<HeaderFootersResponse> getHeaderFootersWithHttpInfo(GetHeaderFootersRequest request) throws ApiException {
+    private ApiResponse<HeaderFootersResponse> getHeaderFootersWithHttpInfo(GetHeaderFootersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFootersValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<HeaderFootersResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -12019,7 +12023,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getHeaderFootersAsync(GetHeaderFootersRequest request, final ApiCallback<HeaderFootersResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getHeaderFootersAsync(GetHeaderFootersRequest request, final ApiCallback<HeaderFootersResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12052,7 +12056,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getOfficeMathObjectCall(GetOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOfficeMathObjectCall(GetOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -12101,7 +12105,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getOfficeMathObjectValidateBeforeCall(GetOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOfficeMathObjectValidateBeforeCall(GetOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -12131,7 +12135,7 @@ if (request.getData() != null)
      * @return OfficeMathObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OfficeMathObjectResponse getOfficeMathObject(GetOfficeMathObjectRequest request) throws ApiException {
+    public OfficeMathObjectResponse getOfficeMathObject(GetOfficeMathObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse<OfficeMathObjectResponse> resp = getOfficeMathObjectWithHttpInfo(request);
             return resp.getData();
@@ -12153,7 +12157,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;OfficeMathObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<OfficeMathObjectResponse> getOfficeMathObjectWithHttpInfo(GetOfficeMathObjectRequest request) throws ApiException {
+    private ApiResponse<OfficeMathObjectResponse> getOfficeMathObjectWithHttpInfo(GetOfficeMathObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<OfficeMathObjectResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -12167,7 +12171,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getOfficeMathObjectAsync(GetOfficeMathObjectRequest request, final ApiCallback<OfficeMathObjectResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getOfficeMathObjectAsync(GetOfficeMathObjectRequest request, final ApiCallback<OfficeMathObjectResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12200,7 +12204,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathCall(GetOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathCall(GetOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -12248,7 +12252,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathValidateBeforeCall(GetOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathValidateBeforeCall(GetOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -12273,7 +12277,7 @@ if (request.getData() != null)
      * @return OfficeMathObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OfficeMathObjectResponse getOfficeMathObjectWithoutNodePath(GetOfficeMathObjectWithoutNodePathRequest request) throws ApiException {
+    public OfficeMathObjectResponse getOfficeMathObjectWithoutNodePath(GetOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<OfficeMathObjectResponse> resp = getOfficeMathObjectWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -12295,7 +12299,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;OfficeMathObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<OfficeMathObjectResponse> getOfficeMathObjectWithoutNodePathWithHttpInfo(GetOfficeMathObjectWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<OfficeMathObjectResponse> getOfficeMathObjectWithoutNodePathWithHttpInfo(GetOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<OfficeMathObjectResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -12309,7 +12313,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathAsync(GetOfficeMathObjectWithoutNodePathRequest request, final ApiCallback<OfficeMathObjectResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathAsync(GetOfficeMathObjectWithoutNodePathRequest request, final ApiCallback<OfficeMathObjectResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12342,7 +12346,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getOfficeMathObjectsCall(GetOfficeMathObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOfficeMathObjectsCall(GetOfficeMathObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -12390,7 +12394,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getOfficeMathObjectsValidateBeforeCall(GetOfficeMathObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOfficeMathObjectsValidateBeforeCall(GetOfficeMathObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -12415,7 +12419,7 @@ if (request.getData() != null)
      * @return OfficeMathObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OfficeMathObjectsResponse getOfficeMathObjects(GetOfficeMathObjectsRequest request) throws ApiException {
+    public OfficeMathObjectsResponse getOfficeMathObjects(GetOfficeMathObjectsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<OfficeMathObjectsResponse> resp = getOfficeMathObjectsWithHttpInfo(request);
             return resp.getData();
@@ -12437,7 +12441,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;OfficeMathObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<OfficeMathObjectsResponse> getOfficeMathObjectsWithHttpInfo(GetOfficeMathObjectsRequest request) throws ApiException {
+    private ApiResponse<OfficeMathObjectsResponse> getOfficeMathObjectsWithHttpInfo(GetOfficeMathObjectsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<OfficeMathObjectsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -12451,7 +12455,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getOfficeMathObjectsAsync(GetOfficeMathObjectsRequest request, final ApiCallback<OfficeMathObjectsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getOfficeMathObjectsAsync(GetOfficeMathObjectsRequest request, final ApiCallback<OfficeMathObjectsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12484,7 +12488,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathCall(GetOfficeMathObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathCall(GetOfficeMathObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -12531,7 +12535,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathValidateBeforeCall(GetOfficeMathObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathValidateBeforeCall(GetOfficeMathObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -12551,7 +12555,7 @@ if (request.getData() != null)
      * @return OfficeMathObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OfficeMathObjectsResponse getOfficeMathObjectsWithoutNodePath(GetOfficeMathObjectsWithoutNodePathRequest request) throws ApiException {
+    public OfficeMathObjectsResponse getOfficeMathObjectsWithoutNodePath(GetOfficeMathObjectsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<OfficeMathObjectsResponse> resp = getOfficeMathObjectsWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -12573,7 +12577,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;OfficeMathObjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<OfficeMathObjectsResponse> getOfficeMathObjectsWithoutNodePathWithHttpInfo(GetOfficeMathObjectsWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<OfficeMathObjectsResponse> getOfficeMathObjectsWithoutNodePathWithHttpInfo(GetOfficeMathObjectsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<OfficeMathObjectsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -12587,7 +12591,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathAsync(GetOfficeMathObjectsWithoutNodePathRequest request, final ApiCallback<OfficeMathObjectsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathAsync(GetOfficeMathObjectsWithoutNodePathRequest request, final ApiCallback<OfficeMathObjectsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12620,7 +12624,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getParagraphCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -12669,7 +12673,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getParagraphValidateBeforeCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphValidateBeforeCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -12699,7 +12703,7 @@ if (request.getData() != null)
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParagraphResponse getParagraph(GetParagraphRequest request) throws ApiException {
+    public ParagraphResponse getParagraph(GetParagraphRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ParagraphResponse> resp = getParagraphWithHttpInfo(request);
             return resp.getData();
@@ -12721,7 +12725,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ParagraphResponse> getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException {
+    private ApiResponse<ParagraphResponse> getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -12735,7 +12739,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getParagraphAsync(GetParagraphRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getParagraphAsync(GetParagraphRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12768,7 +12772,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getParagraphFormatCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphFormatCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -12817,7 +12821,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getParagraphFormatValidateBeforeCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphFormatValidateBeforeCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -12847,7 +12851,7 @@ if (request.getData() != null)
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParagraphFormatResponse getParagraphFormat(GetParagraphFormatRequest request) throws ApiException {
+    public ParagraphFormatResponse getParagraphFormat(GetParagraphFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ParagraphFormatResponse> resp = getParagraphFormatWithHttpInfo(request);
             return resp.getData();
@@ -12869,7 +12873,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;ParagraphFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ParagraphFormatResponse> getParagraphFormatWithHttpInfo(GetParagraphFormatRequest request) throws ApiException {
+    private ApiResponse<ParagraphFormatResponse> getParagraphFormatWithHttpInfo(GetParagraphFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -12883,7 +12887,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getParagraphFormatAsync(GetParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getParagraphFormatAsync(GetParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -12916,7 +12920,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getParagraphFormatWithoutNodePathCall(GetParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphFormatWithoutNodePathCall(GetParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -12964,7 +12968,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getParagraphFormatWithoutNodePathValidateBeforeCall(GetParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphFormatWithoutNodePathValidateBeforeCall(GetParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -12989,7 +12993,7 @@ if (request.getData() != null)
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParagraphFormatResponse getParagraphFormatWithoutNodePath(GetParagraphFormatWithoutNodePathRequest request) throws ApiException {
+    public ParagraphFormatResponse getParagraphFormatWithoutNodePath(GetParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ParagraphFormatResponse> resp = getParagraphFormatWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -13011,7 +13015,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;ParagraphFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ParagraphFormatResponse> getParagraphFormatWithoutNodePathWithHttpInfo(GetParagraphFormatWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<ParagraphFormatResponse> getParagraphFormatWithoutNodePathWithHttpInfo(GetParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -13025,7 +13029,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getParagraphFormatWithoutNodePathAsync(GetParagraphFormatWithoutNodePathRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getParagraphFormatWithoutNodePathAsync(GetParagraphFormatWithoutNodePathRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13058,7 +13062,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getParagraphWithoutNodePathCall(GetParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphWithoutNodePathCall(GetParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -13106,7 +13110,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getParagraphWithoutNodePathValidateBeforeCall(GetParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphWithoutNodePathValidateBeforeCall(GetParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -13131,7 +13135,7 @@ if (request.getData() != null)
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParagraphResponse getParagraphWithoutNodePath(GetParagraphWithoutNodePathRequest request) throws ApiException {
+    public ParagraphResponse getParagraphWithoutNodePath(GetParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ParagraphResponse> resp = getParagraphWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -13153,7 +13157,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ParagraphResponse> getParagraphWithoutNodePathWithHttpInfo(GetParagraphWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<ParagraphResponse> getParagraphWithoutNodePathWithHttpInfo(GetParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -13167,7 +13171,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getParagraphWithoutNodePathAsync(GetParagraphWithoutNodePathRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getParagraphWithoutNodePathAsync(GetParagraphWithoutNodePathRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13200,7 +13204,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getParagraphsCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphsCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -13248,7 +13252,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getParagraphsValidateBeforeCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphsValidateBeforeCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -13273,7 +13277,7 @@ if (request.getData() != null)
      * @return ParagraphLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParagraphLinkCollectionResponse getParagraphs(GetParagraphsRequest request) throws ApiException {
+    public ParagraphLinkCollectionResponse getParagraphs(GetParagraphsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ParagraphLinkCollectionResponse> resp = getParagraphsWithHttpInfo(request);
             return resp.getData();
@@ -13295,7 +13299,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;ParagraphLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ParagraphLinkCollectionResponse> getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException {
+    private ApiResponse<ParagraphLinkCollectionResponse> getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ParagraphLinkCollectionResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -13309,7 +13313,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getParagraphsAsync(GetParagraphsRequest request, final ApiCallback<ParagraphLinkCollectionResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getParagraphsAsync(GetParagraphsRequest request, final ApiCallback<ParagraphLinkCollectionResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13342,7 +13346,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getParagraphsWithoutNodePathCall(GetParagraphsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphsWithoutNodePathCall(GetParagraphsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -13389,7 +13393,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getParagraphsWithoutNodePathValidateBeforeCall(GetParagraphsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getParagraphsWithoutNodePathValidateBeforeCall(GetParagraphsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -13409,7 +13413,7 @@ if (request.getData() != null)
      * @return ParagraphLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParagraphLinkCollectionResponse getParagraphsWithoutNodePath(GetParagraphsWithoutNodePathRequest request) throws ApiException {
+    public ParagraphLinkCollectionResponse getParagraphsWithoutNodePath(GetParagraphsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ParagraphLinkCollectionResponse> resp = getParagraphsWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -13431,7 +13435,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;ParagraphLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ParagraphLinkCollectionResponse> getParagraphsWithoutNodePathWithHttpInfo(GetParagraphsWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<ParagraphLinkCollectionResponse> getParagraphsWithoutNodePathWithHttpInfo(GetParagraphsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ParagraphLinkCollectionResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -13445,7 +13449,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getParagraphsWithoutNodePathAsync(GetParagraphsWithoutNodePathRequest request, final ApiCallback<ParagraphLinkCollectionResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getParagraphsWithoutNodePathAsync(GetParagraphsWithoutNodePathRequest request, final ApiCallback<ParagraphLinkCollectionResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13478,7 +13482,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getRangeTextCall(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRangeTextCall(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -13527,7 +13531,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getRangeTextValidateBeforeCall(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRangeTextValidateBeforeCall(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -13552,7 +13556,7 @@ if (request.getData() != null)
      * @return RangeTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RangeTextResponse getRangeText(GetRangeTextRequest request) throws ApiException {
+    public RangeTextResponse getRangeText(GetRangeTextRequest request) throws ApiException, IOException {
         try {
             ApiResponse<RangeTextResponse> resp = getRangeTextWithHttpInfo(request);
             return resp.getData();
@@ -13574,7 +13578,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;RangeTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<RangeTextResponse> getRangeTextWithHttpInfo(GetRangeTextRequest request) throws ApiException {
+    private ApiResponse<RangeTextResponse> getRangeTextWithHttpInfo(GetRangeTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRangeTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<RangeTextResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -13588,7 +13592,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRangeTextAsync(GetRangeTextRequest request, final ApiCallback<RangeTextResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRangeTextAsync(GetRangeTextRequest request, final ApiCallback<RangeTextResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13621,7 +13625,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getRunCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRunCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -13670,7 +13674,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getRunValidateBeforeCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRunValidateBeforeCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -13700,7 +13704,7 @@ if (request.getData() != null)
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RunResponse getRun(GetRunRequest request) throws ApiException {
+    public RunResponse getRun(GetRunRequest request) throws ApiException, IOException {
         try {
             ApiResponse<RunResponse> resp = getRunWithHttpInfo(request);
             return resp.getData();
@@ -13722,7 +13726,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<RunResponse> getRunWithHttpInfo(GetRunRequest request) throws ApiException {
+    private ApiResponse<RunResponse> getRunWithHttpInfo(GetRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -13736,7 +13740,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRunAsync(GetRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRunAsync(GetRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13769,7 +13773,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getRunFontCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRunFontCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -13818,7 +13822,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getRunFontValidateBeforeCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRunFontValidateBeforeCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -13848,7 +13852,7 @@ if (request.getData() != null)
      * @return FontResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FontResponse getRunFont(GetRunFontRequest request) throws ApiException {
+    public FontResponse getRunFont(GetRunFontRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FontResponse> resp = getRunFontWithHttpInfo(request);
             return resp.getData();
@@ -13870,7 +13874,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;FontResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FontResponse> getRunFontWithHttpInfo(GetRunFontRequest request) throws ApiException {
+    private ApiResponse<FontResponse> getRunFontWithHttpInfo(GetRunFontRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -13884,7 +13888,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRunFontAsync(GetRunFontRequest request, final ApiCallback<FontResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRunFontAsync(GetRunFontRequest request, final ApiCallback<FontResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -13917,7 +13921,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getRunsCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRunsCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -13965,7 +13969,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getRunsValidateBeforeCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getRunsValidateBeforeCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -13990,7 +13994,7 @@ if (request.getData() != null)
      * @return RunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RunsResponse getRuns(GetRunsRequest request) throws ApiException {
+    public RunsResponse getRuns(GetRunsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<RunsResponse> resp = getRunsWithHttpInfo(request);
             return resp.getData();
@@ -14012,7 +14016,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;RunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<RunsResponse> getRunsWithHttpInfo(GetRunsRequest request) throws ApiException {
+    private ApiResponse<RunsResponse> getRunsWithHttpInfo(GetRunsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<RunsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -14026,7 +14030,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getRunsAsync(GetRunsRequest request, final ApiCallback<RunsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getRunsAsync(GetRunsRequest request, final ApiCallback<RunsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14059,7 +14063,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getSectionCall(GetSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSectionCall(GetSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -14107,7 +14111,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSectionValidateBeforeCall(GetSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSectionValidateBeforeCall(GetSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -14132,7 +14136,7 @@ if (request.getData() != null)
      * @return SectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SectionResponse getSection(GetSectionRequest request) throws ApiException {
+    public SectionResponse getSection(GetSectionRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SectionResponse> resp = getSectionWithHttpInfo(request);
             return resp.getData();
@@ -14154,7 +14158,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;SectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SectionResponse> getSectionWithHttpInfo(GetSectionRequest request) throws ApiException {
+    private ApiResponse<SectionResponse> getSectionWithHttpInfo(GetSectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SectionResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -14168,7 +14172,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSectionAsync(GetSectionRequest request, final ApiCallback<SectionResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSectionAsync(GetSectionRequest request, final ApiCallback<SectionResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14201,7 +14205,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getSectionPageSetupCall(GetSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSectionPageSetupCall(GetSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -14249,7 +14253,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSectionPageSetupValidateBeforeCall(GetSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSectionPageSetupValidateBeforeCall(GetSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -14274,7 +14278,7 @@ if (request.getData() != null)
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SectionPageSetupResponse getSectionPageSetup(GetSectionPageSetupRequest request) throws ApiException {
+    public SectionPageSetupResponse getSectionPageSetup(GetSectionPageSetupRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SectionPageSetupResponse> resp = getSectionPageSetupWithHttpInfo(request);
             return resp.getData();
@@ -14296,7 +14300,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;SectionPageSetupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SectionPageSetupResponse> getSectionPageSetupWithHttpInfo(GetSectionPageSetupRequest request) throws ApiException {
+    private ApiResponse<SectionPageSetupResponse> getSectionPageSetupWithHttpInfo(GetSectionPageSetupRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionPageSetupValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SectionPageSetupResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -14310,7 +14314,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSectionPageSetupAsync(GetSectionPageSetupRequest request, final ApiCallback<SectionPageSetupResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSectionPageSetupAsync(GetSectionPageSetupRequest request, final ApiCallback<SectionPageSetupResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14343,7 +14347,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getSectionsCall(GetSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSectionsCall(GetSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -14390,7 +14394,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSectionsValidateBeforeCall(GetSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSectionsValidateBeforeCall(GetSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -14410,7 +14414,7 @@ if (request.getData() != null)
      * @return SectionLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SectionLinkCollectionResponse getSections(GetSectionsRequest request) throws ApiException {
+    public SectionLinkCollectionResponse getSections(GetSectionsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SectionLinkCollectionResponse> resp = getSectionsWithHttpInfo(request);
             return resp.getData();
@@ -14432,7 +14436,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;SectionLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SectionLinkCollectionResponse> getSectionsWithHttpInfo(GetSectionsRequest request) throws ApiException {
+    private ApiResponse<SectionLinkCollectionResponse> getSectionsWithHttpInfo(GetSectionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SectionLinkCollectionResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -14446,7 +14450,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSectionsAsync(GetSectionsRequest request, final ApiCallback<SectionLinkCollectionResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSectionsAsync(GetSectionsRequest request, final ApiCallback<SectionLinkCollectionResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14479,7 +14483,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTableCall(GetTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableCall(GetTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -14528,7 +14532,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTableValidateBeforeCall(GetTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableValidateBeforeCall(GetTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -14558,7 +14562,7 @@ if (request.getData() != null)
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableResponse getTable(GetTableRequest request) throws ApiException {
+    public TableResponse getTable(GetTableRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableResponse> resp = getTableWithHttpInfo(request);
             return resp.getData();
@@ -14580,7 +14584,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableResponse> getTableWithHttpInfo(GetTableRequest request) throws ApiException {
+    private ApiResponse<TableResponse> getTableWithHttpInfo(GetTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -14594,7 +14598,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTableAsync(GetTableRequest request, final ApiCallback<TableResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTableAsync(GetTableRequest request, final ApiCallback<TableResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14627,7 +14631,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTableCellCall(GetTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableCellCall(GetTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -14676,7 +14680,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTableCellValidateBeforeCall(GetTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableCellValidateBeforeCall(GetTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -14706,7 +14710,7 @@ if (request.getData() != null)
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableCellResponse getTableCell(GetTableCellRequest request) throws ApiException {
+    public TableCellResponse getTableCell(GetTableCellRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableCellResponse> resp = getTableCellWithHttpInfo(request);
             return resp.getData();
@@ -14728,7 +14732,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TableCellResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableCellResponse> getTableCellWithHttpInfo(GetTableCellRequest request) throws ApiException {
+    private ApiResponse<TableCellResponse> getTableCellWithHttpInfo(GetTableCellRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableCellValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableCellResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -14742,7 +14746,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTableCellAsync(GetTableCellRequest request, final ApiCallback<TableCellResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTableCellAsync(GetTableCellRequest request, final ApiCallback<TableCellResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14775,7 +14779,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTableCellFormatCall(GetTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableCellFormatCall(GetTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -14824,7 +14828,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTableCellFormatValidateBeforeCall(GetTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableCellFormatValidateBeforeCall(GetTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -14854,7 +14858,7 @@ if (request.getData() != null)
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableCellFormatResponse getTableCellFormat(GetTableCellFormatRequest request) throws ApiException {
+    public TableCellFormatResponse getTableCellFormat(GetTableCellFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableCellFormatResponse> resp = getTableCellFormatWithHttpInfo(request);
             return resp.getData();
@@ -14876,7 +14880,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TableCellFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableCellFormatResponse> getTableCellFormatWithHttpInfo(GetTableCellFormatRequest request) throws ApiException {
+    private ApiResponse<TableCellFormatResponse> getTableCellFormatWithHttpInfo(GetTableCellFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableCellFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableCellFormatResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -14890,7 +14894,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTableCellFormatAsync(GetTableCellFormatRequest request, final ApiCallback<TableCellFormatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTableCellFormatAsync(GetTableCellFormatRequest request, final ApiCallback<TableCellFormatResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -14923,7 +14927,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTablePropertiesCall(GetTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTablePropertiesCall(GetTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -14972,7 +14976,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTablePropertiesValidateBeforeCall(GetTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTablePropertiesValidateBeforeCall(GetTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -15002,7 +15006,7 @@ if (request.getData() != null)
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TablePropertiesResponse getTableProperties(GetTablePropertiesRequest request) throws ApiException {
+    public TablePropertiesResponse getTableProperties(GetTablePropertiesRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TablePropertiesResponse> resp = getTablePropertiesWithHttpInfo(request);
             return resp.getData();
@@ -15024,7 +15028,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TablePropertiesResponse> getTablePropertiesWithHttpInfo(GetTablePropertiesRequest request) throws ApiException {
+    private ApiResponse<TablePropertiesResponse> getTablePropertiesWithHttpInfo(GetTablePropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TablePropertiesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -15038,7 +15042,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTablePropertiesAsync(GetTablePropertiesRequest request, final ApiCallback<TablePropertiesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTablePropertiesAsync(GetTablePropertiesRequest request, final ApiCallback<TablePropertiesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15071,7 +15075,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTablePropertiesWithoutNodePathCall(GetTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTablePropertiesWithoutNodePathCall(GetTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -15119,7 +15123,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTablePropertiesWithoutNodePathValidateBeforeCall(GetTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTablePropertiesWithoutNodePathValidateBeforeCall(GetTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -15144,7 +15148,7 @@ if (request.getData() != null)
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TablePropertiesResponse getTablePropertiesWithoutNodePath(GetTablePropertiesWithoutNodePathRequest request) throws ApiException {
+    public TablePropertiesResponse getTablePropertiesWithoutNodePath(GetTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TablePropertiesResponse> resp = getTablePropertiesWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -15166,7 +15170,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TablePropertiesResponse> getTablePropertiesWithoutNodePathWithHttpInfo(GetTablePropertiesWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<TablePropertiesResponse> getTablePropertiesWithoutNodePathWithHttpInfo(GetTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TablePropertiesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -15180,7 +15184,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTablePropertiesWithoutNodePathAsync(GetTablePropertiesWithoutNodePathRequest request, final ApiCallback<TablePropertiesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTablePropertiesWithoutNodePathAsync(GetTablePropertiesWithoutNodePathRequest request, final ApiCallback<TablePropertiesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15213,7 +15217,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTableRowCall(GetTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableRowCall(GetTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -15262,7 +15266,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTableRowValidateBeforeCall(GetTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableRowValidateBeforeCall(GetTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -15292,7 +15296,7 @@ if (request.getData() != null)
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableRowResponse getTableRow(GetTableRowRequest request) throws ApiException {
+    public TableRowResponse getTableRow(GetTableRowRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableRowResponse> resp = getTableRowWithHttpInfo(request);
             return resp.getData();
@@ -15314,7 +15318,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TableRowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableRowResponse> getTableRowWithHttpInfo(GetTableRowRequest request) throws ApiException {
+    private ApiResponse<TableRowResponse> getTableRowWithHttpInfo(GetTableRowRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableRowValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableRowResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -15328,7 +15332,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTableRowAsync(GetTableRowRequest request, final ApiCallback<TableRowResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTableRowAsync(GetTableRowRequest request, final ApiCallback<TableRowResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15361,7 +15365,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTableRowFormatCall(GetTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableRowFormatCall(GetTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -15410,7 +15414,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTableRowFormatValidateBeforeCall(GetTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableRowFormatValidateBeforeCall(GetTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -15440,7 +15444,7 @@ if (request.getData() != null)
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableRowFormatResponse getTableRowFormat(GetTableRowFormatRequest request) throws ApiException {
+    public TableRowFormatResponse getTableRowFormat(GetTableRowFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableRowFormatResponse> resp = getTableRowFormatWithHttpInfo(request);
             return resp.getData();
@@ -15462,7 +15466,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TableRowFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableRowFormatResponse> getTableRowFormatWithHttpInfo(GetTableRowFormatRequest request) throws ApiException {
+    private ApiResponse<TableRowFormatResponse> getTableRowFormatWithHttpInfo(GetTableRowFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableRowFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableRowFormatResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -15476,7 +15480,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTableRowFormatAsync(GetTableRowFormatRequest request, final ApiCallback<TableRowFormatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTableRowFormatAsync(GetTableRowFormatRequest request, final ApiCallback<TableRowFormatResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15509,7 +15513,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTableWithoutNodePathCall(GetTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableWithoutNodePathCall(GetTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -15557,7 +15561,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTableWithoutNodePathValidateBeforeCall(GetTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTableWithoutNodePathValidateBeforeCall(GetTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -15582,7 +15586,7 @@ if (request.getData() != null)
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableResponse getTableWithoutNodePath(GetTableWithoutNodePathRequest request) throws ApiException {
+    public TableResponse getTableWithoutNodePath(GetTableWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableResponse> resp = getTableWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -15604,7 +15608,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableResponse> getTableWithoutNodePathWithHttpInfo(GetTableWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<TableResponse> getTableWithoutNodePathWithHttpInfo(GetTableWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -15618,7 +15622,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTableWithoutNodePathAsync(GetTableWithoutNodePathRequest request, final ApiCallback<TableResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTableWithoutNodePathAsync(GetTableWithoutNodePathRequest request, final ApiCallback<TableResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15651,7 +15655,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTablesCall(GetTablesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTablesCall(GetTablesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -15699,7 +15703,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTablesValidateBeforeCall(GetTablesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTablesValidateBeforeCall(GetTablesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -15724,7 +15728,7 @@ if (request.getData() != null)
      * @return TableLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableLinkCollectionResponse getTables(GetTablesRequest request) throws ApiException {
+    public TableLinkCollectionResponse getTables(GetTablesRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableLinkCollectionResponse> resp = getTablesWithHttpInfo(request);
             return resp.getData();
@@ -15746,7 +15750,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TableLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableLinkCollectionResponse> getTablesWithHttpInfo(GetTablesRequest request) throws ApiException {
+    private ApiResponse<TableLinkCollectionResponse> getTablesWithHttpInfo(GetTablesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableLinkCollectionResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -15760,7 +15764,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTablesAsync(GetTablesRequest request, final ApiCallback<TableLinkCollectionResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTablesAsync(GetTablesRequest request, final ApiCallback<TableLinkCollectionResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15793,7 +15797,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call getTablesWithoutNodePathCall(GetTablesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTablesWithoutNodePathCall(GetTablesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -15840,7 +15844,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTablesWithoutNodePathValidateBeforeCall(GetTablesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getTablesWithoutNodePathValidateBeforeCall(GetTablesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -15860,7 +15864,7 @@ if (request.getData() != null)
      * @return TableLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableLinkCollectionResponse getTablesWithoutNodePath(GetTablesWithoutNodePathRequest request) throws ApiException {
+    public TableLinkCollectionResponse getTablesWithoutNodePath(GetTablesWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableLinkCollectionResponse> resp = getTablesWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -15882,7 +15886,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;TableLinkCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableLinkCollectionResponse> getTablesWithoutNodePathWithHttpInfo(GetTablesWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<TableLinkCollectionResponse> getTablesWithoutNodePathWithHttpInfo(GetTablesWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablesWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableLinkCollectionResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -15896,7 +15900,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTablesWithoutNodePathAsync(GetTablesWithoutNodePathRequest request, final ApiCallback<TableLinkCollectionResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getTablesWithoutNodePathAsync(GetTablesWithoutNodePathRequest request, final ApiCallback<TableLinkCollectionResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15929,7 +15933,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertCommentCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertCommentCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getComment();
 
         // create path and map variables
@@ -15979,7 +15983,7 @@ if (request.getData() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertCommentValidateBeforeCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertCommentValidateBeforeCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -16004,7 +16008,7 @@ if (request.getData() != null)
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommentResponse insertComment(InsertCommentRequest request) throws ApiException {
+    public CommentResponse insertComment(InsertCommentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<CommentResponse> resp = insertCommentWithHttpInfo(request);
             return resp.getData();
@@ -16026,7 +16030,7 @@ if (request.getData() != null)
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<CommentResponse> insertCommentWithHttpInfo(InsertCommentRequest request) throws ApiException {
+    private ApiResponse<CommentResponse> insertCommentWithHttpInfo(InsertCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -16040,7 +16044,7 @@ if (request.getData() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertCommentAsync(InsertCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertCommentAsync(InsertCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16073,7 +16077,7 @@ if (request.getData() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertDrawingObjectCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertDrawingObjectCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -16128,7 +16132,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertDrawingObjectValidateBeforeCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertDrawingObjectValidateBeforeCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -16163,7 +16167,7 @@ if (request.getImageFile() != null)
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DrawingObjectResponse insertDrawingObject(InsertDrawingObjectRequest request) throws ApiException {
+    public DrawingObjectResponse insertDrawingObject(InsertDrawingObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DrawingObjectResponse> resp = insertDrawingObjectWithHttpInfo(request);
             return resp.getData();
@@ -16185,7 +16189,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DrawingObjectResponse> insertDrawingObjectWithHttpInfo(InsertDrawingObjectRequest request) throws ApiException {
+    private ApiResponse<DrawingObjectResponse> insertDrawingObjectWithHttpInfo(InsertDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -16199,7 +16203,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertDrawingObjectAsync(InsertDrawingObjectRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertDrawingObjectAsync(InsertDrawingObjectRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16232,7 +16236,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathCall(InsertDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathCall(InsertDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -16286,7 +16290,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathValidateBeforeCall(InsertDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathValidateBeforeCall(InsertDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -16316,7 +16320,7 @@ if (request.getImageFile() != null)
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DrawingObjectResponse insertDrawingObjectWithoutNodePath(InsertDrawingObjectWithoutNodePathRequest request) throws ApiException {
+    public DrawingObjectResponse insertDrawingObjectWithoutNodePath(InsertDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DrawingObjectResponse> resp = insertDrawingObjectWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -16338,7 +16342,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DrawingObjectResponse> insertDrawingObjectWithoutNodePathWithHttpInfo(InsertDrawingObjectWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<DrawingObjectResponse> insertDrawingObjectWithoutNodePathWithHttpInfo(InsertDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -16352,7 +16356,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathAsync(InsertDrawingObjectWithoutNodePathRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathAsync(InsertDrawingObjectWithoutNodePathRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16385,7 +16389,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertFieldCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFieldCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getField();
 
         // create path and map variables
@@ -16437,7 +16441,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertFieldValidateBeforeCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFieldValidateBeforeCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -16467,7 +16471,7 @@ if (request.getImageFile() != null)
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldResponse insertField(InsertFieldRequest request) throws ApiException {
+    public FieldResponse insertField(InsertFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldResponse> resp = insertFieldWithHttpInfo(request);
             return resp.getData();
@@ -16489,7 +16493,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldResponse> insertFieldWithHttpInfo(InsertFieldRequest request) throws ApiException {
+    private ApiResponse<FieldResponse> insertFieldWithHttpInfo(InsertFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -16503,7 +16507,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertFieldAsync(InsertFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertFieldAsync(InsertFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16536,7 +16540,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertFieldWithoutNodePathCall(InsertFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFieldWithoutNodePathCall(InsertFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getField();
 
         // create path and map variables
@@ -16587,7 +16591,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertFieldWithoutNodePathValidateBeforeCall(InsertFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFieldWithoutNodePathValidateBeforeCall(InsertFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -16612,7 +16616,7 @@ if (request.getImageFile() != null)
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldResponse insertFieldWithoutNodePath(InsertFieldWithoutNodePathRequest request) throws ApiException {
+    public FieldResponse insertFieldWithoutNodePath(InsertFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldResponse> resp = insertFieldWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -16634,7 +16638,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldResponse> insertFieldWithoutNodePathWithHttpInfo(InsertFieldWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FieldResponse> insertFieldWithoutNodePathWithHttpInfo(InsertFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -16648,7 +16652,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertFieldWithoutNodePathAsync(InsertFieldWithoutNodePathRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertFieldWithoutNodePathAsync(InsertFieldWithoutNodePathRequest request, final ApiCallback<FieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16681,7 +16685,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertFootnoteCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFootnoteCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
@@ -16732,7 +16736,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertFootnoteValidateBeforeCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFootnoteValidateBeforeCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -16762,7 +16766,7 @@ if (request.getImageFile() != null)
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FootnoteResponse insertFootnote(InsertFootnoteRequest request) throws ApiException {
+    public FootnoteResponse insertFootnote(InsertFootnoteRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FootnoteResponse> resp = insertFootnoteWithHttpInfo(request);
             return resp.getData();
@@ -16784,7 +16788,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FootnoteResponse> insertFootnoteWithHttpInfo(InsertFootnoteRequest request) throws ApiException {
+    private ApiResponse<FootnoteResponse> insertFootnoteWithHttpInfo(InsertFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -16798,7 +16802,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertFootnoteAsync(InsertFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertFootnoteAsync(InsertFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16831,7 +16835,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertFootnoteWithoutNodePathCall(InsertFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFootnoteWithoutNodePathCall(InsertFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
@@ -16881,7 +16885,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertFootnoteWithoutNodePathValidateBeforeCall(InsertFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFootnoteWithoutNodePathValidateBeforeCall(InsertFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -16906,7 +16910,7 @@ if (request.getImageFile() != null)
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FootnoteResponse insertFootnoteWithoutNodePath(InsertFootnoteWithoutNodePathRequest request) throws ApiException {
+    public FootnoteResponse insertFootnoteWithoutNodePath(InsertFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FootnoteResponse> resp = insertFootnoteWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -16928,7 +16932,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FootnoteResponse> insertFootnoteWithoutNodePathWithHttpInfo(InsertFootnoteWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FootnoteResponse> insertFootnoteWithoutNodePathWithHttpInfo(InsertFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -16942,7 +16946,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertFootnoteWithoutNodePathAsync(InsertFootnoteWithoutNodePathRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertFootnoteWithoutNodePathAsync(InsertFootnoteWithoutNodePathRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -16975,7 +16979,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertFormFieldCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFormFieldCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
@@ -17027,7 +17031,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertFormFieldValidateBeforeCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFormFieldValidateBeforeCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -17057,7 +17061,7 @@ if (request.getImageFile() != null)
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormFieldResponse insertFormField(InsertFormFieldRequest request) throws ApiException {
+    public FormFieldResponse insertFormField(InsertFormFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FormFieldResponse> resp = insertFormFieldWithHttpInfo(request);
             return resp.getData();
@@ -17079,7 +17083,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FormFieldResponse> insertFormFieldWithHttpInfo(InsertFormFieldRequest request) throws ApiException {
+    private ApiResponse<FormFieldResponse> insertFormFieldWithHttpInfo(InsertFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -17093,7 +17097,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertFormFieldAsync(InsertFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertFormFieldAsync(InsertFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17126,7 +17130,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertFormFieldWithoutNodePathCall(InsertFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFormFieldWithoutNodePathCall(InsertFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
@@ -17177,7 +17181,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertFormFieldWithoutNodePathValidateBeforeCall(InsertFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertFormFieldWithoutNodePathValidateBeforeCall(InsertFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -17202,7 +17206,7 @@ if (request.getImageFile() != null)
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormFieldResponse insertFormFieldWithoutNodePath(InsertFormFieldWithoutNodePathRequest request) throws ApiException {
+    public FormFieldResponse insertFormFieldWithoutNodePath(InsertFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FormFieldResponse> resp = insertFormFieldWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -17224,7 +17228,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FormFieldResponse> insertFormFieldWithoutNodePathWithHttpInfo(InsertFormFieldWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FormFieldResponse> insertFormFieldWithoutNodePathWithHttpInfo(InsertFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -17238,7 +17242,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertFormFieldWithoutNodePathAsync(InsertFormFieldWithoutNodePathRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertFormFieldWithoutNodePathAsync(InsertFormFieldWithoutNodePathRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17271,7 +17275,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertHeaderFooterCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertHeaderFooterCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getHeaderFooterType();
 
         // create path and map variables
@@ -17322,7 +17326,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertHeaderFooterValidateBeforeCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertHeaderFooterValidateBeforeCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -17352,7 +17356,7 @@ if (request.getImageFile() != null)
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public HeaderFooterResponse insertHeaderFooter(InsertHeaderFooterRequest request) throws ApiException {
+    public HeaderFooterResponse insertHeaderFooter(InsertHeaderFooterRequest request) throws ApiException, IOException {
         try {
             ApiResponse<HeaderFooterResponse> resp = insertHeaderFooterWithHttpInfo(request);
             return resp.getData();
@@ -17374,7 +17378,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;HeaderFooterResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<HeaderFooterResponse> insertHeaderFooterWithHttpInfo(InsertHeaderFooterRequest request) throws ApiException {
+    private ApiResponse<HeaderFooterResponse> insertHeaderFooterWithHttpInfo(InsertHeaderFooterRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<HeaderFooterResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -17388,7 +17392,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertHeaderFooterAsync(InsertHeaderFooterRequest request, final ApiCallback<HeaderFooterResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertHeaderFooterAsync(InsertHeaderFooterRequest request, final ApiCallback<HeaderFooterResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17421,7 +17425,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertPageNumbersCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertPageNumbersCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getPageNumber();
 
         // create path and map variables
@@ -17471,7 +17475,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertPageNumbersValidateBeforeCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertPageNumbersValidateBeforeCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -17496,7 +17500,7 @@ if (request.getImageFile() != null)
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse insertPageNumbers(InsertPageNumbersRequest request) throws ApiException {
+    public DocumentResponse insertPageNumbers(InsertPageNumbersRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = insertPageNumbersWithHttpInfo(request);
             return resp.getData();
@@ -17518,7 +17522,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> insertPageNumbersWithHttpInfo(InsertPageNumbersRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> insertPageNumbersWithHttpInfo(InsertPageNumbersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -17532,7 +17536,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertPageNumbersAsync(InsertPageNumbersRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertPageNumbersAsync(InsertPageNumbersRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17565,7 +17569,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertParagraphCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertParagraphCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getParagraph();
 
         // create path and map variables
@@ -17617,7 +17621,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertParagraphValidateBeforeCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertParagraphValidateBeforeCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -17647,7 +17651,7 @@ if (request.getImageFile() != null)
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParagraphResponse insertParagraph(InsertParagraphRequest request) throws ApiException {
+    public ParagraphResponse insertParagraph(InsertParagraphRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ParagraphResponse> resp = insertParagraphWithHttpInfo(request);
             return resp.getData();
@@ -17669,7 +17673,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;ParagraphResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ParagraphResponse> insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException {
+    private ApiResponse<ParagraphResponse> insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -17683,7 +17687,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertParagraphAsync(InsertParagraphRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertParagraphAsync(InsertParagraphRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17716,7 +17720,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertRunCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertRunCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getRun();
 
         // create path and map variables
@@ -17768,7 +17772,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertRunValidateBeforeCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertRunValidateBeforeCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -17798,7 +17802,7 @@ if (request.getImageFile() != null)
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RunResponse insertRun(InsertRunRequest request) throws ApiException {
+    public RunResponse insertRun(InsertRunRequest request) throws ApiException, IOException {
         try {
             ApiResponse<RunResponse> resp = insertRunWithHttpInfo(request);
             return resp.getData();
@@ -17820,7 +17824,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<RunResponse> insertRunWithHttpInfo(InsertRunRequest request) throws ApiException {
+    private ApiResponse<RunResponse> insertRunWithHttpInfo(InsertRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -17834,7 +17838,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertRunAsync(InsertRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertRunAsync(InsertRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -17867,7 +17871,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertTableCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertTableCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getTable();
 
         // create path and map variables
@@ -17918,7 +17922,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertTableValidateBeforeCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertTableValidateBeforeCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -17948,7 +17952,7 @@ if (request.getImageFile() != null)
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableResponse insertTable(InsertTableRequest request) throws ApiException {
+    public TableResponse insertTable(InsertTableRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableResponse> resp = insertTableWithHttpInfo(request);
             return resp.getData();
@@ -17970,7 +17974,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableResponse> insertTableWithHttpInfo(InsertTableRequest request) throws ApiException {
+    private ApiResponse<TableResponse> insertTableWithHttpInfo(InsertTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -17984,7 +17988,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertTableAsync(InsertTableRequest request, final ApiCallback<TableResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertTableAsync(InsertTableRequest request, final ApiCallback<TableResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18017,7 +18021,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertTableCellCall(InsertTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertTableCellCall(InsertTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getCell();
 
         // create path and map variables
@@ -18068,7 +18072,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertTableCellValidateBeforeCall(InsertTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertTableCellValidateBeforeCall(InsertTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -18098,7 +18102,7 @@ if (request.getImageFile() != null)
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableCellResponse insertTableCell(InsertTableCellRequest request) throws ApiException {
+    public TableCellResponse insertTableCell(InsertTableCellRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableCellResponse> resp = insertTableCellWithHttpInfo(request);
             return resp.getData();
@@ -18120,7 +18124,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;TableCellResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableCellResponse> insertTableCellWithHttpInfo(InsertTableCellRequest request) throws ApiException {
+    private ApiResponse<TableCellResponse> insertTableCellWithHttpInfo(InsertTableCellRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableCellValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableCellResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -18134,7 +18138,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertTableCellAsync(InsertTableCellRequest request, final ApiCallback<TableCellResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertTableCellAsync(InsertTableCellRequest request, final ApiCallback<TableCellResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18167,7 +18171,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertTableRowCall(InsertTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertTableRowCall(InsertTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getRow();
 
         // create path and map variables
@@ -18218,7 +18222,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertTableRowValidateBeforeCall(InsertTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertTableRowValidateBeforeCall(InsertTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -18248,7 +18252,7 @@ if (request.getImageFile() != null)
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableRowResponse insertTableRow(InsertTableRowRequest request) throws ApiException {
+    public TableRowResponse insertTableRow(InsertTableRowRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableRowResponse> resp = insertTableRowWithHttpInfo(request);
             return resp.getData();
@@ -18270,7 +18274,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;TableRowResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableRowResponse> insertTableRowWithHttpInfo(InsertTableRowRequest request) throws ApiException {
+    private ApiResponse<TableRowResponse> insertTableRowWithHttpInfo(InsertTableRowRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableRowValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableRowResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -18284,7 +18288,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertTableRowAsync(InsertTableRowRequest request, final ApiCallback<TableRowResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertTableRowAsync(InsertTableRowRequest request, final ApiCallback<TableRowResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18317,7 +18321,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertTableWithoutNodePathCall(InsertTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertTableWithoutNodePathCall(InsertTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getTable();
 
         // create path and map variables
@@ -18367,7 +18371,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertTableWithoutNodePathValidateBeforeCall(InsertTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertTableWithoutNodePathValidateBeforeCall(InsertTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -18392,7 +18396,7 @@ if (request.getImageFile() != null)
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableResponse insertTableWithoutNodePath(InsertTableWithoutNodePathRequest request) throws ApiException {
+    public TableResponse insertTableWithoutNodePath(InsertTableWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableResponse> resp = insertTableWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -18414,7 +18418,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;TableResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableResponse> insertTableWithoutNodePathWithHttpInfo(InsertTableWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<TableResponse> insertTableWithoutNodePathWithHttpInfo(InsertTableWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -18428,7 +18432,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertTableWithoutNodePathAsync(InsertTableWithoutNodePathRequest request, final ApiCallback<TableResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertTableWithoutNodePathAsync(InsertTableWithoutNodePathRequest request, final ApiCallback<TableResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18461,7 +18465,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertWatermarkImageCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertWatermarkImageCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -18515,7 +18519,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertWatermarkImageValidateBeforeCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertWatermarkImageValidateBeforeCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -18535,7 +18539,7 @@ if (request.getImageFile() != null)
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse insertWatermarkImage(InsertWatermarkImageRequest request) throws ApiException {
+    public DocumentResponse insertWatermarkImage(InsertWatermarkImageRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = insertWatermarkImageWithHttpInfo(request);
             return resp.getData();
@@ -18557,7 +18561,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> insertWatermarkImageWithHttpInfo(InsertWatermarkImageRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> insertWatermarkImageWithHttpInfo(InsertWatermarkImageRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -18571,7 +18575,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertWatermarkImageAsync(InsertWatermarkImageRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertWatermarkImageAsync(InsertWatermarkImageRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18604,7 +18608,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call insertWatermarkTextCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertWatermarkTextCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getWatermarkText();
 
         // create path and map variables
@@ -18654,7 +18658,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call insertWatermarkTextValidateBeforeCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call insertWatermarkTextValidateBeforeCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -18679,7 +18683,7 @@ if (request.getImageFile() != null)
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse insertWatermarkText(InsertWatermarkTextRequest request) throws ApiException {
+    public DocumentResponse insertWatermarkText(InsertWatermarkTextRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = insertWatermarkTextWithHttpInfo(request);
             return resp.getData();
@@ -18701,7 +18705,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> insertWatermarkTextWithHttpInfo(InsertWatermarkTextRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> insertWatermarkTextWithHttpInfo(InsertWatermarkTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -18715,7 +18719,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call insertWatermarkTextAsync(InsertWatermarkTextRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call insertWatermarkTextAsync(InsertWatermarkTextRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18748,7 +18752,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call loadWebDocumentCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call loadWebDocumentCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getData();
 
         // create path and map variables
@@ -18791,7 +18795,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call loadWebDocumentValidateBeforeCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call loadWebDocumentValidateBeforeCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Data' is set
         if (request.getData() == null) {
@@ -18811,7 +18815,7 @@ if (request.getImageFile() != null)
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SaveResponse loadWebDocument(LoadWebDocumentRequest request) throws ApiException {
+    public SaveResponse loadWebDocument(LoadWebDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SaveResponse> resp = loadWebDocumentWithHttpInfo(request);
             return resp.getData();
@@ -18833,7 +18837,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SaveResponse> loadWebDocumentWithHttpInfo(LoadWebDocumentRequest request) throws ApiException {
+    private ApiResponse<SaveResponse> loadWebDocumentWithHttpInfo(LoadWebDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -18847,7 +18851,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call loadWebDocumentAsync(LoadWebDocumentRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call loadWebDocumentAsync(LoadWebDocumentRequest request, final ApiCallback<SaveResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -18880,7 +18884,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call moveFileCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call moveFileCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -18927,7 +18931,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call moveFileValidateBeforeCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call moveFileValidateBeforeCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'DestPath' is set
         if (request.getDestPath() == null) {
@@ -18952,7 +18956,7 @@ if (request.getImageFile() != null)
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void moveFile(MoveFileRequest request) throws ApiException {
+    public void moveFile(MoveFileRequest request) throws ApiException, IOException {
         try {
             moveFileWithHttpInfo(request);
         }
@@ -18972,7 +18976,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> moveFileWithHttpInfo(MoveFileRequest request) throws ApiException {
+    private ApiResponse<Void> moveFileWithHttpInfo(MoveFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = moveFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -18985,7 +18989,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call moveFileAsync(MoveFileRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call moveFileAsync(MoveFileRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19017,7 +19021,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call moveFolderCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call moveFolderCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -19063,7 +19067,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call moveFolderValidateBeforeCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call moveFolderValidateBeforeCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'DestPath' is set
         if (request.getDestPath() == null) {
@@ -19088,7 +19092,7 @@ if (request.getImageFile() != null)
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void moveFolder(MoveFolderRequest request) throws ApiException {
+    public void moveFolder(MoveFolderRequest request) throws ApiException, IOException {
         try {
             moveFolderWithHttpInfo(request);
         }
@@ -19108,7 +19112,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> moveFolderWithHttpInfo(MoveFolderRequest request) throws ApiException {
+    private ApiResponse<Void> moveFolderWithHttpInfo(MoveFolderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = moveFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -19121,7 +19125,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call moveFolderAsync(MoveFolderRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call moveFolderAsync(MoveFolderRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19153,7 +19157,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call protectDocumentCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call protectDocumentCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
@@ -19201,7 +19205,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call protectDocumentValidateBeforeCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call protectDocumentValidateBeforeCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -19226,7 +19230,7 @@ if (request.getImageFile() != null)
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProtectionDataResponse protectDocument(ProtectDocumentRequest request) throws ApiException {
+    public ProtectionDataResponse protectDocument(ProtectDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ProtectionDataResponse> resp = protectDocumentWithHttpInfo(request);
             return resp.getData();
@@ -19248,7 +19252,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ProtectionDataResponse> protectDocumentWithHttpInfo(ProtectDocumentRequest request) throws ApiException {
+    private ApiResponse<ProtectionDataResponse> protectDocumentWithHttpInfo(ProtectDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -19262,7 +19266,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call protectDocumentAsync(ProtectDocumentRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call protectDocumentAsync(ProtectDocumentRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19295,7 +19299,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call rejectAllRevisionsCall(RejectAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call rejectAllRevisionsCall(RejectAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -19343,7 +19347,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call rejectAllRevisionsValidateBeforeCall(RejectAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call rejectAllRevisionsValidateBeforeCall(RejectAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -19363,7 +19367,7 @@ if (request.getImageFile() != null)
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RevisionsModificationResponse rejectAllRevisions(RejectAllRevisionsRequest request) throws ApiException {
+    public RevisionsModificationResponse rejectAllRevisions(RejectAllRevisionsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<RevisionsModificationResponse> resp = rejectAllRevisionsWithHttpInfo(request);
             return resp.getData();
@@ -19385,7 +19389,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;RevisionsModificationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<RevisionsModificationResponse> rejectAllRevisionsWithHttpInfo(RejectAllRevisionsRequest request) throws ApiException {
+    private ApiResponse<RevisionsModificationResponse> rejectAllRevisionsWithHttpInfo(RejectAllRevisionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = rejectAllRevisionsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<RevisionsModificationResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -19399,7 +19403,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call rejectAllRevisionsAsync(RejectAllRevisionsRequest request, final ApiCallback<RevisionsModificationResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call rejectAllRevisionsAsync(RejectAllRevisionsRequest request, final ApiCallback<RevisionsModificationResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19432,7 +19436,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call removeRangeCall(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call removeRangeCall(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -19482,7 +19486,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call removeRangeValidateBeforeCall(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call removeRangeValidateBeforeCall(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -19507,7 +19511,7 @@ if (request.getImageFile() != null)
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse removeRange(RemoveRangeRequest request) throws ApiException {
+    public DocumentResponse removeRange(RemoveRangeRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = removeRangeWithHttpInfo(request);
             return resp.getData();
@@ -19529,7 +19533,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> removeRangeWithHttpInfo(RemoveRangeRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> removeRangeWithHttpInfo(RemoveRangeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = removeRangeValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -19543,7 +19547,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call removeRangeAsync(RemoveRangeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call removeRangeAsync(RemoveRangeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19576,7 +19580,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderDrawingObjectCall(RenderDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderDrawingObjectCall(RenderDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -19627,7 +19631,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderDrawingObjectValidateBeforeCall(RenderDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderDrawingObjectValidateBeforeCall(RenderDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -19662,7 +19666,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderDrawingObject(RenderDrawingObjectRequest request) throws ApiException {
+    public File renderDrawingObject(RenderDrawingObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderDrawingObjectWithHttpInfo(request);
             return resp.getData();
@@ -19684,7 +19688,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderDrawingObjectWithHttpInfo(RenderDrawingObjectRequest request) throws ApiException {
+    private ApiResponse<File> renderDrawingObjectWithHttpInfo(RenderDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -19698,7 +19702,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderDrawingObjectAsync(RenderDrawingObjectRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderDrawingObjectAsync(RenderDrawingObjectRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19731,7 +19735,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathCall(RenderDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathCall(RenderDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -19781,7 +19785,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathValidateBeforeCall(RenderDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathValidateBeforeCall(RenderDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -19811,7 +19815,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderDrawingObjectWithoutNodePath(RenderDrawingObjectWithoutNodePathRequest request) throws ApiException {
+    public File renderDrawingObjectWithoutNodePath(RenderDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderDrawingObjectWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -19833,7 +19837,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderDrawingObjectWithoutNodePathWithHttpInfo(RenderDrawingObjectWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<File> renderDrawingObjectWithoutNodePathWithHttpInfo(RenderDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -19847,7 +19851,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathAsync(RenderDrawingObjectWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathAsync(RenderDrawingObjectWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -19880,7 +19884,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderMathObjectCall(RenderMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderMathObjectCall(RenderMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -19931,7 +19935,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderMathObjectValidateBeforeCall(RenderMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderMathObjectValidateBeforeCall(RenderMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -19966,7 +19970,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderMathObject(RenderMathObjectRequest request) throws ApiException {
+    public File renderMathObject(RenderMathObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderMathObjectWithHttpInfo(request);
             return resp.getData();
@@ -19988,7 +19992,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderMathObjectWithHttpInfo(RenderMathObjectRequest request) throws ApiException {
+    private ApiResponse<File> renderMathObjectWithHttpInfo(RenderMathObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -20002,7 +20006,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderMathObjectAsync(RenderMathObjectRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderMathObjectAsync(RenderMathObjectRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20035,7 +20039,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderMathObjectWithoutNodePathCall(RenderMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderMathObjectWithoutNodePathCall(RenderMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -20085,7 +20089,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderMathObjectWithoutNodePathValidateBeforeCall(RenderMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderMathObjectWithoutNodePathValidateBeforeCall(RenderMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -20115,7 +20119,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderMathObjectWithoutNodePath(RenderMathObjectWithoutNodePathRequest request) throws ApiException {
+    public File renderMathObjectWithoutNodePath(RenderMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderMathObjectWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -20137,7 +20141,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderMathObjectWithoutNodePathWithHttpInfo(RenderMathObjectWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<File> renderMathObjectWithoutNodePathWithHttpInfo(RenderMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -20151,7 +20155,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderMathObjectWithoutNodePathAsync(RenderMathObjectWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderMathObjectWithoutNodePathAsync(RenderMathObjectWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20184,7 +20188,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderPageCall(RenderPageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderPageCall(RenderPageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -20234,7 +20238,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderPageValidateBeforeCall(RenderPageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderPageValidateBeforeCall(RenderPageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -20264,7 +20268,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderPage(RenderPageRequest request) throws ApiException {
+    public File renderPage(RenderPageRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderPageWithHttpInfo(request);
             return resp.getData();
@@ -20286,7 +20290,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderPageWithHttpInfo(RenderPageRequest request) throws ApiException {
+    private ApiResponse<File> renderPageWithHttpInfo(RenderPageRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderPageValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -20300,7 +20304,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderPageAsync(RenderPageRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderPageAsync(RenderPageRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20333,7 +20337,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderParagraphCall(RenderParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderParagraphCall(RenderParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -20384,7 +20388,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderParagraphValidateBeforeCall(RenderParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderParagraphValidateBeforeCall(RenderParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -20419,7 +20423,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderParagraph(RenderParagraphRequest request) throws ApiException {
+    public File renderParagraph(RenderParagraphRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderParagraphWithHttpInfo(request);
             return resp.getData();
@@ -20441,7 +20445,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderParagraphWithHttpInfo(RenderParagraphRequest request) throws ApiException {
+    private ApiResponse<File> renderParagraphWithHttpInfo(RenderParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderParagraphValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -20455,7 +20459,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderParagraphAsync(RenderParagraphRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderParagraphAsync(RenderParagraphRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20488,7 +20492,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderParagraphWithoutNodePathCall(RenderParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderParagraphWithoutNodePathCall(RenderParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -20538,7 +20542,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderParagraphWithoutNodePathValidateBeforeCall(RenderParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderParagraphWithoutNodePathValidateBeforeCall(RenderParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -20568,7 +20572,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderParagraphWithoutNodePath(RenderParagraphWithoutNodePathRequest request) throws ApiException {
+    public File renderParagraphWithoutNodePath(RenderParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderParagraphWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -20590,7 +20594,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderParagraphWithoutNodePathWithHttpInfo(RenderParagraphWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<File> renderParagraphWithoutNodePathWithHttpInfo(RenderParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderParagraphWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -20604,7 +20608,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderParagraphWithoutNodePathAsync(RenderParagraphWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderParagraphWithoutNodePathAsync(RenderParagraphWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20637,7 +20641,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderTableCall(RenderTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderTableCall(RenderTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -20688,7 +20692,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderTableValidateBeforeCall(RenderTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderTableValidateBeforeCall(RenderTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -20723,7 +20727,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderTable(RenderTableRequest request) throws ApiException {
+    public File renderTable(RenderTableRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderTableWithHttpInfo(request);
             return resp.getData();
@@ -20745,7 +20749,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderTableWithHttpInfo(RenderTableRequest request) throws ApiException {
+    private ApiResponse<File> renderTableWithHttpInfo(RenderTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderTableValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -20759,7 +20763,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderTableAsync(RenderTableRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderTableAsync(RenderTableRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20792,7 +20796,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call renderTableWithoutNodePathCall(RenderTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderTableWithoutNodePathCall(RenderTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -20842,7 +20846,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call renderTableWithoutNodePathValidateBeforeCall(RenderTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call renderTableWithoutNodePathValidateBeforeCall(RenderTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -20872,7 +20876,7 @@ if (request.getImageFile() != null)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public File renderTableWithoutNodePath(RenderTableWithoutNodePathRequest request) throws ApiException {
+    public File renderTableWithoutNodePath(RenderTableWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<File> resp = renderTableWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -20894,7 +20898,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<File> renderTableWithoutNodePathWithHttpInfo(RenderTableWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<File> renderTableWithoutNodePathWithHttpInfo(RenderTableWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderTableWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<File>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -20908,7 +20912,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call renderTableWithoutNodePathAsync(RenderTableWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException {
+    public com.squareup.okhttp.Call renderTableWithoutNodePathAsync(RenderTableWithoutNodePathRequest request, final ApiCallback<File> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -20941,7 +20945,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call replaceTextCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call replaceTextCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getReplaceText();
 
         // create path and map variables
@@ -20991,7 +20995,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceTextValidateBeforeCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call replaceTextValidateBeforeCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -21016,7 +21020,7 @@ if (request.getImageFile() != null)
      * @return ReplaceTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ReplaceTextResponse replaceText(ReplaceTextRequest request) throws ApiException {
+    public ReplaceTextResponse replaceText(ReplaceTextRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ReplaceTextResponse> resp = replaceTextWithHttpInfo(request);
             return resp.getData();
@@ -21038,7 +21042,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;ReplaceTextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ReplaceTextResponse> replaceTextWithHttpInfo(ReplaceTextRequest request) throws ApiException {
+    private ApiResponse<ReplaceTextResponse> replaceTextWithHttpInfo(ReplaceTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ReplaceTextResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -21052,7 +21056,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceTextAsync(ReplaceTextRequest request, final ApiCallback<ReplaceTextResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call replaceTextAsync(ReplaceTextRequest request, final ApiCallback<ReplaceTextResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21085,7 +21089,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call replaceWithTextCall(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call replaceWithTextCall(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getRangeText();
 
         // create path and map variables
@@ -21135,7 +21139,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceWithTextValidateBeforeCall(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call replaceWithTextValidateBeforeCall(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -21165,7 +21169,7 @@ if (request.getImageFile() != null)
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse replaceWithText(ReplaceWithTextRequest request) throws ApiException {
+    public DocumentResponse replaceWithText(ReplaceWithTextRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = replaceWithTextWithHttpInfo(request);
             return resp.getData();
@@ -21187,7 +21191,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> replaceWithTextWithHttpInfo(ReplaceWithTextRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> replaceWithTextWithHttpInfo(ReplaceWithTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = replaceWithTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -21201,7 +21205,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call replaceWithTextAsync(ReplaceWithTextRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call replaceWithTextAsync(ReplaceWithTextRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21234,7 +21238,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call resetCacheCall(ResetCacheRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call resetCacheCall(ResetCacheRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -21276,7 +21280,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call resetCacheValidateBeforeCall(ResetCacheRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call resetCacheValidateBeforeCall(ResetCacheRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
 
         com.squareup.okhttp.Call call = resetCacheCall(request, progressListener, progressRequestListener);
@@ -21291,7 +21295,7 @@ if (request.getImageFile() != null)
 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void resetCache(ResetCacheRequest request) throws ApiException {
+    public void resetCache(ResetCacheRequest request) throws ApiException, IOException {
         try {
             resetCacheWithHttpInfo(request);
         }
@@ -21311,7 +21315,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<Void> resetCacheWithHttpInfo(ResetCacheRequest request) throws ApiException {
+    private ApiResponse<Void> resetCacheWithHttpInfo(ResetCacheRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = resetCacheValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
@@ -21324,7 +21328,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call resetCacheAsync(ResetCacheRequest request, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call resetCacheAsync(ResetCacheRequest request, final ApiCallback<Void> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21356,7 +21360,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call saveAsCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call saveAsCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getSaveOptionsData();
 
         // create path and map variables
@@ -21404,7 +21408,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call saveAsValidateBeforeCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call saveAsValidateBeforeCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -21429,7 +21433,7 @@ if (request.getImageFile() != null)
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SaveResponse saveAs(SaveAsRequest request) throws ApiException {
+    public SaveResponse saveAs(SaveAsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SaveResponse> resp = saveAsWithHttpInfo(request);
             return resp.getData();
@@ -21451,7 +21455,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SaveResponse> saveAsWithHttpInfo(SaveAsRequest request) throws ApiException {
+    private ApiResponse<SaveResponse> saveAsWithHttpInfo(SaveAsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -21465,7 +21469,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call saveAsAsync(SaveAsRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call saveAsAsync(SaveAsRequest request, final ApiCallback<SaveResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21498,7 +21502,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call saveAsRangeCall(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call saveAsRangeCall(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDocumentParameters();
 
         // create path and map variables
@@ -21547,7 +21551,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call saveAsRangeValidateBeforeCall(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call saveAsRangeValidateBeforeCall(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -21577,7 +21581,7 @@ if (request.getImageFile() != null)
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse saveAsRange(SaveAsRangeRequest request) throws ApiException {
+    public DocumentResponse saveAsRange(SaveAsRangeRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = saveAsRangeWithHttpInfo(request);
             return resp.getData();
@@ -21599,7 +21603,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> saveAsRangeWithHttpInfo(SaveAsRangeRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> saveAsRangeWithHttpInfo(SaveAsRangeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsRangeValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -21613,7 +21617,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call saveAsRangeAsync(SaveAsRangeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call saveAsRangeAsync(SaveAsRangeRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21646,7 +21650,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call saveAsTiffCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call saveAsTiffCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getSaveOptions();
 
         // create path and map variables
@@ -21711,7 +21715,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call saveAsTiffValidateBeforeCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call saveAsTiffValidateBeforeCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -21736,7 +21740,7 @@ if (request.getImageFile() != null)
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SaveResponse saveAsTiff(SaveAsTiffRequest request) throws ApiException {
+    public SaveResponse saveAsTiff(SaveAsTiffRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SaveResponse> resp = saveAsTiffWithHttpInfo(request);
             return resp.getData();
@@ -21758,7 +21762,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;SaveResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SaveResponse> saveAsTiffWithHttpInfo(SaveAsTiffRequest request) throws ApiException {
+    private ApiResponse<SaveResponse> saveAsTiffWithHttpInfo(SaveAsTiffRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SaveResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -21772,7 +21776,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call saveAsTiffAsync(SaveAsTiffRequest request, final ApiCallback<SaveResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call saveAsTiffAsync(SaveAsTiffRequest request, final ApiCallback<SaveResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21805,7 +21809,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call searchCall(SearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchCall(SearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -21853,7 +21857,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(SearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchValidateBeforeCall(SearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -21878,7 +21882,7 @@ if (request.getImageFile() != null)
      * @return SearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SearchResponse search(SearchRequest request) throws ApiException {
+    public SearchResponse search(SearchRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SearchResponse> resp = searchWithHttpInfo(request);
             return resp.getData();
@@ -21900,7 +21904,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;SearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SearchResponse> searchWithHttpInfo(SearchRequest request) throws ApiException {
+    private ApiResponse<SearchResponse> searchWithHttpInfo(SearchRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = searchValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SearchResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -21914,7 +21918,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchAsync(SearchRequest request, final ApiCallback<SearchResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchAsync(SearchRequest request, final ApiCallback<SearchResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -21947,7 +21951,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call splitDocumentCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call splitDocumentCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -22000,7 +22004,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call splitDocumentValidateBeforeCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call splitDocumentValidateBeforeCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -22020,7 +22024,7 @@ if (request.getImageFile() != null)
      * @return SplitDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SplitDocumentResponse splitDocument(SplitDocumentRequest request) throws ApiException {
+    public SplitDocumentResponse splitDocument(SplitDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SplitDocumentResponse> resp = splitDocumentWithHttpInfo(request);
             return resp.getData();
@@ -22042,7 +22046,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;SplitDocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SplitDocumentResponse> splitDocumentWithHttpInfo(SplitDocumentRequest request) throws ApiException {
+    private ApiResponse<SplitDocumentResponse> splitDocumentWithHttpInfo(SplitDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SplitDocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -22056,7 +22060,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call splitDocumentAsync(SplitDocumentRequest request, final ApiCallback<SplitDocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call splitDocumentAsync(SplitDocumentRequest request, final ApiCallback<SplitDocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -22089,7 +22093,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call unprotectDocumentCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call unprotectDocumentCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
@@ -22137,7 +22141,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call unprotectDocumentValidateBeforeCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call unprotectDocumentValidateBeforeCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -22162,7 +22166,7 @@ if (request.getImageFile() != null)
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ProtectionDataResponse unprotectDocument(UnprotectDocumentRequest request) throws ApiException {
+    public ProtectionDataResponse unprotectDocument(UnprotectDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ProtectionDataResponse> resp = unprotectDocumentWithHttpInfo(request);
             return resp.getData();
@@ -22184,7 +22188,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;ProtectionDataResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ProtectionDataResponse> unprotectDocumentWithHttpInfo(UnprotectDocumentRequest request) throws ApiException {
+    private ApiResponse<ProtectionDataResponse> unprotectDocumentWithHttpInfo(UnprotectDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ProtectionDataResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -22198,7 +22202,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call unprotectDocumentAsync(UnprotectDocumentRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call unprotectDocumentAsync(UnprotectDocumentRequest request, final ApiCallback<ProtectionDataResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -22231,7 +22235,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateBookmarkCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateBookmarkCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getBookmarkData();
 
         // create path and map variables
@@ -22282,7 +22286,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateBookmarkValidateBeforeCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateBookmarkValidateBeforeCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -22312,7 +22316,7 @@ if (request.getImageFile() != null)
      * @return BookmarkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BookmarkResponse updateBookmark(UpdateBookmarkRequest request) throws ApiException {
+    public BookmarkResponse updateBookmark(UpdateBookmarkRequest request) throws ApiException, IOException {
         try {
             ApiResponse<BookmarkResponse> resp = updateBookmarkWithHttpInfo(request);
             return resp.getData();
@@ -22334,7 +22338,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;BookmarkResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<BookmarkResponse> updateBookmarkWithHttpInfo(UpdateBookmarkRequest request) throws ApiException {
+    private ApiResponse<BookmarkResponse> updateBookmarkWithHttpInfo(UpdateBookmarkRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<BookmarkResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -22348,7 +22352,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateBookmarkAsync(UpdateBookmarkRequest request, final ApiCallback<BookmarkResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateBookmarkAsync(UpdateBookmarkRequest request, final ApiCallback<BookmarkResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -22381,7 +22385,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateBorderCall(UpdateBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateBorderCall(UpdateBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getBorderProperties();
 
         // create path and map variables
@@ -22433,7 +22437,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateBorderValidateBeforeCall(UpdateBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateBorderValidateBeforeCall(UpdateBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -22468,7 +22472,7 @@ if (request.getImageFile() != null)
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BorderResponse updateBorder(UpdateBorderRequest request) throws ApiException {
+    public BorderResponse updateBorder(UpdateBorderRequest request) throws ApiException, IOException {
         try {
             ApiResponse<BorderResponse> resp = updateBorderWithHttpInfo(request);
             return resp.getData();
@@ -22490,7 +22494,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;BorderResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<BorderResponse> updateBorderWithHttpInfo(UpdateBorderRequest request) throws ApiException {
+    private ApiResponse<BorderResponse> updateBorderWithHttpInfo(UpdateBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateBorderValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<BorderResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -22504,7 +22508,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateBorderAsync(UpdateBorderRequest request, final ApiCallback<BorderResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateBorderAsync(UpdateBorderRequest request, final ApiCallback<BorderResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -22537,7 +22541,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateCommentCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateCommentCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getComment();
 
         // create path and map variables
@@ -22588,7 +22592,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateCommentValidateBeforeCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateCommentValidateBeforeCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -22618,7 +22622,7 @@ if (request.getImageFile() != null)
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CommentResponse updateComment(UpdateCommentRequest request) throws ApiException {
+    public CommentResponse updateComment(UpdateCommentRequest request) throws ApiException, IOException {
         try {
             ApiResponse<CommentResponse> resp = updateCommentWithHttpInfo(request);
             return resp.getData();
@@ -22640,7 +22644,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;CommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<CommentResponse> updateCommentWithHttpInfo(UpdateCommentRequest request) throws ApiException {
+    private ApiResponse<CommentResponse> updateCommentWithHttpInfo(UpdateCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<CommentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -22654,7 +22658,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateCommentAsync(UpdateCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateCommentAsync(UpdateCommentRequest request, final ApiCallback<CommentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -22687,7 +22691,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateDrawingObjectCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateDrawingObjectCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -22743,7 +22747,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateDrawingObjectValidateBeforeCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateDrawingObjectValidateBeforeCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -22783,7 +22787,7 @@ if (request.getImageFile() != null)
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DrawingObjectResponse updateDrawingObject(UpdateDrawingObjectRequest request) throws ApiException {
+    public DrawingObjectResponse updateDrawingObject(UpdateDrawingObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DrawingObjectResponse> resp = updateDrawingObjectWithHttpInfo(request);
             return resp.getData();
@@ -22805,7 +22809,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DrawingObjectResponse> updateDrawingObjectWithHttpInfo(UpdateDrawingObjectRequest request) throws ApiException {
+    private ApiResponse<DrawingObjectResponse> updateDrawingObjectWithHttpInfo(UpdateDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -22819,7 +22823,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateDrawingObjectAsync(UpdateDrawingObjectRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateDrawingObjectAsync(UpdateDrawingObjectRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -22852,7 +22856,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathCall(UpdateDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathCall(UpdateDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -22907,7 +22911,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathValidateBeforeCall(UpdateDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathValidateBeforeCall(UpdateDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -22942,7 +22946,7 @@ if (request.getImageFile() != null)
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DrawingObjectResponse updateDrawingObjectWithoutNodePath(UpdateDrawingObjectWithoutNodePathRequest request) throws ApiException {
+    public DrawingObjectResponse updateDrawingObjectWithoutNodePath(UpdateDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DrawingObjectResponse> resp = updateDrawingObjectWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -22964,7 +22968,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DrawingObjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DrawingObjectResponse> updateDrawingObjectWithoutNodePathWithHttpInfo(UpdateDrawingObjectWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<DrawingObjectResponse> updateDrawingObjectWithoutNodePathWithHttpInfo(UpdateDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DrawingObjectResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -22978,7 +22982,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathAsync(UpdateDrawingObjectWithoutNodePathRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathAsync(UpdateDrawingObjectWithoutNodePathRequest request, final ApiCallback<DrawingObjectResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -23011,7 +23015,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateFieldCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFieldCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getField();
 
         // create path and map variables
@@ -23063,7 +23067,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateFieldValidateBeforeCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFieldValidateBeforeCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -23098,7 +23102,7 @@ if (request.getImageFile() != null)
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FieldResponse updateField(UpdateFieldRequest request) throws ApiException {
+    public FieldResponse updateField(UpdateFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FieldResponse> resp = updateFieldWithHttpInfo(request);
             return resp.getData();
@@ -23120,7 +23124,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FieldResponse> updateFieldWithHttpInfo(UpdateFieldRequest request) throws ApiException {
+    private ApiResponse<FieldResponse> updateFieldWithHttpInfo(UpdateFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -23134,7 +23138,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateFieldAsync(UpdateFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateFieldAsync(UpdateFieldRequest request, final ApiCallback<FieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -23167,7 +23171,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateFieldsCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFieldsCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -23215,7 +23219,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateFieldsValidateBeforeCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFieldsValidateBeforeCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -23235,7 +23239,7 @@ if (request.getImageFile() != null)
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DocumentResponse updateFields(UpdateFieldsRequest request) throws ApiException {
+    public DocumentResponse updateFields(UpdateFieldsRequest request) throws ApiException, IOException {
         try {
             ApiResponse<DocumentResponse> resp = updateFieldsWithHttpInfo(request);
             return resp.getData();
@@ -23257,7 +23261,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;DocumentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<DocumentResponse> updateFieldsWithHttpInfo(UpdateFieldsRequest request) throws ApiException {
+    private ApiResponse<DocumentResponse> updateFieldsWithHttpInfo(UpdateFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<DocumentResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -23271,7 +23275,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateFieldsAsync(UpdateFieldsRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateFieldsAsync(UpdateFieldsRequest request, final ApiCallback<DocumentResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -23304,7 +23308,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateFootnoteCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFootnoteCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
@@ -23356,7 +23360,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateFootnoteValidateBeforeCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFootnoteValidateBeforeCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -23391,7 +23395,7 @@ if (request.getImageFile() != null)
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FootnoteResponse updateFootnote(UpdateFootnoteRequest request) throws ApiException {
+    public FootnoteResponse updateFootnote(UpdateFootnoteRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FootnoteResponse> resp = updateFootnoteWithHttpInfo(request);
             return resp.getData();
@@ -23413,7 +23417,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FootnoteResponse> updateFootnoteWithHttpInfo(UpdateFootnoteRequest request) throws ApiException {
+    private ApiResponse<FootnoteResponse> updateFootnoteWithHttpInfo(UpdateFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -23427,7 +23431,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateFootnoteAsync(UpdateFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateFootnoteAsync(UpdateFootnoteRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -23460,7 +23464,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateFootnoteWithoutNodePathCall(UpdateFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFootnoteWithoutNodePathCall(UpdateFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
@@ -23511,7 +23515,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateFootnoteWithoutNodePathValidateBeforeCall(UpdateFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFootnoteWithoutNodePathValidateBeforeCall(UpdateFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -23541,7 +23545,7 @@ if (request.getImageFile() != null)
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FootnoteResponse updateFootnoteWithoutNodePath(UpdateFootnoteWithoutNodePathRequest request) throws ApiException {
+    public FootnoteResponse updateFootnoteWithoutNodePath(UpdateFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FootnoteResponse> resp = updateFootnoteWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -23563,7 +23567,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FootnoteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FootnoteResponse> updateFootnoteWithoutNodePathWithHttpInfo(UpdateFootnoteWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FootnoteResponse> updateFootnoteWithoutNodePathWithHttpInfo(UpdateFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FootnoteResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -23577,7 +23581,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateFootnoteWithoutNodePathAsync(UpdateFootnoteWithoutNodePathRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateFootnoteWithoutNodePathAsync(UpdateFootnoteWithoutNodePathRequest request, final ApiCallback<FootnoteResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -23610,7 +23614,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateFormFieldCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFormFieldCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
@@ -23662,7 +23666,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateFormFieldValidateBeforeCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFormFieldValidateBeforeCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -23697,7 +23701,7 @@ if (request.getImageFile() != null)
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormFieldResponse updateFormField(UpdateFormFieldRequest request) throws ApiException {
+    public FormFieldResponse updateFormField(UpdateFormFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FormFieldResponse> resp = updateFormFieldWithHttpInfo(request);
             return resp.getData();
@@ -23719,7 +23723,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FormFieldResponse> updateFormFieldWithHttpInfo(UpdateFormFieldRequest request) throws ApiException {
+    private ApiResponse<FormFieldResponse> updateFormFieldWithHttpInfo(UpdateFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -23733,7 +23737,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateFormFieldAsync(UpdateFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateFormFieldAsync(UpdateFormFieldRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -23766,7 +23770,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateFormFieldWithoutNodePathCall(UpdateFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFormFieldWithoutNodePathCall(UpdateFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
@@ -23817,7 +23821,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateFormFieldWithoutNodePathValidateBeforeCall(UpdateFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateFormFieldWithoutNodePathValidateBeforeCall(UpdateFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -23847,7 +23851,7 @@ if (request.getImageFile() != null)
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FormFieldResponse updateFormFieldWithoutNodePath(UpdateFormFieldWithoutNodePathRequest request) throws ApiException {
+    public FormFieldResponse updateFormFieldWithoutNodePath(UpdateFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FormFieldResponse> resp = updateFormFieldWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -23869,7 +23873,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FormFieldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FormFieldResponse> updateFormFieldWithoutNodePathWithHttpInfo(UpdateFormFieldWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<FormFieldResponse> updateFormFieldWithoutNodePathWithHttpInfo(UpdateFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FormFieldResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -23883,7 +23887,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateFormFieldWithoutNodePathAsync(UpdateFormFieldWithoutNodePathRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateFormFieldWithoutNodePathAsync(UpdateFormFieldWithoutNodePathRequest request, final ApiCallback<FormFieldResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -23916,7 +23920,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateParagraphFormatCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateParagraphFormatCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDto();
 
         // create path and map variables
@@ -23968,7 +23972,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateParagraphFormatValidateBeforeCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateParagraphFormatValidateBeforeCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -24003,7 +24007,7 @@ if (request.getImageFile() != null)
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ParagraphFormatResponse updateParagraphFormat(UpdateParagraphFormatRequest request) throws ApiException {
+    public ParagraphFormatResponse updateParagraphFormat(UpdateParagraphFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse<ParagraphFormatResponse> resp = updateParagraphFormatWithHttpInfo(request);
             return resp.getData();
@@ -24025,7 +24029,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;ParagraphFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<ParagraphFormatResponse> updateParagraphFormatWithHttpInfo(UpdateParagraphFormatRequest request) throws ApiException {
+    private ApiResponse<ParagraphFormatResponse> updateParagraphFormatWithHttpInfo(UpdateParagraphFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -24039,7 +24043,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateParagraphFormatAsync(UpdateParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateParagraphFormatAsync(UpdateParagraphFormatRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -24072,7 +24076,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateRunCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateRunCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getRun();
 
         // create path and map variables
@@ -24124,7 +24128,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateRunValidateBeforeCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateRunValidateBeforeCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -24159,7 +24163,7 @@ if (request.getImageFile() != null)
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public RunResponse updateRun(UpdateRunRequest request) throws ApiException {
+    public RunResponse updateRun(UpdateRunRequest request) throws ApiException, IOException {
         try {
             ApiResponse<RunResponse> resp = updateRunWithHttpInfo(request);
             return resp.getData();
@@ -24181,7 +24185,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;RunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<RunResponse> updateRunWithHttpInfo(UpdateRunRequest request) throws ApiException {
+    private ApiResponse<RunResponse> updateRunWithHttpInfo(UpdateRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<RunResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -24195,7 +24199,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateRunAsync(UpdateRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateRunAsync(UpdateRunRequest request, final ApiCallback<RunResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -24228,7 +24232,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateRunFontCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateRunFontCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFontDto();
 
         // create path and map variables
@@ -24280,7 +24284,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateRunFontValidateBeforeCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateRunFontValidateBeforeCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -24315,7 +24319,7 @@ if (request.getImageFile() != null)
      * @return FontResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FontResponse updateRunFont(UpdateRunFontRequest request) throws ApiException {
+    public FontResponse updateRunFont(UpdateRunFontRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FontResponse> resp = updateRunFontWithHttpInfo(request);
             return resp.getData();
@@ -24337,7 +24341,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FontResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FontResponse> updateRunFontWithHttpInfo(UpdateRunFontRequest request) throws ApiException {
+    private ApiResponse<FontResponse> updateRunFontWithHttpInfo(UpdateRunFontRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FontResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -24351,7 +24355,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateRunFontAsync(UpdateRunFontRequest request, final ApiCallback<FontResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateRunFontAsync(UpdateRunFontRequest request, final ApiCallback<FontResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -24384,7 +24388,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateSectionPageSetupCall(UpdateSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateSectionPageSetupCall(UpdateSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getPageSetup();
 
         // create path and map variables
@@ -24435,7 +24439,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateSectionPageSetupValidateBeforeCall(UpdateSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateSectionPageSetupValidateBeforeCall(UpdateSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -24465,7 +24469,7 @@ if (request.getImageFile() != null)
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SectionPageSetupResponse updateSectionPageSetup(UpdateSectionPageSetupRequest request) throws ApiException {
+    public SectionPageSetupResponse updateSectionPageSetup(UpdateSectionPageSetupRequest request) throws ApiException, IOException {
         try {
             ApiResponse<SectionPageSetupResponse> resp = updateSectionPageSetupWithHttpInfo(request);
             return resp.getData();
@@ -24487,7 +24491,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;SectionPageSetupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<SectionPageSetupResponse> updateSectionPageSetupWithHttpInfo(UpdateSectionPageSetupRequest request) throws ApiException {
+    private ApiResponse<SectionPageSetupResponse> updateSectionPageSetupWithHttpInfo(UpdateSectionPageSetupRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateSectionPageSetupValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<SectionPageSetupResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -24501,7 +24505,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateSectionPageSetupAsync(UpdateSectionPageSetupRequest request, final ApiCallback<SectionPageSetupResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateSectionPageSetupAsync(UpdateSectionPageSetupRequest request, final ApiCallback<SectionPageSetupResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -24534,7 +24538,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateTableCellFormatCall(UpdateTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTableCellFormatCall(UpdateTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormat();
 
         // create path and map variables
@@ -24586,7 +24590,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateTableCellFormatValidateBeforeCall(UpdateTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTableCellFormatValidateBeforeCall(UpdateTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -24621,7 +24625,7 @@ if (request.getImageFile() != null)
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableCellFormatResponse updateTableCellFormat(UpdateTableCellFormatRequest request) throws ApiException {
+    public TableCellFormatResponse updateTableCellFormat(UpdateTableCellFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableCellFormatResponse> resp = updateTableCellFormatWithHttpInfo(request);
             return resp.getData();
@@ -24643,7 +24647,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;TableCellFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableCellFormatResponse> updateTableCellFormatWithHttpInfo(UpdateTableCellFormatRequest request) throws ApiException {
+    private ApiResponse<TableCellFormatResponse> updateTableCellFormatWithHttpInfo(UpdateTableCellFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTableCellFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableCellFormatResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -24657,7 +24661,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateTableCellFormatAsync(UpdateTableCellFormatRequest request, final ApiCallback<TableCellFormatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateTableCellFormatAsync(UpdateTableCellFormatRequest request, final ApiCallback<TableCellFormatResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -24690,7 +24694,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateTablePropertiesCall(UpdateTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTablePropertiesCall(UpdateTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProperties();
 
         // create path and map variables
@@ -24742,7 +24746,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateTablePropertiesValidateBeforeCall(UpdateTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTablePropertiesValidateBeforeCall(UpdateTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -24777,7 +24781,7 @@ if (request.getImageFile() != null)
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TablePropertiesResponse updateTableProperties(UpdateTablePropertiesRequest request) throws ApiException {
+    public TablePropertiesResponse updateTableProperties(UpdateTablePropertiesRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TablePropertiesResponse> resp = updateTablePropertiesWithHttpInfo(request);
             return resp.getData();
@@ -24799,7 +24803,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TablePropertiesResponse> updateTablePropertiesWithHttpInfo(UpdateTablePropertiesRequest request) throws ApiException {
+    private ApiResponse<TablePropertiesResponse> updateTablePropertiesWithHttpInfo(UpdateTablePropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TablePropertiesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -24813,7 +24817,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateTablePropertiesAsync(UpdateTablePropertiesRequest request, final ApiCallback<TablePropertiesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateTablePropertiesAsync(UpdateTablePropertiesRequest request, final ApiCallback<TablePropertiesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -24846,7 +24850,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathCall(UpdateTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathCall(UpdateTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProperties();
 
         // create path and map variables
@@ -24897,7 +24901,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathValidateBeforeCall(UpdateTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathValidateBeforeCall(UpdateTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -24927,7 +24931,7 @@ if (request.getImageFile() != null)
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TablePropertiesResponse updateTablePropertiesWithoutNodePath(UpdateTablePropertiesWithoutNodePathRequest request) throws ApiException {
+    public TablePropertiesResponse updateTablePropertiesWithoutNodePath(UpdateTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TablePropertiesResponse> resp = updateTablePropertiesWithoutNodePathWithHttpInfo(request);
             return resp.getData();
@@ -24949,7 +24953,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;TablePropertiesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TablePropertiesResponse> updateTablePropertiesWithoutNodePathWithHttpInfo(UpdateTablePropertiesWithoutNodePathRequest request) throws ApiException {
+    private ApiResponse<TablePropertiesResponse> updateTablePropertiesWithoutNodePathWithHttpInfo(UpdateTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TablePropertiesResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -24963,7 +24967,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathAsync(UpdateTablePropertiesWithoutNodePathRequest request, final ApiCallback<TablePropertiesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathAsync(UpdateTablePropertiesWithoutNodePathRequest request, final ApiCallback<TablePropertiesResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -24996,7 +25000,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call updateTableRowFormatCall(UpdateTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTableRowFormatCall(UpdateTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormat();
 
         // create path and map variables
@@ -25048,7 +25052,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateTableRowFormatValidateBeforeCall(UpdateTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call updateTableRowFormatValidateBeforeCall(UpdateTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
@@ -25083,7 +25087,7 @@ if (request.getImageFile() != null)
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public TableRowFormatResponse updateTableRowFormat(UpdateTableRowFormatRequest request) throws ApiException {
+    public TableRowFormatResponse updateTableRowFormat(UpdateTableRowFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse<TableRowFormatResponse> resp = updateTableRowFormatWithHttpInfo(request);
             return resp.getData();
@@ -25105,7 +25109,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;TableRowFormatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<TableRowFormatResponse> updateTableRowFormatWithHttpInfo(UpdateTableRowFormatRequest request) throws ApiException {
+    private ApiResponse<TableRowFormatResponse> updateTableRowFormatWithHttpInfo(UpdateTableRowFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTableRowFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<TableRowFormatResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -25119,7 +25123,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call updateTableRowFormatAsync(UpdateTableRowFormatRequest request, final ApiCallback<TableRowFormatResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call updateTableRowFormatAsync(UpdateTableRowFormatRequest request, final ApiCallback<TableRowFormatResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -25152,7 +25156,7 @@ if (request.getImageFile() != null)
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call uploadFileCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call uploadFileCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -25198,7 +25202,7 @@ if (request.getImageFile() != null)
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call uploadFileValidateBeforeCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call uploadFileValidateBeforeCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'FileContent' is set
         if (request.getFileContent() == null) {
@@ -25223,7 +25227,7 @@ if (request.getImageFile() != null)
      * @return FilesUploadResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public FilesUploadResult uploadFile(UploadFileRequest request) throws ApiException {
+    public FilesUploadResult uploadFile(UploadFileRequest request) throws ApiException, IOException {
         try {
             ApiResponse<FilesUploadResult> resp = uploadFileWithHttpInfo(request);
             return resp.getData();
@@ -25245,7 +25249,7 @@ if (request.getImageFile() != null)
      * @return ApiResponse&lt;FilesUploadResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<FilesUploadResult> uploadFileWithHttpInfo(UploadFileRequest request) throws ApiException {
+    private ApiResponse<FilesUploadResult> uploadFileWithHttpInfo(UploadFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<FilesUploadResult>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -25259,7 +25263,7 @@ if (request.getImageFile() != null)
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call uploadFileAsync(UploadFileRequest request, final ApiCallback<FilesUploadResult> callback) throws ApiException {
+    public com.squareup.okhttp.Call uploadFileAsync(UploadFileRequest request, final ApiCallback<FilesUploadResult> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

@@ -35,6 +35,8 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
+import java.io.IOException;
+
 public class TestFont extends TestCase {
     @Override
     protected void setUp() throws Exception {
@@ -46,7 +48,7 @@ public class TestFont extends TestCase {
      * Test for resetting font cache
      */
     @Test
-    public void testResetCache() throws ApiException {
+    public void testResetCache() throws ApiException, IOException {
         ResetCacheRequest request = new ResetCacheRequest();
 
         TestInitializer.wordsApi.resetCache(request);
@@ -56,7 +58,7 @@ public class TestFont extends TestCase {
      * Test for resetting font cache
      */
     @Test
-public void testGetAvailableFonts() throws ApiException {
+public void testGetAvailableFonts() throws ApiException, IOException {
         GetAvailableFontsRequest request = new GetAvailableFontsRequest(null);
 
         AvailableFontsResponse result = TestInitializer.wordsApi.getAvailableFonts(request);
