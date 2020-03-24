@@ -44,13 +44,10 @@ public class WordsApi {
 
     public WordsApi(String appSid, String appKey, String baseUrl) {
         this(new ApiClient(appSid, appKey, baseUrl));
-<<<<<<< HEAD
     }
 
     public WordsApi() {
         this(Configuration.getDefaultApiClient());
-=======
->>>>>>> remotes/origin/master
     }
 
     public WordsApi(ApiClient apiClient) {
