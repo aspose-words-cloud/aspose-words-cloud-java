@@ -38,7 +38,7 @@ public class RemoveRangeRequest {
     private String Name;
 
     /*
-     * The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     private String RangeStartIdentifier;
 
@@ -76,7 +76,7 @@ public class RemoveRangeRequest {
      * Initializes a new instance of the removeRangeRequest class.
      *  
      * @param String name The document.
-     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      * @param String rangeEndIdentifier The range end identifier.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -110,14 +110,14 @@ public class RemoveRangeRequest {
     }
 
     /*
-     *  Gets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     *  Gets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     public String getRangeStartIdentifier() {
         return RangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Sets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     public void setRangeStartIdentifier(String value) {
         RangeStartIdentifier = value;

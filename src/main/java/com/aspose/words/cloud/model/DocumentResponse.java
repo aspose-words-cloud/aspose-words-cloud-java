@@ -29,8 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Document;
-import com.aspose.words.cloud.model.WordsResponse;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Represents the response with document description.
  */
 @ApiModel(description = "Represents the response with document description.")
-
 public class DocumentResponse extends WordsResponse {
   @SerializedName("Document")
   private Document document = null;
@@ -55,10 +56,10 @@ public class DocumentResponse extends WordsResponse {
   }
 
    /**
-   * Gets or sets document description.
+   * Get document
    * @return document
   **/
-  @ApiModelProperty(value = "Gets or sets document description.")
+  @ApiModelProperty(value = "")
   public Document getDocument() {
     return document;
   }

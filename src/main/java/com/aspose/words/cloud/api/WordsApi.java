@@ -46,6 +46,10 @@ public class WordsApi {
         this(new ApiClient(appSid, appKey, baseUrl));
     }
 
+    public WordsApi() {
+        this(Configuration.getDefaultApiClient());
+    }
+
     public WordsApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
@@ -13539,11 +13543,6 @@ if (request.getData() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling getRangeText");
         }
         
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling getRangeText");
-        }
-        
 
         com.squareup.okhttp.Call call = getRangeTextCall(request, progressListener, progressRequestListener);
         return call;
@@ -17935,6 +17934,11 @@ if (request.getImageFile() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertTable");
         }
         
+        // verify the required parameter 'Table' is set
+        if (request.getTable() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Table' when calling insertTable");
+        }
+        
 
         com.squareup.okhttp.Call call = insertTableCall(request, progressListener, progressRequestListener);
         return call;
@@ -18078,6 +18082,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'TableRowPath' is set
         if (request.getTableRowPath() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'TableRowPath' when calling insertTableCell");
+        }
+        
+        // verify the required parameter 'Cell' is set
+        if (request.getCell() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Cell' when calling insertTableCell");
         }
         
 
@@ -18225,6 +18234,11 @@ if (request.getImageFile() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'TablePath' when calling insertTableRow");
         }
         
+        // verify the required parameter 'Row' is set
+        if (request.getRow() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Row' when calling insertTableRow");
+        }
+        
 
         com.squareup.okhttp.Call call = insertTableRowCall(request, progressListener, progressRequestListener);
         return call;
@@ -18362,6 +18376,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertTableWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Table' is set
+        if (request.getTable() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Table' when calling insertTableWithoutNodePath");
         }
         
 
@@ -19477,11 +19496,6 @@ if (request.getImageFile() != null)
         // verify the required parameter 'RangeStartIdentifier' is set
         if (request.getRangeStartIdentifier() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling removeRange");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling removeRange");
         }
         
 
@@ -21142,11 +21156,6 @@ if (request.getImageFile() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeText' when calling replaceWithText");
         }
         
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling replaceWithText");
-        }
-        
 
         com.squareup.okhttp.Call call = replaceWithTextCall(request, progressListener, progressRequestListener);
         return call;
@@ -21557,11 +21566,6 @@ if (request.getImageFile() != null)
         // verify the required parameter 'DocumentParameters' is set
         if (request.getDocumentParameters() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'DocumentParameters' when calling saveAsRange");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling saveAsRange");
         }
         
 
@@ -24603,6 +24607,11 @@ if (request.getImageFile() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableCellFormat");
         }
         
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling updateTableCellFormat");
+        }
+        
 
         com.squareup.okhttp.Call call = updateTableCellFormatCall(request, progressListener, progressRequestListener);
         return call;
@@ -24754,6 +24763,11 @@ if (request.getImageFile() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableProperties");
         }
         
+        // verify the required parameter 'Properties' is set
+        if (request.getProperties() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Properties' when calling updateTableProperties");
+        }
+        
 
         com.squareup.okhttp.Call call = updateTablePropertiesCall(request, progressListener, progressRequestListener);
         return call;
@@ -24897,6 +24911,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTablePropertiesWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Properties' is set
+        if (request.getProperties() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Properties' when calling updateTablePropertiesWithoutNodePath");
         }
         
 
@@ -25048,6 +25067,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableRowFormat");
+        }
+        
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling updateTableRowFormat");
         }
         
 

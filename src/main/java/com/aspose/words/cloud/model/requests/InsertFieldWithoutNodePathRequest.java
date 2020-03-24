@@ -78,7 +78,7 @@ public class InsertFieldWithoutNodePathRequest {
     private String RevisionDateTime;
 
     /*
-     * Field will be inserted before node with id=\"nodeId\".
+     * Field will be inserted before node with id="nodeId".
      */
     private String InsertBeforeNode;
     
@@ -94,7 +94,7 @@ public class InsertFieldWithoutNodePathRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String insertBeforeNode Field will be inserted before node with id=\"nodeId\".
+     * @param String insertBeforeNode Field will be inserted before node with id="nodeId".
      */
     public InsertFieldWithoutNodePathRequest(String name,  Field field,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
         Name = name;
@@ -236,14 +236,14 @@ public class InsertFieldWithoutNodePathRequest {
     }
 
     /*
-     *  Gets Field will be inserted before node with id=\"nodeId\".
+     *  Gets Field will be inserted before node with id="nodeId".
      */
     public String getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
-     * Sets Field will be inserted before node with id=\"nodeId\".
+     * Sets Field will be inserted before node with id="nodeId".
      */
     public void setInsertBeforeNode(String value) {
         InsertBeforeNode = value;

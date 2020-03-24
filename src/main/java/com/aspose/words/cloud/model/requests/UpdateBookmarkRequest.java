@@ -38,7 +38,7 @@ public class UpdateBookmarkRequest {
     private String Name;
 
     /*
-     * with new bookmark data.            
+     * BookmarkData with new bookmark data.
      */
     private BookmarkData BookmarkData;
 
@@ -86,7 +86,7 @@ public class UpdateBookmarkRequest {
      * Initializes a new instance of the updateBookmarkRequest class.
      *  
      * @param String name The document name.
-     * @param BookmarkData bookmarkData with new bookmark data.            
+     * @param BookmarkData bookmarkData BookmarkData with new bookmark data.
      * @param String bookmarkName The bookmark name.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -124,14 +124,14 @@ public class UpdateBookmarkRequest {
     }
 
     /*
-     *  Gets with new bookmark data.            
+     *  Gets BookmarkData with new bookmark data.
      */
     public BookmarkData getBookmarkData() {
         return BookmarkData;
     }
 
     /*
-     * Sets with new bookmark data.            
+     * Sets BookmarkData with new bookmark data.
      */
     public void setBookmarkData(BookmarkData value) {
         BookmarkData = value;

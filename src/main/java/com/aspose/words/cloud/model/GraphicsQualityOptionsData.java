@@ -29,7 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.StringFormatData;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Allows to specify additional System.Drawing.Graphics quality options.
  */
 @ApiModel(description = "Allows to specify additional System.Drawing.Graphics quality options.")
-
 public class GraphicsQualityOptionsData {
   /**
    * Gets or sets a value that specifies how composited images are drawn to this Graphics.
@@ -414,10 +416,10 @@ public class GraphicsQualityOptionsData {
   }
 
    /**
-   * Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.
+   * Get stringFormat
    * @return stringFormat
   **/
-  @ApiModelProperty(value = "Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.")
+  @ApiModelProperty(value = "")
   public StringFormatData getStringFormat() {
     return stringFormat;
   }

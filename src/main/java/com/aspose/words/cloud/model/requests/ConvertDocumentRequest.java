@@ -53,7 +53,7 @@ public class ConvertDocumentRequest {
     private String OutPath;
 
     /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
+     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
      */
     private String FileNameFieldValue;
 
@@ -69,7 +69,7 @@ public class ConvertDocumentRequest {
      * @param String format Format to convert.
      * @param String storage Original document storage.
      * @param String outPath Path for saving operation result to the local storage.
-     * @param String fileNameFieldValue This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
+     * @param String fileNameFieldValue This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public ConvertDocumentRequest(byte[] document,  String format,  String storage,  String outPath,  String fileNameFieldValue,  String fontsLocation) {
@@ -138,14 +138,14 @@ public class ConvertDocumentRequest {
     }
 
     /*
-     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
+     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
      */
     public String getFileNameFieldValue() {
         return FileNameFieldValue;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
+     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
      */
     public void setFileNameFieldValue(String value) {
         FileNameFieldValue = value;

@@ -29,9 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.PreferredWidth;
-import com.aspose.words.cloud.model.WordsApiLink;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Represents all formatting for a table row.
  */
 @ApiModel(description = "Represents all formatting for a table row.")
-
 public class TableCellFormat extends LinkElement {
   @SerializedName("BottomPadding")
   private Double bottomPadding = null;
@@ -381,10 +381,10 @@ public class TableCellFormat extends LinkElement {
   }
 
    /**
-   * Gets or sets returns or sets the preferred width of the cell.
+   * Get preferredWidth
    * @return preferredWidth
   **/
-  @ApiModelProperty(value = "Gets or sets returns or sets the preferred width of the cell.")
+  @ApiModelProperty(value = "")
   public PreferredWidth getPreferredWidth() {
     return preferredWidth;
   }

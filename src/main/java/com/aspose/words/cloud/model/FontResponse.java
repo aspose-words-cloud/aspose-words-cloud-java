@@ -29,8 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.Font;
-import com.aspose.words.cloud.model.WordsResponse;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.")
-
 public class FontResponse extends WordsResponse {
   @SerializedName("Font")
   private Font font = null;
@@ -55,10 +56,10 @@ public class FontResponse extends WordsResponse {
   }
 
    /**
-   * Gets or sets font.
+   * Get font
    * @return font
   **/
-  @ApiModelProperty(value = "Gets or sets font.")
+  @ApiModelProperty(value = "")
   public Font getFont() {
     return font;
   }

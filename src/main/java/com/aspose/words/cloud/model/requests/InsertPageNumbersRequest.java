@@ -38,7 +38,7 @@ public class InsertPageNumbersRequest {
     private String Name;
 
     /*
-     * with the page numbers settings.
+     * PageNumber with the page numbers settings.
      */
     private PageNumber PageNumber;
 
@@ -81,7 +81,7 @@ public class InsertPageNumbersRequest {
      * Initializes a new instance of the insertPageNumbersRequest class.
      *  
      * @param String name A document name.
-     * @param PageNumber pageNumber with the page numbers settings.
+     * @param PageNumber pageNumber PageNumber with the page numbers settings.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -117,14 +117,14 @@ public class InsertPageNumbersRequest {
     }
 
     /*
-     *  Gets with the page numbers settings.
+     *  Gets PageNumber with the page numbers settings.
      */
     public PageNumber getPageNumber() {
         return PageNumber;
     }
 
     /*
-     * Sets with the page numbers settings.
+     * Sets PageNumber with the page numbers settings.
      */
     public void setPageNumber(PageNumber value) {
         PageNumber = value;

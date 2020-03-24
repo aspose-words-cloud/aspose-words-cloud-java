@@ -29,9 +29,11 @@ package com.aspose.words.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.PreferredWidth;
-import com.aspose.words.cloud.model.WordsApiLink;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Represents the table properties.             
  */
 @ApiModel(description = "Represents the table properties.             ")
-
 public class TableProperties extends LinkElement {
   /**
    * Gets or sets specifies how an inline table is aligned in the document.
@@ -983,7 +983,7 @@ public class TableProperties extends LinkElement {
   private StyleOptionsEnum styleOptions = null;
 
   /**
-   * Gets or sets get or sets TextWrapping  for table.
+   * Gets or sets get or sets TextWrapping for table.
    */
   @JsonAdapter(TextWrappingEnum.Adapter.class)
   public enum TextWrappingEnum {
@@ -1169,10 +1169,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \&quot;auto\&quot; value.
+   * Get preferredWidth
    * @return preferredWidth
   **/
-  @ApiModelProperty(value = "Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \"auto\" value.")
+  @ApiModelProperty(value = "")
   public PreferredWidth getPreferredWidth() {
     return preferredWidth;
   }
@@ -1259,10 +1259,10 @@ public class TableProperties extends LinkElement {
   }
 
    /**
-   * Gets or sets get or sets TextWrapping  for table.
+   * Gets or sets get or sets TextWrapping for table.
    * @return textWrapping
   **/
-  @ApiModelProperty(value = "Gets or sets get or sets TextWrapping  for table.")
+  @ApiModelProperty(value = "Gets or sets get or sets TextWrapping for table.")
   public TextWrappingEnum getTextWrapping() {
     return textWrapping;
   }
