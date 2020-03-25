@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import com.aspose.words.cloud.ApiClient;
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.ClassificationResponse;
@@ -43,6 +44,20 @@ public class TestCommon extends TestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
+    }
+
+    /*
+    Test that request token throws bad request exception due to invalid_client
+     */
+    @Test
+    public void testWrongAppSidThrowsException() {
+        ApiClient client = new ApiClient("tttt", "qqqq", null);
+        try {
+            client.requestToken();
+        } catch (ApiException e)
+        {
+            assertEquals(400, e.getCode());
+        }
     }
 
     @Test
