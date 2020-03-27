@@ -56,6 +56,9 @@ public class CompareData {
   @SerializedName("DateTime")
   private OffsetDateTime dateTime = null;
 
+  @SerializedName("CompareOptions")
+  private CompareOptions compareOptions = null;
+
   public CompareData comparingWithDocument(String comparingWithDocument) {
     this.comparingWithDocument = comparingWithDocument;
     return this;
@@ -110,6 +113,24 @@ public class CompareData {
     this.dateTime = dateTime;
   }
 
+  public CompareData compareOptions(CompareOptions compareOptions) {
+    this.compareOptions = compareOptions;
+    return this;
+  }
+
+   /**
+   * Get compareOptions
+   * @return compareOptions
+  **/
+  @ApiModelProperty(value = "")
+  public CompareOptions getCompareOptions() {
+    return compareOptions;
+  }
+
+  public void setCompareOptions(CompareOptions compareOptions) {
+    this.compareOptions = compareOptions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -122,12 +143,13 @@ public class CompareData {
     CompareData compareData = (CompareData) o;
     return Objects.equals(this.comparingWithDocument, compareData.comparingWithDocument) &&
         Objects.equals(this.author, compareData.author) &&
-        Objects.equals(this.dateTime, compareData.dateTime);
+        Objects.equals(this.dateTime, compareData.dateTime) &&
+        Objects.equals(this.compareOptions, compareData.compareOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparingWithDocument, author, dateTime);
+    return Objects.hash(comparingWithDocument, author, dateTime, compareOptions);
   }
 
 
@@ -139,6 +161,7 @@ public class CompareData {
     sb.append("    comparingWithDocument: ").append(toIndentedString(comparingWithDocument)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
+    sb.append("    compareOptions: ").append(toIndentedString(compareOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
