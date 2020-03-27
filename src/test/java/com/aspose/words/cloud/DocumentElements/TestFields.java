@@ -32,10 +32,7 @@ import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.DocumentResponse;
-import com.aspose.words.cloud.model.Field;
-import com.aspose.words.cloud.model.FieldResponse;
-import com.aspose.words.cloud.model.FieldsResponse;
-import com.aspose.words.cloud.model.PageNumber;
+import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
 
 import org.junit.Test;
