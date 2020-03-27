@@ -58,7 +58,7 @@ public void testCreateOrUpdateDocumentProperty() throws ApiException, IOExceptio
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutUpdateDocumentProperty.docx";
         String propertyName = "AsposeAuthor";
-        DocumentProperty prop = new DocumentProperty().builtIn(false).name(propertyName).value("Yaroslaw Ekimov");
+        DocumentPropertyCreateOrUpdate prop = new DocumentPropertyCreateOrUpdate().builtIn(false).value("Yaroslaw Ekimov");
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 

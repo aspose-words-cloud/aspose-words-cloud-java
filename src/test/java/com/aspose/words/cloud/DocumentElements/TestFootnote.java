@@ -167,7 +167,7 @@ public void testUpdateFootnote() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestUpdateFootnote.docx";
         Integer index = 0;
-        Footnote body = new Footnote().text("new text is here");
+        FootnoteUpdate body = new FootnoteUpdate().text("new text is here");
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
@@ -187,7 +187,7 @@ public void testUpdateFootnoteWithoutNodePath() throws ApiException, IOException
         String fileName = "Footnote.doc";
         String remoteName = "TestUpdateFootnoteWithoutNodePath.docx";
         Integer index = 0;
-        Footnote body = new Footnote().text("new text is here");
+        FootnoteUpdate body = new FootnoteUpdate().text("new text is here");
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
@@ -206,7 +206,7 @@ public void testUpdateFootnoteWithoutNodePath() throws ApiException, IOException
 public void testInsertFootnote() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestInsertFootnote.docx";
-        Footnote body = new Footnote().text("new text is here").footnoteType(Footnote.FootnoteTypeEnum.ENDNOTE);
+        FootnoteInsert body = new FootnoteInsert().text("new text is here").footnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
@@ -225,7 +225,7 @@ public void testInsertFootnote() throws ApiException, IOException {
 public void testInsertFootnoteWithoutNodePath() throws ApiException, IOException {
         String fileName = "Footnote.doc";
         String remoteName = "TestInsertFootnoteWithoutNodePath.docx";
-        Footnote body = new Footnote().text("new text is here").footnoteType(Footnote.FootnoteTypeEnum.ENDNOTE);
+        FootnoteInsert body = new FootnoteInsert().text("new text is here").footnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 

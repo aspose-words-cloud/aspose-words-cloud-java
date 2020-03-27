@@ -76,7 +76,7 @@ public void testUpdateRun() throws ApiException, IOException {
         String remoteName = "TestUpdateRun.doc";
         Integer index = 0;
         String paragraphPath = "paragraphs/1";
-        Run body = (Run) new Run().text("Run with text");
+        RunUpdate body = (RunUpdate) new RunUpdate().text("Run with text");
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         UpdateRunRequest request = new UpdateRunRequest(remoteName, body, paragraphPath, index,
@@ -95,7 +95,7 @@ public void testInsertRun() throws ApiException, IOException {
         String fileName = "Run.doc";
         String remoteName = "TestInsertRun.doc";
         String paragraphPath = "paragraphs/1";
-        Run body = (Run) new Run().text("Run with text");
+        RunInsert body = (RunInsert) new RunInsert().text("Run with text");
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         InsertRunRequest request = new InsertRunRequest(remoteName, paragraphPath, body,
