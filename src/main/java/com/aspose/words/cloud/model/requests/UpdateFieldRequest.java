@@ -40,7 +40,7 @@ public class UpdateFieldRequest {
     /*
      * Field data.
      */
-    private Field Field;
+    private FieldUpdate Field;
 
     /*
      * Path to the node, which contains collection of fields.
@@ -91,7 +91,7 @@ public class UpdateFieldRequest {
      * Initializes a new instance of the updateFieldRequest class.
      *  
      * @param String name The document name.
-     * @param Field field Field data.
+     * @param FieldUpdate field Field data.
      * @param String nodePath Path to the node, which contains collection of fields.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -102,7 +102,7 @@ public class UpdateFieldRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateFieldRequest(String name,  Field field,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateFieldRequest(String name,  FieldUpdate field,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         Field = field;
         NodePath = nodePath;
@@ -133,14 +133,14 @@ public class UpdateFieldRequest {
     /*
      *  Gets Field data.
      */
-    public Field getField() {
+    public FieldUpdate getField() {
         return Field;
     }
 
     /*
      * Sets Field data.
      */
-    public void setField(Field value) {
+    public void setField(FieldUpdate value) {
         Field = value;
     }
 

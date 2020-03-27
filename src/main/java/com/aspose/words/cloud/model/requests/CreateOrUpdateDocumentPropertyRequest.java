@@ -45,7 +45,7 @@ public class CreateOrUpdateDocumentPropertyRequest {
     /*
      * The property with new value.
      */
-    private DocumentProperty Property;
+    private DocumentPropertyCreateOrUpdate Property;
 
     /*
      * Original document folder.
@@ -87,7 +87,7 @@ public class CreateOrUpdateDocumentPropertyRequest {
      *  
      * @param String name The document name.
      * @param String propertyName The property name.
-     * @param DocumentProperty property The property with new value.
+     * @param DocumentPropertyCreateOrUpdate property The property with new value.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -96,7 +96,7 @@ public class CreateOrUpdateDocumentPropertyRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public CreateOrUpdateDocumentPropertyRequest(String name,  String propertyName,  DocumentProperty property,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public CreateOrUpdateDocumentPropertyRequest(String name,  String propertyName,  DocumentPropertyCreateOrUpdate property,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         PropertyName = propertyName;
         Property = property;
@@ -140,14 +140,14 @@ public class CreateOrUpdateDocumentPropertyRequest {
     /*
      *  Gets The property with new value.
      */
-    public DocumentProperty getProperty() {
+    public DocumentPropertyCreateOrUpdate getProperty() {
         return Property;
     }
 
     /*
      * Sets The property with new value.
      */
-    public void setProperty(DocumentProperty value) {
+    public void setProperty(DocumentPropertyCreateOrUpdate value) {
         Property = value;
     }
 

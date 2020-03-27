@@ -45,7 +45,7 @@ public class InsertRunRequest {
     /*
      * Run data.
      */
-    private Run Run;
+    private RunInsert Run;
 
     /*
      * Original document folder.
@@ -92,7 +92,7 @@ public class InsertRunRequest {
      *  
      * @param String name The document name.
      * @param String paragraphPath Path to parent paragraph.
-     * @param Run run Run data.
+     * @param RunInsert run Run data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,7 +102,7 @@ public class InsertRunRequest {
      * @param String revisionDateTime The date and time to use for revisions.
      * @param String insertBeforeNode Paragraph will be inserted before node with index.
      */
-    public InsertRunRequest(String name,  String paragraphPath,  Run run,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
+    public InsertRunRequest(String name,  String paragraphPath,  RunInsert run,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
         Name = name;
         ParagraphPath = paragraphPath;
         Run = run;
@@ -147,14 +147,14 @@ public class InsertRunRequest {
     /*
      *  Gets Run data.
      */
-    public Run getRun() {
+    public RunInsert getRun() {
         return Run;
     }
 
     /*
      * Sets Run data.
      */
-    public void setRun(Run value) {
+    public void setRun(RunInsert value) {
         Run = value;
     }
 

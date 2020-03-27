@@ -40,7 +40,7 @@ public class InsertFootnoteWithoutNodePathRequest {
     /*
      * Footnote data.
      */
-    private Footnote FootnoteDto;
+    private FootnoteInsert FootnoteDto;
 
     /*
      * Original document folder.
@@ -81,7 +81,7 @@ public class InsertFootnoteWithoutNodePathRequest {
      * Initializes a new instance of the insertFootnoteWithoutNodePathRequest class.
      *  
      * @param String name The document name.
-     * @param Footnote footnoteDto Footnote data.
+     * @param FootnoteInsert footnoteDto Footnote data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -90,7 +90,7 @@ public class InsertFootnoteWithoutNodePathRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertFootnoteWithoutNodePathRequest(String name,  Footnote footnoteDto,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public InsertFootnoteWithoutNodePathRequest(String name,  FootnoteInsert footnoteDto,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         FootnoteDto = footnoteDto;
         Folder = folder;
@@ -119,14 +119,14 @@ public class InsertFootnoteWithoutNodePathRequest {
     /*
      *  Gets Footnote data.
      */
-    public Footnote getFootnoteDto() {
+    public FootnoteInsert getFootnoteDto() {
         return FootnoteDto;
     }
 
     /*
      * Sets Footnote data.
      */
-    public void setFootnoteDto(Footnote value) {
+    public void setFootnoteDto(FootnoteInsert value) {
         FootnoteDto = value;
     }
 

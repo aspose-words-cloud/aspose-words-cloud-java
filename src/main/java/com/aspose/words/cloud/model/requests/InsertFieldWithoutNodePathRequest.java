@@ -40,7 +40,7 @@ public class InsertFieldWithoutNodePathRequest {
     /*
      * Field data.
      */
-    private Field Field;
+    private FieldInsert Field;
 
     /*
      * Original document folder.
@@ -86,7 +86,7 @@ public class InsertFieldWithoutNodePathRequest {
      * Initializes a new instance of the insertFieldWithoutNodePathRequest class.
      *  
      * @param String name The document name.
-     * @param Field field Field data.
+     * @param FieldInsert field Field data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -96,7 +96,7 @@ public class InsertFieldWithoutNodePathRequest {
      * @param String revisionDateTime The date and time to use for revisions.
      * @param String insertBeforeNode Field will be inserted before node with id="nodeId".
      */
-    public InsertFieldWithoutNodePathRequest(String name,  Field field,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
+    public InsertFieldWithoutNodePathRequest(String name,  FieldInsert field,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
         Name = name;
         Field = field;
         Folder = folder;
@@ -126,14 +126,14 @@ public class InsertFieldWithoutNodePathRequest {
     /*
      *  Gets Field data.
      */
-    public Field getField() {
+    public FieldInsert getField() {
         return Field;
     }
 
     /*
      * Sets Field data.
      */
-    public void setField(Field value) {
+    public void setField(FieldInsert value) {
         Field = value;
     }
 
