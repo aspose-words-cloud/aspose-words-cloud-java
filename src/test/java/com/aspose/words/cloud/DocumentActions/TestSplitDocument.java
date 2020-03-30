@@ -59,9 +59,9 @@ public void testSplitDocument() throws ApiException, IOException {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        SplitDocumentRequest request = new SplitDocumentRequest(remoteName,
+        SplitDocumentRequest request = new SplitDocumentRequest(remoteName, format,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder),
-                null, null, null, destName, format, from, to, null, null);
+                null, null, null, destName, from, to, null, null);
 
         SplitDocumentResponse result = TestInitializer.wordsApi.splitDocument(request);
         assertNotNull(result);
