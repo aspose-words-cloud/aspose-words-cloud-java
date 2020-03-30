@@ -40,7 +40,7 @@ public class InsertFieldRequest {
     /*
      * Field data.
      */
-    private Field Field;
+    private FieldInsert Field;
 
     /*
      * Path to the node, which contains collection of fields.
@@ -91,7 +91,7 @@ public class InsertFieldRequest {
      * Initializes a new instance of the insertFieldRequest class.
      *  
      * @param String name The document name.
-     * @param Field field Field data.
+     * @param FieldInsert field Field data.
      * @param String nodePath Path to the node, which contains collection of fields.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -102,7 +102,7 @@ public class InsertFieldRequest {
      * @param String revisionDateTime The date and time to use for revisions.
      * @param String insertBeforeNode Field will be inserted before node with id="nodeId".
      */
-    public InsertFieldRequest(String name,  Field field,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
+    public InsertFieldRequest(String name,  FieldInsert field,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
         Name = name;
         Field = field;
         NodePath = nodePath;
@@ -133,14 +133,14 @@ public class InsertFieldRequest {
     /*
      *  Gets Field data.
      */
-    public Field getField() {
+    public FieldInsert getField() {
         return Field;
     }
 
     /*
      * Sets Field data.
      */
-    public void setField(Field value) {
+    public void setField(FieldInsert value) {
         Field = value;
     }
 

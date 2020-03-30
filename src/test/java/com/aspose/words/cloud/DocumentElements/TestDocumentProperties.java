@@ -30,7 +30,7 @@ import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.DocumentPropertiesResponse;
-import com.aspose.words.cloud.model.DocumentProperty;
+import com.aspose.words.cloud.model.DocumentPropertyCreateOrUpdate;
 import com.aspose.words.cloud.model.DocumentPropertyResponse;
 import com.aspose.words.cloud.model.requests.CreateOrUpdateDocumentPropertyRequest;
 import com.aspose.words.cloud.model.requests.DeleteDocumentPropertyRequest;
@@ -58,7 +58,7 @@ public void testCreateOrUpdateDocumentProperty() throws ApiException, IOExceptio
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestPutUpdateDocumentProperty.docx";
         String propertyName = "AsposeAuthor";
-        DocumentProperty prop = new DocumentProperty().builtIn(false).name(propertyName).value("Yaroslaw Ekimov");
+        DocumentPropertyCreateOrUpdate prop = (DocumentPropertyCreateOrUpdate) new DocumentPropertyCreateOrUpdate().value("Yaroslaw Ekimov");
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 

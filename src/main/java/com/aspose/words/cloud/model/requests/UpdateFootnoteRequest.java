@@ -40,7 +40,7 @@ public class UpdateFootnoteRequest {
     /*
      * Footnote data.
      */
-    private Footnote FootnoteDto;
+    private FootnoteUpdate FootnoteDto;
 
     /*
      * Path to the node, which contains collection of footnotes.
@@ -91,7 +91,7 @@ public class UpdateFootnoteRequest {
      * Initializes a new instance of the updateFootnoteRequest class.
      *  
      * @param String name The document name.
-     * @param Footnote footnoteDto Footnote data.
+     * @param FootnoteUpdate footnoteDto Footnote data.
      * @param String nodePath Path to the node, which contains collection of footnotes.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -102,7 +102,7 @@ public class UpdateFootnoteRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateFootnoteRequest(String name,  Footnote footnoteDto,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateFootnoteRequest(String name,  FootnoteUpdate footnoteDto,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         FootnoteDto = footnoteDto;
         NodePath = nodePath;
@@ -133,14 +133,14 @@ public class UpdateFootnoteRequest {
     /*
      *  Gets Footnote data.
      */
-    public Footnote getFootnoteDto() {
+    public FootnoteUpdate getFootnoteDto() {
         return FootnoteDto;
     }
 
     /*
      * Sets Footnote data.
      */
-    public void setFootnoteDto(Footnote value) {
+    public void setFootnoteDto(FootnoteUpdate value) {
         FootnoteDto = value;
     }
 

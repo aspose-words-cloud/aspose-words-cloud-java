@@ -40,7 +40,7 @@ public class InsertFootnoteRequest {
     /*
      * Footnote data.
      */
-    private Footnote FootnoteDto;
+    private FootnoteInsert FootnoteDto;
 
     /*
      * Path to the node, which contains collection of footnotes.
@@ -86,7 +86,7 @@ public class InsertFootnoteRequest {
      * Initializes a new instance of the insertFootnoteRequest class.
      *  
      * @param String name The document name.
-     * @param Footnote footnoteDto Footnote data.
+     * @param FootnoteInsert footnoteDto Footnote data.
      * @param String nodePath Path to the node, which contains collection of footnotes.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -96,7 +96,7 @@ public class InsertFootnoteRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertFootnoteRequest(String name,  Footnote footnoteDto,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public InsertFootnoteRequest(String name,  FootnoteInsert footnoteDto,  String nodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         FootnoteDto = footnoteDto;
         NodePath = nodePath;
@@ -126,14 +126,14 @@ public class InsertFootnoteRequest {
     /*
      *  Gets Footnote data.
      */
-    public Footnote getFootnoteDto() {
+    public FootnoteInsert getFootnoteDto() {
         return FootnoteDto;
     }
 
     /*
      * Sets Footnote data.
      */
-    public void setFootnoteDto(Footnote value) {
+    public void setFootnoteDto(FootnoteInsert value) {
         FootnoteDto = value;
     }
 

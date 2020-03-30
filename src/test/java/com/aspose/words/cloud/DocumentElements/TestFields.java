@@ -32,10 +32,7 @@ import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
 import com.aspose.words.cloud.model.DocumentResponse;
-import com.aspose.words.cloud.model.Field;
-import com.aspose.words.cloud.model.FieldResponse;
-import com.aspose.words.cloud.model.FieldsResponse;
-import com.aspose.words.cloud.model.PageNumber;
+import com.aspose.words.cloud.model.*;
 import com.aspose.words.cloud.model.requests.*;
 
 import org.junit.Test;
@@ -133,7 +130,7 @@ public void testUpdateField() throws ApiException, IOException {
         String fileName = "GetField.docx";
         String remoteName = "TestUpdateField.docx";
         Integer index = 0;
-        Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
+        FieldUpdate body = (FieldUpdate) new FieldUpdate().fieldCode("{ NUMPAGES }");
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         UpdateFieldRequest request = new UpdateFieldRequest(remoteName, body, "sections/0/paragraphs/0", index,
@@ -152,7 +149,7 @@ public void testUpdateField() throws ApiException, IOException {
 public void testInsertField() throws ApiException, IOException {
         String fileName = "GetField.docx";
         String remoteName = "TestInsertField.docx";
-        Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
+        FieldInsert body = (FieldInsert) new FieldInsert().fieldCode("{ NUMPAGES }");
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         InsertFieldRequest request = new InsertFieldRequest(remoteName, body, "sections/0/paragraphs/0",
@@ -171,7 +168,7 @@ public void testInsertField() throws ApiException, IOException {
 public void testInsertFieldWithoutNodePath() throws ApiException, IOException {
         String fileName = "GetField.docx";
         String remoteName = "TestInsertFieldWithoutNodePath.docx";
-        Field body = (Field) new Field().fieldCode("{ NUMPAGES }").nodeId("0.0.3");
+        FieldInsert body = (FieldInsert) new FieldInsert().fieldCode("{ NUMPAGES }");
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         InsertFieldWithoutNodePathRequest request = new InsertFieldWithoutNodePathRequest(remoteName, body,
