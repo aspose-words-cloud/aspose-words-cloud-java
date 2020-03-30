@@ -53,7 +53,7 @@ public class ExecuteMailMergeOnlineRequest {
     private String Cleanup;
 
     /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead. 
+     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead.
      */
     private String DocumentFileName;
     
@@ -64,7 +64,7 @@ public class ExecuteMailMergeOnlineRequest {
      * @param byte[] data File with mailmerge data
      * @param Boolean withRegions With regions flag.
      * @param String cleanup Clean up options.
-     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead. 
+     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead.
      */
     public ExecuteMailMergeOnlineRequest(byte[] template,  byte[] data,  Boolean withRegions,  String cleanup,  String documentFileName) {
         Template = template;
@@ -131,14 +131,14 @@ public class ExecuteMailMergeOnlineRequest {
     }
 
     /*
-     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead. 
+     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead.
      */
     public String getDocumentFileName() {
         return DocumentFileName;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead. 
+     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead.
      */
     public void setDocumentFileName(String value) {
         DocumentFileName = value;

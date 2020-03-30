@@ -830,7 +830,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request&#39;s content to the specified format .
+     * Converts document from the request&#39;s content to the specified format.
      * 
      * @param request Request object
      * @return File
@@ -852,7 +852,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request&#39;s content to the specified format .
+     * Converts document from the request&#39;s content to the specified format.
      * 
      * @param request Request object
      * @return ApiResponse&lt;File&gt;
@@ -865,7 +865,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request&#39;s content to the specified format . (asynchronously)
+     * Converts document from the request&#39;s content to the specified format. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -21960,12 +21960,12 @@ if (request.getImageFile() != null)
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "from", request.getFrom());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "to", request.getTo());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "zipOutput", request.getZipOutput());
@@ -22009,6 +22009,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling splitDocument");
+        }
+        
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling splitDocument");
         }
         
 
