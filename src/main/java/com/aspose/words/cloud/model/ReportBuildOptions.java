@@ -53,7 +53,13 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(ReportBuildOptions.Adapter.class)
 public enum ReportBuildOptions {
-  NONE("None");  ALLOWMISSINGMEMBERS("AllowMissingMembers");  REMOVEEMPTYPARAGRAPHS("RemoveEmptyParagraphs");  INLINEERRORMESSAGES("InlineErrorMessages");
+    NONE("None"),
+    
+    ALLOWMISSINGMEMBERS("AllowMissingMembers"),
+    
+    REMOVEEMPTYPARAGRAPHS("RemoveEmptyParagraphs"),
+    
+    INLINEERRORMESSAGES("InlineErrorMessages");
 
   private String value;
 
