@@ -58,7 +58,7 @@ public class TestReporting extends TestCase {
         java.nio.file.Path dataPath = Paths.get(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, "ReportData.json"));
     
         ReportEngineSettings settings = new ReportEngineSettings().dataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);        
-        BuildReportOnlineRequest request = new BuildReportOnlineRequest(Files.readAllBytes(filePath), Files.readString(dataPath), settings, null);
+        BuildReportOnlineRequest request = new BuildReportOnlineRequest(Files.readAllBytes(filePath), new String(Files.readAllBytes(dataPath)), settings, null);
         TestInitializer.wordsApi.buildReportOnline(request);
     }
 
@@ -80,7 +80,7 @@ public class TestReporting extends TestCase {
             .dataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON)
             .reportBuildOptions(options);
 
-        BuildReportRequest request = new BuildReportRequest(remoteName, Files.readString(dataPath), settings, null, null, null, null, null);
+        BuildReportRequest request = new BuildReportRequest(remoteName, new String(Files.readAllBytes(dataPath)), settings, null, null, null, null, null);
         TestInitializer.wordsApi.buildReport(request);
     }
 }
