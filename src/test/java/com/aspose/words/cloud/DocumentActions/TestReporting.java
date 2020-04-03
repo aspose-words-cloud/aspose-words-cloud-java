@@ -57,7 +57,7 @@ public class TestReporting extends TestCase {
         java.nio.file.Path filePath = Paths.get(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, "ReportTemplate.docx"));
         java.nio.file.Path dataPath = Paths.get(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, "ReportData.json"));
     
-        ReportEngineSettings settings = new ReportEngineSettings().dataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);        
+        ReportEngineSettings settings = new ReportEngineSettings().dataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON).dataSourceName("persons");        
         BuildReportOnlineRequest request = new BuildReportOnlineRequest(Files.readAllBytes(filePath), new String(Files.readAllBytes(dataPath)), settings, null);
         TestInitializer.wordsApi.buildReportOnline(request);
     }
