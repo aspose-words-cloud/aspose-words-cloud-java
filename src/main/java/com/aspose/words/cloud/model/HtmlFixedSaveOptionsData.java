@@ -86,6 +86,9 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("ShowPageBorder")
   private Boolean showPageBorder = null;
 
+  @SerializedName("UseTargetMachineFonts")
+  private Boolean useTargetMachineFonts = null;
+
   public HtmlFixedSaveOptionsData cssClassNamesPrefix(String cssClassNamesPrefix) {
     this.cssClassNamesPrefix = cssClassNamesPrefix;
     return this;
@@ -320,6 +323,24 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     this.showPageBorder = showPageBorder;
   }
 
+  public HtmlFixedSaveOptionsData useTargetMachineFonts(Boolean useTargetMachineFonts) {
+    this.useTargetMachineFonts = useTargetMachineFonts;
+    return this;
+  }
+
+   /**
+   * Gets or sets flag indicates whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. Default is false.
+   * @return useTargetMachineFonts
+  **/
+  @ApiModelProperty(value = "Gets or sets flag indicates whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. Default is false.")
+  public Boolean isUseTargetMachineFonts() {
+    return useTargetMachineFonts;
+  }
+
+  public void setUseTargetMachineFonts(Boolean useTargetMachineFonts) {
+    this.useTargetMachineFonts = useTargetMachineFonts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -343,12 +364,13 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         Objects.equals(this.resourcesFolderAlias, htmlFixedSaveOptionsData.resourcesFolderAlias) &&
         Objects.equals(this.saveFontFaceCssSeparately, htmlFixedSaveOptionsData.saveFontFaceCssSeparately) &&
         Objects.equals(this.showPageBorder, htmlFixedSaveOptionsData.showPageBorder) &&
+        Objects.equals(this.useTargetMachineFonts, htmlFixedSaveOptionsData.useTargetMachineFonts) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cssClassNamesPrefix, encoding, exportEmbeddedCss, exportEmbeddedFonts, exportEmbeddedImages, exportFormFields, fontFormat, pageHorizontalAlignment, pageMargins, resourcesFolder, resourcesFolderAlias, saveFontFaceCssSeparately, showPageBorder, super.hashCode());
+    return Objects.hash(cssClassNamesPrefix, encoding, exportEmbeddedCss, exportEmbeddedFonts, exportEmbeddedImages, exportFormFields, fontFormat, pageHorizontalAlignment, pageMargins, resourcesFolder, resourcesFolderAlias, saveFontFaceCssSeparately, showPageBorder, useTargetMachineFonts, super.hashCode());
   }
 
 
@@ -370,6 +392,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    resourcesFolderAlias: ").append(toIndentedString(resourcesFolderAlias)).append("\n");
     sb.append("    saveFontFaceCssSeparately: ").append(toIndentedString(saveFontFaceCssSeparately)).append("\n");
     sb.append("    showPageBorder: ").append(toIndentedString(showPageBorder)).append("\n");
+    sb.append("    useTargetMachineFonts: ").append(toIndentedString(useTargetMachineFonts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
