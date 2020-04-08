@@ -28,20 +28,24 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.NodeLink;
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Table cell element.
  */
 @ApiModel(description = "Table cell element.")
-
 public class TableCell extends NodeLink {
   @SerializedName("ChildNodes")
   private List<NodeLink> childNodes = null;

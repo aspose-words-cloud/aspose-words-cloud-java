@@ -26,6 +26,7 @@
  */
 package com.aspose.words.cloud.model.requests;
 import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for insertFieldWithoutNodePath operation.
@@ -39,7 +40,7 @@ public class InsertFieldWithoutNodePathRequest {
     /*
      * Field data.
      */
-    private Field Field;
+    private FieldInsert Field;
 
     /*
      * Original document folder.
@@ -77,7 +78,7 @@ public class InsertFieldWithoutNodePathRequest {
     private String RevisionDateTime;
 
     /*
-     * Field will be inserted before node with id=\"nodeId\".
+     * Field will be inserted before node with id="nodeId".
      */
     private String InsertBeforeNode;
     
@@ -85,7 +86,7 @@ public class InsertFieldWithoutNodePathRequest {
      * Initializes a new instance of the insertFieldWithoutNodePathRequest class.
      *  
      * @param String name The document name.
-     * @param Field field Field data.
+     * @param FieldInsert field Field data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -93,9 +94,9 @@ public class InsertFieldWithoutNodePathRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String insertBeforeNode Field will be inserted before node with id=\"nodeId\".
+     * @param String insertBeforeNode Field will be inserted before node with id="nodeId".
      */
-    public InsertFieldWithoutNodePathRequest(String name,  Field field,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
+    public InsertFieldWithoutNodePathRequest(String name,  FieldInsert field,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
         Name = name;
         Field = field;
         Folder = folder;
@@ -125,14 +126,14 @@ public class InsertFieldWithoutNodePathRequest {
     /*
      *  Gets Field data.
      */
-    public Field getField() {
+    public FieldInsert getField() {
         return Field;
     }
 
     /*
      * Sets Field data.
      */
-    public void setField(Field value) {
+    public void setField(FieldInsert value) {
         Field = value;
     }
 
@@ -235,14 +236,14 @@ public class InsertFieldWithoutNodePathRequest {
     }
 
     /*
-     *  Gets Field will be inserted before node with id=\"nodeId\".
+     *  Gets Field will be inserted before node with id="nodeId".
      */
     public String getInsertBeforeNode() {
         return InsertBeforeNode;
     }
 
     /*
-     * Sets Field will be inserted before node with id=\"nodeId\".
+     * Sets Field will be inserted before node with id="nodeId".
      */
     public void setInsertBeforeNode(String value) {
         InsertBeforeNode = value;

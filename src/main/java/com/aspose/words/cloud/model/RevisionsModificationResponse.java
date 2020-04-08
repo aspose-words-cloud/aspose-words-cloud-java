@@ -28,10 +28,17 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.ModificationOperationResult;
-import com.aspose.words.cloud.model.WordsResponse;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -39,7 +46,6 @@ import io.swagger.annotations.ApiModelProperty;
  * response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
  */
 @ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).")
-
 public class RevisionsModificationResponse extends WordsResponse {
   @SerializedName("Result")
   private ModificationOperationResult result = null;
@@ -50,10 +56,10 @@ public class RevisionsModificationResponse extends WordsResponse {
   }
 
    /**
-   * Gets or sets result of the modification operations for the revisions collection.
+   * Get result
    * @return result
   **/
-  @ApiModelProperty(value = "Gets or sets result of the modification operations for the revisions collection.")
+  @ApiModelProperty(value = "")
   public ModificationOperationResult getResult() {
     return result;
   }

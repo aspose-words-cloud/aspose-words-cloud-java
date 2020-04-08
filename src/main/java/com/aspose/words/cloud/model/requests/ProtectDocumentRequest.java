@@ -26,6 +26,7 @@
  */
 package com.aspose.words.cloud.model.requests;
 import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for protectDocument operation.
@@ -37,7 +38,7 @@ public class ProtectDocumentRequest {
     private String Name;
 
     /*
-     * with protection settings.            
+     * ProtectionRequest with protection settings.
      */
     private ProtectionRequest ProtectionRequest;
 
@@ -70,7 +71,7 @@ public class ProtectDocumentRequest {
      * Initializes a new instance of the protectDocumentRequest class.
      *  
      * @param String name The document name.
-     * @param ProtectionRequest protectionRequest with protection settings.            
+     * @param ProtectionRequest protectionRequest ProtectionRequest with protection settings.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -102,14 +103,14 @@ public class ProtectDocumentRequest {
     }
 
     /*
-     *  Gets with protection settings.            
+     *  Gets ProtectionRequest with protection settings.
      */
     public ProtectionRequest getProtectionRequest() {
         return ProtectionRequest;
     }
 
     /*
-     * Sets with protection settings.            
+     * Sets ProtectionRequest with protection settings.
      */
     public void setProtectionRequest(ProtectionRequest value) {
         ProtectionRequest = value;

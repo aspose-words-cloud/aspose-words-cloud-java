@@ -26,6 +26,7 @@
  */
 package com.aspose.words.cloud.model.requests;
 import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for updateRun operation.
@@ -39,7 +40,7 @@ public class UpdateRunRequest {
     /*
      * Run data.
      */
-    private Run Run;
+    private RunUpdate Run;
 
     /*
      * Path to parent paragraph.
@@ -90,7 +91,7 @@ public class UpdateRunRequest {
      * Initializes a new instance of the updateRunRequest class.
      *  
      * @param String name The document name.
-     * @param Run run Run data.
+     * @param RunUpdate run Run data.
      * @param String paragraphPath Path to parent paragraph.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -101,7 +102,7 @@ public class UpdateRunRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateRunRequest(String name,  Run run,  String paragraphPath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateRunRequest(String name,  RunUpdate run,  String paragraphPath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         Run = run;
         ParagraphPath = paragraphPath;
@@ -132,14 +133,14 @@ public class UpdateRunRequest {
     /*
      *  Gets Run data.
      */
-    public Run getRun() {
+    public RunUpdate getRun() {
         return Run;
     }
 
     /*
      * Sets Run data.
      */
-    public void setRun(Run value) {
+    public void setRun(RunUpdate value) {
         Run = value;
     }
 

@@ -28,10 +28,17 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.Field;
-import com.aspose.words.cloud.model.WordsResponse;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -39,7 +46,6 @@ import io.swagger.annotations.ApiModelProperty;
  * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/fields/{1}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/fields/{1}.")
-
 public class FieldResponse extends WordsResponse {
   @SerializedName("Field")
   private Field field = null;
@@ -50,10 +56,10 @@ public class FieldResponse extends WordsResponse {
   }
 
    /**
-   * Gets or sets field information.
+   * Get field
    * @return field
   **/
-  @ApiModelProperty(value = "Gets or sets field information.")
+  @ApiModelProperty(value = "")
   public Field getField() {
     return field;
   }

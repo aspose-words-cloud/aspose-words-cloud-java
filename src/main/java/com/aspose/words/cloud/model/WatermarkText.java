@@ -28,8 +28,17 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -37,7 +46,6 @@ import io.swagger.annotations.ApiModelProperty;
  * Class for insert watermark text request building.
  */
 @ApiModel(description = "Class for insert watermark text request building.")
-
 public class WatermarkText {
   @SerializedName("Text")
   private String text = null;
@@ -72,7 +80,7 @@ public class WatermarkText {
    * Gets or sets the watermark rotation angle.
    * @return rotationAngle
   **/
-  @ApiModelProperty(required = true, value = "Gets or sets the watermark rotation angle.")
+  @ApiModelProperty(value = "Gets or sets the watermark rotation angle.")
   public Double getRotationAngle() {
     return rotationAngle;
   }

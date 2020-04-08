@@ -25,6 +25,8 @@
  * --------------------------------------------------------------------------------------
  */
 package com.aspose.words.cloud.model.requests;
+import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for uploadFile operation.
@@ -36,7 +38,7 @@ public class UploadFileRequest {
     private byte[] FileContent;
 
     /*
-     * Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
+     * Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
      */
     private String Path;
 
@@ -49,7 +51,7 @@ public class UploadFileRequest {
      * Initializes a new instance of the uploadFileRequest class.
      *  
      * @param byte[] fileContent File to upload
-     * @param String path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
+     * @param String path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
      * @param String storageName Storage name
      */
     public UploadFileRequest(byte[] fileContent,  String path,  String storageName) {
@@ -73,14 +75,14 @@ public class UploadFileRequest {
     }
 
     /*
-     *  Gets Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
+     *  Gets Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
      */
     public String getPath() {
         return Path;
     }
 
     /*
-     * Sets Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
+     * Sets Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
      */
     public void setPath(String value) {
         Path = value;

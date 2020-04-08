@@ -26,6 +26,7 @@
  */
 package com.aspose.words.cloud.model.requests;
 import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for insertComment operation.
@@ -39,7 +40,7 @@ public class InsertCommentRequest {
     /*
      * The comment data.
      */
-    private Comment Comment;
+    private CommentInsert Comment;
 
     /*
      * Original document folder.
@@ -80,7 +81,7 @@ public class InsertCommentRequest {
      * Initializes a new instance of the insertCommentRequest class.
      *  
      * @param String name The document name.
-     * @param Comment comment The comment data.
+     * @param CommentInsert comment The comment data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -89,7 +90,7 @@ public class InsertCommentRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertCommentRequest(String name,  Comment comment,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public InsertCommentRequest(String name,  CommentInsert comment,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         Comment = comment;
         Folder = folder;
@@ -118,14 +119,14 @@ public class InsertCommentRequest {
     /*
      *  Gets The comment data.
      */
-    public Comment getComment() {
+    public CommentInsert getComment() {
         return Comment;
     }
 
     /*
      * Sets The comment data.
      */
-    public void setComment(Comment value) {
+    public void setComment(CommentInsert value) {
         Comment = value;
     }
 

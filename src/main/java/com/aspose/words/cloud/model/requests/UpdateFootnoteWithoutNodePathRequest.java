@@ -26,6 +26,7 @@
  */
 package com.aspose.words.cloud.model.requests;
 import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for updateFootnoteWithoutNodePath operation.
@@ -39,7 +40,7 @@ public class UpdateFootnoteWithoutNodePathRequest {
     /*
      * Footnote data.
      */
-    private Footnote FootnoteDto;
+    private FootnoteUpdate FootnoteDto;
 
     /*
      * Object index.
@@ -85,7 +86,7 @@ public class UpdateFootnoteWithoutNodePathRequest {
      * Initializes a new instance of the updateFootnoteWithoutNodePathRequest class.
      *  
      * @param String name The document name.
-     * @param Footnote footnoteDto Footnote data.
+     * @param FootnoteUpdate footnoteDto Footnote data.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -95,7 +96,7 @@ public class UpdateFootnoteWithoutNodePathRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateFootnoteWithoutNodePathRequest(String name,  Footnote footnoteDto,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateFootnoteWithoutNodePathRequest(String name,  FootnoteUpdate footnoteDto,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         FootnoteDto = footnoteDto;
         Index = index;
@@ -125,14 +126,14 @@ public class UpdateFootnoteWithoutNodePathRequest {
     /*
      *  Gets Footnote data.
      */
-    public Footnote getFootnoteDto() {
+    public FootnoteUpdate getFootnoteDto() {
         return FootnoteDto;
     }
 
     /*
      * Sets Footnote data.
      */
-    public void setFootnoteDto(Footnote value) {
+    public void setFootnoteDto(FootnoteUpdate value) {
         FootnoteDto = value;
     }
 

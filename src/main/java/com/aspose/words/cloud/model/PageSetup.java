@@ -28,8 +28,12 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.LinkElement;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Represents the page setup properties of a section.             
  */
 @ApiModel(description = "Represents the page setup properties of a section.             ")
-
 public class PageSetup extends LinkElement {
   @SerializedName("Bidi")
   private Boolean bidi = null;
@@ -1146,10 +1148,10 @@ public class PageSetup extends LinkElement {
   }
 
    /**
-   * Gets or sets true if endnotes are printed at the end of the next section that doesn&#39;t suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.             
+   * Gets or sets true if endnotes are printed at the end of the next section that doesn&#39;t suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.             
    * @return suppressEndnotes
   **/
-  @ApiModelProperty(value = "Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.             ")
+  @ApiModelProperty(value = "Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.             ")
   public Boolean isSuppressEndnotes() {
     return suppressEndnotes;
   }

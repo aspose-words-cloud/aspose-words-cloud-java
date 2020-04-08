@@ -28,21 +28,24 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.LinkElement;
-import com.aspose.words.cloud.model.ParagraphLink;
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Collection of links to paragraphs.
  */
 @ApiModel(description = "Collection of links to paragraphs.")
-
 public class ParagraphLinkCollection extends LinkElement {
   @SerializedName("ParagraphLinkList")
   private List<ParagraphLink> paragraphLinkList = null;

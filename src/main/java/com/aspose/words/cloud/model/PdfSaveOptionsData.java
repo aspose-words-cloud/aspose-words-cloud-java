@@ -28,12 +28,12 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.DownsampleOptionsData;
-import com.aspose.words.cloud.model.FixedPageSaveOptionsData;
-import com.aspose.words.cloud.model.OutlineOptionsData;
-import com.aspose.words.cloud.model.PdfDigitalSignatureDetailsData;
-import com.aspose.words.cloud.model.PdfEncryptionDetailsData;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * container class for pdf save options.
  */
 @ApiModel(description = "container class for pdf save options.")
-
 public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("Compliance")
   private String compliance = null;
@@ -212,10 +210,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Gets or sets a value determining the way  are exported to PDF file. Default value is .
+   * Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.
    * @return customPropertiesExport
   **/
-  @ApiModelProperty(value = "Gets or sets a value determining the way  are exported to PDF file. Default value is .")
+  @ApiModelProperty(value = "Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.")
   public String getCustomPropertiesExport() {
     return customPropertiesExport;
   }
@@ -230,10 +228,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Gets or sets specifies the details for signing the output PDF document.
+   * Get digitalSignatureDetails
    * @return digitalSignatureDetails
   **/
-  @ApiModelProperty(value = "Gets or sets specifies the details for signing the output PDF document.")
+  @ApiModelProperty(value = "")
   public PdfDigitalSignatureDetailsData getDigitalSignatureDetails() {
     return digitalSignatureDetails;
   }
@@ -266,10 +264,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Gets or sets allows to specify downsample options.
+   * Get downsampleOptions
    * @return downsampleOptions
   **/
-  @ApiModelProperty(value = "Gets or sets allows to specify downsample options.")
+  @ApiModelProperty(value = "")
   public DownsampleOptionsData getDownsampleOptions() {
     return downsampleOptions;
   }
@@ -302,10 +300,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Gets or sets specifies the details for encrypting the output PDF document.
+   * Get encryptionDetails
    * @return encryptionDetails
   **/
-  @ApiModelProperty(value = "Gets or sets specifies the details for encrypting the output PDF document.")
+  @ApiModelProperty(value = "")
   public PdfEncryptionDetailsData getEncryptionDetails() {
     return encryptionDetails;
   }
@@ -446,10 +444,10 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Gets or sets allows to specify outline options.
+   * Get outlineOptions
    * @return outlineOptions
   **/
-  @ApiModelProperty(value = "Gets or sets allows to specify outline options.")
+  @ApiModelProperty(value = "")
   public OutlineOptionsData getOutlineOptions() {
     return outlineOptions;
   }

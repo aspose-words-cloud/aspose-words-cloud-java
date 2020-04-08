@@ -28,9 +28,12 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.DrawingObjectLink;
-import com.aspose.words.cloud.model.WordsApiLink;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,15 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents Drawing Object DTO.
  */
 @ApiModel(description = "Represents Drawing Object DTO.")
-
 public class DrawingObject extends DrawingObjectLink {
   @SerializedName("Height")
   private Double height = null;
@@ -281,10 +280,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Gets or sets link to image data. Can be null if shape does not have an image.
+   * Get imageDataLink
    * @return imageDataLink
   **/
-  @ApiModelProperty(value = "Gets or sets link to image data. Can be null if shape does not have an image.")
+  @ApiModelProperty(value = "")
   public WordsApiLink getImageDataLink() {
     return imageDataLink;
   }
@@ -317,10 +316,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Gets or sets link to ole object. Can be null if shape does not have ole data.
+   * Get oleDataLink
    * @return oleDataLink
   **/
-  @ApiModelProperty(value = "Gets or sets link to ole object. Can be null if shape does not have ole data.")
+  @ApiModelProperty(value = "")
   public WordsApiLink getOleDataLink() {
     return oleDataLink;
   }
@@ -379,10 +378,10 @@ public class DrawingObject extends DrawingObjectLink {
   }
 
    /**
-   * Gets or sets a list of links that originate from this .
+   * Gets or sets a list of links that originate from this DrawingObjectDto.
    * @return renderLinks
   **/
-  @ApiModelProperty(value = "Gets or sets a list of links that originate from this .")
+  @ApiModelProperty(value = "Gets or sets a list of links that originate from this DrawingObjectDto.")
   public List<WordsApiLink> getRenderLinks() {
     return renderLinks;
   }

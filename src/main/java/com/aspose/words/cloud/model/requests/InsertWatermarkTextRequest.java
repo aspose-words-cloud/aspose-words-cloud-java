@@ -26,6 +26,7 @@
  */
 package com.aspose.words.cloud.model.requests;
 import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for insertWatermarkText operation.
@@ -37,7 +38,7 @@ public class InsertWatermarkTextRequest {
     private String Name;
 
     /*
-     * with the watermark data.            
+     * WatermarkText with the watermark data.             
      */
     private WatermarkText WatermarkText;
 
@@ -80,7 +81,7 @@ public class InsertWatermarkTextRequest {
      * Initializes a new instance of the insertWatermarkTextRequest class.
      *  
      * @param String name The document name.
-     * @param WatermarkText watermarkText with the watermark data.            
+     * @param WatermarkText watermarkText WatermarkText with the watermark data.             
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,14 +117,14 @@ public class InsertWatermarkTextRequest {
     }
 
     /*
-     *  Gets with the watermark data.            
+     *  Gets WatermarkText with the watermark data.             
      */
     public WatermarkText getWatermarkText() {
         return WatermarkText;
     }
 
     /*
-     * Sets with the watermark data.            
+     * Sets WatermarkText with the watermark data.             
      */
     public void setWatermarkText(WatermarkText value) {
         WatermarkText = value;

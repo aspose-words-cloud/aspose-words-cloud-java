@@ -26,6 +26,7 @@
  */
 package com.aspose.words.cloud.model.requests;
 import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for updateComment operation.
@@ -44,7 +45,7 @@ public class UpdateCommentRequest {
     /*
      * The comment data.
      */
-    private Comment Comment;
+    private CommentUpdate Comment;
 
     /*
      * Original document folder.
@@ -86,7 +87,7 @@ public class UpdateCommentRequest {
      *  
      * @param String name The document name.
      * @param Integer commentIndex The comment index.
-     * @param Comment comment The comment data.
+     * @param CommentUpdate comment The comment data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -95,7 +96,7 @@ public class UpdateCommentRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateCommentRequest(String name,  Integer commentIndex,  Comment comment,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateCommentRequest(String name,  Integer commentIndex,  CommentUpdate comment,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         CommentIndex = commentIndex;
         Comment = comment;
@@ -139,14 +140,14 @@ public class UpdateCommentRequest {
     /*
      *  Gets The comment data.
      */
-    public Comment getComment() {
+    public CommentUpdate getComment() {
         return Comment;
     }
 
     /*
      * Sets The comment data.
      */
-    public void setComment(Comment value) {
+    public void setComment(CommentUpdate value) {
         Comment = value;
     }
 

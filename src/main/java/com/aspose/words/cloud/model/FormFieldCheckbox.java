@@ -28,9 +28,17 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.FormField;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -38,7 +46,6 @@ import io.swagger.annotations.ApiModelProperty;
  * FormField checkbox element.
  */
 @ApiModel(description = "FormField checkbox element.")
-
 public class FormFieldCheckbox extends FormField {
   @SerializedName("CheckBoxSize")
   private Double checkBoxSize = null;
@@ -55,10 +62,10 @@ public class FormFieldCheckbox extends FormField {
   }
 
    /**
-   * Gets or sets the size of the checkbox in points. Has effect only when  is true.
+   * Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
    * @return checkBoxSize
   **/
-  @ApiModelProperty(value = "Gets or sets the size of the checkbox in points. Has effect only when  is true.")
+  @ApiModelProperty(value = "Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.")
   public Double getCheckBoxSize() {
     return checkBoxSize;
   }

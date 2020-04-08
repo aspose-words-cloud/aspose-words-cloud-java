@@ -26,6 +26,7 @@
  */
 package com.aspose.words.cloud.model.requests;
 import com.aspose.words.cloud.model.*;
+import java.io.File;
 
 /*
  * Request model for appendDocument operation.
@@ -37,7 +38,7 @@ public class AppendDocumentRequest {
     private String Name;
 
     /*
-     * with a list of documents to append.            
+     * DocumentEntryList with a list of documents to append.
      */
     private DocumentEntryList DocumentList;
 
@@ -80,7 +81,7 @@ public class AppendDocumentRequest {
      * Initializes a new instance of the appendDocumentRequest class.
      *  
      * @param String name Original document name.
-     * @param DocumentEntryList documentList with a list of documents to append.            
+     * @param DocumentEntryList documentList DocumentEntryList with a list of documents to append.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,14 +117,14 @@ public class AppendDocumentRequest {
     }
 
     /*
-     *  Gets with a list of documents to append.            
+     *  Gets DocumentEntryList with a list of documents to append.
      */
     public DocumentEntryList getDocumentList() {
         return DocumentList;
     }
 
     /*
-     * Sets with a list of documents to append.            
+     * Sets DocumentEntryList with a list of documents to append.
      */
     public void setDocumentList(DocumentEntryList value) {
         DocumentList = value;

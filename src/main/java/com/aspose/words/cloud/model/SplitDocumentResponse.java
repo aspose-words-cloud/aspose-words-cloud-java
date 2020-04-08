@@ -28,10 +28,17 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.SplitDocumentResult;
-import com.aspose.words.cloud.model.WordsResponse;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -39,7 +46,6 @@ import io.swagger.annotations.ApiModelProperty;
  * This response should be returned by the service when handling:  POST /{name}/split .
  */
 @ApiModel(description = "This response should be returned by the service when handling:  POST /{name}/split .")
-
 public class SplitDocumentResponse extends WordsResponse {
   @SerializedName("SplitResult")
   private SplitDocumentResult splitResult = null;
@@ -50,10 +56,10 @@ public class SplitDocumentResponse extends WordsResponse {
   }
 
    /**
-   * Gets or sets resylt of splitting document.
+   * Get splitResult
    * @return splitResult
   **/
-  @ApiModelProperty(value = "Gets or sets resylt of splitting document.")
+  @ApiModelProperty(value = "")
   public SplitDocumentResult getSplitResult() {
     return splitResult;
   }

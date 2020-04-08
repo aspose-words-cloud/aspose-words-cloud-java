@@ -110,7 +110,7 @@ public void testUpdateComment() throws ApiException, IOException {
         Integer index = 0;
         NodeLink link = new NodeLink().nodeId("0.3.0.3");
         DocumentPosition documentPosition = new DocumentPosition().node(link).offset(0);
-        Comment body = new Comment().initial("YE").rangeStart(documentPosition).rangeEnd(documentPosition)
+        CommentUpdate body = (CommentUpdate) new CommentUpdate().initial("YE").rangeStart(documentPosition).rangeEnd(documentPosition)
                 .author("Yaroslaw Ekimov").text("A new comment");
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
@@ -132,7 +132,7 @@ public void testInsertComment() throws ApiException, IOException {
         String remoteName = "TestInsertComment.docx";
         NodeLink link = new NodeLink().nodeId("0.3.0.3");
         DocumentPosition documentPosition = new DocumentPosition().node(link).offset(0);
-        Comment body = new Comment().initial("YE").rangeStart(documentPosition).rangeEnd(documentPosition)
+        CommentInsert body = (CommentInsert) new CommentInsert().initial("YE").rangeStart(documentPosition).rangeEnd(documentPosition)
                 .author("Yaroslaw Ekimov").text("A new comment");
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));

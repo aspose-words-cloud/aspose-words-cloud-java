@@ -28,10 +28,17 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.SaveResult;
-import com.aspose.words.cloud.model.WordsResponse;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -39,7 +46,6 @@ import io.swagger.annotations.ApiModelProperty;
  * Save response.
  */
 @ApiModel(description = "Save response.")
-
 public class SaveResponse extends WordsResponse {
   @SerializedName("SaveResult")
   private SaveResult saveResult = null;
@@ -50,10 +56,10 @@ public class SaveResponse extends WordsResponse {
   }
 
    /**
-   * Gets or sets save result.
+   * Get saveResult
    * @return saveResult
   **/
-  @ApiModelProperty(value = "Gets or sets save result.")
+  @ApiModelProperty(value = "")
   public SaveResult getSaveResult() {
     return saveResult;
   }

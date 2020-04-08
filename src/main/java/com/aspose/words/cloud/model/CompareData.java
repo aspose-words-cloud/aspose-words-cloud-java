@@ -28,17 +28,24 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.OffsetDateTime;
 
 /**
  * Container class for compare documents.
  */
 @ApiModel(description = "Container class for compare documents.")
-
 public class CompareData {
   @SerializedName("ComparingWithDocument")
   private String comparingWithDocument = null;
@@ -48,6 +55,9 @@ public class CompareData {
 
   @SerializedName("DateTime")
   private OffsetDateTime dateTime = null;
+
+  @SerializedName("CompareOptions")
+  private CompareOptions compareOptions = null;
 
   public CompareData comparingWithDocument(String comparingWithDocument) {
     this.comparingWithDocument = comparingWithDocument;
@@ -103,6 +113,24 @@ public class CompareData {
     this.dateTime = dateTime;
   }
 
+  public CompareData compareOptions(CompareOptions compareOptions) {
+    this.compareOptions = compareOptions;
+    return this;
+  }
+
+   /**
+   * Get compareOptions
+   * @return compareOptions
+  **/
+  @ApiModelProperty(value = "")
+  public CompareOptions getCompareOptions() {
+    return compareOptions;
+  }
+
+  public void setCompareOptions(CompareOptions compareOptions) {
+    this.compareOptions = compareOptions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,12 +143,13 @@ public class CompareData {
     CompareData compareData = (CompareData) o;
     return Objects.equals(this.comparingWithDocument, compareData.comparingWithDocument) &&
         Objects.equals(this.author, compareData.author) &&
-        Objects.equals(this.dateTime, compareData.dateTime);
+        Objects.equals(this.dateTime, compareData.dateTime) &&
+        Objects.equals(this.compareOptions, compareData.compareOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparingWithDocument, author, dateTime);
+    return Objects.hash(comparingWithDocument, author, dateTime, compareOptions);
   }
 
 
@@ -132,6 +161,7 @@ public class CompareData {
     sb.append("    comparingWithDocument: ").append(toIndentedString(comparingWithDocument)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
+    sb.append("    compareOptions: ").append(toIndentedString(compareOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

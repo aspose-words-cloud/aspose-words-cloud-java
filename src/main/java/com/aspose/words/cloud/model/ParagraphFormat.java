@@ -28,8 +28,12 @@
 package com.aspose.words.cloud.model;
 
 import java.util.Objects;
-
-import com.aspose.words.cloud.model.LinkElement;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
+import com.aspose.words.cloud.model.*;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,13 +41,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * Paragraph format element.             
  */
 @ApiModel(description = "Paragraph format element.             ")
-
 public class ParagraphFormat extends LinkElement {
   @SerializedName("AddSpaceBetweenFarEastAndAlpha")
   private Boolean addSpaceBetweenFarEastAndAlpha = null;
@@ -1374,10 +1376,10 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             
+   * Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.             
    * @return noSpaceBetweenParagraphsOfSameStyle
   **/
-  @ApiModelProperty(value = "Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             ")
+  @ApiModelProperty(value = "Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.             ")
   public Boolean isNoSpaceBetweenParagraphsOfSameStyle() {
     return noSpaceBetweenParagraphsOfSameStyle;
   }

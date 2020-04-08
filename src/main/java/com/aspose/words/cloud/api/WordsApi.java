@@ -46,6 +46,10 @@ public class WordsApi {
         this(new ApiClient(appSid, appKey, baseUrl));
     }
 
+    public WordsApi() {
+        this(Configuration.getDefaultApiClient());
+    }
+
     public WordsApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
@@ -70,7 +74,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/revisions/acceptAll"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -207,7 +211,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/appendDocument"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -483,7 +487,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{documentName}/classify"
-            .replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -621,7 +625,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/compareDocument"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -826,7 +830,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request&#39;s content to the specified format .
+     * Converts document from the request&#39;s content to the specified format.
      * 
      * @param request Request object
      * @return File
@@ -848,7 +852,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request&#39;s content to the specified format .
+     * Converts document from the request&#39;s content to the specified format.
      * 
      * @param request Request object
      * @return ApiResponse&lt;File&gt;
@@ -861,7 +865,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request&#39;s content to the specified format . (asynchronously)
+     * Converts document from the request&#39;s content to the specified format. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -906,7 +910,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/file/copy/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1043,7 +1047,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/copy/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1308,7 +1312,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1437,8 +1441,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1587,9 +1591,9 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
-            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1738,8 +1742,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1883,7 +1887,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2024,8 +2028,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2165,8 +2169,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2312,7 +2316,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2453,8 +2457,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2600,7 +2604,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2741,8 +2745,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2882,7 +2886,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3017,7 +3021,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3147,7 +3151,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3277,8 +3281,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3424,7 +3428,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3565,8 +3569,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3712,7 +3716,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -3853,8 +3857,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4000,8 +4004,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4142,7 +4146,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/macros"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4277,8 +4281,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4424,7 +4428,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4565,8 +4569,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4712,7 +4716,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4853,8 +4857,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5000,7 +5004,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5141,8 +5145,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5288,8 +5292,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5435,8 +5439,8 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5582,7 +5586,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5723,7 +5727,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/deleteLast"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5862,7 +5866,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5996,7 +6000,7 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/{name}/MailMerge"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6409,8 +6413,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6551,7 +6555,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6687,9 +6691,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
-            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6835,8 +6839,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6977,7 +6981,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7119,7 +7123,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7255,7 +7259,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{documentName}"
-            .replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7391,8 +7395,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7539,7 +7543,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7681,8 +7685,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7829,7 +7833,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}/imageData"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7971,8 +7975,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -8119,7 +8123,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}/oleData"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -8261,8 +8265,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8403,7 +8407,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8539,7 +8543,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/mailMerge/FieldNames"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8810,7 +8814,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "hyperlinkIndex" + "\\}", request.getHyperlinkIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -8952,7 +8956,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/hyperlinks"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9088,7 +9092,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9224,8 +9228,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9366,7 +9370,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9502,7 +9506,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/statistics"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9641,7 +9645,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9785,8 +9789,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -9933,7 +9937,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -10075,8 +10079,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10217,7 +10221,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10353,7 +10357,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10486,8 +10490,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -10634,7 +10638,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -10776,8 +10780,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10918,7 +10922,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11054,8 +11058,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -11202,7 +11206,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -11344,8 +11348,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11486,7 +11490,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11622,7 +11626,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -11765,7 +11769,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
@@ -11914,8 +11918,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12057,8 +12061,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -12205,7 +12209,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -12347,8 +12351,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12489,7 +12493,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/OfficeMathObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12625,8 +12629,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -12773,8 +12777,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -12921,7 +12925,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -13063,7 +13067,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -13205,8 +13209,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13347,7 +13351,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13483,9 +13487,9 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13537,11 +13541,6 @@ if (request.getData() != null)
         // verify the required parameter 'RangeStartIdentifier' is set
         if (request.getRangeStartIdentifier() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling getRangeText");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling getRangeText");
         }
         
 
@@ -13631,8 +13630,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -13779,8 +13778,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -13927,8 +13926,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14069,7 +14068,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -14211,7 +14210,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -14353,7 +14352,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14489,8 +14488,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -14637,8 +14636,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -14785,8 +14784,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -14933,8 +14932,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -15081,7 +15080,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -15223,8 +15222,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -15371,8 +15370,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -15519,7 +15518,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -15661,8 +15660,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15803,7 +15802,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15939,7 +15938,7 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16083,8 +16082,8 @@ if (request.getData() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16242,7 +16241,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16395,8 +16394,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16546,7 +16545,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16691,8 +16690,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16841,7 +16840,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16985,8 +16984,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17136,7 +17135,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17281,8 +17280,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17431,7 +17430,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/PageNumbers"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17575,8 +17574,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17726,8 +17725,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17877,8 +17876,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17933,6 +17932,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'NodePath' is set
         if (request.getNodePath() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertTable");
+        }
+        
+        // verify the required parameter 'Table' is set
+        if (request.getTable() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Table' when calling insertTable");
         }
         
 
@@ -18022,8 +18026,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18078,6 +18082,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'TableRowPath' is set
         if (request.getTableRowPath() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'TableRowPath' when calling insertTableCell");
+        }
+        
+        // verify the required parameter 'Cell' is set
+        if (request.getCell() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Cell' when calling insertTableCell");
         }
         
 
@@ -18167,8 +18176,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18223,6 +18232,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'TablePath' is set
         if (request.getTablePath() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'TablePath' when calling insertTableRow");
+        }
+        
+        // verify the required parameter 'Row' is set
+        if (request.getRow() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Row' when calling insertTableRow");
         }
         
 
@@ -18312,7 +18326,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18362,6 +18376,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertTableWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Table' is set
+        if (request.getTable() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Table' when calling insertTableWithoutNodePath");
         }
         
 
@@ -18451,7 +18470,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/images"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18594,7 +18613,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/watermarks/texts"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18870,7 +18889,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/storage/file/move/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19007,7 +19026,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/storage/folder/move/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19143,7 +19162,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19285,7 +19304,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/revisions/rejectAll"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19422,9 +19441,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19477,11 +19496,6 @@ if (request.getImageFile() != null)
         // verify the required parameter 'RangeStartIdentifier' is set
         if (request.getRangeStartIdentifier() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling removeRange");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling removeRange");
         }
         
 
@@ -19571,8 +19585,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -19726,7 +19740,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -19875,8 +19889,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -20030,7 +20044,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/OfficeMathObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -20179,7 +20193,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/pages/{pageIndex}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "pageIndex" + "\\}", request.getPageIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -20328,8 +20342,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -20483,7 +20497,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/paragraphs/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -20632,8 +20646,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -20787,7 +20801,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -20936,7 +20950,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/replaceText"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21080,9 +21094,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21140,11 +21154,6 @@ if (request.getImageFile() != null)
         // verify the required parameter 'RangeText' is set
         if (request.getRangeText() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'RangeText' when calling replaceWithText");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling replaceWithText");
         }
         
 
@@ -21356,7 +21365,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/saveAs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21498,9 +21507,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21557,11 +21566,6 @@ if (request.getImageFile() != null)
         // verify the required parameter 'DocumentParameters' is set
         if (request.getDocumentParameters() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'DocumentParameters' when calling saveAsRange");
-        }
-        
-        // verify the required parameter 'RangeEndIdentifier' is set
-        if (request.getRangeEndIdentifier() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'RangeEndIdentifier' when calling saveAsRange");
         }
         
 
@@ -21651,7 +21655,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/saveAs/tiff"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21810,7 +21814,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/search"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21952,16 +21956,16 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/split"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
-        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "from", request.getFrom());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "to", request.getTo());
         localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "zipOutput", request.getZipOutput());
@@ -22005,6 +22009,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling splitDocument");
+        }
+        
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling splitDocument");
         }
         
 
@@ -22094,7 +22103,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22236,8 +22245,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22386,9 +22395,9 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
-            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22542,7 +22551,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -22692,8 +22701,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -22857,7 +22866,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -23016,8 +23025,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -23172,7 +23181,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/updateFields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/");
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23309,8 +23318,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -23465,7 +23474,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -23615,8 +23624,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -23771,7 +23780,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -23921,8 +23930,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -24077,8 +24086,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -24233,8 +24242,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -24389,7 +24398,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -24539,8 +24548,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -24601,6 +24610,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableCellFormat");
+        }
+        
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling updateTableCellFormat");
         }
         
 
@@ -24690,8 +24704,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -24752,6 +24766,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableProperties");
+        }
+        
+        // verify the required parameter 'Properties' is set
+        if (request.getProperties() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Properties' when calling updateTableProperties");
         }
         
 
@@ -24841,7 +24860,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -24897,6 +24916,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTablePropertiesWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Properties' is set
+        if (request.getProperties() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Properties' when calling updateTablePropertiesWithoutNodePath");
         }
         
 
@@ -24986,8 +25010,8 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath()).replaceAll("//", "/")
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -25048,6 +25072,11 @@ if (request.getImageFile() != null)
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableRowFormat");
+        }
+        
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling updateTableRowFormat");
         }
         
 
@@ -25137,7 +25166,7 @@ if (request.getImageFile() != null)
 
         // create path and map variables
         String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath()).replaceAll("//", "/");
+            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
