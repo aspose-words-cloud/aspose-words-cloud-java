@@ -138,9 +138,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
   @SerializedName("ImageCompression")
   private String imageCompression = null;
 
-  @SerializedName("InterpolateImages")
-  private Boolean interpolateImages = null;
-
   @SerializedName("OpenHyperlinksInNewWindow")
   private Boolean openHyperlinksInNewWindow = null;
 
@@ -423,24 +420,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     this.imageCompression = imageCompression;
   }
 
-  public PdfSaveOptionsData interpolateImages(Boolean interpolateImages) {
-    this.interpolateImages = interpolateImages;
-    return this;
-  }
-
-   /**
-   * Gets or sets a flag indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behaviour of reader is used instead.
-   * @return interpolateImages
-  **/
-  @ApiModelProperty(value = "Gets or sets a flag indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behaviour of reader is used instead.")
-  public Boolean isInterpolateImages() {
-    return interpolateImages;
-  }
-
-  public void setInterpolateImages(Boolean interpolateImages) {
-    this.interpolateImages = interpolateImages;
-  }
-
   public PdfSaveOptionsData openHyperlinksInNewWindow(Boolean openHyperlinksInNewWindow) {
     this.openHyperlinksInNewWindow = openHyperlinksInNewWindow;
     return this;
@@ -645,7 +624,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         Objects.equals(this.headerFooterBookmarksExportMode, pdfSaveOptionsData.headerFooterBookmarksExportMode) &&
         Objects.equals(this.imageColorSpaceExportMode, pdfSaveOptionsData.imageColorSpaceExportMode) &&
         Objects.equals(this.imageCompression, pdfSaveOptionsData.imageCompression) &&
-        Objects.equals(this.interpolateImages, pdfSaveOptionsData.interpolateImages) &&
         Objects.equals(this.openHyperlinksInNewWindow, pdfSaveOptionsData.openHyperlinksInNewWindow) &&
         Objects.equals(this.outlineOptions, pdfSaveOptionsData.outlineOptions) &&
         Objects.equals(this.pageMode, pdfSaveOptionsData.pageMode) &&
@@ -661,7 +639,7 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, escapeUri, exportDocumentStructure, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, interpolateImages, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
+    return Objects.hash(compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, escapeUri, exportDocumentStructure, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor, super.hashCode());
   }
 
 
@@ -684,7 +662,6 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
     sb.append("    headerFooterBookmarksExportMode: ").append(toIndentedString(headerFooterBookmarksExportMode)).append("\n");
     sb.append("    imageColorSpaceExportMode: ").append(toIndentedString(imageColorSpaceExportMode)).append("\n");
     sb.append("    imageCompression: ").append(toIndentedString(imageCompression)).append("\n");
-    sb.append("    interpolateImages: ").append(toIndentedString(interpolateImages)).append("\n");
     sb.append("    openHyperlinksInNewWindow: ").append(toIndentedString(openHyperlinksInNewWindow)).append("\n");
     sb.append("    outlineOptions: ").append(toIndentedString(outlineOptions)).append("\n");
     sb.append("    pageMode: ").append(toIndentedString(pageMode)).append("\n");
