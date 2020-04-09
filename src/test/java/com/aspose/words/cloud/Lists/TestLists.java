@@ -55,7 +55,7 @@ public class TestLists extends TestCase {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        GetListsRequest request = new GetListsRequest(remoteName, null, null, null, null);
+        GetListsRequest request = new GetListsRequest(remoteName, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null);
 
         ListsResponse result = TestInitializer.wordsApi.getLists(request);
         assertNotNull(result);
@@ -71,7 +71,7 @@ public class TestLists extends TestCase {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        GetListRequest request = new GetListRequest(remoteName, 1, null, null, null, null);
+        GetListRequest request = new GetListRequest(remoteName, 1, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null);
 
         ListResponse result = TestInitializer.wordsApi.getList(request);
         assertNotNull(result);
@@ -90,7 +90,7 @@ public class TestLists extends TestCase {
         ListUpdate data = new ListUpdate();
         data.setIsRestartAtEachSection(true);
 
-        UpdateListRequest request = new UpdateListRequest(remoteName, data,1, null, null, null, null, null, null, null);
+        UpdateListRequest request = new UpdateListRequest(remoteName, data,1, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
 
         ListResponse result = TestInitializer.wordsApi.updateList(request);
         assertNotNull(result);
@@ -109,7 +109,7 @@ public class TestLists extends TestCase {
         ListLevelUpdate data = new ListLevelUpdate();
         data.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
 
-        UpdateListLevelRequest request = new UpdateListLevelRequest(remoteName, data,1, 1,null, null, null, null, null, null, null);
+        UpdateListLevelRequest request = new UpdateListLevelRequest(remoteName, data,1, 1,PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
 
         ListResponse result = TestInitializer.wordsApi.updateListLevel(request);
         assertNotNull(result);
@@ -128,7 +128,7 @@ public class TestLists extends TestCase {
         ListInsert data = new ListInsert();
         data.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
 
-        InsertListRequest request = new InsertListRequest(remoteName, data, null, null, null, null, null, null, null);
+        InsertListRequest request = new InsertListRequest(remoteName, data, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
 
         ListResponse result = TestInitializer.wordsApi.insertList(request);
         assertNotNull(result);
