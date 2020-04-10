@@ -100,6 +100,9 @@ public class OdtSaveOptionsData extends SaveOptionsData {
   @SerializedName("MeasureUnit")
   private MeasureUnitEnum measureUnit = null;
 
+  @SerializedName("Password")
+  private String password = null;
+
   @SerializedName("PrettyFormat")
   private Boolean prettyFormat = null;
 
@@ -139,6 +142,24 @@ public class OdtSaveOptionsData extends SaveOptionsData {
     this.measureUnit = measureUnit;
   }
 
+  public OdtSaveOptionsData password(String password) {
+    this.password = password;
+    return this;
+  }
+
+   /**
+   * Gets or sets a password to encrypt document.
+   * @return password
+  **/
+  @ApiModelProperty(value = "Gets or sets a password to encrypt document.")
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
   public OdtSaveOptionsData prettyFormat(Boolean prettyFormat) {
     this.prettyFormat = prettyFormat;
     return this;
@@ -169,13 +190,14 @@ public class OdtSaveOptionsData extends SaveOptionsData {
     OdtSaveOptionsData odtSaveOptionsData = (OdtSaveOptionsData) o;
     return Objects.equals(this.isStrictSchema11, odtSaveOptionsData.isStrictSchema11) &&
         Objects.equals(this.measureUnit, odtSaveOptionsData.measureUnit) &&
+        Objects.equals(this.password, odtSaveOptionsData.password) &&
         Objects.equals(this.prettyFormat, odtSaveOptionsData.prettyFormat) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isStrictSchema11, measureUnit, prettyFormat, super.hashCode());
+    return Objects.hash(isStrictSchema11, measureUnit, password, prettyFormat, super.hashCode());
   }
 
 
@@ -186,6 +208,7 @@ public class OdtSaveOptionsData extends SaveOptionsData {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    isStrictSchema11: ").append(toIndentedString(isStrictSchema11)).append("\n");
     sb.append("    measureUnit: ").append(toIndentedString(measureUnit)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
     sb.append("}");
     return sb.toString();
