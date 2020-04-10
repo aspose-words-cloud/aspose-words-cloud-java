@@ -66,7 +66,7 @@ public class ListInfo {
   private Style style = null;
 
   @SerializedName("ListLevels")
-  private List<ListLevel> listLevels = null;
+  private ListLevels listLevels = null;
 
   public ListInfo listId(Integer listId) {
     this.listId = listId;
@@ -176,29 +176,21 @@ public class ListInfo {
     this.style = style;
   }
 
-  public ListInfo listLevels(List<ListLevel> listLevels) {
+  public ListInfo listLevels(ListLevels listLevels) {
     this.listLevels = listLevels;
     return this;
   }
 
-  public ListInfo addListLevelsItem(ListLevel listLevelsItem) {
-    if (this.listLevels == null) {
-      this.listLevels = new ArrayList<ListLevel>();
-    }
-    this.listLevels.add(listLevelsItem);
-    return this;
-  }
-
    /**
-   * Gets or sets the collection of list levels for this list.
+   * Get listLevels
    * @return listLevels
   **/
-  @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
-  public List<ListLevel> getListLevels() {
+  @ApiModelProperty(value = "")
+  public ListLevels getListLevels() {
     return listLevels;
   }
 
-  public void setListLevels(List<ListLevel> listLevels) {
+  public void setListLevels(ListLevels listLevels) {
     this.listLevels = listLevels;
   }
 

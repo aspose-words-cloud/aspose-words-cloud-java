@@ -43,37 +43,37 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents an array of document lists.
+ * Represents a single document list.
  */
-@ApiModel(description = "Represents an array of document lists.")
-public class Lists {
-  @SerializedName("ListInfo")
-  private List<ListInfo> listInfo = null;
+@ApiModel(description = "Represents a single document list.")
+public class ListLevels {
+  @SerializedName("ListLevel")
+  private List<ListLevel> listLevel = null;
 
-  public Lists listInfo(List<ListInfo> listInfo) {
-    this.listInfo = listInfo;
+  public ListLevels listLevel(List<ListLevel> listLevel) {
+    this.listLevel = listLevel;
     return this;
   }
 
-  public Lists addListInfoItem(ListInfo listInfoItem) {
-    if (this.listInfo == null) {
-      this.listInfo = new ArrayList<ListInfo>();
+  public ListLevels addListLevelItem(ListLevel listLevelItem) {
+    if (this.listLevel == null) {
+      this.listLevel = new ArrayList<ListLevel>();
     }
-    this.listInfo.add(listInfoItem);
+    this.listLevel.add(listLevelItem);
     return this;
   }
 
    /**
-   * Gets or sets array of document lists.
-   * @return listInfo
+   * Gets or sets the collection of list levels for this list.
+   * @return listLevel
   **/
-  @ApiModelProperty(value = "Gets or sets array of document lists.")
-  public List<ListInfo> getListInfo() {
-    return listInfo;
+  @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
+  public List<ListLevel> getListLevel() {
+    return listLevel;
   }
 
-  public void setListInfo(List<ListInfo> listInfo) {
-    this.listInfo = listInfo;
+  public void setListLevel(List<ListLevel> listLevel) {
+    this.listLevel = listLevel;
   }
 
 
@@ -85,22 +85,22 @@ public class Lists {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Lists lists = (Lists) o;
-    return Objects.equals(this.listInfo, lists.listInfo);
+    ListLevels listLevels = (ListLevels) o;
+    return Objects.equals(this.listLevel, listLevels.listLevel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listInfo);
+    return Objects.hash(listLevel);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Lists {\n");
+    sb.append("class ListLevels {\n");
     
-    sb.append("    listInfo: ").append(toIndentedString(listInfo)).append("\n");
+    sb.append("    listLevel: ").append(toIndentedString(listLevel)).append("\n");
     sb.append("}");
     return sb.toString();
   }
