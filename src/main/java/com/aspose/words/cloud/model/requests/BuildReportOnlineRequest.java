@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ExecuteMailMergeOnlineRequest.java">
+ * <copyright company="Aspose" file="BuildReportOnlineRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,48 +29,41 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for executeMailMergeOnline operation.
+ * Request model for buildReportOnline operation.
  */
-public class ExecuteMailMergeOnlineRequest {
+public class BuildReportOnlineRequest {
     /*
      * File with template
      */
     private byte[] Template;
 
     /*
-     * File with mailmerge data
+     * A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
      */
-    private byte[] Data;
+    private String Data;
 
     /*
-     * With regions flag.
+     * An object providing a settings of report engine.
      */
-    private Boolean WithRegions;
+    private ReportEngineSettings ReportEngineSettings;
 
     /*
-     * Clean up options.
-     */
-    private String Cleanup;
-
-    /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
      */
     private String DocumentFileName;
     
     /*
-     * Initializes a new instance of the executeMailMergeOnlineRequest class.
+     * Initializes a new instance of the buildReportOnlineRequest class.
      *  
      * @param byte[] template File with template
-     * @param byte[] data File with mailmerge data
-     * @param Boolean withRegions With regions flag.
-     * @param String cleanup Clean up options.
-     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * @param String data A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
+     * @param ReportEngineSettings reportEngineSettings An object providing a settings of report engine.
+     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
      */
-    public ExecuteMailMergeOnlineRequest(byte[] template,  byte[] data,  Boolean withRegions,  String cleanup,  String documentFileName) {
+    public BuildReportOnlineRequest(byte[] template,  String data,  ReportEngineSettings reportEngineSettings,  String documentFileName) {
         Template = template;
         Data = data;
-        WithRegions = withRegions;
-        Cleanup = cleanup;
+        ReportEngineSettings = reportEngineSettings;
         DocumentFileName = documentFileName;
     }
 
@@ -89,56 +82,42 @@ public class ExecuteMailMergeOnlineRequest {
     }
 
     /*
-     *  Gets File with mailmerge data
+     *  Gets A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
      */
-    public byte[] getData() {
+    public String getData() {
         return Data;
     }
 
     /*
-     * Sets File with mailmerge data
+     * Sets A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
      */
-    public void setData(byte[] value) {
+    public void setData(String value) {
         Data = value;
     }
 
     /*
-     *  Gets With regions flag.
+     *  Gets An object providing a settings of report engine.
      */
-    public Boolean getWithRegions() {
-        return WithRegions;
+    public ReportEngineSettings getReportEngineSettings() {
+        return ReportEngineSettings;
     }
 
     /*
-     * Sets With regions flag.
+     * Sets An object providing a settings of report engine.
      */
-    public void setWithRegions(Boolean value) {
-        WithRegions = value;
+    public void setReportEngineSettings(ReportEngineSettings value) {
+        ReportEngineSettings = value;
     }
 
     /*
-     *  Gets Clean up options.
-     */
-    public String getCleanup() {
-        return Cleanup;
-    }
-
-    /*
-     * Sets Clean up options.
-     */
-    public void setCleanup(String value) {
-        Cleanup = value;
-    }
-
-    /*
-     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
      */
     public String getDocumentFileName() {
         return DocumentFileName;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
      */
     public void setDocumentFileName(String value) {
         DocumentFileName = value;

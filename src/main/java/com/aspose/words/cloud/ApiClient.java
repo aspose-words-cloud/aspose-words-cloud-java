@@ -421,8 +421,11 @@ public class ApiClient {
             }
             return b.toString();
         } 
-        else {
+        else if (param instanceof String) {
             return String.valueOf(param);
+        }
+        else {
+            return json.serialize(param);
         }
     }
 
