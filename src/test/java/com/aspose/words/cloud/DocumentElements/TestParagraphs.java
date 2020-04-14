@@ -39,6 +39,7 @@ import java.io.IOException;
 
 public class TestParagraphs extends TestCase {
     private String testFolder = "DocumentElements/Paragraphs";
+    private String testListFolder = "DocumentElements/ParagraphListFormat";
 
     @Override
     protected void setUp() throws Exception {
@@ -331,6 +332,60 @@ public void testGetParagraphFormatWithoutNodePath() throws ApiException, IOExcep
                 null);
 
         ParagraphFormatResponse result = TestInitializer.wordsApi.getParagraphFormatWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for getting paragraph list format
+     */
+    @Test
+    public void testGetParagraphListFormat() throws ApiException, IOException {
+        String fileName = "ParagraphGetListFormat.doc";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testListFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder, fileName).replace("\\", "/"));
+
+        GetParagraphListFormatRequest request = new GetParagraphListFormatRequest(fileName, "", index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder).replace("\\", "/"), null, null,
+                null);
+
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.getParagraphListFormat(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for getting paragraph list format
+     */
+    @Test
+    public void testUpdateParagraphListFormat() throws ApiException, IOException {
+        String fileName = "ParagraphUpdateListFormat.doc";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testListFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder, fileName).replace("\\", "/"));
+
+        ListFormatUpdate dto = new ListFormatUpdate();
+        dto.setListId(2);
+
+        UpdateParagraphListFormatRequest request = new UpdateParagraphListFormatRequest(fileName, dto,"", index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder).replace("\\", "/"), null, null,
+                null, null, null, null);
+
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.updateParagraphListFormat(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for deleting paragraph list format
+     */
+    @Test
+    public void testDeleteParagraphListFormat() throws ApiException, IOException {
+        String fileName = "ParagraphDeleteListFormat.doc";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testListFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder, fileName).replace("\\", "/"));
+
+        DeleteParagraphListFormatRequest request = new DeleteParagraphListFormatRequest(fileName,"", index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder).replace("\\", "/"), null, null,
+                null, null, null, null);
+
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.deleteParagraphListFormat(request);
         assertNotNull(result);
     }
 }
