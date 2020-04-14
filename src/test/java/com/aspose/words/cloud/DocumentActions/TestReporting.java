@@ -80,7 +80,7 @@ public class TestReporting extends TestCase {
             .dataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON)
             .reportBuildOptions(options);
 
-        BuildReportRequest request = new BuildReportRequest(remoteName, new String(Files.readAllBytes(dataPath)), settings, null, null, null, null, null);
+        BuildReportRequest request = new BuildReportRequest(remoteName, new String(Files.readAllBytes(dataPath)), settings, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null, null, null);
         TestInitializer.wordsApi.buildReport(request);
     }
 }
