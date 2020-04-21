@@ -43,21 +43,24 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents a single document list.
+ * Represents a single document style.
  */
-@ApiModel(description = "Represents a single document list.")
-public class Style {
-  @SerializedName("Font")
-  private Font font = null;
+@ApiModel(description = "Represents a single document style.")
+public class Style extends LinkElement {
+  @SerializedName("Aliases")
+  private List<String> aliases = null;
+
+  @SerializedName("BaseStyleName")
+  private String baseStyleName = null;
 
   @SerializedName("BuiltIn")
   private Boolean builtIn = null;
 
-  @SerializedName("NextParagraphStyleName")
-  private String nextParagraphStyleName = null;
+  @SerializedName("Font")
+  private Font font = null;
 
-  @SerializedName("BaseStyleName")
-  private String baseStyleName = null;
+  @SerializedName("IsHeading")
+  private Boolean isHeading = null;
 
   @SerializedName("IsQuickStyle")
   private Boolean isQuickStyle = null;
@@ -65,65 +68,11 @@ public class Style {
   @SerializedName("LinkedStyleName")
   private String linkedStyleName = null;
 
-  /**
-   * Gets or sets the style type (paragraph or character).
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    PARAGRAPH("Paragraph"),
-    
-    CHARACTER("Character"),
-    
-    TABLE("Table"),
-    
-    LIST("List");
+  @SerializedName("Name")
+  private String name = null;
 
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String text) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("Type")
-  private TypeEnum type = null;
-
-  @SerializedName("IsHeading")
-  private Boolean isHeading = null;
-
-  @SerializedName("Aliases")
-  private List<String> aliases = null;
+  @SerializedName("NextParagraphStyleName")
+  private String nextParagraphStyleName = null;
 
   /**
    * Gets or sets the locale independent style identifier for a built-in style.
@@ -917,25 +866,102 @@ public class Style {
   @SerializedName("StyleIdentifier")
   private StyleIdentifierEnum styleIdentifier = null;
 
-  @SerializedName("Name")
-  private String name = null;
+  /**
+   * Gets or sets the style type (paragraph or character).
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    PARAGRAPH("Paragraph"),
+    
+    CHARACTER("Character"),
+    
+    TABLE("Table"),
+    
+    LIST("List");
 
-  public Style font(Font font) {
-    this.font = font;
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String text) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("Type")
+  private TypeEnum type = null;
+
+  public Style aliases(List<String> aliases) {
+    this.aliases = aliases;
+    return this;
+  }
+
+  public Style addAliasesItem(String aliasesItem) {
+    if (this.aliases == null) {
+      this.aliases = new ArrayList<String>();
+    }
+    this.aliases.add(aliasesItem);
     return this;
   }
 
    /**
-   * Get font
-   * @return font
+   * Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
+   * @return aliases
   **/
-  @ApiModelProperty(value = "")
-  public Font getFont() {
-    return font;
+  @ApiModelProperty(value = "Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.")
+  public List<String> getAliases() {
+    return aliases;
   }
 
-  public void setFont(Font font) {
-    this.font = font;
+  public void setAliases(List<String> aliases) {
+    this.aliases = aliases;
+  }
+
+  public Style baseStyleName(String baseStyleName) {
+    this.baseStyleName = baseStyleName;
+    return this;
+  }
+
+   /**
+   * Gets or sets /sets the name of the style this style is based on.
+   * @return baseStyleName
+  **/
+  @ApiModelProperty(value = "Gets or sets /sets the name of the style this style is based on.")
+  public String getBaseStyleName() {
+    return baseStyleName;
+  }
+
+  public void setBaseStyleName(String baseStyleName) {
+    this.baseStyleName = baseStyleName;
   }
 
   public Style builtIn(Boolean builtIn) {
@@ -956,40 +982,40 @@ public class Style {
     this.builtIn = builtIn;
   }
 
-  public Style nextParagraphStyleName(String nextParagraphStyleName) {
-    this.nextParagraphStyleName = nextParagraphStyleName;
+  public Style font(Font font) {
+    this.font = font;
     return this;
   }
 
    /**
-   * Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-   * @return nextParagraphStyleName
+   * Get font
+   * @return font
   **/
-  @ApiModelProperty(value = "Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
-  public String getNextParagraphStyleName() {
-    return nextParagraphStyleName;
+  @ApiModelProperty(value = "")
+  public Font getFont() {
+    return font;
   }
 
-  public void setNextParagraphStyleName(String nextParagraphStyleName) {
-    this.nextParagraphStyleName = nextParagraphStyleName;
+  public void setFont(Font font) {
+    this.font = font;
   }
 
-  public Style baseStyleName(String baseStyleName) {
-    this.baseStyleName = baseStyleName;
+  public Style isHeading(Boolean isHeading) {
+    this.isHeading = isHeading;
     return this;
   }
 
    /**
-   * Gets or sets /sets the name of the style this style is based on.
-   * @return baseStyleName
+   * Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.
+   * @return isHeading
   **/
-  @ApiModelProperty(value = "Gets or sets /sets the name of the style this style is based on.")
-  public String getBaseStyleName() {
-    return baseStyleName;
+  @ApiModelProperty(value = "Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.")
+  public Boolean isIsHeading() {
+    return isHeading;
   }
 
-  public void setBaseStyleName(String baseStyleName) {
-    this.baseStyleName = baseStyleName;
+  public void setIsHeading(Boolean isHeading) {
+    this.isHeading = isHeading;
   }
 
   public Style isQuickStyle(Boolean isQuickStyle) {
@@ -1028,66 +1054,40 @@ public class Style {
     this.linkedStyleName = linkedStyleName;
   }
 
-  public Style type(TypeEnum type) {
-    this.type = type;
+  public Style name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Gets or sets the style type (paragraph or character).
-   * @return type
+   * Gets or sets the name of the style.
+   * @return name
   **/
-  @ApiModelProperty(value = "Gets or sets the style type (paragraph or character).")
-  public TypeEnum getType() {
-    return type;
+  @ApiModelProperty(value = "Gets or sets the name of the style.")
+  public String getName() {
+    return name;
   }
 
-  public void setType(TypeEnum type) {
-    this.type = type;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public Style isHeading(Boolean isHeading) {
-    this.isHeading = isHeading;
+  public Style nextParagraphStyleName(String nextParagraphStyleName) {
+    this.nextParagraphStyleName = nextParagraphStyleName;
     return this;
   }
 
    /**
-   * Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.
-   * @return isHeading
+   * Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+   * @return nextParagraphStyleName
   **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.")
-  public Boolean isIsHeading() {
-    return isHeading;
+  @ApiModelProperty(value = "Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
+  public String getNextParagraphStyleName() {
+    return nextParagraphStyleName;
   }
 
-  public void setIsHeading(Boolean isHeading) {
-    this.isHeading = isHeading;
-  }
-
-  public Style aliases(List<String> aliases) {
-    this.aliases = aliases;
-    return this;
-  }
-
-  public Style addAliasesItem(String aliasesItem) {
-    if (this.aliases == null) {
-      this.aliases = new ArrayList<String>();
-    }
-    this.aliases.add(aliasesItem);
-    return this;
-  }
-
-   /**
-   * Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
-   * @return aliases
-  **/
-  @ApiModelProperty(value = "Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.")
-  public List<String> getAliases() {
-    return aliases;
-  }
-
-  public void setAliases(List<String> aliases) {
-    this.aliases = aliases;
+  public void setNextParagraphStyleName(String nextParagraphStyleName) {
+    this.nextParagraphStyleName = nextParagraphStyleName;
   }
 
   public Style styleIdentifier(StyleIdentifierEnum styleIdentifier) {
@@ -1108,22 +1108,22 @@ public class Style {
     this.styleIdentifier = styleIdentifier;
   }
 
-  public Style name(String name) {
-    this.name = name;
+  public Style type(TypeEnum type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Gets or sets the name of the style.
-   * @return name
+   * Gets or sets the style type (paragraph or character).
+   * @return type
   **/
-  @ApiModelProperty(value = "Gets or sets the name of the style.")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "Gets or sets the style type (paragraph or character).")
+  public TypeEnum getType() {
+    return type;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -1136,22 +1136,23 @@ public class Style {
       return false;
     }
     Style style = (Style) o;
-    return Objects.equals(this.font, style.font) &&
-        Objects.equals(this.builtIn, style.builtIn) &&
-        Objects.equals(this.nextParagraphStyleName, style.nextParagraphStyleName) &&
+    return Objects.equals(this.aliases, style.aliases) &&
         Objects.equals(this.baseStyleName, style.baseStyleName) &&
+        Objects.equals(this.builtIn, style.builtIn) &&
+        Objects.equals(this.font, style.font) &&
+        Objects.equals(this.isHeading, style.isHeading) &&
         Objects.equals(this.isQuickStyle, style.isQuickStyle) &&
         Objects.equals(this.linkedStyleName, style.linkedStyleName) &&
-        Objects.equals(this.type, style.type) &&
-        Objects.equals(this.isHeading, style.isHeading) &&
-        Objects.equals(this.aliases, style.aliases) &&
+        Objects.equals(this.name, style.name) &&
+        Objects.equals(this.nextParagraphStyleName, style.nextParagraphStyleName) &&
         Objects.equals(this.styleIdentifier, style.styleIdentifier) &&
-        Objects.equals(this.name, style.name);
+        Objects.equals(this.type, style.type) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(font, builtIn, nextParagraphStyleName, baseStyleName, isQuickStyle, linkedStyleName, type, isHeading, aliases, styleIdentifier, name);
+    return Objects.hash(aliases, baseStyleName, builtIn, font, isHeading, isQuickStyle, linkedStyleName, name, nextParagraphStyleName, styleIdentifier, type, super.hashCode());
   }
 
 
@@ -1159,18 +1160,18 @@ public class Style {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Style {\n");
-    
-    sb.append("    font: ").append(toIndentedString(font)).append("\n");
-    sb.append("    builtIn: ").append(toIndentedString(builtIn)).append("\n");
-    sb.append("    nextParagraphStyleName: ").append(toIndentedString(nextParagraphStyleName)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
     sb.append("    baseStyleName: ").append(toIndentedString(baseStyleName)).append("\n");
+    sb.append("    builtIn: ").append(toIndentedString(builtIn)).append("\n");
+    sb.append("    font: ").append(toIndentedString(font)).append("\n");
+    sb.append("    isHeading: ").append(toIndentedString(isHeading)).append("\n");
     sb.append("    isQuickStyle: ").append(toIndentedString(isQuickStyle)).append("\n");
     sb.append("    linkedStyleName: ").append(toIndentedString(linkedStyleName)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isHeading: ").append(toIndentedString(isHeading)).append("\n");
-    sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
-    sb.append("    styleIdentifier: ").append(toIndentedString(styleIdentifier)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nextParagraphStyleName: ").append(toIndentedString(nextParagraphStyleName)).append("\n");
+    sb.append("    styleIdentifier: ").append(toIndentedString(styleIdentifier)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
