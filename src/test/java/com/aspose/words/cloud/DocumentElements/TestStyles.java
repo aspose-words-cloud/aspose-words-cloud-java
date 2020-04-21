@@ -24,7 +24,7 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-package com.aspose.words.cloud.Lists;
+package com.aspose.words.cloud.DocumentElements;
 
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.PathUtil;
@@ -36,8 +36,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class TestLists extends TestCase {
-    private String testFolder = "DocumentElements/Lists";
+public class TestStyles extends TestCase {
+    private String testFolder = "DocumentElements/Styles";
 
     @Override
     protected void setUp() throws Exception {
@@ -46,91 +46,92 @@ public class TestLists extends TestCase {
     }
 
     /*
-     * Test for getting lists from document
+     * Test for getting styles from document
      */
     @Test
-    public void testGetLists() throws ApiException, IOException {
-        String fileName = "ListsGet.doc";
-        String remoteName = "TestGetLists.doc";
+    public void testGetStyles() throws ApiException, IOException {
+        String fileName = "GetStyles.docx";
+        String remoteName = "TestGetStyles.docx";
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        GetListsRequest request = new GetListsRequest(remoteName, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null);
+        GetStylesRequest request = new GetStylesRequest(remoteName, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null);
 
-        ListsResponse result = TestInitializer.wordsApi.getLists(request);
+        StylesResponse result = TestInitializer.wordsApi.getStyles(request);
         assertNotNull(result);
     }
 
     /*
-     * Test for getting list from document lists
+     * Test for getting style from document styles
      */
     @Test
-    public void testGetList() throws ApiException, IOException {
-        String fileName = "ListsGet.doc";
-        String remoteName = "TestGetList.doc";
+    public void testGetStyle() throws ApiException, IOException {
+        String fileName = "GetStyles.docx";
+        String remoteName = "TestGetStyle.docx";
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        GetListRequest request = new GetListRequest(remoteName, 1, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null);
+        GetStyleRequest request = new GetStyleRequest(remoteName, "Heading 1", PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null);
 
-        ListResponse result = TestInitializer.wordsApi.getList(request);
+        StyleResponse result = TestInitializer.wordsApi.getStyle(request);
         assertNotNull(result);
     }
 
     /*
-     * Test for updating list from document lists
+     * Test for updating style from document styles
      */
     @Test
-    public void testUpdateList() throws ApiException, IOException {
-        String fileName = "ListsGet.doc";
-        String remoteName = "TestUpdateList.doc";
+    public void testUpdateStyle() throws ApiException, IOException {
+        String fileName = "GetStyles.docx";
+        String remoteName = "TestUpdateStyle.docx";
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        ListUpdate data = new ListUpdate();
-        data.setIsRestartAtEachSection(true);
+        StyleUpdate data = new StyleUpdate();
+        data.setName("My Style");
 
-        UpdateListRequest request = new UpdateListRequest(remoteName, data,1, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
+        UpdateStyleRequest request = new UpdateStyleRequest(remoteName, data,"Heading 1", PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
 
-        ListResponse result = TestInitializer.wordsApi.updateList(request);
+        StyleResponse result = TestInitializer.wordsApi.updateStyle(request);
         assertNotNull(result);
     }
 
     /*
-     * Test for updating list level from document lists
+     * Test for inserting style from document styles
      */
     @Test
-    public void testUpdateListLevel() throws ApiException, IOException {
-        String fileName = "ListsGet.doc";
-        String remoteName = "TestUpdateListLevel.doc";
+    public void testInsertStyle() throws ApiException, IOException {
+        String fileName = "GetStyles.docx";
+        String remoteName = "TestInsertStyle.docx";
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        ListLevelUpdate data = new ListLevelUpdate();
-        data.setAlignment(ListLevelUpdate.AlignmentEnum.RIGHT);
+        StyleInsert data = new StyleInsert();
+        data.setStyleName("My Style");
+        data.setStyleType(StyleInsert.StyleTypeEnum.PARAGRAPH);
 
-        UpdateListLevelRequest request = new UpdateListLevelRequest(remoteName, data,1, 1,PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
+        InsertStyleRequest request = new InsertStyleRequest(remoteName, data, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
 
-        ListResponse result = TestInitializer.wordsApi.updateListLevel(request);
+        StyleResponse result = TestInitializer.wordsApi.insertStyle(request);
         assertNotNull(result);
     }
 
     /*
-     * Test for inserting list from document lists
+     * Test for coping style from document styles
      */
     @Test
-    public void testInsertList() throws ApiException, IOException {
-        String fileName = "ListsGet.doc";
-        String remoteName = "TestInsertList.doc";
+    public void testCopyStyle() throws ApiException, IOException {
+        String fileName = "GetStyles.docx";
+        String remoteName = "TestCopyStyle.docx";
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        ListInsert data = new ListInsert();
-        data.setTemplate(ListInsert.TemplateEnum.OUTLINELEGAL);
+        StyleCopy data = new StyleCopy();
+        data.setStyleName("Heading 1");
 
-        InsertListRequest request = new InsertListRequest(remoteName, data, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
+        CopyStyleRequest request = new CopyStyleRequest(remoteName, data, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
 
-        ListResponse result = TestInitializer.wordsApi.insertList(request);
+        StyleResponse result = TestInitializer.wordsApi.copyStyle(request);
         assertNotNull(result);
     }
 }
