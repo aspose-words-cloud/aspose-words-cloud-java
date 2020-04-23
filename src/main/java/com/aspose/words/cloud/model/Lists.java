@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents an array of document lists.
  */
 @ApiModel(description = "Represents an array of document lists.")
-public class Lists {
+public class Lists extends LinkElement {
   @SerializedName("ListInfo")
   private List<ListInfo> listInfo = null;
 
@@ -86,12 +86,13 @@ public class Lists {
       return false;
     }
     Lists lists = (Lists) o;
-    return Objects.equals(this.listInfo, lists.listInfo);
+    return Objects.equals(this.listInfo, lists.listInfo) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listInfo);
+    return Objects.hash(listInfo, super.hashCode());
   }
 
 
@@ -99,7 +100,7 @@ public class Lists {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Lists {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    listInfo: ").append(toIndentedString(listInfo)).append("\n");
     sb.append("}");
     return sb.toString();

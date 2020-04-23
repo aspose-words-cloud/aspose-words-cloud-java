@@ -46,9 +46,12 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a single document list.
  */
 @ApiModel(description = "Represents a single document list.")
-public class ListInfo {
-  @SerializedName("ListId")
-  private Integer listId = null;
+public class ListInfo extends LinkElement {
+  @SerializedName("IsListStyleDefinition")
+  private Boolean isListStyleDefinition = null;
+
+  @SerializedName("IsListStyleReference")
+  private Boolean isListStyleReference = null;
 
   @SerializedName("IsMultiLevel")
   private Boolean isMultiLevel = null;
@@ -56,34 +59,49 @@ public class ListInfo {
   @SerializedName("IsRestartAtEachSection")
   private Boolean isRestartAtEachSection = null;
 
-  @SerializedName("IsListStyleDefinition")
-  private Boolean isListStyleDefinition = null;
-
-  @SerializedName("IsListStyleReference")
-  private Boolean isListStyleReference = null;
-
-  @SerializedName("Style")
-  private Style style = null;
+  @SerializedName("ListId")
+  private Integer listId = null;
 
   @SerializedName("ListLevels")
   private ListLevels listLevels = null;
 
-  public ListInfo listId(Integer listId) {
-    this.listId = listId;
+  @SerializedName("Style")
+  private Style style = null;
+
+  public ListInfo isListStyleDefinition(Boolean isListStyleDefinition) {
+    this.isListStyleDefinition = isListStyleDefinition;
     return this;
   }
 
    /**
-   * Gets or sets the unique identifier of the list.
-   * @return listId
+   * Gets or sets a value indicating whether returns true if this list is a definition of a list style.
+   * @return isListStyleDefinition
   **/
-  @ApiModelProperty(value = "Gets or sets the unique identifier of the list.")
-  public Integer getListId() {
-    return listId;
+  @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if this list is a definition of a list style.")
+  public Boolean isIsListStyleDefinition() {
+    return isListStyleDefinition;
   }
 
-  public void setListId(Integer listId) {
-    this.listId = listId;
+  public void setIsListStyleDefinition(Boolean isListStyleDefinition) {
+    this.isListStyleDefinition = isListStyleDefinition;
+  }
+
+  public ListInfo isListStyleReference(Boolean isListStyleReference) {
+    this.isListStyleReference = isListStyleReference;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value indicating whether returns true if this list is a reference to a list style.
+   * @return isListStyleReference
+  **/
+  @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if this list is a reference to a list style.")
+  public Boolean isIsListStyleReference() {
+    return isListStyleReference;
+  }
+
+  public void setIsListStyleReference(Boolean isListStyleReference) {
+    this.isListStyleReference = isListStyleReference;
   }
 
   public ListInfo isMultiLevel(Boolean isMultiLevel) {
@@ -122,58 +140,22 @@ public class ListInfo {
     this.isRestartAtEachSection = isRestartAtEachSection;
   }
 
-  public ListInfo isListStyleDefinition(Boolean isListStyleDefinition) {
-    this.isListStyleDefinition = isListStyleDefinition;
+  public ListInfo listId(Integer listId) {
+    this.listId = listId;
     return this;
   }
 
    /**
-   * Gets or sets a value indicating whether returns true if this list is a definition of a list style.
-   * @return isListStyleDefinition
+   * Gets or sets the unique identifier of the list.
+   * @return listId
   **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if this list is a definition of a list style.")
-  public Boolean isIsListStyleDefinition() {
-    return isListStyleDefinition;
+  @ApiModelProperty(value = "Gets or sets the unique identifier of the list.")
+  public Integer getListId() {
+    return listId;
   }
 
-  public void setIsListStyleDefinition(Boolean isListStyleDefinition) {
-    this.isListStyleDefinition = isListStyleDefinition;
-  }
-
-  public ListInfo isListStyleReference(Boolean isListStyleReference) {
-    this.isListStyleReference = isListStyleReference;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether returns true if this list is a reference to a list style.
-   * @return isListStyleReference
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if this list is a reference to a list style.")
-  public Boolean isIsListStyleReference() {
-    return isListStyleReference;
-  }
-
-  public void setIsListStyleReference(Boolean isListStyleReference) {
-    this.isListStyleReference = isListStyleReference;
-  }
-
-  public ListInfo style(Style style) {
-    this.style = style;
-    return this;
-  }
-
-   /**
-   * Get style
-   * @return style
-  **/
-  @ApiModelProperty(value = "")
-  public Style getStyle() {
-    return style;
-  }
-
-  public void setStyle(Style style) {
-    this.style = style;
+  public void setListId(Integer listId) {
+    this.listId = listId;
   }
 
   public ListInfo listLevels(ListLevels listLevels) {
@@ -194,6 +176,24 @@ public class ListInfo {
     this.listLevels = listLevels;
   }
 
+  public ListInfo style(Style style) {
+    this.style = style;
+    return this;
+  }
+
+   /**
+   * Get style
+   * @return style
+  **/
+  @ApiModelProperty(value = "")
+  public Style getStyle() {
+    return style;
+  }
+
+  public void setStyle(Style style) {
+    this.style = style;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -204,18 +204,19 @@ public class ListInfo {
       return false;
     }
     ListInfo listInfo = (ListInfo) o;
-    return Objects.equals(this.listId, listInfo.listId) &&
+    return Objects.equals(this.isListStyleDefinition, listInfo.isListStyleDefinition) &&
+        Objects.equals(this.isListStyleReference, listInfo.isListStyleReference) &&
         Objects.equals(this.isMultiLevel, listInfo.isMultiLevel) &&
         Objects.equals(this.isRestartAtEachSection, listInfo.isRestartAtEachSection) &&
-        Objects.equals(this.isListStyleDefinition, listInfo.isListStyleDefinition) &&
-        Objects.equals(this.isListStyleReference, listInfo.isListStyleReference) &&
+        Objects.equals(this.listId, listInfo.listId) &&
+        Objects.equals(this.listLevels, listInfo.listLevels) &&
         Objects.equals(this.style, listInfo.style) &&
-        Objects.equals(this.listLevels, listInfo.listLevels);
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listId, isMultiLevel, isRestartAtEachSection, isListStyleDefinition, isListStyleReference, style, listLevels);
+    return Objects.hash(isListStyleDefinition, isListStyleReference, isMultiLevel, isRestartAtEachSection, listId, listLevels, style, super.hashCode());
   }
 
 
@@ -223,14 +224,14 @@ public class ListInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListInfo {\n");
-    
-    sb.append("    listId: ").append(toIndentedString(listId)).append("\n");
-    sb.append("    isMultiLevel: ").append(toIndentedString(isMultiLevel)).append("\n");
-    sb.append("    isRestartAtEachSection: ").append(toIndentedString(isRestartAtEachSection)).append("\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    isListStyleDefinition: ").append(toIndentedString(isListStyleDefinition)).append("\n");
     sb.append("    isListStyleReference: ").append(toIndentedString(isListStyleReference)).append("\n");
-    sb.append("    style: ").append(toIndentedString(style)).append("\n");
+    sb.append("    isMultiLevel: ").append(toIndentedString(isMultiLevel)).append("\n");
+    sb.append("    isRestartAtEachSection: ").append(toIndentedString(isRestartAtEachSection)).append("\n");
+    sb.append("    listId: ").append(toIndentedString(listId)).append("\n");
     sb.append("    listLevels: ").append(toIndentedString(listLevels)).append("\n");
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -25807,7 +25807,7 @@ if (request.getImageFile() != null)
         Object localVarPostBody = request.getListUpdate();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}/{listLevel}"
+        String localVarPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}"
             .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/")
             .replaceAll("\\{" + "listLevel" + "\\}", request.getListLevel().toString()).replaceAll("//", "/");

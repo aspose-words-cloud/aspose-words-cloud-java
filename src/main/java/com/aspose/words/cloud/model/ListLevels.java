@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Represents a single document list.
  */
 @ApiModel(description = "Represents a single document list.")
-public class ListLevels {
+public class ListLevels extends LinkElement {
   @SerializedName("ListLevel")
   private List<ListLevel> listLevel = null;
 
@@ -86,12 +86,13 @@ public class ListLevels {
       return false;
     }
     ListLevels listLevels = (ListLevels) o;
-    return Objects.equals(this.listLevel, listLevels.listLevel);
+    return Objects.equals(this.listLevel, listLevels.listLevel) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listLevel);
+    return Objects.hash(listLevel, super.hashCode());
   }
 
 
@@ -99,7 +100,7 @@ public class ListLevels {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListLevels {\n");
-    
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    listLevel: ").append(toIndentedString(listLevel)).append("\n");
     sb.append("}");
     return sb.toString();
