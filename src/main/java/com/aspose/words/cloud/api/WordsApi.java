@@ -344,13 +344,13 @@ public class WordsApi {
         return call;
     }
     /**
-     * Build call for applyStyleToDocmentElement
+     * Build call for applyStyleToDocumentElement
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    private com.squareup.okhttp.Call applyStyleToDocmentElementCall(ApplyStyleToDocmentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+    private com.squareup.okhttp.Call applyStyleToDocumentElementCall(ApplyStyleToDocumentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getStyleApply();
 
         // create path and map variables
@@ -401,25 +401,25 @@ public class WordsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call applyStyleToDocmentElementValidateBeforeCall(ApplyStyleToDocmentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+    private com.squareup.okhttp.Call applyStyleToDocumentElementValidateBeforeCall(ApplyStyleToDocumentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling applyStyleToDocmentElement");
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling applyStyleToDocumentElement");
         }
         
         // verify the required parameter 'StyleApply' is set
         if (request.getStyleApply() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'StyleApply' when calling applyStyleToDocmentElement");
+          throw new ApiException(BadRequest, "Missing the required parameter 'StyleApply' when calling applyStyleToDocumentElement");
         }
         
         // verify the required parameter 'StyledNodePath' is set
         if (request.getStyledNodePath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'StyledNodePath' when calling applyStyleToDocmentElement");
+          throw new ApiException(BadRequest, "Missing the required parameter 'StyledNodePath' when calling applyStyleToDocumentElement");
         }
         
 
-        com.squareup.okhttp.Call call = applyStyleToDocmentElementCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = applyStyleToDocumentElementCall(request, progressListener, progressRequestListener);
         return call;
 
     }
@@ -431,15 +431,15 @@ public class WordsApi {
      * @return WordsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WordsResponse applyStyleToDocmentElement(ApplyStyleToDocmentElementRequest request) throws ApiException, IOException {
+    public WordsResponse applyStyleToDocumentElement(ApplyStyleToDocumentElementRequest request) throws ApiException, IOException {
         try {
-            ApiResponse<WordsResponse> resp = applyStyleToDocmentElementWithHttpInfo(request);
+            ApiResponse<WordsResponse> resp = applyStyleToDocumentElementWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse<WordsResponse> resp = applyStyleToDocmentElementWithHttpInfo(request);
+                ApiResponse<WordsResponse> resp = applyStyleToDocumentElementWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -453,8 +453,8 @@ public class WordsApi {
      * @return ApiResponse&lt;WordsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    private ApiResponse<WordsResponse> applyStyleToDocmentElementWithHttpInfo(ApplyStyleToDocmentElementRequest request) throws ApiException, IOException {
-        com.squareup.okhttp.Call call = applyStyleToDocmentElementValidateBeforeCall(request, null, null);
+    private ApiResponse<WordsResponse> applyStyleToDocumentElementWithHttpInfo(ApplyStyleToDocumentElementRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = applyStyleToDocumentElementValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken<WordsResponse>() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -467,7 +467,7 @@ public class WordsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call applyStyleToDocmentElementAsync(ApplyStyleToDocmentElementRequest request, final ApiCallback<WordsResponse> callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call applyStyleToDocumentElementAsync(ApplyStyleToDocumentElementRequest request, final ApiCallback<WordsResponse> callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -488,7 +488,7 @@ public class WordsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = applyStyleToDocmentElementValidateBeforeCall(request, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = applyStyleToDocumentElementValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WordsResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

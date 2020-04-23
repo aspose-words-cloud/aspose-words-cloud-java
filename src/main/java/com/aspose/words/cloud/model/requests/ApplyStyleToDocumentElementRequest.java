@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ApplyStyleToDocmentElementRequest.java">
+ * <copyright company="Aspose" file="ApplyStyleToDocumentElementRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,9 +29,9 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for applyStyleToDocmentElement operation.
+ * Request model for applyStyleToDocumentElement operation.
  */
-public class ApplyStyleToDocmentElementRequest {
+public class ApplyStyleToDocumentElementRequest {
     /*
      * The document name.
      */
@@ -83,7 +83,7 @@ public class ApplyStyleToDocmentElementRequest {
     private String RevisionDateTime;
     
     /*
-     * Initializes a new instance of the applyStyleToDocmentElementRequest class.
+     * Initializes a new instance of the applyStyleToDocumentElementRequest class.
      *  
      * @param String name The document name.
      * @param StyleApply styleApply Style to apply.
@@ -96,7 +96,7 @@ public class ApplyStyleToDocmentElementRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public ApplyStyleToDocmentElementRequest(String name,  StyleApply styleApply,  String styledNodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public ApplyStyleToDocumentElementRequest(String name,  StyleApply styleApply,  String styledNodePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         StyleApply = styleApply;
         StyledNodePath = styledNodePath;

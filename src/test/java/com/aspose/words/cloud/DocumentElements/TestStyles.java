@@ -165,10 +165,10 @@ public class TestStyles extends TestCase {
         StyleApply data = new StyleApply();
         data.setStyleName("Heading 1");
 
-        ApplyStyleToDocmentElementRequest request =
-                new ApplyStyleToDocmentElementRequest(remoteName, data, "paragraphs/1/paragraphFormat", PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
+        ApplyStyleToDocumentElementRequest request =
+                new ApplyStyleToDocumentElementRequest(remoteName, data, "paragraphs/1/paragraphFormat", PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
 
-        WordsResponse result = TestInitializer.wordsApi.applyStyleToDocmentElement(request);
+        WordsResponse result = TestInitializer.wordsApi.applyStyleToDocumentElement(request);
         assertNotNull(result);
     }
 }
