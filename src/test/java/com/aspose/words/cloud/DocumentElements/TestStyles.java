@@ -134,4 +134,41 @@ public class TestStyles extends TestCase {
         StyleResponse result = TestInitializer.wordsApi.copyStyle(request);
         assertNotNull(result);
     }
+
+    /*
+     * Test for getting style from document element
+     */
+    @Test
+    public void testGetStyleFromDocumentElement() throws ApiException, IOException {
+        String fileName = "GetStyles.docx";
+        String remoteName = "TestGetStyleFromDocumentElement.docx";
+
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
+
+        GetStyleFromDocumentElementRequest request =
+                new GetStyleFromDocumentElementRequest(remoteName, "paragraphs/1/paragraphFormat", PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null);
+
+        StyleResponse result = TestInitializer.wordsApi.getStyleFromDocumentElement(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for applying style to document element
+     */
+    @Test
+    public void testApplyStyleToDocumentElement() throws ApiException, IOException {
+        String fileName = "GetStyles.docx";
+        String remoteName = "TestApplyStyleToDocumentElement.docx";
+
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
+
+        StyleApply data = new StyleApply();
+        data.setStyleName("Heading 1");
+
+        ApplyStyleToDocmentElementRequest request =
+                new ApplyStyleToDocmentElementRequest(remoteName, data, "paragraphs/1/paragraphFormat", PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null, null, null, null, null);
+
+        WordsResponse result = TestInitializer.wordsApi.applyStyleToDocmentElement(request);
+        assertNotNull(result);
+    }
 }
