@@ -425,7 +425,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply style to document node.
+     * Apply a style to the document node.
      * 
      * @param request Request object
      * @return WordsResponse
@@ -447,7 +447,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply style to document node.
+     * Apply a style to the document node.
      * 
      * @param request Request object
      * @return ApiResponse&lt;WordsResponse&gt;
@@ -460,7 +460,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply style to document node. (asynchronously)
+     * Apply a style to the document node. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -1696,7 +1696,7 @@ if (request.getReportEngineSettings() != null)
     }
 
     /**
-     * Copy and insert new style to document, returns copied style.
+     * Copy and insert a new style to the document, returns an copied style.
      * 
      * @param request Request object
      * @return StyleResponse
@@ -1718,7 +1718,7 @@ if (request.getReportEngineSettings() != null)
     }
 
     /**
-     * Copy and insert new style to document, returns copied style.
+     * Copy and insert a new style to the document, returns an copied style.
      * 
      * @param request Request object
      * @return ApiResponse&lt;StyleResponse&gt;
@@ -1731,7 +1731,7 @@ if (request.getReportEngineSettings() != null)
     }
 
     /**
-     * Copy and insert new style to document, returns copied style. (asynchronously)
+     * Copy and insert a new style to the document, returns an copied style. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -16004,7 +16004,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Gets style from document node.
+     * Gets a style from the document node.
      * 
      * @param request Request object
      * @return StyleResponse
@@ -16026,7 +16026,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Gets style from document node.
+     * Gets a style from the document node.
      * 
      * @param request Request object
      * @return ApiResponse&lt;StyleResponse&gt;
@@ -16039,7 +16039,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Gets style from document node. (asynchronously)
+     * Gets a style from the document node. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -16140,7 +16140,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Returns a list of styles that are contained in the document.
+     * Returns a list of styles contained in the document.
      * 
      * @param request Request object
      * @return StylesResponse
@@ -16162,7 +16162,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Returns a list of styles that are contained in the document.
+     * Returns a list of styles contained in the document.
      * 
      * @param request Request object
      * @return ApiResponse&lt;StylesResponse&gt;
@@ -16175,7 +16175,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Returns a list of styles that are contained in the document. (asynchronously)
+     * Returns a list of styles contained in the document. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -19816,7 +19816,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * Adds style to document, returns added style.
+     * Adds a style to the document, returns an added style.
      * 
      * @param request Request object
      * @return StyleResponse
@@ -19838,7 +19838,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * Adds style to document, returns added style.
+     * Adds a style to the document, returns an added style.
      * 
      * @param request Request object
      * @return ApiResponse&lt;StyleResponse&gt;
@@ -19851,7 +19851,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * Adds style to document, returns added style. (asynchronously)
+     * Adds a style to the document, returns an added style. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -27100,7 +27100,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * Updates style properties, returns updated style.
+     * Updates a style properties, returns an updated style.
      * 
      * @param request Request object
      * @return StyleResponse
@@ -27122,7 +27122,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * Updates style properties, returns updated style.
+     * Updates a style properties, returns an updated style.
      * 
      * @param request Request object
      * @return ApiResponse&lt;StyleResponse&gt;
@@ -27135,7 +27135,7 @@ if (request.getImageFile() != null)
     }
 
     /**
-     * Updates style properties, returns updated style. (asynchronously)
+     * Updates a style properties, returns an updated style. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes

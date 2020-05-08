@@ -47,33 +47,33 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents an array of styles list.")
 public class Styles extends LinkElement {
-  @SerializedName("Style")
-  private List<Style> style = null;
+  @SerializedName("StyleList")
+  private List<Style> styleList = null;
 
-  public Styles style(List<Style> style) {
-    this.style = style;
+  public Styles styleList(List<Style> styleList) {
+    this.styleList = styleList;
     return this;
   }
 
-  public Styles addStyleItem(Style styleItem) {
-    if (this.style == null) {
-      this.style = new ArrayList<Style>();
+  public Styles addStyleListItem(Style styleListItem) {
+    if (this.styleList == null) {
+      this.styleList = new ArrayList<Style>();
     }
-    this.style.add(styleItem);
+    this.styleList.add(styleListItem);
     return this;
   }
 
    /**
    * Gets or sets array of document styles.
-   * @return style
+   * @return styleList
   **/
   @ApiModelProperty(value = "Gets or sets array of document styles.")
-  public List<Style> getStyle() {
-    return style;
+  public List<Style> getStyleList() {
+    return styleList;
   }
 
-  public void setStyle(List<Style> style) {
-    this.style = style;
+  public void setStyleList(List<Style> styleList) {
+    this.styleList = styleList;
   }
 
 
@@ -86,13 +86,13 @@ public class Styles extends LinkElement {
       return false;
     }
     Styles styles = (Styles) o;
-    return Objects.equals(this.style, styles.style) &&
+    return Objects.equals(this.styleList, styles.styleList) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(style, super.hashCode());
+    return Objects.hash(styleList, super.hashCode());
   }
 
 
@@ -101,7 +101,7 @@ public class Styles extends LinkElement {
     StringBuilder sb = new StringBuilder();
     sb.append("class Styles {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    style: ").append(toIndentedString(style)).append("\n");
+    sb.append("    styleList: ").append(toIndentedString(styleList)).append("\n");
     sb.append("}");
     return sb.toString();
   }
