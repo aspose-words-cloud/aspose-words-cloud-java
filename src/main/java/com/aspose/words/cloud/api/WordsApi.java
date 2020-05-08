@@ -425,7 +425,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply a style to the document node.
+     * Apply a style to the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.
      * 
      * @param request Request object
      * @return WordsResponse
@@ -447,7 +447,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply a style to the document node.
+     * Apply a style to the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.
      * 
      * @param request Request object
      * @return ApiResponse&lt;WordsResponse&gt;
@@ -460,7 +460,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply a style to the document node. (asynchronously)
+     * Apply a style to the document node. Supported node types: ParagraphFormat, List, ListLevel, Table. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -16004,7 +16004,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Gets a style from the document node.
+     * Gets a style from the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.
      * 
      * @param request Request object
      * @return StyleResponse
@@ -16026,7 +16026,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Gets a style from the document node.
+     * Gets a style from the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.
      * 
      * @param request Request object
      * @return ApiResponse&lt;StyleResponse&gt;
@@ -16039,7 +16039,7 @@ if (request.getData() != null)
     }
 
     /**
-     * Gets a style from the document node. (asynchronously)
+     * Gets a style from the document node. Supported node types: ParagraphFormat, List, ListLevel, Table. (asynchronously)
      * 
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes

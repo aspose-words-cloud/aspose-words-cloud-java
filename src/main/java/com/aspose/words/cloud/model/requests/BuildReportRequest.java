@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class BuildReportRequest {
     /*
-     * The document name.
+     * The template name.
      */
     private String Name;
 
@@ -75,7 +75,7 @@ public class BuildReportRequest {
     /*
      * Initializes a new instance of the buildReportRequest class.
      *  
-     * @param String name The document name.
+     * @param String name The template name.
      * @param String data A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
      * @param ReportEngineSettings reportEngineSettings An object providing a settings of report engine.
      * @param String folder Original document folder.
@@ -96,14 +96,14 @@ public class BuildReportRequest {
     }
 
     /*
-     *  Gets The document name.
+     *  Gets The template name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The template name.
      */
     public void setName(String value) {
         Name = value;
