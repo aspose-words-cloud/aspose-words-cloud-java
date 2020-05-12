@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class ExecuteMailMergeRequest {
     /*
-     * The document name.
+     * The template name.
      */
     private String Name;
 
@@ -90,7 +90,7 @@ public class ExecuteMailMergeRequest {
     /*
      * Initializes a new instance of the executeMailMergeRequest class.
      *  
-     * @param String name The document name.
+     * @param String name The template name.
      * @param String data Mail merge data
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -117,14 +117,14 @@ public class ExecuteMailMergeRequest {
     }
 
     /*
-     *  Gets The document name.
+     *  Gets The template name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The template name.
      */
     public void setName(String value) {
         Name = value;

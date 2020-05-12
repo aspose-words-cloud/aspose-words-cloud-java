@@ -33,7 +33,7 @@ import java.io.File;
  */
 public class GetDocumentFieldNamesRequest {
     /*
-     * The document name.
+     * The template name.
      */
     private String Name;
 
@@ -65,7 +65,7 @@ public class GetDocumentFieldNamesRequest {
     /*
      * Initializes a new instance of the getDocumentFieldNamesRequest class.
      *  
-     * @param String name The document name.
+     * @param String name The template name.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -82,14 +82,14 @@ public class GetDocumentFieldNamesRequest {
     }
 
     /*
-     *  Gets The document name.
+     *  Gets The template name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The template name.
      */
     public void setName(String value) {
         Name = value;
