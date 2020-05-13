@@ -43,29 +43,37 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
+ * Represents an array of styles list.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.")
-public class StylesResponse extends WordsResponse {
-  @SerializedName("Styles")
-  private Styles styles = null;
+@ApiModel(description = "Represents an array of styles list.")
+public class Styles extends LinkElement {
+  @SerializedName("StyleList")
+  private List<Style> styleList = null;
 
-  public StylesResponse styles(Styles styles) {
-    this.styles = styles;
+  public Styles styleList(List<Style> styleList) {
+    this.styleList = styleList;
+    return this;
+  }
+
+  public Styles addStyleListItem(Style styleListItem) {
+    if (this.styleList == null) {
+      this.styleList = new ArrayList<Style>();
+    }
+    this.styleList.add(styleListItem);
     return this;
   }
 
    /**
-   * Get styles
-   * @return styles
+   * Gets or sets array of document styles.
+   * @return styleList
   **/
-  @ApiModelProperty(value = "")
-  public Styles getStyles() {
-    return styles;
+  @ApiModelProperty(value = "Gets or sets array of document styles.")
+  public List<Style> getStyleList() {
+    return styleList;
   }
 
-  public void setStyles(Styles styles) {
-    this.styles = styles;
+  public void setStyleList(List<Style> styleList) {
+    this.styleList = styleList;
   }
 
 
@@ -77,23 +85,23 @@ public class StylesResponse extends WordsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StylesResponse stylesResponse = (StylesResponse) o;
-    return Objects.equals(this.styles, stylesResponse.styles) &&
+    Styles styles = (Styles) o;
+    return Objects.equals(this.styleList, styles.styleList) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(styles, super.hashCode());
+    return Objects.hash(styleList, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StylesResponse {\n");
+    sb.append("class Styles {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    styles: ").append(toIndentedString(styles)).append("\n");
+    sb.append("    styleList: ").append(toIndentedString(styleList)).append("\n");
     sb.append("}");
     return sb.toString();
   }
