@@ -38,7 +38,7 @@ public class GetStyleFromDocumentElementRequest {
     private String Name;
 
     /*
-     * The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+     * Path to the node of IStyledDocumentElement.
      */
     private String StyledNodePath;
 
@@ -66,7 +66,7 @@ public class GetStyleFromDocumentElementRequest {
      * Initializes a new instance of the getStyleFromDocumentElementRequest class.
      *  
      * @param String name The document name.
-     * @param String styledNodePath The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+     * @param String styledNodePath Path to the node of IStyledDocumentElement.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -96,14 +96,14 @@ public class GetStyleFromDocumentElementRequest {
     }
 
     /*
-     *  Gets The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+     *  Gets Path to the node of IStyledDocumentElement.
      */
     public String getStyledNodePath() {
         return StyledNodePath;
     }
 
     /*
-     * Sets The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+     * Sets Path to the node of IStyledDocumentElement.
      */
     public void setStyledNodePath(String value) {
         StyledNodePath = value;
