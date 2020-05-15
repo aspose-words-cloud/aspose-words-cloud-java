@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetDocumentFieldNamesRequest.java">
+ * <copyright company="Aspose" file="GetListRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,13 +29,18 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for getDocumentFieldNames operation.
+ * Request model for getList operation.
  */
-public class GetDocumentFieldNamesRequest {
+public class GetListRequest {
     /*
-     * The template name.
+     * The document name.
      */
     private String Name;
+
+    /*
+     * List unique identifier.
+     */
+    private Integer ListId;
 
     /*
      * Original document folder.
@@ -56,43 +61,52 @@ public class GetDocumentFieldNamesRequest {
      * Password for opening an encrypted document.
      */
     private String Password;
-
-    /*
-     * If true, result includes "mustache" field names.
-     */
-    private Boolean UseNonMergeFields;
     
     /*
-     * Initializes a new instance of the getDocumentFieldNamesRequest class.
+     * Initializes a new instance of the getListRequest class.
      *  
-     * @param String name The template name.
+     * @param String name The document name.
+     * @param Integer listId List unique identifier.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean useNonMergeFields If true, result includes "mustache" field names.
      */
-    public GetDocumentFieldNamesRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  Boolean useNonMergeFields) {
+    public GetListRequest(String name,  Integer listId,  String folder,  String storage,  String loadEncoding,  String password) {
         Name = name;
+        ListId = listId;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        UseNonMergeFields = useNonMergeFields;
     }
 
     /*
-     *  Gets The template name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The template name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
+    }
+
+    /*
+     *  Gets List unique identifier.
+     */
+    public Integer getListId() {
+        return ListId;
+    }
+
+    /*
+     * Sets List unique identifier.
+     */
+    public void setListId(Integer value) {
+        ListId = value;
     }
 
     /*
@@ -149,19 +163,5 @@ public class GetDocumentFieldNamesRequest {
      */
     public void setPassword(String value) {
         Password = value;
-    }
-
-    /*
-     *  Gets If true, result includes "mustache" field names.
-     */
-    public Boolean getUseNonMergeFields() {
-        return UseNonMergeFields;
-    }
-
-    /*
-     * Sets If true, result includes "mustache" field names.
-     */
-    public void setUseNonMergeFields(Boolean value) {
-        UseNonMergeFields = value;
     }
 }

@@ -59,7 +59,7 @@ public class TestApiCoverage extends TestCase {
                                             TestFormFields.class, TestHeaderFooter.class, TestHyperlinks.class, TestMacros.class, TestMathObjects.class,
                                             TestPages.class, TestParagraphs.class, TestRuns.class,TestSections.class, TestTables.class, TestText.class,
                                             TestText.class, TestWatermarks.class, TestRange.class, TestFileOperations.class, TestFolderOperations.class,
-                                        TestSplitDocument.class };
+                                            TestSplitDocument.class, TestStyles.class, TestLists.class };
         ArrayList<String> testMethods = new ArrayList<>();
         ArrayList<String> apiMethods = new ArrayList<>();
         ArrayList<String> uncoveredMethods = new ArrayList<>();

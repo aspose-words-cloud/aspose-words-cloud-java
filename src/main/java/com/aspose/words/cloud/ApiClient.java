@@ -58,7 +58,7 @@ public class ApiClient {
     private OkHttpClient httpClient;
     private JSON json;
 
-    private HttpLoggingInterceptor loggingInterceptor;
+    private Interceptor loggingInterceptor;
 
     private String accessToken;
     private String appKey;
@@ -282,8 +282,7 @@ public class ApiClient {
     public ApiClient setDebugging(boolean debugging) {
         if (debugging != this.debugging) {
             if (debugging) {
-                loggingInterceptor = new HttpLoggingInterceptor();
-                loggingInterceptor.setLevel(Level.BODY);
+                loggingInterceptor = new ApiLoggingInterceptor();
                 httpClient.interceptors().add(loggingInterceptor);
             } 
             else {
@@ -409,8 +408,11 @@ public class ApiClient {
             }
             return b.toString();
         } 
-        else {
+        else if (param instanceof String) {
             return String.valueOf(param);
+        }
+        else {
+            return json.serialize(param);
         }
     }
 

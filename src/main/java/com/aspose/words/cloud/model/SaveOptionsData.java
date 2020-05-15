@@ -72,6 +72,59 @@ public class SaveOptionsData {
   @SerializedName("UpdateFields")
   private Boolean updateFields = null;
 
+  /**
+   * Gets or sets a value determining how 3D effects are rendered.
+   */
+  @JsonAdapter(Dml3DEffectsRenderingModeEnum.Adapter.class)
+  public enum Dml3DEffectsRenderingModeEnum {
+    BASIC("Basic"),
+    
+    ADVANCED("Advanced");
+
+    private String value;
+
+    Dml3DEffectsRenderingModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static Dml3DEffectsRenderingModeEnum fromValue(String text) {
+      for (Dml3DEffectsRenderingModeEnum b : Dml3DEffectsRenderingModeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<Dml3DEffectsRenderingModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final Dml3DEffectsRenderingModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public Dml3DEffectsRenderingModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return Dml3DEffectsRenderingModeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("Dml3DEffectsRenderingMode")
+  private Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode = null;
+
+  @SerializedName("UpdateLastPrintedProperty")
+  private Boolean updateLastPrintedProperty = null;
+
   public SaveOptionsData saveFormat(String saveFormat) {
     this.saveFormat = saveFormat;
     return this;
@@ -216,6 +269,42 @@ public class SaveOptionsData {
     this.updateFields = updateFields;
   }
 
+  public SaveOptionsData dml3DEffectsRenderingMode(Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode) {
+    this.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining how 3D effects are rendered.
+   * @return dml3DEffectsRenderingMode
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining how 3D effects are rendered.")
+  public Dml3DEffectsRenderingModeEnum getDml3DEffectsRenderingMode() {
+    return dml3DEffectsRenderingMode;
+  }
+
+  public void setDml3DEffectsRenderingMode(Dml3DEffectsRenderingModeEnum dml3DEffectsRenderingMode) {
+    this.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
+  }
+
+  public SaveOptionsData updateLastPrintedProperty(Boolean updateLastPrintedProperty) {
+    this.updateLastPrintedProperty = updateLastPrintedProperty;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
+   * @return updateLastPrintedProperty
+  **/
+  @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.")
+  public Boolean isUpdateLastPrintedProperty() {
+    return updateLastPrintedProperty;
+  }
+
+  public void setUpdateLastPrintedProperty(Boolean updateLastPrintedProperty) {
+    this.updateLastPrintedProperty = updateLastPrintedProperty;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -233,12 +322,14 @@ public class SaveOptionsData {
         Objects.equals(this.zipOutput, saveOptionsData.zipOutput) &&
         Objects.equals(this.updateLastSavedTimeProperty, saveOptionsData.updateLastSavedTimeProperty) &&
         Objects.equals(this.updateSdtContent, saveOptionsData.updateSdtContent) &&
-        Objects.equals(this.updateFields, saveOptionsData.updateFields);
+        Objects.equals(this.updateFields, saveOptionsData.updateFields) &&
+        Objects.equals(this.dml3DEffectsRenderingMode, saveOptionsData.dml3DEffectsRenderingMode) &&
+        Objects.equals(this.updateLastPrintedProperty, saveOptionsData.updateLastPrintedProperty);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields);
+    return Objects.hash(saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields, dml3DEffectsRenderingMode, updateLastPrintedProperty);
   }
 
 
@@ -255,6 +346,8 @@ public class SaveOptionsData {
     sb.append("    updateLastSavedTimeProperty: ").append(toIndentedString(updateLastSavedTimeProperty)).append("\n");
     sb.append("    updateSdtContent: ").append(toIndentedString(updateSdtContent)).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
+    sb.append("    dml3DEffectsRenderingMode: ").append(toIndentedString(dml3DEffectsRenderingMode)).append("\n");
+    sb.append("    updateLastPrintedProperty: ").append(toIndentedString(updateLastPrintedProperty)).append("\n");
     sb.append("}");
     return sb.toString();
   }

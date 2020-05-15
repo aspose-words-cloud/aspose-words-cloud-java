@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetDocumentFieldNamesRequest.java">
+ * <copyright company="Aspose" file="InsertStyleRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,13 +29,18 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for getDocumentFieldNames operation.
+ * Request model for insertStyle operation.
  */
-public class GetDocumentFieldNamesRequest {
+public class InsertStyleRequest {
     /*
-     * The template name.
+     * The document name.
      */
     private String Name;
+
+    /*
+     * Style to insert.
+     */
+    private StyleInsert StyleInsert;
 
     /*
      * Original document folder.
@@ -58,41 +63,71 @@ public class GetDocumentFieldNamesRequest {
     private String Password;
 
     /*
-     * If true, result includes "mustache" field names.
+     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private Boolean UseNonMergeFields;
+    private String DestFileName;
+
+    /*
+     * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     */
+    private String RevisionAuthor;
+
+    /*
+     * The date and time to use for revisions.
+     */
+    private String RevisionDateTime;
     
     /*
-     * Initializes a new instance of the getDocumentFieldNamesRequest class.
+     * Initializes a new instance of the insertStyleRequest class.
      *  
-     * @param String name The template name.
+     * @param String name The document name.
+     * @param StyleInsert styleInsert Style to insert.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean useNonMergeFields If true, result includes "mustache" field names.
+     * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     * @param String revisionDateTime The date and time to use for revisions.
      */
-    public GetDocumentFieldNamesRequest(String name,  String folder,  String storage,  String loadEncoding,  String password,  Boolean useNonMergeFields) {
+    public InsertStyleRequest(String name,  StyleInsert styleInsert,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
+        StyleInsert = styleInsert;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
-        UseNonMergeFields = useNonMergeFields;
+        DestFileName = destFileName;
+        RevisionAuthor = revisionAuthor;
+        RevisionDateTime = revisionDateTime;
     }
 
     /*
-     *  Gets The template name.
+     *  Gets The document name.
      */
     public String getName() {
         return Name;
     }
 
     /*
-     * Sets The template name.
+     * Sets The document name.
      */
     public void setName(String value) {
         Name = value;
+    }
+
+    /*
+     *  Gets Style to insert.
+     */
+    public StyleInsert getStyleInsert() {
+        return StyleInsert;
+    }
+
+    /*
+     * Sets Style to insert.
+     */
+    public void setStyleInsert(StyleInsert value) {
+        StyleInsert = value;
     }
 
     /*
@@ -152,16 +187,44 @@ public class GetDocumentFieldNamesRequest {
     }
 
     /*
-     *  Gets If true, result includes "mustache" field names.
+     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public Boolean getUseNonMergeFields() {
-        return UseNonMergeFields;
+    public String getDestFileName() {
+        return DestFileName;
     }
 
     /*
-     * Sets If true, result includes "mustache" field names.
+     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public void setUseNonMergeFields(Boolean value) {
-        UseNonMergeFields = value;
+    public void setDestFileName(String value) {
+        DestFileName = value;
+    }
+
+    /*
+     *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     */
+    public String getRevisionAuthor() {
+        return RevisionAuthor;
+    }
+
+    /*
+     * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     */
+    public void setRevisionAuthor(String value) {
+        RevisionAuthor = value;
+    }
+
+    /*
+     *  Gets The date and time to use for revisions.
+     */
+    public String getRevisionDateTime() {
+        return RevisionDateTime;
+    }
+
+    /*
+     * Sets The date and time to use for revisions.
+     */
+    public void setRevisionDateTime(String value) {
+        RevisionDateTime = value;
     }
 }

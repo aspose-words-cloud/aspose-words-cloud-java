@@ -320,6 +320,9 @@ public class ParagraphFormat extends LinkElement {
   @SerializedName("RightIndent")
   private Double rightIndent = null;
 
+  @SerializedName("Shading")
+  private Shading shading = null;
+
   @SerializedName("SpaceAfter")
   private Double spaceAfter = null;
 
@@ -1442,6 +1445,24 @@ public class ParagraphFormat extends LinkElement {
     this.rightIndent = rightIndent;
   }
 
+  public ParagraphFormat shading(Shading shading) {
+    this.shading = shading;
+    return this;
+  }
+
+   /**
+   * Get shading
+   * @return shading
+  **/
+  @ApiModelProperty(value = "")
+  public Shading getShading() {
+    return shading;
+  }
+
+  public void setShading(Shading shading) {
+    this.shading = shading;
+  }
+
   public ParagraphFormat spaceAfter(Double spaceAfter) {
     this.spaceAfter = spaceAfter;
     return this;
@@ -1631,6 +1652,7 @@ public class ParagraphFormat extends LinkElement {
         Objects.equals(this.outlineLevel, paragraphFormat.outlineLevel) &&
         Objects.equals(this.pageBreakBefore, paragraphFormat.pageBreakBefore) &&
         Objects.equals(this.rightIndent, paragraphFormat.rightIndent) &&
+        Objects.equals(this.shading, paragraphFormat.shading) &&
         Objects.equals(this.spaceAfter, paragraphFormat.spaceAfter) &&
         Objects.equals(this.spaceAfterAuto, paragraphFormat.spaceAfterAuto) &&
         Objects.equals(this.spaceBefore, paragraphFormat.spaceBefore) &&
@@ -1645,7 +1667,7 @@ public class ParagraphFormat extends LinkElement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, isListItem, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl, super.hashCode());
+    return Objects.hash(addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, isListItem, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, shading, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl, super.hashCode());
   }
 
 
@@ -1671,6 +1693,7 @@ public class ParagraphFormat extends LinkElement {
     sb.append("    outlineLevel: ").append(toIndentedString(outlineLevel)).append("\n");
     sb.append("    pageBreakBefore: ").append(toIndentedString(pageBreakBefore)).append("\n");
     sb.append("    rightIndent: ").append(toIndentedString(rightIndent)).append("\n");
+    sb.append("    shading: ").append(toIndentedString(shading)).append("\n");
     sb.append("    spaceAfter: ").append(toIndentedString(spaceAfter)).append("\n");
     sb.append("    spaceAfterAuto: ").append(toIndentedString(spaceAfterAuto)).append("\n");
     sb.append("    spaceBefore: ").append(toIndentedString(spaceBefore)).append("\n");
