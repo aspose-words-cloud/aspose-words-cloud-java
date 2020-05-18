@@ -43,7 +43,7 @@ public class ApplyStyleToDocumentElementRequest {
     private StyleApply StyleApply;
 
     /*
-     * Path to the node of IStyledDocumentElement.
+     * The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
      */
     private String StyledNodePath;
 
@@ -87,7 +87,7 @@ public class ApplyStyleToDocumentElementRequest {
      *  
      * @param String name The document name.
      * @param StyleApply styleApply Style to apply.
-     * @param String styledNodePath Path to the node of IStyledDocumentElement.
+     * @param String styledNodePath The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -138,14 +138,14 @@ public class ApplyStyleToDocumentElementRequest {
     }
 
     /*
-     *  Gets Path to the node of IStyledDocumentElement.
+     *  Gets The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
      */
     public String getStyledNodePath() {
         return StyledNodePath;
     }
 
     /*
-     * Sets Path to the node of IStyledDocumentElement.
+     * Sets The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
      */
     public void setStyledNodePath(String value) {
         StyledNodePath = value;

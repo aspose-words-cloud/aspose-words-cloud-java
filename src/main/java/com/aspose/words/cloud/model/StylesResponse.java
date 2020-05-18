@@ -48,23 +48,31 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.")
 public class StylesResponse extends WordsResponse {
   @SerializedName("Styles")
-  private Styles styles = null;
+  private List<Style> styles = null;
 
-  public StylesResponse styles(Styles styles) {
+  public StylesResponse styles(List<Style> styles) {
     this.styles = styles;
     return this;
   }
 
+  public StylesResponse addStylesItem(Style stylesItem) {
+    if (this.styles == null) {
+      this.styles = new ArrayList<Style>();
+    }
+    this.styles.add(stylesItem);
+    return this;
+  }
+
    /**
-   * Get styles
+   * Gets or sets styles which are contained in document.
    * @return styles
   **/
-  @ApiModelProperty(value = "")
-  public Styles getStyles() {
+  @ApiModelProperty(value = "Gets or sets styles which are contained in document.")
+  public List<Style> getStyles() {
     return styles;
   }
 
-  public void setStyles(Styles styles) {
+  public void setStyles(List<Style> styles) {
     this.styles = styles;
   }
 
