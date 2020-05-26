@@ -40,7 +40,7 @@ public class UpdateDrawingObjectRequest {
     /*
      * Drawing object parameters
      */
-    private String DrawingObject;
+    private DrawingObjectUpdate DrawingObject;
 
     /*
      * File with image
@@ -96,7 +96,7 @@ public class UpdateDrawingObjectRequest {
      * Initializes a new instance of the updateDrawingObjectRequest class.
      *  
      * @param String name The document name.
-     * @param String drawingObject Drawing object parameters
+     * @param DrawingObjectUpdate drawingObject Drawing object parameters
      * @param byte[] imageFile File with image
      * @param String nodePath Path to the node, which contains collection of drawing objects.
      * @param Integer index Object index.
@@ -108,7 +108,7 @@ public class UpdateDrawingObjectRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateDrawingObjectRequest(String name,  String drawingObject,  byte[] imageFile,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public UpdateDrawingObjectRequest(String name,  DrawingObjectUpdate drawingObject,  byte[] imageFile,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
         Name = name;
         DrawingObject = drawingObject;
         ImageFile = imageFile;
@@ -140,14 +140,14 @@ public class UpdateDrawingObjectRequest {
     /*
      *  Gets Drawing object parameters
      */
-    public String getDrawingObject() {
+    public DrawingObjectUpdate getDrawingObject() {
         return DrawingObject;
     }
 
     /*
      * Sets Drawing object parameters
      */
-    public void setDrawingObject(String value) {
+    public void setDrawingObject(DrawingObjectUpdate value) {
         DrawingObject = value;
     }
 
