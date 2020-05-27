@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="InsertOrUpdateParagraphTabStopRequest.java">
+ * <copyright company="Aspose" file="InsertOrUpdateParagraphTabStopWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,9 +29,9 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for insertOrUpdateParagraphTabStop operation.
+ * Request model for insertOrUpdateParagraphTabStopWithoutNodePath operation.
  */
-public class InsertOrUpdateParagraphTabStopRequest {
+public class InsertOrUpdateParagraphTabStopWithoutNodePathRequest {
     /*
      * The document name.
      */
@@ -41,11 +41,6 @@ public class InsertOrUpdateParagraphTabStopRequest {
      * Paragraph tab stop.
      */
     private TabStopInsert Dto;
-
-    /*
-     * Path to the node which contains paragraph.
-     */
-    private String NodePath;
 
     /*
      * Object index.
@@ -78,11 +73,10 @@ public class InsertOrUpdateParagraphTabStopRequest {
     private String DestFileName;
     
     /*
-     * Initializes a new instance of the insertOrUpdateParagraphTabStopRequest class.
+     * Initializes a new instance of the insertOrUpdateParagraphTabStopWithoutNodePathRequest class.
      *  
      * @param String name The document name.
      * @param TabStopInsert dto Paragraph tab stop.
-     * @param String nodePath Path to the node which contains paragraph.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -90,10 +84,9 @@ public class InsertOrUpdateParagraphTabStopRequest {
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public InsertOrUpdateParagraphTabStopRequest(String name,  TabStopInsert dto,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
+    public InsertOrUpdateParagraphTabStopWithoutNodePathRequest(String name,  TabStopInsert dto,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
         Name = name;
         Dto = dto;
-        NodePath = nodePath;
         Index = index;
         Folder = folder;
         Storage = storage;
@@ -128,20 +121,6 @@ public class InsertOrUpdateParagraphTabStopRequest {
      */
     public void setDto(TabStopInsert value) {
         Dto = value;
-    }
-
-    /*
-     *  Gets Path to the node which contains paragraph.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to the node which contains paragraph.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
     }
 
     /*
