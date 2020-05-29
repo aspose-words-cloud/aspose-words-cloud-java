@@ -59,13 +59,13 @@ public class TestApiCoverage extends TestCase {
                                             TestFormFields.class, TestHeaderFooter.class, TestHyperlinks.class, TestMacros.class, TestMathObjects.class,
                                             TestPages.class, TestParagraphs.class, TestRuns.class,TestSections.class, TestTables.class, TestText.class,
                                             TestText.class, TestWatermarks.class, TestRange.class, TestFileOperations.class, TestFolderOperations.class,
-                                            TestSplitDocument.class, TestStyles.class, TestLists.class };
+                                            TestSplitDocument.class, TestStyles.class, TestLists.class, TestReporting.class };
         ArrayList<String> testMethods = new ArrayList<>();
         ArrayList<String> apiMethods = new ArrayList<>();
         ArrayList<String> uncoveredMethods = new ArrayList<>();
         Method[] allApiMethods = WordsApi.class.getDeclaredMethods();
         for (Method m:allApiMethods) {
-            if (Modifier.isPublic(m.getModifiers()) && m.getExceptionTypes().length == 1 && m.getReturnType() != Call.class ) {
+            if (Modifier.isPublic(m.getModifiers()) && m.getExceptionTypes().length > 0 && m.getReturnType() != Call.class ) {
                 apiMethods.add(m.getName());
             }
         }

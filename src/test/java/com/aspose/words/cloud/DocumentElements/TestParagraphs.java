@@ -51,7 +51,7 @@ public class TestParagraphs extends TestCase {
      * Test for removing paragraph
      */
     @Test
-public void testDeleteParagraph() throws ApiException, IOException {
+    public void testDeleteParagraph() throws ApiException, IOException {
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteParagraph.doc";
         Integer index = 0;
@@ -68,7 +68,7 @@ public void testDeleteParagraph() throws ApiException, IOException {
      * Test for removing paragraph without node path
      */
     @Test
-public void testDeleteParagraphWithoutNodePath() throws ApiException, IOException {
+    public void testDeleteParagraphWithoutNodePath() throws ApiException, IOException {
         String fileName = "test_doc.docx";
         String remoteName = "TestDeleteParagraphWithoutNodePath.doc";
         Integer index = 0;
@@ -85,7 +85,7 @@ public void testDeleteParagraphWithoutNodePath() throws ApiException, IOExceptio
      * Test for getting paragraph
      */
     @Test
-public void testGetParagraph() throws ApiException, IOException {
+    public void testGetParagraph() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraph.doc";
         Integer index = 0;
@@ -103,7 +103,7 @@ public void testGetParagraph() throws ApiException, IOException {
      * Test for getting paragraph without node path
      */
     @Test
-public void testGetParagraphWithoutNodePath() throws ApiException, IOException {
+    public void testGetParagraphWithoutNodePath() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphWithoutNodePath.doc";
         Integer index = 0;
@@ -121,7 +121,7 @@ public void testGetParagraphWithoutNodePath() throws ApiException, IOException {
      * Test for getting paragraph run
      */
     @Test
-public void testGetRun() throws ApiException, IOException {
+    public void testGetRun() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetRun.doc";
         Integer index = 0;
@@ -140,7 +140,7 @@ public void testGetRun() throws ApiException, IOException {
      * Test for getting paragraph run
      */
     @Test
-public void testGetRunFont() throws ApiException, IOException {
+    public void testGetRunFont() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetRunFont.doc";
         Integer index = 0;
@@ -159,7 +159,7 @@ public void testGetRunFont() throws ApiException, IOException {
      * Test for getting paragraph runs
      */
     @Test
-public void testGetRuns() throws ApiException, IOException {
+    public void testGetRuns() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetDocumentParagraphRuns.doc";
         String paragraphPath = "sections/0/paragraphs/0";
@@ -177,7 +177,7 @@ public void testGetRuns() throws ApiException, IOException {
      * Test for getting paragraphs
      */
     @Test
-public void testGetParagraphs() throws ApiException, IOException {
+    public void testGetParagraphs() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphs.doc";
         String paragraphPath = "sections/0";
@@ -195,7 +195,7 @@ public void testGetParagraphs() throws ApiException, IOException {
      * Test for getting paragraphs without node path
      */
     @Test
-public void testGetParagraphsWithoutNodePath() throws ApiException, IOException {
+    public void testGetParagraphsWithoutNodePath() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestGetParagraphsWithoutNodePath.doc";
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
@@ -212,7 +212,7 @@ public void testGetParagraphsWithoutNodePath() throws ApiException, IOException 
      * Test for updating paragraph font
      */
     @Test
-public void testUpdateRunFont() throws ApiException, IOException {
+    public void testUpdateRunFont() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestUpdateRunFont.doc";
         Integer index = 0;
@@ -233,7 +233,7 @@ public void testUpdateRunFont() throws ApiException, IOException {
      * Test for inserting paragraph
      */
     @Test
-public void testInsertParagraph() throws ApiException, IOException {
+    public void testInsertParagraph() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestInsertParagraph.doc";
         String paragraphPath = "sections/0";
@@ -250,10 +250,29 @@ public void testInsertParagraph() throws ApiException, IOException {
     }
 
     /*
+     * Test for inserting paragraph
+     */
+    @Test
+    public void testInsertParagraphWithoutNodePath() throws ApiException, IOException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "TestInsertParagraph.doc";
+        String destName = PathUtil.get(TestInitializer.RemoteTestOut, remoteName);
+        ParagraphInsert body = new ParagraphInsert().text("This is a new paragraph for your document");
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
+
+        InsertParagraphWithoutNodePathRequest request = new InsertParagraphWithoutNodePathRequest(remoteName, body,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
+                null, destName, null, null, null);
+
+        ParagraphResponse result = TestInitializer.wordsApi.insertParagraphWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for rendering paragraph
      */
     @Test
-public void testRenderParagraph() throws ApiException, IOException {
+    public void testRenderParagraph() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestRenderParagraph.doc";
         Integer index = 0;
@@ -272,7 +291,7 @@ public void testRenderParagraph() throws ApiException, IOException {
      * Test for rendering paragraph without node path
      */
     @Test
-public void testRenderParagraphWithoutNodePath() throws ApiException, IOException {
+    public void testRenderParagraphWithoutNodePath() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "TestRenderParagraphWithoutNodePath.doc";
         Integer index = 0;
@@ -291,7 +310,7 @@ public void testRenderParagraphWithoutNodePath() throws ApiException, IOExceptio
      * Test for updating paragraph format
      */
     @Test
-public void testUpdateParagraphFormat() throws ApiException, IOException {
+    public void testUpdateParagraphFormat() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "UpdateParagraphFormat.doc";
         ParagraphFormat body = new ParagraphFormat().alignment(ParagraphFormat.AlignmentEnum.RIGHT);
@@ -305,8 +324,26 @@ public void testUpdateParagraphFormat() throws ApiException, IOException {
         assertNotNull(result);
     }
 
+    /*
+     * Test for updating paragraph format
+     */
     @Test
-public void testGetParagraphFormat() throws ApiException, IOException {
+    public void testUpdateParagraphFormatWithoutNodePath() throws ApiException, IOException {
+        String fileName = "test_multi_pages.docx";
+        String remoteName = "UpdateParagraphFormat.doc";
+        ParagraphFormat body = new ParagraphFormat().alignment(ParagraphFormat.AlignmentEnum.RIGHT);
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
+
+        UpdateParagraphFormatWithoutNodePathRequest request = new UpdateParagraphFormatWithoutNodePathRequest(remoteName, body, 0,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
+                null, null, null, null);
+
+        ParagraphFormatResponse result = TestInitializer.wordsApi.updateParagraphFormatWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGetParagraphFormat() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "GetParagraphFormat.doc";
         Integer index = 0;
@@ -321,7 +358,7 @@ public void testGetParagraphFormat() throws ApiException, IOException {
     }
 
     @Test
-public void testGetParagraphFormatWithoutNodePath() throws ApiException, IOException {
+    public void testGetParagraphFormatWithoutNodePath() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "GetParagraphFormatWithoutNodePath.doc";
         Integer index = 0;
@@ -356,6 +393,23 @@ public void testGetParagraphFormatWithoutNodePath() throws ApiException, IOExcep
      * Test for getting paragraph list format
      */
     @Test
+    public void testGetParagraphListFormatWithoutNodePath() throws ApiException, IOException {
+        String fileName = "ParagraphGetListFormat.doc";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testListFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder, fileName).replace("\\", "/"));
+
+        GetParagraphListFormatWithoutNodePathRequest request = new GetParagraphListFormatWithoutNodePathRequest(fileName,  index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder).replace("\\", "/"), null, null,
+                null);
+
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.getParagraphListFormatWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for updating paragraph list format
+     */
+    @Test
     public void testUpdateParagraphListFormat() throws ApiException, IOException {
         String fileName = "ParagraphUpdateListFormat.doc";
         Integer index = 0;
@@ -373,6 +427,26 @@ public void testGetParagraphFormatWithoutNodePath() throws ApiException, IOExcep
     }
 
     /*
+     * Test for updating paragraph list format
+     */
+    @Test
+    public void testUpdateParagraphListFormatWithoutNodePath() throws ApiException, IOException {
+        String fileName = "ParagraphUpdateListFormat.doc";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testListFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder, fileName).replace("\\", "/"));
+
+        ListFormatUpdate dto = new ListFormatUpdate();
+        dto.setListId(2);
+
+        UpdateParagraphListFormatWithoutNodePathRequest request = new UpdateParagraphListFormatWithoutNodePathRequest(fileName, dto, index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder).replace("\\", "/"), null, null,
+                null, null, null, null);
+
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.updateParagraphListFormatWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for deleting paragraph list format
      */
     @Test
@@ -386,6 +460,161 @@ public void testGetParagraphFormatWithoutNodePath() throws ApiException, IOExcep
                 null, null, null, null);
 
         ParagraphListFormatResponse result = TestInitializer.wordsApi.deleteParagraphListFormat(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for deleting paragraph list format
+     */
+    @Test
+    public void testDeleteParagraphListFormatWithoutNodePath() throws ApiException, IOException {
+        String fileName = "ParagraphDeleteListFormat.doc";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testListFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder, fileName).replace("\\", "/"));
+
+        DeleteParagraphListFormatWithoutNodePathRequest request = new DeleteParagraphListFormatWithoutNodePathRequest(fileName, index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder).replace("\\", "/"), null, null,
+                null, null, null, null);
+
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.deleteParagraphListFormatWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for deleting tab stop
+     */
+    @Test
+    public void testDeleteParagraphTabStop() throws ApiException, IOException {
+        String fileName = "ParagraphTabStops.docx";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testListFolder, fileName).replace("\\", "/"));
+
+        DeleteParagraphTabStopRequest request = new DeleteParagraphTabStopRequest(fileName,72.0, "", index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null,
+                null, null);
+
+        TabStopsResponse result = TestInitializer.wordsApi.deleteParagraphTabStop(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for deleting tab stop
+     */
+    @Test
+    public void testDeleteParagraphTabStopWithoutNodePath() throws ApiException, IOException {
+        String fileName = "ParagraphTabStops.docx";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, fileName).replace("\\", "/"));
+
+        DeleteParagraphTabStopWithoutNodePathRequest request = new DeleteParagraphTabStopWithoutNodePathRequest(fileName,72.0, index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null,
+                null, null);
+
+        TabStopsResponse result = TestInitializer.wordsApi.deleteParagraphTabStopWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for get paragraph tab stop
+     */
+    @Test
+    public void testGetParagraphTabStops() throws ApiException, IOException {
+        String fileName = "ParagraphTabStops.docx";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, fileName).replace("\\", "/"));
+
+        GetParagraphTabStopsRequest request = new GetParagraphTabStopsRequest(fileName,"", index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null,
+                null);
+
+        TabStopsResponse result = TestInitializer.wordsApi.getParagraphTabStops(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for get paragraph tab stop
+     */
+    @Test
+    public void testGetParagraphTabStopsWithoutNodePath() throws ApiException, IOException {
+        String fileName = "ParagraphTabStops.docx";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, fileName).replace("\\", "/"));
+
+        GetParagraphTabStopsWithoutNodePathRequest request = new GetParagraphTabStopsWithoutNodePathRequest(fileName, index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null,
+                null);
+
+        TabStopsResponse result = TestInitializer.wordsApi.getParagraphTabStopsWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for deleting tab stop
+     */
+    @Test
+    public void testDeleteAllParagraphTabStops() throws ApiException, IOException {
+        String fileName = "ParagraphTabStops.docx";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, fileName).replace("\\", "/"));
+
+        DeleteAllParagraphTabStopsRequest request = new DeleteAllParagraphTabStopsRequest(fileName,"", index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null,
+                null, null);
+
+        TabStopsResponse result = TestInitializer.wordsApi.deleteAllParagraphTabStops(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for deleting tab stop
+     */
+    @Test
+    public void testDeleteAllParagraphTabStopsWithoutNodePath() throws ApiException, IOException {
+        String fileName = "ParagraphTabStops.docx";
+        Integer index = 0;
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, fileName).replace("\\", "/"));
+
+        DeleteAllParagraphTabStopsWithoutNodePathRequest request = new DeleteAllParagraphTabStopsWithoutNodePathRequest(fileName, index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null,
+                null, null);
+
+        TabStopsResponse result = TestInitializer.wordsApi.deleteAllParagraphTabStopsWithoutNodePath(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for inserting or updating tab stop
+     */
+    @Test
+    public void testInsertOrUpdateParagraphTabStop() throws ApiException, IOException {
+        String fileName = "ParagraphTabStops.docx";
+        Integer index = 0;
+        TabStopInsert dto = (TabStopInsert)new TabStopInsert().alignment(TabStopBase.AlignmentEnum.LEFT).leader(TabStopBase.LeaderEnum.NONE).position(72.0);
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, fileName).replace("\\", "/"));
+
+        InsertOrUpdateParagraphTabStopRequest request = new InsertOrUpdateParagraphTabStopRequest(fileName, dto, "", index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null,
+                null, null);
+
+        TabStopsResponse result = TestInitializer.wordsApi.insertOrUpdateParagraphTabStop(request);
+        assertNotNull(result);
+    }
+
+    /*
+     * Test for inserting or updating tab stop
+     */
+    @Test
+    public void testInsertOrUpdateParagraphTabStopWithoutNodePath() throws ApiException, IOException {
+        String fileName = "ParagraphTabStops.docx";
+        Integer index = 0;
+        TabStopInsert dto = (TabStopInsert)new TabStopInsert().alignment(TabStopBase.AlignmentEnum.LEFT).leader(TabStopBase.LeaderEnum.NONE).position(72.0);
+        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, fileName).replace("\\", "/"));
+
+        InsertOrUpdateParagraphTabStopWithoutNodePathRequest request = new InsertOrUpdateParagraphTabStopWithoutNodePathRequest(fileName, dto, index,
+                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder).replace("\\", "/"), null, null,
+                null, null);
+
+        TabStopsResponse result = TestInitializer.wordsApi.insertOrUpdateParagraphTabStopWithoutNodePath(request);
         assertNotNull(result);
     }
 }
