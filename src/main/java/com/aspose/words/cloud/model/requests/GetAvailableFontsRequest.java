@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetAvailableFontsRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,28 +37,28 @@ public class GetAvailableFontsRequest {
     /*
      * Folder in filestorage with custom fonts.
      */
-    private String FontsLocation;
-    
+    private String fontsLocation;
+
     /*
-     * Initializes a new instance of the getAvailableFontsRequest class.
-     *  
+     * Initializes a new instance of the GetAvailableFontsRequest class.
+     *
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public GetAvailableFontsRequest(String fontsLocation) {
-        FontsLocation = fontsLocation;
+        this.fontsLocation = fontsLocation;
     }
 
     /*
-     *  Gets Folder in filestorage with custom fonts.
+     * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
-        return FontsLocation;
+        return this.fontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
     public void setFontsLocation(String value) {
-        FontsLocation = value;
+        this.fontsLocation = value;
     }
 }

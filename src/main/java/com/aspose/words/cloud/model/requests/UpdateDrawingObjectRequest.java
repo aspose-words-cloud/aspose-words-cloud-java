@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateDrawingObjectRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,69 +37,69 @@ public class UpdateDrawingObjectRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private String name;
 
     /*
-     * Drawing object parameters
+     * Drawing object parameters.
      */
-    private DrawingObjectUpdate DrawingObject;
+    private String drawingObject;
 
     /*
-     * File with image
+     * File with image.
      */
-    private byte[] ImageFile;
+    private byte[] imageFile;
 
     /*
      * Path to the node, which contains collection of drawing objects.
      */
-    private String NodePath;
+    private String nodePath;
 
     /*
      * Object index.
      */
-    private Integer Index;
+    private Integer index;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private String folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private String storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private String loadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private String password;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private String DestFileName;
+    private String destFileName;
 
     /*
      * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
-    private String RevisionAuthor;
+    private String revisionAuthor;
 
     /*
      * The date and time to use for revisions.
      */
-    private String RevisionDateTime;
-    
+    private String revisionDateTime;
+
     /*
-     * Initializes a new instance of the updateDrawingObjectRequest class.
-     *  
+     * Initializes a new instance of the UpdateDrawingObjectRequest class.
+     *
      * @param String name The document name.
-     * @param DrawingObjectUpdate drawingObject Drawing object parameters
-     * @param byte[] imageFile File with image
+     * @param String drawingObject Drawing object parameters.
+     * @param byte[] imageFile File with image.
      * @param String nodePath Path to the node, which contains collection of drawing objects.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -108,186 +110,186 @@ public class UpdateDrawingObjectRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateDrawingObjectRequest(String name,  DrawingObjectUpdate drawingObject,  byte[] imageFile,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
-        Name = name;
-        DrawingObject = drawingObject;
-        ImageFile = imageFile;
-        NodePath = nodePath;
-        Index = index;
-        Folder = folder;
-        Storage = storage;
-        LoadEncoding = loadEncoding;
-        Password = password;
-        DestFileName = destFileName;
-        RevisionAuthor = revisionAuthor;
-        RevisionDateTime = revisionDateTime;
+    public UpdateDrawingObjectRequest(String name, String drawingObject, byte[] imageFile, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+        this.name = name;
+        this.drawingObject = drawingObject;
+        this.imageFile = imageFile;
+        this.nodePath = nodePath;
+        this.index = index;
+        this.folder = folder;
+        this.storage = storage;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
+        this.destFileName = destFileName;
+        this.revisionAuthor = revisionAuthor;
+        this.revisionDateTime = revisionDateTime;
     }
 
     /*
-     *  Gets The document name.
+     * Gets The document name.
      */
     public String getName() {
-        return Name;
+        return this.name;
     }
 
     /*
      * Sets The document name.
      */
     public void setName(String value) {
-        Name = value;
+        this.name = value;
     }
 
     /*
-     *  Gets Drawing object parameters
+     * Gets Drawing object parameters.
      */
-    public DrawingObjectUpdate getDrawingObject() {
-        return DrawingObject;
+    public String getDrawingObject() {
+        return this.drawingObject;
     }
 
     /*
-     * Sets Drawing object parameters
+     * Sets Drawing object parameters.
      */
-    public void setDrawingObject(DrawingObjectUpdate value) {
-        DrawingObject = value;
+    public void setDrawingObject(String value) {
+        this.drawingObject = value;
     }
 
     /*
-     *  Gets File with image
+     * Gets File with image.
      */
     public byte[] getImageFile() {
-        return ImageFile;
+        return this.imageFile;
     }
 
     /*
-     * Sets File with image
+     * Sets File with image.
      */
     public void setImageFile(byte[] value) {
-        ImageFile = value;
+        this.imageFile = value;
     }
 
     /*
-     *  Gets Path to the node, which contains collection of drawing objects.
+     * Gets Path to the node, which contains collection of drawing objects.
      */
     public String getNodePath() {
-        return NodePath;
+        return this.nodePath;
     }
 
     /*
      * Sets Path to the node, which contains collection of drawing objects.
      */
     public void setNodePath(String value) {
-        NodePath = value;
+        this.nodePath = value;
     }
 
     /*
-     *  Gets Object index.
+     * Gets Object index.
      */
     public Integer getIndex() {
-        return Index;
+        return this.index;
     }
 
     /*
      * Sets Object index.
      */
     public void setIndex(Integer value) {
-        Index = value;
+        this.index = value;
     }
 
     /*
-     *  Gets Original document folder.
+     * Gets Original document folder.
      */
     public String getFolder() {
-        return Folder;
+        return this.folder;
     }
 
     /*
      * Sets Original document folder.
      */
     public void setFolder(String value) {
-        Folder = value;
+        this.folder = value;
     }
 
     /*
-     *  Gets Original document storage.
+     * Gets Original document storage.
      */
     public String getStorage() {
-        return Storage;
+        return this.storage;
     }
 
     /*
      * Sets Original document storage.
      */
     public void setStorage(String value) {
-        Storage = value;
+        this.storage = value;
     }
 
     /*
-     *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public String getLoadEncoding() {
-        return LoadEncoding;
+        return this.loadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public void setLoadEncoding(String value) {
-        LoadEncoding = value;
+        this.loadEncoding = value;
     }
 
     /*
-     *  Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document.
      */
     public String getPassword() {
-        return Password;
+        return this.password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
     public void setPassword(String value) {
-        Password = value;
+        this.password = value;
     }
 
     /*
-     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public String getDestFileName() {
-        return DestFileName;
+        return this.destFileName;
     }
 
     /*
      * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public void setDestFileName(String value) {
-        DestFileName = value;
+        this.destFileName = value;
     }
 
     /*
-     *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     * Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
     public String getRevisionAuthor() {
-        return RevisionAuthor;
+        return this.revisionAuthor;
     }
 
     /*
      * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      */
     public void setRevisionAuthor(String value) {
-        RevisionAuthor = value;
+        this.revisionAuthor = value;
     }
 
     /*
-     *  Gets The date and time to use for revisions.
+     * Gets The date and time to use for revisions.
      */
     public String getRevisionDateTime() {
-        return RevisionDateTime;
+        return this.revisionDateTime;
     }
 
     /*
      * Sets The date and time to use for revisions.
      */
     public void setRevisionDateTime(String value) {
-        RevisionDateTime = value;
+        this.revisionDateTime = value;
     }
 }

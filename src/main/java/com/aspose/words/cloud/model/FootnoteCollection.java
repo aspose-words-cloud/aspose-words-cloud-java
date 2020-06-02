@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FootnoteCollection.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Collection of footnotes.")
 public class FootnoteCollection extends LinkElement {
-  @SerializedName("List")
-  private List<Footnote> list = null;
-
-  public FootnoteCollection list(List<Footnote> list) {
-    this.list = list;
-    return this;
-  }
-
-  public FootnoteCollection addListItem(Footnote listItem) {
-    if (this.list == null) {
-      this.list = new ArrayList<Footnote>();
+    @SerializedName("List")
+    private List<Footnote> list = null;
+    public FootnoteCollection list(List<Footnote> list) {
+        this.list = list;
+        return this;
     }
-    this.list.add(listItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of foonotes links.
-   * @return list
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of foonotes links.")
-  public List<Footnote> getList() {
-    return list;
-  }
-
-  public void setList(List<Footnote> list) {
-    this.list = list;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FootnoteCollection addListItem(Footnote listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<Footnote>();
+        }
+        this.list.add(listItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of foonotes links.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of foonotes links.")
+    public List<Footnote> getList() {
+        return list;
     }
-    FootnoteCollection footnoteCollection = (FootnoteCollection) o;
-    return Objects.equals(this.list, footnoteCollection.list) &&
+
+    public void setList(List<Footnote> list) {
+        this.list = list;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+    FootnoteCollection footnoteCollection = (FootnoteCollection)o;
+    return
+        Objects.equals(this.list, footnoteCollection.list) &&
         super.equals(o);
   }
 
@@ -94,7 +93,6 @@ public class FootnoteCollection extends LinkElement {
   public int hashCode() {
     return Objects.hash(list, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +114,4 @@ public class FootnoteCollection extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

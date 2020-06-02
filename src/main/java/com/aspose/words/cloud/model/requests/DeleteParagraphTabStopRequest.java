@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteParagraphTabStopRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,54 +37,54 @@ public class DeleteParagraphTabStopRequest {
     /*
      * The document name.
      */
-    private String Name;
-
-    /*
-     * a tab stop position to remove.
-     */
-    private Double Position;
+    private String name;
 
     /*
      * Path to the node which contains paragraph.
      */
-    private String NodePath;
+    private String nodePath;
+
+    /*
+     * a tab stop position to remove.
+     */
+    private Double position;
 
     /*
      * Object index.
      */
-    private Integer Index;
+    private Integer index;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private String folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private String storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private String loadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private String password;
 
     /*
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    private String DestFileName;
-    
+    private String destFileName;
+
     /*
-     * Initializes a new instance of the deleteParagraphTabStopRequest class.
-     *  
+     * Initializes a new instance of the DeleteParagraphTabStopRequest class.
+     *
      * @param String name The document name.
-     * @param Double position a tab stop position to remove.
      * @param String nodePath Path to the node which contains paragraph.
+     * @param Double position a tab stop position to remove.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -90,141 +92,141 @@ public class DeleteParagraphTabStopRequest {
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public DeleteParagraphTabStopRequest(String name,  Double position,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
-        Name = name;
-        Position = position;
-        NodePath = nodePath;
-        Index = index;
-        Folder = folder;
-        Storage = storage;
-        LoadEncoding = loadEncoding;
-        Password = password;
-        DestFileName = destFileName;
+    public DeleteParagraphTabStopRequest(String name, String nodePath, Double position, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName) {
+        this.name = name;
+        this.nodePath = nodePath;
+        this.position = position;
+        this.index = index;
+        this.folder = folder;
+        this.storage = storage;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
+        this.destFileName = destFileName;
     }
 
     /*
-     *  Gets The document name.
+     * Gets The document name.
      */
     public String getName() {
-        return Name;
+        return this.name;
     }
 
     /*
      * Sets The document name.
      */
     public void setName(String value) {
-        Name = value;
+        this.name = value;
     }
 
     /*
-     *  Gets a tab stop position to remove.
-     */
-    public Double getPosition() {
-        return Position;
-    }
-
-    /*
-     * Sets a tab stop position to remove.
-     */
-    public void setPosition(Double value) {
-        Position = value;
-    }
-
-    /*
-     *  Gets Path to the node which contains paragraph.
+     * Gets Path to the node which contains paragraph.
      */
     public String getNodePath() {
-        return NodePath;
+        return this.nodePath;
     }
 
     /*
      * Sets Path to the node which contains paragraph.
      */
     public void setNodePath(String value) {
-        NodePath = value;
+        this.nodePath = value;
     }
 
     /*
-     *  Gets Object index.
+     * Gets a tab stop position to remove.
+     */
+    public Double getPosition() {
+        return this.position;
+    }
+
+    /*
+     * Sets a tab stop position to remove.
+     */
+    public void setPosition(Double value) {
+        this.position = value;
+    }
+
+    /*
+     * Gets Object index.
      */
     public Integer getIndex() {
-        return Index;
+        return this.index;
     }
 
     /*
      * Sets Object index.
      */
     public void setIndex(Integer value) {
-        Index = value;
+        this.index = value;
     }
 
     /*
-     *  Gets Original document folder.
+     * Gets Original document folder.
      */
     public String getFolder() {
-        return Folder;
+        return this.folder;
     }
 
     /*
      * Sets Original document folder.
      */
     public void setFolder(String value) {
-        Folder = value;
+        this.folder = value;
     }
 
     /*
-     *  Gets Original document storage.
+     * Gets Original document storage.
      */
     public String getStorage() {
-        return Storage;
+        return this.storage;
     }
 
     /*
      * Sets Original document storage.
      */
     public void setStorage(String value) {
-        Storage = value;
+        this.storage = value;
     }
 
     /*
-     *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public String getLoadEncoding() {
-        return LoadEncoding;
+        return this.loadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public void setLoadEncoding(String value) {
-        LoadEncoding = value;
+        this.loadEncoding = value;
     }
 
     /*
-     *  Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document.
      */
     public String getPassword() {
-        return Password;
+        return this.password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
     public void setPassword(String value) {
-        Password = value;
+        this.password = value;
     }
 
     /*
-     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     * Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public String getDestFileName() {
-        return DestFileName;
+        return this.destFileName;
     }
 
     /*
      * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     public void setDestFileName(String value) {
-        DestFileName = value;
+        this.destFileName = value;
     }
 }

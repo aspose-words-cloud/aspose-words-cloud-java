@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentFieldNamesOnlineRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -33,51 +35,51 @@ import java.io.File;
  */
 public class GetDocumentFieldNamesOnlineRequest {
     /*
-     * File with template
+     * File with template.
      */
-    private byte[] Template;
+    private byte[] template;
 
     /*
      * Use non merge fields or not.
      */
-    private Boolean UseNonMergeFields;
-    
+    private Boolean useNonMergeFields;
+
     /*
-     * Initializes a new instance of the getDocumentFieldNamesOnlineRequest class.
-     *  
-     * @param byte[] template File with template
+     * Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
+     *
+     * @param byte[] template File with template.
      * @param Boolean useNonMergeFields Use non merge fields or not.
      */
-    public GetDocumentFieldNamesOnlineRequest(byte[] template,  Boolean useNonMergeFields) {
-        Template = template;
-        UseNonMergeFields = useNonMergeFields;
+    public GetDocumentFieldNamesOnlineRequest(byte[] template, Boolean useNonMergeFields) {
+        this.template = template;
+        this.useNonMergeFields = useNonMergeFields;
     }
 
     /*
-     *  Gets File with template
+     * Gets File with template.
      */
     public byte[] getTemplate() {
-        return Template;
+        return this.template;
     }
 
     /*
-     * Sets File with template
+     * Sets File with template.
      */
     public void setTemplate(byte[] value) {
-        Template = value;
+        this.template = value;
     }
 
     /*
-     *  Gets Use non merge fields or not.
+     * Gets Use non merge fields or not.
      */
     public Boolean getUseNonMergeFields() {
-        return UseNonMergeFields;
+        return this.useNonMergeFields;
     }
 
     /*
      * Sets Use non merge fields or not.
      */
     public void setUseNonMergeFields(Boolean value) {
-        UseNonMergeFields = value;
+        this.useNonMergeFields = value;
     }
 }

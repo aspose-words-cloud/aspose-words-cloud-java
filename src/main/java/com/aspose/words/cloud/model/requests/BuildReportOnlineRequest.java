@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="BuildReportOnlineRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -33,93 +35,93 @@ import java.io.File;
  */
 public class BuildReportOnlineRequest {
     /*
-     * File with template
+     * File with template.
      */
-    private byte[] Template;
+    private byte[] template;
 
     /*
-     * A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
+     * A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
      */
-    private String Data;
+    private String data;
 
     /*
      * An object providing a settings of report engine.
      */
-    private ReportEngineSettings ReportEngineSettings;
+    private ReportEngineSettings reportEngineSettings;
 
     /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
+     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
      */
-    private String DocumentFileName;
-    
+    private String documentFileName;
+
     /*
-     * Initializes a new instance of the buildReportOnlineRequest class.
-     *  
-     * @param byte[] template File with template
-     * @param String data A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
+     * Initializes a new instance of the BuildReportOnlineRequest class.
+     *
+     * @param byte[] template File with template.
+     * @param String data A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
      * @param ReportEngineSettings reportEngineSettings An object providing a settings of report engine.
-     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
+     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
      */
-    public BuildReportOnlineRequest(byte[] template,  String data,  ReportEngineSettings reportEngineSettings,  String documentFileName) {
-        Template = template;
-        Data = data;
-        ReportEngineSettings = reportEngineSettings;
-        DocumentFileName = documentFileName;
+    public BuildReportOnlineRequest(byte[] template, String data, ReportEngineSettings reportEngineSettings, String documentFileName) {
+        this.template = template;
+        this.data = data;
+        this.reportEngineSettings = reportEngineSettings;
+        this.documentFileName = documentFileName;
     }
 
     /*
-     *  Gets File with template
+     * Gets File with template.
      */
     public byte[] getTemplate() {
-        return Template;
+        return this.template;
     }
 
     /*
-     * Sets File with template
+     * Sets File with template.
      */
     public void setTemplate(byte[] value) {
-        Template = value;
+        this.template = value;
     }
 
     /*
-     *  Gets A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
+     * Gets A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
      */
     public String getData() {
-        return Data;
+        return this.data;
     }
 
     /*
-     * Sets A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
+     * Sets A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
      */
     public void setData(String value) {
-        Data = value;
+        this.data = value;
     }
 
     /*
-     *  Gets An object providing a settings of report engine.
+     * Gets An object providing a settings of report engine.
      */
     public ReportEngineSettings getReportEngineSettings() {
-        return ReportEngineSettings;
+        return this.reportEngineSettings;
     }
 
     /*
      * Sets An object providing a settings of report engine.
      */
     public void setReportEngineSettings(ReportEngineSettings value) {
-        ReportEngineSettings = value;
+        this.reportEngineSettings = value;
     }
 
     /*
-     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
+     * Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
      */
     public String getDocumentFileName() {
-        return DocumentFileName;
+        return this.documentFileName;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
+     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
      */
     public void setDocumentFileName(String value) {
-        DocumentFileName = value;
+        this.documentFileName = value;
     }
 }

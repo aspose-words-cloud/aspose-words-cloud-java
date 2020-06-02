@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="MoveFolderRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -33,93 +35,93 @@ import java.io.File;
  */
 public class MoveFolderRequest {
     /*
-     * Destination folder path to move to e.g '/dst'
+     * Destination folder path to move to e.g '/dst'.
      */
-    private String DestPath;
+    private String destPath;
 
     /*
-     * Source folder path e.g. /Folder1
+     * Source folder path e.g. /Folder1.
      */
-    private String SrcPath;
+    private String srcPath;
 
     /*
-     * Source storage name
+     * Source storage name.
      */
-    private String SrcStorageName;
+    private String srcStorageName;
 
     /*
-     * Destination storage name
+     * Destination storage name.
      */
-    private String DestStorageName;
-    
+    private String destStorageName;
+
     /*
-     * Initializes a new instance of the moveFolderRequest class.
-     *  
-     * @param String destPath Destination folder path to move to e.g '/dst'
-     * @param String srcPath Source folder path e.g. /Folder1
-     * @param String srcStorageName Source storage name
-     * @param String destStorageName Destination storage name
+     * Initializes a new instance of the MoveFolderRequest class.
+     *
+     * @param String destPath Destination folder path to move to e.g '/dst'.
+     * @param String srcPath Source folder path e.g. /Folder1.
+     * @param String srcStorageName Source storage name.
+     * @param String destStorageName Destination storage name.
      */
-    public MoveFolderRequest(String destPath,  String srcPath,  String srcStorageName,  String destStorageName) {
-        DestPath = destPath;
-        SrcPath = srcPath;
-        SrcStorageName = srcStorageName;
-        DestStorageName = destStorageName;
+    public MoveFolderRequest(String destPath, String srcPath, String srcStorageName, String destStorageName) {
+        this.destPath = destPath;
+        this.srcPath = srcPath;
+        this.srcStorageName = srcStorageName;
+        this.destStorageName = destStorageName;
     }
 
     /*
-     *  Gets Destination folder path to move to e.g '/dst'
+     * Gets Destination folder path to move to e.g '/dst'.
      */
     public String getDestPath() {
-        return DestPath;
+        return this.destPath;
     }
 
     /*
-     * Sets Destination folder path to move to e.g '/dst'
+     * Sets Destination folder path to move to e.g '/dst'.
      */
     public void setDestPath(String value) {
-        DestPath = value;
+        this.destPath = value;
     }
 
     /*
-     *  Gets Source folder path e.g. /Folder1
+     * Gets Source folder path e.g. /Folder1.
      */
     public String getSrcPath() {
-        return SrcPath;
+        return this.srcPath;
     }
 
     /*
-     * Sets Source folder path e.g. /Folder1
+     * Sets Source folder path e.g. /Folder1.
      */
     public void setSrcPath(String value) {
-        SrcPath = value;
+        this.srcPath = value;
     }
 
     /*
-     *  Gets Source storage name
+     * Gets Source storage name.
      */
     public String getSrcStorageName() {
-        return SrcStorageName;
+        return this.srcStorageName;
     }
 
     /*
-     * Sets Source storage name
+     * Sets Source storage name.
      */
     public void setSrcStorageName(String value) {
-        SrcStorageName = value;
+        this.srcStorageName = value;
     }
 
     /*
-     *  Gets Destination storage name
+     * Gets Destination storage name.
      */
     public String getDestStorageName() {
-        return DestStorageName;
+        return this.destStorageName;
     }
 
     /*
-     * Sets Destination storage name
+     * Sets Destination storage name.
      */
     public void setDestStorageName(String value) {
-        DestStorageName = value;
+        this.destStorageName = value;
     }
 }

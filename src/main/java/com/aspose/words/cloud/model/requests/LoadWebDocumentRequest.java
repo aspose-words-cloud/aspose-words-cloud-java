@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="LoadWebDocumentRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,49 +37,49 @@ public class LoadWebDocumentRequest {
     /*
      * Parameters of loading.
      */
-    private LoadWebDocumentData Data;
+    private LoadWebDocumentData data;
 
     /*
      * Original document storage.
      */
-    private String Storage;
-    
+    private String storage;
+
     /*
-     * Initializes a new instance of the loadWebDocumentRequest class.
-     *  
+     * Initializes a new instance of the LoadWebDocumentRequest class.
+     *
      * @param LoadWebDocumentData data Parameters of loading.
      * @param String storage Original document storage.
      */
-    public LoadWebDocumentRequest(LoadWebDocumentData data,  String storage) {
-        Data = data;
-        Storage = storage;
+    public LoadWebDocumentRequest(LoadWebDocumentData data, String storage) {
+        this.data = data;
+        this.storage = storage;
     }
 
     /*
-     *  Gets Parameters of loading.
+     * Gets Parameters of loading.
      */
     public LoadWebDocumentData getData() {
-        return Data;
+        return this.data;
     }
 
     /*
      * Sets Parameters of loading.
      */
     public void setData(LoadWebDocumentData value) {
-        Data = value;
+        this.data = value;
     }
 
     /*
-     *  Gets Original document storage.
+     * Gets Original document storage.
      */
     public String getStorage() {
-        return Storage;
+        return this.storage;
     }
 
     /*
      * Sets Original document storage.
      */
     public void setStorage(String value) {
-        Storage = value;
+        this.storage = value;
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SectionLink.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,14 +48,14 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Section link element.")
 public class SectionLink extends NodeLink {
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
     return super.equals(o);
   }
 
@@ -63,7 +63,6 @@ public class SectionLink extends NodeLink {
   public int hashCode() {
     return Objects.hash(super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -84,6 +83,4 @@ public class SectionLink extends NodeLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

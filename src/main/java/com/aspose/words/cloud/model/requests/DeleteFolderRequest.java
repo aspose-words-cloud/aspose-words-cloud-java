@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteFolderRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -33,72 +35,72 @@ import java.io.File;
  */
 public class DeleteFolderRequest {
     /*
-     * Folder path e.g. /Folder1s
+     * Folder path e.g. /Folder1s.
      */
-    private String Path;
+    private String path;
 
     /*
-     * Storage name
+     * Storage name.
      */
-    private String StorageName;
+    private String storageName;
 
     /*
-     * Enable to delete folders, subfolders and files
+     * Enable to delete folders, subfolders and files.
      */
-    private Boolean Recursive;
-    
+    private Boolean recursive;
+
     /*
-     * Initializes a new instance of the deleteFolderRequest class.
-     *  
-     * @param String path Folder path e.g. /Folder1s
-     * @param String storageName Storage name
-     * @param Boolean recursive Enable to delete folders, subfolders and files
+     * Initializes a new instance of the DeleteFolderRequest class.
+     *
+     * @param String path Folder path e.g. /Folder1s.
+     * @param String storageName Storage name.
+     * @param Boolean recursive Enable to delete folders, subfolders and files.
      */
-    public DeleteFolderRequest(String path,  String storageName,  Boolean recursive) {
-        Path = path;
-        StorageName = storageName;
-        Recursive = recursive;
+    public DeleteFolderRequest(String path, String storageName, Boolean recursive) {
+        this.path = path;
+        this.storageName = storageName;
+        this.recursive = recursive;
     }
 
     /*
-     *  Gets Folder path e.g. /Folder1s
+     * Gets Folder path e.g. /Folder1s.
      */
     public String getPath() {
-        return Path;
+        return this.path;
     }
 
     /*
-     * Sets Folder path e.g. /Folder1s
+     * Sets Folder path e.g. /Folder1s.
      */
     public void setPath(String value) {
-        Path = value;
+        this.path = value;
     }
 
     /*
-     *  Gets Storage name
+     * Gets Storage name.
      */
     public String getStorageName() {
-        return StorageName;
+        return this.storageName;
     }
 
     /*
-     * Sets Storage name
+     * Sets Storage name.
      */
     public void setStorageName(String value) {
-        StorageName = value;
+        this.storageName = value;
     }
 
     /*
-     *  Gets Enable to delete folders, subfolders and files
+     * Gets Enable to delete folders, subfolders and files.
      */
     public Boolean getRecursive() {
-        return Recursive;
+        return this.recursive;
     }
 
     /*
-     * Sets Enable to delete folders, subfolders and files
+     * Sets Enable to delete folders, subfolders and files.
      */
     public void setRecursive(Boolean value) {
-        Recursive = value;
+        this.recursive = value;
     }
 }

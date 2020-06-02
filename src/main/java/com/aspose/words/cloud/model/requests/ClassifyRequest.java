@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ClassifyRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,49 +37,49 @@ public class ClassifyRequest {
     /*
      * Text to classify.
      */
-    private String Text;
+    private String text;
 
     /*
      * Number of the best classes to return.
      */
-    private String BestClassesCount;
-    
+    private String bestClassesCount;
+
     /*
-     * Initializes a new instance of the classifyRequest class.
-     *  
+     * Initializes a new instance of the ClassifyRequest class.
+     *
      * @param String text Text to classify.
      * @param String bestClassesCount Number of the best classes to return.
      */
-    public ClassifyRequest(String text,  String bestClassesCount) {
-        Text = text;
-        BestClassesCount = bestClassesCount;
+    public ClassifyRequest(String text, String bestClassesCount) {
+        this.text = text;
+        this.bestClassesCount = bestClassesCount;
     }
 
     /*
-     *  Gets Text to classify.
+     * Gets Text to classify.
      */
     public String getText() {
-        return Text;
+        return this.text;
     }
 
     /*
      * Sets Text to classify.
      */
     public void setText(String value) {
-        Text = value;
+        this.text = value;
     }
 
     /*
-     *  Gets Number of the best classes to return.
+     * Gets Number of the best classes to return.
      */
     public String getBestClassesCount() {
-        return BestClassesCount;
+        return this.bestClassesCount;
     }
 
     /*
      * Sets Number of the best classes to return.
      */
     public void setBestClassesCount(String value) {
-        BestClassesCount = value;
+        this.bestClassesCount = value;
     }
 }
