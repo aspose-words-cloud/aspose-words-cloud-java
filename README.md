@@ -44,28 +44,21 @@ Add this dependency to your project's POM:
 ## Getting Started
 
 ```java
+        // Start README example
 
-import com.aspose.words.cloud.ApiException;
-import com.aspose.words.cloud.api.WordsApi;
-import com.aspose.words.cloud.model.DocumentResponse;
-import com.aspose.words.cloud.model.requests.DeleteWatermarkRequest;
+        // if baseUrl is null, WordsApi uses default https://api.aspose.cloud 
+        WordsApi wordsApi = new WordsApi(appSid, appKey, baseUrl);
 
-import java.io.IOException;
+        String localPath = PathUtil.get(localFolder, fileName);
+        String remotePath = PathUtil.get(remoteFolder, remoteName);
 
-public class WordsApiExample {
+        UploadFileRequest uploadRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(localPath)), remotePath, null);
+        //wordsApi.uploadFile(uploadRequest);
 
-    public static void main(String[] args) throws ApiException, IOException {
-	// write your code here
-        WordsApi wordsApi = new WordsApi("appSid", "appKey", null);
-        String remoteName = "TestDeleteDocumentWatermark.docx";
-        String remoteFolder = "TestFolder";
-        DeleteWatermarkRequest request = new DeleteWatermarkRequest(remoteName,
-                remoteFolder, null, null, null, null, null, null);
+        DeleteWatermarkRequest request = new DeleteWatermarkRequest(remoteName, remoteFolder, null, null, null, null, null, null);
+        //DocumentResponse result = wordsApi.deleteWatermark(request);
 
-        DocumentResponse result = wordsApi.deleteWatermark(request);
-    }
-}
-
+        // End README example
 ```
 
 [Test](src/test/java/com/aspose/words/cloud) contain various examples of using the SDK.
