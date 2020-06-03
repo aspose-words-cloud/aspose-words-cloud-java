@@ -126,12 +126,13 @@ public class ClassificationResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ClassificationResponse classificationResponse = (ClassificationResponse)o;
-    return
-        Objects.equals(this.bestClassName, classificationResponse.bestClassName) &&
-        Objects.equals(this.bestClassProbability, classificationResponse.bestClassProbability) &&
-        Objects.equals(this.bestResults, classificationResponse.bestResults) &&
-        super.equals(o);
+
+        ClassificationResponse classificationResponse = (ClassificationResponse) o;
+        return
+            Objects.equals(this.bestClassName, classificationResponse.bestClassName) &&
+            Objects.equals(this.bestClassProbability, classificationResponse.bestClassProbability) &&
+            Objects.equals(this.bestResults, classificationResponse.bestResults) &&
+            super.equals(o);
   }
 
   @Override

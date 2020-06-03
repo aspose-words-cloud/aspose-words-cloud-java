@@ -75,10 +75,11 @@ public class HyperlinksResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    HyperlinksResponse hyperlinksResponse = (HyperlinksResponse)o;
-    return
-        Objects.equals(this.hyperlinks, hyperlinksResponse.hyperlinks) &&
-        super.equals(o);
+
+        HyperlinksResponse hyperlinksResponse = (HyperlinksResponse) o;
+        return
+            Objects.equals(this.hyperlinks, hyperlinksResponse.hyperlinks) &&
+            super.equals(o);
   }
 
   @Override

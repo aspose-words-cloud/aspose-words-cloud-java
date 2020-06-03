@@ -144,10 +144,11 @@ public class StyleInsert {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    StyleInsert styleInsert = (StyleInsert)o;
-    return
-        Objects.equals(this.styleName, styleInsert.styleName) &&
-        Objects.equals(this.styleType, styleInsert.styleType);
+
+        StyleInsert styleInsert = (StyleInsert) o;
+        return
+            Objects.equals(this.styleName, styleInsert.styleName) &&
+            Objects.equals(this.styleType, styleInsert.styleType);
   }
 
   @Override

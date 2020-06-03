@@ -201,16 +201,17 @@ public class Comment extends CommentLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Comment comment = (Comment)o;
-    return
-        Objects.equals(this.author, comment.author) &&
-        Objects.equals(this.content, comment.content) &&
-        Objects.equals(this.dateTime, comment.dateTime) &&
-        Objects.equals(this.initial, comment.initial) &&
-        Objects.equals(this.rangeEnd, comment.rangeEnd) &&
-        Objects.equals(this.rangeStart, comment.rangeStart) &&
-        Objects.equals(this.text, comment.text) &&
-        super.equals(o);
+
+        Comment comment = (Comment) o;
+        return
+            Objects.equals(this.author, comment.author) &&
+            Objects.equals(this.content, comment.content) &&
+            Objects.equals(this.dateTime, comment.dateTime) &&
+            Objects.equals(this.initial, comment.initial) &&
+            Objects.equals(this.rangeEnd, comment.rangeEnd) &&
+            Objects.equals(this.rangeStart, comment.rangeStart) &&
+            Objects.equals(this.text, comment.text) &&
+            super.equals(o);
   }
 
   @Override

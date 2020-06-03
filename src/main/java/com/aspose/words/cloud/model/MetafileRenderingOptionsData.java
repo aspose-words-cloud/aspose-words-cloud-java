@@ -160,13 +160,14 @@ public class MetafileRenderingOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    MetafileRenderingOptionsData metafileRenderingOptionsData = (MetafileRenderingOptionsData)o;
-    return
-        Objects.equals(this.emfPlusDualRenderingMode, metafileRenderingOptionsData.emfPlusDualRenderingMode) &&
-        Objects.equals(this.emulateRasterOperations, metafileRenderingOptionsData.emulateRasterOperations) &&
-        Objects.equals(this.renderingMode, metafileRenderingOptionsData.renderingMode) &&
-        Objects.equals(this.scaleWmfFontsToMetafileSize, metafileRenderingOptionsData.scaleWmfFontsToMetafileSize) &&
-        Objects.equals(this.useEmfEmbeddedToWmf, metafileRenderingOptionsData.useEmfEmbeddedToWmf);
+
+        MetafileRenderingOptionsData metafileRenderingOptionsData = (MetafileRenderingOptionsData) o;
+        return
+            Objects.equals(this.emfPlusDualRenderingMode, metafileRenderingOptionsData.emfPlusDualRenderingMode) &&
+            Objects.equals(this.emulateRasterOperations, metafileRenderingOptionsData.emulateRasterOperations) &&
+            Objects.equals(this.renderingMode, metafileRenderingOptionsData.renderingMode) &&
+            Objects.equals(this.scaleWmfFontsToMetafileSize, metafileRenderingOptionsData.scaleWmfFontsToMetafileSize) &&
+            Objects.equals(this.useEmfEmbeddedToWmf, metafileRenderingOptionsData.useEmfEmbeddedToWmf);
   }
 
   @Override

@@ -96,10 +96,11 @@ public class TableRowInsert {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableRowInsert tableRowInsert = (TableRowInsert)o;
-    return
-        Objects.equals(this.columnsCount, tableRowInsert.columnsCount) &&
-        Objects.equals(this.insertAfter, tableRowInsert.insertAfter);
+
+        TableRowInsert tableRowInsert = (TableRowInsert) o;
+        return
+            Objects.equals(this.columnsCount, tableRowInsert.columnsCount) &&
+            Objects.equals(this.insertAfter, tableRowInsert.insertAfter);
   }
 
   @Override

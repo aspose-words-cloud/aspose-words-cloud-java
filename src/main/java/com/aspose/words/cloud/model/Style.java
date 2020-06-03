@@ -761,20 +761,21 @@ public class Style extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Style style = (Style)o;
-    return
-        Objects.equals(this.aliases, style.aliases) &&
-        Objects.equals(this.baseStyleName, style.baseStyleName) &&
-        Objects.equals(this.builtIn, style.builtIn) &&
-        Objects.equals(this.font, style.font) &&
-        Objects.equals(this.isHeading, style.isHeading) &&
-        Objects.equals(this.isQuickStyle, style.isQuickStyle) &&
-        Objects.equals(this.linkedStyleName, style.linkedStyleName) &&
-        Objects.equals(this.name, style.name) &&
-        Objects.equals(this.nextParagraphStyleName, style.nextParagraphStyleName) &&
-        Objects.equals(this.styleIdentifier, style.styleIdentifier) &&
-        Objects.equals(this.type, style.type) &&
-        super.equals(o);
+
+        Style style = (Style) o;
+        return
+            Objects.equals(this.aliases, style.aliases) &&
+            Objects.equals(this.baseStyleName, style.baseStyleName) &&
+            Objects.equals(this.builtIn, style.builtIn) &&
+            Objects.equals(this.font, style.font) &&
+            Objects.equals(this.isHeading, style.isHeading) &&
+            Objects.equals(this.isQuickStyle, style.isQuickStyle) &&
+            Objects.equals(this.linkedStyleName, style.linkedStyleName) &&
+            Objects.equals(this.name, style.name) &&
+            Objects.equals(this.nextParagraphStyleName, style.nextParagraphStyleName) &&
+            Objects.equals(this.styleIdentifier, style.styleIdentifier) &&
+            Objects.equals(this.type, style.type) &&
+            super.equals(o);
   }
 
   @Override

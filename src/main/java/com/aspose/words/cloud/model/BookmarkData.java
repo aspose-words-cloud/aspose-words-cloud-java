@@ -96,10 +96,11 @@ public class BookmarkData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    BookmarkData bookmarkData = (BookmarkData)o;
-    return
-        Objects.equals(this.name, bookmarkData.name) &&
-        Objects.equals(this.text, bookmarkData.text);
+
+        BookmarkData bookmarkData = (BookmarkData) o;
+        return
+            Objects.equals(this.name, bookmarkData.name) &&
+            Objects.equals(this.text, bookmarkData.text);
   }
 
   @Override

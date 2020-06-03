@@ -76,10 +76,11 @@ public class FontResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FontResponse fontResponse = (FontResponse)o;
-    return
-        Objects.equals(this.font, fontResponse.font) &&
-        super.equals(o);
+
+        FontResponse fontResponse = (FontResponse) o;
+        return
+            Objects.equals(this.font, fontResponse.font) &&
+            super.equals(o);
   }
 
   @Override

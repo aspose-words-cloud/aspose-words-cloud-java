@@ -40,14 +40,14 @@ public class InsertOrUpdateParagraphTabStopRequest {
     private String name;
 
     /*
-     * Path to the node which contains paragraph.
-     */
-    private String nodePath;
-
-    /*
      * Paragraph tab stop.
      */
     private TabStopInsert dto;
+
+    /*
+     * Path to the node which contains paragraph.
+     */
+    private String nodePath;
 
     /*
      * Object index.
@@ -83,8 +83,8 @@ public class InsertOrUpdateParagraphTabStopRequest {
      * Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
      *
      * @param String name The document name.
-     * @param String nodePath Path to the node which contains paragraph.
      * @param TabStopInsert dto Paragraph tab stop.
+     * @param String nodePath Path to the node which contains paragraph.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -92,10 +92,10 @@ public class InsertOrUpdateParagraphTabStopRequest {
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public InsertOrUpdateParagraphTabStopRequest(String name, String nodePath, TabStopInsert dto, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName) {
+    public InsertOrUpdateParagraphTabStopRequest(String name, TabStopInsert dto, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName) {
         this.name = name;
-        this.nodePath = nodePath;
         this.dto = dto;
+        this.nodePath = nodePath;
         this.index = index;
         this.folder = folder;
         this.storage = storage;
@@ -119,20 +119,6 @@ public class InsertOrUpdateParagraphTabStopRequest {
     }
 
     /*
-     * Gets Path to the node which contains paragraph.
-     */
-    public String getNodePath() {
-        return this.nodePath;
-    }
-
-    /*
-     * Sets Path to the node which contains paragraph.
-     */
-    public void setNodePath(String value) {
-        this.nodePath = value;
-    }
-
-    /*
      * Gets Paragraph tab stop.
      */
     public TabStopInsert getDto() {
@@ -144,6 +130,20 @@ public class InsertOrUpdateParagraphTabStopRequest {
      */
     public void setDto(TabStopInsert value) {
         this.dto = value;
+    }
+
+    /*
+     * Gets Path to the node which contains paragraph.
+     */
+    public String getNodePath() {
+        return this.nodePath;
+    }
+
+    /*
+     * Sets Path to the node which contains paragraph.
+     */
+    public void setNodePath(String value) {
+        this.nodePath = value;
     }
 
     /*

@@ -159,13 +159,14 @@ public class ReplaceTextParameters {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ReplaceTextParameters replaceTextParameters = (ReplaceTextParameters)o;
-    return
-        Objects.equals(this.isMatchCase, replaceTextParameters.isMatchCase) &&
-        Objects.equals(this.isMatchWholeWord, replaceTextParameters.isMatchWholeWord) &&
-        Objects.equals(this.isOldValueRegex, replaceTextParameters.isOldValueRegex) &&
-        Objects.equals(this.newValue, replaceTextParameters.newValue) &&
-        Objects.equals(this.oldValue, replaceTextParameters.oldValue);
+
+        ReplaceTextParameters replaceTextParameters = (ReplaceTextParameters) o;
+        return
+            Objects.equals(this.isMatchCase, replaceTextParameters.isMatchCase) &&
+            Objects.equals(this.isMatchWholeWord, replaceTextParameters.isMatchWholeWord) &&
+            Objects.equals(this.isOldValueRegex, replaceTextParameters.isOldValueRegex) &&
+            Objects.equals(this.newValue, replaceTextParameters.newValue) &&
+            Objects.equals(this.oldValue, replaceTextParameters.oldValue);
   }
 
   @Override

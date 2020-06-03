@@ -75,9 +75,10 @@ public class RangeDocument {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    RangeDocument rangeDocument = (RangeDocument)o;
-    return
-        Objects.equals(this.documentName, rangeDocument.documentName);
+
+        RangeDocument rangeDocument = (RangeDocument) o;
+        return
+            Objects.equals(this.documentName, rangeDocument.documentName);
   }
 
   @Override

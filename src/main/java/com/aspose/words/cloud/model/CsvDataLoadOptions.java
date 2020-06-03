@@ -138,12 +138,13 @@ public class CsvDataLoadOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    CsvDataLoadOptions csvDataLoadOptions = (CsvDataLoadOptions)o;
-    return
-        Objects.equals(this.commentChar, csvDataLoadOptions.commentChar) &&
-        Objects.equals(this.delimiter, csvDataLoadOptions.delimiter) &&
-        Objects.equals(this.hasHeaders, csvDataLoadOptions.hasHeaders) &&
-        Objects.equals(this.quoteChar, csvDataLoadOptions.quoteChar);
+
+        CsvDataLoadOptions csvDataLoadOptions = (CsvDataLoadOptions) o;
+        return
+            Objects.equals(this.commentChar, csvDataLoadOptions.commentChar) &&
+            Objects.equals(this.delimiter, csvDataLoadOptions.delimiter) &&
+            Objects.equals(this.hasHeaders, csvDataLoadOptions.hasHeaders) &&
+            Objects.equals(this.quoteChar, csvDataLoadOptions.quoteChar);
   }
 
   @Override

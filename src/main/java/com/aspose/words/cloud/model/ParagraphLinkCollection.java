@@ -83,10 +83,11 @@ public class ParagraphLinkCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ParagraphLinkCollection paragraphLinkCollection = (ParagraphLinkCollection)o;
-    return
-        Objects.equals(this.paragraphLinkList, paragraphLinkCollection.paragraphLinkList) &&
-        super.equals(o);
+
+        ParagraphLinkCollection paragraphLinkCollection = (ParagraphLinkCollection) o;
+        return
+            Objects.equals(this.paragraphLinkList, paragraphLinkCollection.paragraphLinkList) &&
+            super.equals(o);
   }
 
   @Override

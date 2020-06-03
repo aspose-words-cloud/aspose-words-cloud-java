@@ -193,12 +193,13 @@ public class ReportEngineSettings {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ReportEngineSettings reportEngineSettings = (ReportEngineSettings)o;
-    return
-        Objects.equals(this.csvDataLoadOptions, reportEngineSettings.csvDataLoadOptions) &&
-        Objects.equals(this.dataSourceName, reportEngineSettings.dataSourceName) &&
-        Objects.equals(this.dataSourceType, reportEngineSettings.dataSourceType) &&
-        Objects.equals(this.reportBuildOptions, reportEngineSettings.reportBuildOptions);
+
+        ReportEngineSettings reportEngineSettings = (ReportEngineSettings) o;
+        return
+            Objects.equals(this.csvDataLoadOptions, reportEngineSettings.csvDataLoadOptions) &&
+            Objects.equals(this.dataSourceName, reportEngineSettings.dataSourceName) &&
+            Objects.equals(this.dataSourceType, reportEngineSettings.dataSourceType) &&
+            Objects.equals(this.reportBuildOptions, reportEngineSettings.reportBuildOptions);
   }
 
   @Override

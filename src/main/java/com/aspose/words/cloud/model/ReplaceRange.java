@@ -142,10 +142,11 @@ public class ReplaceRange {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ReplaceRange replaceRange = (ReplaceRange)o;
-    return
-        Objects.equals(this.text, replaceRange.text) &&
-        Objects.equals(this.textType, replaceRange.textType);
+
+        ReplaceRange replaceRange = (ReplaceRange) o;
+        return
+            Objects.equals(this.text, replaceRange.text) &&
+            Objects.equals(this.textType, replaceRange.textType);
   }
 
   @Override

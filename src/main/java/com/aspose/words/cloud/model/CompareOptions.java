@@ -296,17 +296,18 @@ public class CompareOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    CompareOptions compareOptions = (CompareOptions)o;
-    return
-        Objects.equals(this.ignoreCaseChanges, compareOptions.ignoreCaseChanges) &&
-        Objects.equals(this.ignoreComments, compareOptions.ignoreComments) &&
-        Objects.equals(this.ignoreFields, compareOptions.ignoreFields) &&
-        Objects.equals(this.ignoreFootnotes, compareOptions.ignoreFootnotes) &&
-        Objects.equals(this.ignoreFormatting, compareOptions.ignoreFormatting) &&
-        Objects.equals(this.ignoreHeadersAndFooters, compareOptions.ignoreHeadersAndFooters) &&
-        Objects.equals(this.ignoreTables, compareOptions.ignoreTables) &&
-        Objects.equals(this.ignoreTextboxes, compareOptions.ignoreTextboxes) &&
-        Objects.equals(this.target, compareOptions.target);
+
+        CompareOptions compareOptions = (CompareOptions) o;
+        return
+            Objects.equals(this.ignoreCaseChanges, compareOptions.ignoreCaseChanges) &&
+            Objects.equals(this.ignoreComments, compareOptions.ignoreComments) &&
+            Objects.equals(this.ignoreFields, compareOptions.ignoreFields) &&
+            Objects.equals(this.ignoreFootnotes, compareOptions.ignoreFootnotes) &&
+            Objects.equals(this.ignoreFormatting, compareOptions.ignoreFormatting) &&
+            Objects.equals(this.ignoreHeadersAndFooters, compareOptions.ignoreHeadersAndFooters) &&
+            Objects.equals(this.ignoreTables, compareOptions.ignoreTables) &&
+            Objects.equals(this.ignoreTextboxes, compareOptions.ignoreTextboxes) &&
+            Objects.equals(this.target, compareOptions.target);
   }
 
   @Override

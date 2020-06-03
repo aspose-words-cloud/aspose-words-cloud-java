@@ -76,10 +76,11 @@ public class OfficeMathObjectsResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    OfficeMathObjectsResponse officeMathObjectsResponse = (OfficeMathObjectsResponse)o;
-    return
-        Objects.equals(this.officeMathObjects, officeMathObjectsResponse.officeMathObjects) &&
-        super.equals(o);
+
+        OfficeMathObjectsResponse officeMathObjectsResponse = (OfficeMathObjectsResponse) o;
+        return
+            Objects.equals(this.officeMathObjects, officeMathObjectsResponse.officeMathObjects) &&
+            super.equals(o);
   }
 
   @Override

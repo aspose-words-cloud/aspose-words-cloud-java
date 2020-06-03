@@ -359,23 +359,24 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    HtmlFixedSaveOptionsData htmlFixedSaveOptionsData = (HtmlFixedSaveOptionsData)o;
-    return
-        Objects.equals(this.cssClassNamesPrefix, htmlFixedSaveOptionsData.cssClassNamesPrefix) &&
-        Objects.equals(this.encoding, htmlFixedSaveOptionsData.encoding) &&
-        Objects.equals(this.exportEmbeddedCss, htmlFixedSaveOptionsData.exportEmbeddedCss) &&
-        Objects.equals(this.exportEmbeddedFonts, htmlFixedSaveOptionsData.exportEmbeddedFonts) &&
-        Objects.equals(this.exportEmbeddedImages, htmlFixedSaveOptionsData.exportEmbeddedImages) &&
-        Objects.equals(this.exportFormFields, htmlFixedSaveOptionsData.exportFormFields) &&
-        Objects.equals(this.fontFormat, htmlFixedSaveOptionsData.fontFormat) &&
-        Objects.equals(this.pageHorizontalAlignment, htmlFixedSaveOptionsData.pageHorizontalAlignment) &&
-        Objects.equals(this.pageMargins, htmlFixedSaveOptionsData.pageMargins) &&
-        Objects.equals(this.resourcesFolder, htmlFixedSaveOptionsData.resourcesFolder) &&
-        Objects.equals(this.resourcesFolderAlias, htmlFixedSaveOptionsData.resourcesFolderAlias) &&
-        Objects.equals(this.saveFontFaceCssSeparately, htmlFixedSaveOptionsData.saveFontFaceCssSeparately) &&
-        Objects.equals(this.showPageBorder, htmlFixedSaveOptionsData.showPageBorder) &&
-        Objects.equals(this.useTargetMachineFonts, htmlFixedSaveOptionsData.useTargetMachineFonts) &&
-        super.equals(o);
+
+        HtmlFixedSaveOptionsData htmlFixedSaveOptionsData = (HtmlFixedSaveOptionsData) o;
+        return
+            Objects.equals(this.cssClassNamesPrefix, htmlFixedSaveOptionsData.cssClassNamesPrefix) &&
+            Objects.equals(this.encoding, htmlFixedSaveOptionsData.encoding) &&
+            Objects.equals(this.exportEmbeddedCss, htmlFixedSaveOptionsData.exportEmbeddedCss) &&
+            Objects.equals(this.exportEmbeddedFonts, htmlFixedSaveOptionsData.exportEmbeddedFonts) &&
+            Objects.equals(this.exportEmbeddedImages, htmlFixedSaveOptionsData.exportEmbeddedImages) &&
+            Objects.equals(this.exportFormFields, htmlFixedSaveOptionsData.exportFormFields) &&
+            Objects.equals(this.fontFormat, htmlFixedSaveOptionsData.fontFormat) &&
+            Objects.equals(this.pageHorizontalAlignment, htmlFixedSaveOptionsData.pageHorizontalAlignment) &&
+            Objects.equals(this.pageMargins, htmlFixedSaveOptionsData.pageMargins) &&
+            Objects.equals(this.resourcesFolder, htmlFixedSaveOptionsData.resourcesFolder) &&
+            Objects.equals(this.resourcesFolderAlias, htmlFixedSaveOptionsData.resourcesFolderAlias) &&
+            Objects.equals(this.saveFontFaceCssSeparately, htmlFixedSaveOptionsData.saveFontFaceCssSeparately) &&
+            Objects.equals(this.showPageBorder, htmlFixedSaveOptionsData.showPageBorder) &&
+            Objects.equals(this.useTargetMachineFonts, htmlFixedSaveOptionsData.useTargetMachineFonts) &&
+            super.equals(o);
   }
 
   @Override

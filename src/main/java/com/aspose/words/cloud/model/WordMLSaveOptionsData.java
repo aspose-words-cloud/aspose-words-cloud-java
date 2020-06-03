@@ -75,10 +75,11 @@ public class WordMLSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    WordMLSaveOptionsData wordMLSaveOptionsData = (WordMLSaveOptionsData)o;
-    return
-        Objects.equals(this.prettyFormat, wordMLSaveOptionsData.prettyFormat) &&
-        super.equals(o);
+
+        WordMLSaveOptionsData wordMLSaveOptionsData = (WordMLSaveOptionsData) o;
+        return
+            Objects.equals(this.prettyFormat, wordMLSaveOptionsData.prettyFormat) &&
+            super.equals(o);
   }
 
   @Override

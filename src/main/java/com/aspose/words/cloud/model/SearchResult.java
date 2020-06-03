@@ -96,10 +96,11 @@ public class SearchResult {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SearchResult searchResult = (SearchResult)o;
-    return
-        Objects.equals(this.rangeEnd, searchResult.rangeEnd) &&
-        Objects.equals(this.rangeStart, searchResult.rangeStart);
+
+        SearchResult searchResult = (SearchResult) o;
+        return
+            Objects.equals(this.rangeEnd, searchResult.rangeEnd) &&
+            Objects.equals(this.rangeStart, searchResult.rangeStart);
   }
 
   @Override

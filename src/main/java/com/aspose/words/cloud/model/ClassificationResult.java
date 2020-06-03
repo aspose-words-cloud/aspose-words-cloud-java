@@ -96,10 +96,11 @@ public class ClassificationResult {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ClassificationResult classificationResult = (ClassificationResult)o;
-    return
-        Objects.equals(this.className, classificationResult.className) &&
-        Objects.equals(this.classProbability, classificationResult.classProbability);
+
+        ClassificationResult classificationResult = (ClassificationResult) o;
+        return
+            Objects.equals(this.className, classificationResult.className) &&
+            Objects.equals(this.classProbability, classificationResult.classProbability);
   }
 
   @Override

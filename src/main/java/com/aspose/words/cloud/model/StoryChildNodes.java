@@ -83,9 +83,10 @@ public class StoryChildNodes {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    StoryChildNodes storyChildNodes = (StoryChildNodes)o;
-    return
-        Objects.equals(this.childNodes, storyChildNodes.childNodes);
+
+        StoryChildNodes storyChildNodes = (StoryChildNodes) o;
+        return
+            Objects.equals(this.childNodes, storyChildNodes.childNodes);
   }
 
   @Override

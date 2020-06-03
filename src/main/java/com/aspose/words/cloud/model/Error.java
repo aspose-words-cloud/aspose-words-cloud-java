@@ -138,12 +138,13 @@ public class Error {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Error error = (Error)o;
-    return
-        Objects.equals(this.code, error.code) &&
-        Objects.equals(this.description, error.description) &&
-        Objects.equals(this.innerError, error.innerError) &&
-        Objects.equals(this.message, error.message);
+
+        Error error = (Error) o;
+        return
+            Objects.equals(this.code, error.code) &&
+            Objects.equals(this.description, error.description) &&
+            Objects.equals(this.innerError, error.innerError) &&
+            Objects.equals(this.message, error.message);
   }
 
   @Override

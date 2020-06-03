@@ -186,13 +186,14 @@ public class OdtSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    OdtSaveOptionsData odtSaveOptionsData = (OdtSaveOptionsData)o;
-    return
-        Objects.equals(this.isStrictSchema11, odtSaveOptionsData.isStrictSchema11) &&
-        Objects.equals(this.measureUnit, odtSaveOptionsData.measureUnit) &&
-        Objects.equals(this.password, odtSaveOptionsData.password) &&
-        Objects.equals(this.prettyFormat, odtSaveOptionsData.prettyFormat) &&
-        super.equals(o);
+
+        OdtSaveOptionsData odtSaveOptionsData = (OdtSaveOptionsData) o;
+        return
+            Objects.equals(this.isStrictSchema11, odtSaveOptionsData.isStrictSchema11) &&
+            Objects.equals(this.measureUnit, odtSaveOptionsData.measureUnit) &&
+            Objects.equals(this.password, odtSaveOptionsData.password) &&
+            Objects.equals(this.prettyFormat, odtSaveOptionsData.prettyFormat) &&
+            super.equals(o);
   }
 
   @Override

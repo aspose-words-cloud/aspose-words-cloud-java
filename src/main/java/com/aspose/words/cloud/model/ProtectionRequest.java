@@ -117,11 +117,12 @@ public class ProtectionRequest {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ProtectionRequest protectionRequest = (ProtectionRequest)o;
-    return
-        Objects.equals(this.newPassword, protectionRequest.newPassword) &&
-        Objects.equals(this.password, protectionRequest.password) &&
-        Objects.equals(this.protectionType, protectionRequest.protectionType);
+
+        ProtectionRequest protectionRequest = (ProtectionRequest) o;
+        return
+            Objects.equals(this.newPassword, protectionRequest.newPassword) &&
+            Objects.equals(this.password, protectionRequest.password) &&
+            Objects.equals(this.protectionType, protectionRequest.protectionType);
   }
 
   @Override

@@ -96,10 +96,11 @@ public class DocumentPosition {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocumentPosition documentPosition = (DocumentPosition)o;
-    return
-        Objects.equals(this.node, documentPosition.node) &&
-        Objects.equals(this.offset, documentPosition.offset);
+
+        DocumentPosition documentPosition = (DocumentPosition) o;
+        return
+            Objects.equals(this.node, documentPosition.node) &&
+            Objects.equals(this.offset, documentPosition.offset);
   }
 
   @Override

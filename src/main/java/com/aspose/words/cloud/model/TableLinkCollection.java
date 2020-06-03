@@ -83,10 +83,11 @@ public class TableLinkCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableLinkCollection tableLinkCollection = (TableLinkCollection)o;
-    return
-        Objects.equals(this.tableLinkList, tableLinkCollection.tableLinkList) &&
-        super.equals(o);
+
+        TableLinkCollection tableLinkCollection = (TableLinkCollection) o;
+        return
+            Objects.equals(this.tableLinkList, tableLinkCollection.tableLinkList) &&
+            super.equals(o);
   }
 
   @Override

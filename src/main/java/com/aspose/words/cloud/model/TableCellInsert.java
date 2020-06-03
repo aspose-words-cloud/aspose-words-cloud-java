@@ -75,9 +75,10 @@ public class TableCellInsert {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableCellInsert tableCellInsert = (TableCellInsert)o;
-    return
-        Objects.equals(this.insertAfter, tableCellInsert.insertAfter);
+
+        TableCellInsert tableCellInsert = (TableCellInsert) o;
+        return
+            Objects.equals(this.insertAfter, tableCellInsert.insertAfter);
   }
 
   @Override

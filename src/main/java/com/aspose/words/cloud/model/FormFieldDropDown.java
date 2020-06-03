@@ -104,11 +104,12 @@ public class FormFieldDropDown extends FormField {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FormFieldDropDown formFieldDropDown = (FormFieldDropDown)o;
-    return
-        Objects.equals(this.dropDownItems, formFieldDropDown.dropDownItems) &&
-        Objects.equals(this.dropDownSelectedIndex, formFieldDropDown.dropDownSelectedIndex) &&
-        super.equals(o);
+
+        FormFieldDropDown formFieldDropDown = (FormFieldDropDown) o;
+        return
+            Objects.equals(this.dropDownItems, formFieldDropDown.dropDownItems) &&
+            Objects.equals(this.dropDownSelectedIndex, formFieldDropDown.dropDownSelectedIndex) &&
+            super.equals(o);
   }
 
   @Override

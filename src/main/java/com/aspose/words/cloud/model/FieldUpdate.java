@@ -56,7 +56,8 @@ public class FieldUpdate extends FieldBase {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    return super.equals(o);
+
+        return super.equals(o);
   }
 
   @Override

@@ -83,9 +83,10 @@ public class FilesList {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FilesList filesList = (FilesList)o;
-    return
-        Objects.equals(this.value, filesList.value);
+
+        FilesList filesList = (FilesList) o;
+        return
+            Objects.equals(this.value, filesList.value);
   }
 
   @Override

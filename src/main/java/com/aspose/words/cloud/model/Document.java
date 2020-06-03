@@ -254,14 +254,15 @@ public class Document {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Document document = (Document)o;
-    return
-        Objects.equals(this.documentProperties, document.documentProperties) &&
-        Objects.equals(this.fileName, document.fileName) &&
-        Objects.equals(this.isEncrypted, document.isEncrypted) &&
-        Objects.equals(this.isSigned, document.isSigned) &&
-        Objects.equals(this.links, document.links) &&
-        Objects.equals(this.sourceFormat, document.sourceFormat);
+
+        Document document = (Document) o;
+        return
+            Objects.equals(this.documentProperties, document.documentProperties) &&
+            Objects.equals(this.fileName, document.fileName) &&
+            Objects.equals(this.isEncrypted, document.isEncrypted) &&
+            Objects.equals(this.isSigned, document.isSigned) &&
+            Objects.equals(this.links, document.links) &&
+            Objects.equals(this.sourceFormat, document.sourceFormat);
   }
 
   @Override

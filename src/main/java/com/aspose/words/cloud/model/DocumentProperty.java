@@ -118,12 +118,13 @@ public class DocumentProperty extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocumentProperty documentProperty = (DocumentProperty)o;
-    return
-        Objects.equals(this.builtIn, documentProperty.builtIn) &&
-        Objects.equals(this.name, documentProperty.name) &&
-        Objects.equals(this.value, documentProperty.value) &&
-        super.equals(o);
+
+        DocumentProperty documentProperty = (DocumentProperty) o;
+        return
+            Objects.equals(this.builtIn, documentProperty.builtIn) &&
+            Objects.equals(this.name, documentProperty.name) &&
+            Objects.equals(this.value, documentProperty.value) &&
+            super.equals(o);
   }
 
   @Override

@@ -83,10 +83,11 @@ public class FieldCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FieldCollection fieldCollection = (FieldCollection)o;
-    return
-        Objects.equals(this.list, fieldCollection.list) &&
-        super.equals(o);
+
+        FieldCollection fieldCollection = (FieldCollection) o;
+        return
+            Objects.equals(this.list, fieldCollection.list) &&
+            super.equals(o);
   }
 
   @Override

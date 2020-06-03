@@ -75,10 +75,11 @@ public class WordsApiErrorResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    WordsApiErrorResponse wordsApiErrorResponse = (WordsApiErrorResponse)o;
-    return
-        Objects.equals(this.error, wordsApiErrorResponse.error) &&
-        super.equals(o);
+
+        WordsApiErrorResponse wordsApiErrorResponse = (WordsApiErrorResponse) o;
+        return
+            Objects.equals(this.error, wordsApiErrorResponse.error) &&
+            super.equals(o);
   }
 
   @Override

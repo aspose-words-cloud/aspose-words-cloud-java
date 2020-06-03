@@ -83,10 +83,11 @@ public class Paragraph extends NodeLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Paragraph paragraph = (Paragraph)o;
-    return
-        Objects.equals(this.childNodes, paragraph.childNodes) &&
-        super.equals(o);
+
+        Paragraph paragraph = (Paragraph) o;
+        return
+            Objects.equals(this.childNodes, paragraph.childNodes) &&
+            super.equals(o);
   }
 
   @Override

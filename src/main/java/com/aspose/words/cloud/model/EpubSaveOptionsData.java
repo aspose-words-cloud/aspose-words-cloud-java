@@ -75,10 +75,11 @@ public class EpubSaveOptionsData extends HtmlSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    EpubSaveOptionsData epubSaveOptionsData = (EpubSaveOptionsData)o;
-    return
-        Objects.equals(this.epubNavigationMapLevel, epubSaveOptionsData.epubNavigationMapLevel) &&
-        super.equals(o);
+
+        EpubSaveOptionsData epubSaveOptionsData = (EpubSaveOptionsData) o;
+        return
+            Objects.equals(this.epubNavigationMapLevel, epubSaveOptionsData.epubNavigationMapLevel) &&
+            super.equals(o);
   }
 
   @Override

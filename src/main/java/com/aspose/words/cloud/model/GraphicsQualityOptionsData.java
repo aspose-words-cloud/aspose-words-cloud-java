@@ -429,14 +429,15 @@ public class GraphicsQualityOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    GraphicsQualityOptionsData graphicsQualityOptionsData = (GraphicsQualityOptionsData)o;
-    return
-        Objects.equals(this.compositingMode, graphicsQualityOptionsData.compositingMode) &&
-        Objects.equals(this.compositingQuality, graphicsQualityOptionsData.compositingQuality) &&
-        Objects.equals(this.interpolationMode, graphicsQualityOptionsData.interpolationMode) &&
-        Objects.equals(this.smoothingMode, graphicsQualityOptionsData.smoothingMode) &&
-        Objects.equals(this.stringFormat, graphicsQualityOptionsData.stringFormat) &&
-        Objects.equals(this.textRenderingHint, graphicsQualityOptionsData.textRenderingHint);
+
+        GraphicsQualityOptionsData graphicsQualityOptionsData = (GraphicsQualityOptionsData) o;
+        return
+            Objects.equals(this.compositingMode, graphicsQualityOptionsData.compositingMode) &&
+            Objects.equals(this.compositingQuality, graphicsQualityOptionsData.compositingQuality) &&
+            Objects.equals(this.interpolationMode, graphicsQualityOptionsData.interpolationMode) &&
+            Objects.equals(this.smoothingMode, graphicsQualityOptionsData.smoothingMode) &&
+            Objects.equals(this.stringFormat, graphicsQualityOptionsData.stringFormat) &&
+            Objects.equals(this.textRenderingHint, graphicsQualityOptionsData.textRenderingHint);
   }
 
   @Override

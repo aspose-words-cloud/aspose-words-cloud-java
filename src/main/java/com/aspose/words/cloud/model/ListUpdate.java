@@ -75,9 +75,10 @@ public class ListUpdate {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListUpdate listUpdate = (ListUpdate)o;
-    return
-        Objects.equals(this.isRestartAtEachSection, listUpdate.isRestartAtEachSection);
+
+        ListUpdate listUpdate = (ListUpdate) o;
+        return
+            Objects.equals(this.isRestartAtEachSection, listUpdate.isRestartAtEachSection);
   }
 
   @Override

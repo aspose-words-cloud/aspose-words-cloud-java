@@ -72,8 +72,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/revisions/acceptAll"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/revisions/acceptAll".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -204,8 +203,7 @@ public class WordsApi {
         Object localVarPostBody = request.getDocumentList();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/appendDocument"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/appendDocument".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -343,9 +341,8 @@ public class WordsApi {
         Object localVarPostBody = request.getStyleApply();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{styledNodePath}/style"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "styledNodePath" + "\\}", request.getStyledNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{styledNodePath}/style".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "styledNodePath" + "\\}", request.getStyledNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -488,8 +485,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/buildReport"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/buildReport".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -635,8 +631,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/buildReport"
-    ;
+        String localVarPath = "/words/buildReport";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -781,8 +776,7 @@ public class WordsApi {
         Object localVarPostBody = request.getText();
 
         // create path and map variables
-        String localVarPath = "/words/classify"
-    ;
+        String localVarPath = "/words/classify";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -909,8 +903,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{documentName}/classify"
-            .replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{documentName}/classify".replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1042,8 +1035,7 @@ public class WordsApi {
         Object localVarPostBody = request.getCompareData();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/compareDocument"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/compareDocument".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1179,8 +1171,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/convert"
-    ;
+        String localVarPath = "/words/convert";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1318,8 +1309,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/copy/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/copy/{srcPath}".replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1449,8 +1439,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/copy/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/copy/{srcPath}".replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1579,8 +1568,7 @@ public class WordsApi {
         Object localVarPostBody = request.getStyleCopy();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles/copy"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles/copy".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1718,8 +1706,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/create"
-    ;
+        String localVarPath = "/words/create";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1850,8 +1837,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1973,9 +1959,8 @@ public class WordsApi {
         Object localVarPostBody = request.getProperty();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2118,10 +2103,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2252,6 +2236,143 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteAllParagraphTabStopsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathCall(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteAllParagraphTabStopsWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteAllParagraphTabStopsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+        * Remove all tab stops.
+        * @param request Request object
+        * @return TabStopsResponse
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    public TabStopsResponse deleteAllParagraphTabStopsWithoutNodePath(DeleteAllParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TabStopsResponse > resp = deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TabStopsResponse > resp = deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+        * Remove all tab stops.
+        * @param request Request object
+        * @return ApiResponse< TabStopsResponse >;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    private ApiResponse< TabStopsResponse > deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(DeleteAllParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+        * Remove all tab stops. (asynchronously)
+        * @param request Request object
+        * @param callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+        */
+    public com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathAsync(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteBorder
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -2262,10 +2383,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2408,9 +2528,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2548,9 +2667,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments/{commentIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2683,9 +2801,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2818,10 +2935,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2959,9 +3075,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3094,10 +3209,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3235,9 +3349,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3370,8 +3483,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3499,9 +3611,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3634,8 +3745,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3758,8 +3868,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3882,10 +3991,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4023,9 +4131,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4158,10 +4265,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4299,9 +4405,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4434,10 +4539,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4575,9 +4679,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4711,8 +4814,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/macros"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/macros".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4840,10 +4942,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4981,9 +5082,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5116,10 +5216,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5257,10 +5356,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5393,6 +5491,145 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteParagraphListFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathCall(DeleteParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathValidateBeforeCall(DeleteParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphListFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphListFormatWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+        * Delete paragraph list format, returns updated list format properties.
+        * @param request Request object
+        * @return ParagraphListFormatResponse
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    public ParagraphListFormatResponse deleteParagraphListFormatWithoutNodePath(DeleteParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< ParagraphListFormatResponse > resp = deleteParagraphListFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< ParagraphListFormatResponse > resp = deleteParagraphListFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+        * Delete paragraph list format, returns updated list format properties.
+        * @param request Request object
+        * @return ApiResponse< ParagraphListFormatResponse >;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    private ApiResponse< ParagraphListFormatResponse > deleteParagraphListFormatWithoutNodePathWithHttpInfo(DeleteParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+        * Delete paragraph list format, returns updated list format properties. (asynchronously)
+        * @param request Request object
+        * @param callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+        */
+    public com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathAsync(DeleteParagraphListFormatWithoutNodePathRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteParagraphTabStop
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -5403,10 +5640,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5456,14 +5692,14 @@ public class WordsApi {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphTabStop");
         }
 
-        // verify the required parameter 'NodePath' is set
-        if (request.getNodePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraphTabStop");
-        }
-
         // verify the required parameter 'Position' is set
         if (request.getPosition() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Position' when calling deleteParagraphTabStop");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraphTabStop");
         }
 
         // verify the required parameter 'Index' is set
@@ -5543,6 +5779,149 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteParagraphTabStopWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathCall(DeleteParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstop".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "position", request.getPosition());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathValidateBeforeCall(DeleteParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+
+        // verify the required parameter 'Position' is set
+        if (request.getPosition() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Position' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+        * Remove the i-th tab stop.
+        * @param request Request object
+        * @return TabStopsResponse
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    public TabStopsResponse deleteParagraphTabStopWithoutNodePath(DeleteParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TabStopsResponse > resp = deleteParagraphTabStopWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TabStopsResponse > resp = deleteParagraphTabStopWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+        * Remove the i-th tab stop.
+        * @param request Request object
+        * @return ApiResponse< TabStopsResponse >;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    private ApiResponse< TabStopsResponse > deleteParagraphTabStopWithoutNodePathWithHttpInfo(DeleteParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+        * Remove the i-th tab stop. (asynchronously)
+        * @param request Request object
+        * @param callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+        */
+    public com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathAsync(DeleteParagraphTabStopWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteParagraphWithoutNodePath
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -5553,9 +5932,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/paragraphs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5688,10 +6066,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5829,9 +6206,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5964,10 +6340,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6105,10 +6480,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6246,10 +6620,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6387,9 +6760,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/tables/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6522,8 +6894,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/deleteLast"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/watermarks/deleteLast".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6656,8 +7027,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6785,8 +7155,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/MailMerge"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/MailMerge".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6923,8 +7292,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/MailMerge"
-    ;
+        String localVarPath = "/words/MailMerge";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7063,8 +7431,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/fonts/available"
-    ;
+        String localVarPath = "/words/fonts/available";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7187,9 +7554,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7324,8 +7690,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/bookmarks".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7455,10 +7820,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7598,9 +7962,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7735,9 +8098,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments/{commentIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7872,8 +8234,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8003,8 +8364,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{documentName}"
-            .replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{documentName}".replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8134,10 +8494,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8277,9 +8636,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8414,10 +8772,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8557,9 +8914,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/drawingObjects/{index}/imageData"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/drawingObjects/{index}/imageData".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8694,10 +9050,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8837,9 +9192,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/drawingObjects/{index}/oleData"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/drawingObjects/{index}/oleData".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8974,9 +9328,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9111,8 +9464,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/drawingObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9242,8 +9594,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/mailMerge/FieldNames"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/mailMerge/FieldNames".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9374,8 +9725,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/mailMerge/FieldNames"
-    ;
+        String localVarPath = "/words/mailMerge/FieldNames";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9504,9 +9854,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "hyperlinkIndex" + "\\}", request.getHyperlinkIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "hyperlinkIndex" + "\\}", request.getHyperlinkIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9641,8 +9990,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/hyperlinks"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/hyperlinks".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9772,8 +10120,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/documentProperties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9903,9 +10250,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10040,8 +10386,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/protection".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10171,8 +10516,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/statistics"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/statistics".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10305,8 +10649,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10444,10 +10787,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10587,9 +10929,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10724,8 +11065,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10855,9 +11195,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10992,8 +11331,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11120,10 +11458,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11263,9 +11600,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11400,8 +11736,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/footnotes".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11531,9 +11866,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11668,10 +12002,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11811,9 +12144,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11948,8 +12280,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/formfields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12079,9 +12410,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12216,9 +12546,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12354,10 +12683,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12498,9 +12826,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12636,9 +12963,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists/{listId}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12773,8 +13099,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12904,10 +13229,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13047,9 +13371,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13184,8 +13507,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/OfficeMathObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/OfficeMathObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13315,9 +13637,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/OfficeMathObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13452,10 +13773,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13595,10 +13915,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13738,9 +14057,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/paragraphs/{index}/format".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13875,10 +14193,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14018,9 +14335,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14155,9 +14471,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14292,8 +14607,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/paragraphs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14423,10 +14737,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14556,6 +14869,142 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getParagraphTabStopsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathCall(GetParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathValidateBeforeCall(GetParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphTabStopsWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphTabStopsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+        * Get all tab stops for the paragraph.
+        * @param request Request object
+        * @return TabStopsResponse
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    public TabStopsResponse getParagraphTabStopsWithoutNodePath(GetParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TabStopsResponse > resp = getParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TabStopsResponse > resp = getParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+        * Get all tab stops for the paragraph.
+        * @param request Request object
+        * @return ApiResponse< TabStopsResponse >;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    private ApiResponse< TabStopsResponse > getParagraphTabStopsWithoutNodePathWithHttpInfo(GetParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+        * Get all tab stops for the paragraph. (asynchronously)
+        * @param request Request object
+        * @param callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+        */
+    public com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathAsync(GetParagraphTabStopsWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getParagraphWithoutNodePath
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -14566,9 +15015,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/paragraphs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/paragraphs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14703,10 +15151,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14841,10 +15288,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14984,10 +15430,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15127,9 +15572,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15264,9 +15708,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15401,9 +15844,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15538,8 +15980,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15669,9 +16110,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles/{styleName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "styleName" + "\\}", request.getStyleName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles/{styleName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "styleName" + "\\}", request.getStyleName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15806,9 +16246,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{styledNodePath}/style"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "styledNodePath" + "\\}", request.getStyledNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{styledNodePath}/style".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "styledNodePath" + "\\}", request.getStyledNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15943,8 +16382,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16074,10 +16512,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16217,10 +16654,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16360,10 +16796,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16503,10 +16938,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16646,9 +17080,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/tables/{index}/properties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16783,10 +17216,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16926,10 +17358,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17069,9 +17500,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17206,8 +17636,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/tables"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/tables".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17337,9 +17766,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/tables/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/tables/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17474,8 +17902,7 @@ public class WordsApi {
         Object localVarPostBody = request.getComment();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17613,9 +18040,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17768,8 +18194,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/drawingObjects"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/drawingObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -17917,9 +18342,8 @@ public class WordsApi {
         Object localVarPostBody = request.getField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18063,8 +18487,7 @@ public class WordsApi {
         Object localVarPostBody = request.getField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/fields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18203,9 +18626,8 @@ public class WordsApi {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18348,8 +18770,7 @@ public class WordsApi {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/footnotes"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/footnotes".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18487,9 +18908,8 @@ public class WordsApi {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18633,8 +19053,7 @@ public class WordsApi {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/formfields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/formfields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18773,9 +19192,8 @@ public class WordsApi {
         Object localVarPostBody = request.getHeaderFooterType();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18918,8 +19336,7 @@ public class WordsApi {
         Object localVarPostBody = request.getListInsert();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19057,10 +19474,9 @@ public class WordsApi {
         Object localVarPostBody = request.getDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19109,14 +19525,14 @@ public class WordsApi {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertOrUpdateParagraphTabStop");
         }
 
-        // verify the required parameter 'NodePath' is set
-        if (request.getNodePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertOrUpdateParagraphTabStop");
-        }
-
         // verify the required parameter 'Dto' is set
         if (request.getDto() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling insertOrUpdateParagraphTabStop");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertOrUpdateParagraphTabStop");
         }
 
         // verify the required parameter 'Index' is set
@@ -19196,6 +19612,148 @@ public class WordsApi {
     }
 
     /**
+     * Build call for insertOrUpdateParagraphTabStopWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathCall(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+        * Insert or resplace tab stop if a tab stop with the position exists.
+        * @param request Request object
+        * @return TabStopsResponse
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    public TabStopsResponse insertOrUpdateParagraphTabStopWithoutNodePath(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TabStopsResponse > resp = insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TabStopsResponse > resp = insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+        * Insert or resplace tab stop if a tab stop with the position exists.
+        * @param request Request object
+        * @return ApiResponse< TabStopsResponse >;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    private ApiResponse< TabStopsResponse > insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+        * Insert or resplace tab stop if a tab stop with the position exists. (asynchronously)
+        * @param request Request object
+        * @param callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+        */
+    public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathAsync(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertPageNumbers
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -19206,8 +19764,7 @@ public class WordsApi {
         Object localVarPostBody = request.getPageNumber();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/PageNumbers"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/PageNumbers".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19345,9 +19902,8 @@ public class WordsApi {
         Object localVarPostBody = request.getParagraph();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19481,6 +20037,145 @@ public class WordsApi {
     }
 
     /**
+     * Build call for insertParagraphWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertParagraphWithoutNodePathCall(InsertParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getParagraph();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertParagraphWithoutNodePathValidateBeforeCall(InsertParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertParagraphWithoutNodePath");
+        }
+
+        // verify the required parameter 'Paragraph' is set
+        if (request.getParagraph() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling insertParagraphWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+        * Adds paragraph to document, returns added paragraph's data.
+        * @param request Request object
+        * @return ParagraphResponse
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    public ParagraphResponse insertParagraphWithoutNodePath(InsertParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< ParagraphResponse > resp = insertParagraphWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< ParagraphResponse > resp = insertParagraphWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+        * Adds paragraph to document, returns added paragraph's data.
+        * @param request Request object
+        * @return ApiResponse< ParagraphResponse >;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    private ApiResponse< ParagraphResponse > insertParagraphWithoutNodePathWithHttpInfo(InsertParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+        * Adds paragraph to document, returns added paragraph's data. (asynchronously)
+        * @param request Request object
+        * @param callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+        */
+    public com.squareup.okhttp.Call insertParagraphWithoutNodePathAsync(InsertParagraphWithoutNodePathRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertRun
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -19491,9 +20186,8 @@ public class WordsApi {
         Object localVarPostBody = request.getRun();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19637,8 +20331,7 @@ public class WordsApi {
         Object localVarPostBody = request.getStyleInsert();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles/insert"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles/insert".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19776,9 +20469,8 @@ public class WordsApi {
         Object localVarPostBody = request.getTable();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -19921,9 +20613,8 @@ public class WordsApi {
         Object localVarPostBody = request.getCell();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20066,9 +20757,8 @@ public class WordsApi {
         Object localVarPostBody = request.getRow();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20211,8 +20901,7 @@ public class WordsApi {
         Object localVarPostBody = request.getTable();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/tables"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/tables".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20350,8 +21039,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/images"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/watermarks/images".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20488,8 +21176,7 @@ public class WordsApi {
         Object localVarPostBody = request.getWatermarkText();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/texts"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/watermarks/texts".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20627,8 +21314,7 @@ public class WordsApi {
         Object localVarPostBody = request.getData();
 
         // create path and map variables
-        String localVarPath = "/words/loadWebDocument"
-    ;
+        String localVarPath = "/words/loadWebDocument";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20755,8 +21441,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/move/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/move/{srcPath}".replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -20886,8 +21571,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/move/{srcPath}"
-            .replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/move/{srcPath}".replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21016,8 +21700,7 @@ public class WordsApi {
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/protection".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21153,8 +21836,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/revisions/rejectAll"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/revisions/rejectAll".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21285,10 +21967,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21424,10 +22105,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21574,9 +22254,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/drawingObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/drawingObjects/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21718,10 +22397,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -21868,9 +22546,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/OfficeMathObjects/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22012,9 +22689,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/pages/{pageIndex}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "pageIndex" + "\\}", request.getPageIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/pages/{pageIndex}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "pageIndex" + "\\}", request.getPageIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22156,10 +22832,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22306,9 +22981,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/paragraphs/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/paragraphs/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22450,10 +23124,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22600,9 +23273,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/tables/{index}/render"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/tables/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22744,8 +23416,7 @@ public class WordsApi {
         Object localVarPostBody = request.getReplaceText();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/replaceText"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/replaceText".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22883,10 +23554,9 @@ public class WordsApi {
         Object localVarPostBody = request.getRangeText();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23027,8 +23697,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/fonts/cache"
-    ;
+        String localVarPath = "/words/fonts/cache";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23145,8 +23814,7 @@ public class WordsApi {
         Object localVarPostBody = request.getSaveOptionsData();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/saveAs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/saveAs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23282,10 +23950,9 @@ public class WordsApi {
         Object localVarPostBody = request.getDocumentParameters();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23425,8 +24092,7 @@ public class WordsApi {
         Object localVarPostBody = request.getSaveOptions();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/saveAs/tiff"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/saveAs/tiff".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23579,8 +24245,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/search"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/search".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23716,8 +24381,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/split"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/split".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23858,8 +24522,7 @@ public class WordsApi {
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/protection"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/protection".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -23995,9 +24658,8 @@ public class WordsApi {
         Object localVarPostBody = request.getBookmarkData();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24140,10 +24802,9 @@ public class WordsApi {
         Object localVarPostBody = request.getBorderProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24291,9 +24952,8 @@ public class WordsApi {
         Object localVarPostBody = request.getComment();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments/{commentIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24436,10 +25096,9 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24597,9 +25256,8 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/drawingObjects/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24752,10 +25410,9 @@ public class WordsApi {
         Object localVarPostBody = request.getField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24903,8 +25560,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/updateFields"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/updateFields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25035,10 +25691,9 @@ public class WordsApi {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25186,9 +25841,8 @@ public class WordsApi {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/footnotes/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25331,10 +25985,9 @@ public class WordsApi {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25482,9 +26135,8 @@ public class WordsApi {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/formfields/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25627,9 +26279,8 @@ public class WordsApi {
         Object localVarPostBody = request.getListUpdate();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists/{listId}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25772,10 +26423,9 @@ public class WordsApi {
         Object localVarPostBody = request.getListUpdate();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "listLevel" + "\\}", request.getListLevel().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "listLevel" + "\\}", request.getListLevel().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -25923,10 +26573,9 @@ public class WordsApi {
         Object localVarPostBody = request.getDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -26064,6 +26713,150 @@ public class WordsApi {
     }
 
     /**
+     * Build call for updateParagraphFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateParagraphFormatWithoutNodePathCall(UpdateParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/format".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateParagraphFormatWithoutNodePathValidateBeforeCall(UpdateParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateParagraphFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateParagraphFormatWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+        * Updates paragraph format properties, returns updated format properties.
+        * @param request Request object
+        * @return ParagraphFormatResponse
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    public ParagraphFormatResponse updateParagraphFormatWithoutNodePath(UpdateParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< ParagraphFormatResponse > resp = updateParagraphFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< ParagraphFormatResponse > resp = updateParagraphFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+        * Updates paragraph format properties, returns updated format properties.
+        * @param request Request object
+        * @return ApiResponse< ParagraphFormatResponse >;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    private ApiResponse< ParagraphFormatResponse > updateParagraphFormatWithoutNodePathWithHttpInfo(UpdateParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateParagraphFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+        * Updates paragraph format properties, returns updated format properties. (asynchronously)
+        * @param request Request object
+        * @param callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+        */
+    public com.squareup.okhttp.Call updateParagraphFormatWithoutNodePathAsync(UpdateParagraphFormatWithoutNodePathRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for updateParagraphListFormat
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -26074,10 +26867,9 @@ public class WordsApi {
         Object localVarPostBody = request.getDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -26215,6 +27007,150 @@ public class WordsApi {
     }
 
     /**
+     * Build call for updateParagraphListFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathCall(UpdateParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathValidateBeforeCall(UpdateParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateParagraphListFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphListFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateParagraphListFormatWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+        * Updates paragraph list format properties, returns updated list format properties.
+        * @param request Request object
+        * @return ParagraphListFormatResponse
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    public ParagraphListFormatResponse updateParagraphListFormatWithoutNodePath(UpdateParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< ParagraphListFormatResponse > resp = updateParagraphListFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< ParagraphListFormatResponse > resp = updateParagraphListFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+        * Updates paragraph list format properties, returns updated list format properties.
+        * @param request Request object
+        * @return ApiResponse< ParagraphListFormatResponse >;
+        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+        */
+    private ApiResponse< ParagraphListFormatResponse > updateParagraphListFormatWithoutNodePathWithHttpInfo(UpdateParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+        * Updates paragraph list format properties, returns updated list format properties. (asynchronously)
+        * @param request Request object
+        * @param callback The callback to be executed when the API call finishes
+        * @return The request call
+        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+        */
+    public com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathAsync(UpdateParagraphListFormatWithoutNodePathRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for updateRun
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -26225,10 +27161,9 @@ public class WordsApi {
         Object localVarPostBody = request.getRun();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -26376,10 +27311,9 @@ public class WordsApi {
         Object localVarPostBody = request.getFontDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -26527,9 +27461,8 @@ public class WordsApi {
         Object localVarPostBody = request.getPageSetup();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -26672,9 +27605,8 @@ public class WordsApi {
         Object localVarPostBody = request.getStyleUpdate();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles/{styleName}/update"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "styleName" + "\\}", request.getStyleName().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles/{styleName}/update".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "styleName" + "\\}", request.getStyleName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -26817,10 +27749,9 @@ public class WordsApi {
         Object localVarPostBody = request.getFormat();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -26968,10 +27899,9 @@ public class WordsApi {
         Object localVarPostBody = request.getProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -27119,9 +28049,8 @@ public class WordsApi {
         Object localVarPostBody = request.getProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/tables/{index}/properties"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/tables/{index}/properties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -27264,10 +28193,9 @@ public class WordsApi {
         Object localVarPostBody = request.getFormat();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat"
-            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
-            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -27415,8 +28343,7 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{path}"
-            .replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

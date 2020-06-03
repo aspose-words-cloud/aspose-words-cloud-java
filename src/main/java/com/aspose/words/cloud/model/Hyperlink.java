@@ -96,11 +96,12 @@ public class Hyperlink extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Hyperlink hyperlink = (Hyperlink)o;
-    return
-        Objects.equals(this.displayText, hyperlink.displayText) &&
-        Objects.equals(this.value, hyperlink.value) &&
-        super.equals(o);
+
+        Hyperlink hyperlink = (Hyperlink) o;
+        return
+            Objects.equals(this.displayText, hyperlink.displayText) &&
+            Objects.equals(this.value, hyperlink.value) &&
+            super.equals(o);
   }
 
   @Override

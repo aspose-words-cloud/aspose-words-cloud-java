@@ -75,10 +75,11 @@ public class NodeLink extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    NodeLink nodeLink = (NodeLink)o;
-    return
-        Objects.equals(this.nodeId, nodeLink.nodeId) &&
-        super.equals(o);
+
+        NodeLink nodeLink = (NodeLink) o;
+        return
+            Objects.equals(this.nodeId, nodeLink.nodeId) &&
+            super.equals(o);
   }
 
   @Override

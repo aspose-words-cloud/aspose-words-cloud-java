@@ -75,10 +75,11 @@ public class SplitDocumentResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SplitDocumentResponse splitDocumentResponse = (SplitDocumentResponse)o;
-    return
-        Objects.equals(this.splitResult, splitDocumentResponse.splitResult) &&
-        super.equals(o);
+
+        SplitDocumentResponse splitDocumentResponse = (SplitDocumentResponse) o;
+        return
+            Objects.equals(this.splitResult, splitDocumentResponse.splitResult) &&
+            super.equals(o);
   }
 
   @Override

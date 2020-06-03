@@ -76,10 +76,11 @@ public class TableRowFormatResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableRowFormatResponse tableRowFormatResponse = (TableRowFormatResponse)o;
-    return
-        Objects.equals(this.rowFormat, tableRowFormatResponse.rowFormat) &&
-        super.equals(o);
+
+        TableRowFormatResponse tableRowFormatResponse = (TableRowFormatResponse) o;
+        return
+            Objects.equals(this.rowFormat, tableRowFormatResponse.rowFormat) &&
+            super.equals(o);
   }
 
   @Override

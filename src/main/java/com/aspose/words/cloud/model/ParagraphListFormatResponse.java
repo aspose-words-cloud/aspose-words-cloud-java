@@ -76,10 +76,11 @@ public class ParagraphListFormatResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ParagraphListFormatResponse paragraphListFormatResponse = (ParagraphListFormatResponse)o;
-    return
-        Objects.equals(this.listFormat, paragraphListFormatResponse.listFormat) &&
-        super.equals(o);
+
+        ParagraphListFormatResponse paragraphListFormatResponse = (ParagraphListFormatResponse) o;
+        return
+            Objects.equals(this.listFormat, paragraphListFormatResponse.listFormat) &&
+            super.equals(o);
   }
 
   @Override

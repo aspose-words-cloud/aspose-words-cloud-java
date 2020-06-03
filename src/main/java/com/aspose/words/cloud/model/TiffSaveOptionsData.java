@@ -118,12 +118,13 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TiffSaveOptionsData tiffSaveOptionsData = (TiffSaveOptionsData)o;
-    return
-        Objects.equals(this.thresholdForFloydSteinbergDithering, tiffSaveOptionsData.thresholdForFloydSteinbergDithering) &&
-        Objects.equals(this.tiffBinarizationMethod, tiffSaveOptionsData.tiffBinarizationMethod) &&
-        Objects.equals(this.tiffCompression, tiffSaveOptionsData.tiffCompression) &&
-        super.equals(o);
+
+        TiffSaveOptionsData tiffSaveOptionsData = (TiffSaveOptionsData) o;
+        return
+            Objects.equals(this.thresholdForFloydSteinbergDithering, tiffSaveOptionsData.thresholdForFloydSteinbergDithering) &&
+            Objects.equals(this.tiffBinarizationMethod, tiffSaveOptionsData.tiffBinarizationMethod) &&
+            Objects.equals(this.tiffCompression, tiffSaveOptionsData.tiffCompression) &&
+            super.equals(o);
   }
 
   @Override

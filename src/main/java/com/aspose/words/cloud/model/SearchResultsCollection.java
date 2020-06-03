@@ -83,10 +83,11 @@ public class SearchResultsCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SearchResultsCollection searchResultsCollection = (SearchResultsCollection)o;
-    return
-        Objects.equals(this.resultsList, searchResultsCollection.resultsList) &&
-        super.equals(o);
+
+        SearchResultsCollection searchResultsCollection = (SearchResultsCollection) o;
+        return
+            Objects.equals(this.resultsList, searchResultsCollection.resultsList) &&
+            super.equals(o);
   }
 
   @Override

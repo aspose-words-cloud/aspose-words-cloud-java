@@ -112,10 +112,11 @@ public class FilesUploadResult {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FilesUploadResult filesUploadResult = (FilesUploadResult)o;
-    return
-        Objects.equals(this.errors, filesUploadResult.errors) &&
-        Objects.equals(this.uploaded, filesUploadResult.uploaded);
+
+        FilesUploadResult filesUploadResult = (FilesUploadResult) o;
+        return
+            Objects.equals(this.errors, filesUploadResult.errors) &&
+            Objects.equals(this.uploaded, filesUploadResult.uploaded);
   }
 
   @Override

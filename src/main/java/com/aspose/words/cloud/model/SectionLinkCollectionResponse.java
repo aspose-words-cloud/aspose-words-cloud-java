@@ -76,10 +76,11 @@ public class SectionLinkCollectionResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SectionLinkCollectionResponse sectionLinkCollectionResponse = (SectionLinkCollectionResponse)o;
-    return
-        Objects.equals(this.sections, sectionLinkCollectionResponse.sections) &&
-        super.equals(o);
+
+        SectionLinkCollectionResponse sectionLinkCollectionResponse = (SectionLinkCollectionResponse) o;
+        return
+            Objects.equals(this.sections, sectionLinkCollectionResponse.sections) &&
+            super.equals(o);
   }
 
   @Override

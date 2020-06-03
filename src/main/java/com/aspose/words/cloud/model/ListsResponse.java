@@ -76,10 +76,11 @@ public class ListsResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListsResponse listsResponse = (ListsResponse)o;
-    return
-        Objects.equals(this.lists, listsResponse.lists) &&
-        super.equals(o);
+
+        ListsResponse listsResponse = (ListsResponse) o;
+        return
+            Objects.equals(this.lists, listsResponse.lists) &&
+            super.equals(o);
   }
 
   @Override

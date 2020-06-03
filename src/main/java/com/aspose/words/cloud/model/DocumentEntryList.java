@@ -83,9 +83,10 @@ public class DocumentEntryList {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocumentEntryList documentEntryList = (DocumentEntryList)o;
-    return
-        Objects.equals(this.documentEntries, documentEntryList.documentEntries);
+
+        DocumentEntryList documentEntryList = (DocumentEntryList) o;
+        return
+            Objects.equals(this.documentEntries, documentEntryList.documentEntries);
   }
 
   @Override

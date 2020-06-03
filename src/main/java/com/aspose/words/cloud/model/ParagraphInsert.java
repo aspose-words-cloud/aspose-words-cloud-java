@@ -75,9 +75,10 @@ public class ParagraphInsert {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ParagraphInsert paragraphInsert = (ParagraphInsert)o;
-    return
-        Objects.equals(this.text, paragraphInsert.text);
+
+        ParagraphInsert paragraphInsert = (ParagraphInsert) o;
+        return
+            Objects.equals(this.text, paragraphInsert.text);
   }
 
   @Override

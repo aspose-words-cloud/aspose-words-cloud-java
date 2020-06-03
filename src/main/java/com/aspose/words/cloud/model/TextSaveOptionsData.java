@@ -252,16 +252,17 @@ public class TextSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TextSaveOptionsData textSaveOptionsData = (TextSaveOptionsData)o;
-    return
-        Objects.equals(this.addBidiMarks, textSaveOptionsData.addBidiMarks) &&
-        Objects.equals(this.encoding, textSaveOptionsData.encoding) &&
-        Objects.equals(this.exportHeadersFootersMode, textSaveOptionsData.exportHeadersFootersMode) &&
-        Objects.equals(this.forcePageBreaks, textSaveOptionsData.forcePageBreaks) &&
-        Objects.equals(this.paragraphBreak, textSaveOptionsData.paragraphBreak) &&
-        Objects.equals(this.preserveTableLayout, textSaveOptionsData.preserveTableLayout) &&
-        Objects.equals(this.simplifyListLabels, textSaveOptionsData.simplifyListLabels) &&
-        super.equals(o);
+
+        TextSaveOptionsData textSaveOptionsData = (TextSaveOptionsData) o;
+        return
+            Objects.equals(this.addBidiMarks, textSaveOptionsData.addBidiMarks) &&
+            Objects.equals(this.encoding, textSaveOptionsData.encoding) &&
+            Objects.equals(this.exportHeadersFootersMode, textSaveOptionsData.exportHeadersFootersMode) &&
+            Objects.equals(this.forcePageBreaks, textSaveOptionsData.forcePageBreaks) &&
+            Objects.equals(this.paragraphBreak, textSaveOptionsData.paragraphBreak) &&
+            Objects.equals(this.preserveTableLayout, textSaveOptionsData.preserveTableLayout) &&
+            Objects.equals(this.simplifyListLabels, textSaveOptionsData.simplifyListLabels) &&
+            super.equals(o);
   }
 
   @Override

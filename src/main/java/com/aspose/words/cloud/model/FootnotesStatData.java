@@ -96,10 +96,11 @@ public class FootnotesStatData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FootnotesStatData footnotesStatData = (FootnotesStatData)o;
-    return
-        Objects.equals(this.paragraphCount, footnotesStatData.paragraphCount) &&
-        Objects.equals(this.wordCount, footnotesStatData.wordCount);
+
+        FootnotesStatData footnotesStatData = (FootnotesStatData) o;
+        return
+            Objects.equals(this.paragraphCount, footnotesStatData.paragraphCount) &&
+            Objects.equals(this.wordCount, footnotesStatData.wordCount);
   }
 
   @Override

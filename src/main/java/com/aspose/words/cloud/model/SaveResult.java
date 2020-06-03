@@ -125,11 +125,12 @@ public class SaveResult {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SaveResult saveResult = (SaveResult)o;
-    return
-        Objects.equals(this.additionalItems, saveResult.additionalItems) &&
-        Objects.equals(this.destDocument, saveResult.destDocument) &&
-        Objects.equals(this.sourceDocument, saveResult.sourceDocument);
+
+        SaveResult saveResult = (SaveResult) o;
+        return
+            Objects.equals(this.additionalItems, saveResult.additionalItems) &&
+            Objects.equals(this.destDocument, saveResult.destDocument) &&
+            Objects.equals(this.sourceDocument, saveResult.sourceDocument);
   }
 
   @Override

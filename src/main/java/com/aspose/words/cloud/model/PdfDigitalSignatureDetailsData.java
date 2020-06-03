@@ -159,13 +159,14 @@ public class PdfDigitalSignatureDetailsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    PdfDigitalSignatureDetailsData pdfDigitalSignatureDetailsData = (PdfDigitalSignatureDetailsData)o;
-    return
-        Objects.equals(this.certificateFilename, pdfDigitalSignatureDetailsData.certificateFilename) &&
-        Objects.equals(this.hashAlgorithm, pdfDigitalSignatureDetailsData.hashAlgorithm) &&
-        Objects.equals(this.location, pdfDigitalSignatureDetailsData.location) &&
-        Objects.equals(this.reason, pdfDigitalSignatureDetailsData.reason) &&
-        Objects.equals(this.signatureDate, pdfDigitalSignatureDetailsData.signatureDate);
+
+        PdfDigitalSignatureDetailsData pdfDigitalSignatureDetailsData = (PdfDigitalSignatureDetailsData) o;
+        return
+            Objects.equals(this.certificateFilename, pdfDigitalSignatureDetailsData.certificateFilename) &&
+            Objects.equals(this.hashAlgorithm, pdfDigitalSignatureDetailsData.hashAlgorithm) &&
+            Objects.equals(this.location, pdfDigitalSignatureDetailsData.location) &&
+            Objects.equals(this.reason, pdfDigitalSignatureDetailsData.reason) &&
+            Objects.equals(this.signatureDate, pdfDigitalSignatureDetailsData.signatureDate);
   }
 
   @Override

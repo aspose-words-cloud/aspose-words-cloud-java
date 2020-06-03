@@ -83,10 +83,11 @@ public class FieldNames extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FieldNames fieldNames = (FieldNames)o;
-    return
-        Objects.equals(this.names, fieldNames.names) &&
-        super.equals(o);
+
+        FieldNames fieldNames = (FieldNames) o;
+        return
+            Objects.equals(this.names, fieldNames.names) &&
+            super.equals(o);
   }
 
   @Override

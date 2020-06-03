@@ -83,10 +83,11 @@ public class FormFieldCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FormFieldCollection formFieldCollection = (FormFieldCollection)o;
-    return
-        Objects.equals(this.list, formFieldCollection.list) &&
-        super.equals(o);
+
+        FormFieldCollection formFieldCollection = (FormFieldCollection) o;
+        return
+            Objects.equals(this.list, formFieldCollection.list) &&
+            super.equals(o);
   }
 
   @Override

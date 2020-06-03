@@ -96,10 +96,11 @@ public class BookmarksOutlineLevelData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    BookmarksOutlineLevelData bookmarksOutlineLevelData = (BookmarksOutlineLevelData)o;
-    return
-        Objects.equals(this.bookmarksOutlineLevel, bookmarksOutlineLevelData.bookmarksOutlineLevel) &&
-        Objects.equals(this.name, bookmarksOutlineLevelData.name);
+
+        BookmarksOutlineLevelData bookmarksOutlineLevelData = (BookmarksOutlineLevelData) o;
+        return
+            Objects.equals(this.bookmarksOutlineLevel, bookmarksOutlineLevelData.bookmarksOutlineLevel) &&
+            Objects.equals(this.name, bookmarksOutlineLevelData.name);
   }
 
   @Override

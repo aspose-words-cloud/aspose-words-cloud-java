@@ -96,10 +96,11 @@ public class XmlColor {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    XmlColor xmlColor = (XmlColor)o;
-    return
-        Objects.equals(this.alpha, xmlColor.alpha) &&
-        Objects.equals(this.web, xmlColor.web);
+
+        XmlColor xmlColor = (XmlColor) o;
+        return
+            Objects.equals(this.alpha, xmlColor.alpha) &&
+            Objects.equals(this.web, xmlColor.web);
   }
 
   @Override

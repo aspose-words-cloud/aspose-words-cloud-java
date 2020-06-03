@@ -75,10 +75,11 @@ public class BookmarkResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    BookmarkResponse bookmarkResponse = (BookmarkResponse)o;
-    return
-        Objects.equals(this.bookmark, bookmarkResponse.bookmark) &&
-        super.equals(o);
+
+        BookmarkResponse bookmarkResponse = (BookmarkResponse) o;
+        return
+            Objects.equals(this.bookmark, bookmarkResponse.bookmark) &&
+            super.equals(o);
   }
 
   @Override

@@ -76,10 +76,11 @@ public class ParagraphLinkCollectionResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ParagraphLinkCollectionResponse paragraphLinkCollectionResponse = (ParagraphLinkCollectionResponse)o;
-    return
-        Objects.equals(this.paragraphs, paragraphLinkCollectionResponse.paragraphs) &&
-        super.equals(o);
+
+        ParagraphLinkCollectionResponse paragraphLinkCollectionResponse = (ParagraphLinkCollectionResponse) o;
+        return
+            Objects.equals(this.paragraphs, paragraphLinkCollectionResponse.paragraphs) &&
+            super.equals(o);
   }
 
   @Override

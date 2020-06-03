@@ -83,10 +83,11 @@ public class SectionLinkCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SectionLinkCollection sectionLinkCollection = (SectionLinkCollection)o;
-    return
-        Objects.equals(this.sectionLinkList, sectionLinkCollection.sectionLinkList) &&
-        super.equals(o);
+
+        SectionLinkCollection sectionLinkCollection = (SectionLinkCollection) o;
+        return
+            Objects.equals(this.sectionLinkList, sectionLinkCollection.sectionLinkList) &&
+            super.equals(o);
   }
 
   @Override

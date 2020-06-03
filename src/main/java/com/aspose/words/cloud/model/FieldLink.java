@@ -75,10 +75,11 @@ public class FieldLink extends NodeLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FieldLink fieldLink = (FieldLink)o;
-    return
-        Objects.equals(this.fieldCode, fieldLink.fieldCode) &&
-        super.equals(o);
+
+        FieldLink fieldLink = (FieldLink) o;
+        return
+            Objects.equals(this.fieldCode, fieldLink.fieldCode) &&
+            super.equals(o);
   }
 
   @Override

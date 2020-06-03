@@ -84,10 +84,11 @@ public class TabStopsResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TabStopsResponse tabStopsResponse = (TabStopsResponse)o;
-    return
-        Objects.equals(this.tabStops, tabStopsResponse.tabStops) &&
-        super.equals(o);
+
+        TabStopsResponse tabStopsResponse = (TabStopsResponse) o;
+        return
+            Objects.equals(this.tabStops, tabStopsResponse.tabStops) &&
+            super.equals(o);
   }
 
   @Override

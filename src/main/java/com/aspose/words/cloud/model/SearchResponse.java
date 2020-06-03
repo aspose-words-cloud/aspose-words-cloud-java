@@ -97,11 +97,12 @@ public class SearchResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SearchResponse searchResponse = (SearchResponse)o;
-    return
-        Objects.equals(this.searchingPattern, searchResponse.searchingPattern) &&
-        Objects.equals(this.searchResults, searchResponse.searchResults) &&
-        super.equals(o);
+
+        SearchResponse searchResponse = (SearchResponse) o;
+        return
+            Objects.equals(this.searchingPattern, searchResponse.searchingPattern) &&
+            Objects.equals(this.searchResults, searchResponse.searchResults) &&
+            super.equals(o);
   }
 
   @Override

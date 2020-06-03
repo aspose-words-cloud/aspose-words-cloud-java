@@ -76,10 +76,11 @@ public class BorderResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    BorderResponse borderResponse = (BorderResponse)o;
-    return
-        Objects.equals(this.border, borderResponse.border) &&
-        super.equals(o);
+
+        BorderResponse borderResponse = (BorderResponse) o;
+        return
+            Objects.equals(this.border, borderResponse.border) &&
+            super.equals(o);
   }
 
   @Override

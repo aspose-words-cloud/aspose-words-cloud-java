@@ -76,10 +76,11 @@ public class RangeTextResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    RangeTextResponse rangeTextResponse = (RangeTextResponse)o;
-    return
-        Objects.equals(this.text, rangeTextResponse.text) &&
-        super.equals(o);
+
+        RangeTextResponse rangeTextResponse = (RangeTextResponse) o;
+        return
+            Objects.equals(this.text, rangeTextResponse.text) &&
+            super.equals(o);
   }
 
   @Override

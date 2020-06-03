@@ -75,10 +75,11 @@ public class FieldNamesResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FieldNamesResponse fieldNamesResponse = (FieldNamesResponse)o;
-    return
-        Objects.equals(this.fieldNames, fieldNamesResponse.fieldNames) &&
-        super.equals(o);
+
+        FieldNamesResponse fieldNamesResponse = (FieldNamesResponse) o;
+        return
+            Objects.equals(this.fieldNames, fieldNamesResponse.fieldNames) &&
+            super.equals(o);
   }
 
   @Override

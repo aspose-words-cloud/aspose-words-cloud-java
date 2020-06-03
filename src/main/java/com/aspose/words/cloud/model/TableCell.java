@@ -83,10 +83,11 @@ public class TableCell extends NodeLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableCell tableCell = (TableCell)o;
-    return
-        Objects.equals(this.childNodes, tableCell.childNodes) &&
-        super.equals(o);
+
+        TableCell tableCell = (TableCell) o;
+        return
+            Objects.equals(this.childNodes, tableCell.childNodes) &&
+            super.equals(o);
   }
 
   @Override

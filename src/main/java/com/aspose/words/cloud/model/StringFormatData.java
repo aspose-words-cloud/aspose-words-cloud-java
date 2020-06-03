@@ -403,13 +403,14 @@ public class StringFormatData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    StringFormatData stringFormatData = (StringFormatData)o;
-    return
-        Objects.equals(this.alignment, stringFormatData.alignment) &&
-        Objects.equals(this.formatFlags, stringFormatData.formatFlags) &&
-        Objects.equals(this.hotkeyPrefix, stringFormatData.hotkeyPrefix) &&
-        Objects.equals(this.lineAlignment, stringFormatData.lineAlignment) &&
-        Objects.equals(this.trimming, stringFormatData.trimming);
+
+        StringFormatData stringFormatData = (StringFormatData) o;
+        return
+            Objects.equals(this.alignment, stringFormatData.alignment) &&
+            Objects.equals(this.formatFlags, stringFormatData.formatFlags) &&
+            Objects.equals(this.hotkeyPrefix, stringFormatData.hotkeyPrefix) &&
+            Objects.equals(this.lineAlignment, stringFormatData.lineAlignment) &&
+            Objects.equals(this.trimming, stringFormatData.trimming);
   }
 
   @Override

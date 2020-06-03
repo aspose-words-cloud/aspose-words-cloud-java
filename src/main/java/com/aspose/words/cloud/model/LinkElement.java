@@ -75,9 +75,10 @@ public class LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    LinkElement linkElement = (LinkElement)o;
-    return
-        Objects.equals(this.link, linkElement.link);
+
+        LinkElement linkElement = (LinkElement) o;
+        return
+            Objects.equals(this.link, linkElement.link);
   }
 
   @Override

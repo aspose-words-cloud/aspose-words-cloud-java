@@ -138,12 +138,13 @@ public class CompareData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    CompareData compareData = (CompareData)o;
-    return
-        Objects.equals(this.author, compareData.author) &&
-        Objects.equals(this.compareOptions, compareData.compareOptions) &&
-        Objects.equals(this.comparingWithDocument, compareData.comparingWithDocument) &&
-        Objects.equals(this.dateTime, compareData.dateTime);
+
+        CompareData compareData = (CompareData) o;
+        return
+            Objects.equals(this.author, compareData.author) &&
+            Objects.equals(this.compareOptions, compareData.compareOptions) &&
+            Objects.equals(this.comparingWithDocument, compareData.comparingWithDocument) &&
+            Objects.equals(this.dateTime, compareData.dateTime);
   }
 
   @Override

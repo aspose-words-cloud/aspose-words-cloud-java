@@ -140,13 +140,14 @@ public class DocSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocSaveOptionsData docSaveOptionsData = (DocSaveOptionsData)o;
-    return
-        Objects.equals(this.alwaysCompressMetafiles, docSaveOptionsData.alwaysCompressMetafiles) &&
-        Objects.equals(this.password, docSaveOptionsData.password) &&
-        Objects.equals(this.savePictureBullet, docSaveOptionsData.savePictureBullet) &&
-        Objects.equals(this.saveRoutingSlip, docSaveOptionsData.saveRoutingSlip) &&
-        super.equals(o);
+
+        DocSaveOptionsData docSaveOptionsData = (DocSaveOptionsData) o;
+        return
+            Objects.equals(this.alwaysCompressMetafiles, docSaveOptionsData.alwaysCompressMetafiles) &&
+            Objects.equals(this.password, docSaveOptionsData.password) &&
+            Objects.equals(this.savePictureBullet, docSaveOptionsData.savePictureBullet) &&
+            Objects.equals(this.saveRoutingSlip, docSaveOptionsData.saveRoutingSlip) &&
+            super.equals(o);
   }
 
   @Override

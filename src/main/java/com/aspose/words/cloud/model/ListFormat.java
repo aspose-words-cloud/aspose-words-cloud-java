@@ -117,12 +117,13 @@ public class ListFormat extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListFormat listFormat = (ListFormat)o;
-    return
-        Objects.equals(this.isListItem, listFormat.isListItem) &&
-        Objects.equals(this.listId, listFormat.listId) &&
-        Objects.equals(this.listLevelNumber, listFormat.listLevelNumber) &&
-        super.equals(o);
+
+        ListFormat listFormat = (ListFormat) o;
+        return
+            Objects.equals(this.isListItem, listFormat.isListItem) &&
+            Objects.equals(this.listId, listFormat.listId) &&
+            Objects.equals(this.listLevelNumber, listFormat.listLevelNumber) &&
+            super.equals(o);
   }
 
   @Override

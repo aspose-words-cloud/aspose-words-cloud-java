@@ -76,10 +76,11 @@ public class CommentsResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    CommentsResponse commentsResponse = (CommentsResponse)o;
-    return
-        Objects.equals(this.comments, commentsResponse.comments) &&
-        super.equals(o);
+
+        CommentsResponse commentsResponse = (CommentsResponse) o;
+        return
+            Objects.equals(this.comments, commentsResponse.comments) &&
+            super.equals(o);
   }
 
   @Override

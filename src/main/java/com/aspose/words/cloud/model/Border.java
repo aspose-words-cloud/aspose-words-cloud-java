@@ -304,15 +304,16 @@ public class Border extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Border border = (Border)o;
-    return
-        Objects.equals(this.borderType, border.borderType) &&
-        Objects.equals(this.color, border.color) &&
-        Objects.equals(this.distanceFromText, border.distanceFromText) &&
-        Objects.equals(this.lineStyle, border.lineStyle) &&
-        Objects.equals(this.lineWidth, border.lineWidth) &&
-        Objects.equals(this.shadow, border.shadow) &&
-        super.equals(o);
+
+        Border border = (Border) o;
+        return
+            Objects.equals(this.borderType, border.borderType) &&
+            Objects.equals(this.color, border.color) &&
+            Objects.equals(this.distanceFromText, border.distanceFromText) &&
+            Objects.equals(this.lineStyle, border.lineStyle) &&
+            Objects.equals(this.lineWidth, border.lineWidth) &&
+            Objects.equals(this.shadow, border.shadow) &&
+            super.equals(o);
   }
 
   @Override

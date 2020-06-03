@@ -75,9 +75,10 @@ public class RunBase {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    RunBase runBase = (RunBase)o;
-    return
-        Objects.equals(this.text, runBase.text);
+
+        RunBase runBase = (RunBase) o;
+        return
+            Objects.equals(this.text, runBase.text);
   }
 
   @Override

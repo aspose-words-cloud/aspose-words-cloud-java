@@ -139,12 +139,13 @@ public class StyleUpdate {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    StyleUpdate styleUpdate = (StyleUpdate)o;
-    return
-        Objects.equals(this.baseStyleName, styleUpdate.baseStyleName) &&
-        Objects.equals(this.isQuickStyle, styleUpdate.isQuickStyle) &&
-        Objects.equals(this.name, styleUpdate.name) &&
-        Objects.equals(this.nextParagraphStyleName, styleUpdate.nextParagraphStyleName);
+
+        StyleUpdate styleUpdate = (StyleUpdate) o;
+        return
+            Objects.equals(this.baseStyleName, styleUpdate.baseStyleName) &&
+            Objects.equals(this.isQuickStyle, styleUpdate.isQuickStyle) &&
+            Objects.equals(this.name, styleUpdate.name) &&
+            Objects.equals(this.nextParagraphStyleName, styleUpdate.nextParagraphStyleName);
   }
 
   @Override

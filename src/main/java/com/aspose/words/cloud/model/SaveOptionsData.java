@@ -315,18 +315,19 @@ public class SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SaveOptionsData saveOptionsData = (SaveOptionsData)o;
-    return
-        Objects.equals(this.dml3DEffectsRenderingMode, saveOptionsData.dml3DEffectsRenderingMode) &&
-        Objects.equals(this.dmlEffectsRenderingMode, saveOptionsData.dmlEffectsRenderingMode) &&
-        Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
-        Objects.equals(this.fileName, saveOptionsData.fileName) &&
-        Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
-        Objects.equals(this.updateFields, saveOptionsData.updateFields) &&
-        Objects.equals(this.updateLastPrintedProperty, saveOptionsData.updateLastPrintedProperty) &&
-        Objects.equals(this.updateLastSavedTimeProperty, saveOptionsData.updateLastSavedTimeProperty) &&
-        Objects.equals(this.updateSdtContent, saveOptionsData.updateSdtContent) &&
-        Objects.equals(this.zipOutput, saveOptionsData.zipOutput);
+
+        SaveOptionsData saveOptionsData = (SaveOptionsData) o;
+        return
+            Objects.equals(this.dml3DEffectsRenderingMode, saveOptionsData.dml3DEffectsRenderingMode) &&
+            Objects.equals(this.dmlEffectsRenderingMode, saveOptionsData.dmlEffectsRenderingMode) &&
+            Objects.equals(this.dmlRenderingMode, saveOptionsData.dmlRenderingMode) &&
+            Objects.equals(this.fileName, saveOptionsData.fileName) &&
+            Objects.equals(this.saveFormat, saveOptionsData.saveFormat) &&
+            Objects.equals(this.updateFields, saveOptionsData.updateFields) &&
+            Objects.equals(this.updateLastPrintedProperty, saveOptionsData.updateLastPrintedProperty) &&
+            Objects.equals(this.updateLastSavedTimeProperty, saveOptionsData.updateLastSavedTimeProperty) &&
+            Objects.equals(this.updateSdtContent, saveOptionsData.updateSdtContent) &&
+            Objects.equals(this.zipOutput, saveOptionsData.zipOutput);
   }
 
   @Override

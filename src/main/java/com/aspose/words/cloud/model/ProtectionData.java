@@ -75,9 +75,10 @@ public class ProtectionData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ProtectionData protectionData = (ProtectionData)o;
-    return
-        Objects.equals(this.protectionType, protectionData.protectionType);
+
+        ProtectionData protectionData = (ProtectionData) o;
+        return
+            Objects.equals(this.protectionType, protectionData.protectionType);
   }
 
   @Override

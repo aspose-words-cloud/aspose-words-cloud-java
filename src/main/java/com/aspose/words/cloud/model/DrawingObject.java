@@ -429,19 +429,20 @@ public class DrawingObject extends DrawingObjectLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DrawingObject drawingObject = (DrawingObject)o;
-    return
-        Objects.equals(this.height, drawingObject.height) &&
-        Objects.equals(this.imageDataLink, drawingObject.imageDataLink) &&
-        Objects.equals(this.left, drawingObject.left) &&
-        Objects.equals(this.oleDataLink, drawingObject.oleDataLink) &&
-        Objects.equals(this.relativeHorizontalPosition, drawingObject.relativeHorizontalPosition) &&
-        Objects.equals(this.relativeVerticalPosition, drawingObject.relativeVerticalPosition) &&
-        Objects.equals(this.renderLinks, drawingObject.renderLinks) &&
-        Objects.equals(this.top, drawingObject.top) &&
-        Objects.equals(this.width, drawingObject.width) &&
-        Objects.equals(this.wrapType, drawingObject.wrapType) &&
-        super.equals(o);
+
+        DrawingObject drawingObject = (DrawingObject) o;
+        return
+            Objects.equals(this.height, drawingObject.height) &&
+            Objects.equals(this.imageDataLink, drawingObject.imageDataLink) &&
+            Objects.equals(this.left, drawingObject.left) &&
+            Objects.equals(this.oleDataLink, drawingObject.oleDataLink) &&
+            Objects.equals(this.relativeHorizontalPosition, drawingObject.relativeHorizontalPosition) &&
+            Objects.equals(this.relativeVerticalPosition, drawingObject.relativeVerticalPosition) &&
+            Objects.equals(this.renderLinks, drawingObject.renderLinks) &&
+            Objects.equals(this.top, drawingObject.top) &&
+            Objects.equals(this.width, drawingObject.width) &&
+            Objects.equals(this.wrapType, drawingObject.wrapType) &&
+            super.equals(o);
   }
 
   @Override

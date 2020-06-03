@@ -83,10 +83,11 @@ public class Runs extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Runs runs = (Runs)o;
-    return
-        Objects.equals(this.list, runs.list) &&
-        super.equals(o);
+
+        Runs runs = (Runs) o;
+        return
+            Objects.equals(this.list, runs.list) &&
+            super.equals(o);
   }
 
   @Override

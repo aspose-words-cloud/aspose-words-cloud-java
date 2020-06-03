@@ -117,12 +117,13 @@ public class FormFieldCheckbox extends FormField {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FormFieldCheckbox formFieldCheckbox = (FormFieldCheckbox)o;
-    return
-        Objects.equals(this.checkBoxSize, formFieldCheckbox.checkBoxSize) &&
-        Objects.equals(this.checked, formFieldCheckbox.checked) &&
-        Objects.equals(this.isCheckBoxExactSize, formFieldCheckbox.isCheckBoxExactSize) &&
-        super.equals(o);
+
+        FormFieldCheckbox formFieldCheckbox = (FormFieldCheckbox) o;
+        return
+            Objects.equals(this.checkBoxSize, formFieldCheckbox.checkBoxSize) &&
+            Objects.equals(this.checked, formFieldCheckbox.checked) &&
+            Objects.equals(this.isCheckBoxExactSize, formFieldCheckbox.isCheckBoxExactSize) &&
+            super.equals(o);
   }
 
   @Override

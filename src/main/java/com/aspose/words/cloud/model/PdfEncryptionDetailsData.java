@@ -138,12 +138,13 @@ public class PdfEncryptionDetailsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    PdfEncryptionDetailsData pdfEncryptionDetailsData = (PdfEncryptionDetailsData)o;
-    return
-        Objects.equals(this.encryptionAlgorithm, pdfEncryptionDetailsData.encryptionAlgorithm) &&
-        Objects.equals(this.ownerPassword, pdfEncryptionDetailsData.ownerPassword) &&
-        Objects.equals(this.permissions, pdfEncryptionDetailsData.permissions) &&
-        Objects.equals(this.userPassword, pdfEncryptionDetailsData.userPassword);
+
+        PdfEncryptionDetailsData pdfEncryptionDetailsData = (PdfEncryptionDetailsData) o;
+        return
+            Objects.equals(this.encryptionAlgorithm, pdfEncryptionDetailsData.encryptionAlgorithm) &&
+            Objects.equals(this.ownerPassword, pdfEncryptionDetailsData.ownerPassword) &&
+            Objects.equals(this.permissions, pdfEncryptionDetailsData.permissions) &&
+            Objects.equals(this.userPassword, pdfEncryptionDetailsData.userPassword);
   }
 
   @Override

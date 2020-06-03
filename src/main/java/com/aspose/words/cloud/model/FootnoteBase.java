@@ -185,12 +185,13 @@ public class FootnoteBase {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FootnoteBase footnoteBase = (FootnoteBase)o;
-    return
-        Objects.equals(this.footnoteType, footnoteBase.footnoteType) &&
-        Objects.equals(this.position, footnoteBase.position) &&
-        Objects.equals(this.referenceMark, footnoteBase.referenceMark) &&
-        Objects.equals(this.text, footnoteBase.text);
+
+        FootnoteBase footnoteBase = (FootnoteBase) o;
+        return
+            Objects.equals(this.footnoteType, footnoteBase.footnoteType) &&
+            Objects.equals(this.position, footnoteBase.position) &&
+            Objects.equals(this.referenceMark, footnoteBase.referenceMark) &&
+            Objects.equals(this.text, footnoteBase.text);
   }
 
   @Override

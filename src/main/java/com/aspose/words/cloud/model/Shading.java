@@ -215,11 +215,12 @@ public class Shading {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Shading shading = (Shading)o;
-    return
-        Objects.equals(this.backgroundPatternColor, shading.backgroundPatternColor) &&
-        Objects.equals(this.foregroundPatternColor, shading.foregroundPatternColor) &&
-        Objects.equals(this.texture, shading.texture);
+
+        Shading shading = (Shading) o;
+        return
+            Objects.equals(this.backgroundPatternColor, shading.backgroundPatternColor) &&
+            Objects.equals(this.foregroundPatternColor, shading.foregroundPatternColor) &&
+            Objects.equals(this.texture, shading.texture);
   }
 
   @Override

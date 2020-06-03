@@ -75,10 +75,11 @@ public class TabStop extends TabStopBase {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TabStop tabStop = (TabStop)o;
-    return
-        Objects.equals(this.isClear, tabStop.isClear) &&
-        super.equals(o);
+
+        TabStop tabStop = (TabStop) o;
+        return
+            Objects.equals(this.isClear, tabStop.isClear) &&
+            super.equals(o);
   }
 
   @Override

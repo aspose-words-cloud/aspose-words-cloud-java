@@ -84,10 +84,11 @@ public class StylesResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    StylesResponse stylesResponse = (StylesResponse)o;
-    return
-        Objects.equals(this.styles, stylesResponse.styles) &&
-        super.equals(o);
+
+        StylesResponse stylesResponse = (StylesResponse) o;
+        return
+            Objects.equals(this.styles, stylesResponse.styles) &&
+            super.equals(o);
   }
 
   @Override

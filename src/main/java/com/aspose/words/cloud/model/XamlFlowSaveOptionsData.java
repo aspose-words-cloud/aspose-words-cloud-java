@@ -96,11 +96,12 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    XamlFlowSaveOptionsData xamlFlowSaveOptionsData = (XamlFlowSaveOptionsData)o;
-    return
-        Objects.equals(this.imagesFolder, xamlFlowSaveOptionsData.imagesFolder) &&
-        Objects.equals(this.imagesFolderAlias, xamlFlowSaveOptionsData.imagesFolderAlias) &&
-        super.equals(o);
+
+        XamlFlowSaveOptionsData xamlFlowSaveOptionsData = (XamlFlowSaveOptionsData) o;
+        return
+            Objects.equals(this.imagesFolder, xamlFlowSaveOptionsData.imagesFolder) &&
+            Objects.equals(this.imagesFolderAlias, xamlFlowSaveOptionsData.imagesFolderAlias) &&
+            super.equals(o);
   }
 
   @Override

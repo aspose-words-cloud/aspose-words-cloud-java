@@ -96,11 +96,12 @@ public class ProtectionDataResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ProtectionDataResponse protectionDataResponse = (ProtectionDataResponse)o;
-    return
-        Objects.equals(this.documentLink, protectionDataResponse.documentLink) &&
-        Objects.equals(this.protectionData, protectionDataResponse.protectionData) &&
-        super.equals(o);
+
+        ProtectionDataResponse protectionDataResponse = (ProtectionDataResponse) o;
+        return
+            Objects.equals(this.documentLink, protectionDataResponse.documentLink) &&
+            Objects.equals(this.protectionData, protectionDataResponse.protectionData) &&
+            super.equals(o);
   }
 
   @Override

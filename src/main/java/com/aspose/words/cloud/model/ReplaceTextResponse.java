@@ -96,11 +96,12 @@ public class ReplaceTextResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ReplaceTextResponse replaceTextResponse = (ReplaceTextResponse)o;
-    return
-        Objects.equals(this.documentLink, replaceTextResponse.documentLink) &&
-        Objects.equals(this.matches, replaceTextResponse.matches) &&
-        super.equals(o);
+
+        ReplaceTextResponse replaceTextResponse = (ReplaceTextResponse) o;
+        return
+            Objects.equals(this.documentLink, replaceTextResponse.documentLink) &&
+            Objects.equals(this.matches, replaceTextResponse.matches) &&
+            super.equals(o);
   }
 
   @Override

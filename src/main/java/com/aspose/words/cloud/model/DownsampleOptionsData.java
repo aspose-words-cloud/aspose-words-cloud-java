@@ -120,11 +120,12 @@ public class DownsampleOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DownsampleOptionsData downsampleOptionsData = (DownsampleOptionsData)o;
-    return
-        Objects.equals(this.downsampleImages, downsampleOptionsData.downsampleImages) &&
-        Objects.equals(this.resolution, downsampleOptionsData.resolution) &&
-        Objects.equals(this.resolutionThreshold, downsampleOptionsData.resolutionThreshold);
+
+        DownsampleOptionsData downsampleOptionsData = (DownsampleOptionsData) o;
+        return
+            Objects.equals(this.downsampleImages, downsampleOptionsData.downsampleImages) &&
+            Objects.equals(this.resolution, downsampleOptionsData.resolution) &&
+            Objects.equals(this.resolutionThreshold, downsampleOptionsData.resolutionThreshold);
   }
 
   @Override

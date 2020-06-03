@@ -75,9 +75,10 @@ public class StyleCopy {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    StyleCopy styleCopy = (StyleCopy)o;
-    return
-        Objects.equals(this.styleName, styleCopy.styleName);
+
+        StyleCopy styleCopy = (StyleCopy) o;
+        return
+            Objects.equals(this.styleName, styleCopy.styleName);
   }
 
   @Override

@@ -185,13 +185,14 @@ public class TableRowFormat extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableRowFormat tableRowFormat = (TableRowFormat)o;
-    return
-        Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
-        Objects.equals(this.headingFormat, tableRowFormat.headingFormat) &&
-        Objects.equals(this.height, tableRowFormat.height) &&
-        Objects.equals(this.heightRule, tableRowFormat.heightRule) &&
-        super.equals(o);
+
+        TableRowFormat tableRowFormat = (TableRowFormat) o;
+        return
+            Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
+            Objects.equals(this.headingFormat, tableRowFormat.headingFormat) &&
+            Objects.equals(this.height, tableRowFormat.height) &&
+            Objects.equals(this.heightRule, tableRowFormat.heightRule) &&
+            super.equals(o);
   }
 
   @Override

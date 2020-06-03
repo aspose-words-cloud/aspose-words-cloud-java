@@ -138,12 +138,13 @@ public class FontInfo {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FontInfo fontInfo = (FontInfo)o;
-    return
-        Objects.equals(this.filePath, fontInfo.filePath) &&
-        Objects.equals(this.fontFamilyName, fontInfo.fontFamilyName) &&
-        Objects.equals(this.fullFontName, fontInfo.fullFontName) &&
-        Objects.equals(this.version, fontInfo.version);
+
+        FontInfo fontInfo = (FontInfo) o;
+        return
+            Objects.equals(this.filePath, fontInfo.filePath) &&
+            Objects.equals(this.fontFamilyName, fontInfo.fontFamilyName) &&
+            Objects.equals(this.fullFontName, fontInfo.fullFontName) &&
+            Objects.equals(this.version, fontInfo.version);
   }
 
   @Override

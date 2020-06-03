@@ -76,10 +76,11 @@ public class FormFieldResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FormFieldResponse formFieldResponse = (FormFieldResponse)o;
-    return
-        Objects.equals(this.formField, formFieldResponse.formField) &&
-        super.equals(o);
+
+        FormFieldResponse formFieldResponse = (FormFieldResponse) o;
+        return
+            Objects.equals(this.formField, formFieldResponse.formField) &&
+            super.equals(o);
   }
 
   @Override

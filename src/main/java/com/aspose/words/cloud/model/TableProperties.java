@@ -913,23 +913,24 @@ public class TableProperties extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableProperties tableProperties = (TableProperties)o;
-    return
-        Objects.equals(this.alignment, tableProperties.alignment) &&
-        Objects.equals(this.allowAutoFit, tableProperties.allowAutoFit) &&
-        Objects.equals(this.bidi, tableProperties.bidi) &&
-        Objects.equals(this.bottomPadding, tableProperties.bottomPadding) &&
-        Objects.equals(this.cellSpacing, tableProperties.cellSpacing) &&
-        Objects.equals(this.leftIndent, tableProperties.leftIndent) &&
-        Objects.equals(this.leftPadding, tableProperties.leftPadding) &&
-        Objects.equals(this.preferredWidth, tableProperties.preferredWidth) &&
-        Objects.equals(this.rightPadding, tableProperties.rightPadding) &&
-        Objects.equals(this.styleIdentifier, tableProperties.styleIdentifier) &&
-        Objects.equals(this.styleName, tableProperties.styleName) &&
-        Objects.equals(this.styleOptions, tableProperties.styleOptions) &&
-        Objects.equals(this.textWrapping, tableProperties.textWrapping) &&
-        Objects.equals(this.topPadding, tableProperties.topPadding) &&
-        super.equals(o);
+
+        TableProperties tableProperties = (TableProperties) o;
+        return
+            Objects.equals(this.alignment, tableProperties.alignment) &&
+            Objects.equals(this.allowAutoFit, tableProperties.allowAutoFit) &&
+            Objects.equals(this.bidi, tableProperties.bidi) &&
+            Objects.equals(this.bottomPadding, tableProperties.bottomPadding) &&
+            Objects.equals(this.cellSpacing, tableProperties.cellSpacing) &&
+            Objects.equals(this.leftIndent, tableProperties.leftIndent) &&
+            Objects.equals(this.leftPadding, tableProperties.leftPadding) &&
+            Objects.equals(this.preferredWidth, tableProperties.preferredWidth) &&
+            Objects.equals(this.rightPadding, tableProperties.rightPadding) &&
+            Objects.equals(this.styleIdentifier, tableProperties.styleIdentifier) &&
+            Objects.equals(this.styleName, tableProperties.styleName) &&
+            Objects.equals(this.styleOptions, tableProperties.styleOptions) &&
+            Objects.equals(this.textWrapping, tableProperties.textWrapping) &&
+            Objects.equals(this.topPadding, tableProperties.topPadding) &&
+            super.equals(o);
   }
 
   @Override

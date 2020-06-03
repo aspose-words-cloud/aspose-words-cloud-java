@@ -83,10 +83,11 @@ public class CommentsCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    CommentsCollection commentsCollection = (CommentsCollection)o;
-    return
-        Objects.equals(this.commentList, commentsCollection.commentList) &&
-        super.equals(o);
+
+        CommentsCollection commentsCollection = (CommentsCollection) o;
+        return
+            Objects.equals(this.commentList, commentsCollection.commentList) &&
+            super.equals(o);
   }
 
   @Override

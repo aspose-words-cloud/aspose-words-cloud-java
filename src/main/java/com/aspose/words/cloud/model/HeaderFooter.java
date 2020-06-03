@@ -125,12 +125,13 @@ public class HeaderFooter extends HeaderFooterLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    HeaderFooter headerFooter = (HeaderFooter)o;
-    return
-        Objects.equals(this.childNodes, headerFooter.childNodes) &&
-        Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
-        Objects.equals(this.paragraphs, headerFooter.paragraphs) &&
-        super.equals(o);
+
+        HeaderFooter headerFooter = (HeaderFooter) o;
+        return
+            Objects.equals(this.childNodes, headerFooter.childNodes) &&
+            Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
+            Objects.equals(this.paragraphs, headerFooter.paragraphs) &&
+            super.equals(o);
   }
 
   @Override

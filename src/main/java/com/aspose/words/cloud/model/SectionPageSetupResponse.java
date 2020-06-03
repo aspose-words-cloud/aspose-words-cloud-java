@@ -76,10 +76,11 @@ public class SectionPageSetupResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SectionPageSetupResponse sectionPageSetupResponse = (SectionPageSetupResponse)o;
-    return
-        Objects.equals(this.pageSetup, sectionPageSetupResponse.pageSetup) &&
-        super.equals(o);
+
+        SectionPageSetupResponse sectionPageSetupResponse = (SectionPageSetupResponse) o;
+        return
+            Objects.equals(this.pageSetup, sectionPageSetupResponse.pageSetup) &&
+            super.equals(o);
   }
 
   @Override

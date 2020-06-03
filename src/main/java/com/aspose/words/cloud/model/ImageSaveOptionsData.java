@@ -333,22 +333,23 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ImageSaveOptionsData imageSaveOptionsData = (ImageSaveOptionsData)o;
-    return
-        Objects.equals(this.graphicsQualityOptions, imageSaveOptionsData.graphicsQualityOptions) &&
-        Objects.equals(this.horizontalResolution, imageSaveOptionsData.horizontalResolution) &&
-        Objects.equals(this.imageBrightness, imageSaveOptionsData.imageBrightness) &&
-        Objects.equals(this.imageColorMode, imageSaveOptionsData.imageColorMode) &&
-        Objects.equals(this.imageContrast, imageSaveOptionsData.imageContrast) &&
-        Objects.equals(this.paperColor, imageSaveOptionsData.paperColor) &&
-        Objects.equals(this.pixelFormat, imageSaveOptionsData.pixelFormat) &&
-        Objects.equals(this.resolution, imageSaveOptionsData.resolution) &&
-        Objects.equals(this.scale, imageSaveOptionsData.scale) &&
-        Objects.equals(this.useAntiAliasing, imageSaveOptionsData.useAntiAliasing) &&
-        Objects.equals(this.useGdiEmfRenderer, imageSaveOptionsData.useGdiEmfRenderer) &&
-        Objects.equals(this.useHighQualityRendering, imageSaveOptionsData.useHighQualityRendering) &&
-        Objects.equals(this.verticalResolution, imageSaveOptionsData.verticalResolution) &&
-        super.equals(o);
+
+        ImageSaveOptionsData imageSaveOptionsData = (ImageSaveOptionsData) o;
+        return
+            Objects.equals(this.graphicsQualityOptions, imageSaveOptionsData.graphicsQualityOptions) &&
+            Objects.equals(this.horizontalResolution, imageSaveOptionsData.horizontalResolution) &&
+            Objects.equals(this.imageBrightness, imageSaveOptionsData.imageBrightness) &&
+            Objects.equals(this.imageColorMode, imageSaveOptionsData.imageColorMode) &&
+            Objects.equals(this.imageContrast, imageSaveOptionsData.imageContrast) &&
+            Objects.equals(this.paperColor, imageSaveOptionsData.paperColor) &&
+            Objects.equals(this.pixelFormat, imageSaveOptionsData.pixelFormat) &&
+            Objects.equals(this.resolution, imageSaveOptionsData.resolution) &&
+            Objects.equals(this.scale, imageSaveOptionsData.scale) &&
+            Objects.equals(this.useAntiAliasing, imageSaveOptionsData.useAntiAliasing) &&
+            Objects.equals(this.useGdiEmfRenderer, imageSaveOptionsData.useGdiEmfRenderer) &&
+            Objects.equals(this.useHighQualityRendering, imageSaveOptionsData.useHighQualityRendering) &&
+            Objects.equals(this.verticalResolution, imageSaveOptionsData.verticalResolution) &&
+            super.equals(o);
   }
 
   @Override

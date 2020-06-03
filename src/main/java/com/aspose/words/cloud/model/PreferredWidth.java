@@ -143,10 +143,11 @@ public class PreferredWidth {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    PreferredWidth preferredWidth = (PreferredWidth)o;
-    return
-        Objects.equals(this.type, preferredWidth.type) &&
-        Objects.equals(this.value, preferredWidth.value);
+
+        PreferredWidth preferredWidth = (PreferredWidth) o;
+        return
+            Objects.equals(this.type, preferredWidth.type) &&
+            Objects.equals(this.value, preferredWidth.value);
   }
 
   @Override

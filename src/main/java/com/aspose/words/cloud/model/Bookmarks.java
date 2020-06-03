@@ -83,10 +83,11 @@ public class Bookmarks extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Bookmarks bookmarks = (Bookmarks)o;
-    return
-        Objects.equals(this.bookmarkList, bookmarks.bookmarkList) &&
-        super.equals(o);
+
+        Bookmarks bookmarks = (Bookmarks) o;
+        return
+            Objects.equals(this.bookmarkList, bookmarks.bookmarkList) &&
+            super.equals(o);
   }
 
   @Override

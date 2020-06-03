@@ -96,10 +96,11 @@ public class FieldBase {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FieldBase fieldBase = (FieldBase)o;
-    return
-        Objects.equals(this.fieldCode, fieldBase.fieldCode) &&
-        Objects.equals(this.localeId, fieldBase.localeId);
+
+        FieldBase fieldBase = (FieldBase) o;
+        return
+            Objects.equals(this.fieldCode, fieldBase.fieldCode) &&
+            Objects.equals(this.localeId, fieldBase.localeId);
   }
 
   @Override

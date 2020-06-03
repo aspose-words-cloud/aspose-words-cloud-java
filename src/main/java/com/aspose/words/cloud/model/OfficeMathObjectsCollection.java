@@ -83,10 +83,11 @@ public class OfficeMathObjectsCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    OfficeMathObjectsCollection officeMathObjectsCollection = (OfficeMathObjectsCollection)o;
-    return
-        Objects.equals(this.list, officeMathObjectsCollection.list) &&
-        super.equals(o);
+
+        OfficeMathObjectsCollection officeMathObjectsCollection = (OfficeMathObjectsCollection) o;
+        return
+            Objects.equals(this.list, officeMathObjectsCollection.list) &&
+            super.equals(o);
   }
 
   @Override

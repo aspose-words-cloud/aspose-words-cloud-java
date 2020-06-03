@@ -76,10 +76,11 @@ public class HeaderFooterResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    HeaderFooterResponse headerFooterResponse = (HeaderFooterResponse)o;
-    return
-        Objects.equals(this.headerFooter, headerFooterResponse.headerFooter) &&
-        super.equals(o);
+
+        HeaderFooterResponse headerFooterResponse = (HeaderFooterResponse) o;
+        return
+            Objects.equals(this.headerFooter, headerFooterResponse.headerFooter) &&
+            super.equals(o);
   }
 
   @Override

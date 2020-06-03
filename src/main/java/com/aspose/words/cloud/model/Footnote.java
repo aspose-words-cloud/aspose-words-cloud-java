@@ -206,14 +206,15 @@ public class Footnote extends FootnoteLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Footnote footnote = (Footnote)o;
-    return
-        Objects.equals(this.content, footnote.content) &&
-        Objects.equals(this.footnoteType, footnote.footnoteType) &&
-        Objects.equals(this.position, footnote.position) &&
-        Objects.equals(this.referenceMark, footnote.referenceMark) &&
-        Objects.equals(this.text, footnote.text) &&
-        super.equals(o);
+
+        Footnote footnote = (Footnote) o;
+        return
+            Objects.equals(this.content, footnote.content) &&
+            Objects.equals(this.footnoteType, footnote.footnoteType) &&
+            Objects.equals(this.position, footnote.position) &&
+            Objects.equals(this.referenceMark, footnote.referenceMark) &&
+            Objects.equals(this.text, footnote.text) &&
+            super.equals(o);
   }
 
   @Override

@@ -510,21 +510,22 @@ public class ListLevel extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListLevel listLevel = (ListLevel)o;
-    return
-        Objects.equals(this.alignment, listLevel.alignment) &&
-        Objects.equals(this.font, listLevel.font) &&
-        Objects.equals(this.isLegal, listLevel.isLegal) &&
-        Objects.equals(this.linkedStyle, listLevel.linkedStyle) &&
-        Objects.equals(this.numberFormat, listLevel.numberFormat) &&
-        Objects.equals(this.numberPosition, listLevel.numberPosition) &&
-        Objects.equals(this.numberStyle, listLevel.numberStyle) &&
-        Objects.equals(this.restartAfterLevel, listLevel.restartAfterLevel) &&
-        Objects.equals(this.startAt, listLevel.startAt) &&
-        Objects.equals(this.tabPosition, listLevel.tabPosition) &&
-        Objects.equals(this.textPosition, listLevel.textPosition) &&
-        Objects.equals(this.trailingCharacter, listLevel.trailingCharacter) &&
-        super.equals(o);
+
+        ListLevel listLevel = (ListLevel) o;
+        return
+            Objects.equals(this.alignment, listLevel.alignment) &&
+            Objects.equals(this.font, listLevel.font) &&
+            Objects.equals(this.isLegal, listLevel.isLegal) &&
+            Objects.equals(this.linkedStyle, listLevel.linkedStyle) &&
+            Objects.equals(this.numberFormat, listLevel.numberFormat) &&
+            Objects.equals(this.numberPosition, listLevel.numberPosition) &&
+            Objects.equals(this.numberStyle, listLevel.numberStyle) &&
+            Objects.equals(this.restartAfterLevel, listLevel.restartAfterLevel) &&
+            Objects.equals(this.startAt, listLevel.startAt) &&
+            Objects.equals(this.tabPosition, listLevel.tabPosition) &&
+            Objects.equals(this.textPosition, listLevel.textPosition) &&
+            Objects.equals(this.trailingCharacter, listLevel.trailingCharacter) &&
+            super.equals(o);
   }
 
   @Override

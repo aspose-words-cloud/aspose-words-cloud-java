@@ -75,9 +75,10 @@ public class WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    WordsResponse wordsResponse = (WordsResponse)o;
-    return
-        Objects.equals(this.requestId, wordsResponse.requestId);
+
+        WordsResponse wordsResponse = (WordsResponse) o;
+        return
+            Objects.equals(this.requestId, wordsResponse.requestId);
   }
 
   @Override

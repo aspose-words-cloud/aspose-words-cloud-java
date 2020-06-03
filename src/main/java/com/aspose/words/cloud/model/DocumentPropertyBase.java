@@ -75,9 +75,10 @@ public class DocumentPropertyBase {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocumentPropertyBase documentPropertyBase = (DocumentPropertyBase)o;
-    return
-        Objects.equals(this.value, documentPropertyBase.value);
+
+        DocumentPropertyBase documentPropertyBase = (DocumentPropertyBase) o;
+        return
+            Objects.equals(this.value, documentPropertyBase.value);
   }
 
   @Override

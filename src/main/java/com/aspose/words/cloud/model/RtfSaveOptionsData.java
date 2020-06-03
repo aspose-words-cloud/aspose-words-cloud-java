@@ -138,13 +138,14 @@ public class RtfSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    RtfSaveOptionsData rtfSaveOptionsData = (RtfSaveOptionsData)o;
-    return
-        Objects.equals(this.exportCompactSize, rtfSaveOptionsData.exportCompactSize) &&
-        Objects.equals(this.exportImagesForOldReaders, rtfSaveOptionsData.exportImagesForOldReaders) &&
-        Objects.equals(this.prettyFormat, rtfSaveOptionsData.prettyFormat) &&
-        Objects.equals(this.saveImagesAsWmf, rtfSaveOptionsData.saveImagesAsWmf) &&
-        super.equals(o);
+
+        RtfSaveOptionsData rtfSaveOptionsData = (RtfSaveOptionsData) o;
+        return
+            Objects.equals(this.exportCompactSize, rtfSaveOptionsData.exportCompactSize) &&
+            Objects.equals(this.exportImagesForOldReaders, rtfSaveOptionsData.exportImagesForOldReaders) &&
+            Objects.equals(this.prettyFormat, rtfSaveOptionsData.prettyFormat) &&
+            Objects.equals(this.saveImagesAsWmf, rtfSaveOptionsData.saveImagesAsWmf) &&
+            super.equals(o);
   }
 
   @Override

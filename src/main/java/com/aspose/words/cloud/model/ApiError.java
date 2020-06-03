@@ -159,13 +159,14 @@ public class ApiError {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ApiError apiError = (ApiError)o;
-    return
-        Objects.equals(this.code, apiError.code) &&
-        Objects.equals(this.dateTime, apiError.dateTime) &&
-        Objects.equals(this.description, apiError.description) &&
-        Objects.equals(this.innerError, apiError.innerError) &&
-        Objects.equals(this.message, apiError.message);
+
+        ApiError apiError = (ApiError) o;
+        return
+            Objects.equals(this.code, apiError.code) &&
+            Objects.equals(this.dateTime, apiError.dateTime) &&
+            Objects.equals(this.description, apiError.description) &&
+            Objects.equals(this.innerError, apiError.innerError) &&
+            Objects.equals(this.message, apiError.message);
   }
 
   @Override

@@ -147,12 +147,13 @@ public class Link {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Link link = (Link)o;
-    return
-        Objects.equals(this.href, link.href) &&
-        Objects.equals(this.rel, link.rel) &&
-        Objects.equals(this.title, link.title) &&
-        Objects.equals(this.type, link.type);
+
+        Link link = (Link) o;
+        return
+            Objects.equals(this.href, link.href) &&
+            Objects.equals(this.rel, link.rel) &&
+            Objects.equals(this.title, link.title) &&
+            Objects.equals(this.type, link.type);
   }
 
   @Override

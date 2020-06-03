@@ -96,11 +96,12 @@ public class StatDataResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    StatDataResponse statDataResponse = (StatDataResponse)o;
-    return
-        Objects.equals(this.documentLink, statDataResponse.documentLink) &&
-        Objects.equals(this.statData, statDataResponse.statData) &&
-        super.equals(o);
+
+        StatDataResponse statDataResponse = (StatDataResponse) o;
+        return
+            Objects.equals(this.documentLink, statDataResponse.documentLink) &&
+            Objects.equals(this.statData, statDataResponse.statData) &&
+            super.equals(o);
   }
 
   @Override

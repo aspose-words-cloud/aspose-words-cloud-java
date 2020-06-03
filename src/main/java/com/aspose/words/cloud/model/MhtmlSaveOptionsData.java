@@ -76,10 +76,11 @@ public class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    MhtmlSaveOptionsData mhtmlSaveOptionsData = (MhtmlSaveOptionsData)o;
-    return
-        Objects.equals(this.exportCidUrlsForMhtmlResources, mhtmlSaveOptionsData.exportCidUrlsForMhtmlResources) &&
-        super.equals(o);
+
+        MhtmlSaveOptionsData mhtmlSaveOptionsData = (MhtmlSaveOptionsData) o;
+        return
+            Objects.equals(this.exportCidUrlsForMhtmlResources, mhtmlSaveOptionsData.exportCidUrlsForMhtmlResources) &&
+            super.equals(o);
   }
 
   @Override

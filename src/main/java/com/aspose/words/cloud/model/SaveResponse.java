@@ -75,10 +75,11 @@ public class SaveResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SaveResponse saveResponse = (SaveResponse)o;
-    return
-        Objects.equals(this.saveResult, saveResponse.saveResult) &&
-        super.equals(o);
+
+        SaveResponse saveResponse = (SaveResponse) o;
+        return
+            Objects.equals(this.saveResult, saveResponse.saveResult) &&
+            super.equals(o);
   }
 
   @Override

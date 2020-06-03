@@ -75,10 +75,11 @@ public class DocumentPropertiesResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocumentPropertiesResponse documentPropertiesResponse = (DocumentPropertiesResponse)o;
-    return
-        Objects.equals(this.documentProperties, documentPropertiesResponse.documentProperties) &&
-        super.equals(o);
+
+        DocumentPropertiesResponse documentPropertiesResponse = (DocumentPropertiesResponse) o;
+        return
+            Objects.equals(this.documentProperties, documentPropertiesResponse.documentProperties) &&
+            super.equals(o);
   }
 
   @Override

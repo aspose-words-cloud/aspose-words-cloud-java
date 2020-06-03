@@ -117,11 +117,12 @@ public class TableInsert {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableInsert tableInsert = (TableInsert)o;
-    return
-        Objects.equals(this.columnsCount, tableInsert.columnsCount) &&
-        Objects.equals(this.position, tableInsert.position) &&
-        Objects.equals(this.rowsCount, tableInsert.rowsCount);
+
+        TableInsert tableInsert = (TableInsert) o;
+        return
+            Objects.equals(this.columnsCount, tableInsert.columnsCount) &&
+            Objects.equals(this.position, tableInsert.position) &&
+            Objects.equals(this.rowsCount, tableInsert.rowsCount);
   }
 
   @Override

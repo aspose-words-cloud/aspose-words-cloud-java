@@ -1029,48 +1029,49 @@ public class HtmlSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    HtmlSaveOptionsData htmlSaveOptionsData = (HtmlSaveOptionsData)o;
-    return
-        Objects.equals(this.allowNegativeIndent, htmlSaveOptionsData.allowNegativeIndent) &&
-        Objects.equals(this.cssClassNamePrefix, htmlSaveOptionsData.cssClassNamePrefix) &&
-        Objects.equals(this.cssStyleSheetFileName, htmlSaveOptionsData.cssStyleSheetFileName) &&
-        Objects.equals(this.cssStyleSheetType, htmlSaveOptionsData.cssStyleSheetType) &&
-        Objects.equals(this.documentSplitCriteria, htmlSaveOptionsData.documentSplitCriteria) &&
-        Objects.equals(this.documentSplitHeadingLevel, htmlSaveOptionsData.documentSplitHeadingLevel) &&
-        Objects.equals(this.encoding, htmlSaveOptionsData.encoding) &&
-        Objects.equals(this.exportDocumentProperties, htmlSaveOptionsData.exportDocumentProperties) &&
-        Objects.equals(this.exportDropDownFormFieldAsText, htmlSaveOptionsData.exportDropDownFormFieldAsText) &&
-        Objects.equals(this.exportFontResources, htmlSaveOptionsData.exportFontResources) &&
-        Objects.equals(this.exportFontsAsBase64, htmlSaveOptionsData.exportFontsAsBase64) &&
-        Objects.equals(this.exportHeadersFootersMode, htmlSaveOptionsData.exportHeadersFootersMode) &&
-        Objects.equals(this.exportImagesAsBase64, htmlSaveOptionsData.exportImagesAsBase64) &&
-        Objects.equals(this.exportLanguageInformation, htmlSaveOptionsData.exportLanguageInformation) &&
-        Objects.equals(this.exportListLabels, htmlSaveOptionsData.exportListLabels) &&
-        Objects.equals(this.exportOriginalUrlForLinkedImages, htmlSaveOptionsData.exportOriginalUrlForLinkedImages) &&
-        Objects.equals(this.exportPageMargins, htmlSaveOptionsData.exportPageMargins) &&
-        Objects.equals(this.exportPageSetup, htmlSaveOptionsData.exportPageSetup) &&
-        Objects.equals(this.exportRelativeFontSize, htmlSaveOptionsData.exportRelativeFontSize) &&
-        Objects.equals(this.exportRoundtripInformation, htmlSaveOptionsData.exportRoundtripInformation) &&
-        Objects.equals(this.exportTextBoxAsSvg, htmlSaveOptionsData.exportTextBoxAsSvg) &&
-        Objects.equals(this.exportTextInputFormFieldAsText, htmlSaveOptionsData.exportTextInputFormFieldAsText) &&
-        Objects.equals(this.exportTocPageNumbers, htmlSaveOptionsData.exportTocPageNumbers) &&
-        Objects.equals(this.exportXhtmlTransitional, htmlSaveOptionsData.exportXhtmlTransitional) &&
-        Objects.equals(this.fontResourcesSubsettingSizeThreshold, htmlSaveOptionsData.fontResourcesSubsettingSizeThreshold) &&
-        Objects.equals(this.fontsFolder, htmlSaveOptionsData.fontsFolder) &&
-        Objects.equals(this.fontsFolderAlias, htmlSaveOptionsData.fontsFolderAlias) &&
-        Objects.equals(this.htmlVersion, htmlSaveOptionsData.htmlVersion) &&
-        Objects.equals(this.imageResolution, htmlSaveOptionsData.imageResolution) &&
-        Objects.equals(this.imagesFolder, htmlSaveOptionsData.imagesFolder) &&
-        Objects.equals(this.imagesFolderAlias, htmlSaveOptionsData.imagesFolderAlias) &&
-        Objects.equals(this.metafileFormat, htmlSaveOptionsData.metafileFormat) &&
-        Objects.equals(this.officeMathOutputMode, htmlSaveOptionsData.officeMathOutputMode) &&
-        Objects.equals(this.prettyFormat, htmlSaveOptionsData.prettyFormat) &&
-        Objects.equals(this.resolveFontNames, htmlSaveOptionsData.resolveFontNames) &&
-        Objects.equals(this.resourceFolder, htmlSaveOptionsData.resourceFolder) &&
-        Objects.equals(this.resourceFolderAlias, htmlSaveOptionsData.resourceFolderAlias) &&
-        Objects.equals(this.scaleImageToShapeSize, htmlSaveOptionsData.scaleImageToShapeSize) &&
-        Objects.equals(this.tableWidthOutputMode, htmlSaveOptionsData.tableWidthOutputMode) &&
-        super.equals(o);
+
+        HtmlSaveOptionsData htmlSaveOptionsData = (HtmlSaveOptionsData) o;
+        return
+            Objects.equals(this.allowNegativeIndent, htmlSaveOptionsData.allowNegativeIndent) &&
+            Objects.equals(this.cssClassNamePrefix, htmlSaveOptionsData.cssClassNamePrefix) &&
+            Objects.equals(this.cssStyleSheetFileName, htmlSaveOptionsData.cssStyleSheetFileName) &&
+            Objects.equals(this.cssStyleSheetType, htmlSaveOptionsData.cssStyleSheetType) &&
+            Objects.equals(this.documentSplitCriteria, htmlSaveOptionsData.documentSplitCriteria) &&
+            Objects.equals(this.documentSplitHeadingLevel, htmlSaveOptionsData.documentSplitHeadingLevel) &&
+            Objects.equals(this.encoding, htmlSaveOptionsData.encoding) &&
+            Objects.equals(this.exportDocumentProperties, htmlSaveOptionsData.exportDocumentProperties) &&
+            Objects.equals(this.exportDropDownFormFieldAsText, htmlSaveOptionsData.exportDropDownFormFieldAsText) &&
+            Objects.equals(this.exportFontResources, htmlSaveOptionsData.exportFontResources) &&
+            Objects.equals(this.exportFontsAsBase64, htmlSaveOptionsData.exportFontsAsBase64) &&
+            Objects.equals(this.exportHeadersFootersMode, htmlSaveOptionsData.exportHeadersFootersMode) &&
+            Objects.equals(this.exportImagesAsBase64, htmlSaveOptionsData.exportImagesAsBase64) &&
+            Objects.equals(this.exportLanguageInformation, htmlSaveOptionsData.exportLanguageInformation) &&
+            Objects.equals(this.exportListLabels, htmlSaveOptionsData.exportListLabels) &&
+            Objects.equals(this.exportOriginalUrlForLinkedImages, htmlSaveOptionsData.exportOriginalUrlForLinkedImages) &&
+            Objects.equals(this.exportPageMargins, htmlSaveOptionsData.exportPageMargins) &&
+            Objects.equals(this.exportPageSetup, htmlSaveOptionsData.exportPageSetup) &&
+            Objects.equals(this.exportRelativeFontSize, htmlSaveOptionsData.exportRelativeFontSize) &&
+            Objects.equals(this.exportRoundtripInformation, htmlSaveOptionsData.exportRoundtripInformation) &&
+            Objects.equals(this.exportTextBoxAsSvg, htmlSaveOptionsData.exportTextBoxAsSvg) &&
+            Objects.equals(this.exportTextInputFormFieldAsText, htmlSaveOptionsData.exportTextInputFormFieldAsText) &&
+            Objects.equals(this.exportTocPageNumbers, htmlSaveOptionsData.exportTocPageNumbers) &&
+            Objects.equals(this.exportXhtmlTransitional, htmlSaveOptionsData.exportXhtmlTransitional) &&
+            Objects.equals(this.fontResourcesSubsettingSizeThreshold, htmlSaveOptionsData.fontResourcesSubsettingSizeThreshold) &&
+            Objects.equals(this.fontsFolder, htmlSaveOptionsData.fontsFolder) &&
+            Objects.equals(this.fontsFolderAlias, htmlSaveOptionsData.fontsFolderAlias) &&
+            Objects.equals(this.htmlVersion, htmlSaveOptionsData.htmlVersion) &&
+            Objects.equals(this.imageResolution, htmlSaveOptionsData.imageResolution) &&
+            Objects.equals(this.imagesFolder, htmlSaveOptionsData.imagesFolder) &&
+            Objects.equals(this.imagesFolderAlias, htmlSaveOptionsData.imagesFolderAlias) &&
+            Objects.equals(this.metafileFormat, htmlSaveOptionsData.metafileFormat) &&
+            Objects.equals(this.officeMathOutputMode, htmlSaveOptionsData.officeMathOutputMode) &&
+            Objects.equals(this.prettyFormat, htmlSaveOptionsData.prettyFormat) &&
+            Objects.equals(this.resolveFontNames, htmlSaveOptionsData.resolveFontNames) &&
+            Objects.equals(this.resourceFolder, htmlSaveOptionsData.resourceFolder) &&
+            Objects.equals(this.resourceFolderAlias, htmlSaveOptionsData.resourceFolderAlias) &&
+            Objects.equals(this.scaleImageToShapeSize, htmlSaveOptionsData.scaleImageToShapeSize) &&
+            Objects.equals(this.tableWidthOutputMode, htmlSaveOptionsData.tableWidthOutputMode) &&
+            super.equals(o);
   }
 
   @Override

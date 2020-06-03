@@ -96,10 +96,11 @@ public class ModificationOperationResult {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ModificationOperationResult modificationOperationResult = (ModificationOperationResult)o;
-    return
-        Objects.equals(this.dest, modificationOperationResult.dest) &&
-        Objects.equals(this.source, modificationOperationResult.source);
+
+        ModificationOperationResult modificationOperationResult = (ModificationOperationResult) o;
+        return
+            Objects.equals(this.dest, modificationOperationResult.dest) &&
+            Objects.equals(this.source, modificationOperationResult.source);
   }
 
   @Override

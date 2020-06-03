@@ -201,16 +201,17 @@ public class ListInfo extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListInfo listInfo = (ListInfo)o;
-    return
-        Objects.equals(this.isListStyleDefinition, listInfo.isListStyleDefinition) &&
-        Objects.equals(this.isListStyleReference, listInfo.isListStyleReference) &&
-        Objects.equals(this.isMultiLevel, listInfo.isMultiLevel) &&
-        Objects.equals(this.isRestartAtEachSection, listInfo.isRestartAtEachSection) &&
-        Objects.equals(this.listId, listInfo.listId) &&
-        Objects.equals(this.listLevels, listInfo.listLevels) &&
-        Objects.equals(this.style, listInfo.style) &&
-        super.equals(o);
+
+        ListInfo listInfo = (ListInfo) o;
+        return
+            Objects.equals(this.isListStyleDefinition, listInfo.isListStyleDefinition) &&
+            Objects.equals(this.isListStyleReference, listInfo.isListStyleReference) &&
+            Objects.equals(this.isMultiLevel, listInfo.isMultiLevel) &&
+            Objects.equals(this.isRestartAtEachSection, listInfo.isRestartAtEachSection) &&
+            Objects.equals(this.listId, listInfo.listId) &&
+            Objects.equals(this.listLevels, listInfo.listLevels) &&
+            Objects.equals(this.style, listInfo.style) &&
+            super.equals(o);
   }
 
   @Override

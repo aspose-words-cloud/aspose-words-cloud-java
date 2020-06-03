@@ -75,10 +75,11 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    PsSaveOptionsData psSaveOptionsData = (PsSaveOptionsData)o;
-    return
-        Objects.equals(this.useBookFoldPrintingSettings, psSaveOptionsData.useBookFoldPrintingSettings) &&
-        super.equals(o);
+
+        PsSaveOptionsData psSaveOptionsData = (PsSaveOptionsData) o;
+        return
+            Objects.equals(this.useBookFoldPrintingSettings, psSaveOptionsData.useBookFoldPrintingSettings) &&
+            super.equals(o);
   }
 
   @Override

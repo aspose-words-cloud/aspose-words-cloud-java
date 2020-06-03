@@ -75,10 +75,11 @@ public class RevisionsModificationResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    RevisionsModificationResponse revisionsModificationResponse = (RevisionsModificationResponse)o;
-    return
-        Objects.equals(this.result, revisionsModificationResponse.result) &&
-        super.equals(o);
+
+        RevisionsModificationResponse revisionsModificationResponse = (RevisionsModificationResponse) o;
+        return
+            Objects.equals(this.result, revisionsModificationResponse.result) &&
+            super.equals(o);
   }
 
   @Override

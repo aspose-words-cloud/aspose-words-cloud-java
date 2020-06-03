@@ -125,10 +125,11 @@ public class HeaderFooterLink extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    HeaderFooterLink headerFooterLink = (HeaderFooterLink)o;
-    return
-        Objects.equals(this.type, headerFooterLink.type) &&
-        super.equals(o);
+
+        HeaderFooterLink headerFooterLink = (HeaderFooterLink) o;
+        return
+            Objects.equals(this.type, headerFooterLink.type) &&
+            super.equals(o);
   }
 
   @Override

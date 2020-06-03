@@ -75,10 +75,11 @@ public class ParagraphLink extends NodeLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ParagraphLink paragraphLink = (ParagraphLink)o;
-    return
-        Objects.equals(this.text, paragraphLink.text) &&
-        super.equals(o);
+
+        ParagraphLink paragraphLink = (ParagraphLink) o;
+        return
+            Objects.equals(this.text, paragraphLink.text) &&
+            super.equals(o);
   }
 
   @Override

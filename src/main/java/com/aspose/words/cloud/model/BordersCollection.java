@@ -83,10 +83,11 @@ public class BordersCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    BordersCollection bordersCollection = (BordersCollection)o;
-    return
-        Objects.equals(this.list, bordersCollection.list) &&
-        super.equals(o);
+
+        BordersCollection bordersCollection = (BordersCollection) o;
+        return
+            Objects.equals(this.list, bordersCollection.list) &&
+            super.equals(o);
   }
 
   @Override

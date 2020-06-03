@@ -83,10 +83,11 @@ public class FootnoteCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FootnoteCollection footnoteCollection = (FootnoteCollection)o;
-    return
-        Objects.equals(this.list, footnoteCollection.list) &&
-        super.equals(o);
+
+        FootnoteCollection footnoteCollection = (FootnoteCollection) o;
+        return
+            Objects.equals(this.list, footnoteCollection.list) &&
+            super.equals(o);
   }
 
   @Override

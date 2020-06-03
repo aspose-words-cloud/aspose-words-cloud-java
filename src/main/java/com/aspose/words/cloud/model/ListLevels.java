@@ -83,10 +83,11 @@ public class ListLevels extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListLevels listLevels = (ListLevels)o;
-    return
-        Objects.equals(this.listLevel, listLevels.listLevel) &&
-        super.equals(o);
+
+        ListLevels listLevels = (ListLevels) o;
+        return
+            Objects.equals(this.listLevel, listLevels.listLevel) &&
+            super.equals(o);
   }
 
   @Override

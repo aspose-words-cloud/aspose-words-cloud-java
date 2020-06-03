@@ -96,10 +96,11 @@ public class ErrorDetails {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ErrorDetails errorDetails = (ErrorDetails)o;
-    return
-        Objects.equals(this.errorDateTime, errorDetails.errorDateTime) &&
-        Objects.equals(this.requestId, errorDetails.requestId);
+
+        ErrorDetails errorDetails = (ErrorDetails) o;
+        return
+            Objects.equals(this.errorDateTime, errorDetails.errorDateTime) &&
+            Objects.equals(this.requestId, errorDetails.requestId);
   }
 
   @Override

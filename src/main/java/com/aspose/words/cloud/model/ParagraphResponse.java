@@ -76,10 +76,11 @@ public class ParagraphResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ParagraphResponse paragraphResponse = (ParagraphResponse)o;
-    return
-        Objects.equals(this.paragraph, paragraphResponse.paragraph) &&
-        super.equals(o);
+
+        ParagraphResponse paragraphResponse = (ParagraphResponse) o;
+        return
+            Objects.equals(this.paragraph, paragraphResponse.paragraph) &&
+            super.equals(o);
   }
 
   @Override

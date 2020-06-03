@@ -468,18 +468,19 @@ public class ListLevelUpdate {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListLevelUpdate listLevelUpdate = (ListLevelUpdate)o;
-    return
-        Objects.equals(this.alignment, listLevelUpdate.alignment) &&
-        Objects.equals(this.isLegal, listLevelUpdate.isLegal) &&
-        Objects.equals(this.numberFormat, listLevelUpdate.numberFormat) &&
-        Objects.equals(this.numberPosition, listLevelUpdate.numberPosition) &&
-        Objects.equals(this.numberStyle, listLevelUpdate.numberStyle) &&
-        Objects.equals(this.restartAfterLevel, listLevelUpdate.restartAfterLevel) &&
-        Objects.equals(this.startAt, listLevelUpdate.startAt) &&
-        Objects.equals(this.tabPosition, listLevelUpdate.tabPosition) &&
-        Objects.equals(this.textPosition, listLevelUpdate.textPosition) &&
-        Objects.equals(this.trailingCharacter, listLevelUpdate.trailingCharacter);
+
+        ListLevelUpdate listLevelUpdate = (ListLevelUpdate) o;
+        return
+            Objects.equals(this.alignment, listLevelUpdate.alignment) &&
+            Objects.equals(this.isLegal, listLevelUpdate.isLegal) &&
+            Objects.equals(this.numberFormat, listLevelUpdate.numberFormat) &&
+            Objects.equals(this.numberPosition, listLevelUpdate.numberPosition) &&
+            Objects.equals(this.numberStyle, listLevelUpdate.numberStyle) &&
+            Objects.equals(this.restartAfterLevel, listLevelUpdate.restartAfterLevel) &&
+            Objects.equals(this.startAt, listLevelUpdate.startAt) &&
+            Objects.equals(this.tabPosition, listLevelUpdate.tabPosition) &&
+            Objects.equals(this.textPosition, listLevelUpdate.textPosition) &&
+            Objects.equals(this.trailingCharacter, listLevelUpdate.trailingCharacter);
   }
 
   @Override

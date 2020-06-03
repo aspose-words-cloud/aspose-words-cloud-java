@@ -76,10 +76,11 @@ public class RunResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    RunResponse runResponse = (RunResponse)o;
-    return
-        Objects.equals(this.run, runResponse.run) &&
-        super.equals(o);
+
+        RunResponse runResponse = (RunResponse) o;
+        return
+            Objects.equals(this.run, runResponse.run) &&
+            super.equals(o);
   }
 
   @Override

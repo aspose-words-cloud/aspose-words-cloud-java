@@ -138,12 +138,13 @@ public class PageNumber {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    PageNumber pageNumber = (PageNumber)o;
-    return
-        Objects.equals(this.alignment, pageNumber.alignment) &&
-        Objects.equals(this.format, pageNumber.format) &&
-        Objects.equals(this.isTop, pageNumber.isTop) &&
-        Objects.equals(this.setPageNumberOnFirstPage, pageNumber.setPageNumberOnFirstPage);
+
+        PageNumber pageNumber = (PageNumber) o;
+        return
+            Objects.equals(this.alignment, pageNumber.alignment) &&
+            Objects.equals(this.format, pageNumber.format) &&
+            Objects.equals(this.isTop, pageNumber.isTop) &&
+            Objects.equals(this.setPageNumberOnFirstPage, pageNumber.setPageNumberOnFirstPage);
   }
 
   @Override

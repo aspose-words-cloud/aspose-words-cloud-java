@@ -104,11 +104,12 @@ public class TableRow extends NodeLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableRow tableRow = (TableRow)o;
-    return
-        Objects.equals(this.rowFormat, tableRow.rowFormat) &&
-        Objects.equals(this.tableCellList, tableRow.tableCellList) &&
-        super.equals(o);
+
+        TableRow tableRow = (TableRow) o;
+        return
+            Objects.equals(this.rowFormat, tableRow.rowFormat) &&
+            Objects.equals(this.tableCellList, tableRow.tableCellList) &&
+            super.equals(o);
   }
 
   @Override

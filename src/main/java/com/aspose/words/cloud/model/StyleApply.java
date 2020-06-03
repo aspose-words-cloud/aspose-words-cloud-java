@@ -75,9 +75,10 @@ public class StyleApply {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    StyleApply styleApply = (StyleApply)o;
-    return
-        Objects.equals(this.styleName, styleApply.styleName);
+
+        StyleApply styleApply = (StyleApply) o;
+        return
+            Objects.equals(this.styleName, styleApply.styleName);
   }
 
   @Override

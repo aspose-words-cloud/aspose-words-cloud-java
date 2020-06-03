@@ -83,10 +83,11 @@ public class DrawingObjectCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DrawingObjectCollection drawingObjectCollection = (DrawingObjectCollection)o;
-    return
-        Objects.equals(this.list, drawingObjectCollection.list) &&
-        super.equals(o);
+
+        DrawingObjectCollection drawingObjectCollection = (DrawingObjectCollection) o;
+        return
+            Objects.equals(this.list, drawingObjectCollection.list) &&
+            super.equals(o);
   }
 
   @Override

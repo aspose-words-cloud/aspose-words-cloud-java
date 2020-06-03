@@ -75,10 +75,11 @@ public class RunLink extends NodeLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    RunLink runLink = (RunLink)o;
-    return
-        Objects.equals(this.text, runLink.text) &&
-        super.equals(o);
+
+        RunLink runLink = (RunLink) o;
+        return
+            Objects.equals(this.text, runLink.text) &&
+            super.equals(o);
   }
 
   @Override

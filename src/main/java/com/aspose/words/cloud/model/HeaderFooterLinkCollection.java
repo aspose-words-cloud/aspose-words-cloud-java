@@ -83,10 +83,11 @@ public class HeaderFooterLinkCollection extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    HeaderFooterLinkCollection headerFooterLinkCollection = (HeaderFooterLinkCollection)o;
-    return
-        Objects.equals(this.list, headerFooterLinkCollection.list) &&
-        super.equals(o);
+
+        HeaderFooterLinkCollection headerFooterLinkCollection = (HeaderFooterLinkCollection) o;
+        return
+            Objects.equals(this.list, headerFooterLinkCollection.list) &&
+            super.equals(o);
   }
 
   @Override

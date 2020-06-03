@@ -191,14 +191,15 @@ public class OutlineOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    OutlineOptionsData outlineOptionsData = (OutlineOptionsData)o;
-    return
-        Objects.equals(this.bookmarksOutlineLevels, outlineOptionsData.bookmarksOutlineLevels) &&
-        Objects.equals(this.createMissingOutlineLevels, outlineOptionsData.createMissingOutlineLevels) &&
-        Objects.equals(this.createOutlinesForHeadingsInTables, outlineOptionsData.createOutlinesForHeadingsInTables) &&
-        Objects.equals(this.defaultBookmarksOutlineLevel, outlineOptionsData.defaultBookmarksOutlineLevel) &&
-        Objects.equals(this.expandedOutlineLevels, outlineOptionsData.expandedOutlineLevels) &&
-        Objects.equals(this.headingsOutlineLevels, outlineOptionsData.headingsOutlineLevels);
+
+        OutlineOptionsData outlineOptionsData = (OutlineOptionsData) o;
+        return
+            Objects.equals(this.bookmarksOutlineLevels, outlineOptionsData.bookmarksOutlineLevels) &&
+            Objects.equals(this.createMissingOutlineLevels, outlineOptionsData.createMissingOutlineLevels) &&
+            Objects.equals(this.createOutlinesForHeadingsInTables, outlineOptionsData.createOutlinesForHeadingsInTables) &&
+            Objects.equals(this.defaultBookmarksOutlineLevel, outlineOptionsData.defaultBookmarksOutlineLevel) &&
+            Objects.equals(this.expandedOutlineLevels, outlineOptionsData.expandedOutlineLevels) &&
+            Objects.equals(this.headingsOutlineLevels, outlineOptionsData.headingsOutlineLevels);
   }
 
   @Override

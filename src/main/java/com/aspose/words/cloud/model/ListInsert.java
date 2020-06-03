@@ -141,9 +141,10 @@ public class ListInsert {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListInsert listInsert = (ListInsert)o;
-    return
-        Objects.equals(this.template, listInsert.template);
+
+        ListInsert listInsert = (ListInsert) o;
+        return
+            Objects.equals(this.template, listInsert.template);
   }
 
   @Override

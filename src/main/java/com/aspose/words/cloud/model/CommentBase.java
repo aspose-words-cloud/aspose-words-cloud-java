@@ -180,14 +180,15 @@ public class CommentBase {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    CommentBase commentBase = (CommentBase)o;
-    return
-        Objects.equals(this.author, commentBase.author) &&
-        Objects.equals(this.dateTime, commentBase.dateTime) &&
-        Objects.equals(this.initial, commentBase.initial) &&
-        Objects.equals(this.rangeEnd, commentBase.rangeEnd) &&
-        Objects.equals(this.rangeStart, commentBase.rangeStart) &&
-        Objects.equals(this.text, commentBase.text);
+
+        CommentBase commentBase = (CommentBase) o;
+        return
+            Objects.equals(this.author, commentBase.author) &&
+            Objects.equals(this.dateTime, commentBase.dateTime) &&
+            Objects.equals(this.initial, commentBase.initial) &&
+            Objects.equals(this.rangeEnd, commentBase.rangeEnd) &&
+            Objects.equals(this.rangeStart, commentBase.rangeStart) &&
+            Objects.equals(this.text, commentBase.text);
   }
 
   @Override

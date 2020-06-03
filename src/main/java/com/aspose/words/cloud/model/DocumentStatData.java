@@ -167,13 +167,14 @@ public class DocumentStatData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocumentStatData documentStatData = (DocumentStatData)o;
-    return
-        Objects.equals(this.footnotesStatData, documentStatData.footnotesStatData) &&
-        Objects.equals(this.pageCount, documentStatData.pageCount) &&
-        Objects.equals(this.pageStatData, documentStatData.pageStatData) &&
-        Objects.equals(this.paragraphCount, documentStatData.paragraphCount) &&
-        Objects.equals(this.wordCount, documentStatData.wordCount);
+
+        DocumentStatData documentStatData = (DocumentStatData) o;
+        return
+            Objects.equals(this.footnotesStatData, documentStatData.footnotesStatData) &&
+            Objects.equals(this.pageCount, documentStatData.pageCount) &&
+            Objects.equals(this.pageStatData, documentStatData.pageStatData) &&
+            Objects.equals(this.paragraphCount, documentStatData.paragraphCount) &&
+            Objects.equals(this.wordCount, documentStatData.wordCount);
   }
 
   @Override

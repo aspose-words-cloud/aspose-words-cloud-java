@@ -76,10 +76,11 @@ public class FootnoteResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FootnoteResponse footnoteResponse = (FootnoteResponse)o;
-    return
-        Objects.equals(this.footnote, footnoteResponse.footnote) &&
-        super.equals(o);
+
+        FootnoteResponse footnoteResponse = (FootnoteResponse) o;
+        return
+            Objects.equals(this.footnote, footnoteResponse.footnote) &&
+            super.equals(o);
   }
 
   @Override

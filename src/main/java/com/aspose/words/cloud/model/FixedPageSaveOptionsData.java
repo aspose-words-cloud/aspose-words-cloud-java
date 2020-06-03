@@ -204,16 +204,17 @@ public class FixedPageSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FixedPageSaveOptionsData fixedPageSaveOptionsData = (FixedPageSaveOptionsData)o;
-    return
-        Objects.equals(this.colorMode, fixedPageSaveOptionsData.colorMode) &&
-        Objects.equals(this.jpegQuality, fixedPageSaveOptionsData.jpegQuality) &&
-        Objects.equals(this.metafileRenderingOptions, fixedPageSaveOptionsData.metafileRenderingOptions) &&
-        Objects.equals(this.numeralFormat, fixedPageSaveOptionsData.numeralFormat) &&
-        Objects.equals(this.optimizeOutput, fixedPageSaveOptionsData.optimizeOutput) &&
-        Objects.equals(this.pageCount, fixedPageSaveOptionsData.pageCount) &&
-        Objects.equals(this.pageIndex, fixedPageSaveOptionsData.pageIndex) &&
-        super.equals(o);
+
+        FixedPageSaveOptionsData fixedPageSaveOptionsData = (FixedPageSaveOptionsData) o;
+        return
+            Objects.equals(this.colorMode, fixedPageSaveOptionsData.colorMode) &&
+            Objects.equals(this.jpegQuality, fixedPageSaveOptionsData.jpegQuality) &&
+            Objects.equals(this.metafileRenderingOptions, fixedPageSaveOptionsData.metafileRenderingOptions) &&
+            Objects.equals(this.numeralFormat, fixedPageSaveOptionsData.numeralFormat) &&
+            Objects.equals(this.optimizeOutput, fixedPageSaveOptionsData.optimizeOutput) &&
+            Objects.equals(this.pageCount, fixedPageSaveOptionsData.pageCount) &&
+            Objects.equals(this.pageIndex, fixedPageSaveOptionsData.pageIndex) &&
+            super.equals(o);
   }
 
   @Override

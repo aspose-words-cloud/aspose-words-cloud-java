@@ -83,10 +83,11 @@ public class DocumentProperties extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocumentProperties documentProperties = (DocumentProperties)o;
-    return
-        Objects.equals(this.list, documentProperties.list) &&
-        super.equals(o);
+
+        DocumentProperties documentProperties = (DocumentProperties) o;
+        return
+            Objects.equals(this.list, documentProperties.list) &&
+            super.equals(o);
   }
 
   @Override

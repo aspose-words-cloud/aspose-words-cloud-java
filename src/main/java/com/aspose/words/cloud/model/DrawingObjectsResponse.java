@@ -75,10 +75,11 @@ public class DrawingObjectsResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DrawingObjectsResponse drawingObjectsResponse = (DrawingObjectsResponse)o;
-    return
-        Objects.equals(this.drawingObjects, drawingObjectsResponse.drawingObjects) &&
-        super.equals(o);
+
+        DrawingObjectsResponse drawingObjectsResponse = (DrawingObjectsResponse) o;
+        return
+            Objects.equals(this.drawingObjects, drawingObjectsResponse.drawingObjects) &&
+            super.equals(o);
   }
 
   @Override

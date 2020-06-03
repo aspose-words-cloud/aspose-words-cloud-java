@@ -188,13 +188,14 @@ public class FormFieldTextInput extends FormField {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FormFieldTextInput formFieldTextInput = (FormFieldTextInput)o;
-    return
-        Objects.equals(this.maxLength, formFieldTextInput.maxLength) &&
-        Objects.equals(this.textInputDefault, formFieldTextInput.textInputDefault) &&
-        Objects.equals(this.textInputFormat, formFieldTextInput.textInputFormat) &&
-        Objects.equals(this.textInputType, formFieldTextInput.textInputType) &&
-        super.equals(o);
+
+        FormFieldTextInput formFieldTextInput = (FormFieldTextInput) o;
+        return
+            Objects.equals(this.maxLength, formFieldTextInput.maxLength) &&
+            Objects.equals(this.textInputDefault, formFieldTextInput.textInputDefault) &&
+            Objects.equals(this.textInputFormat, formFieldTextInput.textInputFormat) &&
+            Objects.equals(this.textInputType, formFieldTextInput.textInputType) &&
+            super.equals(o);
   }
 
   @Override

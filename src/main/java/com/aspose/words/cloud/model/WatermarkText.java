@@ -96,10 +96,11 @@ public class WatermarkText {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    WatermarkText watermarkText = (WatermarkText)o;
-    return
-        Objects.equals(this.rotationAngle, watermarkText.rotationAngle) &&
-        Objects.equals(this.text, watermarkText.text);
+
+        WatermarkText watermarkText = (WatermarkText) o;
+        return
+            Objects.equals(this.rotationAngle, watermarkText.rotationAngle) &&
+            Objects.equals(this.text, watermarkText.text);
   }
 
   @Override

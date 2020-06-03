@@ -125,11 +125,12 @@ public class SplitDocumentResult {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SplitDocumentResult splitDocumentResult = (SplitDocumentResult)o;
-    return
-        Objects.equals(this.pages, splitDocumentResult.pages) &&
-        Objects.equals(this.sourceDocument, splitDocumentResult.sourceDocument) &&
-        Objects.equals(this.zippedPages, splitDocumentResult.zippedPages);
+
+        SplitDocumentResult splitDocumentResult = (SplitDocumentResult) o;
+        return
+            Objects.equals(this.pages, splitDocumentResult.pages) &&
+            Objects.equals(this.sourceDocument, splitDocumentResult.sourceDocument) &&
+            Objects.equals(this.zippedPages, splitDocumentResult.zippedPages);
   }
 
   @Override

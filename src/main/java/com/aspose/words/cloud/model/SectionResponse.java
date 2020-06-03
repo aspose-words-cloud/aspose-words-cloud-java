@@ -76,10 +76,11 @@ public class SectionResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SectionResponse sectionResponse = (SectionResponse)o;
-    return
-        Objects.equals(this.section, sectionResponse.section) &&
-        super.equals(o);
+
+        SectionResponse sectionResponse = (SectionResponse) o;
+        return
+            Objects.equals(this.section, sectionResponse.section) &&
+            super.equals(o);
   }
 
   @Override

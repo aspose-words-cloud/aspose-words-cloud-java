@@ -98,11 +98,12 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    XamlFixedSaveOptionsData xamlFixedSaveOptionsData = (XamlFixedSaveOptionsData)o;
-    return
-        Objects.equals(this.resourcesFolder, xamlFixedSaveOptionsData.resourcesFolder) &&
-        Objects.equals(this.resourcesFolderAlias, xamlFixedSaveOptionsData.resourcesFolderAlias) &&
-        super.equals(o);
+
+        XamlFixedSaveOptionsData xamlFixedSaveOptionsData = (XamlFixedSaveOptionsData) o;
+        return
+            Objects.equals(this.resourcesFolder, xamlFixedSaveOptionsData.resourcesFolder) &&
+            Objects.equals(this.resourcesFolderAlias, xamlFixedSaveOptionsData.resourcesFolderAlias) &&
+            super.equals(o);
   }
 
   @Override

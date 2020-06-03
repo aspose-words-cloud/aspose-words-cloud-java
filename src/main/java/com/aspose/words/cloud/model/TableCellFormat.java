@@ -497,21 +497,22 @@ public class TableCellFormat extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableCellFormat tableCellFormat = (TableCellFormat)o;
-    return
-        Objects.equals(this.bottomPadding, tableCellFormat.bottomPadding) &&
-        Objects.equals(this.fitText, tableCellFormat.fitText) &&
-        Objects.equals(this.horizontalMerge, tableCellFormat.horizontalMerge) &&
-        Objects.equals(this.leftPadding, tableCellFormat.leftPadding) &&
-        Objects.equals(this.orientation, tableCellFormat.orientation) &&
-        Objects.equals(this.preferredWidth, tableCellFormat.preferredWidth) &&
-        Objects.equals(this.rightPadding, tableCellFormat.rightPadding) &&
-        Objects.equals(this.topPadding, tableCellFormat.topPadding) &&
-        Objects.equals(this.verticalAlignment, tableCellFormat.verticalAlignment) &&
-        Objects.equals(this.verticalMerge, tableCellFormat.verticalMerge) &&
-        Objects.equals(this.width, tableCellFormat.width) &&
-        Objects.equals(this.wrapText, tableCellFormat.wrapText) &&
-        super.equals(o);
+
+        TableCellFormat tableCellFormat = (TableCellFormat) o;
+        return
+            Objects.equals(this.bottomPadding, tableCellFormat.bottomPadding) &&
+            Objects.equals(this.fitText, tableCellFormat.fitText) &&
+            Objects.equals(this.horizontalMerge, tableCellFormat.horizontalMerge) &&
+            Objects.equals(this.leftPadding, tableCellFormat.leftPadding) &&
+            Objects.equals(this.orientation, tableCellFormat.orientation) &&
+            Objects.equals(this.preferredWidth, tableCellFormat.preferredWidth) &&
+            Objects.equals(this.rightPadding, tableCellFormat.rightPadding) &&
+            Objects.equals(this.topPadding, tableCellFormat.topPadding) &&
+            Objects.equals(this.verticalAlignment, tableCellFormat.verticalAlignment) &&
+            Objects.equals(this.verticalMerge, tableCellFormat.verticalMerge) &&
+            Objects.equals(this.width, tableCellFormat.width) &&
+            Objects.equals(this.wrapText, tableCellFormat.wrapText) &&
+            super.equals(o);
   }
 
   @Override

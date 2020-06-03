@@ -633,34 +633,35 @@ public class PdfSaveOptionsData extends FixedPageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    PdfSaveOptionsData pdfSaveOptionsData = (PdfSaveOptionsData)o;
-    return
-        Objects.equals(this.compliance, pdfSaveOptionsData.compliance) &&
-        Objects.equals(this.createNoteHyperlinks, pdfSaveOptionsData.createNoteHyperlinks) &&
-        Objects.equals(this.customPropertiesExport, pdfSaveOptionsData.customPropertiesExport) &&
-        Objects.equals(this.digitalSignatureDetails, pdfSaveOptionsData.digitalSignatureDetails) &&
-        Objects.equals(this.displayDocTitle, pdfSaveOptionsData.displayDocTitle) &&
-        Objects.equals(this.downsampleOptions, pdfSaveOptionsData.downsampleOptions) &&
-        Objects.equals(this.embedFullFonts, pdfSaveOptionsData.embedFullFonts) &&
-        Objects.equals(this.encryptionDetails, pdfSaveOptionsData.encryptionDetails) &&
-        Objects.equals(this.escapeUri, pdfSaveOptionsData.escapeUri) &&
-        Objects.equals(this.exportDocumentStructure, pdfSaveOptionsData.exportDocumentStructure) &&
-        Objects.equals(this.fontEmbeddingMode, pdfSaveOptionsData.fontEmbeddingMode) &&
-        Objects.equals(this.headerFooterBookmarksExportMode, pdfSaveOptionsData.headerFooterBookmarksExportMode) &&
-        Objects.equals(this.imageColorSpaceExportMode, pdfSaveOptionsData.imageColorSpaceExportMode) &&
-        Objects.equals(this.imageCompression, pdfSaveOptionsData.imageCompression) &&
-        Objects.equals(this.interpolateImages, pdfSaveOptionsData.interpolateImages) &&
-        Objects.equals(this.openHyperlinksInNewWindow, pdfSaveOptionsData.openHyperlinksInNewWindow) &&
-        Objects.equals(this.outlineOptions, pdfSaveOptionsData.outlineOptions) &&
-        Objects.equals(this.pageMode, pdfSaveOptionsData.pageMode) &&
-        Objects.equals(this.preblendImages, pdfSaveOptionsData.preblendImages) &&
-        Objects.equals(this.preserveFormFields, pdfSaveOptionsData.preserveFormFields) &&
-        Objects.equals(this.textCompression, pdfSaveOptionsData.textCompression) &&
-        Objects.equals(this.useBookFoldPrintingSettings, pdfSaveOptionsData.useBookFoldPrintingSettings) &&
-        Objects.equals(this.useCoreFonts, pdfSaveOptionsData.useCoreFonts) &&
-        Objects.equals(this.zoomBehavior, pdfSaveOptionsData.zoomBehavior) &&
-        Objects.equals(this.zoomFactor, pdfSaveOptionsData.zoomFactor) &&
-        super.equals(o);
+
+        PdfSaveOptionsData pdfSaveOptionsData = (PdfSaveOptionsData) o;
+        return
+            Objects.equals(this.compliance, pdfSaveOptionsData.compliance) &&
+            Objects.equals(this.createNoteHyperlinks, pdfSaveOptionsData.createNoteHyperlinks) &&
+            Objects.equals(this.customPropertiesExport, pdfSaveOptionsData.customPropertiesExport) &&
+            Objects.equals(this.digitalSignatureDetails, pdfSaveOptionsData.digitalSignatureDetails) &&
+            Objects.equals(this.displayDocTitle, pdfSaveOptionsData.displayDocTitle) &&
+            Objects.equals(this.downsampleOptions, pdfSaveOptionsData.downsampleOptions) &&
+            Objects.equals(this.embedFullFonts, pdfSaveOptionsData.embedFullFonts) &&
+            Objects.equals(this.encryptionDetails, pdfSaveOptionsData.encryptionDetails) &&
+            Objects.equals(this.escapeUri, pdfSaveOptionsData.escapeUri) &&
+            Objects.equals(this.exportDocumentStructure, pdfSaveOptionsData.exportDocumentStructure) &&
+            Objects.equals(this.fontEmbeddingMode, pdfSaveOptionsData.fontEmbeddingMode) &&
+            Objects.equals(this.headerFooterBookmarksExportMode, pdfSaveOptionsData.headerFooterBookmarksExportMode) &&
+            Objects.equals(this.imageColorSpaceExportMode, pdfSaveOptionsData.imageColorSpaceExportMode) &&
+            Objects.equals(this.imageCompression, pdfSaveOptionsData.imageCompression) &&
+            Objects.equals(this.interpolateImages, pdfSaveOptionsData.interpolateImages) &&
+            Objects.equals(this.openHyperlinksInNewWindow, pdfSaveOptionsData.openHyperlinksInNewWindow) &&
+            Objects.equals(this.outlineOptions, pdfSaveOptionsData.outlineOptions) &&
+            Objects.equals(this.pageMode, pdfSaveOptionsData.pageMode) &&
+            Objects.equals(this.preblendImages, pdfSaveOptionsData.preblendImages) &&
+            Objects.equals(this.preserveFormFields, pdfSaveOptionsData.preserveFormFields) &&
+            Objects.equals(this.textCompression, pdfSaveOptionsData.textCompression) &&
+            Objects.equals(this.useBookFoldPrintingSettings, pdfSaveOptionsData.useBookFoldPrintingSettings) &&
+            Objects.equals(this.useCoreFonts, pdfSaveOptionsData.useCoreFonts) &&
+            Objects.equals(this.zoomBehavior, pdfSaveOptionsData.zoomBehavior) &&
+            Objects.equals(this.zoomFactor, pdfSaveOptionsData.zoomFactor) &&
+            super.equals(o);
   }
 
   @Override

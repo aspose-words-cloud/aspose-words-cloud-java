@@ -1245,36 +1245,37 @@ public class ParagraphFormat extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ParagraphFormat paragraphFormat = (ParagraphFormat)o;
-    return
-        Objects.equals(this.addSpaceBetweenFarEastAndAlpha, paragraphFormat.addSpaceBetweenFarEastAndAlpha) &&
-        Objects.equals(this.addSpaceBetweenFarEastAndDigit, paragraphFormat.addSpaceBetweenFarEastAndDigit) &&
-        Objects.equals(this.alignment, paragraphFormat.alignment) &&
-        Objects.equals(this.bidi, paragraphFormat.bidi) &&
-        Objects.equals(this.dropCapPosition, paragraphFormat.dropCapPosition) &&
-        Objects.equals(this.firstLineIndent, paragraphFormat.firstLineIndent) &&
-        Objects.equals(this.isListItem, paragraphFormat.isListItem) &&
-        Objects.equals(this.keepTogether, paragraphFormat.keepTogether) &&
-        Objects.equals(this.keepWithNext, paragraphFormat.keepWithNext) &&
-        Objects.equals(this.leftIndent, paragraphFormat.leftIndent) &&
-        Objects.equals(this.lineSpacing, paragraphFormat.lineSpacing) &&
-        Objects.equals(this.lineSpacingRule, paragraphFormat.lineSpacingRule) &&
-        Objects.equals(this.linesToDrop, paragraphFormat.linesToDrop) &&
-        Objects.equals(this.noSpaceBetweenParagraphsOfSameStyle, paragraphFormat.noSpaceBetweenParagraphsOfSameStyle) &&
-        Objects.equals(this.outlineLevel, paragraphFormat.outlineLevel) &&
-        Objects.equals(this.pageBreakBefore, paragraphFormat.pageBreakBefore) &&
-        Objects.equals(this.rightIndent, paragraphFormat.rightIndent) &&
-        Objects.equals(this.shading, paragraphFormat.shading) &&
-        Objects.equals(this.spaceAfter, paragraphFormat.spaceAfter) &&
-        Objects.equals(this.spaceAfterAuto, paragraphFormat.spaceAfterAuto) &&
-        Objects.equals(this.spaceBefore, paragraphFormat.spaceBefore) &&
-        Objects.equals(this.spaceBeforeAuto, paragraphFormat.spaceBeforeAuto) &&
-        Objects.equals(this.styleIdentifier, paragraphFormat.styleIdentifier) &&
-        Objects.equals(this.styleName, paragraphFormat.styleName) &&
-        Objects.equals(this.suppressAutoHyphens, paragraphFormat.suppressAutoHyphens) &&
-        Objects.equals(this.suppressLineNumbers, paragraphFormat.suppressLineNumbers) &&
-        Objects.equals(this.widowControl, paragraphFormat.widowControl) &&
-        super.equals(o);
+
+        ParagraphFormat paragraphFormat = (ParagraphFormat) o;
+        return
+            Objects.equals(this.addSpaceBetweenFarEastAndAlpha, paragraphFormat.addSpaceBetweenFarEastAndAlpha) &&
+            Objects.equals(this.addSpaceBetweenFarEastAndDigit, paragraphFormat.addSpaceBetweenFarEastAndDigit) &&
+            Objects.equals(this.alignment, paragraphFormat.alignment) &&
+            Objects.equals(this.bidi, paragraphFormat.bidi) &&
+            Objects.equals(this.dropCapPosition, paragraphFormat.dropCapPosition) &&
+            Objects.equals(this.firstLineIndent, paragraphFormat.firstLineIndent) &&
+            Objects.equals(this.isListItem, paragraphFormat.isListItem) &&
+            Objects.equals(this.keepTogether, paragraphFormat.keepTogether) &&
+            Objects.equals(this.keepWithNext, paragraphFormat.keepWithNext) &&
+            Objects.equals(this.leftIndent, paragraphFormat.leftIndent) &&
+            Objects.equals(this.lineSpacing, paragraphFormat.lineSpacing) &&
+            Objects.equals(this.lineSpacingRule, paragraphFormat.lineSpacingRule) &&
+            Objects.equals(this.linesToDrop, paragraphFormat.linesToDrop) &&
+            Objects.equals(this.noSpaceBetweenParagraphsOfSameStyle, paragraphFormat.noSpaceBetweenParagraphsOfSameStyle) &&
+            Objects.equals(this.outlineLevel, paragraphFormat.outlineLevel) &&
+            Objects.equals(this.pageBreakBefore, paragraphFormat.pageBreakBefore) &&
+            Objects.equals(this.rightIndent, paragraphFormat.rightIndent) &&
+            Objects.equals(this.shading, paragraphFormat.shading) &&
+            Objects.equals(this.spaceAfter, paragraphFormat.spaceAfter) &&
+            Objects.equals(this.spaceAfterAuto, paragraphFormat.spaceAfterAuto) &&
+            Objects.equals(this.spaceBefore, paragraphFormat.spaceBefore) &&
+            Objects.equals(this.spaceBeforeAuto, paragraphFormat.spaceBeforeAuto) &&
+            Objects.equals(this.styleIdentifier, paragraphFormat.styleIdentifier) &&
+            Objects.equals(this.styleName, paragraphFormat.styleName) &&
+            Objects.equals(this.suppressAutoHyphens, paragraphFormat.suppressAutoHyphens) &&
+            Objects.equals(this.suppressLineNumbers, paragraphFormat.suppressLineNumbers) &&
+            Objects.equals(this.widowControl, paragraphFormat.widowControl) &&
+            super.equals(o);
   }
 
   @Override

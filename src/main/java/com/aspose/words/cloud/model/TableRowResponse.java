@@ -76,10 +76,11 @@ public class TableRowResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableRowResponse tableRowResponse = (TableRowResponse)o;
-    return
-        Objects.equals(this.row, tableRowResponse.row) &&
-        super.equals(o);
+
+        TableRowResponse tableRowResponse = (TableRowResponse) o;
+        return
+            Objects.equals(this.row, tableRowResponse.row) &&
+            super.equals(o);
   }
 
   @Override

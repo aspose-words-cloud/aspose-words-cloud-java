@@ -83,10 +83,11 @@ public class Lists extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Lists lists = (Lists)o;
-    return
-        Objects.equals(this.listInfo, lists.listInfo) &&
-        super.equals(o);
+
+        Lists lists = (Lists) o;
+        return
+            Objects.equals(this.listInfo, lists.listInfo) &&
+            super.equals(o);
   }
 
   @Override

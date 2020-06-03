@@ -180,15 +180,16 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    SvgSaveOptionsData svgSaveOptionsData = (SvgSaveOptionsData)o;
-    return
-        Objects.equals(this.exportEmbeddedImages, svgSaveOptionsData.exportEmbeddedImages) &&
-        Objects.equals(this.fitToViewPort, svgSaveOptionsData.fitToViewPort) &&
-        Objects.equals(this.resourcesFolder, svgSaveOptionsData.resourcesFolder) &&
-        Objects.equals(this.resourcesFolderAlias, svgSaveOptionsData.resourcesFolderAlias) &&
-        Objects.equals(this.showPageBorder, svgSaveOptionsData.showPageBorder) &&
-        Objects.equals(this.textOutputMode, svgSaveOptionsData.textOutputMode) &&
-        super.equals(o);
+
+        SvgSaveOptionsData svgSaveOptionsData = (SvgSaveOptionsData) o;
+        return
+            Objects.equals(this.exportEmbeddedImages, svgSaveOptionsData.exportEmbeddedImages) &&
+            Objects.equals(this.fitToViewPort, svgSaveOptionsData.fitToViewPort) &&
+            Objects.equals(this.resourcesFolder, svgSaveOptionsData.resourcesFolder) &&
+            Objects.equals(this.resourcesFolderAlias, svgSaveOptionsData.resourcesFolderAlias) &&
+            Objects.equals(this.showPageBorder, svgSaveOptionsData.showPageBorder) &&
+            Objects.equals(this.textOutputMode, svgSaveOptionsData.textOutputMode) &&
+            super.equals(o);
   }
 
   @Override

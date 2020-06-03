@@ -76,10 +76,11 @@ public class TableLinkCollectionResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TableLinkCollectionResponse tableLinkCollectionResponse = (TableLinkCollectionResponse)o;
-    return
-        Objects.equals(this.tables, tableLinkCollectionResponse.tables) &&
-        super.equals(o);
+
+        TableLinkCollectionResponse tableLinkCollectionResponse = (TableLinkCollectionResponse) o;
+        return
+            Objects.equals(this.tables, tableLinkCollectionResponse.tables) &&
+            super.equals(o);
   }
 
   @Override

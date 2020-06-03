@@ -1426,49 +1426,50 @@ public class Font extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Font font = (Font)o;
-    return
-        Objects.equals(this.allCaps, font.allCaps) &&
-        Objects.equals(this.bidi, font.bidi) &&
-        Objects.equals(this.bold, font.bold) &&
-        Objects.equals(this.boldBi, font.boldBi) &&
-        Objects.equals(this.border, font.border) &&
-        Objects.equals(this.color, font.color) &&
-        Objects.equals(this.complexScript, font.complexScript) &&
-        Objects.equals(this.doubleStrikeThrough, font.doubleStrikeThrough) &&
-        Objects.equals(this.emboss, font.emboss) &&
-        Objects.equals(this.engrave, font.engrave) &&
-        Objects.equals(this.hidden, font.hidden) &&
-        Objects.equals(this.highlightColor, font.highlightColor) &&
-        Objects.equals(this.italic, font.italic) &&
-        Objects.equals(this.italicBi, font.italicBi) &&
-        Objects.equals(this.kerning, font.kerning) &&
-        Objects.equals(this.localeId, font.localeId) &&
-        Objects.equals(this.localeIdBi, font.localeIdBi) &&
-        Objects.equals(this.localeIdFarEast, font.localeIdFarEast) &&
-        Objects.equals(this.name, font.name) &&
-        Objects.equals(this.nameAscii, font.nameAscii) &&
-        Objects.equals(this.nameBi, font.nameBi) &&
-        Objects.equals(this.nameFarEast, font.nameFarEast) &&
-        Objects.equals(this.nameOther, font.nameOther) &&
-        Objects.equals(this.noProofing, font.noProofing) &&
-        Objects.equals(this.outline, font.outline) &&
-        Objects.equals(this.position, font.position) &&
-        Objects.equals(this.scaling, font.scaling) &&
-        Objects.equals(this.shadow, font.shadow) &&
-        Objects.equals(this.size, font.size) &&
-        Objects.equals(this.sizeBi, font.sizeBi) &&
-        Objects.equals(this.smallCaps, font.smallCaps) &&
-        Objects.equals(this.spacing, font.spacing) &&
-        Objects.equals(this.strikeThrough, font.strikeThrough) &&
-        Objects.equals(this.styleIdentifier, font.styleIdentifier) &&
-        Objects.equals(this.styleName, font.styleName) &&
-        Objects.equals(this.subscript, font.subscript) &&
-        Objects.equals(this.superscript, font.superscript) &&
-        Objects.equals(this.textEffect, font.textEffect) &&
-        Objects.equals(this.underline, font.underline) &&
-        Objects.equals(this.underlineColor, font.underlineColor) &&
-        super.equals(o);
+
+        Font font = (Font) o;
+        return
+            Objects.equals(this.allCaps, font.allCaps) &&
+            Objects.equals(this.bidi, font.bidi) &&
+            Objects.equals(this.bold, font.bold) &&
+            Objects.equals(this.boldBi, font.boldBi) &&
+            Objects.equals(this.border, font.border) &&
+            Objects.equals(this.color, font.color) &&
+            Objects.equals(this.complexScript, font.complexScript) &&
+            Objects.equals(this.doubleStrikeThrough, font.doubleStrikeThrough) &&
+            Objects.equals(this.emboss, font.emboss) &&
+            Objects.equals(this.engrave, font.engrave) &&
+            Objects.equals(this.hidden, font.hidden) &&
+            Objects.equals(this.highlightColor, font.highlightColor) &&
+            Objects.equals(this.italic, font.italic) &&
+            Objects.equals(this.italicBi, font.italicBi) &&
+            Objects.equals(this.kerning, font.kerning) &&
+            Objects.equals(this.localeId, font.localeId) &&
+            Objects.equals(this.localeIdBi, font.localeIdBi) &&
+            Objects.equals(this.localeIdFarEast, font.localeIdFarEast) &&
+            Objects.equals(this.name, font.name) &&
+            Objects.equals(this.nameAscii, font.nameAscii) &&
+            Objects.equals(this.nameBi, font.nameBi) &&
+            Objects.equals(this.nameFarEast, font.nameFarEast) &&
+            Objects.equals(this.nameOther, font.nameOther) &&
+            Objects.equals(this.noProofing, font.noProofing) &&
+            Objects.equals(this.outline, font.outline) &&
+            Objects.equals(this.position, font.position) &&
+            Objects.equals(this.scaling, font.scaling) &&
+            Objects.equals(this.shadow, font.shadow) &&
+            Objects.equals(this.size, font.size) &&
+            Objects.equals(this.sizeBi, font.sizeBi) &&
+            Objects.equals(this.smallCaps, font.smallCaps) &&
+            Objects.equals(this.spacing, font.spacing) &&
+            Objects.equals(this.strikeThrough, font.strikeThrough) &&
+            Objects.equals(this.styleIdentifier, font.styleIdentifier) &&
+            Objects.equals(this.styleName, font.styleName) &&
+            Objects.equals(this.subscript, font.subscript) &&
+            Objects.equals(this.superscript, font.superscript) &&
+            Objects.equals(this.textEffect, font.textEffect) &&
+            Objects.equals(this.underline, font.underline) &&
+            Objects.equals(this.underlineColor, font.underlineColor) &&
+            super.equals(o);
   }
 
   @Override

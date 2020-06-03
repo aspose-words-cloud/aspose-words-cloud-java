@@ -310,13 +310,14 @@ public class OfficeMathObject extends OfficeMathLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    OfficeMathObject officeMathObject = (OfficeMathObject)o;
-    return
-        Objects.equals(this.content, officeMathObject.content) &&
-        Objects.equals(this.displayType, officeMathObject.displayType) &&
-        Objects.equals(this.justification, officeMathObject.justification) &&
-        Objects.equals(this.mathObjectType, officeMathObject.mathObjectType) &&
-        super.equals(o);
+
+        OfficeMathObject officeMathObject = (OfficeMathObject) o;
+        return
+            Objects.equals(this.content, officeMathObject.content) &&
+            Objects.equals(this.displayType, officeMathObject.displayType) &&
+            Objects.equals(this.justification, officeMathObject.justification) &&
+            Objects.equals(this.mathObjectType, officeMathObject.mathObjectType) &&
+            super.equals(o);
   }
 
   @Override

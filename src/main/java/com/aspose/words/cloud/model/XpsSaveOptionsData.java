@@ -138,13 +138,14 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    XpsSaveOptionsData xpsSaveOptionsData = (XpsSaveOptionsData)o;
-    return
-        Objects.equals(this.bookmarksOutlineLevel, xpsSaveOptionsData.bookmarksOutlineLevel) &&
-        Objects.equals(this.headingsOutlineLevels, xpsSaveOptionsData.headingsOutlineLevels) &&
-        Objects.equals(this.outlineOptions, xpsSaveOptionsData.outlineOptions) &&
-        Objects.equals(this.useBookFoldPrintingSettings, xpsSaveOptionsData.useBookFoldPrintingSettings) &&
-        super.equals(o);
+
+        XpsSaveOptionsData xpsSaveOptionsData = (XpsSaveOptionsData) o;
+        return
+            Objects.equals(this.bookmarksOutlineLevel, xpsSaveOptionsData.bookmarksOutlineLevel) &&
+            Objects.equals(this.headingsOutlineLevels, xpsSaveOptionsData.headingsOutlineLevels) &&
+            Objects.equals(this.outlineOptions, xpsSaveOptionsData.outlineOptions) &&
+            Objects.equals(this.useBookFoldPrintingSettings, xpsSaveOptionsData.useBookFoldPrintingSettings) &&
+            super.equals(o);
   }
 
   @Override

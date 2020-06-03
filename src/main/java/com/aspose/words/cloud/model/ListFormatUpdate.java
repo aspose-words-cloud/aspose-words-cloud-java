@@ -96,10 +96,11 @@ public class ListFormatUpdate {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    ListFormatUpdate listFormatUpdate = (ListFormatUpdate)o;
-    return
-        Objects.equals(this.listId, listFormatUpdate.listId) &&
-        Objects.equals(this.listLevelNumber, listFormatUpdate.listLevelNumber);
+
+        ListFormatUpdate listFormatUpdate = (ListFormatUpdate) o;
+        return
+            Objects.equals(this.listId, listFormatUpdate.listId) &&
+            Objects.equals(this.listLevelNumber, listFormatUpdate.listLevelNumber);
   }
 
   @Override

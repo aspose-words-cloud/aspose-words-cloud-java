@@ -96,11 +96,12 @@ public class Field extends FieldLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Field field = (Field)o;
-    return
-        Objects.equals(this.localeId, field.localeId) &&
-        Objects.equals(this.result, field.result) &&
-        super.equals(o);
+
+        Field field = (Field) o;
+        return
+            Objects.equals(this.localeId, field.localeId) &&
+            Objects.equals(this.result, field.result) &&
+            super.equals(o);
   }
 
   @Override

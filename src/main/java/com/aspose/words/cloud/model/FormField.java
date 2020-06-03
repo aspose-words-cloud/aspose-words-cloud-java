@@ -243,18 +243,19 @@ public class FormField extends NodeLink {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    FormField formField = (FormField)o;
-    return
-        Objects.equals(this.calculateOnExit, formField.calculateOnExit) &&
-        Objects.equals(this.enabled, formField.enabled) &&
-        Objects.equals(this.entryMacro, formField.entryMacro) &&
-        Objects.equals(this.exitMacro, formField.exitMacro) &&
-        Objects.equals(this.helpText, formField.helpText) &&
-        Objects.equals(this.name, formField.name) &&
-        Objects.equals(this.ownHelp, formField.ownHelp) &&
-        Objects.equals(this.ownStatus, formField.ownStatus) &&
-        Objects.equals(this.statusText, formField.statusText) &&
-        super.equals(o);
+
+        FormField formField = (FormField) o;
+        return
+            Objects.equals(this.calculateOnExit, formField.calculateOnExit) &&
+            Objects.equals(this.enabled, formField.enabled) &&
+            Objects.equals(this.entryMacro, formField.entryMacro) &&
+            Objects.equals(this.exitMacro, formField.exitMacro) &&
+            Objects.equals(this.helpText, formField.helpText) &&
+            Objects.equals(this.name, formField.name) &&
+            Objects.equals(this.ownHelp, formField.ownHelp) &&
+            Objects.equals(this.ownStatus, formField.ownStatus) &&
+            Objects.equals(this.statusText, formField.statusText) &&
+            super.equals(o);
   }
 
   @Override

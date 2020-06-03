@@ -47,8 +47,59 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for docx/docm/dotx/dotm/flatopc save options.")
 public class OoxmlSaveOptionsData extends SaveOptionsData {
+    /**
+     * Gets or sets compression level.
+     */
+    @JsonAdapter(CompressionLevelEnum.Adapter.class)
+    public enum CompressionLevelEnum {
+        NORMAL("Normal"),
+        MAXIMUM("Maximum"),
+        FAST("Fast"),
+        SUPERFAST("SuperFast");
+
+        private String value;
+
+        CompressionLevelEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CompressionLevelEnum fromValue(String text) {
+            for (CompressionLevelEnum b : CompressionLevelEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< CompressionLevelEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CompressionLevelEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CompressionLevelEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CompressionLevelEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
     @SerializedName("Compliance")
     private String compliance = null;
+
+    @SerializedName("CompressionLevel")
+    private CompressionLevelEnum compressionLevel = null;
 
     @SerializedName("Password")
     private String password = null;
@@ -71,6 +122,24 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
 
     public void setCompliance(String compliance) {
         this.compliance = compliance;
+    }
+
+    public OoxmlSaveOptionsData compressionLevel(CompressionLevelEnum compressionLevel) {
+        this.compressionLevel = compressionLevel;
+        return this;
+    }
+
+    /**
+     * Gets or sets compression level.
+    * @return compressionLevel
+    **/
+    @ApiModelProperty(value = "Gets or sets compression level.")
+    public CompressionLevelEnum getCompressionLevel() {
+        return compressionLevel;
+    }
+
+    public void setCompressionLevel(CompressionLevelEnum compressionLevel) {
+        this.compressionLevel = compressionLevel;
     }
 
     public OoxmlSaveOptionsData password(String password) {
@@ -117,17 +186,19 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    OoxmlSaveOptionsData ooxmlSaveOptionsData = (OoxmlSaveOptionsData)o;
-    return
-        Objects.equals(this.compliance, ooxmlSaveOptionsData.compliance) &&
-        Objects.equals(this.password, ooxmlSaveOptionsData.password) &&
-        Objects.equals(this.prettyFormat, ooxmlSaveOptionsData.prettyFormat) &&
-        super.equals(o);
+
+        OoxmlSaveOptionsData ooxmlSaveOptionsData = (OoxmlSaveOptionsData) o;
+        return
+            Objects.equals(this.compliance, ooxmlSaveOptionsData.compliance) &&
+            Objects.equals(this.compressionLevel, ooxmlSaveOptionsData.compressionLevel) &&
+            Objects.equals(this.password, ooxmlSaveOptionsData.password) &&
+            Objects.equals(this.prettyFormat, ooxmlSaveOptionsData.prettyFormat) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compliance, password, prettyFormat, super.hashCode());
+    return Objects.hash(compliance, compressionLevel, password, prettyFormat, super.hashCode());
   }
 
   @Override
@@ -136,6 +207,7 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
     sb.append("class OoxmlSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    compliance: ").append(toIndentedString(compliance)).append("\n");
+    sb.append("    compressionLevel: ").append(toIndentedString(compressionLevel)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    prettyFormat: ").append(toIndentedString(prettyFormat)).append("\n");
     sb.append("}");

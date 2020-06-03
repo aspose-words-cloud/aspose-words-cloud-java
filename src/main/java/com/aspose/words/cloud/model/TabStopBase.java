@@ -218,11 +218,12 @@ public class TabStopBase {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    TabStopBase tabStopBase = (TabStopBase)o;
-    return
-        Objects.equals(this.alignment, tabStopBase.alignment) &&
-        Objects.equals(this.leader, tabStopBase.leader) &&
-        Objects.equals(this.position, tabStopBase.position);
+
+        TabStopBase tabStopBase = (TabStopBase) o;
+        return
+            Objects.equals(this.alignment, tabStopBase.alignment) &&
+            Objects.equals(this.leader, tabStopBase.leader) &&
+            Objects.equals(this.position, tabStopBase.position);
   }
 
   @Override

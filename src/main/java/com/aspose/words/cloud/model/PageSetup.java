@@ -1123,38 +1123,39 @@ public class PageSetup extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    PageSetup pageSetup = (PageSetup)o;
-    return
-        Objects.equals(this.bidi, pageSetup.bidi) &&
-        Objects.equals(this.borderAlwaysInFront, pageSetup.borderAlwaysInFront) &&
-        Objects.equals(this.borderAppliesTo, pageSetup.borderAppliesTo) &&
-        Objects.equals(this.borderDistanceFrom, pageSetup.borderDistanceFrom) &&
-        Objects.equals(this.bottomMargin, pageSetup.bottomMargin) &&
-        Objects.equals(this.differentFirstPageHeaderFooter, pageSetup.differentFirstPageHeaderFooter) &&
-        Objects.equals(this.firstPageTray, pageSetup.firstPageTray) &&
-        Objects.equals(this.footerDistance, pageSetup.footerDistance) &&
-        Objects.equals(this.gutter, pageSetup.gutter) &&
-        Objects.equals(this.headerDistance, pageSetup.headerDistance) &&
-        Objects.equals(this.leftMargin, pageSetup.leftMargin) &&
-        Objects.equals(this.lineNumberCountBy, pageSetup.lineNumberCountBy) &&
-        Objects.equals(this.lineNumberDistanceFromText, pageSetup.lineNumberDistanceFromText) &&
-        Objects.equals(this.lineNumberRestartMode, pageSetup.lineNumberRestartMode) &&
-        Objects.equals(this.lineStartingNumber, pageSetup.lineStartingNumber) &&
-        Objects.equals(this.orientation, pageSetup.orientation) &&
-        Objects.equals(this.otherPagesTray, pageSetup.otherPagesTray) &&
-        Objects.equals(this.pageHeight, pageSetup.pageHeight) &&
-        Objects.equals(this.pageNumberStyle, pageSetup.pageNumberStyle) &&
-        Objects.equals(this.pageStartingNumber, pageSetup.pageStartingNumber) &&
-        Objects.equals(this.pageWidth, pageSetup.pageWidth) &&
-        Objects.equals(this.paperSize, pageSetup.paperSize) &&
-        Objects.equals(this.restartPageNumbering, pageSetup.restartPageNumbering) &&
-        Objects.equals(this.rightMargin, pageSetup.rightMargin) &&
-        Objects.equals(this.rtlGutter, pageSetup.rtlGutter) &&
-        Objects.equals(this.sectionStart, pageSetup.sectionStart) &&
-        Objects.equals(this.suppressEndnotes, pageSetup.suppressEndnotes) &&
-        Objects.equals(this.topMargin, pageSetup.topMargin) &&
-        Objects.equals(this.verticalAlignment, pageSetup.verticalAlignment) &&
-        super.equals(o);
+
+        PageSetup pageSetup = (PageSetup) o;
+        return
+            Objects.equals(this.bidi, pageSetup.bidi) &&
+            Objects.equals(this.borderAlwaysInFront, pageSetup.borderAlwaysInFront) &&
+            Objects.equals(this.borderAppliesTo, pageSetup.borderAppliesTo) &&
+            Objects.equals(this.borderDistanceFrom, pageSetup.borderDistanceFrom) &&
+            Objects.equals(this.bottomMargin, pageSetup.bottomMargin) &&
+            Objects.equals(this.differentFirstPageHeaderFooter, pageSetup.differentFirstPageHeaderFooter) &&
+            Objects.equals(this.firstPageTray, pageSetup.firstPageTray) &&
+            Objects.equals(this.footerDistance, pageSetup.footerDistance) &&
+            Objects.equals(this.gutter, pageSetup.gutter) &&
+            Objects.equals(this.headerDistance, pageSetup.headerDistance) &&
+            Objects.equals(this.leftMargin, pageSetup.leftMargin) &&
+            Objects.equals(this.lineNumberCountBy, pageSetup.lineNumberCountBy) &&
+            Objects.equals(this.lineNumberDistanceFromText, pageSetup.lineNumberDistanceFromText) &&
+            Objects.equals(this.lineNumberRestartMode, pageSetup.lineNumberRestartMode) &&
+            Objects.equals(this.lineStartingNumber, pageSetup.lineStartingNumber) &&
+            Objects.equals(this.orientation, pageSetup.orientation) &&
+            Objects.equals(this.otherPagesTray, pageSetup.otherPagesTray) &&
+            Objects.equals(this.pageHeight, pageSetup.pageHeight) &&
+            Objects.equals(this.pageNumberStyle, pageSetup.pageNumberStyle) &&
+            Objects.equals(this.pageStartingNumber, pageSetup.pageStartingNumber) &&
+            Objects.equals(this.pageWidth, pageSetup.pageWidth) &&
+            Objects.equals(this.paperSize, pageSetup.paperSize) &&
+            Objects.equals(this.restartPageNumbering, pageSetup.restartPageNumbering) &&
+            Objects.equals(this.rightMargin, pageSetup.rightMargin) &&
+            Objects.equals(this.rtlGutter, pageSetup.rtlGutter) &&
+            Objects.equals(this.sectionStart, pageSetup.sectionStart) &&
+            Objects.equals(this.suppressEndnotes, pageSetup.suppressEndnotes) &&
+            Objects.equals(this.topMargin, pageSetup.topMargin) &&
+            Objects.equals(this.verticalAlignment, pageSetup.verticalAlignment) &&
+            super.equals(o);
   }
 
   @Override

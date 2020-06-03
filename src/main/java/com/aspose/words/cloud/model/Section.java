@@ -167,14 +167,15 @@ public class Section extends LinkElement {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    Section section = (Section)o;
-    return
-        Objects.equals(this.childNodes, section.childNodes) &&
-        Objects.equals(this.headerFooters, section.headerFooters) &&
-        Objects.equals(this.pageSetup, section.pageSetup) &&
-        Objects.equals(this.paragraphs, section.paragraphs) &&
-        Objects.equals(this.tables, section.tables) &&
-        super.equals(o);
+
+        Section section = (Section) o;
+        return
+            Objects.equals(this.childNodes, section.childNodes) &&
+            Objects.equals(this.headerFooters, section.headerFooters) &&
+            Objects.equals(this.pageSetup, section.pageSetup) &&
+            Objects.equals(this.paragraphs, section.paragraphs) &&
+            Objects.equals(this.tables, section.tables) &&
+            super.equals(o);
   }
 
   @Override

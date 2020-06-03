@@ -96,10 +96,11 @@ public class LoadWebDocumentData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    LoadWebDocumentData loadWebDocumentData = (LoadWebDocumentData)o;
-    return
-        Objects.equals(this.loadingDocumentUrl, loadWebDocumentData.loadingDocumentUrl) &&
-        Objects.equals(this.saveOptions, loadWebDocumentData.saveOptions);
+
+        LoadWebDocumentData loadWebDocumentData = (LoadWebDocumentData) o;
+        return
+            Objects.equals(this.loadingDocumentUrl, loadWebDocumentData.loadingDocumentUrl) &&
+            Objects.equals(this.saveOptions, loadWebDocumentData.saveOptions);
   }
 
   @Override

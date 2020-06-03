@@ -42,7 +42,7 @@ public class InsertDrawingObjectRequest {
     /*
      * Drawing object parameters.
      */
-    private String drawingObject;
+    private DrawingObjectInsert drawingObject;
 
     /*
      * File with image.
@@ -93,7 +93,7 @@ public class InsertDrawingObjectRequest {
      * Initializes a new instance of the InsertDrawingObjectRequest class.
      *
      * @param String name The document name.
-     * @param String drawingObject Drawing object parameters.
+     * @param DrawingObjectInsert drawingObject Drawing object parameters.
      * @param byte[] imageFile File with image.
      * @param String nodePath Path to the node, which contains collection of drawing objects.
      * @param String folder Original document folder.
@@ -104,7 +104,7 @@ public class InsertDrawingObjectRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public InsertDrawingObjectRequest(String name, String drawingObject, byte[] imageFile, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public InsertDrawingObjectRequest(String name, DrawingObjectInsert drawingObject, byte[] imageFile, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
         this.drawingObject = drawingObject;
         this.imageFile = imageFile;
@@ -135,14 +135,14 @@ public class InsertDrawingObjectRequest {
     /*
      * Gets Drawing object parameters.
      */
-    public String getDrawingObject() {
+    public DrawingObjectInsert getDrawingObject() {
         return this.drawingObject;
     }
 
     /*
      * Sets Drawing object parameters.
      */
-    public void setDrawingObject(String value) {
+    public void setDrawingObject(DrawingObjectInsert value) {
         this.drawingObject = value;
     }
 

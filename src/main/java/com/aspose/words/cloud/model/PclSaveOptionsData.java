@@ -96,11 +96,12 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    PclSaveOptionsData pclSaveOptionsData = (PclSaveOptionsData)o;
-    return
-        Objects.equals(this.falllbackFontName, pclSaveOptionsData.falllbackFontName) &&
-        Objects.equals(this.rasterizeTransformedElements, pclSaveOptionsData.rasterizeTransformedElements) &&
-        super.equals(o);
+
+        PclSaveOptionsData pclSaveOptionsData = (PclSaveOptionsData) o;
+        return
+            Objects.equals(this.falllbackFontName, pclSaveOptionsData.falllbackFontName) &&
+            Objects.equals(this.rasterizeTransformedElements, pclSaveOptionsData.rasterizeTransformedElements) &&
+            super.equals(o);
   }
 
   @Override

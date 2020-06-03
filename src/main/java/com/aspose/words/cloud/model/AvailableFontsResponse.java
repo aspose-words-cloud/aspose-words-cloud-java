@@ -141,12 +141,13 @@ public class AvailableFontsResponse extends WordsResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    AvailableFontsResponse availableFontsResponse = (AvailableFontsResponse)o;
-    return
-        Objects.equals(this.additionalFonts, availableFontsResponse.additionalFonts) &&
-        Objects.equals(this.customFonts, availableFontsResponse.customFonts) &&
-        Objects.equals(this.systemFonts, availableFontsResponse.systemFonts) &&
-        super.equals(o);
+
+        AvailableFontsResponse availableFontsResponse = (AvailableFontsResponse) o;
+        return
+            Objects.equals(this.additionalFonts, availableFontsResponse.additionalFonts) &&
+            Objects.equals(this.customFonts, availableFontsResponse.customFonts) &&
+            Objects.equals(this.systemFonts, availableFontsResponse.systemFonts) &&
+            super.equals(o);
   }
 
   @Override

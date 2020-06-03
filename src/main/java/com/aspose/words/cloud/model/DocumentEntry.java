@@ -96,10 +96,11 @@ public class DocumentEntry {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-    DocumentEntry documentEntry = (DocumentEntry)o;
-    return
-        Objects.equals(this.href, documentEntry.href) &&
-        Objects.equals(this.importFormatMode, documentEntry.importFormatMode);
+
+        DocumentEntry documentEntry = (DocumentEntry) o;
+        return
+            Objects.equals(this.href, documentEntry.href) &&
+            Objects.equals(this.importFormatMode, documentEntry.importFormatMode);
   }
 
   @Override
