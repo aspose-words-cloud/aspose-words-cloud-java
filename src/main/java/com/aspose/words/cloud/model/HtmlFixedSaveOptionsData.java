@@ -185,7 +185,7 @@ public class HtmlFixedSaveOptionsData extends FixedPageSaveOptionsData {
   }
 
    /**
-   * Gets or sets indication of whether form fields are exported as interactive items (as &#39;input&#39; tag) rather than converted to text or graphics.
+   * Gets or sets indication of whether form fields are exported as interactive items (as &#x27;input&#x27; tag) rather than converted to text or graphics.
    * @return exportFormFields
   **/
   @ApiModelProperty(value = "Gets or sets indication of whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.")

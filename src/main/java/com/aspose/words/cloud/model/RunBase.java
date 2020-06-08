@@ -57,7 +57,7 @@ public class RunBase {
   }
 
    /**
-   * Gets or sets run&#39;s text.
+   * Gets or sets run&#x27;s text.
    * @return text
   **/
   @ApiModelProperty(value = "Gets or sets run's text.")

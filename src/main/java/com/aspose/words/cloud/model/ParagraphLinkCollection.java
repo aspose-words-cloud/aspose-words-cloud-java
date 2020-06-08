@@ -64,7 +64,7 @@ public class ParagraphLinkCollection extends LinkElement {
   }
 
    /**
-   * Gets or sets collection of paragraph&#39;s links.
+   * Gets or sets collection of paragraph&#x27;s links.
    * @return paragraphLinkList
   **/
   @ApiModelProperty(value = "Gets or sets collection of paragraph's links.")

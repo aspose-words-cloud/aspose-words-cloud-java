@@ -51,7 +51,7 @@ public class ReplaceRange {
   private String text = null;
 
   /**
-   * Gets or sets range&#39;s text type.
+   * Gets or sets range&#x27;s text type.
    */
   @JsonAdapter(TextTypeEnum.Adapter.class)
   public enum TextTypeEnum {
@@ -106,7 +106,7 @@ public class ReplaceRange {
   }
 
    /**
-   * Gets or sets range&#39;s text.
+   * Gets or sets range&#x27;s text.
    * @return text
   **/
   @ApiModelProperty(value = "Gets or sets range's text.")
@@ -124,7 +124,7 @@ public class ReplaceRange {
   }
 
    /**
-   * Gets or sets range&#39;s text type.
+   * Gets or sets range&#x27;s text type.
    * @return textType
   **/
   @ApiModelProperty(value = "Gets or sets range's text type.")

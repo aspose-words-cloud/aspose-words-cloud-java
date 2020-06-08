@@ -85,7 +85,7 @@ public class Table extends NodeLink {
   }
 
    /**
-   * Gets or sets collection of table&#39;s rows.
+   * Gets or sets collection of table&#x27;s rows.
    * @return tableRowList
   **/
   @ApiModelProperty(value = "Gets or sets collection of table's rows.")
