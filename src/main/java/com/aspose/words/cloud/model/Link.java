@@ -66,7 +66,7 @@ public class Link {
   }
 
    /**
-   * Gets or sets the \&quot;href\&quot; attribute contains the link&#x27;s IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
+   * Gets or sets the \&quot;href\&quot; attribute contains the link&#39;s IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
    * @return href
   **/
   @ApiModelProperty(value = "Gets or sets the \"href\" attribute contains the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.")
@@ -102,7 +102,7 @@ public class Link {
   }
 
    /**
-   * Gets or sets on the link element, the \&quot;type\&quot; attribute&#x27;s value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.
+   * Gets or sets on the link element, the \&quot;type\&quot; attribute&#39;s value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.
    * @return type
   **/
   @ApiModelProperty(value = "Gets or sets on the link element, the \"type\" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.")

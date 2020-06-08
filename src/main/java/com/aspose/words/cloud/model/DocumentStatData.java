@@ -43,7 +43,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Container for the document&#x27;s statistical data.
+ * Container for the document&#39;s statistical data.
  */
 @ApiModel(description = "Container for the document's statistical data.")
 public class DocumentStatData {

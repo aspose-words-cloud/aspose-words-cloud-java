@@ -64,7 +64,7 @@ public class TableLinkCollection extends LinkElement {
   }
 
    /**
-   * Gets or sets collection of table&#x27;s links.
+   * Gets or sets collection of table&#39;s links.
    * @return tableLinkList
   **/
   @ApiModelProperty(value = "Gets or sets collection of table's links.")

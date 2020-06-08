@@ -56,7 +56,7 @@ public class ParagraphInsert {
   }
 
    /**
-   * Gets or sets paragraph&#x27;s text.
+   * Gets or sets paragraph&#39;s text.
    * @return text
   **/
   @ApiModelProperty(value = "Gets or sets paragraph's text.")

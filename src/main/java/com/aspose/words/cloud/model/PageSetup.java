@@ -1148,7 +1148,7 @@ public class PageSetup extends LinkElement {
   }
 
    /**
-   * Gets or sets true if endnotes are printed at the end of the next section that doesn&#x27;t suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.             
+   * Gets or sets true if endnotes are printed at the end of the next section that doesn&#39;t suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.             
    * @return suppressEndnotes
   **/
   @ApiModelProperty(value = "Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.             ")

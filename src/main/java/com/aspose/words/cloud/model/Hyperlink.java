@@ -59,7 +59,7 @@ public class Hyperlink extends LinkElement {
   }
 
    /**
-   * Gets or sets hypelink&#x27;s display text.
+   * Gets or sets hypelink&#39;s display text.
    * @return displayText
   **/
   @ApiModelProperty(value = "Gets or sets hypelink's display text.")

@@ -68,7 +68,7 @@ public class PdfDigitalSignatureDetailsData {
   }
 
    /**
-   * Gets or sets certificate&#x27;s filename using for signing.
+   * Gets or sets certificate&#39;s filename using for signing.
    * @return certificateFilename
   **/
   @ApiModelProperty(value = "Gets or sets certificate's filename using for signing.")

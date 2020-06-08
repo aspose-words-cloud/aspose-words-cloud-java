@@ -1595,7 +1595,7 @@ public class ParagraphFormat extends LinkElement {
   }
 
    /**
-   * Gets or sets specifies whether the current paragraph&#x27;s lines should be exempted from line numbering which is applied in the parent section.             
+   * Gets or sets specifies whether the current paragraph&#39;s lines should be exempted from line numbering which is applied in the parent section.             
    * @return suppressLineNumbers
   **/
   @ApiModelProperty(value = "Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.             ")

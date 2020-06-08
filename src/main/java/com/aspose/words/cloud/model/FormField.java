@@ -153,7 +153,7 @@ public class FormField extends NodeLink {
   }
 
    /**
-   * Gets or sets returns or sets the text that&#x27;s displayed in a message box when the form field has the focus and the user presses F1.
+   * Gets or sets returns or sets the text that&#39;s displayed in a message box when the form field has the focus and the user presses F1.
    * @return helpText
   **/
   @ApiModelProperty(value = "Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.")
@@ -189,7 +189,7 @@ public class FormField extends NodeLink {
   }
 
    /**
-   * Gets or sets specifies the source of the text that&#x27;s displayed in a message box when a form field has the focus and the user presses F1.
+   * Gets or sets specifies the source of the text that&#39;s displayed in a message box when a form field has the focus and the user presses F1.
    * @return ownHelp
   **/
   @ApiModelProperty(value = "Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.")
@@ -207,7 +207,7 @@ public class FormField extends NodeLink {
   }
 
    /**
-   * Gets or sets specifies the source of the text that&#x27;s displayed in the status bar when a form field has the focus.
+   * Gets or sets specifies the source of the text that&#39;s displayed in the status bar when a form field has the focus.
    * @return ownStatus
   **/
   @ApiModelProperty(value = "Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.")
@@ -225,7 +225,7 @@ public class FormField extends NodeLink {
   }
 
    /**
-   * Gets or sets returns or sets the text that&#x27;s displayed in the status bar when a form field has the focus.
+   * Gets or sets returns or sets the text that&#39;s displayed in the status bar when a form field has the focus.
    * @return statusText
   **/
   @ApiModelProperty(value = "Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.")

@@ -64,7 +64,7 @@ public class HeaderFooterLinkCollection extends LinkElement {
   }
 
    /**
-   * Gets or sets collection of section&#x27;s links.
+   * Gets or sets collection of section&#39;s links.
    * @return list
   **/
   @ApiModelProperty(value = "Gets or sets collection of section's links.")

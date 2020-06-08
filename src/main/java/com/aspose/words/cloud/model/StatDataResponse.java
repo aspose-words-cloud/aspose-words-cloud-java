@@ -43,7 +43,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Response for the request of the document&#x27;s statistical data.
+ * Response for the request of the document&#39;s statistical data.
  */
 @ApiModel(description = "Response for the request of the document's statistical data.")
 public class StatDataResponse extends WordsResponse {
