@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="OoxmlSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,163 +47,159 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for docx/docm/dotx/dotm/flatopc save options.")
 public class OoxmlSaveOptionsData extends SaveOptionsData {
-  @SerializedName("Compliance")
-  private String compliance = null;
+    /**
+     * Gets or sets compression level.
+     */
+    @JsonAdapter(CompressionLevelEnum.Adapter.class)
+    public enum CompressionLevelEnum {
+        NORMAL("Normal"),
+        MAXIMUM("Maximum"),
+        FAST("Fast"),
+        SUPERFAST("SuperFast");
 
-  /**
-   * Gets or sets compression level.
-   */
-  @JsonAdapter(CompressionLevelEnum.Adapter.class)
-  public enum CompressionLevelEnum {
-    NORMAL("Normal"),
-    
-    MAXIMUM("Maximum"),
-    
-    FAST("Fast"),
-    
-    SUPERFAST("SuperFast");
+        private String value;
 
-    private String value;
+        CompressionLevelEnum(String value) {
+            this.value = value;
+        }
 
-    CompressionLevelEnum(String value) {
-      this.value = value;
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CompressionLevelEnum fromValue(String text) {
+            for (CompressionLevelEnum b : CompressionLevelEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< CompressionLevelEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CompressionLevelEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CompressionLevelEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CompressionLevelEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("Compliance")
+    private String compliance = null;
+
+    @SerializedName("CompressionLevel")
+    private CompressionLevelEnum compressionLevel = null;
+
+    @SerializedName("Password")
+    private String password = null;
+
+    @SerializedName("PrettyFormat")
+    private Boolean prettyFormat = null;
+    public OoxmlSaveOptionsData compliance(String compliance) {
+        this.compliance = compliance;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the OOXML version for the output document.
+    * @return compliance
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the OOXML version for the output document.")
+    public String getCompliance() {
+        return compliance;
+    }
+
+    public void setCompliance(String compliance) {
+        this.compliance = compliance;
+    }
+
+    public OoxmlSaveOptionsData compressionLevel(CompressionLevelEnum compressionLevel) {
+        this.compressionLevel = compressionLevel;
+        return this;
+    }
+
+    /**
+     * Gets or sets compression level.
+    * @return compressionLevel
+    **/
+    @ApiModelProperty(value = "Gets or sets compression level.")
+    public CompressionLevelEnum getCompressionLevel() {
+        return compressionLevel;
+    }
+
+    public void setCompressionLevel(CompressionLevelEnum compressionLevel) {
+        this.compressionLevel = compressionLevel;
+    }
+
+    public OoxmlSaveOptionsData password(String password) {
+        this.password = password;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
+    * @return password
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public OoxmlSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies whether or not use pretty formats output.
+    * @return prettyFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
+    public Boolean getPrettyFormat() {
+        return prettyFormat;
+    }
+
+    public void setPrettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static CompressionLevelEnum fromValue(String text) {
-      for (CompressionLevelEnum b : CompressionLevelEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<CompressionLevelEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CompressionLevelEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CompressionLevelEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return CompressionLevelEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("CompressionLevel")
-  private CompressionLevelEnum compressionLevel = null;
-
-  @SerializedName("Password")
-  private String password = null;
-
-  @SerializedName("PrettyFormat")
-  private Boolean prettyFormat = null;
-
-  public OoxmlSaveOptionsData compliance(String compliance) {
-    this.compliance = compliance;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the OOXML version for the output document.
-   * @return compliance
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the OOXML version for the output document.")
-  public String getCompliance() {
-    return compliance;
-  }
-
-  public void setCompliance(String compliance) {
-    this.compliance = compliance;
-  }
-
-  public OoxmlSaveOptionsData compressionLevel(CompressionLevelEnum compressionLevel) {
-    this.compressionLevel = compressionLevel;
-    return this;
-  }
-
-   /**
-   * Gets or sets compression level.
-   * @return compressionLevel
-  **/
-  @ApiModelProperty(value = "Gets or sets compression level.")
-  public CompressionLevelEnum getCompressionLevel() {
-    return compressionLevel;
-  }
-
-  public void setCompressionLevel(CompressionLevelEnum compressionLevel) {
-    this.compressionLevel = compressionLevel;
-  }
-
-  public OoxmlSaveOptionsData password(String password) {
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
-   * @return password
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.")
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public OoxmlSaveOptionsData prettyFormat(Boolean prettyFormat) {
-    this.prettyFormat = prettyFormat;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies whether or not use pretty formats output.
-   * @return prettyFormat
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
-  public Boolean isPrettyFormat() {
-    return prettyFormat;
-  }
-
-  public void setPrettyFormat(Boolean prettyFormat) {
-    this.prettyFormat = prettyFormat;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    OoxmlSaveOptionsData ooxmlSaveOptionsData = (OoxmlSaveOptionsData) o;
-    return Objects.equals(this.compliance, ooxmlSaveOptionsData.compliance) &&
-        Objects.equals(this.compressionLevel, ooxmlSaveOptionsData.compressionLevel) &&
-        Objects.equals(this.password, ooxmlSaveOptionsData.password) &&
-        Objects.equals(this.prettyFormat, ooxmlSaveOptionsData.prettyFormat) &&
-        super.equals(o);
+        OoxmlSaveOptionsData ooxmlSaveOptionsData = (OoxmlSaveOptionsData) o;
+        return
+            Objects.equals(this.compliance, ooxmlSaveOptionsData.compliance) &&
+            Objects.equals(this.compressionLevel, ooxmlSaveOptionsData.compressionLevel) &&
+            Objects.equals(this.password, ooxmlSaveOptionsData.password) &&
+            Objects.equals(this.prettyFormat, ooxmlSaveOptionsData.prettyFormat) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(compliance, compressionLevel, password, prettyFormat, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -228,6 +224,4 @@ public class OoxmlSaveOptionsData extends SaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

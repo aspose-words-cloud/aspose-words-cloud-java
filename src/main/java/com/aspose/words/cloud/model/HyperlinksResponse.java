@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="HyperlinksResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/hyperlinks .")
 public class HyperlinksResponse extends WordsResponse {
-  @SerializedName("Hyperlinks")
-  private Hyperlinks hyperlinks = null;
-
-  public HyperlinksResponse hyperlinks(Hyperlinks hyperlinks) {
-    this.hyperlinks = hyperlinks;
-    return this;
-  }
-
-   /**
-   * Get hyperlinks
-   * @return hyperlinks
-  **/
-  @ApiModelProperty(value = "")
-  public Hyperlinks getHyperlinks() {
-    return hyperlinks;
-  }
-
-  public void setHyperlinks(Hyperlinks hyperlinks) {
-    this.hyperlinks = hyperlinks;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Hyperlinks")
+    private Hyperlinks hyperlinks = null;
+    public HyperlinksResponse hyperlinks(Hyperlinks hyperlinks) {
+        this.hyperlinks = hyperlinks;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of hyperlinks.
+    * @return hyperlinks
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of hyperlinks.")
+    public Hyperlinks getHyperlinks() {
+        return hyperlinks;
     }
-    HyperlinksResponse hyperlinksResponse = (HyperlinksResponse) o;
-    return Objects.equals(this.hyperlinks, hyperlinksResponse.hyperlinks) &&
-        super.equals(o);
+
+    public void setHyperlinks(Hyperlinks hyperlinks) {
+        this.hyperlinks = hyperlinks;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        HyperlinksResponse hyperlinksResponse = (HyperlinksResponse) o;
+        return
+            Objects.equals(this.hyperlinks, hyperlinksResponse.hyperlinks) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(hyperlinks, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class HyperlinksResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

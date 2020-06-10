@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ProtectionData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,38 +47,38 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container for the data about protection of the document.")
 public class ProtectionData {
-  @SerializedName("ProtectionType")
-  private String protectionType = null;
-
-  public ProtectionData protectionType(String protectionType) {
-    this.protectionType = protectionType;
-    return this;
-  }
-
-   /**
-   * Gets or sets type of the protection.
-   * @return protectionType
-  **/
-  @ApiModelProperty(value = "Gets or sets type of the protection.")
-  public String getProtectionType() {
-    return protectionType;
-  }
-
-  public void setProtectionType(String protectionType) {
-    this.protectionType = protectionType;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ProtectionType")
+    private String protectionType = null;
+    public ProtectionData protectionType(String protectionType) {
+        this.protectionType = protectionType;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets type of the protection.
+    * @return protectionType
+    **/
+    @ApiModelProperty(value = "Gets or sets type of the protection.")
+    public String getProtectionType() {
+        return protectionType;
     }
-    ProtectionData protectionData = (ProtectionData) o;
-    return Objects.equals(this.protectionType, protectionData.protectionType);
+
+    public void setProtectionType(String protectionType) {
+        this.protectionType = protectionType;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ProtectionData protectionData = (ProtectionData) o;
+        return
+            Objects.equals(this.protectionType, protectionData.protectionType);
   }
 
   @Override
@@ -86,12 +86,10 @@ public class ProtectionData {
     return Objects.hash(protectionType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProtectionData {\n");
-    
     sb.append("    protectionType: ").append(toIndentedString(protectionType)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -107,6 +105,4 @@ public class ProtectionData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SaveResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Save response.")
 public class SaveResponse extends WordsResponse {
-  @SerializedName("SaveResult")
-  private SaveResult saveResult = null;
-
-  public SaveResponse saveResult(SaveResult saveResult) {
-    this.saveResult = saveResult;
-    return this;
-  }
-
-   /**
-   * Get saveResult
-   * @return saveResult
-  **/
-  @ApiModelProperty(value = "")
-  public SaveResult getSaveResult() {
-    return saveResult;
-  }
-
-  public void setSaveResult(SaveResult saveResult) {
-    this.saveResult = saveResult;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("SaveResult")
+    private SaveResult saveResult = null;
+    public SaveResponse saveResult(SaveResult saveResult) {
+        this.saveResult = saveResult;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets save result.
+    * @return saveResult
+    **/
+    @ApiModelProperty(value = "Gets or sets save result.")
+    public SaveResult getSaveResult() {
+        return saveResult;
     }
-    SaveResponse saveResponse = (SaveResponse) o;
-    return Objects.equals(this.saveResult, saveResponse.saveResult) &&
-        super.equals(o);
+
+    public void setSaveResult(SaveResult saveResult) {
+        this.saveResult = saveResult;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SaveResponse saveResponse = (SaveResponse) o;
+        return
+            Objects.equals(this.saveResult, saveResponse.saveResult) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(saveResult, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class SaveResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FootnotesStatData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,75 +47,73 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container for the footnotes statistical data.")
 public class FootnotesStatData {
-  @SerializedName("WordCount")
-  private Integer wordCount = null;
+    @SerializedName("ParagraphCount")
+    private Integer paragraphCount = null;
 
-  @SerializedName("ParagraphCount")
-  private Integer paragraphCount = null;
-
-  public FootnotesStatData wordCount(Integer wordCount) {
-    this.wordCount = wordCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets total count of words in footnotes.
-   * @return wordCount
-  **/
-  @ApiModelProperty(value = "Gets or sets total count of words in footnotes.")
-  public Integer getWordCount() {
-    return wordCount;
-  }
-
-  public void setWordCount(Integer wordCount) {
-    this.wordCount = wordCount;
-  }
-
-  public FootnotesStatData paragraphCount(Integer paragraphCount) {
-    this.paragraphCount = paragraphCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets total count of paragraphs in footnotes.
-   * @return paragraphCount
-  **/
-  @ApiModelProperty(value = "Gets or sets total count of paragraphs in footnotes.")
-  public Integer getParagraphCount() {
-    return paragraphCount;
-  }
-
-  public void setParagraphCount(Integer paragraphCount) {
-    this.paragraphCount = paragraphCount;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("WordCount")
+    private Integer wordCount = null;
+    public FootnotesStatData paragraphCount(Integer paragraphCount) {
+        this.paragraphCount = paragraphCount;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets total count of paragraphs in footnotes.
+    * @return paragraphCount
+    **/
+    @ApiModelProperty(value = "Gets or sets total count of paragraphs in footnotes.")
+    public Integer getParagraphCount() {
+        return paragraphCount;
     }
-    FootnotesStatData footnotesStatData = (FootnotesStatData) o;
-    return Objects.equals(this.wordCount, footnotesStatData.wordCount) &&
-        Objects.equals(this.paragraphCount, footnotesStatData.paragraphCount);
+
+    public void setParagraphCount(Integer paragraphCount) {
+        this.paragraphCount = paragraphCount;
+    }
+
+    public FootnotesStatData wordCount(Integer wordCount) {
+        this.wordCount = wordCount;
+        return this;
+    }
+
+    /**
+     * Gets or sets total count of words in footnotes.
+    * @return wordCount
+    **/
+    @ApiModelProperty(value = "Gets or sets total count of words in footnotes.")
+    public Integer getWordCount() {
+        return wordCount;
+    }
+
+    public void setWordCount(Integer wordCount) {
+        this.wordCount = wordCount;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FootnotesStatData footnotesStatData = (FootnotesStatData) o;
+        return
+            Objects.equals(this.paragraphCount, footnotesStatData.paragraphCount) &&
+            Objects.equals(this.wordCount, footnotesStatData.wordCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wordCount, paragraphCount);
+    return Objects.hash(paragraphCount, wordCount);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FootnotesStatData {\n");
-    
-    sb.append("    wordCount: ").append(toIndentedString(wordCount)).append("\n");
     sb.append("    paragraphCount: ").append(toIndentedString(paragraphCount)).append("\n");
+    sb.append("    wordCount: ").append(toIndentedString(wordCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,6 +128,4 @@ public class FootnotesStatData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

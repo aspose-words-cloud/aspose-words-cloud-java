@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="RunLink.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,48 +46,46 @@ import io.swagger.annotations.ApiModelProperty;
  * Run link element.
  */
 @ApiModel(description = "Run link element.")
-
 public class RunLink extends NodeLink {
-  @SerializedName("Text")
-  private String text = null;
-
-  public RunLink text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Gets or sets run&#39;s text.
-   * @return text
-  **/
-  @ApiModelProperty(value = "Gets or sets run's text.")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Text")
+    private String text = null;
+    public RunLink text(String text) {
+        this.text = text;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets run's text.
+    * @return text
+    **/
+    @ApiModelProperty(value = "Gets or sets run's text.")
+    public String getText() {
+        return text;
     }
-    RunLink runLink = (RunLink) o;
-    return Objects.equals(this.text, runLink.text) &&
-        super.equals(o);
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        RunLink runLink = (RunLink) o;
+        return
+            Objects.equals(this.text, runLink.text) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(text, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -109,6 +107,4 @@ public class RunLink extends NodeLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

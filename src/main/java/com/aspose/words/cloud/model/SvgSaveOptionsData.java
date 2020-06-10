@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SvgSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,156 +47,155 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for svg save options.")
 public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("ExportEmbeddedImages")
-  private Boolean exportEmbeddedImages = null;
+    @SerializedName("ExportEmbeddedImages")
+    private Boolean exportEmbeddedImages = null;
 
-  @SerializedName("FitToViewPort")
-  private Boolean fitToViewPort = null;
+    @SerializedName("FitToViewPort")
+    private Boolean fitToViewPort = null;
 
-  @SerializedName("ResourcesFolder")
-  private String resourcesFolder = null;
+    @SerializedName("ResourcesFolder")
+    private String resourcesFolder = null;
 
-  @SerializedName("ResourcesFolderAlias")
-  private String resourcesFolderAlias = null;
+    @SerializedName("ResourcesFolderAlias")
+    private String resourcesFolderAlias = null;
 
-  @SerializedName("ShowPageBorder")
-  private Boolean showPageBorder = null;
+    @SerializedName("ShowPageBorder")
+    private Boolean showPageBorder = null;
 
-  @SerializedName("TextOutputMode")
-  private String textOutputMode = null;
-
-  public SvgSaveOptionsData exportEmbeddedImages(Boolean exportEmbeddedImages) {
-    this.exportEmbeddedImages = exportEmbeddedImages;
-    return this;
-  }
-
-   /**
-   * Gets or sets specified whether images should be embedded into SVG document as base64.
-   * @return exportEmbeddedImages
-  **/
-  @ApiModelProperty(value = "Gets or sets specified whether images should be embedded into SVG document as base64.")
-  public Boolean isExportEmbeddedImages() {
-    return exportEmbeddedImages;
-  }
-
-  public void setExportEmbeddedImages(Boolean exportEmbeddedImages) {
-    this.exportEmbeddedImages = exportEmbeddedImages;
-  }
-
-  public SvgSaveOptionsData fitToViewPort(Boolean fitToViewPort) {
-    this.fitToViewPort = fitToViewPort;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
-   * @return fitToViewPort
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.")
-  public Boolean isFitToViewPort() {
-    return fitToViewPort;
-  }
-
-  public void setFitToViewPort(Boolean fitToViewPort) {
-    this.fitToViewPort = fitToViewPort;
-  }
-
-  public SvgSaveOptionsData resourcesFolder(String resourcesFolder) {
-    this.resourcesFolder = resourcesFolder;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the physical folder where resources (images) are saved when exporting.
-   * @return resourcesFolder
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the physical folder where resources (images) are saved when exporting.")
-  public String getResourcesFolder() {
-    return resourcesFolder;
-  }
-
-  public void setResourcesFolder(String resourcesFolder) {
-    this.resourcesFolder = resourcesFolder;
-  }
-
-  public SvgSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
-    this.resourcesFolderAlias = resourcesFolderAlias;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the name of the folder used to construct image URIs.
-   * @return resourcesFolderAlias
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs.")
-  public String getResourcesFolderAlias() {
-    return resourcesFolderAlias;
-  }
-
-  public void setResourcesFolderAlias(String resourcesFolderAlias) {
-    this.resourcesFolderAlias = resourcesFolderAlias;
-  }
-
-  public SvgSaveOptionsData showPageBorder(Boolean showPageBorder) {
-    this.showPageBorder = showPageBorder;
-    return this;
-  }
-
-   /**
-   * Gets or sets show/hide page stepper.
-   * @return showPageBorder
-  **/
-  @ApiModelProperty(value = "Gets or sets show/hide page stepper.")
-  public Boolean isShowPageBorder() {
-    return showPageBorder;
-  }
-
-  public void setShowPageBorder(Boolean showPageBorder) {
-    this.showPageBorder = showPageBorder;
-  }
-
-  public SvgSaveOptionsData textOutputMode(String textOutputMode) {
-    this.textOutputMode = textOutputMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets determines how text should be rendered.
-   * @return textOutputMode
-  **/
-  @ApiModelProperty(value = "Gets or sets determines how text should be rendered.")
-  public String getTextOutputMode() {
-    return textOutputMode;
-  }
-
-  public void setTextOutputMode(String textOutputMode) {
-    this.textOutputMode = textOutputMode;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("TextOutputMode")
+    private String textOutputMode = null;
+    public SvgSaveOptionsData exportEmbeddedImages(Boolean exportEmbeddedImages) {
+        this.exportEmbeddedImages = exportEmbeddedImages;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets specified whether images should be embedded into SVG document as base64.
+    * @return exportEmbeddedImages
+    **/
+    @ApiModelProperty(value = "Gets or sets specified whether images should be embedded into SVG document as base64.")
+    public Boolean getExportEmbeddedImages() {
+        return exportEmbeddedImages;
     }
-    SvgSaveOptionsData svgSaveOptionsData = (SvgSaveOptionsData) o;
-    return Objects.equals(this.exportEmbeddedImages, svgSaveOptionsData.exportEmbeddedImages) &&
-        Objects.equals(this.fitToViewPort, svgSaveOptionsData.fitToViewPort) &&
-        Objects.equals(this.resourcesFolder, svgSaveOptionsData.resourcesFolder) &&
-        Objects.equals(this.resourcesFolderAlias, svgSaveOptionsData.resourcesFolderAlias) &&
-        Objects.equals(this.showPageBorder, svgSaveOptionsData.showPageBorder) &&
-        Objects.equals(this.textOutputMode, svgSaveOptionsData.textOutputMode) &&
-        super.equals(o);
+
+    public void setExportEmbeddedImages(Boolean exportEmbeddedImages) {
+        this.exportEmbeddedImages = exportEmbeddedImages;
+    }
+
+    public SvgSaveOptionsData fitToViewPort(Boolean fitToViewPort) {
+        this.fitToViewPort = fitToViewPort;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
+    * @return fitToViewPort
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.")
+    public Boolean getFitToViewPort() {
+        return fitToViewPort;
+    }
+
+    public void setFitToViewPort(Boolean fitToViewPort) {
+        this.fitToViewPort = fitToViewPort;
+    }
+
+    public SvgSaveOptionsData resourcesFolder(String resourcesFolder) {
+        this.resourcesFolder = resourcesFolder;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the physical folder where resources (images) are saved when exporting.
+    * @return resourcesFolder
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the physical folder where resources (images) are saved when exporting.")
+    public String getResourcesFolder() {
+        return resourcesFolder;
+    }
+
+    public void setResourcesFolder(String resourcesFolder) {
+        this.resourcesFolder = resourcesFolder;
+    }
+
+    public SvgSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
+        this.resourcesFolderAlias = resourcesFolderAlias;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the name of the folder used to construct image URIs.
+    * @return resourcesFolderAlias
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs.")
+    public String getResourcesFolderAlias() {
+        return resourcesFolderAlias;
+    }
+
+    public void setResourcesFolderAlias(String resourcesFolderAlias) {
+        this.resourcesFolderAlias = resourcesFolderAlias;
+    }
+
+    public SvgSaveOptionsData showPageBorder(Boolean showPageBorder) {
+        this.showPageBorder = showPageBorder;
+        return this;
+    }
+
+    /**
+     * Gets or sets show/hide page stepper.
+    * @return showPageBorder
+    **/
+    @ApiModelProperty(value = "Gets or sets show/hide page stepper.")
+    public Boolean getShowPageBorder() {
+        return showPageBorder;
+    }
+
+    public void setShowPageBorder(Boolean showPageBorder) {
+        this.showPageBorder = showPageBorder;
+    }
+
+    public SvgSaveOptionsData textOutputMode(String textOutputMode) {
+        this.textOutputMode = textOutputMode;
+        return this;
+    }
+
+    /**
+     * Gets or sets determines how text should be rendered.
+    * @return textOutputMode
+    **/
+    @ApiModelProperty(value = "Gets or sets determines how text should be rendered.")
+    public String getTextOutputMode() {
+        return textOutputMode;
+    }
+
+    public void setTextOutputMode(String textOutputMode) {
+        this.textOutputMode = textOutputMode;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SvgSaveOptionsData svgSaveOptionsData = (SvgSaveOptionsData) o;
+        return
+            Objects.equals(this.exportEmbeddedImages, svgSaveOptionsData.exportEmbeddedImages) &&
+            Objects.equals(this.fitToViewPort, svgSaveOptionsData.fitToViewPort) &&
+            Objects.equals(this.resourcesFolder, svgSaveOptionsData.resourcesFolder) &&
+            Objects.equals(this.resourcesFolderAlias, svgSaveOptionsData.resourcesFolderAlias) &&
+            Objects.equals(this.showPageBorder, svgSaveOptionsData.showPageBorder) &&
+            Objects.equals(this.textOutputMode, svgSaveOptionsData.textOutputMode) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(exportEmbeddedImages, fitToViewPort, resourcesFolder, resourcesFolderAlias, showPageBorder, textOutputMode, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -223,6 +222,4 @@ public class SvgSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

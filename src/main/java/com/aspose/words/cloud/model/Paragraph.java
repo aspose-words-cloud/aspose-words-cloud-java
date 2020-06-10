@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Paragraph.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Paragraph element.")
 public class Paragraph extends NodeLink {
-  @SerializedName("ChildNodes")
-  private List<NodeLink> childNodes = null;
-
-  public Paragraph childNodes(List<NodeLink> childNodes) {
-    this.childNodes = childNodes;
-    return this;
-  }
-
-  public Paragraph addChildNodesItem(NodeLink childNodesItem) {
-    if (this.childNodes == null) {
-      this.childNodes = new ArrayList<NodeLink>();
+    @SerializedName("ChildNodes")
+    private List<NodeLink> childNodes = null;
+    public Paragraph childNodes(List<NodeLink> childNodes) {
+        this.childNodes = childNodes;
+        return this;
     }
-    this.childNodes.add(childNodesItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets child nodes.
-   * @return childNodes
-  **/
-  @ApiModelProperty(value = "Gets or sets child nodes.")
-  public List<NodeLink> getChildNodes() {
-    return childNodes;
-  }
-
-  public void setChildNodes(List<NodeLink> childNodes) {
-    this.childNodes = childNodes;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public Paragraph addChildNodesItem(NodeLink childNodesItem) {
+        if (this.childNodes == null) {
+            this.childNodes = new ArrayList<NodeLink>();
+        }
+        this.childNodes.add(childNodesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets child nodes.
+    * @return childNodes
+    **/
+    @ApiModelProperty(value = "Gets or sets child nodes.")
+    public List<NodeLink> getChildNodes() {
+        return childNodes;
     }
-    Paragraph paragraph = (Paragraph) o;
-    return Objects.equals(this.childNodes, paragraph.childNodes) &&
-        super.equals(o);
+
+    public void setChildNodes(List<NodeLink> childNodes) {
+        this.childNodes = childNodes;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Paragraph paragraph = (Paragraph) o;
+        return
+            Objects.equals(this.childNodes, paragraph.childNodes) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(childNodes, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class Paragraph extends NodeLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FieldLink.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,48 +46,46 @@ import io.swagger.annotations.ApiModelProperty;
  * Field link.
  */
 @ApiModel(description = "Field link.")
-
 public class FieldLink extends NodeLink {
-  @SerializedName("FieldCode")
-  private String fieldCode = null;
-
-  public FieldLink fieldCode(String fieldCode) {
-    this.fieldCode = fieldCode;
-    return this;
-  }
-
-   /**
-   * Gets or sets field code.
-   * @return fieldCode
-  **/
-  @ApiModelProperty(value = "Gets or sets field code.")
-  public String getFieldCode() {
-    return fieldCode;
-  }
-
-  public void setFieldCode(String fieldCode) {
-    this.fieldCode = fieldCode;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("FieldCode")
+    private String fieldCode = null;
+    public FieldLink fieldCode(String fieldCode) {
+        this.fieldCode = fieldCode;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets field code.
+    * @return fieldCode
+    **/
+    @ApiModelProperty(value = "Gets or sets field code.")
+    public String getFieldCode() {
+        return fieldCode;
     }
-    FieldLink fieldLink = (FieldLink) o;
-    return Objects.equals(this.fieldCode, fieldLink.fieldCode) &&
-        super.equals(o);
+
+    public void setFieldCode(String fieldCode) {
+        this.fieldCode = fieldCode;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FieldLink fieldLink = (FieldLink) o;
+        return
+            Objects.equals(this.fieldCode, fieldLink.fieldCode) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(fieldCode, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -109,6 +107,4 @@ public class FieldLink extends NodeLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

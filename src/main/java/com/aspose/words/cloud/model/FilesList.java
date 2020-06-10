@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FilesList.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Files list
+ * Files list.
  */
-@ApiModel(description = "Files list")
+@ApiModel(description = "Files list.")
 public class FilesList {
-  @SerializedName("Value")
-  private List<StorageFile> value = null;
-
-  public FilesList value(List<StorageFile> value) {
-    this.value = value;
-    return this;
-  }
-
-  public FilesList addValueItem(StorageFile valueItem) {
-    if (this.value == null) {
-      this.value = new ArrayList<StorageFile>();
+    @SerializedName("Value")
+    private List<StorageFile> value = null;
+    public FilesList value(List<StorageFile> value) {
+        this.value = value;
+        return this;
     }
-    this.value.add(valueItem);
-    return this;
-  }
 
-   /**
-   * Files and folders contained by folder StorageFile.
-   * @return value
-  **/
-  @ApiModelProperty(value = "Files and folders contained by folder StorageFile.")
-  public List<StorageFile> getValue() {
-    return value;
-  }
-
-  public void setValue(List<StorageFile> value) {
-    this.value = value;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FilesList addValueItem(StorageFile valueItem) {
+        if (this.value == null) {
+            this.value = new ArrayList<StorageFile>();
+        }
+        this.value.add(valueItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Files and folders contained by folder StorageFile.
+    * @return value
+    **/
+    @ApiModelProperty(value = "Files and folders contained by folder StorageFile.")
+    public List<StorageFile> getValue() {
+        return value;
     }
-    FilesList filesList = (FilesList) o;
-    return Objects.equals(this.value, filesList.value);
+
+    public void setValue(List<StorageFile> value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FilesList filesList = (FilesList) o;
+        return
+            Objects.equals(this.value, filesList.value);
   }
 
   @Override
@@ -94,12 +94,10 @@ public class FilesList {
     return Objects.hash(value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilesList {\n");
-    
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -115,6 +113,4 @@ public class FilesList {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

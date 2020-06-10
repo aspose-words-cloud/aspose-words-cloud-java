@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Comment.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,178 +47,177 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Comment.")
 public class Comment extends CommentLink {
-  @SerializedName("Author")
-  private String author = null;
+    @SerializedName("Author")
+    private String author = null;
 
-  @SerializedName("Content")
-  private StoryChildNodes content = null;
+    @SerializedName("Content")
+    private StoryChildNodes content = null;
 
-  @SerializedName("DateTime")
-  private OffsetDateTime dateTime = null;
+    @SerializedName("DateTime")
+    private OffsetDateTime dateTime = null;
 
-  @SerializedName("Initial")
-  private String initial = null;
+    @SerializedName("Initial")
+    private String initial = null;
 
-  @SerializedName("RangeEnd")
-  private DocumentPosition rangeEnd = null;
+    @SerializedName("RangeEnd")
+    private DocumentPosition rangeEnd = null;
 
-  @SerializedName("RangeStart")
-  private DocumentPosition rangeStart = null;
+    @SerializedName("RangeStart")
+    private DocumentPosition rangeStart = null;
 
-  @SerializedName("Text")
-  private String text = null;
-
-  public Comment author(String author) {
-    this.author = author;
-    return this;
-  }
-
-   /**
-   * Gets or sets returns or sets the author name for a comment.
-   * @return author
-  **/
-  @ApiModelProperty(value = "Gets or sets returns or sets the author name for a comment.")
-  public String getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
-
-  public Comment content(StoryChildNodes content) {
-    this.content = content;
-    return this;
-  }
-
-   /**
-   * Get content
-   * @return content
-  **/
-  @ApiModelProperty(value = "")
-  public StoryChildNodes getContent() {
-    return content;
-  }
-
-  public void setContent(StoryChildNodes content) {
-    this.content = content;
-  }
-
-  public Comment dateTime(OffsetDateTime dateTime) {
-    this.dateTime = dateTime;
-    return this;
-  }
-
-   /**
-   * Gets or sets the date and time that the comment was made.
-   * @return dateTime
-  **/
-  @ApiModelProperty(value = "Gets or sets the date and time that the comment was made.")
-  public OffsetDateTime getDateTime() {
-    return dateTime;
-  }
-
-  public void setDateTime(OffsetDateTime dateTime) {
-    this.dateTime = dateTime;
-  }
-
-  public Comment initial(String initial) {
-    this.initial = initial;
-    return this;
-  }
-
-   /**
-   * Gets or sets returns or sets the initials of the user associated with a specific comment.
-   * @return initial
-  **/
-  @ApiModelProperty(value = "Gets or sets returns or sets the initials of the user associated with a specific comment.")
-  public String getInitial() {
-    return initial;
-  }
-
-  public void setInitial(String initial) {
-    this.initial = initial;
-  }
-
-  public Comment rangeEnd(DocumentPosition rangeEnd) {
-    this.rangeEnd = rangeEnd;
-    return this;
-  }
-
-   /**
-   * Get rangeEnd
-   * @return rangeEnd
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentPosition getRangeEnd() {
-    return rangeEnd;
-  }
-
-  public void setRangeEnd(DocumentPosition rangeEnd) {
-    this.rangeEnd = rangeEnd;
-  }
-
-  public Comment rangeStart(DocumentPosition rangeStart) {
-    this.rangeStart = rangeStart;
-    return this;
-  }
-
-   /**
-   * Get rangeStart
-   * @return rangeStart
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentPosition getRangeStart() {
-    return rangeStart;
-  }
-
-  public void setRangeStart(DocumentPosition rangeStart) {
-    this.rangeStart = rangeStart;
-  }
-
-  public Comment text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Gets or sets this is a convenience property that allows to easily get or set text of the comment.
-   * @return text
-  **/
-  @ApiModelProperty(value = "Gets or sets this is a convenience property that allows to easily get or set text of the comment.")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Text")
+    private String text = null;
+    public Comment author(String author) {
+        this.author = author;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets returns or sets the author name for a comment.
+    * @return author
+    **/
+    @ApiModelProperty(value = "Gets or sets returns or sets the author name for a comment.")
+    public String getAuthor() {
+        return author;
     }
-    Comment comment = (Comment) o;
-    return Objects.equals(this.author, comment.author) &&
-        Objects.equals(this.content, comment.content) &&
-        Objects.equals(this.dateTime, comment.dateTime) &&
-        Objects.equals(this.initial, comment.initial) &&
-        Objects.equals(this.rangeEnd, comment.rangeEnd) &&
-        Objects.equals(this.rangeStart, comment.rangeStart) &&
-        Objects.equals(this.text, comment.text) &&
-        super.equals(o);
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Comment content(StoryChildNodes content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     * Gets or sets content of comment.
+    * @return content
+    **/
+    @ApiModelProperty(value = "Gets or sets content of comment.")
+    public StoryChildNodes getContent() {
+        return content;
+    }
+
+    public void setContent(StoryChildNodes content) {
+        this.content = content;
+    }
+
+    public Comment dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
+    /**
+     * Gets or sets the date and time that the comment was made.
+    * @return dateTime
+    **/
+    @ApiModelProperty(value = "Gets or sets the date and time that the comment was made.")
+    public OffsetDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public Comment initial(String initial) {
+        this.initial = initial;
+        return this;
+    }
+
+    /**
+     * Gets or sets returns or sets the initials of the user associated with a specific comment.
+    * @return initial
+    **/
+    @ApiModelProperty(value = "Gets or sets returns or sets the initials of the user associated with a specific comment.")
+    public String getInitial() {
+        return initial;
+    }
+
+    public void setInitial(String initial) {
+        this.initial = initial;
+    }
+
+    public Comment rangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to comment range end node.
+    * @return rangeEnd
+    **/
+    @ApiModelProperty(value = "Gets or sets link to comment range end node.")
+    public DocumentPosition getRangeEnd() {
+        return rangeEnd;
+    }
+
+    public void setRangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+    }
+
+    public Comment rangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to comment range start node.
+    * @return rangeStart
+    **/
+    @ApiModelProperty(value = "Gets or sets link to comment range start node.")
+    public DocumentPosition getRangeStart() {
+        return rangeStart;
+    }
+
+    public void setRangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+    }
+
+    public Comment text(String text) {
+        this.text = text;
+        return this;
+    }
+
+    /**
+     * Gets or sets this is a convenience property that allows to easily get or set text of the comment.
+    * @return text
+    **/
+    @ApiModelProperty(value = "Gets or sets this is a convenience property that allows to easily get or set text of the comment.")
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Comment comment = (Comment) o;
+        return
+            Objects.equals(this.author, comment.author) &&
+            Objects.equals(this.content, comment.content) &&
+            Objects.equals(this.dateTime, comment.dateTime) &&
+            Objects.equals(this.initial, comment.initial) &&
+            Objects.equals(this.rangeEnd, comment.rangeEnd) &&
+            Objects.equals(this.rangeStart, comment.rangeStart) &&
+            Objects.equals(this.text, comment.text) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(author, content, dateTime, initial, rangeEnd, rangeStart, text, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -246,6 +245,4 @@ public class Comment extends CommentLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

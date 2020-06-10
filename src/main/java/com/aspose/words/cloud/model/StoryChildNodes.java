@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StoryChildNodes.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,46 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Child nodes of Story or InlineStory.")
 public class StoryChildNodes {
-  @SerializedName("ChildNodes")
-  private List<NodeLink> childNodes = null;
-
-  public StoryChildNodes childNodes(List<NodeLink> childNodes) {
-    this.childNodes = childNodes;
-    return this;
-  }
-
-  public StoryChildNodes addChildNodesItem(NodeLink childNodesItem) {
-    if (this.childNodes == null) {
-      this.childNodes = new ArrayList<NodeLink>();
+    @SerializedName("ChildNodes")
+    private List<NodeLink> childNodes = null;
+    public StoryChildNodes childNodes(List<NodeLink> childNodes) {
+        this.childNodes = childNodes;
+        return this;
     }
-    this.childNodes.add(childNodesItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets child nodes.
-   * @return childNodes
-  **/
-  @ApiModelProperty(value = "Gets or sets child nodes.")
-  public List<NodeLink> getChildNodes() {
-    return childNodes;
-  }
-
-  public void setChildNodes(List<NodeLink> childNodes) {
-    this.childNodes = childNodes;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public StoryChildNodes addChildNodesItem(NodeLink childNodesItem) {
+        if (this.childNodes == null) {
+            this.childNodes = new ArrayList<NodeLink>();
+        }
+        this.childNodes.add(childNodesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets child nodes.
+    * @return childNodes
+    **/
+    @ApiModelProperty(value = "Gets or sets child nodes.")
+    public List<NodeLink> getChildNodes() {
+        return childNodes;
     }
-    StoryChildNodes storyChildNodes = (StoryChildNodes) o;
-    return Objects.equals(this.childNodes, storyChildNodes.childNodes);
+
+    public void setChildNodes(List<NodeLink> childNodes) {
+        this.childNodes = childNodes;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        StoryChildNodes storyChildNodes = (StoryChildNodes) o;
+        return
+            Objects.equals(this.childNodes, storyChildNodes.childNodes);
   }
 
   @Override
@@ -94,12 +94,10 @@ public class StoryChildNodes {
     return Objects.hash(childNodes);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StoryChildNodes {\n");
-    
     sb.append("    childNodes: ").append(toIndentedString(childNodes)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -115,6 +113,4 @@ public class StoryChildNodes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

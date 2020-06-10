@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Bookmarks.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents an array of bookmarks.")
 public class Bookmarks extends LinkElement {
-  @SerializedName("BookmarkList")
-  private List<Bookmark> bookmarkList = null;
-
-  public Bookmarks bookmarkList(List<Bookmark> bookmarkList) {
-    this.bookmarkList = bookmarkList;
-    return this;
-  }
-
-  public Bookmarks addBookmarkListItem(Bookmark bookmarkListItem) {
-    if (this.bookmarkList == null) {
-      this.bookmarkList = new ArrayList<Bookmark>();
+    @SerializedName("BookmarkList")
+    private List<Bookmark> bookmarkList = null;
+    public Bookmarks bookmarkList(List<Bookmark> bookmarkList) {
+        this.bookmarkList = bookmarkList;
+        return this;
     }
-    this.bookmarkList.add(bookmarkListItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets array of bookmarks.
-   * @return bookmarkList
-  **/
-  @ApiModelProperty(value = "Gets or sets array of bookmarks.")
-  public List<Bookmark> getBookmarkList() {
-    return bookmarkList;
-  }
-
-  public void setBookmarkList(List<Bookmark> bookmarkList) {
-    this.bookmarkList = bookmarkList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public Bookmarks addBookmarkListItem(Bookmark bookmarkListItem) {
+        if (this.bookmarkList == null) {
+            this.bookmarkList = new ArrayList<Bookmark>();
+        }
+        this.bookmarkList.add(bookmarkListItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets array of bookmarks.
+    * @return bookmarkList
+    **/
+    @ApiModelProperty(value = "Gets or sets array of bookmarks.")
+    public List<Bookmark> getBookmarkList() {
+        return bookmarkList;
     }
-    Bookmarks bookmarks = (Bookmarks) o;
-    return Objects.equals(this.bookmarkList, bookmarks.bookmarkList) &&
-        super.equals(o);
+
+    public void setBookmarkList(List<Bookmark> bookmarkList) {
+        this.bookmarkList = bookmarkList;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Bookmarks bookmarks = (Bookmarks) o;
+        return
+            Objects.equals(this.bookmarkList, bookmarks.bookmarkList) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(bookmarkList, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class Bookmarks extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StyleUpdate.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,121 +47,120 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a single document style properties to update.")
 public class StyleUpdate {
-  @SerializedName("NextParagraphStyleName")
-  private String nextParagraphStyleName = null;
+    @SerializedName("BaseStyleName")
+    private String baseStyleName = null;
 
-  @SerializedName("BaseStyleName")
-  private String baseStyleName = null;
+    @SerializedName("IsQuickStyle")
+    private Boolean isQuickStyle = null;
 
-  @SerializedName("IsQuickStyle")
-  private Boolean isQuickStyle = null;
+    @SerializedName("Name")
+    private String name = null;
 
-  @SerializedName("Name")
-  private String name = null;
-
-  public StyleUpdate nextParagraphStyleName(String nextParagraphStyleName) {
-    this.nextParagraphStyleName = nextParagraphStyleName;
-    return this;
-  }
-
-   /**
-   * Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-   * @return nextParagraphStyleName
-  **/
-  @ApiModelProperty(value = "Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
-  public String getNextParagraphStyleName() {
-    return nextParagraphStyleName;
-  }
-
-  public void setNextParagraphStyleName(String nextParagraphStyleName) {
-    this.nextParagraphStyleName = nextParagraphStyleName;
-  }
-
-  public StyleUpdate baseStyleName(String baseStyleName) {
-    this.baseStyleName = baseStyleName;
-    return this;
-  }
-
-   /**
-   * Gets or sets /sets the name of the style this style is based on.
-   * @return baseStyleName
-  **/
-  @ApiModelProperty(value = "Gets or sets /sets the name of the style this style is based on.")
-  public String getBaseStyleName() {
-    return baseStyleName;
-  }
-
-  public void setBaseStyleName(String baseStyleName) {
-    this.baseStyleName = baseStyleName;
-  }
-
-  public StyleUpdate isQuickStyle(Boolean isQuickStyle) {
-    this.isQuickStyle = isQuickStyle;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
-   * @return isQuickStyle
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.")
-  public Boolean isIsQuickStyle() {
-    return isQuickStyle;
-  }
-
-  public void setIsQuickStyle(Boolean isQuickStyle) {
-    this.isQuickStyle = isQuickStyle;
-  }
-
-  public StyleUpdate name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Gets or sets the name of the style.
-   * @return name
-  **/
-  @ApiModelProperty(value = "Gets or sets the name of the style.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("NextParagraphStyleName")
+    private String nextParagraphStyleName = null;
+    public StyleUpdate baseStyleName(String baseStyleName) {
+        this.baseStyleName = baseStyleName;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets /sets the name of the style this style is based on.
+    * @return baseStyleName
+    **/
+    @ApiModelProperty(value = "Gets or sets /sets the name of the style this style is based on.")
+    public String getBaseStyleName() {
+        return baseStyleName;
     }
-    StyleUpdate styleUpdate = (StyleUpdate) o;
-    return Objects.equals(this.nextParagraphStyleName, styleUpdate.nextParagraphStyleName) &&
-        Objects.equals(this.baseStyleName, styleUpdate.baseStyleName) &&
-        Objects.equals(this.isQuickStyle, styleUpdate.isQuickStyle) &&
-        Objects.equals(this.name, styleUpdate.name);
+
+    public void setBaseStyleName(String baseStyleName) {
+        this.baseStyleName = baseStyleName;
+    }
+
+    public StyleUpdate isQuickStyle(Boolean isQuickStyle) {
+        this.isQuickStyle = isQuickStyle;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+    * @return isQuickStyle
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.")
+    public Boolean getIsQuickStyle() {
+        return isQuickStyle;
+    }
+
+    public void setIsQuickStyle(Boolean isQuickStyle) {
+        this.isQuickStyle = isQuickStyle;
+    }
+
+    public StyleUpdate name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets or sets the name of the style.
+    * @return name
+    **/
+    @ApiModelProperty(value = "Gets or sets the name of the style.")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public StyleUpdate nextParagraphStyleName(String nextParagraphStyleName) {
+        this.nextParagraphStyleName = nextParagraphStyleName;
+        return this;
+    }
+
+    /**
+     * Gets or sets /sets the name of the style to be applied automatically to a new paragraph
+     * inserted after a paragraph formatted with the specified style.
+    * @return nextParagraphStyleName
+    **/
+    @ApiModelProperty(value = "Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.")
+    public String getNextParagraphStyleName() {
+        return nextParagraphStyleName;
+    }
+
+    public void setNextParagraphStyleName(String nextParagraphStyleName) {
+        this.nextParagraphStyleName = nextParagraphStyleName;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        StyleUpdate styleUpdate = (StyleUpdate) o;
+        return
+            Objects.equals(this.baseStyleName, styleUpdate.baseStyleName) &&
+            Objects.equals(this.isQuickStyle, styleUpdate.isQuickStyle) &&
+            Objects.equals(this.name, styleUpdate.name) &&
+            Objects.equals(this.nextParagraphStyleName, styleUpdate.nextParagraphStyleName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nextParagraphStyleName, baseStyleName, isQuickStyle, name);
+    return Objects.hash(baseStyleName, isQuickStyle, name, nextParagraphStyleName);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleUpdate {\n");
-    
-    sb.append("    nextParagraphStyleName: ").append(toIndentedString(nextParagraphStyleName)).append("\n");
     sb.append("    baseStyleName: ").append(toIndentedString(baseStyleName)).append("\n");
     sb.append("    isQuickStyle: ").append(toIndentedString(isQuickStyle)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nextParagraphStyleName: ").append(toIndentedString(nextParagraphStyleName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -176,6 +175,4 @@ public class StyleUpdate {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

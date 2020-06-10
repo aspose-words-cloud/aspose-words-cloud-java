@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FootnoteLink.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,25 +46,24 @@ import io.swagger.annotations.ApiModelProperty;
  * Footnote link.
  */
 @ApiModel(description = "Footnote link.")
-
 public class FootnoteLink extends NodeLink {
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return super.equals(o);
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        return super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -85,6 +84,4 @@ public class FootnoteLink extends NodeLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

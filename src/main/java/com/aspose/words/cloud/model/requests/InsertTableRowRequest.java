@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableRowRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,57 +37,58 @@ public class InsertTableRowRequest {
     /*
      * The document name.
      */
-    private String Name;
-
-    /*
-     * Path to table.
-     */
-    private String TablePath;
-
-    /*
-     * Original document folder.
-     */
-    private String Folder;
-
-    /*
-     * Original document storage.
-     */
-    private String Storage;
-
-    /*
-     * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     */
-    private String LoadEncoding;
-
-    /*
-     * Password for opening an encrypted document.
-     */
-    private String Password;
-
-    /*
-     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    private String DestFileName;
-
-    /*
-     * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    private String RevisionAuthor;
-
-    /*
-     * The date and time to use for revisions.
-     */
-    private String RevisionDateTime;
+    private String name;
 
     /*
      * Table row parameters/.
      */
-    private TableRowInsert Row;
-    
+    private TableRowInsert row;
+
     /*
-     * Initializes a new instance of the insertTableRowRequest class.
-     *  
+     * Path to table.
+     */
+    private String tablePath;
+
+    /*
+     * Original document folder.
+     */
+    private String folder;
+
+    /*
+     * Original document storage.
+     */
+    private String storage;
+
+    /*
+     * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    private String loadEncoding;
+
+    /*
+     * Password for opening an encrypted document.
+     */
+    private String password;
+
+    /*
+     * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    private String destFileName;
+
+    /*
+     * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     */
+    private String revisionAuthor;
+
+    /*
+     * The date and time to use for revisions.
+     */
+    private String revisionDateTime;
+
+    /*
+     * Initializes a new instance of the InsertTableRowRequest class.
+     *
      * @param String name The document name.
+     * @param TableRowInsert row Table row parameters/.
      * @param String tablePath Path to table.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -94,158 +97,157 @@ public class InsertTableRowRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param TableRowInsert row Table row parameters/.
      */
-    public InsertTableRowRequest(String name,  String tablePath,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  TableRowInsert row) {
-        Name = name;
-        TablePath = tablePath;
-        Folder = folder;
-        Storage = storage;
-        LoadEncoding = loadEncoding;
-        Password = password;
-        DestFileName = destFileName;
-        RevisionAuthor = revisionAuthor;
-        RevisionDateTime = revisionDateTime;
-        Row = row;
+    public InsertTableRowRequest(String name, TableRowInsert row, String tablePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+        this.name = name;
+        this.row = row;
+        this.tablePath = tablePath;
+        this.folder = folder;
+        this.storage = storage;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
+        this.destFileName = destFileName;
+        this.revisionAuthor = revisionAuthor;
+        this.revisionDateTime = revisionDateTime;
     }
 
     /*
-     *  Gets The document name.
+     * Gets The document name.
      */
     public String getName() {
-        return Name;
+        return this.name;
     }
 
     /*
      * Sets The document name.
      */
     public void setName(String value) {
-        Name = value;
+        this.name = value;
     }
 
     /*
-     *  Gets Path to table.
-     */
-    public String getTablePath() {
-        return TablePath;
-    }
-
-    /*
-     * Sets Path to table.
-     */
-    public void setTablePath(String value) {
-        TablePath = value;
-    }
-
-    /*
-     *  Gets Original document folder.
-     */
-    public String getFolder() {
-        return Folder;
-    }
-
-    /*
-     * Sets Original document folder.
-     */
-    public void setFolder(String value) {
-        Folder = value;
-    }
-
-    /*
-     *  Gets Original document storage.
-     */
-    public String getStorage() {
-        return Storage;
-    }
-
-    /*
-     * Sets Original document storage.
-     */
-    public void setStorage(String value) {
-        Storage = value;
-    }
-
-    /*
-     *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     */
-    public String getLoadEncoding() {
-        return LoadEncoding;
-    }
-
-    /*
-     * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-     */
-    public void setLoadEncoding(String value) {
-        LoadEncoding = value;
-    }
-
-    /*
-     *  Gets Password for opening an encrypted document.
-     */
-    public String getPassword() {
-        return Password;
-    }
-
-    /*
-     * Sets Password for opening an encrypted document.
-     */
-    public void setPassword(String value) {
-        Password = value;
-    }
-
-    /*
-     *  Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public String getDestFileName() {
-        return DestFileName;
-    }
-
-    /*
-     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     */
-    public void setDestFileName(String value) {
-        DestFileName = value;
-    }
-
-    /*
-     *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    public String getRevisionAuthor() {
-        return RevisionAuthor;
-    }
-
-    /*
-     * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    public void setRevisionAuthor(String value) {
-        RevisionAuthor = value;
-    }
-
-    /*
-     *  Gets The date and time to use for revisions.
-     */
-    public String getRevisionDateTime() {
-        return RevisionDateTime;
-    }
-
-    /*
-     * Sets The date and time to use for revisions.
-     */
-    public void setRevisionDateTime(String value) {
-        RevisionDateTime = value;
-    }
-
-    /*
-     *  Gets Table row parameters/.
+     * Gets Table row parameters/.
      */
     public TableRowInsert getRow() {
-        return Row;
+        return this.row;
     }
 
     /*
      * Sets Table row parameters/.
      */
     public void setRow(TableRowInsert value) {
-        Row = value;
+        this.row = value;
+    }
+
+    /*
+     * Gets Path to table.
+     */
+    public String getTablePath() {
+        return this.tablePath;
+    }
+
+    /*
+     * Sets Path to table.
+     */
+    public void setTablePath(String value) {
+        this.tablePath = value;
+    }
+
+    /*
+     * Gets Original document folder.
+     */
+    public String getFolder() {
+        return this.folder;
+    }
+
+    /*
+     * Sets Original document folder.
+     */
+    public void setFolder(String value) {
+        this.folder = value;
+    }
+
+    /*
+     * Gets Original document storage.
+     */
+    public String getStorage() {
+        return this.storage;
+    }
+
+    /*
+     * Sets Original document storage.
+     */
+    public void setStorage(String value) {
+        this.storage = value;
+    }
+
+    /*
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    public String getLoadEncoding() {
+        return this.loadEncoding;
+    }
+
+    /*
+     * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     */
+    public void setLoadEncoding(String value) {
+        this.loadEncoding = value;
+    }
+
+    /*
+     * Gets Password for opening an encrypted document.
+     */
+    public String getPassword() {
+        return this.password;
+    }
+
+    /*
+     * Sets Password for opening an encrypted document.
+     */
+    public void setPassword(String value) {
+        this.password = value;
+    }
+
+    /*
+     * Gets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    public String getDestFileName() {
+        return this.destFileName;
+    }
+
+    /*
+     * Sets Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+     */
+    public void setDestFileName(String value) {
+        this.destFileName = value;
+    }
+
+    /*
+     * Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     */
+    public String getRevisionAuthor() {
+        return this.revisionAuthor;
+    }
+
+    /*
+     * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+     */
+    public void setRevisionAuthor(String value) {
+        this.revisionAuthor = value;
+    }
+
+    /*
+     * Gets The date and time to use for revisions.
+     */
+    public String getRevisionDateTime() {
+        return this.revisionDateTime;
+    }
+
+    /*
+     * Sets The date and time to use for revisions.
+     */
+    public void setRevisionDateTime(String value) {
+        this.revisionDateTime = value;
     }
 }

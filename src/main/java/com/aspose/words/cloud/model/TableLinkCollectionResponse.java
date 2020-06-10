@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableLinkCollectionResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/tables.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables.")
 public class TableLinkCollectionResponse extends WordsResponse {
-  @SerializedName("Tables")
-  private TableLinkCollection tables = null;
-
-  public TableLinkCollectionResponse tables(TableLinkCollection tables) {
-    this.tables = tables;
-    return this;
-  }
-
-   /**
-   * Get tables
-   * @return tables
-  **/
-  @ApiModelProperty(value = "")
-  public TableLinkCollection getTables() {
-    return tables;
-  }
-
-  public void setTables(TableLinkCollection tables) {
-    this.tables = tables;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Tables")
+    private TableLinkCollection tables = null;
+    public TableLinkCollectionResponse tables(TableLinkCollection tables) {
+        this.tables = tables;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of tables.
+    * @return tables
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of tables.")
+    public TableLinkCollection getTables() {
+        return tables;
     }
-    TableLinkCollectionResponse tableLinkCollectionResponse = (TableLinkCollectionResponse) o;
-    return Objects.equals(this.tables, tableLinkCollectionResponse.tables) &&
-        super.equals(o);
+
+    public void setTables(TableLinkCollection tables) {
+        this.tables = tables;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TableLinkCollectionResponse tableLinkCollectionResponse = (TableLinkCollectionResponse) o;
+        return
+            Objects.equals(this.tables, tableLinkCollectionResponse.tables) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(tables, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class TableLinkCollectionResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

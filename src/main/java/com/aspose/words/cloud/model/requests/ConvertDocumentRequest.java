@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ConvertDocumentRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -33,135 +35,135 @@ import java.io.File;
  */
 public class ConvertDocumentRequest {
     /*
-     * Converting document
+     * Converting document.
      */
-    private byte[] Document;
+    private byte[] document;
 
     /*
      * Format to convert.
      */
-    private String Format;
+    private String format;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private String storage;
 
     /*
      * Path for saving operation result to the local storage.
      */
-    private String OutPath;
+    private String outPath;
 
     /*
      * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
      */
-    private String FileNameFieldValue;
+    private String fileNameFieldValue;
 
     /*
      * Folder in filestorage with custom fonts.
      */
-    private String FontsLocation;
-    
+    private String fontsLocation;
+
     /*
-     * Initializes a new instance of the convertDocumentRequest class.
-     *  
-     * @param byte[] document Converting document
+     * Initializes a new instance of the ConvertDocumentRequest class.
+     *
+     * @param byte[] document Converting document.
      * @param String format Format to convert.
      * @param String storage Original document storage.
      * @param String outPath Path for saving operation result to the local storage.
      * @param String fileNameFieldValue This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public ConvertDocumentRequest(byte[] document,  String format,  String storage,  String outPath,  String fileNameFieldValue,  String fontsLocation) {
-        Document = document;
-        Format = format;
-        Storage = storage;
-        OutPath = outPath;
-        FileNameFieldValue = fileNameFieldValue;
-        FontsLocation = fontsLocation;
+    public ConvertDocumentRequest(byte[] document, String format, String storage, String outPath, String fileNameFieldValue, String fontsLocation) {
+        this.document = document;
+        this.format = format;
+        this.storage = storage;
+        this.outPath = outPath;
+        this.fileNameFieldValue = fileNameFieldValue;
+        this.fontsLocation = fontsLocation;
     }
 
     /*
-     *  Gets Converting document
+     * Gets Converting document.
      */
     public byte[] getDocument() {
-        return Document;
+        return this.document;
     }
 
     /*
-     * Sets Converting document
+     * Sets Converting document.
      */
     public void setDocument(byte[] value) {
-        Document = value;
+        this.document = value;
     }
 
     /*
-     *  Gets Format to convert.
+     * Gets Format to convert.
      */
     public String getFormat() {
-        return Format;
+        return this.format;
     }
 
     /*
      * Sets Format to convert.
      */
     public void setFormat(String value) {
-        Format = value;
+        this.format = value;
     }
 
     /*
-     *  Gets Original document storage.
+     * Gets Original document storage.
      */
     public String getStorage() {
-        return Storage;
+        return this.storage;
     }
 
     /*
      * Sets Original document storage.
      */
     public void setStorage(String value) {
-        Storage = value;
+        this.storage = value;
     }
 
     /*
-     *  Gets Path for saving operation result to the local storage.
+     * Gets Path for saving operation result to the local storage.
      */
     public String getOutPath() {
-        return OutPath;
+        return this.outPath;
     }
 
     /*
      * Sets Path for saving operation result to the local storage.
      */
     public void setOutPath(String value) {
-        OutPath = value;
+        this.outPath = value;
     }
 
     /*
-     *  Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+     * Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
      */
     public String getFileNameFieldValue() {
-        return FileNameFieldValue;
+        return this.fileNameFieldValue;
     }
 
     /*
      * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
      */
     public void setFileNameFieldValue(String value) {
-        FileNameFieldValue = value;
+        this.fileNameFieldValue = value;
     }
 
     /*
-     *  Gets Folder in filestorage with custom fonts.
+     * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
-        return FontsLocation;
+        return this.fontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
     public void setFontsLocation(String value) {
-        FontsLocation = value;
+        this.fontsLocation = value;
     }
 }

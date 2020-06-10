@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FieldBase.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,62 +46,61 @@ import io.swagger.annotations.ApiModelProperty;
  * Field.
  */
 @ApiModel(description = "Field.")
-
 public class FieldBase {
-  @SerializedName("FieldCode")
-  private String fieldCode = null;
+    @SerializedName("FieldCode")
+    private String fieldCode = null;
 
-  @SerializedName("LocaleId")
-  private String localeId = null;
-
-  public FieldBase fieldCode(String fieldCode) {
-    this.fieldCode = fieldCode;
-    return this;
-  }
-
-   /**
-   * Gets or sets field code.
-   * @return fieldCode
-  **/
-  @ApiModelProperty(value = "Gets or sets field code.")
-  public String getFieldCode() {
-    return fieldCode;
-  }
-
-  public void setFieldCode(String fieldCode) {
-    this.fieldCode = fieldCode;
-  }
-
-  public FieldBase localeId(String localeId) {
-    this.localeId = localeId;
-    return this;
-  }
-
-   /**
-   * Gets or sets LCID of the field.
-   * @return localeId
-  **/
-  @ApiModelProperty(value = "Gets or sets LCID of the field.")
-  public String getLocaleId() {
-    return localeId;
-  }
-
-  public void setLocaleId(String localeId) {
-    this.localeId = localeId;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("LocaleId")
+    private String localeId = null;
+    public FieldBase fieldCode(String fieldCode) {
+        this.fieldCode = fieldCode;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets field code.
+    * @return fieldCode
+    **/
+    @ApiModelProperty(value = "Gets or sets field code.")
+    public String getFieldCode() {
+        return fieldCode;
     }
-    FieldBase fieldBase = (FieldBase) o;
-    return Objects.equals(this.fieldCode, fieldBase.fieldCode) &&
-        Objects.equals(this.localeId, fieldBase.localeId);
+
+    public void setFieldCode(String fieldCode) {
+        this.fieldCode = fieldCode;
+    }
+
+    public FieldBase localeId(String localeId) {
+        this.localeId = localeId;
+        return this;
+    }
+
+    /**
+     * Gets or sets LCID of the field.
+    * @return localeId
+    **/
+    @ApiModelProperty(value = "Gets or sets LCID of the field.")
+    public String getLocaleId() {
+        return localeId;
+    }
+
+    public void setLocaleId(String localeId) {
+        this.localeId = localeId;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FieldBase fieldBase = (FieldBase) o;
+        return
+            Objects.equals(this.fieldCode, fieldBase.fieldCode) &&
+            Objects.equals(this.localeId, fieldBase.localeId);
   }
 
   @Override
@@ -109,12 +108,10 @@ public class FieldBase {
     return Objects.hash(fieldCode, localeId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldBase {\n");
-    
     sb.append("    fieldCode: ").append(toIndentedString(fieldCode)).append("\n");
     sb.append("    localeId: ").append(toIndentedString(localeId)).append("\n");
     sb.append("}");
@@ -131,6 +128,4 @@ public class FieldBase {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

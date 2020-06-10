@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}.")
 public class TableResponse extends WordsResponse {
-  @SerializedName("Table")
-  private Table table = null;
-
-  public TableResponse table(Table table) {
-    this.table = table;
-    return this;
-  }
-
-   /**
-   * Get table
-   * @return table
-  **/
-  @ApiModelProperty(value = "")
-  public Table getTable() {
-    return table;
-  }
-
-  public void setTable(Table table) {
-    this.table = table;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Table")
+    private Table table = null;
+    public TableResponse table(Table table) {
+        this.table = table;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets table.
+    * @return table
+    **/
+    @ApiModelProperty(value = "Gets or sets table.")
+    public Table getTable() {
+        return table;
     }
-    TableResponse tableResponse = (TableResponse) o;
-    return Objects.equals(this.table, tableResponse.table) &&
-        super.equals(o);
+
+    public void setTable(Table table) {
+        this.table = table;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TableResponse tableResponse = (TableResponse) o;
+        return
+            Objects.equals(this.table, tableResponse.table) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(table, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class TableResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

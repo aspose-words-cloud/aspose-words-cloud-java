@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ListFormat.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,94 +43,93 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph list format element.             
+ * Paragraph list format element.
  */
-@ApiModel(description = "Paragraph list format element.             ")
+@ApiModel(description = "Paragraph list format element.")
 public class ListFormat extends LinkElement {
-  @SerializedName("IsListItem")
-  private Boolean isListItem = null;
+    @SerializedName("IsListItem")
+    private Boolean isListItem = null;
 
-  @SerializedName("ListId")
-  private Integer listId = null;
+    @SerializedName("ListId")
+    private Integer listId = null;
 
-  @SerializedName("ListLevelNumber")
-  private Integer listLevelNumber = null;
-
-  public ListFormat isListItem(Boolean isListItem) {
-    this.isListItem = isListItem;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
-   * @return isListItem
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.")
-  public Boolean isIsListItem() {
-    return isListItem;
-  }
-
-  public void setIsListItem(Boolean isListItem) {
-    this.isListItem = isListItem;
-  }
-
-  public ListFormat listId(Integer listId) {
-    this.listId = listId;
-    return this;
-  }
-
-   /**
-   * Gets or sets the list id of this paragraph.
-   * @return listId
-  **/
-  @ApiModelProperty(value = "Gets or sets the list id of this paragraph.")
-  public Integer getListId() {
-    return listId;
-  }
-
-  public void setListId(Integer listId) {
-    this.listId = listId;
-  }
-
-  public ListFormat listLevelNumber(Integer listLevelNumber) {
-    this.listLevelNumber = listLevelNumber;
-    return this;
-  }
-
-   /**
-   * Gets or sets the list level number (0 to 8) for the paragraph.
-   * @return listLevelNumber
-  **/
-  @ApiModelProperty(value = "Gets or sets the list level number (0 to 8) for the paragraph.")
-  public Integer getListLevelNumber() {
-    return listLevelNumber;
-  }
-
-  public void setListLevelNumber(Integer listLevelNumber) {
-    this.listLevelNumber = listLevelNumber;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ListLevelNumber")
+    private Integer listLevelNumber = null;
+    public ListFormat isListItem(Boolean isListItem) {
+        this.isListItem = isListItem;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
+    * @return isListItem
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.")
+    public Boolean getIsListItem() {
+        return isListItem;
     }
-    ListFormat listFormat = (ListFormat) o;
-    return Objects.equals(this.isListItem, listFormat.isListItem) &&
-        Objects.equals(this.listId, listFormat.listId) &&
-        Objects.equals(this.listLevelNumber, listFormat.listLevelNumber) &&
-        super.equals(o);
+
+    public void setIsListItem(Boolean isListItem) {
+        this.isListItem = isListItem;
+    }
+
+    public ListFormat listId(Integer listId) {
+        this.listId = listId;
+        return this;
+    }
+
+    /**
+     * Gets or sets the list id of this paragraph.
+    * @return listId
+    **/
+    @ApiModelProperty(value = "Gets or sets the list id of this paragraph.")
+    public Integer getListId() {
+        return listId;
+    }
+
+    public void setListId(Integer listId) {
+        this.listId = listId;
+    }
+
+    public ListFormat listLevelNumber(Integer listLevelNumber) {
+        this.listLevelNumber = listLevelNumber;
+        return this;
+    }
+
+    /**
+     * Gets or sets the list level number (0 to 8) for the paragraph.
+    * @return listLevelNumber
+    **/
+    @ApiModelProperty(value = "Gets or sets the list level number (0 to 8) for the paragraph.")
+    public Integer getListLevelNumber() {
+        return listLevelNumber;
+    }
+
+    public void setListLevelNumber(Integer listLevelNumber) {
+        this.listLevelNumber = listLevelNumber;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ListFormat listFormat = (ListFormat) o;
+        return
+            Objects.equals(this.isListItem, listFormat.isListItem) &&
+            Objects.equals(this.listId, listFormat.listId) &&
+            Objects.equals(this.listLevelNumber, listFormat.listLevelNumber) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(isListItem, listId, listLevelNumber, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -154,6 +153,4 @@ public class ListFormat extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

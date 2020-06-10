@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DrawingObjectsResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET /drawingObjects.")
 public class DrawingObjectsResponse extends WordsResponse {
-  @SerializedName("DrawingObjects")
-  private DrawingObjectCollection drawingObjects = null;
-
-  public DrawingObjectsResponse drawingObjects(DrawingObjectCollection drawingObjects) {
-    this.drawingObjects = drawingObjects;
-    return this;
-  }
-
-   /**
-   * Get drawingObjects
-   * @return drawingObjects
-  **/
-  @ApiModelProperty(value = "")
-  public DrawingObjectCollection getDrawingObjects() {
-    return drawingObjects;
-  }
-
-  public void setDrawingObjects(DrawingObjectCollection drawingObjects) {
-    this.drawingObjects = drawingObjects;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("DrawingObjects")
+    private DrawingObjectCollection drawingObjects = null;
+    public DrawingObjectsResponse drawingObjects(DrawingObjectCollection drawingObjects) {
+        this.drawingObjects = drawingObjects;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of drawing objects.
+    * @return drawingObjects
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of drawing objects.")
+    public DrawingObjectCollection getDrawingObjects() {
+        return drawingObjects;
     }
-    DrawingObjectsResponse drawingObjectsResponse = (DrawingObjectsResponse) o;
-    return Objects.equals(this.drawingObjects, drawingObjectsResponse.drawingObjects) &&
-        super.equals(o);
+
+    public void setDrawingObjects(DrawingObjectCollection drawingObjects) {
+        this.drawingObjects = drawingObjects;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DrawingObjectsResponse drawingObjectsResponse = (DrawingObjectsResponse) o;
+        return
+            Objects.equals(this.drawingObjects, drawingObjectsResponse.drawingObjects) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(drawingObjects, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class DrawingObjectsResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

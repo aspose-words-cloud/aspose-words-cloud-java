@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableCellInsert.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,38 +47,38 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Table cell element.")
 public class TableCellInsert {
-  @SerializedName("InsertAfter")
-  private Integer insertAfter = null;
-
-  public TableCellInsert insertAfter(Integer insertAfter) {
-    this.insertAfter = insertAfter;
-    return this;
-  }
-
-   /**
-   * Gets or sets table cell will be inserted after cell with specified 0-based index.
-   * @return insertAfter
-  **/
-  @ApiModelProperty(value = "Gets or sets table cell will be inserted after cell with specified 0-based index.")
-  public Integer getInsertAfter() {
-    return insertAfter;
-  }
-
-  public void setInsertAfter(Integer insertAfter) {
-    this.insertAfter = insertAfter;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("InsertAfter")
+    private Integer insertAfter = null;
+    public TableCellInsert insertAfter(Integer insertAfter) {
+        this.insertAfter = insertAfter;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets table cell will be inserted after cell with specified 0-based index.
+    * @return insertAfter
+    **/
+    @ApiModelProperty(value = "Gets or sets table cell will be inserted after cell with specified 0-based index.")
+    public Integer getInsertAfter() {
+        return insertAfter;
     }
-    TableCellInsert tableCellInsert = (TableCellInsert) o;
-    return Objects.equals(this.insertAfter, tableCellInsert.insertAfter);
+
+    public void setInsertAfter(Integer insertAfter) {
+        this.insertAfter = insertAfter;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TableCellInsert tableCellInsert = (TableCellInsert) o;
+        return
+            Objects.equals(this.insertAfter, tableCellInsert.insertAfter);
   }
 
   @Override
@@ -86,12 +86,10 @@ public class TableCellInsert {
     return Objects.hash(insertAfter);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableCellInsert {\n");
-    
     sb.append("    insertAfter: ").append(toIndentedString(insertAfter)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -107,6 +105,4 @@ public class TableCellInsert {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SearchResultsCollection.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Collection of search results.")
 public class SearchResultsCollection extends LinkElement {
-  @SerializedName("ResultsList")
-  private List<SearchResult> resultsList = null;
-
-  public SearchResultsCollection resultsList(List<SearchResult> resultsList) {
-    this.resultsList = resultsList;
-    return this;
-  }
-
-  public SearchResultsCollection addResultsListItem(SearchResult resultsListItem) {
-    if (this.resultsList == null) {
-      this.resultsList = new ArrayList<SearchResult>();
+    @SerializedName("ResultsList")
+    private List<SearchResult> resultsList = null;
+    public SearchResultsCollection resultsList(List<SearchResult> resultsList) {
+        this.resultsList = resultsList;
+        return this;
     }
-    this.resultsList.add(resultsListItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of comments.
-   * @return resultsList
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of comments.")
-  public List<SearchResult> getResultsList() {
-    return resultsList;
-  }
-
-  public void setResultsList(List<SearchResult> resultsList) {
-    this.resultsList = resultsList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public SearchResultsCollection addResultsListItem(SearchResult resultsListItem) {
+        if (this.resultsList == null) {
+            this.resultsList = new ArrayList<SearchResult>();
+        }
+        this.resultsList.add(resultsListItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of comments.
+    * @return resultsList
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of comments.")
+    public List<SearchResult> getResultsList() {
+        return resultsList;
     }
-    SearchResultsCollection searchResultsCollection = (SearchResultsCollection) o;
-    return Objects.equals(this.resultsList, searchResultsCollection.resultsList) &&
-        super.equals(o);
+
+    public void setResultsList(List<SearchResult> resultsList) {
+        this.resultsList = resultsList;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SearchResultsCollection searchResultsCollection = (SearchResultsCollection) o;
+        return
+            Objects.equals(this.resultsList, searchResultsCollection.resultsList) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(resultsList, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class SearchResultsCollection extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

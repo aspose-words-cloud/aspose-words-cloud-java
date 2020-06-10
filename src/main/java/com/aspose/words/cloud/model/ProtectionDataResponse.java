@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ProtectionDataResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,68 +47,67 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Response for the request of data about protection.")
 public class ProtectionDataResponse extends WordsResponse {
-  @SerializedName("DocumentLink")
-  private FileLink documentLink = null;
+    @SerializedName("DocumentLink")
+    private FileLink documentLink = null;
 
-  @SerializedName("ProtectionData")
-  private ProtectionData protectionData = null;
-
-  public ProtectionDataResponse documentLink(FileLink documentLink) {
-    this.documentLink = documentLink;
-    return this;
-  }
-
-   /**
-   * Get documentLink
-   * @return documentLink
-  **/
-  @ApiModelProperty(value = "")
-  public FileLink getDocumentLink() {
-    return documentLink;
-  }
-
-  public void setDocumentLink(FileLink documentLink) {
-    this.documentLink = documentLink;
-  }
-
-  public ProtectionDataResponse protectionData(ProtectionData protectionData) {
-    this.protectionData = protectionData;
-    return this;
-  }
-
-   /**
-   * Get protectionData
-   * @return protectionData
-  **/
-  @ApiModelProperty(value = "")
-  public ProtectionData getProtectionData() {
-    return protectionData;
-  }
-
-  public void setProtectionData(ProtectionData protectionData) {
-    this.protectionData = protectionData;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ProtectionData")
+    private ProtectionData protectionData = null;
+    public ProtectionDataResponse documentLink(FileLink documentLink) {
+        this.documentLink = documentLink;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets link to the document.
+    * @return documentLink
+    **/
+    @ApiModelProperty(value = "Gets or sets link to the document.")
+    public FileLink getDocumentLink() {
+        return documentLink;
     }
-    ProtectionDataResponse protectionDataResponse = (ProtectionDataResponse) o;
-    return Objects.equals(this.documentLink, protectionDataResponse.documentLink) &&
-        Objects.equals(this.protectionData, protectionDataResponse.protectionData) &&
-        super.equals(o);
+
+    public void setDocumentLink(FileLink documentLink) {
+        this.documentLink = documentLink;
+    }
+
+    public ProtectionDataResponse protectionData(ProtectionData protectionData) {
+        this.protectionData = protectionData;
+        return this;
+    }
+
+    /**
+     * Gets or sets protection's data of the document.
+    * @return protectionData
+    **/
+    @ApiModelProperty(value = "Gets or sets protection's data of the document.")
+    public ProtectionData getProtectionData() {
+        return protectionData;
+    }
+
+    public void setProtectionData(ProtectionData protectionData) {
+        this.protectionData = protectionData;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ProtectionDataResponse protectionDataResponse = (ProtectionDataResponse) o;
+        return
+            Objects.equals(this.documentLink, protectionDataResponse.documentLink) &&
+            Objects.equals(this.protectionData, protectionDataResponse.protectionData) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(documentLink, protectionData, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -131,6 +130,4 @@ public class ProtectionDataResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

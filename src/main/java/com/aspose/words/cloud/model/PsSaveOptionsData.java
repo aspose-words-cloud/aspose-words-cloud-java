@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="PsSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for ps save options.")
 public class PsSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("UseBookFoldPrintingSettings")
-  private Boolean useBookFoldPrintingSettings = null;
-
-  public PsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
-    this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-    return this;
-  }
-
-   /**
-   * Gets or sets determines whether the document should be saved using a booklet printing layout.
-   * @return useBookFoldPrintingSettings
-  **/
-  @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
-  public Boolean isUseBookFoldPrintingSettings() {
-    return useBookFoldPrintingSettings;
-  }
-
-  public void setUseBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
-    this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("UseBookFoldPrintingSettings")
+    private Boolean useBookFoldPrintingSettings = null;
+    public PsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
+        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets determines whether the document should be saved using a booklet printing layout.
+    * @return useBookFoldPrintingSettings
+    **/
+    @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
+    public Boolean getUseBookFoldPrintingSettings() {
+        return useBookFoldPrintingSettings;
     }
-    PsSaveOptionsData psSaveOptionsData = (PsSaveOptionsData) o;
-    return Objects.equals(this.useBookFoldPrintingSettings, psSaveOptionsData.useBookFoldPrintingSettings) &&
-        super.equals(o);
+
+    public void setUseBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
+        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        PsSaveOptionsData psSaveOptionsData = (PsSaveOptionsData) o;
+        return
+            Objects.equals(this.useBookFoldPrintingSettings, psSaveOptionsData.useBookFoldPrintingSettings) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(useBookFoldPrintingSettings, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class PsSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

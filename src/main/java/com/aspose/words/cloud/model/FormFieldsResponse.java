@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FormFieldsResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.")
 public class FormFieldsResponse extends WordsResponse {
-  @SerializedName("FormFields")
-  private FormFieldCollection formFields = null;
-
-  public FormFieldsResponse formFields(FormFieldCollection formFields) {
-    this.formFields = formFields;
-    return this;
-  }
-
-   /**
-   * Get formFields
-   * @return formFields
-  **/
-  @ApiModelProperty(value = "")
-  public FormFieldCollection getFormFields() {
-    return formFields;
-  }
-
-  public void setFormFields(FormFieldCollection formFields) {
-    this.formFields = formFields;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("FormFields")
+    private FormFieldCollection formFields = null;
+    public FormFieldsResponse formFields(FormFieldCollection formFields) {
+        this.formFields = formFields;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of form fields.
+    * @return formFields
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of form fields.")
+    public FormFieldCollection getFormFields() {
+        return formFields;
     }
-    FormFieldsResponse formFieldsResponse = (FormFieldsResponse) o;
-    return Objects.equals(this.formFields, formFieldsResponse.formFields) &&
-        super.equals(o);
+
+    public void setFormFields(FormFieldCollection formFields) {
+        this.formFields = formFields;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FormFieldsResponse formFieldsResponse = (FormFieldsResponse) o;
+        return
+            Objects.equals(this.formFields, formFieldsResponse.formFields) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(formFields, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class FormFieldsResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

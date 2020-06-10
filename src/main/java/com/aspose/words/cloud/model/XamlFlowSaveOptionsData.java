@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="XamlFlowSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,68 +47,67 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for xaml flow save options.")
 public class XamlFlowSaveOptionsData extends SaveOptionsData {
-  @SerializedName("ImagesFolder")
-  private String imagesFolder = null;
+    @SerializedName("ImagesFolder")
+    private String imagesFolder = null;
 
-  @SerializedName("ImagesFolderAlias")
-  private String imagesFolderAlias = null;
-
-  public XamlFlowSaveOptionsData imagesFolder(String imagesFolder) {
-    this.imagesFolder = imagesFolder;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the physical folder where images are saved when exporting.
-   * @return imagesFolder
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the physical folder where images are saved when exporting.")
-  public String getImagesFolder() {
-    return imagesFolder;
-  }
-
-  public void setImagesFolder(String imagesFolder) {
-    this.imagesFolder = imagesFolder;
-  }
-
-  public XamlFlowSaveOptionsData imagesFolderAlias(String imagesFolderAlias) {
-    this.imagesFolderAlias = imagesFolderAlias;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the name of the folder used to construct image URIs.
-   * @return imagesFolderAlias
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs.")
-  public String getImagesFolderAlias() {
-    return imagesFolderAlias;
-  }
-
-  public void setImagesFolderAlias(String imagesFolderAlias) {
-    this.imagesFolderAlias = imagesFolderAlias;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ImagesFolderAlias")
+    private String imagesFolderAlias = null;
+    public XamlFlowSaveOptionsData imagesFolder(String imagesFolder) {
+        this.imagesFolder = imagesFolder;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets specifies the physical folder where images are saved when exporting.
+    * @return imagesFolder
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the physical folder where images are saved when exporting.")
+    public String getImagesFolder() {
+        return imagesFolder;
     }
-    XamlFlowSaveOptionsData xamlFlowSaveOptionsData = (XamlFlowSaveOptionsData) o;
-    return Objects.equals(this.imagesFolder, xamlFlowSaveOptionsData.imagesFolder) &&
-        Objects.equals(this.imagesFolderAlias, xamlFlowSaveOptionsData.imagesFolderAlias) &&
-        super.equals(o);
+
+    public void setImagesFolder(String imagesFolder) {
+        this.imagesFolder = imagesFolder;
+    }
+
+    public XamlFlowSaveOptionsData imagesFolderAlias(String imagesFolderAlias) {
+        this.imagesFolderAlias = imagesFolderAlias;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the name of the folder used to construct image URIs.
+    * @return imagesFolderAlias
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs.")
+    public String getImagesFolderAlias() {
+        return imagesFolderAlias;
+    }
+
+    public void setImagesFolderAlias(String imagesFolderAlias) {
+        this.imagesFolderAlias = imagesFolderAlias;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        XamlFlowSaveOptionsData xamlFlowSaveOptionsData = (XamlFlowSaveOptionsData) o;
+        return
+            Objects.equals(this.imagesFolder, xamlFlowSaveOptionsData.imagesFolder) &&
+            Objects.equals(this.imagesFolderAlias, xamlFlowSaveOptionsData.imagesFolderAlias) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(imagesFolder, imagesFolderAlias, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -131,6 +130,4 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

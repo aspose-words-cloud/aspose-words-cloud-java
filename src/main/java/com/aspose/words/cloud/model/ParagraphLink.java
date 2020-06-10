@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ParagraphLink.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Paragraph link element.")
 public class ParagraphLink extends NodeLink {
-  @SerializedName("Text")
-  private String text = null;
-
-  public ParagraphLink text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Gets or sets paragraph&#39;s text.
-   * @return text
-  **/
-  @ApiModelProperty(value = "Gets or sets paragraph's text.")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Text")
+    private String text = null;
+    public ParagraphLink text(String text) {
+        this.text = text;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets paragraph's text.
+    * @return text
+    **/
+    @ApiModelProperty(value = "Gets or sets paragraph's text.")
+    public String getText() {
+        return text;
     }
-    ParagraphLink paragraphLink = (ParagraphLink) o;
-    return Objects.equals(this.text, paragraphLink.text) &&
-        super.equals(o);
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ParagraphLink paragraphLink = (ParagraphLink) o;
+        return
+            Objects.equals(this.text, paragraphLink.text) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(text, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class ParagraphLink extends NodeLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

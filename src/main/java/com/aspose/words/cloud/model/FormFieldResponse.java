@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FormFieldResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/formfields/{1}.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/formfields/{1}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/formfields/{1}.")
 public class FormFieldResponse extends WordsResponse {
-  @SerializedName("FormField")
-  private FormField formField = null;
-
-  public FormFieldResponse formField(FormField formField) {
-    this.formField = formField;
-    return this;
-  }
-
-   /**
-   * Get formField
-   * @return formField
-  **/
-  @ApiModelProperty(value = "")
-  public FormField getFormField() {
-    return formField;
-  }
-
-  public void setFormField(FormField formField) {
-    this.formField = formField;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("FormField")
+    private FormField formField = null;
+    public FormFieldResponse formField(FormField formField) {
+        this.formField = formField;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets field information.
+    * @return formField
+    **/
+    @ApiModelProperty(value = "Gets or sets field information.")
+    public FormField getFormField() {
+        return formField;
     }
-    FormFieldResponse formFieldResponse = (FormFieldResponse) o;
-    return Objects.equals(this.formField, formFieldResponse.formField) &&
-        super.equals(o);
+
+    public void setFormField(FormField formField) {
+        this.formField = formField;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FormFieldResponse formFieldResponse = (FormFieldResponse) o;
+        return
+            Objects.equals(this.formField, formFieldResponse.formField) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(formField, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class FormFieldResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

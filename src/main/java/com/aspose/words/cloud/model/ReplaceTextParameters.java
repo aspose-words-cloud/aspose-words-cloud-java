@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ReplaceTextParameters.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,144 +47,142 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Class for document replace text request building.")
 public class ReplaceTextParameters {
-  @SerializedName("OldValue")
-  private String oldValue = null;
+    @SerializedName("IsMatchCase")
+    private Boolean isMatchCase = null;
 
-  @SerializedName("NewValue")
-  private String newValue = null;
+    @SerializedName("IsMatchWholeWord")
+    private Boolean isMatchWholeWord = null;
 
-  @SerializedName("IsMatchCase")
-  private Boolean isMatchCase = null;
+    @SerializedName("IsOldValueRegex")
+    private Boolean isOldValueRegex = null;
 
-  @SerializedName("IsMatchWholeWord")
-  private Boolean isMatchWholeWord = null;
+    @SerializedName("NewValue")
+    private String newValue = null;
 
-  @SerializedName("IsOldValueRegex")
-  private Boolean isOldValueRegex = null;
-
-  public ReplaceTextParameters oldValue(String oldValue) {
-    this.oldValue = oldValue;
-    return this;
-  }
-
-   /**
-   * Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.
-   * @return oldValue
-  **/
-  @ApiModelProperty(value = "Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.")
-  public String getOldValue() {
-    return oldValue;
-  }
-
-  public void setOldValue(String oldValue) {
-    this.oldValue = oldValue;
-  }
-
-  public ReplaceTextParameters newValue(String newValue) {
-    this.newValue = newValue;
-    return this;
-  }
-
-   /**
-   * Gets or sets new text value to replace by.
-   * @return newValue
-  **/
-  @ApiModelProperty(value = "Gets or sets new text value to replace by.")
-  public String getNewValue() {
-    return newValue;
-  }
-
-  public void setNewValue(String newValue) {
-    this.newValue = newValue;
-  }
-
-  public ReplaceTextParameters isMatchCase(Boolean isMatchCase) {
-    this.isMatchCase = isMatchCase;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
-   * @return isMatchCase
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
-  public Boolean isIsMatchCase() {
-    return isMatchCase;
-  }
-
-  public void setIsMatchCase(Boolean isMatchCase) {
-    this.isMatchCase = isMatchCase;
-  }
-
-  public ReplaceTextParameters isMatchWholeWord(Boolean isMatchWholeWord) {
-    this.isMatchWholeWord = isMatchWholeWord;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
-   * @return isMatchWholeWord
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether flag, means that only whole word matched are replaced.")
-  public Boolean isIsMatchWholeWord() {
-    return isMatchWholeWord;
-  }
-
-  public void setIsMatchWholeWord(Boolean isMatchWholeWord) {
-    this.isMatchWholeWord = isMatchWholeWord;
-  }
-
-  public ReplaceTextParameters isOldValueRegex(Boolean isOldValueRegex) {
-    this.isOldValueRegex = isOldValueRegex;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
-   * @return isOldValueRegex
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether flag, means that OldValue contains regex expression.")
-  public Boolean isIsOldValueRegex() {
-    return isOldValueRegex;
-  }
-
-  public void setIsOldValueRegex(Boolean isOldValueRegex) {
-    this.isOldValueRegex = isOldValueRegex;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("OldValue")
+    private String oldValue = null;
+    public ReplaceTextParameters isMatchCase(Boolean isMatchCase) {
+        this.isMatchCase = isMatchCase;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
+    * @return isMatchCase
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.")
+    public Boolean getIsMatchCase() {
+        return isMatchCase;
     }
-    ReplaceTextParameters replaceTextParameters = (ReplaceTextParameters) o;
-    return Objects.equals(this.oldValue, replaceTextParameters.oldValue) &&
-        Objects.equals(this.newValue, replaceTextParameters.newValue) &&
-        Objects.equals(this.isMatchCase, replaceTextParameters.isMatchCase) &&
-        Objects.equals(this.isMatchWholeWord, replaceTextParameters.isMatchWholeWord) &&
-        Objects.equals(this.isOldValueRegex, replaceTextParameters.isOldValueRegex);
+
+    public void setIsMatchCase(Boolean isMatchCase) {
+        this.isMatchCase = isMatchCase;
+    }
+
+    public ReplaceTextParameters isMatchWholeWord(Boolean isMatchWholeWord) {
+        this.isMatchWholeWord = isMatchWholeWord;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
+    * @return isMatchWholeWord
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether flag, means that only whole word matched are replaced.")
+    public Boolean getIsMatchWholeWord() {
+        return isMatchWholeWord;
+    }
+
+    public void setIsMatchWholeWord(Boolean isMatchWholeWord) {
+        this.isMatchWholeWord = isMatchWholeWord;
+    }
+
+    public ReplaceTextParameters isOldValueRegex(Boolean isOldValueRegex) {
+        this.isOldValueRegex = isOldValueRegex;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
+    * @return isOldValueRegex
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether flag, means that OldValue contains regex expression.")
+    public Boolean getIsOldValueRegex() {
+        return isOldValueRegex;
+    }
+
+    public void setIsOldValueRegex(Boolean isOldValueRegex) {
+        this.isOldValueRegex = isOldValueRegex;
+    }
+
+    public ReplaceTextParameters newValue(String newValue) {
+        this.newValue = newValue;
+        return this;
+    }
+
+    /**
+     * Gets or sets new text value to replace by.
+    * @return newValue
+    **/
+    @ApiModelProperty(value = "Gets or sets new text value to replace by.")
+    public String getNewValue() {
+        return newValue;
+    }
+
+    public void setNewValue(String newValue) {
+        this.newValue = newValue;
+    }
+
+    public ReplaceTextParameters oldValue(String oldValue) {
+        this.oldValue = oldValue;
+        return this;
+    }
+
+    /**
+     * Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.
+    * @return oldValue
+    **/
+    @ApiModelProperty(value = "Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.")
+    public String getOldValue() {
+        return oldValue;
+    }
+
+    public void setOldValue(String oldValue) {
+        this.oldValue = oldValue;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ReplaceTextParameters replaceTextParameters = (ReplaceTextParameters) o;
+        return
+            Objects.equals(this.isMatchCase, replaceTextParameters.isMatchCase) &&
+            Objects.equals(this.isMatchWholeWord, replaceTextParameters.isMatchWholeWord) &&
+            Objects.equals(this.isOldValueRegex, replaceTextParameters.isOldValueRegex) &&
+            Objects.equals(this.newValue, replaceTextParameters.newValue) &&
+            Objects.equals(this.oldValue, replaceTextParameters.oldValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(oldValue, newValue, isMatchCase, isMatchWholeWord, isOldValueRegex);
+    return Objects.hash(isMatchCase, isMatchWholeWord, isOldValueRegex, newValue, oldValue);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceTextParameters {\n");
-    
-    sb.append("    oldValue: ").append(toIndentedString(oldValue)).append("\n");
-    sb.append("    newValue: ").append(toIndentedString(newValue)).append("\n");
     sb.append("    isMatchCase: ").append(toIndentedString(isMatchCase)).append("\n");
     sb.append("    isMatchWholeWord: ").append(toIndentedString(isMatchWholeWord)).append("\n");
     sb.append("    isOldValueRegex: ").append(toIndentedString(isOldValueRegex)).append("\n");
+    sb.append("    newValue: ").append(toIndentedString(newValue)).append("\n");
+    sb.append("    oldValue: ").append(toIndentedString(oldValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,6 +197,4 @@ public class ReplaceTextParameters {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

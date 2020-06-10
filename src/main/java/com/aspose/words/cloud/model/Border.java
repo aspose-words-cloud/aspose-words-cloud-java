@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Border.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,314 +47,279 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a border of an object.")
 public class Border extends LinkElement {
-  /**
-   * Gets or sets the border type.             
-   */
-  @JsonAdapter(BorderTypeEnum.Adapter.class)
-  public enum BorderTypeEnum {
-    BOTTOM("Bottom"),
-    
-    LEFT("Left"),
-    
-    RIGHT("Right"),
-    
-    TOP("Top"),
-    
-    HORIZONTAL("Horizontal"),
-    
-    VERTICAL("Vertical"),
-    
-    DIAGONALDOWN("DiagonalDown"),
-    
-    DIAGONALUP("DiagonalUp"),
-    
-    NONE("None");
+    /**
+     * Gets or sets the border type.
+     */
+    @JsonAdapter(BorderTypeEnum.Adapter.class)
+    public enum BorderTypeEnum {
+        BOTTOM("Bottom"),
+        LEFT("Left"),
+        RIGHT("Right"),
+        TOP("Top"),
+        HORIZONTAL("Horizontal"),
+        VERTICAL("Vertical"),
+        DIAGONALDOWN("DiagonalDown"),
+        DIAGONALUP("DiagonalUp"),
+        NONE("None");
 
-    private String value;
+        private String value;
 
-    BorderTypeEnum(String value) {
-      this.value = value;
+        BorderTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static BorderTypeEnum fromValue(String text) {
+            for (BorderTypeEnum b : BorderTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< BorderTypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final BorderTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public BorderTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return BorderTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    /**
+     * Gets or sets the border style.
+     */
+    @JsonAdapter(LineStyleEnum.Adapter.class)
+    public enum LineStyleEnum {
+        NONE("None"),
+        SINGLE("Single"),
+        THICK("Thick"),
+        DOUBLE("Double"),
+        HAIRLINE("Hairline"),
+        DOT("Dot"),
+        DASHLARGEGAP("DashLargeGap"),
+        DOTDASH("DotDash"),
+        DOTDOTDASH("DotDotDash"),
+        TRIPLE("Triple"),
+        THINTHICKSMALLGAP("ThinThickSmallGap"),
+        THICKTHINSMALLGAP("ThickThinSmallGap"),
+        THINTHICKTHINSMALLGAP("ThinThickThinSmallGap"),
+        THINTHICKMEDIUMGAP("ThinThickMediumGap"),
+        THICKTHINMEDIUMGAP("ThickThinMediumGap"),
+        THINTHICKTHINMEDIUMGAP("ThinThickThinMediumGap"),
+        THINTHICKLARGEGAP("ThinThickLargeGap"),
+        THICKTHINLARGEGAP("ThickThinLargeGap"),
+        THINTHICKTHINLARGEGAP("ThinThickThinLargeGap"),
+        WAVE("Wave"),
+        DOUBLEWAVE("DoubleWave"),
+        DASHSMALLGAP("DashSmallGap"),
+        DASHDOTSTROKER("DashDotStroker"),
+        EMBOSS3D("Emboss3D"),
+        ENGRAVE3D("Engrave3D"),
+        OUTSET("Outset"),
+        INSET("Inset");
+
+        private String value;
+
+        LineStyleEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static LineStyleEnum fromValue(String text) {
+            for (LineStyleEnum b : LineStyleEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< LineStyleEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final LineStyleEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public LineStyleEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return LineStyleEnum.fromValue(String.valueOf(value));
+            }
+        }
+    }
+
+    @SerializedName("BorderType")
+    private BorderTypeEnum borderType = null;
+
+    @SerializedName("Color")
+    private XmlColor color = null;
+
+    @SerializedName("DistanceFromText")
+    private Double distanceFromText = null;
+
+    @SerializedName("LineStyle")
+    private LineStyleEnum lineStyle = null;
+
+    @SerializedName("LineWidth")
+    private Double lineWidth = null;
+
+    @SerializedName("Shadow")
+    private Boolean shadow = null;
+    public Border borderType(BorderTypeEnum borderType) {
+        this.borderType = borderType;
+        return this;
+    }
+
+    /**
+     * Gets or sets the border type.
+    * @return borderType
+    **/
+    @ApiModelProperty(value = "Gets or sets the border type.")
+    public BorderTypeEnum getBorderType() {
+        return borderType;
+    }
+
+    public void setBorderType(BorderTypeEnum borderType) {
+        this.borderType = borderType;
+    }
+
+    public Border color(XmlColor color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Gets or sets the border color.
+    * @return color
+    **/
+    @ApiModelProperty(value = "Gets or sets the border color.")
+    public XmlColor getColor() {
+        return color;
+    }
+
+    public void setColor(XmlColor color) {
+        this.color = color;
+    }
+
+    public Border distanceFromText(Double distanceFromText) {
+        this.distanceFromText = distanceFromText;
+        return this;
+    }
+
+    /**
+     * Gets or sets distance of the border from text or from the page edge in points.
+    * @return distanceFromText
+    **/
+    @ApiModelProperty(value = "Gets or sets distance of the border from text or from the page edge in points.")
+    public Double getDistanceFromText() {
+        return distanceFromText;
+    }
+
+    public void setDistanceFromText(Double distanceFromText) {
+        this.distanceFromText = distanceFromText;
+    }
+
+    public Border lineStyle(LineStyleEnum lineStyle) {
+        this.lineStyle = lineStyle;
+        return this;
+    }
+
+    /**
+     * Gets or sets the border style.
+    * @return lineStyle
+    **/
+    @ApiModelProperty(value = "Gets or sets the border style.")
+    public LineStyleEnum getLineStyle() {
+        return lineStyle;
+    }
+
+    public void setLineStyle(LineStyleEnum lineStyle) {
+        this.lineStyle = lineStyle;
+    }
+
+    public Border lineWidth(Double lineWidth) {
+        this.lineWidth = lineWidth;
+        return this;
+    }
+
+    /**
+     * Gets or sets the border width in points.
+    * @return lineWidth
+    **/
+    @ApiModelProperty(value = "Gets or sets the border width in points.")
+    public Double getLineWidth() {
+        return lineWidth;
+    }
+
+    public void setLineWidth(Double lineWidth) {
+        this.lineWidth = lineWidth;
+    }
+
+    public Border shadow(Boolean shadow) {
+        this.shadow = shadow;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value indicating whether the border has a shadow.
+    * @return shadow
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the border has a shadow.")
+    public Boolean getShadow() {
+        return shadow;
+    }
+
+    public void setShadow(Boolean shadow) {
+        this.shadow = shadow;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static BorderTypeEnum fromValue(String text) {
-      for (BorderTypeEnum b : BorderTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<BorderTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final BorderTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public BorderTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return BorderTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("BorderType")
-  private BorderTypeEnum borderType = null;
-
-  @SerializedName("Color")
-  private XmlColor color = null;
-
-  @SerializedName("DistanceFromText")
-  private Double distanceFromText = null;
-
-  /**
-   * Gets or sets the border style.
-   */
-  @JsonAdapter(LineStyleEnum.Adapter.class)
-  public enum LineStyleEnum {
-    NONE("None"),
-    
-    SINGLE("Single"),
-    
-    THICK("Thick"),
-    
-    DOUBLE("Double"),
-    
-    HAIRLINE("Hairline"),
-    
-    DOT("Dot"),
-    
-    DASHLARGEGAP("DashLargeGap"),
-    
-    DOTDASH("DotDash"),
-    
-    DOTDOTDASH("DotDotDash"),
-    
-    TRIPLE("Triple"),
-    
-    THINTHICKSMALLGAP("ThinThickSmallGap"),
-    
-    THICKTHINSMALLGAP("ThickThinSmallGap"),
-    
-    THINTHICKTHINSMALLGAP("ThinThickThinSmallGap"),
-    
-    THINTHICKMEDIUMGAP("ThinThickMediumGap"),
-    
-    THICKTHINMEDIUMGAP("ThickThinMediumGap"),
-    
-    THINTHICKTHINMEDIUMGAP("ThinThickThinMediumGap"),
-    
-    THINTHICKLARGEGAP("ThinThickLargeGap"),
-    
-    THICKTHINLARGEGAP("ThickThinLargeGap"),
-    
-    THINTHICKTHINLARGEGAP("ThinThickThinLargeGap"),
-    
-    WAVE("Wave"),
-    
-    DOUBLEWAVE("DoubleWave"),
-    
-    DASHSMALLGAP("DashSmallGap"),
-    
-    DASHDOTSTROKER("DashDotStroker"),
-    
-    EMBOSS3D("Emboss3D"),
-    
-    ENGRAVE3D("Engrave3D"),
-    
-    OUTSET("Outset"),
-    
-    INSET("Inset");
-
-    private String value;
-
-    LineStyleEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static LineStyleEnum fromValue(String text) {
-      for (LineStyleEnum b : LineStyleEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
         }
-      }
-      return null;
-    }
 
-    public static class Adapter extends TypeAdapter<LineStyleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final LineStyleEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public LineStyleEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return LineStyleEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("LineStyle")
-  private LineStyleEnum lineStyle = null;
-
-  @SerializedName("LineWidth")
-  private Double lineWidth = null;
-
-  @SerializedName("Shadow")
-  private Boolean shadow = null;
-
-  public Border borderType(BorderTypeEnum borderType) {
-    this.borderType = borderType;
-    return this;
-  }
-
-   /**
-   * Gets or sets the border type.             
-   * @return borderType
-  **/
-  @ApiModelProperty(value = "Gets or sets the border type.             ")
-  public BorderTypeEnum getBorderType() {
-    return borderType;
-  }
-
-  public void setBorderType(BorderTypeEnum borderType) {
-    this.borderType = borderType;
-  }
-
-  public Border color(XmlColor color) {
-    this.color = color;
-    return this;
-  }
-
-   /**
-   * Get color
-   * @return color
-  **/
-  @ApiModelProperty(value = "")
-  public XmlColor getColor() {
-    return color;
-  }
-
-  public void setColor(XmlColor color) {
-    this.color = color;
-  }
-
-  public Border distanceFromText(Double distanceFromText) {
-    this.distanceFromText = distanceFromText;
-    return this;
-  }
-
-   /**
-   * Gets or sets distance of the border from text or from the page edge in points.
-   * @return distanceFromText
-  **/
-  @ApiModelProperty(value = "Gets or sets distance of the border from text or from the page edge in points.")
-  public Double getDistanceFromText() {
-    return distanceFromText;
-  }
-
-  public void setDistanceFromText(Double distanceFromText) {
-    this.distanceFromText = distanceFromText;
-  }
-
-  public Border lineStyle(LineStyleEnum lineStyle) {
-    this.lineStyle = lineStyle;
-    return this;
-  }
-
-   /**
-   * Gets or sets the border style.
-   * @return lineStyle
-  **/
-  @ApiModelProperty(value = "Gets or sets the border style.")
-  public LineStyleEnum getLineStyle() {
-    return lineStyle;
-  }
-
-  public void setLineStyle(LineStyleEnum lineStyle) {
-    this.lineStyle = lineStyle;
-  }
-
-  public Border lineWidth(Double lineWidth) {
-    this.lineWidth = lineWidth;
-    return this;
-  }
-
-   /**
-   * Gets or sets the border width in points.
-   * @return lineWidth
-  **/
-  @ApiModelProperty(value = "Gets or sets the border width in points.")
-  public Double getLineWidth() {
-    return lineWidth;
-  }
-
-  public void setLineWidth(Double lineWidth) {
-    this.lineWidth = lineWidth;
-  }
-
-  public Border shadow(Boolean shadow) {
-    this.shadow = shadow;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether the border has a shadow.
-   * @return shadow
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether the border has a shadow.")
-  public Boolean isShadow() {
-    return shadow;
-  }
-
-  public void setShadow(Boolean shadow) {
-    this.shadow = shadow;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Border border = (Border) o;
-    return Objects.equals(this.borderType, border.borderType) &&
-        Objects.equals(this.color, border.color) &&
-        Objects.equals(this.distanceFromText, border.distanceFromText) &&
-        Objects.equals(this.lineStyle, border.lineStyle) &&
-        Objects.equals(this.lineWidth, border.lineWidth) &&
-        Objects.equals(this.shadow, border.shadow) &&
-        super.equals(o);
+        Border border = (Border) o;
+        return
+            Objects.equals(this.borderType, border.borderType) &&
+            Objects.equals(this.color, border.color) &&
+            Objects.equals(this.distanceFromText, border.distanceFromText) &&
+            Objects.equals(this.lineStyle, border.lineStyle) &&
+            Objects.equals(this.lineWidth, border.lineWidth) &&
+            Objects.equals(this.shadow, border.shadow) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(borderType, color, distanceFromText, lineStyle, lineWidth, shadow, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -381,6 +346,4 @@ public class Border extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

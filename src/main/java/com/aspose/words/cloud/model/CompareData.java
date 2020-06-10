@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="CompareData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,121 +47,119 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for compare documents.")
 public class CompareData {
-  @SerializedName("ComparingWithDocument")
-  private String comparingWithDocument = null;
+    @SerializedName("Author")
+    private String author = null;
 
-  @SerializedName("Author")
-  private String author = null;
+    @SerializedName("CompareOptions")
+    private CompareOptions compareOptions = null;
 
-  @SerializedName("DateTime")
-  private OffsetDateTime dateTime = null;
+    @SerializedName("ComparingWithDocument")
+    private String comparingWithDocument = null;
 
-  @SerializedName("CompareOptions")
-  private CompareOptions compareOptions = null;
-
-  public CompareData comparingWithDocument(String comparingWithDocument) {
-    this.comparingWithDocument = comparingWithDocument;
-    return this;
-  }
-
-   /**
-   * Gets or sets path to document to compare at the server.
-   * @return comparingWithDocument
-  **/
-  @ApiModelProperty(value = "Gets or sets path to document to compare at the server.")
-  public String getComparingWithDocument() {
-    return comparingWithDocument;
-  }
-
-  public void setComparingWithDocument(String comparingWithDocument) {
-    this.comparingWithDocument = comparingWithDocument;
-  }
-
-  public CompareData author(String author) {
-    this.author = author;
-    return this;
-  }
-
-   /**
-   * Gets or sets initials of the author to use for revisions.
-   * @return author
-  **/
-  @ApiModelProperty(value = "Gets or sets initials of the author to use for revisions.")
-  public String getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
-
-  public CompareData dateTime(OffsetDateTime dateTime) {
-    this.dateTime = dateTime;
-    return this;
-  }
-
-   /**
-   * Gets or sets the date and time to use for revisions.             
-   * @return dateTime
-  **/
-  @ApiModelProperty(value = "Gets or sets the date and time to use for revisions.             ")
-  public OffsetDateTime getDateTime() {
-    return dateTime;
-  }
-
-  public void setDateTime(OffsetDateTime dateTime) {
-    this.dateTime = dateTime;
-  }
-
-  public CompareData compareOptions(CompareOptions compareOptions) {
-    this.compareOptions = compareOptions;
-    return this;
-  }
-
-   /**
-   * Get compareOptions
-   * @return compareOptions
-  **/
-  @ApiModelProperty(value = "")
-  public CompareOptions getCompareOptions() {
-    return compareOptions;
-  }
-
-  public void setCompareOptions(CompareOptions compareOptions) {
-    this.compareOptions = compareOptions;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("DateTime")
+    private OffsetDateTime dateTime = null;
+    public CompareData author(String author) {
+        this.author = author;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets initials of the author to use for revisions.
+    * @return author
+    **/
+    @ApiModelProperty(value = "Gets or sets initials of the author to use for revisions.")
+    public String getAuthor() {
+        return author;
     }
-    CompareData compareData = (CompareData) o;
-    return Objects.equals(this.comparingWithDocument, compareData.comparingWithDocument) &&
-        Objects.equals(this.author, compareData.author) &&
-        Objects.equals(this.dateTime, compareData.dateTime) &&
-        Objects.equals(this.compareOptions, compareData.compareOptions);
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public CompareData compareOptions(CompareOptions compareOptions) {
+        this.compareOptions = compareOptions;
+        return this;
+    }
+
+    /**
+     * Gets or sets the compare options.
+    * @return compareOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets the compare options.")
+    public CompareOptions getCompareOptions() {
+        return compareOptions;
+    }
+
+    public void setCompareOptions(CompareOptions compareOptions) {
+        this.compareOptions = compareOptions;
+    }
+
+    public CompareData comparingWithDocument(String comparingWithDocument) {
+        this.comparingWithDocument = comparingWithDocument;
+        return this;
+    }
+
+    /**
+     * Gets or sets path to document to compare at the server.
+    * @return comparingWithDocument
+    **/
+    @ApiModelProperty(value = "Gets or sets path to document to compare at the server.")
+    public String getComparingWithDocument() {
+        return comparingWithDocument;
+    }
+
+    public void setComparingWithDocument(String comparingWithDocument) {
+        this.comparingWithDocument = comparingWithDocument;
+    }
+
+    public CompareData dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
+    /**
+     * Gets or sets the date and time to use for revisions.
+    * @return dateTime
+    **/
+    @ApiModelProperty(value = "Gets or sets the date and time to use for revisions.")
+    public OffsetDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        CompareData compareData = (CompareData) o;
+        return
+            Objects.equals(this.author, compareData.author) &&
+            Objects.equals(this.compareOptions, compareData.compareOptions) &&
+            Objects.equals(this.comparingWithDocument, compareData.comparingWithDocument) &&
+            Objects.equals(this.dateTime, compareData.dateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparingWithDocument, author, dateTime, compareOptions);
+    return Objects.hash(author, compareOptions, comparingWithDocument, dateTime);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompareData {\n");
-    
-    sb.append("    comparingWithDocument: ").append(toIndentedString(comparingWithDocument)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
     sb.append("    compareOptions: ").append(toIndentedString(compareOptions)).append("\n");
+    sb.append("    comparingWithDocument: ").append(toIndentedString(comparingWithDocument)).append("\n");
+    sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -176,6 +174,4 @@ public class CompareData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

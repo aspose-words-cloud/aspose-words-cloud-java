@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,112 +47,113 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for doc/dot save options.")
 public class DocSaveOptionsData extends SaveOptionsData {
-  @SerializedName("AlwaysCompressMetafiles")
-  private Boolean alwaysCompressMetafiles = null;
+    @SerializedName("AlwaysCompressMetafiles")
+    private Boolean alwaysCompressMetafiles = null;
 
-  @SerializedName("Password")
-  private String password = null;
+    @SerializedName("Password")
+    private String password = null;
 
-  @SerializedName("SavePictureBullet")
-  private Boolean savePictureBullet = null;
+    @SerializedName("SavePictureBullet")
+    private Boolean savePictureBullet = null;
 
-  @SerializedName("SaveRoutingSlip")
-  private Boolean saveRoutingSlip = null;
-
-  public DocSaveOptionsData alwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
-    this.alwaysCompressMetafiles = alwaysCompressMetafiles;
-    return this;
-  }
-
-   /**
-   * Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.
-   * @return alwaysCompressMetafiles
-  **/
-  @ApiModelProperty(value = "Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.")
-  public Boolean isAlwaysCompressMetafiles() {
-    return alwaysCompressMetafiles;
-  }
-
-  public void setAlwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
-    this.alwaysCompressMetafiles = alwaysCompressMetafiles;
-  }
-
-  public DocSaveOptionsData password(String password) {
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Gets or sets password.
-   * @return password
-  **/
-  @ApiModelProperty(value = "Gets or sets password.")
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public DocSaveOptionsData savePictureBullet(Boolean savePictureBullet) {
-    this.savePictureBullet = savePictureBullet;
-    return this;
-  }
-
-   /**
-   * Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.
-   * @return savePictureBullet
-  **/
-  @ApiModelProperty(value = "Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.")
-  public Boolean isSavePictureBullet() {
-    return savePictureBullet;
-  }
-
-  public void setSavePictureBullet(Boolean savePictureBullet) {
-    this.savePictureBullet = savePictureBullet;
-  }
-
-  public DocSaveOptionsData saveRoutingSlip(Boolean saveRoutingSlip) {
-    this.saveRoutingSlip = saveRoutingSlip;
-    return this;
-  }
-
-   /**
-   * Gets or sets determine whether or not save RoutingSlip data saved to output document.
-   * @return saveRoutingSlip
-  **/
-  @ApiModelProperty(value = "Gets or sets determine whether or not save RoutingSlip data saved to output document.")
-  public Boolean isSaveRoutingSlip() {
-    return saveRoutingSlip;
-  }
-
-  public void setSaveRoutingSlip(Boolean saveRoutingSlip) {
-    this.saveRoutingSlip = saveRoutingSlip;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("SaveRoutingSlip")
+    private Boolean saveRoutingSlip = null;
+    public DocSaveOptionsData alwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
+        this.alwaysCompressMetafiles = alwaysCompressMetafiles;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets When false, small metafiles are not compressed for performance reason.
+     * Default value is true, all metafiles are compressed regardless of its size.
+    * @return alwaysCompressMetafiles
+    **/
+    @ApiModelProperty(value = "Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.")
+    public Boolean getAlwaysCompressMetafiles() {
+        return alwaysCompressMetafiles;
     }
-    DocSaveOptionsData docSaveOptionsData = (DocSaveOptionsData) o;
-    return Objects.equals(this.alwaysCompressMetafiles, docSaveOptionsData.alwaysCompressMetafiles) &&
-        Objects.equals(this.password, docSaveOptionsData.password) &&
-        Objects.equals(this.savePictureBullet, docSaveOptionsData.savePictureBullet) &&
-        Objects.equals(this.saveRoutingSlip, docSaveOptionsData.saveRoutingSlip) &&
-        super.equals(o);
+
+    public void setAlwaysCompressMetafiles(Boolean alwaysCompressMetafiles) {
+        this.alwaysCompressMetafiles = alwaysCompressMetafiles;
+    }
+
+    public DocSaveOptionsData password(String password) {
+        this.password = password;
+        return this;
+    }
+
+    /**
+     * Gets or sets password.
+    * @return password
+    **/
+    @ApiModelProperty(value = "Gets or sets password.")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public DocSaveOptionsData savePictureBullet(Boolean savePictureBullet) {
+        this.savePictureBullet = savePictureBullet;
+        return this;
+    }
+
+    /**
+     * Gets or sets When false, PictureBullet data is not saved to output document.
+     * Default value is true.
+    * @return savePictureBullet
+    **/
+    @ApiModelProperty(value = "Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.")
+    public Boolean getSavePictureBullet() {
+        return savePictureBullet;
+    }
+
+    public void setSavePictureBullet(Boolean savePictureBullet) {
+        this.savePictureBullet = savePictureBullet;
+    }
+
+    public DocSaveOptionsData saveRoutingSlip(Boolean saveRoutingSlip) {
+        this.saveRoutingSlip = saveRoutingSlip;
+        return this;
+    }
+
+    /**
+     * Gets or sets determine whether or not save RoutingSlip data saved to output document.
+    * @return saveRoutingSlip
+    **/
+    @ApiModelProperty(value = "Gets or sets determine whether or not save RoutingSlip data saved to output document.")
+    public Boolean getSaveRoutingSlip() {
+        return saveRoutingSlip;
+    }
+
+    public void setSaveRoutingSlip(Boolean saveRoutingSlip) {
+        this.saveRoutingSlip = saveRoutingSlip;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocSaveOptionsData docSaveOptionsData = (DocSaveOptionsData) o;
+        return
+            Objects.equals(this.alwaysCompressMetafiles, docSaveOptionsData.alwaysCompressMetafiles) &&
+            Objects.equals(this.password, docSaveOptionsData.password) &&
+            Objects.equals(this.savePictureBullet, docSaveOptionsData.savePictureBullet) &&
+            Objects.equals(this.saveRoutingSlip, docSaveOptionsData.saveRoutingSlip) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(alwaysCompressMetafiles, password, savePictureBullet, saveRoutingSlip, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -177,6 +178,4 @@ public class DocSaveOptionsData extends SaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

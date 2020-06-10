@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="RunsResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{paragraphPath}/runs.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/{paragraphPath}/runs.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{paragraphPath}/runs.")
 public class RunsResponse extends WordsResponse {
-  @SerializedName("Runs")
-  private Runs runs = null;
-
-  public RunsResponse runs(Runs runs) {
-    this.runs = runs;
-    return this;
-  }
-
-   /**
-   * Get runs
-   * @return runs
-  **/
-  @ApiModelProperty(value = "")
-  public Runs getRuns() {
-    return runs;
-  }
-
-  public void setRuns(Runs runs) {
-    this.runs = runs;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Runs")
+    private Runs runs = null;
+    public RunsResponse runs(Runs runs) {
+        this.runs = runs;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of runs.
+    * @return runs
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of runs.")
+    public Runs getRuns() {
+        return runs;
     }
-    RunsResponse runsResponse = (RunsResponse) o;
-    return Objects.equals(this.runs, runsResponse.runs) &&
-        super.equals(o);
+
+    public void setRuns(Runs runs) {
+        this.runs = runs;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        RunsResponse runsResponse = (RunsResponse) o;
+        return
+            Objects.equals(this.runs, runsResponse.runs) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(runs, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class RunsResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

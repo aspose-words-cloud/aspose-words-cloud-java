@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentProperty.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,90 +47,90 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Words document property DTO.")
 public class DocumentProperty extends LinkElement {
-  @SerializedName("BuiltIn")
-  private Boolean builtIn = null;
+    @SerializedName("BuiltIn")
+    private Boolean builtIn = null;
 
-  @SerializedName("Name")
-  private String name = null;
+    @SerializedName("Name")
+    private String name = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public DocumentProperty builtIn(Boolean builtIn) {
-    this.builtIn = builtIn;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
-   * @return builtIn
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.")
-  public Boolean isBuiltIn() {
-    return builtIn;
-  }
-
-  public void setBuiltIn(Boolean builtIn) {
-    this.builtIn = builtIn;
-  }
-
-  public DocumentProperty name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Gets or sets name of the document property.
-   * @return name
-  **/
-  @ApiModelProperty(value = "Gets or sets name of the document property.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public DocumentProperty value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Gets or sets string value of the document property.
-   * @return value
-  **/
-  @ApiModelProperty(value = "Gets or sets string value of the document property.")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Value")
+    private String value = null;
+    public DocumentProperty builtIn(Boolean builtIn) {
+        this.builtIn = builtIn;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets a value indicating whether flag indicates whether the property is built-in or not.
+     * If true the property is built-in, if false the property is custom.
+    * @return builtIn
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.")
+    public Boolean getBuiltIn() {
+        return builtIn;
     }
-    DocumentProperty documentProperty = (DocumentProperty) o;
-    return Objects.equals(this.builtIn, documentProperty.builtIn) &&
-        Objects.equals(this.name, documentProperty.name) &&
-        Objects.equals(this.value, documentProperty.value) &&
-        super.equals(o);
+
+    public void setBuiltIn(Boolean builtIn) {
+        this.builtIn = builtIn;
+    }
+
+    public DocumentProperty name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets or sets name of the document property.
+    * @return name
+    **/
+    @ApiModelProperty(value = "Gets or sets name of the document property.")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public DocumentProperty value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets or sets string value of the document property.
+    * @return value
+    **/
+    @ApiModelProperty(value = "Gets or sets string value of the document property.")
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentProperty documentProperty = (DocumentProperty) o;
+        return
+            Objects.equals(this.builtIn, documentProperty.builtIn) &&
+            Objects.equals(this.name, documentProperty.name) &&
+            Objects.equals(this.value, documentProperty.value) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(builtIn, name, value, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -154,6 +154,4 @@ public class DocumentProperty extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

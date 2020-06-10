@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="HeaderFooterLink.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,103 +46,96 @@ import io.swagger.annotations.ApiModelProperty;
  * HeaderFooter link element.
  */
 @ApiModel(description = "HeaderFooter link element.")
-
 public class HeaderFooterLink extends LinkElement {
-  /**
-   * Gets or sets paragraph&#39;s text.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    HEADEREVEN("HeaderEven"),
-    
-    HEADERPRIMARY("HeaderPrimary"),
-    
-    FOOTEREVEN("FooterEven"),
-    
-    FOOTERPRIMARY("FooterPrimary"),
-    
-    HEADERFIRST("HeaderFirst"),
-    
-    FOOTERFIRST("FooterFirst");
+    /**
+     * Gets or sets paragraph's text.
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        HEADEREVEN("HeaderEven"),
+        HEADERPRIMARY("HeaderPrimary"),
+        FOOTEREVEN("FooterEven"),
+        FOOTERPRIMARY("FooterPrimary"),
+        HEADERFIRST("HeaderFirst"),
+        FOOTERFIRST("FooterFirst");
 
-    private String value;
+        private String value;
 
-    TypeEnum(String value) {
-      this.value = value;
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String text) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TypeEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("Type")
+    private TypeEnum type = null;
+    public HeaderFooterLink type(TypeEnum type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets or sets paragraph's text.
+    * @return type
+    **/
+    @ApiModelProperty(value = "Gets or sets paragraph's text.")
+    public TypeEnum getType() {
+        return type;
+    }
+
+    public void setType(TypeEnum type) {
+        this.type = type;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String text) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("Type")
-  private TypeEnum type = null;
-
-  public HeaderFooterLink type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Gets or sets paragraph&#39;s text.
-   * @return type
-  **/
-  @ApiModelProperty(value = "Gets or sets paragraph's text.")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    HeaderFooterLink headerFooterLink = (HeaderFooterLink) o;
-    return Objects.equals(this.type, headerFooterLink.type) &&
-        super.equals(o);
+        HeaderFooterLink headerFooterLink = (HeaderFooterLink) o;
+        return
+            Objects.equals(this.type, headerFooterLink.type) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(type, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -164,6 +157,4 @@ public class HeaderFooterLink extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

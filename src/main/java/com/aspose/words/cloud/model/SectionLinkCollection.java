@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SectionLinkCollection.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Collection of links to sections.")
 public class SectionLinkCollection extends LinkElement {
-  @SerializedName("SectionLinkList")
-  private List<SectionLink> sectionLinkList = null;
-
-  public SectionLinkCollection sectionLinkList(List<SectionLink> sectionLinkList) {
-    this.sectionLinkList = sectionLinkList;
-    return this;
-  }
-
-  public SectionLinkCollection addSectionLinkListItem(SectionLink sectionLinkListItem) {
-    if (this.sectionLinkList == null) {
-      this.sectionLinkList = new ArrayList<SectionLink>();
+    @SerializedName("SectionLinkList")
+    private List<SectionLink> sectionLinkList = null;
+    public SectionLinkCollection sectionLinkList(List<SectionLink> sectionLinkList) {
+        this.sectionLinkList = sectionLinkList;
+        return this;
     }
-    this.sectionLinkList.add(sectionLinkListItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of section&#39;s links.
-   * @return sectionLinkList
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of section's links.")
-  public List<SectionLink> getSectionLinkList() {
-    return sectionLinkList;
-  }
-
-  public void setSectionLinkList(List<SectionLink> sectionLinkList) {
-    this.sectionLinkList = sectionLinkList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public SectionLinkCollection addSectionLinkListItem(SectionLink sectionLinkListItem) {
+        if (this.sectionLinkList == null) {
+            this.sectionLinkList = new ArrayList<SectionLink>();
+        }
+        this.sectionLinkList.add(sectionLinkListItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of section's links.
+    * @return sectionLinkList
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of section's links.")
+    public List<SectionLink> getSectionLinkList() {
+        return sectionLinkList;
     }
-    SectionLinkCollection sectionLinkCollection = (SectionLinkCollection) o;
-    return Objects.equals(this.sectionLinkList, sectionLinkCollection.sectionLinkList) &&
-        super.equals(o);
+
+    public void setSectionLinkList(List<SectionLink> sectionLinkList) {
+        this.sectionLinkList = sectionLinkList;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SectionLinkCollection sectionLinkCollection = (SectionLinkCollection) o;
+        return
+            Objects.equals(this.sectionLinkList, sectionLinkCollection.sectionLinkList) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(sectionLinkList, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class SectionLinkCollection extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

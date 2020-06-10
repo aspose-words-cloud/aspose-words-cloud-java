@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="HeaderFootersResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters.")
 public class HeaderFootersResponse extends WordsResponse {
-  @SerializedName("HeaderFooters")
-  private HeaderFooterLinkCollection headerFooters = null;
-
-  public HeaderFootersResponse headerFooters(HeaderFooterLinkCollection headerFooters) {
-    this.headerFooters = headerFooters;
-    return this;
-  }
-
-   /**
-   * Get headerFooters
-   * @return headerFooters
-  **/
-  @ApiModelProperty(value = "")
-  public HeaderFooterLinkCollection getHeaderFooters() {
-    return headerFooters;
-  }
-
-  public void setHeaderFooters(HeaderFooterLinkCollection headerFooters) {
-    this.headerFooters = headerFooters;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("HeaderFooters")
+    private HeaderFooterLinkCollection headerFooters = null;
+    public HeaderFootersResponse headerFooters(HeaderFooterLinkCollection headerFooters) {
+        this.headerFooters = headerFooters;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of headers/footers.
+    * @return headerFooters
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of headers/footers.")
+    public HeaderFooterLinkCollection getHeaderFooters() {
+        return headerFooters;
     }
-    HeaderFootersResponse headerFootersResponse = (HeaderFootersResponse) o;
-    return Objects.equals(this.headerFooters, headerFootersResponse.headerFooters) &&
-        super.equals(o);
+
+    public void setHeaderFooters(HeaderFooterLinkCollection headerFooters) {
+        this.headerFooters = headerFooters;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        HeaderFootersResponse headerFootersResponse = (HeaderFootersResponse) o;
+        return
+            Objects.equals(this.headerFooters, headerFootersResponse.headerFooters) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(headerFooters, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class HeaderFootersResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

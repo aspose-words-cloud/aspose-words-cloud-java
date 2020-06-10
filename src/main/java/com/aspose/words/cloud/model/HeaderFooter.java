@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="HeaderFooter.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,98 +47,97 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Section element.")
 public class HeaderFooter extends HeaderFooterLink {
-  @SerializedName("ChildNodes")
-  private List<NodeLink> childNodes = null;
+    @SerializedName("ChildNodes")
+    private List<NodeLink> childNodes = null;
 
-  @SerializedName("DrawingObjects")
-  private LinkElement drawingObjects = null;
+    @SerializedName("DrawingObjects")
+    private LinkElement drawingObjects = null;
 
-  @SerializedName("Paragraphs")
-  private LinkElement paragraphs = null;
-
-  public HeaderFooter childNodes(List<NodeLink> childNodes) {
-    this.childNodes = childNodes;
-    return this;
-  }
-
-  public HeaderFooter addChildNodesItem(NodeLink childNodesItem) {
-    if (this.childNodes == null) {
-      this.childNodes = new ArrayList<NodeLink>();
+    @SerializedName("Paragraphs")
+    private LinkElement paragraphs = null;
+    public HeaderFooter childNodes(List<NodeLink> childNodes) {
+        this.childNodes = childNodes;
+        return this;
     }
-    this.childNodes.add(childNodesItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets child nodes.
-   * @return childNodes
-  **/
-  @ApiModelProperty(value = "Gets or sets child nodes.")
-  public List<NodeLink> getChildNodes() {
-    return childNodes;
-  }
-
-  public void setChildNodes(List<NodeLink> childNodes) {
-    this.childNodes = childNodes;
-  }
-
-  public HeaderFooter drawingObjects(LinkElement drawingObjects) {
-    this.drawingObjects = drawingObjects;
-    return this;
-  }
-
-   /**
-   * Get drawingObjects
-   * @return drawingObjects
-  **/
-  @ApiModelProperty(value = "")
-  public LinkElement getDrawingObjects() {
-    return drawingObjects;
-  }
-
-  public void setDrawingObjects(LinkElement drawingObjects) {
-    this.drawingObjects = drawingObjects;
-  }
-
-  public HeaderFooter paragraphs(LinkElement paragraphs) {
-    this.paragraphs = paragraphs;
-    return this;
-  }
-
-   /**
-   * Get paragraphs
-   * @return paragraphs
-  **/
-  @ApiModelProperty(value = "")
-  public LinkElement getParagraphs() {
-    return paragraphs;
-  }
-
-  public void setParagraphs(LinkElement paragraphs) {
-    this.paragraphs = paragraphs;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public HeaderFooter addChildNodesItem(NodeLink childNodesItem) {
+        if (this.childNodes == null) {
+            this.childNodes = new ArrayList<NodeLink>();
+        }
+        this.childNodes.add(childNodesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets child nodes.
+    * @return childNodes
+    **/
+    @ApiModelProperty(value = "Gets or sets child nodes.")
+    public List<NodeLink> getChildNodes() {
+        return childNodes;
     }
-    HeaderFooter headerFooter = (HeaderFooter) o;
-    return Objects.equals(this.childNodes, headerFooter.childNodes) &&
-        Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
-        Objects.equals(this.paragraphs, headerFooter.paragraphs) &&
-        super.equals(o);
+
+    public void setChildNodes(List<NodeLink> childNodes) {
+        this.childNodes = childNodes;
+    }
+
+    public HeaderFooter drawingObjects(LinkElement drawingObjects) {
+        this.drawingObjects = drawingObjects;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to DrawingObjects resource.
+    * @return drawingObjects
+    **/
+    @ApiModelProperty(value = "Gets or sets link to DrawingObjects resource.")
+    public LinkElement getDrawingObjects() {
+        return drawingObjects;
+    }
+
+    public void setDrawingObjects(LinkElement drawingObjects) {
+        this.drawingObjects = drawingObjects;
+    }
+
+    public HeaderFooter paragraphs(LinkElement paragraphs) {
+        this.paragraphs = paragraphs;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to Paragraphs resource.
+    * @return paragraphs
+    **/
+    @ApiModelProperty(value = "Gets or sets link to Paragraphs resource.")
+    public LinkElement getParagraphs() {
+        return paragraphs;
+    }
+
+    public void setParagraphs(LinkElement paragraphs) {
+        this.paragraphs = paragraphs;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        HeaderFooter headerFooter = (HeaderFooter) o;
+        return
+            Objects.equals(this.childNodes, headerFooter.childNodes) &&
+            Objects.equals(this.drawingObjects, headerFooter.drawingObjects) &&
+            Objects.equals(this.paragraphs, headerFooter.paragraphs) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(childNodes, drawingObjects, paragraphs, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -162,6 +161,4 @@ public class HeaderFooter extends HeaderFooterLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

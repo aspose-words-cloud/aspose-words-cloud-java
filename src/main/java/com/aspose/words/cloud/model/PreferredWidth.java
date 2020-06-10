@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="PreferredWidth.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,109 +47,107 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Preferred width.")
 public class PreferredWidth {
-  /**
-   * Gets or sets the unit of measure used for this preferred width value.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    AUTO("Auto"),
-    
-    PERCENT("Percent"),
-    
-    POINTS("Points");
+    /**
+     * Gets or sets the unit of measure used for this preferred width value.
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        AUTO("Auto"),
+        PERCENT("Percent"),
+        POINTS("Points");
 
-    private String value;
+        private String value;
 
-    TypeEnum(String value) {
-      this.value = value;
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String text) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TypeEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("Type")
+    private TypeEnum type = null;
+
+    @SerializedName("Value")
+    private Double value = null;
+    public PreferredWidth type(TypeEnum type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets or sets the unit of measure used for this preferred width value.
+    * @return type
+    **/
+    @ApiModelProperty(value = "Gets or sets the unit of measure used for this preferred width value.")
+    public TypeEnum getType() {
+        return type;
+    }
+
+    public void setType(TypeEnum type) {
+        this.type = type;
+    }
+
+    public PreferredWidth value(Double value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets or sets the preferred width value. The unit of measure is specified in the Type property.
+    * @return value
+    **/
+    @ApiModelProperty(value = "Gets or sets the preferred width value. The unit of measure is specified in the Type property.")
+    public Double getValue() {
+        return value;
+    }
+
+    public void setValue(Double value) {
+        this.value = value;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String text) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("Type")
-  private TypeEnum type = null;
-
-  @SerializedName("Value")
-  private Double value = null;
-
-  public PreferredWidth type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Gets or sets the unit of measure used for this preferred width value.
-   * @return type
-  **/
-  @ApiModelProperty(value = "Gets or sets the unit of measure used for this preferred width value.")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-  public PreferredWidth value(Double value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Gets or sets the preferred width value. The unit of measure is specified in the Type property.
-   * @return value
-  **/
-  @ApiModelProperty(value = "Gets or sets the preferred width value. The unit of measure is specified in the Type property.")
-  public Double getValue() {
-    return value;
-  }
-
-  public void setValue(Double value) {
-    this.value = value;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    PreferredWidth preferredWidth = (PreferredWidth) o;
-    return Objects.equals(this.type, preferredWidth.type) &&
-        Objects.equals(this.value, preferredWidth.value);
+        PreferredWidth preferredWidth = (PreferredWidth) o;
+        return
+            Objects.equals(this.type, preferredWidth.type) &&
+            Objects.equals(this.value, preferredWidth.value);
   }
 
   @Override
@@ -157,12 +155,10 @@ public class PreferredWidth {
     return Objects.hash(type, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PreferredWidth {\n");
-    
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -179,6 +175,4 @@ public class PreferredWidth {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

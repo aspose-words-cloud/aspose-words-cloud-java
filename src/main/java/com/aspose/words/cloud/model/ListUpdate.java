@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ListUpdate.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,38 +47,38 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Update document properties if document list.")
 public class ListUpdate {
-  @SerializedName("IsRestartAtEachSection")
-  private Boolean isRestartAtEachSection = null;
-
-  public ListUpdate isRestartAtEachSection(Boolean isRestartAtEachSection) {
-    this.isRestartAtEachSection = isRestartAtEachSection;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
-   * @return isRestartAtEachSection
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.")
-  public Boolean isIsRestartAtEachSection() {
-    return isRestartAtEachSection;
-  }
-
-  public void setIsRestartAtEachSection(Boolean isRestartAtEachSection) {
-    this.isRestartAtEachSection = isRestartAtEachSection;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("IsRestartAtEachSection")
+    private Boolean isRestartAtEachSection = null;
+    public ListUpdate isRestartAtEachSection(Boolean isRestartAtEachSection) {
+        this.isRestartAtEachSection = isRestartAtEachSection;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    * @return isRestartAtEachSection
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.")
+    public Boolean getIsRestartAtEachSection() {
+        return isRestartAtEachSection;
     }
-    ListUpdate listUpdate = (ListUpdate) o;
-    return Objects.equals(this.isRestartAtEachSection, listUpdate.isRestartAtEachSection);
+
+    public void setIsRestartAtEachSection(Boolean isRestartAtEachSection) {
+        this.isRestartAtEachSection = isRestartAtEachSection;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ListUpdate listUpdate = (ListUpdate) o;
+        return
+            Objects.equals(this.isRestartAtEachSection, listUpdate.isRestartAtEachSection);
   }
 
   @Override
@@ -86,12 +86,10 @@ public class ListUpdate {
     return Objects.hash(isRestartAtEachSection);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListUpdate {\n");
-    
     sb.append("    isRestartAtEachSection: ").append(toIndentedString(isRestartAtEachSection)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -107,6 +105,4 @@ public class ListUpdate {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

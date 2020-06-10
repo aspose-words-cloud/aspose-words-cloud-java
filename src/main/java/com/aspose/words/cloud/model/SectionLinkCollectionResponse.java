@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SectionLinkCollectionResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/sections.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections.")
 public class SectionLinkCollectionResponse extends WordsResponse {
-  @SerializedName("Sections")
-  private SectionLinkCollection sections = null;
-
-  public SectionLinkCollectionResponse sections(SectionLinkCollection sections) {
-    this.sections = sections;
-    return this;
-  }
-
-   /**
-   * Get sections
-   * @return sections
-  **/
-  @ApiModelProperty(value = "")
-  public SectionLinkCollection getSections() {
-    return sections;
-  }
-
-  public void setSections(SectionLinkCollection sections) {
-    this.sections = sections;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Sections")
+    private SectionLinkCollection sections = null;
+    public SectionLinkCollectionResponse sections(SectionLinkCollection sections) {
+        this.sections = sections;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of sections.
+    * @return sections
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of sections.")
+    public SectionLinkCollection getSections() {
+        return sections;
     }
-    SectionLinkCollectionResponse sectionLinkCollectionResponse = (SectionLinkCollectionResponse) o;
-    return Objects.equals(this.sections, sectionLinkCollectionResponse.sections) &&
-        super.equals(o);
+
+    public void setSections(SectionLinkCollection sections) {
+        this.sections = sections;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SectionLinkCollectionResponse sectionLinkCollectionResponse = (SectionLinkCollectionResponse) o;
+        return
+            Objects.equals(this.sections, sectionLinkCollectionResponse.sections) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(sections, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class SectionLinkCollectionResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

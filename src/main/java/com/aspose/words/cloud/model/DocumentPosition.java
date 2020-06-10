@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentPosition.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,60 +47,60 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a position in the document tree.")
 public class DocumentPosition {
-  @SerializedName("Node")
-  private NodeLink node = null;
+    @SerializedName("Node")
+    private NodeLink node = null;
 
-  @SerializedName("Offset")
-  private Integer offset = null;
-
-  public DocumentPosition node(NodeLink node) {
-    this.node = node;
-    return this;
-  }
-
-   /**
-   * Get node
-   * @return node
-  **/
-  @ApiModelProperty(value = "")
-  public NodeLink getNode() {
-    return node;
-  }
-
-  public void setNode(NodeLink node) {
-    this.node = node;
-  }
-
-  public DocumentPosition offset(Integer offset) {
-    this.offset = offset;
-    return this;
-  }
-
-   /**
-   * Gets or sets offset into the node.
-   * @return offset
-  **/
-  @ApiModelProperty(value = "Gets or sets offset into the node.")
-  public Integer getOffset() {
-    return offset;
-  }
-
-  public void setOffset(Integer offset) {
-    this.offset = offset;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Offset")
+    private Integer offset = null;
+    public DocumentPosition node(NodeLink node) {
+        this.node = node;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets link to  node.
+    * @return node
+    **/
+    @ApiModelProperty(value = "Gets or sets link to  node.")
+    public NodeLink getNode() {
+        return node;
     }
-    DocumentPosition documentPosition = (DocumentPosition) o;
-    return Objects.equals(this.node, documentPosition.node) &&
-        Objects.equals(this.offset, documentPosition.offset);
+
+    public void setNode(NodeLink node) {
+        this.node = node;
+    }
+
+    public DocumentPosition offset(Integer offset) {
+        this.offset = offset;
+        return this;
+    }
+
+    /**
+     * Gets or sets offset into the node.
+    * @return offset
+    **/
+    @ApiModelProperty(value = "Gets or sets offset into the node.")
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentPosition documentPosition = (DocumentPosition) o;
+        return
+            Objects.equals(this.node, documentPosition.node) &&
+            Objects.equals(this.offset, documentPosition.offset);
   }
 
   @Override
@@ -108,12 +108,10 @@ public class DocumentPosition {
     return Objects.hash(node, offset);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentPosition {\n");
-    
     sb.append("    node: ").append(toIndentedString(node)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("}");
@@ -130,6 +128,4 @@ public class DocumentPosition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

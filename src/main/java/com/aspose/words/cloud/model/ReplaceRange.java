@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ReplaceRange.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,107 +47,106 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Range element.")
 public class ReplaceRange {
-  @SerializedName("Text")
-  private String text = null;
+    /**
+     * Gets or sets range's text type.
+     */
+    @JsonAdapter(TextTypeEnum.Adapter.class)
+    public enum TextTypeEnum {
+        TEXT("Text"),
+        HTML("Html");
 
-  /**
-   * Gets or sets range&#39;s text type.
-   */
-  @JsonAdapter(TextTypeEnum.Adapter.class)
-  public enum TextTypeEnum {
-    TEXT("Text"),
-    
-    HTML("Html");
+        private String value;
 
-    private String value;
+        TextTypeEnum(String value) {
+            this.value = value;
+        }
 
-    TextTypeEnum(String value) {
-      this.value = value;
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TextTypeEnum fromValue(String text) {
+            for (TextTypeEnum b : TextTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TextTypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TextTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TextTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TextTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("Text")
+    private String text = null;
+
+    @SerializedName("TextType")
+    private TextTypeEnum textType = null;
+    public ReplaceRange text(String text) {
+        this.text = text;
+        return this;
+    }
+
+    /**
+     * Gets or sets range's text.
+    * @return text
+    **/
+    @ApiModelProperty(value = "Gets or sets range's text.")
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public ReplaceRange textType(TextTypeEnum textType) {
+        this.textType = textType;
+        return this;
+    }
+
+    /**
+     * Gets or sets range's text type.
+    * @return textType
+    **/
+    @ApiModelProperty(value = "Gets or sets range's text type.")
+    public TextTypeEnum getTextType() {
+        return textType;
+    }
+
+    public void setTextType(TextTypeEnum textType) {
+        this.textType = textType;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TextTypeEnum fromValue(String text) {
-      for (TextTypeEnum b : TextTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<TextTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TextTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TextTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TextTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("TextType")
-  private TextTypeEnum textType = null;
-
-  public ReplaceRange text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Gets or sets range&#39;s text.
-   * @return text
-  **/
-  @ApiModelProperty(value = "Gets or sets range's text.")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public ReplaceRange textType(TextTypeEnum textType) {
-    this.textType = textType;
-    return this;
-  }
-
-   /**
-   * Gets or sets range&#39;s text type.
-   * @return textType
-  **/
-  @ApiModelProperty(value = "Gets or sets range's text type.")
-  public TextTypeEnum getTextType() {
-    return textType;
-  }
-
-  public void setTextType(TextTypeEnum textType) {
-    this.textType = textType;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ReplaceRange replaceRange = (ReplaceRange) o;
-    return Objects.equals(this.text, replaceRange.text) &&
-        Objects.equals(this.textType, replaceRange.textType);
+        ReplaceRange replaceRange = (ReplaceRange) o;
+        return
+            Objects.equals(this.text, replaceRange.text) &&
+            Objects.equals(this.textType, replaceRange.textType);
   }
 
   @Override
@@ -155,12 +154,10 @@ public class ReplaceRange {
     return Objects.hash(text, textType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplaceRange {\n");
-    
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    textType: ").append(toIndentedString(textType)).append("\n");
     sb.append("}");
@@ -177,6 +174,4 @@ public class ReplaceRange {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="WatermarkText.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,75 +47,73 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Class for insert watermark text request building.")
 public class WatermarkText {
-  @SerializedName("Text")
-  private String text = null;
+    @SerializedName("RotationAngle")
+    private Double rotationAngle = null;
 
-  @SerializedName("RotationAngle")
-  private Double rotationAngle = null;
-
-  public WatermarkText text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Gets or sets the watermark text.
-   * @return text
-  **/
-  @ApiModelProperty(value = "Gets or sets the watermark text.")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public WatermarkText rotationAngle(Double rotationAngle) {
-    this.rotationAngle = rotationAngle;
-    return this;
-  }
-
-   /**
-   * Gets or sets the watermark rotation angle.
-   * @return rotationAngle
-  **/
-  @ApiModelProperty(value = "Gets or sets the watermark rotation angle.")
-  public Double getRotationAngle() {
-    return rotationAngle;
-  }
-
-  public void setRotationAngle(Double rotationAngle) {
-    this.rotationAngle = rotationAngle;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Text")
+    private String text = null;
+    public WatermarkText rotationAngle(Double rotationAngle) {
+        this.rotationAngle = rotationAngle;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the watermark rotation angle.
+    * @return rotationAngle
+    **/
+    @ApiModelProperty(value = "Gets or sets the watermark rotation angle.")
+    public Double getRotationAngle() {
+        return rotationAngle;
     }
-    WatermarkText watermarkText = (WatermarkText) o;
-    return Objects.equals(this.text, watermarkText.text) &&
-        Objects.equals(this.rotationAngle, watermarkText.rotationAngle);
+
+    public void setRotationAngle(Double rotationAngle) {
+        this.rotationAngle = rotationAngle;
+    }
+
+    public WatermarkText text(String text) {
+        this.text = text;
+        return this;
+    }
+
+    /**
+     * Gets or sets the watermark text.
+    * @return text
+    **/
+    @ApiModelProperty(value = "Gets or sets the watermark text.")
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        WatermarkText watermarkText = (WatermarkText) o;
+        return
+            Objects.equals(this.rotationAngle, watermarkText.rotationAngle) &&
+            Objects.equals(this.text, watermarkText.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, rotationAngle);
+    return Objects.hash(rotationAngle, text);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WatermarkText {\n");
-    
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    rotationAngle: ").append(toIndentedString(rotationAngle)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,6 +128,4 @@ public class WatermarkText {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

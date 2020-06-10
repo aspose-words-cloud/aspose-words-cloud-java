@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TabStop.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,49 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph format tab stop.             
+ * Paragraph format tab stop.
  */
-@ApiModel(description = "Paragraph format tab stop.             ")
+@ApiModel(description = "Paragraph format tab stop.")
 public class TabStop extends TabStopBase {
-  @SerializedName("IsClear")
-  private Boolean isClear = null;
-
-  public TabStop isClear(Boolean isClear) {
-    this.isClear = isClear;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
-   * @return isClear
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.")
-  public Boolean isIsClear() {
-    return isClear;
-  }
-
-  public void setIsClear(Boolean isClear) {
-    this.isClear = isClear;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("IsClear")
+    private Boolean isClear = null;
+    public TabStop isClear(Boolean isClear) {
+        this.isClear = isClear;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
+    * @return isClear
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.")
+    public Boolean getIsClear() {
+        return isClear;
     }
-    TabStop tabStop = (TabStop) o;
-    return Objects.equals(this.isClear, tabStop.isClear) &&
-        super.equals(o);
+
+    public void setIsClear(Boolean isClear) {
+        this.isClear = isClear;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TabStop tabStop = (TabStop) o;
+        return
+            Objects.equals(this.isClear, tabStop.isClear) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(isClear, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class TabStop extends TabStopBase {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

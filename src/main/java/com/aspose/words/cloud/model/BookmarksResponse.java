@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="BookmarksResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET bookmarks.")
 public class BookmarksResponse extends WordsResponse {
-  @SerializedName("Bookmarks")
-  private Bookmarks bookmarks = null;
-
-  public BookmarksResponse bookmarks(Bookmarks bookmarks) {
-    this.bookmarks = bookmarks;
-    return this;
-  }
-
-   /**
-   * Get bookmarks
-   * @return bookmarks
-  **/
-  @ApiModelProperty(value = "")
-  public Bookmarks getBookmarks() {
-    return bookmarks;
-  }
-
-  public void setBookmarks(Bookmarks bookmarks) {
-    this.bookmarks = bookmarks;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Bookmarks")
+    private Bookmarks bookmarks = null;
+    public BookmarksResponse bookmarks(Bookmarks bookmarks) {
+        this.bookmarks = bookmarks;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets bookmarks which are contained in document.
+    * @return bookmarks
+    **/
+    @ApiModelProperty(value = "Gets or sets bookmarks which are contained in document.")
+    public Bookmarks getBookmarks() {
+        return bookmarks;
     }
-    BookmarksResponse bookmarksResponse = (BookmarksResponse) o;
-    return Objects.equals(this.bookmarks, bookmarksResponse.bookmarks) &&
-        super.equals(o);
+
+    public void setBookmarks(Bookmarks bookmarks) {
+        this.bookmarks = bookmarks;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        BookmarksResponse bookmarksResponse = (BookmarksResponse) o;
+        return
+            Objects.equals(this.bookmarks, bookmarksResponse.bookmarks) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(bookmarks, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class BookmarksResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

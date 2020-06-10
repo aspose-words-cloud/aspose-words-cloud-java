@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StyleResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.")
 public class StyleResponse extends WordsResponse {
-  @SerializedName("Style")
-  private Style style = null;
-
-  public StyleResponse style(Style style) {
-    this.style = style;
-    return this;
-  }
-
-   /**
-   * Get style
-   * @return style
-  **/
-  @ApiModelProperty(value = "")
-  public Style getStyle() {
-    return style;
-  }
-
-  public void setStyle(Style style) {
-    this.style = style;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Style")
+    private Style style = null;
+    public StyleResponse style(Style style) {
+        this.style = style;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets style which are contained in document.
+    * @return style
+    **/
+    @ApiModelProperty(value = "Gets or sets style which are contained in document.")
+    public Style getStyle() {
+        return style;
     }
-    StyleResponse styleResponse = (StyleResponse) o;
-    return Objects.equals(this.style, styleResponse.style) &&
-        super.equals(o);
+
+    public void setStyle(Style style) {
+        this.style = style;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        StyleResponse styleResponse = (StyleResponse) o;
+        return
+            Objects.equals(this.style, styleResponse.style) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(style, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class StyleResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ListResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}.")
 public class ListResponse extends WordsResponse {
-  @SerializedName("List")
-  private ListInfo list = null;
-
-  public ListResponse list(ListInfo list) {
-    this.list = list;
-    return this;
-  }
-
-   /**
-   * Get list
-   * @return list
-  **/
-  @ApiModelProperty(value = "")
-  public ListInfo getList() {
-    return list;
-  }
-
-  public void setList(ListInfo list) {
-    this.list = list;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("List")
+    private ListInfo list = null;
+    public ListResponse list(ListInfo list) {
+        this.list = list;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets list which are contained in document.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets list which are contained in document.")
+    public ListInfo getList() {
+        return list;
     }
-    ListResponse listResponse = (ListResponse) o;
-    return Objects.equals(this.list, listResponse.list) &&
-        super.equals(o);
+
+    public void setList(ListInfo list) {
+        this.list = list;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ListResponse listResponse = (ListResponse) o;
+        return
+            Objects.equals(this.list, listResponse.list) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(list, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class ListResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

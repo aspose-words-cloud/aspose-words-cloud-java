@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StyleApply.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,38 +47,38 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a single document style to insert.")
 public class StyleApply {
-  @SerializedName("StyleName")
-  private String styleName = null;
-
-  public StyleApply styleName(String styleName) {
-    this.styleName = styleName;
-    return this;
-  }
-
-   /**
-   * Gets or sets the case sensitive name of the style to apply.
-   * @return styleName
-  **/
-  @ApiModelProperty(value = "Gets or sets the case sensitive name of the style to apply.")
-  public String getStyleName() {
-    return styleName;
-  }
-
-  public void setStyleName(String styleName) {
-    this.styleName = styleName;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("StyleName")
+    private String styleName = null;
+    public StyleApply styleName(String styleName) {
+        this.styleName = styleName;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the case sensitive name of the style to apply.
+    * @return styleName
+    **/
+    @ApiModelProperty(value = "Gets or sets the case sensitive name of the style to apply.")
+    public String getStyleName() {
+        return styleName;
     }
-    StyleApply styleApply = (StyleApply) o;
-    return Objects.equals(this.styleName, styleApply.styleName);
+
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        StyleApply styleApply = (StyleApply) o;
+        return
+            Objects.equals(this.styleName, styleApply.styleName);
   }
 
   @Override
@@ -86,12 +86,10 @@ public class StyleApply {
     return Objects.hash(styleName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleApply {\n");
-    
     sb.append("    styleName: ").append(toIndentedString(styleName)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -107,6 +105,4 @@ public class StyleApply {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

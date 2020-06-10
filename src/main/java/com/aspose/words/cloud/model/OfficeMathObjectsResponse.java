@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="OfficeMathObjectsResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.")
 public class OfficeMathObjectsResponse extends WordsResponse {
-  @SerializedName("OfficeMathObjects")
-  private OfficeMathObjectsCollection officeMathObjects = null;
-
-  public OfficeMathObjectsResponse officeMathObjects(OfficeMathObjectsCollection officeMathObjects) {
-    this.officeMathObjects = officeMathObjects;
-    return this;
-  }
-
-   /**
-   * Get officeMathObjects
-   * @return officeMathObjects
-  **/
-  @ApiModelProperty(value = "")
-  public OfficeMathObjectsCollection getOfficeMathObjects() {
-    return officeMathObjects;
-  }
-
-  public void setOfficeMathObjects(OfficeMathObjectsCollection officeMathObjects) {
-    this.officeMathObjects = officeMathObjects;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("OfficeMathObjects")
+    private OfficeMathObjectsCollection officeMathObjects = null;
+    public OfficeMathObjectsResponse officeMathObjects(OfficeMathObjectsCollection officeMathObjects) {
+        this.officeMathObjects = officeMathObjects;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of OfficeMath objects.
+    * @return officeMathObjects
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of OfficeMath objects.")
+    public OfficeMathObjectsCollection getOfficeMathObjects() {
+        return officeMathObjects;
     }
-    OfficeMathObjectsResponse officeMathObjectsResponse = (OfficeMathObjectsResponse) o;
-    return Objects.equals(this.officeMathObjects, officeMathObjectsResponse.officeMathObjects) &&
-        super.equals(o);
+
+    public void setOfficeMathObjects(OfficeMathObjectsCollection officeMathObjects) {
+        this.officeMathObjects = officeMathObjects;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        OfficeMathObjectsResponse officeMathObjectsResponse = (OfficeMathObjectsResponse) o;
+        return
+            Objects.equals(this.officeMathObjects, officeMathObjectsResponse.officeMathObjects) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(officeMathObjects, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class OfficeMathObjectsResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

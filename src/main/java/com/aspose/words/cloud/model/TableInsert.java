@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableInsert.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,97 +47,95 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Table element.")
 public class TableInsert {
-  @SerializedName("Position")
-  private DocumentPosition position = null;
+    @SerializedName("ColumnsCount")
+    private Integer columnsCount = null;
 
-  @SerializedName("ColumnsCount")
-  private Integer columnsCount = null;
+    @SerializedName("Position")
+    private DocumentPosition position = null;
 
-  @SerializedName("RowsCount")
-  private Integer rowsCount = null;
-
-  public TableInsert position(DocumentPosition position) {
-    this.position = position;
-    return this;
-  }
-
-   /**
-   * Get position
-   * @return position
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentPosition getPosition() {
-    return position;
-  }
-
-  public void setPosition(DocumentPosition position) {
-    this.position = position;
-  }
-
-  public TableInsert columnsCount(Integer columnsCount) {
-    this.columnsCount = columnsCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets count of columns. Default is 2.
-   * @return columnsCount
-  **/
-  @ApiModelProperty(value = "Gets or sets count of columns. Default is 2.")
-  public Integer getColumnsCount() {
-    return columnsCount;
-  }
-
-  public void setColumnsCount(Integer columnsCount) {
-    this.columnsCount = columnsCount;
-  }
-
-  public TableInsert rowsCount(Integer rowsCount) {
-    this.rowsCount = rowsCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets count of rows. Default is 2.
-   * @return rowsCount
-  **/
-  @ApiModelProperty(value = "Gets or sets count of rows. Default is 2.")
-  public Integer getRowsCount() {
-    return rowsCount;
-  }
-
-  public void setRowsCount(Integer rowsCount) {
-    this.rowsCount = rowsCount;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("RowsCount")
+    private Integer rowsCount = null;
+    public TableInsert columnsCount(Integer columnsCount) {
+        this.columnsCount = columnsCount;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets count of columns. Default is 2.
+    * @return columnsCount
+    **/
+    @ApiModelProperty(value = "Gets or sets count of columns. Default is 2.")
+    public Integer getColumnsCount() {
+        return columnsCount;
     }
-    TableInsert tableInsert = (TableInsert) o;
-    return Objects.equals(this.position, tableInsert.position) &&
-        Objects.equals(this.columnsCount, tableInsert.columnsCount) &&
-        Objects.equals(this.rowsCount, tableInsert.rowsCount);
+
+    public void setColumnsCount(Integer columnsCount) {
+        this.columnsCount = columnsCount;
+    }
+
+    public TableInsert position(DocumentPosition position) {
+        this.position = position;
+        return this;
+    }
+
+    /**
+     * Gets or sets table will be inserted before specified position.
+    * @return position
+    **/
+    @ApiModelProperty(value = "Gets or sets table will be inserted before specified position.")
+    public DocumentPosition getPosition() {
+        return position;
+    }
+
+    public void setPosition(DocumentPosition position) {
+        this.position = position;
+    }
+
+    public TableInsert rowsCount(Integer rowsCount) {
+        this.rowsCount = rowsCount;
+        return this;
+    }
+
+    /**
+     * Gets or sets count of rows. Default is 2.
+    * @return rowsCount
+    **/
+    @ApiModelProperty(value = "Gets or sets count of rows. Default is 2.")
+    public Integer getRowsCount() {
+        return rowsCount;
+    }
+
+    public void setRowsCount(Integer rowsCount) {
+        this.rowsCount = rowsCount;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TableInsert tableInsert = (TableInsert) o;
+        return
+            Objects.equals(this.columnsCount, tableInsert.columnsCount) &&
+            Objects.equals(this.position, tableInsert.position) &&
+            Objects.equals(this.rowsCount, tableInsert.rowsCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(position, columnsCount, rowsCount);
+    return Objects.hash(columnsCount, position, rowsCount);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableInsert {\n");
-    
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    columnsCount: ").append(toIndentedString(columnsCount)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    rowsCount: ").append(toIndentedString(rowsCount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -153,6 +151,4 @@ public class TableInsert {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

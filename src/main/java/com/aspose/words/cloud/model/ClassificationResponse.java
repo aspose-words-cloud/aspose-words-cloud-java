@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ClassificationResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,102 +43,102 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: PUT https://api.aspose.cloud/v4.0/words/classify.
+ * This response should be returned by the service when handling:
+ * PUT https://api.aspose.cloud/v4.0/words/classify.
  */
 @ApiModel(description = "This response should be returned by the service when handling: PUT https://api.aspose.cloud/v4.0/words/classify.")
 public class ClassificationResponse extends WordsResponse {
-  @SerializedName("BestClassName")
-  private String bestClassName = null;
+    @SerializedName("BestClassName")
+    private String bestClassName = null;
 
-  @SerializedName("BestClassProbability")
-  private Double bestClassProbability = null;
+    @SerializedName("BestClassProbability")
+    private Double bestClassProbability = null;
 
-  @SerializedName("BestResults")
-  private List<ClassificationResult> bestResults = null;
-
-  public ClassificationResponse bestClassName(String bestClassName) {
-    this.bestClassName = bestClassName;
-    return this;
-  }
-
-   /**
-   * Gets or sets best class name.
-   * @return bestClassName
-  **/
-  @ApiModelProperty(value = "Gets or sets best class name.")
-  public String getBestClassName() {
-    return bestClassName;
-  }
-
-  public void setBestClassName(String bestClassName) {
-    this.bestClassName = bestClassName;
-  }
-
-  public ClassificationResponse bestClassProbability(Double bestClassProbability) {
-    this.bestClassProbability = bestClassProbability;
-    return this;
-  }
-
-   /**
-   * Gets or sets best class probability.
-   * @return bestClassProbability
-  **/
-  @ApiModelProperty(value = "Gets or sets best class probability.")
-  public Double getBestClassProbability() {
-    return bestClassProbability;
-  }
-
-  public void setBestClassProbability(Double bestClassProbability) {
-    this.bestClassProbability = bestClassProbability;
-  }
-
-  public ClassificationResponse bestResults(List<ClassificationResult> bestResults) {
-    this.bestResults = bestResults;
-    return this;
-  }
-
-  public ClassificationResponse addBestResultsItem(ClassificationResult bestResultsItem) {
-    if (this.bestResults == null) {
-      this.bestResults = new ArrayList<ClassificationResult>();
+    @SerializedName("BestResults")
+    private List<ClassificationResult> bestResults = null;
+    public ClassificationResponse bestClassName(String bestClassName) {
+        this.bestClassName = bestClassName;
+        return this;
     }
-    this.bestResults.add(bestResultsItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets array of best classes results.
-   * @return bestResults
-  **/
-  @ApiModelProperty(value = "Gets or sets array of best classes results.")
-  public List<ClassificationResult> getBestResults() {
-    return bestResults;
-  }
-
-  public void setBestResults(List<ClassificationResult> bestResults) {
-    this.bestResults = bestResults;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Gets or sets best class name.
+    * @return bestClassName
+    **/
+    @ApiModelProperty(value = "Gets or sets best class name.")
+    public String getBestClassName() {
+        return bestClassName;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setBestClassName(String bestClassName) {
+        this.bestClassName = bestClassName;
     }
-    ClassificationResponse classificationResponse = (ClassificationResponse) o;
-    return Objects.equals(this.bestClassName, classificationResponse.bestClassName) &&
-        Objects.equals(this.bestClassProbability, classificationResponse.bestClassProbability) &&
-        Objects.equals(this.bestResults, classificationResponse.bestResults) &&
-        super.equals(o);
+
+    public ClassificationResponse bestClassProbability(Double bestClassProbability) {
+        this.bestClassProbability = bestClassProbability;
+        return this;
+    }
+
+    /**
+     * Gets or sets best class probability.
+    * @return bestClassProbability
+    **/
+    @ApiModelProperty(value = "Gets or sets best class probability.")
+    public Double getBestClassProbability() {
+        return bestClassProbability;
+    }
+
+    public void setBestClassProbability(Double bestClassProbability) {
+        this.bestClassProbability = bestClassProbability;
+    }
+
+    public ClassificationResponse bestResults(List<ClassificationResult> bestResults) {
+        this.bestResults = bestResults;
+        return this;
+    }
+
+    public ClassificationResponse addBestResultsItem(ClassificationResult bestResultsItem) {
+        if (this.bestResults == null) {
+            this.bestResults = new ArrayList<ClassificationResult>();
+        }
+        this.bestResults.add(bestResultsItem);
+        return this;
+    }
+
+    /**
+     * Gets or sets array of best classes results.
+    * @return bestResults
+    **/
+    @ApiModelProperty(value = "Gets or sets array of best classes results.")
+    public List<ClassificationResult> getBestResults() {
+        return bestResults;
+    }
+
+    public void setBestResults(List<ClassificationResult> bestResults) {
+        this.bestResults = bestResults;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ClassificationResponse classificationResponse = (ClassificationResponse) o;
+        return
+            Objects.equals(this.bestClassName, classificationResponse.bestClassName) &&
+            Objects.equals(this.bestClassProbability, classificationResponse.bestClassProbability) &&
+            Objects.equals(this.bestResults, classificationResponse.bestResults) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(bestClassName, bestClassProbability, bestResults, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -162,6 +162,4 @@ public class ClassificationResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

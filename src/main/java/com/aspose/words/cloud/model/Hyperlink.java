@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Hyperlink.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,68 +47,67 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Hyperlink element.")
 public class Hyperlink extends LinkElement {
-  @SerializedName("DisplayText")
-  private String displayText = null;
+    @SerializedName("DisplayText")
+    private String displayText = null;
 
-  @SerializedName("Value")
-  private String value = null;
-
-  public Hyperlink displayText(String displayText) {
-    this.displayText = displayText;
-    return this;
-  }
-
-   /**
-   * Gets or sets hypelink&#39;s display text.
-   * @return displayText
-  **/
-  @ApiModelProperty(value = "Gets or sets hypelink's display text.")
-  public String getDisplayText() {
-    return displayText;
-  }
-
-  public void setDisplayText(String displayText) {
-    this.displayText = displayText;
-  }
-
-  public Hyperlink value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Gets or sets value.
-   * @return value
-  **/
-  @ApiModelProperty(value = "Gets or sets value.")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Value")
+    private String value = null;
+    public Hyperlink displayText(String displayText) {
+        this.displayText = displayText;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets hypelink's display text.
+    * @return displayText
+    **/
+    @ApiModelProperty(value = "Gets or sets hypelink's display text.")
+    public String getDisplayText() {
+        return displayText;
     }
-    Hyperlink hyperlink = (Hyperlink) o;
-    return Objects.equals(this.displayText, hyperlink.displayText) &&
-        Objects.equals(this.value, hyperlink.value) &&
-        super.equals(o);
+
+    public void setDisplayText(String displayText) {
+        this.displayText = displayText;
+    }
+
+    public Hyperlink value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets or sets value.
+    * @return value
+    **/
+    @ApiModelProperty(value = "Gets or sets value.")
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Hyperlink hyperlink = (Hyperlink) o;
+        return
+            Objects.equals(this.displayText, hyperlink.displayText) &&
+            Objects.equals(this.value, hyperlink.value) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(displayText, value, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -131,6 +130,4 @@ public class Hyperlink extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

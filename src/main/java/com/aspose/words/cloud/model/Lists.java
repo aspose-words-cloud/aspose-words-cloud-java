@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Lists.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents an array of document lists.")
 public class Lists extends LinkElement {
-  @SerializedName("ListInfo")
-  private List<ListInfo> listInfo = null;
-
-  public Lists listInfo(List<ListInfo> listInfo) {
-    this.listInfo = listInfo;
-    return this;
-  }
-
-  public Lists addListInfoItem(ListInfo listInfoItem) {
-    if (this.listInfo == null) {
-      this.listInfo = new ArrayList<ListInfo>();
+    @SerializedName("ListInfo")
+    private List<ListInfo> listInfo = null;
+    public Lists listInfo(List<ListInfo> listInfo) {
+        this.listInfo = listInfo;
+        return this;
     }
-    this.listInfo.add(listInfoItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets array of document lists.
-   * @return listInfo
-  **/
-  @ApiModelProperty(value = "Gets or sets array of document lists.")
-  public List<ListInfo> getListInfo() {
-    return listInfo;
-  }
-
-  public void setListInfo(List<ListInfo> listInfo) {
-    this.listInfo = listInfo;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public Lists addListInfoItem(ListInfo listInfoItem) {
+        if (this.listInfo == null) {
+            this.listInfo = new ArrayList<ListInfo>();
+        }
+        this.listInfo.add(listInfoItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets array of document lists.
+    * @return listInfo
+    **/
+    @ApiModelProperty(value = "Gets or sets array of document lists.")
+    public List<ListInfo> getListInfo() {
+        return listInfo;
     }
-    Lists lists = (Lists) o;
-    return Objects.equals(this.listInfo, lists.listInfo) &&
-        super.equals(o);
+
+    public void setListInfo(List<ListInfo> listInfo) {
+        this.listInfo = listInfo;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Lists lists = (Lists) o;
+        return
+            Objects.equals(this.listInfo, lists.listInfo) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(listInfo, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class Lists extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

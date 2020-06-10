@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ParagraphListFormatResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat.")
 public class ParagraphListFormatResponse extends WordsResponse {
-  @SerializedName("ListFormat")
-  private ListFormat listFormat = null;
-
-  public ParagraphListFormatResponse listFormat(ListFormat listFormat) {
-    this.listFormat = listFormat;
-    return this;
-  }
-
-   /**
-   * Get listFormat
-   * @return listFormat
-  **/
-  @ApiModelProperty(value = "")
-  public ListFormat getListFormat() {
-    return listFormat;
-  }
-
-  public void setListFormat(ListFormat listFormat) {
-    this.listFormat = listFormat;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ListFormat")
+    private ListFormat listFormat = null;
+    public ParagraphListFormatResponse listFormat(ListFormat listFormat) {
+        this.listFormat = listFormat;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the list format for a paragraph.
+    * @return listFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets the list format for a paragraph.")
+    public ListFormat getListFormat() {
+        return listFormat;
     }
-    ParagraphListFormatResponse paragraphListFormatResponse = (ParagraphListFormatResponse) o;
-    return Objects.equals(this.listFormat, paragraphListFormatResponse.listFormat) &&
-        super.equals(o);
+
+    public void setListFormat(ListFormat listFormat) {
+        this.listFormat = listFormat;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ParagraphListFormatResponse paragraphListFormatResponse = (ParagraphListFormatResponse) o;
+        return
+            Objects.equals(this.listFormat, paragraphListFormatResponse.listFormat) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(listFormat, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class ParagraphListFormatResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DownloadFileRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -33,72 +35,72 @@ import java.io.File;
  */
 public class DownloadFileRequest {
     /*
-     * Path of the file including the file name and extension e.g. /folder1/file.ext
+     * Path of the file including the file name and extension e.g. /folder1/file.ext.
      */
-    private String Path;
+    private String path;
 
     /*
-     * Storage name
+     * Storage name.
      */
-    private String StorageName;
+    private String storageName;
 
     /*
-     * File version ID to download
+     * File version ID to download.
      */
-    private String VersionId;
-    
+    private String versionId;
+
     /*
-     * Initializes a new instance of the downloadFileRequest class.
-     *  
-     * @param String path Path of the file including the file name and extension e.g. /folder1/file.ext
-     * @param String storageName Storage name
-     * @param String versionId File version ID to download
+     * Initializes a new instance of the DownloadFileRequest class.
+     *
+     * @param String path Path of the file including the file name and extension e.g. /folder1/file.ext.
+     * @param String storageName Storage name.
+     * @param String versionId File version ID to download.
      */
-    public DownloadFileRequest(String path,  String storageName,  String versionId) {
-        Path = path;
-        StorageName = storageName;
-        VersionId = versionId;
+    public DownloadFileRequest(String path, String storageName, String versionId) {
+        this.path = path;
+        this.storageName = storageName;
+        this.versionId = versionId;
     }
 
     /*
-     *  Gets Path of the file including the file name and extension e.g. /folder1/file.ext
+     * Gets Path of the file including the file name and extension e.g. /folder1/file.ext.
      */
     public String getPath() {
-        return Path;
+        return this.path;
     }
 
     /*
-     * Sets Path of the file including the file name and extension e.g. /folder1/file.ext
+     * Sets Path of the file including the file name and extension e.g. /folder1/file.ext.
      */
     public void setPath(String value) {
-        Path = value;
+        this.path = value;
     }
 
     /*
-     *  Gets Storage name
+     * Gets Storage name.
      */
     public String getStorageName() {
-        return StorageName;
+        return this.storageName;
     }
 
     /*
-     * Sets Storage name
+     * Sets Storage name.
      */
     public void setStorageName(String value) {
-        StorageName = value;
+        this.storageName = value;
     }
 
     /*
-     *  Gets File version ID to download
+     * Gets File version ID to download.
      */
     public String getVersionId() {
-        return VersionId;
+        return this.versionId;
     }
 
     /*
-     * Sets File version ID to download
+     * Sets File version ID to download.
      */
     public void setVersionId(String value) {
-        VersionId = value;
+        this.versionId = value;
     }
 }

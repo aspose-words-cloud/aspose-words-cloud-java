@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="NodeLink.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,48 +46,46 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to node.
  */
 @ApiModel(description = "Reference to node.")
-
 public class NodeLink extends LinkElement {
-  @SerializedName("NodeId")
-  private String nodeId = null;
-
-  public NodeLink nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * Gets or sets node id.
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "Gets or sets node id.")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("NodeId")
+    private String nodeId = null;
+    public NodeLink nodeId(String nodeId) {
+        this.nodeId = nodeId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets node id.
+    * @return nodeId
+    **/
+    @ApiModelProperty(value = "Gets or sets node id.")
+    public String getNodeId() {
+        return nodeId;
     }
-    NodeLink nodeLink = (NodeLink) o;
-    return Objects.equals(this.nodeId, nodeLink.nodeId) &&
-        super.equals(o);
+
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        NodeLink nodeLink = (NodeLink) o;
+        return
+            Objects.equals(this.nodeId, nodeLink.nodeId) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(nodeId, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -109,6 +107,4 @@ public class NodeLink extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentPropertyBase.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,40 +46,39 @@ import io.swagger.annotations.ApiModelProperty;
  * Words document property DTO base class.
  */
 @ApiModel(description = "Words document property DTO base class.")
-
 public class DocumentPropertyBase {
-  @SerializedName("Value")
-  private String value = null;
-
-  public DocumentPropertyBase value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Gets or sets string value of the document property.
-   * @return value
-  **/
-  @ApiModelProperty(value = "Gets or sets string value of the document property.")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Value")
+    private String value = null;
+    public DocumentPropertyBase value(String value) {
+        this.value = value;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets string value of the document property.
+    * @return value
+    **/
+    @ApiModelProperty(value = "Gets or sets string value of the document property.")
+    public String getValue() {
+        return value;
     }
-    DocumentPropertyBase documentPropertyBase = (DocumentPropertyBase) o;
-    return Objects.equals(this.value, documentPropertyBase.value);
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentPropertyBase documentPropertyBase = (DocumentPropertyBase) o;
+        return
+            Objects.equals(this.value, documentPropertyBase.value);
   }
 
   @Override
@@ -87,12 +86,10 @@ public class DocumentPropertyBase {
     return Objects.hash(value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentPropertyBase {\n");
-    
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -108,6 +105,4 @@ public class DocumentPropertyBase {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

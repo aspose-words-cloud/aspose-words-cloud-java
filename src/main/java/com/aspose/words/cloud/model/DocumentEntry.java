@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentEntry.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,60 +47,60 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a document which will be appended to the original resource document.")
 public class DocumentEntry {
-  @SerializedName("Href")
-  private String href = null;
+    @SerializedName("Href")
+    private String href = null;
 
-  @SerializedName("ImportFormatMode")
-  private String importFormatMode = null;
-
-  public DocumentEntry href(String href) {
-    this.href = href;
-    return this;
-  }
-
-   /**
-   * Gets or sets path to document to append at the server.
-   * @return href
-  **/
-  @ApiModelProperty(value = "Gets or sets path to document to append at the server.")
-  public String getHref() {
-    return href;
-  }
-
-  public void setHref(String href) {
-    this.href = href;
-  }
-
-  public DocumentEntry importFormatMode(String importFormatMode) {
-    this.importFormatMode = importFormatMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
-   * @return importFormatMode
-  **/
-  @ApiModelProperty(value = "Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.")
-  public String getImportFormatMode() {
-    return importFormatMode;
-  }
-
-  public void setImportFormatMode(String importFormatMode) {
-    this.importFormatMode = importFormatMode;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ImportFormatMode")
+    private String importFormatMode = null;
+    public DocumentEntry href(String href) {
+        this.href = href;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets path to document to append at the server.
+    * @return href
+    **/
+    @ApiModelProperty(value = "Gets or sets path to document to append at the server.")
+    public String getHref() {
+        return href;
     }
-    DocumentEntry documentEntry = (DocumentEntry) o;
-    return Objects.equals(this.href, documentEntry.href) &&
-        Objects.equals(this.importFormatMode, documentEntry.importFormatMode);
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public DocumentEntry importFormatMode(String importFormatMode) {
+        this.importFormatMode = importFormatMode;
+        return this;
+    }
+
+    /**
+     * Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
+    * @return importFormatMode
+    **/
+    @ApiModelProperty(value = "Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.")
+    public String getImportFormatMode() {
+        return importFormatMode;
+    }
+
+    public void setImportFormatMode(String importFormatMode) {
+        this.importFormatMode = importFormatMode;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentEntry documentEntry = (DocumentEntry) o;
+        return
+            Objects.equals(this.href, documentEntry.href) &&
+            Objects.equals(this.importFormatMode, documentEntry.importFormatMode);
   }
 
   @Override
@@ -108,12 +108,10 @@ public class DocumentEntry {
     return Objects.hash(href, importFormatMode);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentEntry {\n");
-    
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    importFormatMode: ").append(toIndentedString(importFormatMode)).append("\n");
     sb.append("}");
@@ -130,6 +128,4 @@ public class DocumentEntry {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

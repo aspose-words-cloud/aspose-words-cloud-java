@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="LinkElement.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,40 +46,39 @@ import io.swagger.annotations.ApiModelProperty;
  * Reference to document.
  */
 @ApiModel(description = "Reference to document.")
-
 public class LinkElement {
-  @SerializedName("link")
-  private WordsApiLink link = null;
-
-  public LinkElement link(WordsApiLink link) {
-    this.link = link;
-    return this;
-  }
-
-   /**
-   * Get link
-   * @return link
-  **/
-  @ApiModelProperty(value = "")
-  public WordsApiLink getLink() {
-    return link;
-  }
-
-  public void setLink(WordsApiLink link) {
-    this.link = link;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Link")
+    private WordsApiLink link = null;
+    public LinkElement link(WordsApiLink link) {
+        this.link = link;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets link to the document.
+    * @return link
+    **/
+    @ApiModelProperty(value = "Gets or sets link to the document.")
+    public WordsApiLink getLink() {
+        return link;
     }
-    LinkElement linkElement = (LinkElement) o;
-    return Objects.equals(this.link, linkElement.link);
+
+    public void setLink(WordsApiLink link) {
+        this.link = link;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        LinkElement linkElement = (LinkElement) o;
+        return
+            Objects.equals(this.link, linkElement.link);
   }
 
   @Override
@@ -87,12 +86,10 @@ public class LinkElement {
     return Objects.hash(link);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LinkElement {\n");
-    
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -108,6 +105,4 @@ public class LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

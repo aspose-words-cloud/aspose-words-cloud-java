@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="MhtmlSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,46 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for mhtml save options.")
 public class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
-  @SerializedName("ExportCidUrlsForMhtmlResources")
-  private Boolean exportCidUrlsForMhtmlResources = null;
-
-  public MhtmlSaveOptionsData exportCidUrlsForMhtmlResources(Boolean exportCidUrlsForMhtmlResources) {
-    this.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             
-   * @return exportCidUrlsForMhtmlResources
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             ")
-  public Boolean isExportCidUrlsForMhtmlResources() {
-    return exportCidUrlsForMhtmlResources;
-  }
-
-  public void setExportCidUrlsForMhtmlResources(Boolean exportCidUrlsForMhtmlResources) {
-    this.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ExportCidUrlsForMhtmlResources")
+    private Boolean exportCidUrlsForMhtmlResources = null;
+    public MhtmlSaveOptionsData exportCidUrlsForMhtmlResources(Boolean exportCidUrlsForMhtmlResources) {
+        this.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents.
+     * Default value is false.
+    * @return exportCidUrlsForMhtmlResources
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.")
+    public Boolean getExportCidUrlsForMhtmlResources() {
+        return exportCidUrlsForMhtmlResources;
     }
-    MhtmlSaveOptionsData mhtmlSaveOptionsData = (MhtmlSaveOptionsData) o;
-    return Objects.equals(this.exportCidUrlsForMhtmlResources, mhtmlSaveOptionsData.exportCidUrlsForMhtmlResources) &&
-        super.equals(o);
+
+    public void setExportCidUrlsForMhtmlResources(Boolean exportCidUrlsForMhtmlResources) {
+        this.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        MhtmlSaveOptionsData mhtmlSaveOptionsData = (MhtmlSaveOptionsData) o;
+        return
+            Objects.equals(this.exportCidUrlsForMhtmlResources, mhtmlSaveOptionsData.exportCidUrlsForMhtmlResources) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(exportCidUrlsForMhtmlResources, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class MhtmlSaveOptionsData extends HtmlSaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

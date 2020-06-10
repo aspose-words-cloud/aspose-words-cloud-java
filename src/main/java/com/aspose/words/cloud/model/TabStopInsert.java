@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TabStopInsert.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,22 +48,22 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "A DTO to Insert / replace a tab stop.")
 public class TabStopInsert extends TabStopBase {
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return super.equals(o);
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        return super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -84,6 +84,4 @@ public class TabStopInsert extends TabStopBase {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

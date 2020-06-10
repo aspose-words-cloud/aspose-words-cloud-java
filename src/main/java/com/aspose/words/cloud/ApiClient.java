@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ApiClient.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,7 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud;
 
 import com.squareup.okhttp.*;
@@ -50,7 +51,7 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "20.3.0";
+    private String clientVersion = "20.6";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -64,7 +65,7 @@ public class ApiClient {
     private String refreshToken;
     private String appKey;
     private String appSid;
-    
+
     public ApiClient(String appSid, String appKey, String baseUrl) {
         this();
         this.appSid = appSid;
@@ -80,7 +81,6 @@ public class ApiClient {
     public ApiClient() {
         httpClient = new OkHttpClient();
         httpClient.setProtocols(Arrays.asList(Protocol.HTTP_1_1));
-        
 
         json = new JSON();
 
@@ -100,7 +100,7 @@ public class ApiClient {
     public String getAppKey() {
         return appKey;
     }
-    
+
     /**
      * Set App Key
      *
@@ -111,7 +111,7 @@ public class ApiClient {
         this.appKey = appKey;
         return this;
     }
-    
+
      /**
      * Get App Sid
      *
@@ -120,7 +120,7 @@ public class ApiClient {
     public String getAppSid() {
         return appSid;
     }
-    
+
     /**
      * Set App Sid
      *
@@ -151,8 +151,8 @@ public class ApiClient {
         this.apiVersion = apiVersion;
         return this;
     }
-    
-    
+
+
     /**
      * Get base path
      *
@@ -252,7 +252,7 @@ public class ApiClient {
         this.refreshToken = refreshToken;
         return this;
     }
-    
+
     /**
      * Set the User-Agent header's value (by adding to the default header map).
      *
@@ -1115,7 +1115,7 @@ public class ApiClient {
         headerParams.put("Authorization", "Bearer " + accessToken);
     }
 
-    
+
     /**
     * GetAccessTokenResult class
     */

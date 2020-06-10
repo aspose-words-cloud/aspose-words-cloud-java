@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentStatData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,156 +43,154 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Container for the document&#39;s statistical data.
+ * Container for the document's statistical data.
  */
 @ApiModel(description = "Container for the document's statistical data.")
 public class DocumentStatData {
-  @SerializedName("WordCount")
-  private Integer wordCount = null;
+    @SerializedName("FootnotesStatData")
+    private FootnotesStatData footnotesStatData = null;
 
-  @SerializedName("ParagraphCount")
-  private Integer paragraphCount = null;
+    @SerializedName("PageCount")
+    private Integer pageCount = null;
 
-  @SerializedName("PageCount")
-  private Integer pageCount = null;
+    @SerializedName("PageStatData")
+    private List<PageStatData> pageStatData = null;
 
-  @SerializedName("FootnotesStatData")
-  private FootnotesStatData footnotesStatData = null;
+    @SerializedName("ParagraphCount")
+    private Integer paragraphCount = null;
 
-  @SerializedName("PageStatData")
-  private List<PageStatData> pageStatData = null;
-
-  public DocumentStatData wordCount(Integer wordCount) {
-    this.wordCount = wordCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets total count of words in the document.
-   * @return wordCount
-  **/
-  @ApiModelProperty(value = "Gets or sets total count of words in the document.")
-  public Integer getWordCount() {
-    return wordCount;
-  }
-
-  public void setWordCount(Integer wordCount) {
-    this.wordCount = wordCount;
-  }
-
-  public DocumentStatData paragraphCount(Integer paragraphCount) {
-    this.paragraphCount = paragraphCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets total count of paragraphs in the document.
-   * @return paragraphCount
-  **/
-  @ApiModelProperty(value = "Gets or sets total count of paragraphs in the document.")
-  public Integer getParagraphCount() {
-    return paragraphCount;
-  }
-
-  public void setParagraphCount(Integer paragraphCount) {
-    this.paragraphCount = paragraphCount;
-  }
-
-  public DocumentStatData pageCount(Integer pageCount) {
-    this.pageCount = pageCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets total count of pages in the document.
-   * @return pageCount
-  **/
-  @ApiModelProperty(value = "Gets or sets total count of pages in the document.")
-  public Integer getPageCount() {
-    return pageCount;
-  }
-
-  public void setPageCount(Integer pageCount) {
-    this.pageCount = pageCount;
-  }
-
-  public DocumentStatData footnotesStatData(FootnotesStatData footnotesStatData) {
-    this.footnotesStatData = footnotesStatData;
-    return this;
-  }
-
-   /**
-   * Get footnotesStatData
-   * @return footnotesStatData
-  **/
-  @ApiModelProperty(value = "")
-  public FootnotesStatData getFootnotesStatData() {
-    return footnotesStatData;
-  }
-
-  public void setFootnotesStatData(FootnotesStatData footnotesStatData) {
-    this.footnotesStatData = footnotesStatData;
-  }
-
-  public DocumentStatData pageStatData(List<PageStatData> pageStatData) {
-    this.pageStatData = pageStatData;
-    return this;
-  }
-
-  public DocumentStatData addPageStatDataItem(PageStatData pageStatDataItem) {
-    if (this.pageStatData == null) {
-      this.pageStatData = new ArrayList<PageStatData>();
+    @SerializedName("WordCount")
+    private Integer wordCount = null;
+    public DocumentStatData footnotesStatData(FootnotesStatData footnotesStatData) {
+        this.footnotesStatData = footnotesStatData;
+        return this;
     }
-    this.pageStatData.add(pageStatDataItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets detailed statistics of all pages.
-   * @return pageStatData
-  **/
-  @ApiModelProperty(value = "Gets or sets detailed statistics of all pages.")
-  public List<PageStatData> getPageStatData() {
-    return pageStatData;
-  }
-
-  public void setPageStatData(List<PageStatData> pageStatData) {
-    this.pageStatData = pageStatData;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Gets or sets detailed statistics of footnotes.
+    * @return footnotesStatData
+    **/
+    @ApiModelProperty(value = "Gets or sets detailed statistics of footnotes.")
+    public FootnotesStatData getFootnotesStatData() {
+        return footnotesStatData;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setFootnotesStatData(FootnotesStatData footnotesStatData) {
+        this.footnotesStatData = footnotesStatData;
     }
-    DocumentStatData documentStatData = (DocumentStatData) o;
-    return Objects.equals(this.wordCount, documentStatData.wordCount) &&
-        Objects.equals(this.paragraphCount, documentStatData.paragraphCount) &&
-        Objects.equals(this.pageCount, documentStatData.pageCount) &&
-        Objects.equals(this.footnotesStatData, documentStatData.footnotesStatData) &&
-        Objects.equals(this.pageStatData, documentStatData.pageStatData);
+
+    public DocumentStatData pageCount(Integer pageCount) {
+        this.pageCount = pageCount;
+        return this;
+    }
+
+    /**
+     * Gets or sets total count of pages in the document.
+    * @return pageCount
+    **/
+    @ApiModelProperty(value = "Gets or sets total count of pages in the document.")
+    public Integer getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(Integer pageCount) {
+        this.pageCount = pageCount;
+    }
+
+    public DocumentStatData pageStatData(List<PageStatData> pageStatData) {
+        this.pageStatData = pageStatData;
+        return this;
+    }
+
+    public DocumentStatData addPageStatDataItem(PageStatData pageStatDataItem) {
+        if (this.pageStatData == null) {
+            this.pageStatData = new ArrayList<PageStatData>();
+        }
+        this.pageStatData.add(pageStatDataItem);
+        return this;
+    }
+
+    /**
+     * Gets or sets detailed statistics of all pages.
+    * @return pageStatData
+    **/
+    @ApiModelProperty(value = "Gets or sets detailed statistics of all pages.")
+    public List<PageStatData> getPageStatData() {
+        return pageStatData;
+    }
+
+    public void setPageStatData(List<PageStatData> pageStatData) {
+        this.pageStatData = pageStatData;
+    }
+
+    public DocumentStatData paragraphCount(Integer paragraphCount) {
+        this.paragraphCount = paragraphCount;
+        return this;
+    }
+
+    /**
+     * Gets or sets total count of paragraphs in the document.
+    * @return paragraphCount
+    **/
+    @ApiModelProperty(value = "Gets or sets total count of paragraphs in the document.")
+    public Integer getParagraphCount() {
+        return paragraphCount;
+    }
+
+    public void setParagraphCount(Integer paragraphCount) {
+        this.paragraphCount = paragraphCount;
+    }
+
+    public DocumentStatData wordCount(Integer wordCount) {
+        this.wordCount = wordCount;
+        return this;
+    }
+
+    /**
+     * Gets or sets total count of words in the document.
+    * @return wordCount
+    **/
+    @ApiModelProperty(value = "Gets or sets total count of words in the document.")
+    public Integer getWordCount() {
+        return wordCount;
+    }
+
+    public void setWordCount(Integer wordCount) {
+        this.wordCount = wordCount;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentStatData documentStatData = (DocumentStatData) o;
+        return
+            Objects.equals(this.footnotesStatData, documentStatData.footnotesStatData) &&
+            Objects.equals(this.pageCount, documentStatData.pageCount) &&
+            Objects.equals(this.pageStatData, documentStatData.pageStatData) &&
+            Objects.equals(this.paragraphCount, documentStatData.paragraphCount) &&
+            Objects.equals(this.wordCount, documentStatData.wordCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wordCount, paragraphCount, pageCount, footnotesStatData, pageStatData);
+    return Objects.hash(footnotesStatData, pageCount, pageStatData, paragraphCount, wordCount);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentStatData {\n");
-    
-    sb.append("    wordCount: ").append(toIndentedString(wordCount)).append("\n");
-    sb.append("    paragraphCount: ").append(toIndentedString(paragraphCount)).append("\n");
-    sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
     sb.append("    footnotesStatData: ").append(toIndentedString(footnotesStatData)).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
     sb.append("    pageStatData: ").append(toIndentedString(pageStatData)).append("\n");
+    sb.append("    paragraphCount: ").append(toIndentedString(paragraphCount)).append("\n");
+    sb.append("    wordCount: ").append(toIndentedString(wordCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -207,6 +205,4 @@ public class DocumentStatData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

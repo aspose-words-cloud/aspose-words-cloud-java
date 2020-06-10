@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DownsampleOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,82 +47,85 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for Downsample options.")
 public class DownsampleOptionsData {
-  @SerializedName("DownsampleImages")
-  private Boolean downsampleImages = null;
+    @SerializedName("DownsampleImages")
+    private Boolean downsampleImages = null;
 
-  @SerializedName("Resolution")
-  private Integer resolution = null;
+    @SerializedName("Resolution")
+    private Integer resolution = null;
 
-  @SerializedName("ResolutionThreshold")
-  private Integer resolutionThreshold = null;
-
-  public DownsampleOptionsData downsampleImages(Boolean downsampleImages) {
-    this.downsampleImages = downsampleImages;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies whether images should be downsampled.
-   * @return downsampleImages
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies whether images should be downsampled.")
-  public Boolean isDownsampleImages() {
-    return downsampleImages;
-  }
-
-  public void setDownsampleImages(Boolean downsampleImages) {
-    this.downsampleImages = downsampleImages;
-  }
-
-  public DownsampleOptionsData resolution(Integer resolution) {
-    this.resolution = resolution;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.
-   * @return resolution
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.")
-  public Integer getResolution() {
-    return resolution;
-  }
-
-  public void setResolution(Integer resolution) {
-    this.resolution = resolution;
-  }
-
-  public DownsampleOptionsData resolutionThreshold(Integer resolutionThreshold) {
-    this.resolutionThreshold = resolutionThreshold;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
-   * @return resolutionThreshold
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.")
-  public Integer getResolutionThreshold() {
-    return resolutionThreshold;
-  }
-
-  public void setResolutionThreshold(Integer resolutionThreshold) {
-    this.resolutionThreshold = resolutionThreshold;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ResolutionThreshold")
+    private Integer resolutionThreshold = null;
+    public DownsampleOptionsData downsampleImages(Boolean downsampleImages) {
+        this.downsampleImages = downsampleImages;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets specifies whether images should be downsampled.
+    * @return downsampleImages
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies whether images should be downsampled.")
+    public Boolean getDownsampleImages() {
+        return downsampleImages;
     }
-    DownsampleOptionsData downsampleOptionsData = (DownsampleOptionsData) o;
-    return Objects.equals(this.downsampleImages, downsampleOptionsData.downsampleImages) &&
-        Objects.equals(this.resolution, downsampleOptionsData.resolution) &&
-        Objects.equals(this.resolutionThreshold, downsampleOptionsData.resolutionThreshold);
+
+    public void setDownsampleImages(Boolean downsampleImages) {
+        this.downsampleImages = downsampleImages;
+    }
+
+    public DownsampleOptionsData resolution(Integer resolution) {
+        this.resolution = resolution;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.
+    * @return resolution
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.")
+    public Integer getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(Integer resolution) {
+        this.resolution = resolution;
+    }
+
+    public DownsampleOptionsData resolutionThreshold(Integer resolutionThreshold) {
+        this.resolutionThreshold = resolutionThreshold;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the threshold resolution in pixels per inch.
+     * If resolution of an image in the document is less than threshold value,
+     * the downsampling algorithm will not be applied.
+     * A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
+    * @return resolutionThreshold
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.")
+    public Integer getResolutionThreshold() {
+        return resolutionThreshold;
+    }
+
+    public void setResolutionThreshold(Integer resolutionThreshold) {
+        this.resolutionThreshold = resolutionThreshold;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DownsampleOptionsData downsampleOptionsData = (DownsampleOptionsData) o;
+        return
+            Objects.equals(this.downsampleImages, downsampleOptionsData.downsampleImages) &&
+            Objects.equals(this.resolution, downsampleOptionsData.resolution) &&
+            Objects.equals(this.resolutionThreshold, downsampleOptionsData.resolutionThreshold);
   }
 
   @Override
@@ -130,12 +133,10 @@ public class DownsampleOptionsData {
     return Objects.hash(downsampleImages, resolution, resolutionThreshold);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DownsampleOptionsData {\n");
-    
     sb.append("    downsampleImages: ").append(toIndentedString(downsampleImages)).append("\n");
     sb.append("    resolution: ").append(toIndentedString(resolution)).append("\n");
     sb.append("    resolutionThreshold: ").append(toIndentedString(resolutionThreshold)).append("\n");
@@ -153,6 +154,4 @@ public class DownsampleOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FieldCollection.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents DTO for collection of fields.")
 public class FieldCollection extends LinkElement {
-  @SerializedName("List")
-  private List<Field> list = null;
-
-  public FieldCollection list(List<Field> list) {
-    this.list = list;
-    return this;
-  }
-
-  public FieldCollection addListItem(Field listItem) {
-    if (this.list == null) {
-      this.list = new ArrayList<Field>();
+    @SerializedName("List")
+    private List<Field> list = null;
+    public FieldCollection list(List<Field> list) {
+        this.list = list;
+        return this;
     }
-    this.list.add(listItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of fields.
-   * @return list
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of fields.")
-  public List<Field> getList() {
-    return list;
-  }
-
-  public void setList(List<Field> list) {
-    this.list = list;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FieldCollection addListItem(Field listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<Field>();
+        }
+        this.list.add(listItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of fields.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of fields.")
+    public List<Field> getList() {
+        return list;
     }
-    FieldCollection fieldCollection = (FieldCollection) o;
-    return Objects.equals(this.list, fieldCollection.list) &&
-        super.equals(o);
+
+    public void setList(List<Field> list) {
+        this.list = list;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FieldCollection fieldCollection = (FieldCollection) o;
+        return
+            Objects.equals(this.list, fieldCollection.list) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(list, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class FieldCollection extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

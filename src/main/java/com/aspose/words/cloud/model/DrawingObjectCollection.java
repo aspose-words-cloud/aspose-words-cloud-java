@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DrawingObjectCollection.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents drawing objects collection DTO.")
 public class DrawingObjectCollection extends LinkElement {
-  @SerializedName("List")
-  private List<LinkElement> list = null;
-
-  public DrawingObjectCollection list(List<LinkElement> list) {
-    this.list = list;
-    return this;
-  }
-
-  public DrawingObjectCollection addListItem(LinkElement listItem) {
-    if (this.list == null) {
-      this.list = new ArrayList<LinkElement>();
+    @SerializedName("List")
+    private List<LinkElement> list = null;
+    public DrawingObjectCollection list(List<LinkElement> list) {
+        this.list = list;
+        return this;
     }
-    this.list.add(listItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of DrawingObjects links.
-   * @return list
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of DrawingObjects links.")
-  public List<LinkElement> getList() {
-    return list;
-  }
-
-  public void setList(List<LinkElement> list) {
-    this.list = list;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public DrawingObjectCollection addListItem(LinkElement listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<LinkElement>();
+        }
+        this.list.add(listItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of DrawingObjects links.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of DrawingObjects links.")
+    public List<LinkElement> getList() {
+        return list;
     }
-    DrawingObjectCollection drawingObjectCollection = (DrawingObjectCollection) o;
-    return Objects.equals(this.list, drawingObjectCollection.list) &&
-        super.equals(o);
+
+    public void setList(List<LinkElement> list) {
+        this.list = list;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DrawingObjectCollection drawingObjectCollection = (DrawingObjectCollection) o;
+        return
+            Objects.equals(this.list, drawingObjectCollection.list) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(list, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class DrawingObjectCollection extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

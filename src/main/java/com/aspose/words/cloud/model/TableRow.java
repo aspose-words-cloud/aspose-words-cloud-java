@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableRow.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,76 +47,75 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Table row element.")
 public class TableRow extends NodeLink {
-  @SerializedName("RowFormat")
-  private TableRowFormat rowFormat = null;
+    @SerializedName("RowFormat")
+    private TableRowFormat rowFormat = null;
 
-  @SerializedName("TableCellList")
-  private List<TableCell> tableCellList = null;
-
-  public TableRow rowFormat(TableRowFormat rowFormat) {
-    this.rowFormat = rowFormat;
-    return this;
-  }
-
-   /**
-   * Get rowFormat
-   * @return rowFormat
-  **/
-  @ApiModelProperty(value = "")
-  public TableRowFormat getRowFormat() {
-    return rowFormat;
-  }
-
-  public void setRowFormat(TableRowFormat rowFormat) {
-    this.rowFormat = rowFormat;
-  }
-
-  public TableRow tableCellList(List<TableCell> tableCellList) {
-    this.tableCellList = tableCellList;
-    return this;
-  }
-
-  public TableRow addTableCellListItem(TableCell tableCellListItem) {
-    if (this.tableCellList == null) {
-      this.tableCellList = new ArrayList<TableCell>();
+    @SerializedName("TableCellList")
+    private List<TableCell> tableCellList = null;
+    public TableRow rowFormat(TableRowFormat rowFormat) {
+        this.rowFormat = rowFormat;
+        return this;
     }
-    this.tableCellList.add(tableCellListItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of table&#39;s rows.
-   * @return tableCellList
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of table's rows.")
-  public List<TableCell> getTableCellList() {
-    return tableCellList;
-  }
-
-  public void setTableCellList(List<TableCell> tableCellList) {
-    this.tableCellList = tableCellList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Gets or sets provides access to the formatting properties of the row.
+    * @return rowFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets provides access to the formatting properties of the row.")
+    public TableRowFormat getRowFormat() {
+        return rowFormat;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setRowFormat(TableRowFormat rowFormat) {
+        this.rowFormat = rowFormat;
     }
-    TableRow tableRow = (TableRow) o;
-    return Objects.equals(this.rowFormat, tableRow.rowFormat) &&
-        Objects.equals(this.tableCellList, tableRow.tableCellList) &&
-        super.equals(o);
+
+    public TableRow tableCellList(List<TableCell> tableCellList) {
+        this.tableCellList = tableCellList;
+        return this;
+    }
+
+    public TableRow addTableCellListItem(TableCell tableCellListItem) {
+        if (this.tableCellList == null) {
+            this.tableCellList = new ArrayList<TableCell>();
+        }
+        this.tableCellList.add(tableCellListItem);
+        return this;
+    }
+
+    /**
+     * Gets or sets collection of table's rows.
+    * @return tableCellList
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of table's rows.")
+    public List<TableCell> getTableCellList() {
+        return tableCellList;
+    }
+
+    public void setTableCellList(List<TableCell> tableCellList) {
+        this.tableCellList = tableCellList;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TableRow tableRow = (TableRow) o;
+        return
+            Objects.equals(this.rowFormat, tableRow.rowFormat) &&
+            Objects.equals(this.tableCellList, tableRow.tableCellList) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(rowFormat, tableCellList, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -139,6 +138,4 @@ public class TableRow extends NodeLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

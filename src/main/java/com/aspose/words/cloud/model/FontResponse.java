@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FontResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.")
 public class FontResponse extends WordsResponse {
-  @SerializedName("Font")
-  private Font font = null;
-
-  public FontResponse font(Font font) {
-    this.font = font;
-    return this;
-  }
-
-   /**
-   * Get font
-   * @return font
-  **/
-  @ApiModelProperty(value = "")
-  public Font getFont() {
-    return font;
-  }
-
-  public void setFont(Font font) {
-    this.font = font;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Font")
+    private Font font = null;
+    public FontResponse font(Font font) {
+        this.font = font;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets font.
+    * @return font
+    **/
+    @ApiModelProperty(value = "Gets or sets font.")
+    public Font getFont() {
+        return font;
     }
-    FontResponse fontResponse = (FontResponse) o;
-    return Objects.equals(this.font, fontResponse.font) &&
-        super.equals(o);
+
+    public void setFont(Font font) {
+        this.font = font;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FontResponse fontResponse = (FontResponse) o;
+        return
+            Objects.equals(this.font, fontResponse.font) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(font, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class FontResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-
