@@ -2322,6 +2322,149 @@ if (request.getReportEngineSettings() != null)
         return call;
     }
     /**
+     * Build call for deleteAllParagraphTabStopsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathCall(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops"
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteAllParagraphTabStopsWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteAllParagraphTabStopsWithoutNodePath");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove all tab stops.
+     * 
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TabStopsResponse deleteAllParagraphTabStopsWithoutNodePath(DeleteAllParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse<TabStopsResponse> resp = deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<TabStopsResponse> resp = deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Remove all tab stops.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;TabStopsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<TabStopsResponse> deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(DeleteAllParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove all tab stops. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathAsync(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ApiCallback<TabStopsResponse> callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for deleteBorder
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -5598,6 +5741,151 @@ if (request.getReportEngineSettings() != null)
         return call;
     }
     /**
+     * Build call for deleteParagraphListFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathCall(DeleteParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat"
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathValidateBeforeCall(DeleteParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphListFormatWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphListFormatWithoutNodePath");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete paragraph list format, returns updated list format properties.
+     * 
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphListFormatResponse deleteParagraphListFormatWithoutNodePath(DeleteParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse<ParagraphListFormatResponse> resp = deleteParagraphListFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphListFormatResponse> resp = deleteParagraphListFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Delete paragraph list format, returns updated list format properties.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;ParagraphListFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphListFormatResponse> deleteParagraphListFormatWithoutNodePathWithHttpInfo(DeleteParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphListFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete paragraph list format, returns updated list format properties. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathAsync(DeleteParagraphListFormatWithoutNodePathRequest request, final ApiCallback<ParagraphListFormatResponse> callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphListFormatResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for deleteParagraphTabStop
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -5662,14 +5950,14 @@ if (request.getReportEngineSettings() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphTabStop");
         }
         
-        // verify the required parameter 'NodePath' is set
-        if (request.getNodePath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraphTabStop");
-        }
-        
         // verify the required parameter 'Position' is set
         if (request.getPosition() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Position' when calling deleteParagraphTabStop");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraphTabStop");
         }
         
         // verify the required parameter 'Index' is set
@@ -5748,6 +6036,155 @@ if (request.getReportEngineSettings() != null)
         }
 
         com.squareup.okhttp.Call call = deleteParagraphTabStopValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteParagraphTabStopWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathCall(DeleteParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstop"
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "position", request.getPosition());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathValidateBeforeCall(DeleteParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Position' is set
+        if (request.getPosition() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Position' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Remove the i-th tab stop.
+     * 
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TabStopsResponse deleteParagraphTabStopWithoutNodePath(DeleteParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse<TabStopsResponse> resp = deleteParagraphTabStopWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<TabStopsResponse> resp = deleteParagraphTabStopWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Remove the i-th tab stop.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;TabStopsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<TabStopsResponse> deleteParagraphTabStopWithoutNodePathWithHttpInfo(DeleteParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove the i-th tab stop. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathAsync(DeleteParagraphTabStopWithoutNodePathRequest request, final ApiCallback<TabStopsResponse> callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -14820,6 +15257,148 @@ if (request.getData() != null)
         return call;
     }
     /**
+     * Build call for getParagraphTabStopsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathCall(GetParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops"
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathValidateBeforeCall(GetParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphTabStopsWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphTabStopsWithoutNodePath");
+        }
+        
+
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get all tab stops for the paragraph.
+     * 
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TabStopsResponse getParagraphTabStopsWithoutNodePath(GetParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse<TabStopsResponse> resp = getParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<TabStopsResponse> resp = getParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Get all tab stops for the paragraph.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;TabStopsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<TabStopsResponse> getParagraphTabStopsWithoutNodePathWithHttpInfo(GetParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get all tab stops for the paragraph. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathAsync(GetParagraphTabStopsWithoutNodePathRequest request, final ApiCallback<TabStopsResponse> callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getParagraphWithoutNodePath
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -19810,14 +20389,14 @@ if (request.getImageFile() != null)
           throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertOrUpdateParagraphTabStop");
         }
         
-        // verify the required parameter 'NodePath' is set
-        if (request.getNodePath() == null) {
-          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertOrUpdateParagraphTabStop");
-        }
-        
         // verify the required parameter 'Dto' is set
         if (request.getDto() == null) {
           throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling insertOrUpdateParagraphTabStop");
+        }
+        
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertOrUpdateParagraphTabStop");
         }
         
         // verify the required parameter 'Index' is set
@@ -19896,6 +20475,154 @@ if (request.getImageFile() != null)
         }
 
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertOrUpdateParagraphTabStopWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathCall(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops"
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert or resplace tab stop if a tab stop with the position exists.
+     * 
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TabStopsResponse insertOrUpdateParagraphTabStopWithoutNodePath(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse<TabStopsResponse> resp = insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<TabStopsResponse> resp = insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Insert or resplace tab stop if a tab stop with the position exists.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;TabStopsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<TabStopsResponse> insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert or resplace tab stop if a tab stop with the position exists. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathAsync(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ApiCallback<TabStopsResponse> callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TabStopsResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -20191,6 +20918,151 @@ if (request.getImageFile() != null)
         }
 
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertParagraphWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertParagraphWithoutNodePathCall(InsertParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getParagraph();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs"
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertParagraphWithoutNodePathValidateBeforeCall(InsertParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertParagraphWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Paragraph' is set
+        if (request.getParagraph() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling insertParagraphWithoutNodePath");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph&#39;s data.
+     * 
+     * @param request Request object
+     * @return ParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphResponse insertParagraphWithoutNodePath(InsertParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse<ParagraphResponse> resp = insertParagraphWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphResponse> resp = insertParagraphWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph&#39;s data.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;ParagraphResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphResponse> insertParagraphWithoutNodePathWithHttpInfo(InsertParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph&#39;s data. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertParagraphWithoutNodePathAsync(InsertParagraphWithoutNodePathRequest request, final ApiCallback<ParagraphResponse> callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ParagraphResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -27007,6 +27879,156 @@ if (request.getImageFile() != null)
         return call;
     }
     /**
+     * Build call for updateParagraphFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateParagraphFormatWithoutNodePathCall(UpdateParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/format"
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateParagraphFormatWithoutNodePathValidateBeforeCall(UpdateParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateParagraphFormatWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphFormatWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateParagraphFormatWithoutNodePath");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateParagraphFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates paragraph format properties, returns updated format properties.
+     * 
+     * @param request Request object
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphFormatResponse updateParagraphFormatWithoutNodePath(UpdateParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse<ParagraphFormatResponse> resp = updateParagraphFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphFormatResponse> resp = updateParagraphFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates paragraph format properties, returns updated format properties.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;ParagraphFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphFormatResponse> updateParagraphFormatWithoutNodePathWithHttpInfo(UpdateParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateParagraphFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates paragraph format properties, returns updated format properties. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateParagraphFormatWithoutNodePathAsync(UpdateParagraphFormatWithoutNodePathRequest request, final ApiCallback<ParagraphFormatResponse> callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphFormatResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for updateParagraphListFormat
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -27158,6 +28180,156 @@ if (request.getImageFile() != null)
         }
 
         com.squareup.okhttp.Call call = updateParagraphListFormatValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ParagraphListFormatResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateParagraphListFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathCall(UpdateParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat"
+            .replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+            .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathValidateBeforeCall(UpdateParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateParagraphListFormatWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphListFormatWithoutNodePath");
+        }
+        
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateParagraphListFormatWithoutNodePath");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Updates paragraph list format properties, returns updated list format properties.
+     * 
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ParagraphListFormatResponse updateParagraphListFormatWithoutNodePath(UpdateParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse<ParagraphListFormatResponse> resp = updateParagraphListFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ParagraphListFormatResponse> resp = updateParagraphListFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates paragraph list format properties, returns updated list format properties.
+     * 
+     * @param request Request object
+     * @return ApiResponse&lt;ParagraphListFormatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ParagraphListFormatResponse> updateParagraphListFormatWithoutNodePathWithHttpInfo(UpdateParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ParagraphListFormatResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates paragraph list format properties, returns updated list format properties. (asynchronously)
+     * 
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathAsync(UpdateParagraphListFormatWithoutNodePathRequest request, final ApiCallback<ParagraphListFormatResponse> callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ParagraphListFormatResponse>() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

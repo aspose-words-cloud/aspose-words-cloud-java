@@ -38,14 +38,14 @@ public class DeleteParagraphTabStopRequest {
     private String Name;
 
     /*
-     * Path to the node which contains paragraph.
-     */
-    private String NodePath;
-
-    /*
      * a tab stop position to remove.
      */
     private Double Position;
+
+    /*
+     * Path to the node which contains paragraph.
+     */
+    private String NodePath;
 
     /*
      * Object index.
@@ -81,8 +81,8 @@ public class DeleteParagraphTabStopRequest {
      * Initializes a new instance of the deleteParagraphTabStopRequest class.
      *  
      * @param String name The document name.
-     * @param String nodePath Path to the node which contains paragraph.
      * @param Double position a tab stop position to remove.
+     * @param String nodePath Path to the node which contains paragraph.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -90,10 +90,10 @@ public class DeleteParagraphTabStopRequest {
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public DeleteParagraphTabStopRequest(String name,  String nodePath,  Double position,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
+    public DeleteParagraphTabStopRequest(String name,  Double position,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
         Name = name;
-        NodePath = nodePath;
         Position = position;
+        NodePath = nodePath;
         Index = index;
         Folder = folder;
         Storage = storage;
@@ -117,20 +117,6 @@ public class DeleteParagraphTabStopRequest {
     }
 
     /*
-     *  Gets Path to the node which contains paragraph.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to the node which contains paragraph.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
-
-    /*
      *  Gets a tab stop position to remove.
      */
     public Double getPosition() {
@@ -142,6 +128,20 @@ public class DeleteParagraphTabStopRequest {
      */
     public void setPosition(Double value) {
         Position = value;
+    }
+
+    /*
+     *  Gets Path to the node which contains paragraph.
+     */
+    public String getNodePath() {
+        return NodePath;
+    }
+
+    /*
+     * Sets Path to the node which contains paragraph.
+     */
+    public void setNodePath(String value) {
+        NodePath = value;
     }
 
     /*

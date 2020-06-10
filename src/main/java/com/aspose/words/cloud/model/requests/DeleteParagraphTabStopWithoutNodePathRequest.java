@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="UpdateDrawingObjectRequest.java">
+ * <copyright company="Aspose" file="DeleteParagraphTabStopWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,28 +29,18 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for updateDrawingObject operation.
+ * Request model for deleteParagraphTabStopWithoutNodePath operation.
  */
-public class UpdateDrawingObjectRequest {
+public class DeleteParagraphTabStopWithoutNodePathRequest {
     /*
      * The document name.
      */
     private String Name;
 
     /*
-     * Drawing object parameters
+     * a tab stop position to remove.
      */
-    private DrawingObjectUpdate DrawingObject;
-
-    /*
-     * File with image
-     */
-    private byte[] ImageFile;
-
-    /*
-     * Path to the node, which contains collection of drawing objects.
-     */
-    private String NodePath;
+    private Double Position;
 
     /*
      * Object index.
@@ -81,46 +71,28 @@ public class UpdateDrawingObjectRequest {
      * Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
     private String DestFileName;
-
-    /*
-     * Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    private String RevisionAuthor;
-
-    /*
-     * The date and time to use for revisions.
-     */
-    private String RevisionDateTime;
     
     /*
-     * Initializes a new instance of the updateDrawingObjectRequest class.
+     * Initializes a new instance of the deleteParagraphTabStopWithoutNodePathRequest class.
      *  
      * @param String name The document name.
-     * @param DrawingObjectUpdate drawingObject Drawing object parameters
-     * @param byte[] imageFile File with image
-     * @param String nodePath Path to the node, which contains collection of drawing objects.
+     * @param Double position a tab stop position to remove.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-     * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateDrawingObjectRequest(String name,  DrawingObjectUpdate drawingObject,  byte[] imageFile,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public DeleteParagraphTabStopWithoutNodePathRequest(String name,  Double position,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName) {
         Name = name;
-        DrawingObject = drawingObject;
-        ImageFile = imageFile;
-        NodePath = nodePath;
+        Position = position;
         Index = index;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
         Password = password;
         DestFileName = destFileName;
-        RevisionAuthor = revisionAuthor;
-        RevisionDateTime = revisionDateTime;
     }
 
     /*
@@ -138,45 +110,17 @@ public class UpdateDrawingObjectRequest {
     }
 
     /*
-     *  Gets Drawing object parameters
+     *  Gets a tab stop position to remove.
      */
-    public DrawingObjectUpdate getDrawingObject() {
-        return DrawingObject;
+    public Double getPosition() {
+        return Position;
     }
 
     /*
-     * Sets Drawing object parameters
+     * Sets a tab stop position to remove.
      */
-    public void setDrawingObject(DrawingObjectUpdate value) {
-        DrawingObject = value;
-    }
-
-    /*
-     *  Gets File with image
-     */
-    public byte[] getImageFile() {
-        return ImageFile;
-    }
-
-    /*
-     * Sets File with image
-     */
-    public void setImageFile(byte[] value) {
-        ImageFile = value;
-    }
-
-    /*
-     *  Gets Path to the node, which contains collection of drawing objects.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to the node, which contains collection of drawing objects.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
+    public void setPosition(Double value) {
+        Position = value;
     }
 
     /*
@@ -261,33 +205,5 @@ public class UpdateDrawingObjectRequest {
      */
     public void setDestFileName(String value) {
         DestFileName = value;
-    }
-
-    /*
-     *  Gets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    public String getRevisionAuthor() {
-        return RevisionAuthor;
-    }
-
-    /*
-     * Sets Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-     */
-    public void setRevisionAuthor(String value) {
-        RevisionAuthor = value;
-    }
-
-    /*
-     *  Gets The date and time to use for revisions.
-     */
-    public String getRevisionDateTime() {
-        return RevisionDateTime;
-    }
-
-    /*
-     * Sets The date and time to use for revisions.
-     */
-    public void setRevisionDateTime(String value) {
-        RevisionDateTime = value;
     }
 }

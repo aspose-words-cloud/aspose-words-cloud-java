@@ -19,17 +19,24 @@ public final class TestInitializer {
     public static String RemoteTestFolder = PathUtil.get("Temp", "SdkTests", "java");
     public static String RemoteTestOut = PathUtil.get(RemoteTestFolder, "TestOut");
 
+    public static final String CONFIG_PATH = "Settings/servercreds.json";
 
     public static void Initialize() throws FileNotFoundException, ApiException {
-        Initialize("Settings/servercreds.json");
+        Initialize(CONFIG_PATH);
     }
+    
     public static void Initialize(String credsPath) throws FileNotFoundException, ApiException {
+        Map<String, String> creds = GetConfig(credsPath);
+        wordsApi = new WordsApi(creds.get("AppSid"), creds.get("AppKey"), creds.get("BaseUrl"));
+    }
+
+    public static Map<String, String> GetConfig(String credsPath) throws FileNotFoundException {
         Map<String, String> creds = new Gson().fromJson(new JsonReader(new FileReader(credsPath)), Map.class);
         if (creds == null) {
             throw new FileNotFoundException("Please put your credentials into Settings/servercreds.json file");
         }
 
-        wordsApi = new WordsApi(creds.get("AppSid"), creds.get("AppKey"), creds.get("BaseUrl"));
+        return creds;
     }
 
     public static FilesUploadResult UploadFile(String file, String path) throws IOException, ApiException {

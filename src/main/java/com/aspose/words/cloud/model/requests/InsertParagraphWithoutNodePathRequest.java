@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="UpdateDrawingObjectRequest.java">
+ * <copyright company="Aspose" file="InsertParagraphWithoutNodePathRequest.java">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,33 +29,18 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for updateDrawingObject operation.
+ * Request model for insertParagraphWithoutNodePath operation.
  */
-public class UpdateDrawingObjectRequest {
+public class InsertParagraphWithoutNodePathRequest {
     /*
      * The document name.
      */
     private String Name;
 
     /*
-     * Drawing object parameters
+     * Paragraph data.
      */
-    private DrawingObjectUpdate DrawingObject;
-
-    /*
-     * File with image
-     */
-    private byte[] ImageFile;
-
-    /*
-     * Path to the node, which contains collection of drawing objects.
-     */
-    private String NodePath;
-
-    /*
-     * Object index.
-     */
-    private Integer Index;
+    private ParagraphInsert Paragraph;
 
     /*
      * Original document folder.
@@ -91,15 +76,17 @@ public class UpdateDrawingObjectRequest {
      * The date and time to use for revisions.
      */
     private String RevisionDateTime;
+
+    /*
+     * Paragraph will be inserted before node with index.
+     */
+    private String InsertBeforeNode;
     
     /*
-     * Initializes a new instance of the updateDrawingObjectRequest class.
+     * Initializes a new instance of the insertParagraphWithoutNodePathRequest class.
      *  
      * @param String name The document name.
-     * @param DrawingObjectUpdate drawingObject Drawing object parameters
-     * @param byte[] imageFile File with image
-     * @param String nodePath Path to the node, which contains collection of drawing objects.
-     * @param Integer index Object index.
+     * @param ParagraphInsert paragraph Paragraph data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -107,13 +94,11 @@ public class UpdateDrawingObjectRequest {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
+     * @param String insertBeforeNode Paragraph will be inserted before node with index.
      */
-    public UpdateDrawingObjectRequest(String name,  DrawingObjectUpdate drawingObject,  byte[] imageFile,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime) {
+    public InsertParagraphWithoutNodePathRequest(String name,  ParagraphInsert paragraph,  String folder,  String storage,  String loadEncoding,  String password,  String destFileName,  String revisionAuthor,  String revisionDateTime,  String insertBeforeNode) {
         Name = name;
-        DrawingObject = drawingObject;
-        ImageFile = imageFile;
-        NodePath = nodePath;
-        Index = index;
+        Paragraph = paragraph;
         Folder = folder;
         Storage = storage;
         LoadEncoding = loadEncoding;
@@ -121,6 +106,7 @@ public class UpdateDrawingObjectRequest {
         DestFileName = destFileName;
         RevisionAuthor = revisionAuthor;
         RevisionDateTime = revisionDateTime;
+        InsertBeforeNode = insertBeforeNode;
     }
 
     /*
@@ -138,59 +124,17 @@ public class UpdateDrawingObjectRequest {
     }
 
     /*
-     *  Gets Drawing object parameters
+     *  Gets Paragraph data.
      */
-    public DrawingObjectUpdate getDrawingObject() {
-        return DrawingObject;
+    public ParagraphInsert getParagraph() {
+        return Paragraph;
     }
 
     /*
-     * Sets Drawing object parameters
+     * Sets Paragraph data.
      */
-    public void setDrawingObject(DrawingObjectUpdate value) {
-        DrawingObject = value;
-    }
-
-    /*
-     *  Gets File with image
-     */
-    public byte[] getImageFile() {
-        return ImageFile;
-    }
-
-    /*
-     * Sets File with image
-     */
-    public void setImageFile(byte[] value) {
-        ImageFile = value;
-    }
-
-    /*
-     *  Gets Path to the node, which contains collection of drawing objects.
-     */
-    public String getNodePath() {
-        return NodePath;
-    }
-
-    /*
-     * Sets Path to the node, which contains collection of drawing objects.
-     */
-    public void setNodePath(String value) {
-        NodePath = value;
-    }
-
-    /*
-     *  Gets Object index.
-     */
-    public Integer getIndex() {
-        return Index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        Index = value;
+    public void setParagraph(ParagraphInsert value) {
+        Paragraph = value;
     }
 
     /*
@@ -289,5 +233,19 @@ public class UpdateDrawingObjectRequest {
      */
     public void setRevisionDateTime(String value) {
         RevisionDateTime = value;
+    }
+
+    /*
+     *  Gets Paragraph will be inserted before node with index.
+     */
+    public String getInsertBeforeNode() {
+        return InsertBeforeNode;
+    }
+
+    /*
+     * Sets Paragraph will be inserted before node with index.
+     */
+    public void setInsertBeforeNode(String value) {
+        InsertBeforeNode = value;
     }
 }

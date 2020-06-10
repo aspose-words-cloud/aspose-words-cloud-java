@@ -34,7 +34,9 @@ import java.nio.file.Paths;
 import com.aspose.words.cloud.ApiException;
 import com.aspose.words.cloud.PathUtil;
 import com.aspose.words.cloud.TestInitializer;
+import com.aspose.words.cloud.model.DrawingObjectInsert;
 import com.aspose.words.cloud.model.DrawingObjectResponse;
+import com.aspose.words.cloud.model.DrawingObjectUpdate;
 import com.aspose.words.cloud.model.DrawingObjectsResponse;
 import com.aspose.words.cloud.model.requests.*;
 
@@ -220,7 +222,7 @@ public void testUpdateDrawingObject() throws ApiException, IOException {
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName),
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(remoteName, "{\"Left\": 0}", data, "",
+        UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(remoteName, new DrawingObjectUpdate(), data, "",
                 index, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null, null, null, null,
                 null);
 
@@ -241,7 +243,7 @@ public void testUpdateDrawingObjectWithoutNodePath() throws ApiException, IOExce
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName),
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        UpdateDrawingObjectWithoutNodePathRequest request = new UpdateDrawingObjectWithoutNodePathRequest(remoteName, "{\"Left\": 0}", data,
+        UpdateDrawingObjectWithoutNodePathRequest request = new UpdateDrawingObjectWithoutNodePathRequest(remoteName, new DrawingObjectUpdate(), data,
                 index, PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null, null, null, null,
                 null);
 
@@ -261,7 +263,7 @@ public void testInsertDrawingObject() throws ApiException, IOException {
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName),
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(remoteName, "{\"Left\": 0}", data, "",
+        InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(remoteName, new DrawingObjectInsert(), data, "",
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null, null, null, null, null);
 
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
@@ -280,7 +282,7 @@ public void testInsertDrawingObjectWithoutNodePath() throws ApiException, IOExce
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName),
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        InsertDrawingObjectWithoutNodePathRequest request = new InsertDrawingObjectWithoutNodePathRequest(remoteName, "{\"Left\": 0}", data,
+        InsertDrawingObjectWithoutNodePathRequest request = new InsertDrawingObjectWithoutNodePathRequest(remoteName, new DrawingObjectInsert(), data,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null, null, null, null, null);
 
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObjectWithoutNodePath(request);
