@@ -67,6 +67,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call acceptAllRevisionsCall(AcceptAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -126,11 +127,12 @@ public class WordsApi {
     }
 
     /**
-        * Accepts all revisions in document.
-        * @param request Request object
-        * @return RevisionsModificationResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Accepts all revisions in document.
+     * @param request Request object
+     * @return RevisionsModificationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public RevisionsModificationResponse acceptAllRevisions(AcceptAllRevisionsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< RevisionsModificationResponse > resp = acceptAllRevisionsWithHttpInfo(request);
@@ -147,11 +149,12 @@ public class WordsApi {
     }
 
     /**
-        * Accepts all revisions in document.
-        * @param request Request object
-        * @return ApiResponse< RevisionsModificationResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Accepts all revisions in document.
+     * @param request Request object
+     * @return ApiResponse< RevisionsModificationResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< RevisionsModificationResponse > acceptAllRevisionsWithHttpInfo(AcceptAllRevisionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = acceptAllRevisionsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< RevisionsModificationResponse >() { }.getType();
@@ -159,12 +162,13 @@ public class WordsApi {
     }
 
     /**
-        * Accepts all revisions in document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Accepts all revisions in document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call acceptAllRevisionsAsync(AcceptAllRevisionsRequest request, final ApiCallback< RevisionsModificationResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -198,6 +202,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call appendDocumentCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDocumentList();
@@ -264,11 +269,12 @@ public class WordsApi {
     }
 
     /**
-        * Appends documents to original document.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Appends documents to original document.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse appendDocument(AppendDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = appendDocumentWithHttpInfo(request);
@@ -285,11 +291,12 @@ public class WordsApi {
     }
 
     /**
-        * Appends documents to original document.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Appends documents to original document.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > appendDocumentWithHttpInfo(AppendDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -297,12 +304,13 @@ public class WordsApi {
     }
 
     /**
-        * Appends documents to original document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Appends documents to original document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call appendDocumentAsync(AppendDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -336,6 +344,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call applyStyleToDocumentElementCall(ApplyStyleToDocumentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getStyleApply();
@@ -408,11 +417,12 @@ public class WordsApi {
     }
 
     /**
-        * Apply a style to the document node.
-        * @param request Request object
-        * @return WordsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Apply a style to the document node.
+     * @param request Request object
+     * @return WordsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public WordsResponse applyStyleToDocumentElement(ApplyStyleToDocumentElementRequest request) throws ApiException, IOException {
         try {
             ApiResponse< WordsResponse > resp = applyStyleToDocumentElementWithHttpInfo(request);
@@ -429,11 +439,12 @@ public class WordsApi {
     }
 
     /**
-        * Apply a style to the document node.
-        * @param request Request object
-        * @return ApiResponse< WordsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Apply a style to the document node.
+     * @param request Request object
+     * @return ApiResponse< WordsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< WordsResponse > applyStyleToDocumentElementWithHttpInfo(ApplyStyleToDocumentElementRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = applyStyleToDocumentElementValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< WordsResponse >() { }.getType();
@@ -441,12 +452,13 @@ public class WordsApi {
     }
 
     /**
-        * Apply a style to the document node. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Apply a style to the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call applyStyleToDocumentElementAsync(ApplyStyleToDocumentElementRequest request, final ApiCallback< WordsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -480,6 +492,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call buildReportCall(BuildReportRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -554,11 +567,12 @@ public class WordsApi {
     }
 
     /**
-        * Executes document "build report" operation.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Executes document "build report" operation.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse buildReport(BuildReportRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = buildReportWithHttpInfo(request);
@@ -575,11 +589,12 @@ public class WordsApi {
     }
 
     /**
-        * Executes document "build report" operation.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Executes document "build report" operation.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > buildReportWithHttpInfo(BuildReportRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = buildReportValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -587,12 +602,13 @@ public class WordsApi {
     }
 
     /**
-        * Executes document "build report" operation. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Executes document "build report" operation. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call buildReportAsync(BuildReportRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -626,6 +642,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call buildReportOnlineCall(BuildReportOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -699,11 +716,12 @@ public class WordsApi {
     }
 
     /**
-        * Executes document "build report" online operation.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Executes document "build report" online operation.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File buildReportOnline(BuildReportOnlineRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = buildReportOnlineWithHttpInfo(request);
@@ -720,11 +738,12 @@ public class WordsApi {
     }
 
     /**
-        * Executes document "build report" online operation.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Executes document "build report" online operation.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > buildReportOnlineWithHttpInfo(BuildReportOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = buildReportOnlineValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -732,12 +751,13 @@ public class WordsApi {
     }
 
     /**
-        * Executes document "build report" online operation. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Executes document "build report" online operation. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call buildReportOnlineAsync(BuildReportOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -771,6 +791,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call classifyCall(ClassifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getText();
@@ -826,11 +847,12 @@ public class WordsApi {
     }
 
     /**
-        * Classifies raw text.
-        * @param request Request object
-        * @return ClassificationResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Classifies raw text.
+     * @param request Request object
+     * @return ClassificationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ClassificationResponse classify(ClassifyRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ClassificationResponse > resp = classifyWithHttpInfo(request);
@@ -847,11 +869,12 @@ public class WordsApi {
     }
 
     /**
-        * Classifies raw text.
-        * @param request Request object
-        * @return ApiResponse< ClassificationResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Classifies raw text.
+     * @param request Request object
+     * @return ApiResponse< ClassificationResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ClassificationResponse > classifyWithHttpInfo(ClassifyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = classifyValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ClassificationResponse >() { }.getType();
@@ -859,12 +882,13 @@ public class WordsApi {
     }
 
     /**
-        * Classifies raw text. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Classifies raw text. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call classifyAsync(ClassifyRequest request, final ApiCallback< ClassificationResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -898,6 +922,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call classifyDocumentCall(ClassifyDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -958,11 +983,12 @@ public class WordsApi {
     }
 
     /**
-        * Classifies document.
-        * @param request Request object
-        * @return ClassificationResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Classifies document.
+     * @param request Request object
+     * @return ClassificationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ClassificationResponse classifyDocument(ClassifyDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ClassificationResponse > resp = classifyDocumentWithHttpInfo(request);
@@ -979,11 +1005,12 @@ public class WordsApi {
     }
 
     /**
-        * Classifies document.
-        * @param request Request object
-        * @return ApiResponse< ClassificationResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Classifies document.
+     * @param request Request object
+     * @return ApiResponse< ClassificationResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ClassificationResponse > classifyDocumentWithHttpInfo(ClassifyDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = classifyDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ClassificationResponse >() { }.getType();
@@ -991,12 +1018,13 @@ public class WordsApi {
     }
 
     /**
-        * Classifies document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Classifies document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call classifyDocumentAsync(ClassifyDocumentRequest request, final ApiCallback< ClassificationResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1030,6 +1058,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call compareDocumentCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getCompareData();
@@ -1094,11 +1123,12 @@ public class WordsApi {
     }
 
     /**
-        * Compares document with original document.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Compares document with original document.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse compareDocument(CompareDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = compareDocumentWithHttpInfo(request);
@@ -1115,11 +1145,12 @@ public class WordsApi {
     }
 
     /**
-        * Compares document with original document.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Compares document with original document.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > compareDocumentWithHttpInfo(CompareDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -1127,12 +1158,13 @@ public class WordsApi {
     }
 
     /**
-        * Compares document with original document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Compares document with original document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call compareDocumentAsync(CompareDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1166,6 +1198,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call convertDocumentCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -1232,11 +1265,12 @@ public class WordsApi {
     }
 
     /**
-        * Converts document from the request's content to the specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Converts document from the request's content to the specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File convertDocument(ConvertDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = convertDocumentWithHttpInfo(request);
@@ -1253,11 +1287,12 @@ public class WordsApi {
     }
 
     /**
-        * Converts document from the request's content to the specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Converts document from the request's content to the specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -1265,12 +1300,13 @@ public class WordsApi {
     }
 
     /**
-        * Converts document from the request's content to the specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Converts document from the request's content to the specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call convertDocumentAsync(ConvertDocumentRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1304,6 +1340,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call copyFileCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -1367,10 +1404,11 @@ public class WordsApi {
     }
 
     /**
-        * Copy file.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Copy file.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void copyFile(CopyFileRequest request) throws ApiException, IOException {
         try {
     copyFileWithHttpInfo(request);
@@ -1385,23 +1423,25 @@ public class WordsApi {
     }
 
     /**
-        * Copy file.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Copy file.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > copyFileWithHttpInfo(CopyFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = copyFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Copy file. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Copy file. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call copyFileAsync(CopyFileRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1434,6 +1474,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call copyFolderCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -1496,10 +1537,11 @@ public class WordsApi {
     }
 
     /**
-        * Copy folder.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Copy folder.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void copyFolder(CopyFolderRequest request) throws ApiException, IOException {
         try {
     copyFolderWithHttpInfo(request);
@@ -1514,23 +1556,25 @@ public class WordsApi {
     }
 
     /**
-        * Copy folder.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Copy folder.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > copyFolderWithHttpInfo(CopyFolderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = copyFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Copy folder. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Copy folder. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call copyFolderAsync(CopyFolderRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1563,6 +1607,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call copyStyleCall(CopyStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getStyleCopy();
@@ -1629,11 +1674,12 @@ public class WordsApi {
     }
 
     /**
-        * Copy and insert a new style to the document, returns a copied style.
-        * @param request Request object
-        * @return StyleResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Copy and insert a new style to the document, returns a copied style.
+     * @param request Request object
+     * @return StyleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public StyleResponse copyStyle(CopyStyleRequest request) throws ApiException, IOException {
         try {
             ApiResponse< StyleResponse > resp = copyStyleWithHttpInfo(request);
@@ -1650,11 +1696,12 @@ public class WordsApi {
     }
 
     /**
-        * Copy and insert a new style to the document, returns a copied style.
-        * @param request Request object
-        * @return ApiResponse< StyleResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Copy and insert a new style to the document, returns a copied style.
+     * @param request Request object
+     * @return ApiResponse< StyleResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< StyleResponse > copyStyleWithHttpInfo(CopyStyleRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = copyStyleValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
@@ -1662,12 +1709,13 @@ public class WordsApi {
     }
 
     /**
-        * Copy and insert a new style to the document, returns a copied style. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Copy and insert a new style to the document, returns a copied style. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call copyStyleAsync(CopyStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1701,6 +1749,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call createDocumentCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -1754,13 +1803,14 @@ public class WordsApi {
     }
 
     /**
-        * Creates new document.
-        * Document is created with format which is recognized from file extensions.
-        * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Creates new document.
+     * Document is created with format which is recognized from file extensions.
+     * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse createDocument(CreateDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = createDocumentWithHttpInfo(request);
@@ -1777,13 +1827,14 @@ public class WordsApi {
     }
 
     /**
-        * Creates new document.
-        * Document is created with format which is recognized from file extensions.
-        * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Creates new document.
+     * Document is created with format which is recognized from file extensions.
+     * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > createDocumentWithHttpInfo(CreateDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -1791,14 +1842,15 @@ public class WordsApi {
     }
 
     /**
-        * Creates new document.
-        * Document is created with format which is recognized from file extensions.
-        * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf". (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Creates new document.
+     * Document is created with format which is recognized from file extensions.
+     * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf". (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call createDocumentAsync(CreateDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1832,6 +1884,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call createFolderCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -1887,10 +1940,11 @@ public class WordsApi {
     }
 
     /**
-        * Create the folder.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Create the folder.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void createFolder(CreateFolderRequest request) throws ApiException, IOException {
         try {
     createFolderWithHttpInfo(request);
@@ -1905,23 +1959,25 @@ public class WordsApi {
     }
 
     /**
-        * Create the folder.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Create the folder.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > createFolderWithHttpInfo(CreateFolderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = createFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Create the folder. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Create the folder. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call createFolderAsync(CreateFolderRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -1954,6 +2010,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call createOrUpdateDocumentPropertyCall(CreateOrUpdateDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProperty();
@@ -2026,11 +2083,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds new or update existing document property.
-        * @param request Request object
-        * @return DocumentPropertyResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds new or update existing document property.
+     * @param request Request object
+     * @return DocumentPropertyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentPropertyResponse createOrUpdateDocumentProperty(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentPropertyResponse > resp = createOrUpdateDocumentPropertyWithHttpInfo(request);
@@ -2047,11 +2105,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds new or update existing document property.
-        * @param request Request object
-        * @return ApiResponse< DocumentPropertyResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds new or update existing document property.
+     * @param request Request object
+     * @return ApiResponse< DocumentPropertyResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentPropertyResponse > createOrUpdateDocumentPropertyWithHttpInfo(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentPropertyResponse >() { }.getType();
@@ -2059,12 +2118,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds new or update existing document property. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds new or update existing document property. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call createOrUpdateDocumentPropertyAsync(CreateOrUpdateDocumentPropertyRequest request, final ApiCallback< DocumentPropertyResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2098,6 +2158,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteAllParagraphTabStopsCall(DeleteAllParagraphTabStopsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -2169,11 +2230,12 @@ public class WordsApi {
     }
 
     /**
-        * Remove all tab stops.
-        * @param request Request object
-        * @return TabStopsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Remove all tab stops.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TabStopsResponse deleteAllParagraphTabStops(DeleteAllParagraphTabStopsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = deleteAllParagraphTabStopsWithHttpInfo(request);
@@ -2190,11 +2252,12 @@ public class WordsApi {
     }
 
     /**
-        * Remove all tab stops.
-        * @param request Request object
-        * @return ApiResponse< TabStopsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Remove all tab stops.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TabStopsResponse > deleteAllParagraphTabStopsWithHttpInfo(DeleteAllParagraphTabStopsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
@@ -2202,12 +2265,13 @@ public class WordsApi {
     }
 
     /**
-        * Remove all tab stops. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Remove all tab stops. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteAllParagraphTabStopsAsync(DeleteAllParagraphTabStopsRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2241,6 +2305,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathCall(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -2306,11 +2371,12 @@ public class WordsApi {
     }
 
     /**
-        * Remove all tab stops.
-        * @param request Request object
-        * @return TabStopsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Remove all tab stops.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TabStopsResponse deleteAllParagraphTabStopsWithoutNodePath(DeleteAllParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(request);
@@ -2327,11 +2393,12 @@ public class WordsApi {
     }
 
     /**
-        * Remove all tab stops.
-        * @param request Request object
-        * @return ApiResponse< TabStopsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Remove all tab stops.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TabStopsResponse > deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(DeleteAllParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
@@ -2339,12 +2406,13 @@ public class WordsApi {
     }
 
     /**
-        * Remove all tab stops. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Remove all tab stops. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathAsync(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2378,6 +2446,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteBorderCall(DeleteBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -2451,11 +2520,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return BorderResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return BorderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public BorderResponse deleteBorder(DeleteBorderRequest request) throws ApiException, IOException {
         try {
             ApiResponse< BorderResponse > resp = deleteBorderWithHttpInfo(request);
@@ -2472,11 +2542,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return ApiResponse< BorderResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return ApiResponse< BorderResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< BorderResponse > deleteBorderWithHttpInfo(DeleteBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteBorderValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
@@ -2484,12 +2555,13 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteBorderAsync(DeleteBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2523,6 +2595,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteBordersCall(DeleteBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -2590,11 +2663,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return BordersResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return BordersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public BordersResponse deleteBorders(DeleteBordersRequest request) throws ApiException, IOException {
         try {
             ApiResponse< BordersResponse > resp = deleteBordersWithHttpInfo(request);
@@ -2611,11 +2685,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return ApiResponse< BordersResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return ApiResponse< BordersResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< BordersResponse > deleteBordersWithHttpInfo(DeleteBordersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteBordersValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< BordersResponse >() { }.getType();
@@ -2623,12 +2698,13 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteBordersAsync(DeleteBordersRequest request, final ApiCallback< BordersResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2662,6 +2738,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteCommentCall(DeleteCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -2729,10 +2806,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes comment from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes comment from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteComment(DeleteCommentRequest request) throws ApiException, IOException {
         try {
     deleteCommentWithHttpInfo(request);
@@ -2747,23 +2825,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes comment from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes comment from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteCommentWithHttpInfo(DeleteCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteCommentValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes comment from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes comment from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteCommentAsync(DeleteCommentRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2796,6 +2876,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteDocumentPropertyCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -2863,10 +2944,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes document property.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes document property.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteDocumentProperty(DeleteDocumentPropertyRequest request) throws ApiException, IOException {
         try {
     deleteDocumentPropertyWithHttpInfo(request);
@@ -2881,23 +2963,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes document property.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes document property.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteDocumentPropertyWithHttpInfo(DeleteDocumentPropertyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteDocumentPropertyValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes document property. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes document property. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteDocumentPropertyAsync(DeleteDocumentPropertyRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -2930,6 +3014,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteDrawingObjectCall(DeleteDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -3003,10 +3088,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes drawing object from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes drawing object from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteDrawingObject(DeleteDrawingObjectRequest request) throws ApiException, IOException {
         try {
     deleteDrawingObjectWithHttpInfo(request);
@@ -3021,23 +3107,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes drawing object from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes drawing object from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteDrawingObjectWithHttpInfo(DeleteDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteDrawingObjectValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes drawing object from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes drawing object from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteDrawingObjectAsync(DeleteDrawingObjectRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3070,6 +3158,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathCall(DeleteDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -3137,10 +3226,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes drawing object from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes drawing object from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteDrawingObjectWithoutNodePath(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
     deleteDrawingObjectWithoutNodePathWithHttpInfo(request);
@@ -3155,23 +3245,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes drawing object from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes drawing object from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteDrawingObjectWithoutNodePathWithHttpInfo(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes drawing object from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes drawing object from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathAsync(DeleteDrawingObjectWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3204,6 +3296,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFieldCall(DeleteFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -3277,10 +3370,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes field from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes field from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteField(DeleteFieldRequest request) throws ApiException, IOException {
         try {
     deleteFieldWithHttpInfo(request);
@@ -3295,23 +3389,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes field from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes field from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFieldWithHttpInfo(DeleteFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFieldValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes field from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFieldAsync(DeleteFieldRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3344,6 +3440,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFieldsCall(DeleteFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -3411,10 +3508,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes fields from section paragraph.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes fields from section paragraph.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFields(DeleteFieldsRequest request) throws ApiException, IOException {
         try {
     deleteFieldsWithHttpInfo(request);
@@ -3429,23 +3527,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes fields from section paragraph.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes fields from section paragraph.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFieldsWithHttpInfo(DeleteFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFieldsValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes fields from section paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes fields from section paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFieldsAsync(DeleteFieldsRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3478,6 +3578,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFieldsWithoutNodePathCall(DeleteFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -3539,10 +3640,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes fields from section paragraph.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes fields from section paragraph.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFieldsWithoutNodePath(DeleteFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
     deleteFieldsWithoutNodePathWithHttpInfo(request);
@@ -3557,23 +3659,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes fields from section paragraph.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes fields from section paragraph.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFieldsWithoutNodePathWithHttpInfo(DeleteFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFieldsWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes fields from section paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes fields from section paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFieldsWithoutNodePathAsync(DeleteFieldsWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3606,6 +3710,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFieldWithoutNodePathCall(DeleteFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -3673,10 +3778,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes field from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes field from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFieldWithoutNodePath(DeleteFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
     deleteFieldWithoutNodePathWithHttpInfo(request);
@@ -3691,23 +3797,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes field from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes field from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFieldWithoutNodePathWithHttpInfo(DeleteFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFieldWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes field from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFieldWithoutNodePathAsync(DeleteFieldWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3740,6 +3848,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFileCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -3796,10 +3905,11 @@ public class WordsApi {
     }
 
     /**
-        * Delete file.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Delete file.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFile(DeleteFileRequest request) throws ApiException, IOException {
         try {
     deleteFileWithHttpInfo(request);
@@ -3814,23 +3924,25 @@ public class WordsApi {
     }
 
     /**
-        * Delete file.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Delete file.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFileWithHttpInfo(DeleteFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Delete file. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Delete file. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFileAsync(DeleteFileRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3863,6 +3975,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFolderCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -3919,10 +4032,11 @@ public class WordsApi {
     }
 
     /**
-        * Delete folder.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Delete folder.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFolder(DeleteFolderRequest request) throws ApiException, IOException {
         try {
     deleteFolderWithHttpInfo(request);
@@ -3937,23 +4051,25 @@ public class WordsApi {
     }
 
     /**
-        * Delete folder.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Delete folder.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFolderWithHttpInfo(DeleteFolderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Delete folder. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Delete folder. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFolderAsync(DeleteFolderRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -3986,6 +4102,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFootnoteCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -4059,10 +4176,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes footnote from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes footnote from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFootnote(DeleteFootnoteRequest request) throws ApiException, IOException {
         try {
     deleteFootnoteWithHttpInfo(request);
@@ -4077,23 +4195,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes footnote from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes footnote from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFootnoteWithHttpInfo(DeleteFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFootnoteValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes footnote from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes footnote from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFootnoteAsync(DeleteFootnoteRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4126,6 +4246,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFootnoteWithoutNodePathCall(DeleteFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -4193,10 +4314,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes footnote from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes footnote from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFootnoteWithoutNodePath(DeleteFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         try {
     deleteFootnoteWithoutNodePathWithHttpInfo(request);
@@ -4211,23 +4333,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes footnote from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes footnote from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFootnoteWithoutNodePathWithHttpInfo(DeleteFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes footnote from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes footnote from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFootnoteWithoutNodePathAsync(DeleteFootnoteWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4260,6 +4384,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFormFieldCall(DeleteFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -4333,10 +4458,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes form field from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes form field from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFormField(DeleteFormFieldRequest request) throws ApiException, IOException {
         try {
     deleteFormFieldWithHttpInfo(request);
@@ -4351,23 +4477,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes form field from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes form field from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFormFieldWithHttpInfo(DeleteFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFormFieldValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes form field from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes form field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFormFieldAsync(DeleteFormFieldRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4400,6 +4528,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteFormFieldWithoutNodePathCall(DeleteFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -4467,10 +4596,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes form field from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes form field from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteFormFieldWithoutNodePath(DeleteFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
     deleteFormFieldWithoutNodePathWithHttpInfo(request);
@@ -4485,23 +4615,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes form field from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes form field from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteFormFieldWithoutNodePathWithHttpInfo(DeleteFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes form field from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes form field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteFormFieldWithoutNodePathAsync(DeleteFormFieldWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4534,6 +4666,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteHeaderFooterCall(DeleteHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -4607,10 +4740,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes header/footer from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes header/footer from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteHeaderFooter(DeleteHeaderFooterRequest request) throws ApiException, IOException {
         try {
     deleteHeaderFooterWithHttpInfo(request);
@@ -4625,23 +4759,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes header/footer from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes header/footer from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteHeaderFooterWithHttpInfo(DeleteHeaderFooterRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteHeaderFooterValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes header/footer from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes header/footer from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteHeaderFooterAsync(DeleteHeaderFooterRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4674,6 +4810,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteHeadersFootersCall(DeleteHeadersFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -4742,10 +4879,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes document headers and footers.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes document headers and footers.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteHeadersFooters(DeleteHeadersFootersRequest request) throws ApiException, IOException {
         try {
     deleteHeadersFootersWithHttpInfo(request);
@@ -4760,23 +4898,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes document headers and footers.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes document headers and footers.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteHeadersFootersWithHttpInfo(DeleteHeadersFootersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteHeadersFootersValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes document headers and footers. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes document headers and footers. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteHeadersFootersAsync(DeleteHeadersFootersRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4809,6 +4949,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteMacrosCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -4870,10 +5011,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes macros from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes macros from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteMacros(DeleteMacrosRequest request) throws ApiException, IOException {
         try {
     deleteMacrosWithHttpInfo(request);
@@ -4888,23 +5030,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes macros from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes macros from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteMacrosWithHttpInfo(DeleteMacrosRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteMacrosValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes macros from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes macros from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteMacrosAsync(DeleteMacrosRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -4937,6 +5081,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteOfficeMathObjectCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -5010,10 +5155,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes OfficeMath object from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes OfficeMath object from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteOfficeMathObject(DeleteOfficeMathObjectRequest request) throws ApiException, IOException {
         try {
     deleteOfficeMathObjectWithHttpInfo(request);
@@ -5028,23 +5174,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes OfficeMath object from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes OfficeMath object from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteOfficeMathObjectWithHttpInfo(DeleteOfficeMathObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes OfficeMath object from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes OfficeMath object from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteOfficeMathObjectAsync(DeleteOfficeMathObjectRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5077,6 +5225,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathCall(DeleteOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -5144,10 +5293,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes OfficeMath object from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes OfficeMath object from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteOfficeMathObjectWithoutNodePath(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
     deleteOfficeMathObjectWithoutNodePathWithHttpInfo(request);
@@ -5162,23 +5312,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes OfficeMath object from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes OfficeMath object from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteOfficeMathObjectWithoutNodePathWithHttpInfo(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteOfficeMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes OfficeMath object from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes OfficeMath object from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathAsync(DeleteOfficeMathObjectWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5211,6 +5363,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteParagraphCall(DeleteParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -5284,10 +5437,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes paragraph from section.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes paragraph from section.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteParagraph(DeleteParagraphRequest request) throws ApiException, IOException {
         try {
     deleteParagraphWithHttpInfo(request);
@@ -5302,23 +5456,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes paragraph from section.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes paragraph from section.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteParagraphWithHttpInfo(DeleteParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes paragraph from section. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes paragraph from section. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteParagraphAsync(DeleteParagraphRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5351,6 +5507,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteParagraphListFormatCall(DeleteParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -5424,11 +5581,12 @@ public class WordsApi {
     }
 
     /**
-        * Delete paragraph list format, returns updated list format properties.
-        * @param request Request object
-        * @return ParagraphListFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Delete paragraph list format, returns updated list format properties.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphListFormatResponse deleteParagraphListFormat(DeleteParagraphListFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = deleteParagraphListFormatWithHttpInfo(request);
@@ -5445,11 +5603,12 @@ public class WordsApi {
     }
 
     /**
-        * Delete paragraph list format, returns updated list format properties.
-        * @param request Request object
-        * @return ApiResponse< ParagraphListFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Delete paragraph list format, returns updated list format properties.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphListFormatResponse > deleteParagraphListFormatWithHttpInfo(DeleteParagraphListFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphListFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
@@ -5457,12 +5616,13 @@ public class WordsApi {
     }
 
     /**
-        * Delete paragraph list format, returns updated list format properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Delete paragraph list format, returns updated list format properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteParagraphListFormatAsync(DeleteParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5496,6 +5656,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathCall(DeleteParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -5563,11 +5724,12 @@ public class WordsApi {
     }
 
     /**
-        * Delete paragraph list format, returns updated list format properties.
-        * @param request Request object
-        * @return ParagraphListFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Delete paragraph list format, returns updated list format properties.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphListFormatResponse deleteParagraphListFormatWithoutNodePath(DeleteParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = deleteParagraphListFormatWithoutNodePathWithHttpInfo(request);
@@ -5584,11 +5746,12 @@ public class WordsApi {
     }
 
     /**
-        * Delete paragraph list format, returns updated list format properties.
-        * @param request Request object
-        * @return ApiResponse< ParagraphListFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Delete paragraph list format, returns updated list format properties.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphListFormatResponse > deleteParagraphListFormatWithoutNodePathWithHttpInfo(DeleteParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
@@ -5596,12 +5759,13 @@ public class WordsApi {
     }
 
     /**
-        * Delete paragraph list format, returns updated list format properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Delete paragraph list format, returns updated list format properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathAsync(DeleteParagraphListFormatWithoutNodePathRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5635,6 +5799,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteParagraphTabStopCall(DeleteParagraphTabStopRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -5712,11 +5877,12 @@ public class WordsApi {
     }
 
     /**
-        * Remove the i-th tab stop.
-        * @param request Request object
-        * @return TabStopsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Remove the i-th tab stop.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TabStopsResponse deleteParagraphTabStop(DeleteParagraphTabStopRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = deleteParagraphTabStopWithHttpInfo(request);
@@ -5733,11 +5899,12 @@ public class WordsApi {
     }
 
     /**
-        * Remove the i-th tab stop.
-        * @param request Request object
-        * @return ApiResponse< TabStopsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Remove the i-th tab stop.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TabStopsResponse > deleteParagraphTabStopWithHttpInfo(DeleteParagraphTabStopRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphTabStopValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
@@ -5745,12 +5912,13 @@ public class WordsApi {
     }
 
     /**
-        * Remove the i-th tab stop. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Remove the i-th tab stop. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteParagraphTabStopAsync(DeleteParagraphTabStopRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5784,6 +5952,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathCall(DeleteParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -5855,11 +6024,12 @@ public class WordsApi {
     }
 
     /**
-        * Remove the i-th tab stop.
-        * @param request Request object
-        * @return TabStopsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Remove the i-th tab stop.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TabStopsResponse deleteParagraphTabStopWithoutNodePath(DeleteParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = deleteParagraphTabStopWithoutNodePathWithHttpInfo(request);
@@ -5876,11 +6046,12 @@ public class WordsApi {
     }
 
     /**
-        * Remove the i-th tab stop.
-        * @param request Request object
-        * @return ApiResponse< TabStopsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Remove the i-th tab stop.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TabStopsResponse > deleteParagraphTabStopWithoutNodePathWithHttpInfo(DeleteParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
@@ -5888,12 +6059,13 @@ public class WordsApi {
     }
 
     /**
-        * Remove the i-th tab stop. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Remove the i-th tab stop. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathAsync(DeleteParagraphTabStopWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -5927,6 +6099,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteParagraphWithoutNodePathCall(DeleteParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -5994,10 +6167,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes paragraph from section.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes paragraph from section.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteParagraphWithoutNodePath(DeleteParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         try {
     deleteParagraphWithoutNodePathWithHttpInfo(request);
@@ -6012,23 +6186,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes paragraph from section.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes paragraph from section.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteParagraphWithoutNodePathWithHttpInfo(DeleteParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes paragraph from section. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes paragraph from section. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteParagraphWithoutNodePathAsync(DeleteParagraphWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -6061,6 +6237,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteRunCall(DeleteRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -6134,10 +6311,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes run from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes run from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteRun(DeleteRunRequest request) throws ApiException, IOException {
         try {
     deleteRunWithHttpInfo(request);
@@ -6152,23 +6330,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes run from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes run from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteRunWithHttpInfo(DeleteRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteRunValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes run from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes run from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteRunAsync(DeleteRunRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -6201,6 +6381,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteSectionCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -6268,10 +6449,11 @@ public class WordsApi {
     }
 
     /**
-        * Removes section from document.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes section from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteSection(DeleteSectionRequest request) throws ApiException, IOException {
         try {
     deleteSectionWithHttpInfo(request);
@@ -6286,23 +6468,25 @@ public class WordsApi {
     }
 
     /**
-        * Removes section from document.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes section from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteSectionWithHttpInfo(DeleteSectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteSectionValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Removes section from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes section from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteSectionAsync(DeleteSectionRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -6335,6 +6519,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteTableCall(DeleteTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -6408,10 +6593,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes a table.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes a table.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteTable(DeleteTableRequest request) throws ApiException, IOException {
         try {
     deleteTableWithHttpInfo(request);
@@ -6426,23 +6612,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes a table.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes a table.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteTableWithHttpInfo(DeleteTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteTableValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes a table. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes a table. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteTableAsync(DeleteTableRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -6475,6 +6663,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteTableCellCall(DeleteTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -6548,10 +6737,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes a table cell.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes a table cell.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteTableCell(DeleteTableCellRequest request) throws ApiException, IOException {
         try {
     deleteTableCellWithHttpInfo(request);
@@ -6566,23 +6756,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes a table cell.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes a table cell.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteTableCellWithHttpInfo(DeleteTableCellRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteTableCellValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes a table cell. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes a table cell. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteTableCellAsync(DeleteTableCellRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -6615,6 +6807,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteTableRowCall(DeleteTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -6688,10 +6881,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes a table row.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes a table row.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteTableRow(DeleteTableRowRequest request) throws ApiException, IOException {
         try {
     deleteTableRowWithHttpInfo(request);
@@ -6706,23 +6900,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes a table row.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes a table row.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteTableRowWithHttpInfo(DeleteTableRowRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteTableRowValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes a table row. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes a table row. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteTableRowAsync(DeleteTableRowRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -6755,6 +6951,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteTableWithoutNodePathCall(DeleteTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -6822,10 +7019,11 @@ public class WordsApi {
     }
 
     /**
-        * Deletes a table.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes a table.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void deleteTableWithoutNodePath(DeleteTableWithoutNodePathRequest request) throws ApiException, IOException {
         try {
     deleteTableWithoutNodePathWithHttpInfo(request);
@@ -6840,23 +7038,25 @@ public class WordsApi {
     }
 
     /**
-        * Deletes a table.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes a table.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > deleteTableWithoutNodePathWithHttpInfo(DeleteTableWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteTableWithoutNodePathValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Deletes a table. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes a table. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteTableWithoutNodePathAsync(DeleteTableWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -6889,6 +7089,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call deleteWatermarkCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -6950,11 +7151,12 @@ public class WordsApi {
     }
 
     /**
-        * Deletes watermark (for deleting last watermark from the document).
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes watermark (for deleting last watermark from the document).
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse deleteWatermark(DeleteWatermarkRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = deleteWatermarkWithHttpInfo(request);
@@ -6971,11 +7173,12 @@ public class WordsApi {
     }
 
     /**
-        * Deletes watermark (for deleting last watermark from the document).
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Deletes watermark (for deleting last watermark from the document).
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > deleteWatermarkWithHttpInfo(DeleteWatermarkRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -6983,12 +7186,13 @@ public class WordsApi {
     }
 
     /**
-        * Deletes watermark (for deleting last watermark from the document). (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Deletes watermark (for deleting last watermark from the document). (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call deleteWatermarkAsync(DeleteWatermarkRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -7022,6 +7226,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call downloadFileCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -7078,11 +7283,12 @@ public class WordsApi {
     }
 
     /**
-        * Download file.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Download file.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File downloadFile(DownloadFileRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = downloadFileWithHttpInfo(request);
@@ -7099,11 +7305,12 @@ public class WordsApi {
     }
 
     /**
-        * Download file.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Download file.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -7111,12 +7318,13 @@ public class WordsApi {
     }
 
     /**
-        * Download file. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Download file. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call downloadFileAsync(DownloadFileRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -7150,6 +7358,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call executeMailMergeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -7215,11 +7424,12 @@ public class WordsApi {
     }
 
     /**
-        * Executes document mail merge operation.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Executes document mail merge operation.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse executeMailMerge(ExecuteMailMergeRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = executeMailMergeWithHttpInfo(request);
@@ -7236,11 +7446,12 @@ public class WordsApi {
     }
 
     /**
-        * Executes document mail merge operation.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Executes document mail merge operation.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > executeMailMergeWithHttpInfo(ExecuteMailMergeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -7248,12 +7459,13 @@ public class WordsApi {
     }
 
     /**
-        * Executes document mail merge operation. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Executes document mail merge operation. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call executeMailMergeAsync(ExecuteMailMergeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -7287,6 +7499,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call executeMailMergeOnlineCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -7354,11 +7567,12 @@ public class WordsApi {
     }
 
     /**
-        * Executes document mail merge online.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Executes document mail merge online.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File executeMailMergeOnline(ExecuteMailMergeOnlineRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = executeMailMergeOnlineWithHttpInfo(request);
@@ -7375,11 +7589,12 @@ public class WordsApi {
     }
 
     /**
-        * Executes document mail merge online.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Executes document mail merge online.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -7387,12 +7602,13 @@ public class WordsApi {
     }
 
     /**
-        * Executes document mail merge online. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Executes document mail merge online. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call executeMailMergeOnlineAsync(ExecuteMailMergeOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -7426,6 +7642,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getAvailableFontsCall(GetAvailableFontsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -7477,11 +7694,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets the list of fonts, available for document processing.
-        * @param request Request object
-        * @return AvailableFontsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets the list of fonts, available for document processing.
+     * @param request Request object
+     * @return AvailableFontsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public AvailableFontsResponse getAvailableFonts(GetAvailableFontsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< AvailableFontsResponse > resp = getAvailableFontsWithHttpInfo(request);
@@ -7498,11 +7716,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets the list of fonts, available for document processing.
-        * @param request Request object
-        * @return ApiResponse< AvailableFontsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets the list of fonts, available for document processing.
+     * @param request Request object
+     * @return ApiResponse< AvailableFontsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< AvailableFontsResponse > getAvailableFontsWithHttpInfo(GetAvailableFontsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getAvailableFontsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< AvailableFontsResponse >() { }.getType();
@@ -7510,12 +7729,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets the list of fonts, available for document processing. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets the list of fonts, available for document processing. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getAvailableFontsAsync(GetAvailableFontsRequest request, final ApiCallback< AvailableFontsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -7549,6 +7769,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getBookmarkByNameCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -7613,11 +7834,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document bookmark data by its name.
-        * @param request Request object
-        * @return BookmarkResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document bookmark data by its name.
+     * @param request Request object
+     * @return BookmarkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public BookmarkResponse getBookmarkByName(GetBookmarkByNameRequest request) throws ApiException, IOException {
         try {
             ApiResponse< BookmarkResponse > resp = getBookmarkByNameWithHttpInfo(request);
@@ -7634,11 +7856,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document bookmark data by its name.
-        * @param request Request object
-        * @return ApiResponse< BookmarkResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document bookmark data by its name.
+     * @param request Request object
+     * @return ApiResponse< BookmarkResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< BookmarkResponse > getBookmarkByNameWithHttpInfo(GetBookmarkByNameRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< BookmarkResponse >() { }.getType();
@@ -7646,12 +7869,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document bookmark data by its name. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document bookmark data by its name. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getBookmarkByNameAsync(GetBookmarkByNameRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -7685,6 +7909,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getBookmarksCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -7743,11 +7968,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document bookmarks common info.
-        * @param request Request object
-        * @return BookmarksResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document bookmarks common info.
+     * @param request Request object
+     * @return BookmarksResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public BookmarksResponse getBookmarks(GetBookmarksRequest request) throws ApiException, IOException {
         try {
             ApiResponse< BookmarksResponse > resp = getBookmarksWithHttpInfo(request);
@@ -7764,11 +7990,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document bookmarks common info.
-        * @param request Request object
-        * @return ApiResponse< BookmarksResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document bookmarks common info.
+     * @param request Request object
+     * @return ApiResponse< BookmarksResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< BookmarksResponse > getBookmarksWithHttpInfo(GetBookmarksRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< BookmarksResponse >() { }.getType();
@@ -7776,12 +8003,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document bookmarks common info. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document bookmarks common info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getBookmarksAsync(GetBookmarksRequest request, final ApiCallback< BookmarksResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -7815,6 +8043,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getBorderCall(GetBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -7885,11 +8114,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return BorderResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return BorderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public BorderResponse getBorder(GetBorderRequest request) throws ApiException, IOException {
         try {
             ApiResponse< BorderResponse > resp = getBorderWithHttpInfo(request);
@@ -7906,11 +8136,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return ApiResponse< BorderResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return ApiResponse< BorderResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< BorderResponse > getBorderWithHttpInfo(GetBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBorderValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
@@ -7918,12 +8149,13 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getBorderAsync(GetBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -7957,6 +8189,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getBordersCall(GetBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -8021,11 +8254,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return BordersResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return BordersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public BordersResponse getBorders(GetBordersRequest request) throws ApiException, IOException {
         try {
             ApiResponse< BordersResponse > resp = getBordersWithHttpInfo(request);
@@ -8042,11 +8276,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return ApiResponse< BordersResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return ApiResponse< BordersResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< BordersResponse > getBordersWithHttpInfo(GetBordersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBordersValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< BordersResponse >() { }.getType();
@@ -8054,12 +8289,13 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getBordersAsync(GetBordersRequest request, final ApiCallback< BordersResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -8093,6 +8329,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getCommentCall(GetCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -8157,11 +8394,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets comment from document.
-        * @param request Request object
-        * @return CommentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets comment from document.
+     * @param request Request object
+     * @return CommentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public CommentResponse getComment(GetCommentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< CommentResponse > resp = getCommentWithHttpInfo(request);
@@ -8178,11 +8416,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets comment from document.
-        * @param request Request object
-        * @return ApiResponse< CommentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets comment from document.
+     * @param request Request object
+     * @return ApiResponse< CommentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< CommentResponse > getCommentWithHttpInfo(GetCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getCommentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
@@ -8190,12 +8429,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets comment from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets comment from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getCommentAsync(GetCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -8229,6 +8469,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getCommentsCall(GetCommentsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -8287,11 +8528,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets comments from document.
-        * @param request Request object
-        * @return CommentsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets comments from document.
+     * @param request Request object
+     * @return CommentsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public CommentsResponse getComments(GetCommentsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< CommentsResponse > resp = getCommentsWithHttpInfo(request);
@@ -8308,11 +8550,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets comments from document.
-        * @param request Request object
-        * @return ApiResponse< CommentsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets comments from document.
+     * @param request Request object
+     * @return ApiResponse< CommentsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< CommentsResponse > getCommentsWithHttpInfo(GetCommentsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getCommentsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< CommentsResponse >() { }.getType();
@@ -8320,12 +8563,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets comments from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets comments from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getCommentsAsync(GetCommentsRequest request, final ApiCallback< CommentsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -8359,6 +8603,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentCall(GetDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -8417,11 +8662,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document common info.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document common info.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse getDocument(GetDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = getDocumentWithHttpInfo(request);
@@ -8438,11 +8684,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document common info.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document common info.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > getDocumentWithHttpInfo(GetDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -8450,12 +8697,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document common info. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document common info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentAsync(GetDocumentRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -8489,6 +8737,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexCall(GetDocumentDrawingObjectByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -8559,11 +8808,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing object common info by its index or convert to format specified.
-        * @param request Request object
-        * @return DrawingObjectResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document drawing object common info by its index or convert to format specified.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DrawingObjectResponse getDocumentDrawingObjectByIndex(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = getDocumentDrawingObjectByIndexWithHttpInfo(request);
@@ -8580,11 +8830,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing object common info by its index or convert to format specified.
-        * @param request Request object
-        * @return ApiResponse< DrawingObjectResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document drawing object common info by its index or convert to format specified.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexWithHttpInfo(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
@@ -8592,12 +8843,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexAsync(GetDocumentDrawingObjectByIndexRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -8631,6 +8883,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathCall(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -8695,11 +8948,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing object common info by its index or convert to format specified.
-        * @param request Request object
-        * @return DrawingObjectResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document drawing object common info by its index or convert to format specified.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DrawingObjectResponse getDocumentDrawingObjectByIndexWithoutNodePath(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = getDocumentDrawingObjectByIndexWithoutNodePathWithHttpInfo(request);
@@ -8716,11 +8970,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing object common info by its index or convert to format specified.
-        * @param request Request object
-        * @return ApiResponse< DrawingObjectResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document drawing object common info by its index or convert to format specified.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
@@ -8728,12 +8983,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathAsync(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -8767,6 +9023,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataCall(GetDocumentDrawingObjectImageDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -8837,11 +9094,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads drawing object image data.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads drawing object image data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File getDocumentDrawingObjectImageData(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
@@ -8858,11 +9116,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads drawing object image data.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads drawing object image data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > getDocumentDrawingObjectImageDataWithHttpInfo(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -8870,12 +9129,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads drawing object image data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads drawing object image data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataAsync(GetDocumentDrawingObjectImageDataRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -8909,6 +9169,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathCall(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -8973,11 +9234,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads drawing object image data.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads drawing object image data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File getDocumentDrawingObjectImageDataWithoutNodePath(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = getDocumentDrawingObjectImageDataWithoutNodePathWithHttpInfo(request);
@@ -8994,11 +9256,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads drawing object image data.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads drawing object image data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > getDocumentDrawingObjectImageDataWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -9006,12 +9269,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads drawing object image data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads drawing object image data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathAsync(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -9045,6 +9309,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataCall(GetDocumentDrawingObjectOleDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -9115,11 +9380,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets drawing object OLE data.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets drawing object OLE data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File getDocumentDrawingObjectOleData(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
@@ -9136,11 +9402,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets drawing object OLE data.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets drawing object OLE data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > getDocumentDrawingObjectOleDataWithHttpInfo(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -9148,12 +9415,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets drawing object OLE data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets drawing object OLE data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataAsync(GetDocumentDrawingObjectOleDataRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -9187,6 +9455,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathCall(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -9251,11 +9520,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets drawing object OLE data.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets drawing object OLE data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File getDocumentDrawingObjectOleDataWithoutNodePath(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = getDocumentDrawingObjectOleDataWithoutNodePathWithHttpInfo(request);
@@ -9272,11 +9542,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets drawing object OLE data.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets drawing object OLE data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > getDocumentDrawingObjectOleDataWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -9284,12 +9555,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets drawing object OLE data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets drawing object OLE data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathAsync(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -9323,6 +9595,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentDrawingObjectsCall(GetDocumentDrawingObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -9387,11 +9660,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing objects common info.
-        * @param request Request object
-        * @return DrawingObjectsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document drawing objects common info.
+     * @param request Request object
+     * @return DrawingObjectsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DrawingObjectsResponse getDocumentDrawingObjects(GetDocumentDrawingObjectsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DrawingObjectsResponse > resp = getDocumentDrawingObjectsWithHttpInfo(request);
@@ -9408,11 +9682,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing objects common info.
-        * @param request Request object
-        * @return ApiResponse< DrawingObjectsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document drawing objects common info.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsWithHttpInfo(GetDocumentDrawingObjectsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DrawingObjectsResponse >() { }.getType();
@@ -9420,12 +9695,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing objects common info. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document drawing objects common info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentDrawingObjectsAsync(GetDocumentDrawingObjectsRequest request, final ApiCallback< DrawingObjectsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -9459,6 +9735,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathCall(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -9517,11 +9794,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing objects common info.
-        * @param request Request object
-        * @return DrawingObjectsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document drawing objects common info.
+     * @param request Request object
+     * @return DrawingObjectsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DrawingObjectsResponse getDocumentDrawingObjectsWithoutNodePath(GetDocumentDrawingObjectsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DrawingObjectsResponse > resp = getDocumentDrawingObjectsWithoutNodePathWithHttpInfo(request);
@@ -9538,11 +9816,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing objects common info.
-        * @param request Request object
-        * @return ApiResponse< DrawingObjectsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document drawing objects common info.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DrawingObjectsResponse >() { }.getType();
@@ -9550,12 +9829,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document drawing objects common info. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document drawing objects common info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathAsync(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ApiCallback< DrawingObjectsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -9589,6 +9869,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentFieldNamesCall(GetDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -9648,11 +9929,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document field names.
-        * @param request Request object
-        * @return FieldNamesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document field names.
+     * @param request Request object
+     * @return FieldNamesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldNamesResponse getDocumentFieldNames(GetDocumentFieldNamesRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldNamesResponse > resp = getDocumentFieldNamesWithHttpInfo(request);
@@ -9669,11 +9951,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document field names.
-        * @param request Request object
-        * @return ApiResponse< FieldNamesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document field names.
+     * @param request Request object
+     * @return ApiResponse< FieldNamesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldNamesResponse > getDocumentFieldNamesWithHttpInfo(GetDocumentFieldNamesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldNamesResponse >() { }.getType();
@@ -9681,12 +9964,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document field names. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document field names. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentFieldNamesAsync(GetDocumentFieldNamesRequest request, final ApiCallback< FieldNamesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -9720,6 +10004,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentFieldNamesOnlineCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -9777,11 +10062,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document field names.
-        * @param request Request object
-        * @return FieldNamesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document field names.
+     * @param request Request object
+     * @return FieldNamesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldNamesResponse getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldNamesResponse > resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
@@ -9798,11 +10084,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document field names.
-        * @param request Request object
-        * @return ApiResponse< FieldNamesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document field names.
+     * @param request Request object
+     * @return ApiResponse< FieldNamesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldNamesResponse > getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldNamesResponse >() { }.getType();
@@ -9810,12 +10097,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document field names. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document field names. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentFieldNamesOnlineAsync(GetDocumentFieldNamesOnlineRequest request, final ApiCallback< FieldNamesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -9849,6 +10137,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentHyperlinkByIndexCall(GetDocumentHyperlinkByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -9913,11 +10202,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document hyperlink by its index.
-        * @param request Request object
-        * @return HyperlinkResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document hyperlink by its index.
+     * @param request Request object
+     * @return HyperlinkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public HyperlinkResponse getDocumentHyperlinkByIndex(GetDocumentHyperlinkByIndexRequest request) throws ApiException, IOException {
         try {
             ApiResponse< HyperlinkResponse > resp = getDocumentHyperlinkByIndexWithHttpInfo(request);
@@ -9934,11 +10224,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document hyperlink by its index.
-        * @param request Request object
-        * @return ApiResponse< HyperlinkResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document hyperlink by its index.
+     * @param request Request object
+     * @return ApiResponse< HyperlinkResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< HyperlinkResponse > getDocumentHyperlinkByIndexWithHttpInfo(GetDocumentHyperlinkByIndexRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< HyperlinkResponse >() { }.getType();
@@ -9946,12 +10237,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document hyperlink by its index. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document hyperlink by its index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentHyperlinkByIndexAsync(GetDocumentHyperlinkByIndexRequest request, final ApiCallback< HyperlinkResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -9985,6 +10277,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentHyperlinksCall(GetDocumentHyperlinksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -10043,11 +10336,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document hyperlinks common info.
-        * @param request Request object
-        * @return HyperlinksResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document hyperlinks common info.
+     * @param request Request object
+     * @return HyperlinksResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public HyperlinksResponse getDocumentHyperlinks(GetDocumentHyperlinksRequest request) throws ApiException, IOException {
         try {
             ApiResponse< HyperlinksResponse > resp = getDocumentHyperlinksWithHttpInfo(request);
@@ -10064,11 +10358,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document hyperlinks common info.
-        * @param request Request object
-        * @return ApiResponse< HyperlinksResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document hyperlinks common info.
+     * @param request Request object
+     * @return ApiResponse< HyperlinksResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< HyperlinksResponse > getDocumentHyperlinksWithHttpInfo(GetDocumentHyperlinksRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinksValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< HyperlinksResponse >() { }.getType();
@@ -10076,12 +10371,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document hyperlinks common info. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document hyperlinks common info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentHyperlinksAsync(GetDocumentHyperlinksRequest request, final ApiCallback< HyperlinksResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -10115,6 +10411,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentPropertiesCall(GetDocumentPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -10173,11 +10470,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document properties info.
-        * @param request Request object
-        * @return DocumentPropertiesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document properties info.
+     * @param request Request object
+     * @return DocumentPropertiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentPropertiesResponse getDocumentProperties(GetDocumentPropertiesRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentPropertiesResponse > resp = getDocumentPropertiesWithHttpInfo(request);
@@ -10194,11 +10492,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document properties info.
-        * @param request Request object
-        * @return ApiResponse< DocumentPropertiesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document properties info.
+     * @param request Request object
+     * @return ApiResponse< DocumentPropertiesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentPropertiesResponse > getDocumentPropertiesWithHttpInfo(GetDocumentPropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertiesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentPropertiesResponse >() { }.getType();
@@ -10206,12 +10505,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document properties info. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document properties info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentPropertiesAsync(GetDocumentPropertiesRequest request, final ApiCallback< DocumentPropertiesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -10245,6 +10545,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentPropertyCall(GetDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -10309,11 +10610,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document property info by the property name.
-        * @param request Request object
-        * @return DocumentPropertyResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document property info by the property name.
+     * @param request Request object
+     * @return DocumentPropertyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentPropertyResponse getDocumentProperty(GetDocumentPropertyRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentPropertyResponse > resp = getDocumentPropertyWithHttpInfo(request);
@@ -10330,11 +10632,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document property info by the property name.
-        * @param request Request object
-        * @return ApiResponse< DocumentPropertyResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document property info by the property name.
+     * @param request Request object
+     * @return ApiResponse< DocumentPropertyResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentPropertyResponse > getDocumentPropertyWithHttpInfo(GetDocumentPropertyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertyValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentPropertyResponse >() { }.getType();
@@ -10342,12 +10645,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document property info by the property name. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document property info by the property name. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentPropertyAsync(GetDocumentPropertyRequest request, final ApiCallback< DocumentPropertyResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -10381,6 +10685,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentProtectionCall(GetDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -10439,11 +10744,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document protection common info.
-        * @param request Request object
-        * @return ProtectionDataResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document protection common info.
+     * @param request Request object
+     * @return ProtectionDataResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ProtectionDataResponse getDocumentProtection(GetDocumentProtectionRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ProtectionDataResponse > resp = getDocumentProtectionWithHttpInfo(request);
@@ -10460,11 +10766,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document protection common info.
-        * @param request Request object
-        * @return ApiResponse< ProtectionDataResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document protection common info.
+     * @param request Request object
+     * @return ApiResponse< ProtectionDataResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ProtectionDataResponse > getDocumentProtectionWithHttpInfo(GetDocumentProtectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentProtectionValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
@@ -10472,12 +10779,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document protection common info. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document protection common info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentProtectionAsync(GetDocumentProtectionRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -10511,6 +10819,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentStatisticsCall(GetDocumentStatisticsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -10572,11 +10881,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document statistics.
-        * @param request Request object
-        * @return StatDataResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document statistics.
+     * @param request Request object
+     * @return StatDataResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public StatDataResponse getDocumentStatistics(GetDocumentStatisticsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< StatDataResponse > resp = getDocumentStatisticsWithHttpInfo(request);
@@ -10593,11 +10903,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads document statistics.
-        * @param request Request object
-        * @return ApiResponse< StatDataResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads document statistics.
+     * @param request Request object
+     * @return ApiResponse< StatDataResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< StatDataResponse > getDocumentStatisticsWithHttpInfo(GetDocumentStatisticsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentStatisticsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< StatDataResponse >() { }.getType();
@@ -10605,12 +10916,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads document statistics. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads document statistics. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentStatisticsAsync(GetDocumentStatisticsRequest request, final ApiCallback< StatDataResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -10644,6 +10956,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getDocumentWithFormatCall(GetDocumentWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -10710,11 +11023,12 @@ public class WordsApi {
     }
 
     /**
-        * Exports the document into the specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Exports the document into the specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File getDocumentWithFormat(GetDocumentWithFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = getDocumentWithFormatWithHttpInfo(request);
@@ -10731,11 +11045,12 @@ public class WordsApi {
     }
 
     /**
-        * Exports the document into the specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Exports the document into the specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > getDocumentWithFormatWithHttpInfo(GetDocumentWithFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentWithFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -10743,12 +11058,13 @@ public class WordsApi {
     }
 
     /**
-        * Exports the document into the specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Exports the document into the specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getDocumentWithFormatAsync(GetDocumentWithFormatRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -10782,6 +11098,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFieldCall(GetFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -10852,11 +11169,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets field from document.
-        * @param request Request object
-        * @return FieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets field from document.
+     * @param request Request object
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldResponse getField(GetFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldResponse > resp = getFieldWithHttpInfo(request);
@@ -10873,11 +11191,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets field from document.
-        * @param request Request object
-        * @return ApiResponse< FieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets field from document.
+     * @param request Request object
+     * @return ApiResponse< FieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldResponse > getFieldWithHttpInfo(GetFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
@@ -10885,12 +11204,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets field from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFieldAsync(GetFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -10924,6 +11244,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFieldsCall(GetFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -10988,11 +11309,12 @@ public class WordsApi {
     }
 
     /**
-        * Get fields from document.
-        * @param request Request object
-        * @return FieldsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get fields from document.
+     * @param request Request object
+     * @return FieldsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldsResponse getFields(GetFieldsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldsResponse > resp = getFieldsWithHttpInfo(request);
@@ -11009,11 +11331,12 @@ public class WordsApi {
     }
 
     /**
-        * Get fields from document.
-        * @param request Request object
-        * @return ApiResponse< FieldsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get fields from document.
+     * @param request Request object
+     * @return ApiResponse< FieldsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldsResponse > getFieldsWithHttpInfo(GetFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldsResponse >() { }.getType();
@@ -11021,12 +11344,13 @@ public class WordsApi {
     }
 
     /**
-        * Get fields from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Get fields from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFieldsAsync(GetFieldsRequest request, final ApiCallback< FieldsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -11060,6 +11384,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFieldsWithoutNodePathCall(GetFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -11118,11 +11443,12 @@ public class WordsApi {
     }
 
     /**
-        * Get fields from document.
-        * @param request Request object
-        * @return FieldsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get fields from document.
+     * @param request Request object
+     * @return FieldsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldsResponse getFieldsWithoutNodePath(GetFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldsResponse > resp = getFieldsWithoutNodePathWithHttpInfo(request);
@@ -11139,11 +11465,12 @@ public class WordsApi {
     }
 
     /**
-        * Get fields from document.
-        * @param request Request object
-        * @return ApiResponse< FieldsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get fields from document.
+     * @param request Request object
+     * @return ApiResponse< FieldsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldsResponse > getFieldsWithoutNodePathWithHttpInfo(GetFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldsResponse >() { }.getType();
@@ -11151,12 +11478,13 @@ public class WordsApi {
     }
 
     /**
-        * Get fields from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Get fields from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFieldsWithoutNodePathAsync(GetFieldsWithoutNodePathRequest request, final ApiCallback< FieldsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -11190,6 +11518,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFieldWithoutNodePathCall(GetFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -11254,11 +11583,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets field from document.
-        * @param request Request object
-        * @return FieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets field from document.
+     * @param request Request object
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldResponse getFieldWithoutNodePath(GetFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldResponse > resp = getFieldWithoutNodePathWithHttpInfo(request);
@@ -11275,11 +11605,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets field from document.
-        * @param request Request object
-        * @return ApiResponse< FieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets field from document.
+     * @param request Request object
+     * @return ApiResponse< FieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldResponse > getFieldWithoutNodePathWithHttpInfo(GetFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
@@ -11287,12 +11618,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets field from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFieldWithoutNodePathAsync(GetFieldWithoutNodePathRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -11326,6 +11658,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFilesListCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -11381,11 +11714,12 @@ public class WordsApi {
     }
 
     /**
-        * Get all files and folders within a folder.
-        * @param request Request object
-        * @return FilesList
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get all files and folders within a folder.
+     * @param request Request object
+     * @return FilesList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FilesList getFilesList(GetFilesListRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FilesList > resp = getFilesListWithHttpInfo(request);
@@ -11402,11 +11736,12 @@ public class WordsApi {
     }
 
     /**
-        * Get all files and folders within a folder.
-        * @param request Request object
-        * @return ApiResponse< FilesList >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get all files and folders within a folder.
+     * @param request Request object
+     * @return ApiResponse< FilesList >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FilesList > getFilesListWithHttpInfo(GetFilesListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FilesList >() { }.getType();
@@ -11414,12 +11749,13 @@ public class WordsApi {
     }
 
     /**
-        * Get all files and folders within a folder. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Get all files and folders within a folder. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFilesListAsync(GetFilesListRequest request, final ApiCallback< FilesList > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -11453,6 +11789,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFootnoteCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -11523,11 +11860,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads footnote by index.
-        * @param request Request object
-        * @return FootnoteResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads footnote by index.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FootnoteResponse getFootnote(GetFootnoteRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = getFootnoteWithHttpInfo(request);
@@ -11544,11 +11882,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads footnote by index.
-        * @param request Request object
-        * @return ApiResponse< FootnoteResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads footnote by index.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FootnoteResponse > getFootnoteWithHttpInfo(GetFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnoteValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
@@ -11556,12 +11895,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads footnote by index. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads footnote by index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFootnoteAsync(GetFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -11595,6 +11935,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFootnotesCall(GetFootnotesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -11659,11 +12000,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets footnotes from document.
-        * @param request Request object
-        * @return FootnotesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets footnotes from document.
+     * @param request Request object
+     * @return FootnotesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FootnotesResponse getFootnotes(GetFootnotesRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FootnotesResponse > resp = getFootnotesWithHttpInfo(request);
@@ -11680,11 +12022,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets footnotes from document.
-        * @param request Request object
-        * @return ApiResponse< FootnotesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets footnotes from document.
+     * @param request Request object
+     * @return ApiResponse< FootnotesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FootnotesResponse > getFootnotesWithHttpInfo(GetFootnotesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnotesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FootnotesResponse >() { }.getType();
@@ -11692,12 +12035,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets footnotes from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets footnotes from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFootnotesAsync(GetFootnotesRequest request, final ApiCallback< FootnotesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -11731,6 +12075,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFootnotesWithoutNodePathCall(GetFootnotesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -11789,11 +12134,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets footnotes from document.
-        * @param request Request object
-        * @return FootnotesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets footnotes from document.
+     * @param request Request object
+     * @return FootnotesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FootnotesResponse getFootnotesWithoutNodePath(GetFootnotesWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FootnotesResponse > resp = getFootnotesWithoutNodePathWithHttpInfo(request);
@@ -11810,11 +12156,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets footnotes from document.
-        * @param request Request object
-        * @return ApiResponse< FootnotesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets footnotes from document.
+     * @param request Request object
+     * @return ApiResponse< FootnotesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FootnotesResponse > getFootnotesWithoutNodePathWithHttpInfo(GetFootnotesWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnotesWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FootnotesResponse >() { }.getType();
@@ -11822,12 +12169,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets footnotes from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets footnotes from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFootnotesWithoutNodePathAsync(GetFootnotesWithoutNodePathRequest request, final ApiCallback< FootnotesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -11861,6 +12209,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFootnoteWithoutNodePathCall(GetFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -11925,11 +12274,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads footnote by index.
-        * @param request Request object
-        * @return FootnoteResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads footnote by index.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FootnoteResponse getFootnoteWithoutNodePath(GetFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = getFootnoteWithoutNodePathWithHttpInfo(request);
@@ -11946,11 +12296,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads footnote by index.
-        * @param request Request object
-        * @return ApiResponse< FootnoteResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads footnote by index.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FootnoteResponse > getFootnoteWithoutNodePathWithHttpInfo(GetFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
@@ -11958,12 +12309,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads footnote by index. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads footnote by index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFootnoteWithoutNodePathAsync(GetFootnoteWithoutNodePathRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -11997,6 +12349,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFormFieldCall(GetFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -12067,11 +12420,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns representation of an one of the form field.
-        * @param request Request object
-        * @return FormFieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns representation of an one of the form field.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FormFieldResponse getFormField(GetFormFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = getFormFieldWithHttpInfo(request);
@@ -12088,11 +12442,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns representation of an one of the form field.
-        * @param request Request object
-        * @return ApiResponse< FormFieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns representation of an one of the form field.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FormFieldResponse > getFormFieldWithHttpInfo(GetFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
@@ -12100,12 +12455,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns representation of an one of the form field. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns representation of an one of the form field. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFormFieldAsync(GetFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -12139,6 +12495,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFormFieldsCall(GetFormFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -12203,11 +12560,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets form fields from document.
-        * @param request Request object
-        * @return FormFieldsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets form fields from document.
+     * @param request Request object
+     * @return FormFieldsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FormFieldsResponse getFormFields(GetFormFieldsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FormFieldsResponse > resp = getFormFieldsWithHttpInfo(request);
@@ -12224,11 +12582,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets form fields from document.
-        * @param request Request object
-        * @return ApiResponse< FormFieldsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets form fields from document.
+     * @param request Request object
+     * @return ApiResponse< FormFieldsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FormFieldsResponse > getFormFieldsWithHttpInfo(GetFormFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FormFieldsResponse >() { }.getType();
@@ -12236,12 +12595,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets form fields from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets form fields from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFormFieldsAsync(GetFormFieldsRequest request, final ApiCallback< FormFieldsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -12275,6 +12635,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFormFieldsWithoutNodePathCall(GetFormFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -12333,11 +12694,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets form fields from document.
-        * @param request Request object
-        * @return FormFieldsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets form fields from document.
+     * @param request Request object
+     * @return FormFieldsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FormFieldsResponse getFormFieldsWithoutNodePath(GetFormFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FormFieldsResponse > resp = getFormFieldsWithoutNodePathWithHttpInfo(request);
@@ -12354,11 +12716,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets form fields from document.
-        * @param request Request object
-        * @return ApiResponse< FormFieldsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets form fields from document.
+     * @param request Request object
+     * @return ApiResponse< FormFieldsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FormFieldsResponse > getFormFieldsWithoutNodePathWithHttpInfo(GetFormFieldsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FormFieldsResponse >() { }.getType();
@@ -12366,12 +12729,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets form fields from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets form fields from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFormFieldsWithoutNodePathAsync(GetFormFieldsWithoutNodePathRequest request, final ApiCallback< FormFieldsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -12405,6 +12769,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getFormFieldWithoutNodePathCall(GetFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -12469,11 +12834,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns representation of an one of the form field.
-        * @param request Request object
-        * @return FormFieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns representation of an one of the form field.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FormFieldResponse getFormFieldWithoutNodePath(GetFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = getFormFieldWithoutNodePathWithHttpInfo(request);
@@ -12490,11 +12856,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns representation of an one of the form field.
-        * @param request Request object
-        * @return ApiResponse< FormFieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns representation of an one of the form field.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FormFieldResponse > getFormFieldWithoutNodePathWithHttpInfo(GetFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
@@ -12502,12 +12869,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns representation of an one of the form field. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns representation of an one of the form field. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getFormFieldWithoutNodePathAsync(GetFormFieldWithoutNodePathRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -12541,6 +12909,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getHeaderFooterCall(GetHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -12606,11 +12975,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a header/footer from the document by index.
-        * @param request Request object
-        * @return HeaderFooterResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a header/footer from the document by index.
+     * @param request Request object
+     * @return HeaderFooterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public HeaderFooterResponse getHeaderFooter(GetHeaderFooterRequest request) throws ApiException, IOException {
         try {
             ApiResponse< HeaderFooterResponse > resp = getHeaderFooterWithHttpInfo(request);
@@ -12627,11 +12997,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a header/footer from the document by index.
-        * @param request Request object
-        * @return ApiResponse< HeaderFooterResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a header/footer from the document by index.
+     * @param request Request object
+     * @return ApiResponse< HeaderFooterResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< HeaderFooterResponse > getHeaderFooterWithHttpInfo(GetHeaderFooterRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
@@ -12639,12 +13010,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a header/footer from the document by index. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a header/footer from the document by index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getHeaderFooterAsync(GetHeaderFooterRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -12678,6 +13050,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getHeaderFooterOfSectionCall(GetHeaderFooterOfSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -12749,11 +13122,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a header/footer from the document section.
-        * @param request Request object
-        * @return HeaderFooterResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a header/footer from the document section.
+     * @param request Request object
+     * @return HeaderFooterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public HeaderFooterResponse getHeaderFooterOfSection(GetHeaderFooterOfSectionRequest request) throws ApiException, IOException {
         try {
             ApiResponse< HeaderFooterResponse > resp = getHeaderFooterOfSectionWithHttpInfo(request);
@@ -12770,11 +13144,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a header/footer from the document section.
-        * @param request Request object
-        * @return ApiResponse< HeaderFooterResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a header/footer from the document section.
+     * @param request Request object
+     * @return ApiResponse< HeaderFooterResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< HeaderFooterResponse > getHeaderFooterOfSectionWithHttpInfo(GetHeaderFooterOfSectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
@@ -12782,12 +13157,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a header/footer from the document section. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a header/footer from the document section. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getHeaderFooterOfSectionAsync(GetHeaderFooterOfSectionRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -12821,6 +13197,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getHeaderFootersCall(GetHeaderFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -12886,11 +13263,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of header/footers from the document.
-        * @param request Request object
-        * @return HeaderFootersResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of header/footers from the document.
+     * @param request Request object
+     * @return HeaderFootersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public HeaderFootersResponse getHeaderFooters(GetHeaderFootersRequest request) throws ApiException, IOException {
         try {
             ApiResponse< HeaderFootersResponse > resp = getHeaderFootersWithHttpInfo(request);
@@ -12907,11 +13285,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of header/footers from the document.
-        * @param request Request object
-        * @return ApiResponse< HeaderFootersResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of header/footers from the document.
+     * @param request Request object
+     * @return ApiResponse< HeaderFootersResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< HeaderFootersResponse > getHeaderFootersWithHttpInfo(GetHeaderFootersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFootersValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< HeaderFootersResponse >() { }.getType();
@@ -12919,12 +13298,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of header/footers from the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a list of header/footers from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getHeaderFootersAsync(GetHeaderFootersRequest request, final ApiCallback< HeaderFootersResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -12958,6 +13338,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getListCall(GetListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -13022,11 +13403,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the lists contained in the document.
-        * @param request Request object
-        * @return ListResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents one of the lists contained in the document.
+     * @param request Request object
+     * @return ListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ListResponse getList(GetListRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ListResponse > resp = getListWithHttpInfo(request);
@@ -13043,11 +13425,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the lists contained in the document.
-        * @param request Request object
-        * @return ApiResponse< ListResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents one of the lists contained in the document.
+     * @param request Request object
+     * @return ApiResponse< ListResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ListResponse > getListWithHttpInfo(GetListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getListValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
@@ -13055,12 +13438,13 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the lists contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * This resource represents one of the lists contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getListAsync(GetListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -13094,6 +13478,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getListsCall(GetListsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -13152,11 +13537,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of lists that are contained in the document.
-        * @param request Request object
-        * @return ListsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of lists that are contained in the document.
+     * @param request Request object
+     * @return ListsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ListsResponse getLists(GetListsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ListsResponse > resp = getListsWithHttpInfo(request);
@@ -13173,11 +13559,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of lists that are contained in the document.
-        * @param request Request object
-        * @return ApiResponse< ListsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of lists that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< ListsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ListsResponse > getListsWithHttpInfo(GetListsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getListsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ListsResponse >() { }.getType();
@@ -13185,12 +13572,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of lists that are contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a list of lists that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getListsAsync(GetListsRequest request, final ApiCallback< ListsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -13224,6 +13612,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getOfficeMathObjectCall(GetOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -13294,11 +13683,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads OfficeMath object by index.
-        * @param request Request object
-        * @return OfficeMathObjectResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads OfficeMath object by index.
+     * @param request Request object
+     * @return OfficeMathObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public OfficeMathObjectResponse getOfficeMathObject(GetOfficeMathObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse< OfficeMathObjectResponse > resp = getOfficeMathObjectWithHttpInfo(request);
@@ -13315,11 +13705,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads OfficeMath object by index.
-        * @param request Request object
-        * @return ApiResponse< OfficeMathObjectResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads OfficeMath object by index.
+     * @param request Request object
+     * @return ApiResponse< OfficeMathObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectWithHttpInfo(GetOfficeMathObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< OfficeMathObjectResponse >() { }.getType();
@@ -13327,12 +13718,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads OfficeMath object by index. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads OfficeMath object by index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getOfficeMathObjectAsync(GetOfficeMathObjectRequest request, final ApiCallback< OfficeMathObjectResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -13366,6 +13758,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getOfficeMathObjectsCall(GetOfficeMathObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -13430,11 +13823,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets OfficeMath objects from document.
-        * @param request Request object
-        * @return OfficeMathObjectsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets OfficeMath objects from document.
+     * @param request Request object
+     * @return OfficeMathObjectsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public OfficeMathObjectsResponse getOfficeMathObjects(GetOfficeMathObjectsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< OfficeMathObjectsResponse > resp = getOfficeMathObjectsWithHttpInfo(request);
@@ -13451,11 +13845,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets OfficeMath objects from document.
-        * @param request Request object
-        * @return ApiResponse< OfficeMathObjectsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets OfficeMath objects from document.
+     * @param request Request object
+     * @return ApiResponse< OfficeMathObjectsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsWithHttpInfo(GetOfficeMathObjectsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< OfficeMathObjectsResponse >() { }.getType();
@@ -13463,12 +13858,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets OfficeMath objects from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets OfficeMath objects from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getOfficeMathObjectsAsync(GetOfficeMathObjectsRequest request, final ApiCallback< OfficeMathObjectsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -13502,6 +13898,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathCall(GetOfficeMathObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -13560,11 +13957,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets OfficeMath objects from document.
-        * @param request Request object
-        * @return OfficeMathObjectsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets OfficeMath objects from document.
+     * @param request Request object
+     * @return OfficeMathObjectsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public OfficeMathObjectsResponse getOfficeMathObjectsWithoutNodePath(GetOfficeMathObjectsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< OfficeMathObjectsResponse > resp = getOfficeMathObjectsWithoutNodePathWithHttpInfo(request);
@@ -13581,11 +13979,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets OfficeMath objects from document.
-        * @param request Request object
-        * @return ApiResponse< OfficeMathObjectsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets OfficeMath objects from document.
+     * @param request Request object
+     * @return ApiResponse< OfficeMathObjectsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsWithoutNodePathWithHttpInfo(GetOfficeMathObjectsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< OfficeMathObjectsResponse >() { }.getType();
@@ -13593,12 +13992,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets OfficeMath objects from document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets OfficeMath objects from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathAsync(GetOfficeMathObjectsWithoutNodePathRequest request, final ApiCallback< OfficeMathObjectsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -13632,6 +14032,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathCall(GetOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -13696,11 +14097,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads OfficeMath object by index.
-        * @param request Request object
-        * @return OfficeMathObjectResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads OfficeMath object by index.
+     * @param request Request object
+     * @return OfficeMathObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public OfficeMathObjectResponse getOfficeMathObjectWithoutNodePath(GetOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< OfficeMathObjectResponse > resp = getOfficeMathObjectWithoutNodePathWithHttpInfo(request);
@@ -13717,11 +14119,12 @@ public class WordsApi {
     }
 
     /**
-        * Reads OfficeMath object by index.
-        * @param request Request object
-        * @return ApiResponse< OfficeMathObjectResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Reads OfficeMath object by index.
+     * @param request Request object
+     * @return ApiResponse< OfficeMathObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectWithoutNodePathWithHttpInfo(GetOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< OfficeMathObjectResponse >() { }.getType();
@@ -13729,12 +14132,13 @@ public class WordsApi {
     }
 
     /**
-        * Reads OfficeMath object by index. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Reads OfficeMath object by index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathAsync(GetOfficeMathObjectWithoutNodePathRequest request, final ApiCallback< OfficeMathObjectResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -13768,6 +14172,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -13838,11 +14243,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the paragraphs contained in the document.
-        * @param request Request object
-        * @return ParagraphResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return ParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphResponse getParagraph(GetParagraphRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphResponse > resp = getParagraphWithHttpInfo(request);
@@ -13859,11 +14265,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the paragraphs contained in the document.
-        * @param request Request object
-        * @return ApiResponse< ParagraphResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return ApiResponse< ParagraphResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphResponse > getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
@@ -13871,12 +14278,13 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the paragraphs contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * This resource represents one of the paragraphs contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphAsync(GetParagraphRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -13910,6 +14318,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphFormatCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -13980,11 +14389,12 @@ public class WordsApi {
     }
 
     /**
-        * Represents all the formatting for a paragraph.
-        * @param request Request object
-        * @return ParagraphFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Represents all the formatting for a paragraph.
+     * @param request Request object
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphFormatResponse getParagraphFormat(GetParagraphFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphFormatResponse > resp = getParagraphFormatWithHttpInfo(request);
@@ -14001,11 +14411,12 @@ public class WordsApi {
     }
 
     /**
-        * Represents all the formatting for a paragraph.
-        * @param request Request object
-        * @return ApiResponse< ParagraphFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Represents all the formatting for a paragraph.
+     * @param request Request object
+     * @return ApiResponse< ParagraphFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphFormatResponse > getParagraphFormatWithHttpInfo(GetParagraphFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
@@ -14013,12 +14424,13 @@ public class WordsApi {
     }
 
     /**
-        * Represents all the formatting for a paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Represents all the formatting for a paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphFormatAsync(GetParagraphFormatRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -14052,6 +14464,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphFormatWithoutNodePathCall(GetParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -14116,11 +14529,12 @@ public class WordsApi {
     }
 
     /**
-        * Represents all the formatting for a paragraph.
-        * @param request Request object
-        * @return ParagraphFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Represents all the formatting for a paragraph.
+     * @param request Request object
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphFormatResponse getParagraphFormatWithoutNodePath(GetParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphFormatResponse > resp = getParagraphFormatWithoutNodePathWithHttpInfo(request);
@@ -14137,11 +14551,12 @@ public class WordsApi {
     }
 
     /**
-        * Represents all the formatting for a paragraph.
-        * @param request Request object
-        * @return ApiResponse< ParagraphFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Represents all the formatting for a paragraph.
+     * @param request Request object
+     * @return ApiResponse< ParagraphFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphFormatResponse > getParagraphFormatWithoutNodePathWithHttpInfo(GetParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
@@ -14149,12 +14564,13 @@ public class WordsApi {
     }
 
     /**
-        * Represents all the formatting for a paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Represents all the formatting for a paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphFormatWithoutNodePathAsync(GetParagraphFormatWithoutNodePathRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -14188,6 +14604,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphListFormatCall(GetParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -14258,11 +14675,12 @@ public class WordsApi {
     }
 
     /**
-        * Represents list format for a paragraph.
-        * @param request Request object
-        * @return ParagraphListFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Represents list format for a paragraph.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphListFormatResponse getParagraphListFormat(GetParagraphListFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = getParagraphListFormatWithHttpInfo(request);
@@ -14279,11 +14697,12 @@ public class WordsApi {
     }
 
     /**
-        * Represents list format for a paragraph.
-        * @param request Request object
-        * @return ApiResponse< ParagraphListFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Represents list format for a paragraph.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatWithHttpInfo(GetParagraphListFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphListFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
@@ -14291,12 +14710,13 @@ public class WordsApi {
     }
 
     /**
-        * Represents list format for a paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Represents list format for a paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphListFormatAsync(GetParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -14330,6 +14750,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphListFormatWithoutNodePathCall(GetParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -14394,11 +14815,12 @@ public class WordsApi {
     }
 
     /**
-        * Represents list format for a paragraph.
-        * @param request Request object
-        * @return ParagraphListFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Represents list format for a paragraph.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphListFormatResponse getParagraphListFormatWithoutNodePath(GetParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = getParagraphListFormatWithoutNodePathWithHttpInfo(request);
@@ -14415,11 +14837,12 @@ public class WordsApi {
     }
 
     /**
-        * Represents list format for a paragraph.
-        * @param request Request object
-        * @return ApiResponse< ParagraphListFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Represents list format for a paragraph.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatWithoutNodePathWithHttpInfo(GetParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
@@ -14427,12 +14850,13 @@ public class WordsApi {
     }
 
     /**
-        * Represents list format for a paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Represents list format for a paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphListFormatWithoutNodePathAsync(GetParagraphListFormatWithoutNodePathRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -14466,6 +14890,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphsCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -14530,11 +14955,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of paragraphs that are contained in the document.
-        * @param request Request object
-        * @return ParagraphLinkCollectionResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return ParagraphLinkCollectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphLinkCollectionResponse getParagraphs(GetParagraphsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphLinkCollectionResponse > resp = getParagraphsWithHttpInfo(request);
@@ -14551,11 +14977,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of paragraphs that are contained in the document.
-        * @param request Request object
-        * @return ApiResponse< ParagraphLinkCollectionResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< ParagraphLinkCollectionResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphLinkCollectionResponse >() { }.getType();
@@ -14563,12 +14990,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of paragraphs that are contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a list of paragraphs that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphsAsync(GetParagraphsRequest request, final ApiCallback< ParagraphLinkCollectionResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -14602,6 +15030,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphsWithoutNodePathCall(GetParagraphsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -14660,11 +15089,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of paragraphs that are contained in the document.
-        * @param request Request object
-        * @return ParagraphLinkCollectionResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return ParagraphLinkCollectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphLinkCollectionResponse getParagraphsWithoutNodePath(GetParagraphsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphLinkCollectionResponse > resp = getParagraphsWithoutNodePathWithHttpInfo(request);
@@ -14681,11 +15111,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of paragraphs that are contained in the document.
-        * @param request Request object
-        * @return ApiResponse< ParagraphLinkCollectionResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< ParagraphLinkCollectionResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsWithoutNodePathWithHttpInfo(GetParagraphsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphLinkCollectionResponse >() { }.getType();
@@ -14693,12 +15124,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of paragraphs that are contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a list of paragraphs that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphsWithoutNodePathAsync(GetParagraphsWithoutNodePathRequest request, final ApiCallback< ParagraphLinkCollectionResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -14732,6 +15164,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphTabStopsCall(GetParagraphTabStopsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -14802,11 +15235,12 @@ public class WordsApi {
     }
 
     /**
-        * Get all tab stops for the paragraph.
-        * @param request Request object
-        * @return TabStopsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get all tab stops for the paragraph.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TabStopsResponse getParagraphTabStops(GetParagraphTabStopsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = getParagraphTabStopsWithHttpInfo(request);
@@ -14823,11 +15257,12 @@ public class WordsApi {
     }
 
     /**
-        * Get all tab stops for the paragraph.
-        * @param request Request object
-        * @return ApiResponse< TabStopsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get all tab stops for the paragraph.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TabStopsResponse > getParagraphTabStopsWithHttpInfo(GetParagraphTabStopsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphTabStopsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
@@ -14835,12 +15270,13 @@ public class WordsApi {
     }
 
     /**
-        * Get all tab stops for the paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Get all tab stops for the paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphTabStopsAsync(GetParagraphTabStopsRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -14874,6 +15310,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathCall(GetParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -14938,11 +15375,12 @@ public class WordsApi {
     }
 
     /**
-        * Get all tab stops for the paragraph.
-        * @param request Request object
-        * @return TabStopsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get all tab stops for the paragraph.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TabStopsResponse getParagraphTabStopsWithoutNodePath(GetParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = getParagraphTabStopsWithoutNodePathWithHttpInfo(request);
@@ -14959,11 +15397,12 @@ public class WordsApi {
     }
 
     /**
-        * Get all tab stops for the paragraph.
-        * @param request Request object
-        * @return ApiResponse< TabStopsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Get all tab stops for the paragraph.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TabStopsResponse > getParagraphTabStopsWithoutNodePathWithHttpInfo(GetParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
@@ -14971,12 +15410,13 @@ public class WordsApi {
     }
 
     /**
-        * Get all tab stops for the paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Get all tab stops for the paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathAsync(GetParagraphTabStopsWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -15010,6 +15450,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getParagraphWithoutNodePathCall(GetParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -15074,11 +15515,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the paragraphs contained in the document.
-        * @param request Request object
-        * @return ParagraphResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return ParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphResponse getParagraphWithoutNodePath(GetParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphResponse > resp = getParagraphWithoutNodePathWithHttpInfo(request);
@@ -15095,11 +15537,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the paragraphs contained in the document.
-        * @param request Request object
-        * @return ApiResponse< ParagraphResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return ApiResponse< ParagraphResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphResponse > getParagraphWithoutNodePathWithHttpInfo(GetParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
@@ -15107,12 +15550,13 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the paragraphs contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * This resource represents one of the paragraphs contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getParagraphWithoutNodePathAsync(GetParagraphWithoutNodePathRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -15146,6 +15590,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getRangeTextCall(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -15211,11 +15656,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets the text from the range.
-        * @param request Request object
-        * @return RangeTextResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets the text from the range.
+     * @param request Request object
+     * @return RangeTextResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public RangeTextResponse getRangeText(GetRangeTextRequest request) throws ApiException, IOException {
         try {
             ApiResponse< RangeTextResponse > resp = getRangeTextWithHttpInfo(request);
@@ -15232,11 +15678,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets the text from the range.
-        * @param request Request object
-        * @return ApiResponse< RangeTextResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets the text from the range.
+     * @param request Request object
+     * @return ApiResponse< RangeTextResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< RangeTextResponse > getRangeTextWithHttpInfo(GetRangeTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRangeTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< RangeTextResponse >() { }.getType();
@@ -15244,12 +15691,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets the text from the range. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets the text from the range. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getRangeTextAsync(GetRangeTextRequest request, final ApiCallback< RangeTextResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -15283,6 +15731,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getRunCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -15353,11 +15802,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents run of text contained in the document.
-        * @param request Request object
-        * @return RunResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents run of text contained in the document.
+     * @param request Request object
+     * @return RunResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public RunResponse getRun(GetRunRequest request) throws ApiException, IOException {
         try {
             ApiResponse< RunResponse > resp = getRunWithHttpInfo(request);
@@ -15374,11 +15824,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents run of text contained in the document.
-        * @param request Request object
-        * @return ApiResponse< RunResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents run of text contained in the document.
+     * @param request Request object
+     * @return ApiResponse< RunResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< RunResponse > getRunWithHttpInfo(GetRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
@@ -15386,12 +15837,13 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents run of text contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * This resource represents run of text contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getRunAsync(GetRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -15425,6 +15877,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getRunFontCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -15495,11 +15948,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents font of run.
-        * @param request Request object
-        * @return FontResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents font of run.
+     * @param request Request object
+     * @return FontResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FontResponse getRunFont(GetRunFontRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FontResponse > resp = getRunFontWithHttpInfo(request);
@@ -15516,11 +15970,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents font of run.
-        * @param request Request object
-        * @return ApiResponse< FontResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents font of run.
+     * @param request Request object
+     * @return ApiResponse< FontResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FontResponse > getRunFontWithHttpInfo(GetRunFontRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FontResponse >() { }.getType();
@@ -15528,12 +15983,13 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents font of run. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * This resource represents font of run. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getRunFontAsync(GetRunFontRequest request, final ApiCallback< FontResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -15567,6 +16023,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getRunsCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -15631,11 +16088,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents collection of runs in the paragraph.
-        * @param request Request object
-        * @return RunsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents collection of runs in the paragraph.
+     * @param request Request object
+     * @return RunsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public RunsResponse getRuns(GetRunsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< RunsResponse > resp = getRunsWithHttpInfo(request);
@@ -15652,11 +16110,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents collection of runs in the paragraph.
-        * @param request Request object
-        * @return ApiResponse< RunsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents collection of runs in the paragraph.
+     * @param request Request object
+     * @return ApiResponse< RunsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< RunsResponse > getRunsWithHttpInfo(GetRunsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< RunsResponse >() { }.getType();
@@ -15664,12 +16123,13 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents collection of runs in the paragraph. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * This resource represents collection of runs in the paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getRunsAsync(GetRunsRequest request, final ApiCallback< RunsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -15703,6 +16163,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getSectionCall(GetSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -15767,11 +16228,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets document section by index.
-        * @param request Request object
-        * @return SectionResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets document section by index.
+     * @param request Request object
+     * @return SectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SectionResponse getSection(GetSectionRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SectionResponse > resp = getSectionWithHttpInfo(request);
@@ -15788,11 +16250,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets document section by index.
-        * @param request Request object
-        * @return ApiResponse< SectionResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets document section by index.
+     * @param request Request object
+     * @return ApiResponse< SectionResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SectionResponse > getSectionWithHttpInfo(GetSectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SectionResponse >() { }.getType();
@@ -15800,12 +16263,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets document section by index. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets document section by index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getSectionAsync(GetSectionRequest request, final ApiCallback< SectionResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -15839,6 +16303,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getSectionPageSetupCall(GetSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -15903,11 +16368,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets page setup of section.
-        * @param request Request object
-        * @return SectionPageSetupResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets page setup of section.
+     * @param request Request object
+     * @return SectionPageSetupResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SectionPageSetupResponse getSectionPageSetup(GetSectionPageSetupRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SectionPageSetupResponse > resp = getSectionPageSetupWithHttpInfo(request);
@@ -15924,11 +16390,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets page setup of section.
-        * @param request Request object
-        * @return ApiResponse< SectionPageSetupResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets page setup of section.
+     * @param request Request object
+     * @return ApiResponse< SectionPageSetupResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SectionPageSetupResponse > getSectionPageSetupWithHttpInfo(GetSectionPageSetupRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionPageSetupValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SectionPageSetupResponse >() { }.getType();
@@ -15936,12 +16403,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets page setup of section. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets page setup of section. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getSectionPageSetupAsync(GetSectionPageSetupRequest request, final ApiCallback< SectionPageSetupResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -15975,6 +16443,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getSectionsCall(GetSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -16033,11 +16502,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of sections that are contained in the document.
-        * @param request Request object
-        * @return SectionLinkCollectionResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of sections that are contained in the document.
+     * @param request Request object
+     * @return SectionLinkCollectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SectionLinkCollectionResponse getSections(GetSectionsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SectionLinkCollectionResponse > resp = getSectionsWithHttpInfo(request);
@@ -16054,11 +16524,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of sections that are contained in the document.
-        * @param request Request object
-        * @return ApiResponse< SectionLinkCollectionResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of sections that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< SectionLinkCollectionResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SectionLinkCollectionResponse > getSectionsWithHttpInfo(GetSectionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SectionLinkCollectionResponse >() { }.getType();
@@ -16066,12 +16537,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of sections that are contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a list of sections that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getSectionsAsync(GetSectionsRequest request, final ApiCallback< SectionLinkCollectionResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -16105,6 +16577,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getStyleCall(GetStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -16169,11 +16642,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the styles contained in the document.
-        * @param request Request object
-        * @return StyleResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents one of the styles contained in the document.
+     * @param request Request object
+     * @return StyleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public StyleResponse getStyle(GetStyleRequest request) throws ApiException, IOException {
         try {
             ApiResponse< StyleResponse > resp = getStyleWithHttpInfo(request);
@@ -16190,11 +16664,12 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the styles contained in the document.
-        * @param request Request object
-        * @return ApiResponse< StyleResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * This resource represents one of the styles contained in the document.
+     * @param request Request object
+     * @return ApiResponse< StyleResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< StyleResponse > getStyleWithHttpInfo(GetStyleRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getStyleValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
@@ -16202,12 +16677,13 @@ public class WordsApi {
     }
 
     /**
-        * This resource represents one of the styles contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * This resource represents one of the styles contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getStyleAsync(GetStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -16241,6 +16717,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getStyleFromDocumentElementCall(GetStyleFromDocumentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -16305,11 +16782,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets a style from the document node.
-        * @param request Request object
-        * @return StyleResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets a style from the document node.
+     * @param request Request object
+     * @return StyleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public StyleResponse getStyleFromDocumentElement(GetStyleFromDocumentElementRequest request) throws ApiException, IOException {
         try {
             ApiResponse< StyleResponse > resp = getStyleFromDocumentElementWithHttpInfo(request);
@@ -16326,11 +16804,12 @@ public class WordsApi {
     }
 
     /**
-        * Gets a style from the document node.
-        * @param request Request object
-        * @return ApiResponse< StyleResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Gets a style from the document node.
+     * @param request Request object
+     * @return ApiResponse< StyleResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< StyleResponse > getStyleFromDocumentElementWithHttpInfo(GetStyleFromDocumentElementRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getStyleFromDocumentElementValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
@@ -16338,12 +16817,13 @@ public class WordsApi {
     }
 
     /**
-        * Gets a style from the document node. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Gets a style from the document node. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getStyleFromDocumentElementAsync(GetStyleFromDocumentElementRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -16377,6 +16857,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getStylesCall(GetStylesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -16435,11 +16916,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of styles contained in the document.
-        * @param request Request object
-        * @return StylesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of styles contained in the document.
+     * @param request Request object
+     * @return StylesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public StylesResponse getStyles(GetStylesRequest request) throws ApiException, IOException {
         try {
             ApiResponse< StylesResponse > resp = getStylesWithHttpInfo(request);
@@ -16456,11 +16938,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of styles contained in the document.
-        * @param request Request object
-        * @return ApiResponse< StylesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of styles contained in the document.
+     * @param request Request object
+     * @return ApiResponse< StylesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< StylesResponse > getStylesWithHttpInfo(GetStylesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getStylesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< StylesResponse >() { }.getType();
@@ -16468,12 +16951,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of styles contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a list of styles contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getStylesAsync(GetStylesRequest request, final ApiCallback< StylesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -16507,6 +16991,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTableCall(GetTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -16577,11 +17062,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table.
-        * @param request Request object
-        * @return TableResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table.
+     * @param request Request object
+     * @return TableResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableResponse getTable(GetTableRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableResponse > resp = getTableWithHttpInfo(request);
@@ -16598,11 +17084,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table.
-        * @param request Request object
-        * @return ApiResponse< TableResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table.
+     * @param request Request object
+     * @return ApiResponse< TableResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableResponse > getTableWithHttpInfo(GetTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
@@ -16610,12 +17097,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a table. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTableAsync(GetTableRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -16649,6 +17137,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTableCellCall(GetTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -16719,11 +17208,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table cell.
-        * @param request Request object
-        * @return TableCellResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table cell.
+     * @param request Request object
+     * @return TableCellResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableCellResponse getTableCell(GetTableCellRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableCellResponse > resp = getTableCellWithHttpInfo(request);
@@ -16740,11 +17230,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table cell.
-        * @param request Request object
-        * @return ApiResponse< TableCellResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table cell.
+     * @param request Request object
+     * @return ApiResponse< TableCellResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableCellResponse > getTableCellWithHttpInfo(GetTableCellRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableCellValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableCellResponse >() { }.getType();
@@ -16752,12 +17243,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table cell. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a table cell. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTableCellAsync(GetTableCellRequest request, final ApiCallback< TableCellResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -16791,6 +17283,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTableCellFormatCall(GetTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -16861,11 +17354,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table cell format.
-        * @param request Request object
-        * @return TableCellFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table cell format.
+     * @param request Request object
+     * @return TableCellFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableCellFormatResponse getTableCellFormat(GetTableCellFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableCellFormatResponse > resp = getTableCellFormatWithHttpInfo(request);
@@ -16882,11 +17376,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table cell format.
-        * @param request Request object
-        * @return ApiResponse< TableCellFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table cell format.
+     * @param request Request object
+     * @return ApiResponse< TableCellFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableCellFormatResponse > getTableCellFormatWithHttpInfo(GetTableCellFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableCellFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableCellFormatResponse >() { }.getType();
@@ -16894,12 +17389,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table cell format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a table cell format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTableCellFormatAsync(GetTableCellFormatRequest request, final ApiCallback< TableCellFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -16933,6 +17429,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTablePropertiesCall(GetTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -17003,11 +17500,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table properties.
-        * @param request Request object
-        * @return TablePropertiesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table properties.
+     * @param request Request object
+     * @return TablePropertiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TablePropertiesResponse getTableProperties(GetTablePropertiesRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TablePropertiesResponse > resp = getTablePropertiesWithHttpInfo(request);
@@ -17024,11 +17522,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table properties.
-        * @param request Request object
-        * @return ApiResponse< TablePropertiesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table properties.
+     * @param request Request object
+     * @return ApiResponse< TablePropertiesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TablePropertiesResponse > getTablePropertiesWithHttpInfo(GetTablePropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
@@ -17036,12 +17535,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a table properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTablePropertiesAsync(GetTablePropertiesRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -17075,6 +17575,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTablePropertiesWithoutNodePathCall(GetTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -17139,11 +17640,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table properties.
-        * @param request Request object
-        * @return TablePropertiesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table properties.
+     * @param request Request object
+     * @return TablePropertiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TablePropertiesResponse getTablePropertiesWithoutNodePath(GetTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TablePropertiesResponse > resp = getTablePropertiesWithoutNodePathWithHttpInfo(request);
@@ -17160,11 +17662,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table properties.
-        * @param request Request object
-        * @return ApiResponse< TablePropertiesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table properties.
+     * @param request Request object
+     * @return ApiResponse< TablePropertiesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TablePropertiesResponse > getTablePropertiesWithoutNodePathWithHttpInfo(GetTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
@@ -17172,12 +17675,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a table properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTablePropertiesWithoutNodePathAsync(GetTablePropertiesWithoutNodePathRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -17211,6 +17715,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTableRowCall(GetTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -17281,11 +17786,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table row.
-        * @param request Request object
-        * @return TableRowResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table row.
+     * @param request Request object
+     * @return TableRowResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableRowResponse getTableRow(GetTableRowRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableRowResponse > resp = getTableRowWithHttpInfo(request);
@@ -17302,11 +17808,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table row.
-        * @param request Request object
-        * @return ApiResponse< TableRowResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table row.
+     * @param request Request object
+     * @return ApiResponse< TableRowResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableRowResponse > getTableRowWithHttpInfo(GetTableRowRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableRowValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableRowResponse >() { }.getType();
@@ -17314,12 +17821,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table row. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a table row. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTableRowAsync(GetTableRowRequest request, final ApiCallback< TableRowResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -17353,6 +17861,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTableRowFormatCall(GetTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -17423,11 +17932,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table row format.
-        * @param request Request object
-        * @return TableRowFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table row format.
+     * @param request Request object
+     * @return TableRowFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableRowFormatResponse getTableRowFormat(GetTableRowFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableRowFormatResponse > resp = getTableRowFormatWithHttpInfo(request);
@@ -17444,11 +17954,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table row format.
-        * @param request Request object
-        * @return ApiResponse< TableRowFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table row format.
+     * @param request Request object
+     * @return ApiResponse< TableRowFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableRowFormatResponse > getTableRowFormatWithHttpInfo(GetTableRowFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableRowFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableRowFormatResponse >() { }.getType();
@@ -17456,12 +17967,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table row format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a table row format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTableRowFormatAsync(GetTableRowFormatRequest request, final ApiCallback< TableRowFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -17495,6 +18007,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTablesCall(GetTablesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -17559,11 +18072,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of tables that are contained in the document.
-        * @param request Request object
-        * @return TableLinkCollectionResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of tables that are contained in the document.
+     * @param request Request object
+     * @return TableLinkCollectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableLinkCollectionResponse getTables(GetTablesRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableLinkCollectionResponse > resp = getTablesWithHttpInfo(request);
@@ -17580,11 +18094,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of tables that are contained in the document.
-        * @param request Request object
-        * @return ApiResponse< TableLinkCollectionResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of tables that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< TableLinkCollectionResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableLinkCollectionResponse > getTablesWithHttpInfo(GetTablesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableLinkCollectionResponse >() { }.getType();
@@ -17592,12 +18107,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of tables that are contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a list of tables that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTablesAsync(GetTablesRequest request, final ApiCallback< TableLinkCollectionResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -17631,6 +18147,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTablesWithoutNodePathCall(GetTablesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -17689,11 +18206,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of tables that are contained in the document.
-        * @param request Request object
-        * @return TableLinkCollectionResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of tables that are contained in the document.
+     * @param request Request object
+     * @return TableLinkCollectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableLinkCollectionResponse getTablesWithoutNodePath(GetTablesWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableLinkCollectionResponse > resp = getTablesWithoutNodePathWithHttpInfo(request);
@@ -17710,11 +18228,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of tables that are contained in the document.
-        * @param request Request object
-        * @return ApiResponse< TableLinkCollectionResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a list of tables that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< TableLinkCollectionResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableLinkCollectionResponse > getTablesWithoutNodePathWithHttpInfo(GetTablesWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablesWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableLinkCollectionResponse >() { }.getType();
@@ -17722,12 +18241,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a list of tables that are contained in the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a list of tables that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTablesWithoutNodePathAsync(GetTablesWithoutNodePathRequest request, final ApiCallback< TableLinkCollectionResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -17761,6 +18281,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call getTableWithoutNodePathCall(GetTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -17825,11 +18346,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table.
-        * @param request Request object
-        * @return TableResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table.
+     * @param request Request object
+     * @return TableResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableResponse getTableWithoutNodePath(GetTableWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableResponse > resp = getTableWithoutNodePathWithHttpInfo(request);
@@ -17846,11 +18368,12 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table.
-        * @param request Request object
-        * @return ApiResponse< TableResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Returns a table.
+     * @param request Request object
+     * @return ApiResponse< TableResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableResponse > getTableWithoutNodePathWithHttpInfo(GetTableWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
@@ -17858,12 +18381,13 @@ public class WordsApi {
     }
 
     /**
-        * Returns a table. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Returns a table. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call getTableWithoutNodePathAsync(GetTableWithoutNodePathRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -17897,6 +18421,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertCommentCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getComment();
@@ -17963,11 +18488,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds comment to document, returns inserted comment data.
-        * @param request Request object
-        * @return CommentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds comment to document, returns inserted comment data.
+     * @param request Request object
+     * @return CommentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public CommentResponse insertComment(InsertCommentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< CommentResponse > resp = insertCommentWithHttpInfo(request);
@@ -17984,11 +18510,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds comment to document, returns inserted comment data.
-        * @param request Request object
-        * @return ApiResponse< CommentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds comment to document, returns inserted comment data.
+     * @param request Request object
+     * @return ApiResponse< CommentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< CommentResponse > insertCommentWithHttpInfo(InsertCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
@@ -17996,12 +18523,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds comment to document, returns inserted comment data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds comment to document, returns inserted comment data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertCommentAsync(InsertCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -18035,6 +18563,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertDrawingObjectCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -18117,11 +18646,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds drawing object to document, returns added  drawing object's data.
-        * @param request Request object
-        * @return DrawingObjectResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds drawing object to document, returns added  drawing object's data.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DrawingObjectResponse insertDrawingObject(InsertDrawingObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = insertDrawingObjectWithHttpInfo(request);
@@ -18138,11 +18668,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds drawing object to document, returns added  drawing object's data.
-        * @param request Request object
-        * @return ApiResponse< DrawingObjectResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds drawing object to document, returns added  drawing object's data.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DrawingObjectResponse > insertDrawingObjectWithHttpInfo(InsertDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
@@ -18150,12 +18681,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds drawing object to document, returns added  drawing object's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds drawing object to document, returns added  drawing object's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertDrawingObjectAsync(InsertDrawingObjectRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -18189,6 +18721,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathCall(InsertDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -18265,11 +18798,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds drawing object to document, returns added  drawing object's data.
-        * @param request Request object
-        * @return DrawingObjectResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds drawing object to document, returns added  drawing object's data.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DrawingObjectResponse insertDrawingObjectWithoutNodePath(InsertDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = insertDrawingObjectWithoutNodePathWithHttpInfo(request);
@@ -18286,11 +18820,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds drawing object to document, returns added  drawing object's data.
-        * @param request Request object
-        * @return ApiResponse< DrawingObjectResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds drawing object to document, returns added  drawing object's data.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DrawingObjectResponse > insertDrawingObjectWithoutNodePathWithHttpInfo(InsertDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
@@ -18298,12 +18833,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds drawing object to document, returns added  drawing object's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds drawing object to document, returns added  drawing object's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathAsync(InsertDrawingObjectWithoutNodePathRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -18337,6 +18873,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertFieldCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getField();
@@ -18410,11 +18947,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds field to document, returns inserted field's data.
-        * @param request Request object
-        * @return FieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds field to document, returns inserted field's data.
+     * @param request Request object
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldResponse insertField(InsertFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldResponse > resp = insertFieldWithHttpInfo(request);
@@ -18431,11 +18969,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds field to document, returns inserted field's data.
-        * @param request Request object
-        * @return ApiResponse< FieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds field to document, returns inserted field's data.
+     * @param request Request object
+     * @return ApiResponse< FieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldResponse > insertFieldWithHttpInfo(InsertFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
@@ -18443,12 +18982,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds field to document, returns inserted field's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds field to document, returns inserted field's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertFieldAsync(InsertFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -18482,6 +19022,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertFieldWithoutNodePathCall(InsertFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getField();
@@ -18549,11 +19090,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds field to document, returns inserted field's data.
-        * @param request Request object
-        * @return FieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds field to document, returns inserted field's data.
+     * @param request Request object
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldResponse insertFieldWithoutNodePath(InsertFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldResponse > resp = insertFieldWithoutNodePathWithHttpInfo(request);
@@ -18570,11 +19112,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds field to document, returns inserted field's data.
-        * @param request Request object
-        * @return ApiResponse< FieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds field to document, returns inserted field's data.
+     * @param request Request object
+     * @return ApiResponse< FieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldResponse > insertFieldWithoutNodePathWithHttpInfo(InsertFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
@@ -18582,12 +19125,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds field to document, returns inserted field's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds field to document, returns inserted field's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertFieldWithoutNodePathAsync(InsertFieldWithoutNodePathRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -18621,6 +19165,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertFootnoteCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFootnoteDto();
@@ -18693,11 +19238,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds footnote to document, returns added footnote's data.
-        * @param request Request object
-        * @return FootnoteResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds footnote to document, returns added footnote's data.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FootnoteResponse insertFootnote(InsertFootnoteRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = insertFootnoteWithHttpInfo(request);
@@ -18714,11 +19260,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds footnote to document, returns added footnote's data.
-        * @param request Request object
-        * @return ApiResponse< FootnoteResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds footnote to document, returns added footnote's data.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FootnoteResponse > insertFootnoteWithHttpInfo(InsertFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
@@ -18726,12 +19273,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds footnote to document, returns added footnote's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds footnote to document, returns added footnote's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertFootnoteAsync(InsertFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -18765,6 +19313,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertFootnoteWithoutNodePathCall(InsertFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFootnoteDto();
@@ -18831,11 +19380,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds footnote to document, returns added footnote's data.
-        * @param request Request object
-        * @return FootnoteResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds footnote to document, returns added footnote's data.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FootnoteResponse insertFootnoteWithoutNodePath(InsertFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = insertFootnoteWithoutNodePathWithHttpInfo(request);
@@ -18852,11 +19402,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds footnote to document, returns added footnote's data.
-        * @param request Request object
-        * @return ApiResponse< FootnoteResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds footnote to document, returns added footnote's data.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FootnoteResponse > insertFootnoteWithoutNodePathWithHttpInfo(InsertFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
@@ -18864,12 +19415,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds footnote to document, returns added footnote's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds footnote to document, returns added footnote's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertFootnoteWithoutNodePathAsync(InsertFootnoteWithoutNodePathRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -18903,6 +19455,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertFormFieldCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormField();
@@ -18976,11 +19529,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds form field to paragraph, returns added form field's data.
-        * @param request Request object
-        * @return FormFieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds form field to paragraph, returns added form field's data.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FormFieldResponse insertFormField(InsertFormFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = insertFormFieldWithHttpInfo(request);
@@ -18997,11 +19551,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds form field to paragraph, returns added form field's data.
-        * @param request Request object
-        * @return ApiResponse< FormFieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds form field to paragraph, returns added form field's data.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FormFieldResponse > insertFormFieldWithHttpInfo(InsertFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
@@ -19009,12 +19564,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds form field to paragraph, returns added form field's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds form field to paragraph, returns added form field's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertFormFieldAsync(InsertFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -19048,6 +19604,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertFormFieldWithoutNodePathCall(InsertFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormField();
@@ -19115,11 +19672,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds form field to paragraph, returns added form field's data.
-        * @param request Request object
-        * @return FormFieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds form field to paragraph, returns added form field's data.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FormFieldResponse insertFormFieldWithoutNodePath(InsertFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = insertFormFieldWithoutNodePathWithHttpInfo(request);
@@ -19136,11 +19694,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds form field to paragraph, returns added form field's data.
-        * @param request Request object
-        * @return ApiResponse< FormFieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds form field to paragraph, returns added form field's data.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FormFieldResponse > insertFormFieldWithoutNodePathWithHttpInfo(InsertFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
@@ -19148,12 +19707,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds form field to paragraph, returns added form field's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds form field to paragraph, returns added form field's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertFormFieldWithoutNodePathAsync(InsertFormFieldWithoutNodePathRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -19187,6 +19747,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertHeaderFooterCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getHeaderFooterType();
@@ -19259,11 +19820,12 @@ public class WordsApi {
     }
 
     /**
-        * Inserts to document header or footer.
-        * @param request Request object
-        * @return HeaderFooterResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Inserts to document header or footer.
+     * @param request Request object
+     * @return HeaderFooterResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public HeaderFooterResponse insertHeaderFooter(InsertHeaderFooterRequest request) throws ApiException, IOException {
         try {
             ApiResponse< HeaderFooterResponse > resp = insertHeaderFooterWithHttpInfo(request);
@@ -19280,11 +19842,12 @@ public class WordsApi {
     }
 
     /**
-        * Inserts to document header or footer.
-        * @param request Request object
-        * @return ApiResponse< HeaderFooterResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Inserts to document header or footer.
+     * @param request Request object
+     * @return ApiResponse< HeaderFooterResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< HeaderFooterResponse > insertHeaderFooterWithHttpInfo(InsertHeaderFooterRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
@@ -19292,12 +19855,13 @@ public class WordsApi {
     }
 
     /**
-        * Inserts to document header or footer. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Inserts to document header or footer. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertHeaderFooterAsync(InsertHeaderFooterRequest request, final ApiCallback< HeaderFooterResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -19331,6 +19895,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertListCall(InsertListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getListInsert();
@@ -19397,11 +19962,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds list to document, returns added list's data.
-        * @param request Request object
-        * @return ListResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds list to document, returns added list's data.
+     * @param request Request object
+     * @return ListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ListResponse insertList(InsertListRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ListResponse > resp = insertListWithHttpInfo(request);
@@ -19418,11 +19984,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds list to document, returns added list's data.
-        * @param request Request object
-        * @return ApiResponse< ListResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds list to document, returns added list's data.
+     * @param request Request object
+     * @return ApiResponse< ListResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ListResponse > insertListWithHttpInfo(InsertListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertListValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
@@ -19430,12 +19997,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds list to document, returns added list's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds list to document, returns added list's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertListAsync(InsertListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -19469,6 +20037,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopCall(InsertOrUpdateParagraphTabStopRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDto();
@@ -19545,11 +20114,12 @@ public class WordsApi {
     }
 
     /**
-        * Insert or resplace tab stop if a tab stop with the position exists.
-        * @param request Request object
-        * @return TabStopsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Insert or resplace tab stop if a tab stop with the position exists.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TabStopsResponse insertOrUpdateParagraphTabStop(InsertOrUpdateParagraphTabStopRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = insertOrUpdateParagraphTabStopWithHttpInfo(request);
@@ -19566,11 +20136,12 @@ public class WordsApi {
     }
 
     /**
-        * Insert or resplace tab stop if a tab stop with the position exists.
-        * @param request Request object
-        * @return ApiResponse< TabStopsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Insert or resplace tab stop if a tab stop with the position exists.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TabStopsResponse > insertOrUpdateParagraphTabStopWithHttpInfo(InsertOrUpdateParagraphTabStopRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
@@ -19578,12 +20149,13 @@ public class WordsApi {
     }
 
     /**
-        * Insert or resplace tab stop if a tab stop with the position exists. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Insert or resplace tab stop if a tab stop with the position exists. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopAsync(InsertOrUpdateParagraphTabStopRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -19617,6 +20189,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathCall(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDto();
@@ -19687,11 +20260,12 @@ public class WordsApi {
     }
 
     /**
-        * Insert or resplace tab stop if a tab stop with the position exists.
-        * @param request Request object
-        * @return TabStopsResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Insert or resplace tab stop if a tab stop with the position exists.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TabStopsResponse insertOrUpdateParagraphTabStopWithoutNodePath(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TabStopsResponse > resp = insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(request);
@@ -19708,11 +20282,12 @@ public class WordsApi {
     }
 
     /**
-        * Insert or resplace tab stop if a tab stop with the position exists.
-        * @param request Request object
-        * @return ApiResponse< TabStopsResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Insert or resplace tab stop if a tab stop with the position exists.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TabStopsResponse > insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
@@ -19720,12 +20295,13 @@ public class WordsApi {
     }
 
     /**
-        * Insert or resplace tab stop if a tab stop with the position exists. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Insert or resplace tab stop if a tab stop with the position exists. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathAsync(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -19759,6 +20335,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertPageNumbersCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getPageNumber();
@@ -19825,11 +20402,12 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document page numbers.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Inserts document page numbers.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse insertPageNumbers(InsertPageNumbersRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = insertPageNumbersWithHttpInfo(request);
@@ -19846,11 +20424,12 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document page numbers.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Inserts document page numbers.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > insertPageNumbersWithHttpInfo(InsertPageNumbersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -19858,12 +20437,13 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document page numbers. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Inserts document page numbers. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertPageNumbersAsync(InsertPageNumbersRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -19897,6 +20477,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertParagraphCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getParagraph();
@@ -19970,11 +20551,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds paragraph to document, returns added paragraph's data.
-        * @param request Request object
-        * @return ParagraphResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return ParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphResponse insertParagraph(InsertParagraphRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphResponse > resp = insertParagraphWithHttpInfo(request);
@@ -19991,11 +20573,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds paragraph to document, returns added paragraph's data.
-        * @param request Request object
-        * @return ApiResponse< ParagraphResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return ApiResponse< ParagraphResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphResponse > insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
@@ -20003,12 +20586,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds paragraph to document, returns added paragraph's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds paragraph to document, returns added paragraph's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertParagraphAsync(InsertParagraphRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -20042,6 +20626,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertParagraphWithoutNodePathCall(InsertParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getParagraph();
@@ -20109,11 +20694,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds paragraph to document, returns added paragraph's data.
-        * @param request Request object
-        * @return ParagraphResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return ParagraphResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphResponse insertParagraphWithoutNodePath(InsertParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphResponse > resp = insertParagraphWithoutNodePathWithHttpInfo(request);
@@ -20130,11 +20716,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds paragraph to document, returns added paragraph's data.
-        * @param request Request object
-        * @return ApiResponse< ParagraphResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return ApiResponse< ParagraphResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphResponse > insertParagraphWithoutNodePathWithHttpInfo(InsertParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertParagraphWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
@@ -20142,12 +20729,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds paragraph to document, returns added paragraph's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds paragraph to document, returns added paragraph's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertParagraphWithoutNodePathAsync(InsertParagraphWithoutNodePathRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -20181,6 +20769,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertRunCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getRun();
@@ -20254,11 +20843,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds run to document, returns added paragraph's data.
-        * @param request Request object
-        * @return RunResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds run to document, returns added paragraph's data.
+     * @param request Request object
+     * @return RunResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public RunResponse insertRun(InsertRunRequest request) throws ApiException, IOException {
         try {
             ApiResponse< RunResponse > resp = insertRunWithHttpInfo(request);
@@ -20275,11 +20865,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds run to document, returns added paragraph's data.
-        * @param request Request object
-        * @return ApiResponse< RunResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds run to document, returns added paragraph's data.
+     * @param request Request object
+     * @return ApiResponse< RunResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< RunResponse > insertRunWithHttpInfo(InsertRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
@@ -20287,12 +20878,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds run to document, returns added paragraph's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds run to document, returns added paragraph's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertRunAsync(InsertRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -20326,6 +20918,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertStyleCall(InsertStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getStyleInsert();
@@ -20392,11 +20985,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds a style to the document, returns an added style.
-        * @param request Request object
-        * @return StyleResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds a style to the document, returns an added style.
+     * @param request Request object
+     * @return StyleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public StyleResponse insertStyle(InsertStyleRequest request) throws ApiException, IOException {
         try {
             ApiResponse< StyleResponse > resp = insertStyleWithHttpInfo(request);
@@ -20413,11 +21007,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds a style to the document, returns an added style.
-        * @param request Request object
-        * @return ApiResponse< StyleResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds a style to the document, returns an added style.
+     * @param request Request object
+     * @return ApiResponse< StyleResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< StyleResponse > insertStyleWithHttpInfo(InsertStyleRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertStyleValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
@@ -20425,12 +21020,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds a style to the document, returns an added style. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds a style to the document, returns an added style. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertStyleAsync(InsertStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -20464,6 +21060,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertTableCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getTable();
@@ -20536,11 +21133,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds table to document, returns added table's data.
-        * @param request Request object
-        * @return TableResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds table to document, returns added table's data.
+     * @param request Request object
+     * @return TableResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableResponse insertTable(InsertTableRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableResponse > resp = insertTableWithHttpInfo(request);
@@ -20557,11 +21155,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds table to document, returns added table's data.
-        * @param request Request object
-        * @return ApiResponse< TableResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds table to document, returns added table's data.
+     * @param request Request object
+     * @return ApiResponse< TableResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableResponse > insertTableWithHttpInfo(InsertTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
@@ -20569,12 +21168,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds table to document, returns added table's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds table to document, returns added table's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertTableAsync(InsertTableRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -20608,6 +21208,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertTableCellCall(InsertTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getCell();
@@ -20680,11 +21281,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds table cell to table, returns added cell's data.
-        * @param request Request object
-        * @return TableCellResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds table cell to table, returns added cell's data.
+     * @param request Request object
+     * @return TableCellResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableCellResponse insertTableCell(InsertTableCellRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableCellResponse > resp = insertTableCellWithHttpInfo(request);
@@ -20701,11 +21303,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds table cell to table, returns added cell's data.
-        * @param request Request object
-        * @return ApiResponse< TableCellResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds table cell to table, returns added cell's data.
+     * @param request Request object
+     * @return ApiResponse< TableCellResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableCellResponse > insertTableCellWithHttpInfo(InsertTableCellRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableCellValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableCellResponse >() { }.getType();
@@ -20713,12 +21316,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds table cell to table, returns added cell's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds table cell to table, returns added cell's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertTableCellAsync(InsertTableCellRequest request, final ApiCallback< TableCellResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -20752,6 +21356,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertTableRowCall(InsertTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getRow();
@@ -20824,11 +21429,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds table row to table, returns added row's data.
-        * @param request Request object
-        * @return TableRowResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds table row to table, returns added row's data.
+     * @param request Request object
+     * @return TableRowResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableRowResponse insertTableRow(InsertTableRowRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableRowResponse > resp = insertTableRowWithHttpInfo(request);
@@ -20845,11 +21451,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds table row to table, returns added row's data.
-        * @param request Request object
-        * @return ApiResponse< TableRowResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds table row to table, returns added row's data.
+     * @param request Request object
+     * @return ApiResponse< TableRowResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableRowResponse > insertTableRowWithHttpInfo(InsertTableRowRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableRowValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableRowResponse >() { }.getType();
@@ -20857,12 +21464,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds table row to table, returns added row's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds table row to table, returns added row's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertTableRowAsync(InsertTableRowRequest request, final ApiCallback< TableRowResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -20896,6 +21504,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertTableWithoutNodePathCall(InsertTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getTable();
@@ -20962,11 +21571,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds table to document, returns added table's data.
-        * @param request Request object
-        * @return TableResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds table to document, returns added table's data.
+     * @param request Request object
+     * @return TableResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableResponse insertTableWithoutNodePath(InsertTableWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableResponse > resp = insertTableWithoutNodePathWithHttpInfo(request);
@@ -20983,11 +21593,12 @@ public class WordsApi {
     }
 
     /**
-        * Adds table to document, returns added table's data.
-        * @param request Request object
-        * @return ApiResponse< TableResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Adds table to document, returns added table's data.
+     * @param request Request object
+     * @return ApiResponse< TableResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableResponse > insertTableWithoutNodePathWithHttpInfo(InsertTableWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
@@ -20995,12 +21606,13 @@ public class WordsApi {
     }
 
     /**
-        * Adds table to document, returns added table's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Adds table to document, returns added table's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertTableWithoutNodePathAsync(InsertTableWithoutNodePathRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -21034,6 +21646,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertWatermarkImageCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -21099,11 +21712,12 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document watermark image.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Inserts document watermark image.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse insertWatermarkImage(InsertWatermarkImageRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = insertWatermarkImageWithHttpInfo(request);
@@ -21120,11 +21734,12 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document watermark image.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Inserts document watermark image.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > insertWatermarkImageWithHttpInfo(InsertWatermarkImageRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -21132,12 +21747,13 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document watermark image. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Inserts document watermark image. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertWatermarkImageAsync(InsertWatermarkImageRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -21171,6 +21787,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call insertWatermarkTextCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getWatermarkText();
@@ -21237,11 +21854,12 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document watermark text.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Inserts document watermark text.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse insertWatermarkText(InsertWatermarkTextRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = insertWatermarkTextWithHttpInfo(request);
@@ -21258,11 +21876,12 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document watermark text.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Inserts document watermark text.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > insertWatermarkTextWithHttpInfo(InsertWatermarkTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -21270,12 +21889,13 @@ public class WordsApi {
     }
 
     /**
-        * Inserts document watermark text. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Inserts document watermark text. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call insertWatermarkTextAsync(InsertWatermarkTextRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -21309,6 +21929,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call loadWebDocumentCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getData();
@@ -21364,11 +21985,12 @@ public class WordsApi {
     }
 
     /**
-        * Loads new document from web into the file with any supported format of data.
-        * @param request Request object
-        * @return SaveResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Loads new document from web into the file with any supported format of data.
+     * @param request Request object
+     * @return SaveResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SaveResponse loadWebDocument(LoadWebDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SaveResponse > resp = loadWebDocumentWithHttpInfo(request);
@@ -21385,11 +22007,12 @@ public class WordsApi {
     }
 
     /**
-        * Loads new document from web into the file with any supported format of data.
-        * @param request Request object
-        * @return ApiResponse< SaveResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Loads new document from web into the file with any supported format of data.
+     * @param request Request object
+     * @return ApiResponse< SaveResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SaveResponse > loadWebDocumentWithHttpInfo(LoadWebDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
@@ -21397,12 +22020,13 @@ public class WordsApi {
     }
 
     /**
-        * Loads new document from web into the file with any supported format of data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Loads new document from web into the file with any supported format of data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call loadWebDocumentAsync(LoadWebDocumentRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -21436,6 +22060,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call moveFileCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -21499,10 +22124,11 @@ public class WordsApi {
     }
 
     /**
-        * Move file.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Move file.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void moveFile(MoveFileRequest request) throws ApiException, IOException {
         try {
     moveFileWithHttpInfo(request);
@@ -21517,23 +22143,25 @@ public class WordsApi {
     }
 
     /**
-        * Move file.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Move file.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > moveFileWithHttpInfo(MoveFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = moveFileValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Move file. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Move file. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call moveFileAsync(MoveFileRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -21566,6 +22194,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call moveFolderCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -21628,10 +22257,11 @@ public class WordsApi {
     }
 
     /**
-        * Move folder.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Move folder.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void moveFolder(MoveFolderRequest request) throws ApiException, IOException {
         try {
     moveFolderWithHttpInfo(request);
@@ -21646,23 +22276,25 @@ public class WordsApi {
     }
 
     /**
-        * Move folder.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Move folder.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > moveFolderWithHttpInfo(MoveFolderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = moveFolderValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Move folder. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Move folder. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call moveFolderAsync(MoveFolderRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -21695,6 +22327,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call protectDocumentCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProtectionRequest();
@@ -21759,11 +22392,12 @@ public class WordsApi {
     }
 
     /**
-        * Protects document.
-        * @param request Request object
-        * @return ProtectionDataResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Protects document.
+     * @param request Request object
+     * @return ProtectionDataResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ProtectionDataResponse protectDocument(ProtectDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ProtectionDataResponse > resp = protectDocumentWithHttpInfo(request);
@@ -21780,11 +22414,12 @@ public class WordsApi {
     }
 
     /**
-        * Protects document.
-        * @param request Request object
-        * @return ApiResponse< ProtectionDataResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Protects document.
+     * @param request Request object
+     * @return ApiResponse< ProtectionDataResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ProtectionDataResponse > protectDocumentWithHttpInfo(ProtectDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
@@ -21792,12 +22427,13 @@ public class WordsApi {
     }
 
     /**
-        * Protects document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Protects document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call protectDocumentAsync(ProtectDocumentRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -21831,6 +22467,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call rejectAllRevisionsCall(RejectAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -21890,11 +22527,12 @@ public class WordsApi {
     }
 
     /**
-        * Rejects all revisions in document.
-        * @param request Request object
-        * @return RevisionsModificationResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Rejects all revisions in document.
+     * @param request Request object
+     * @return RevisionsModificationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public RevisionsModificationResponse rejectAllRevisions(RejectAllRevisionsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< RevisionsModificationResponse > resp = rejectAllRevisionsWithHttpInfo(request);
@@ -21911,11 +22549,12 @@ public class WordsApi {
     }
 
     /**
-        * Rejects all revisions in document.
-        * @param request Request object
-        * @return ApiResponse< RevisionsModificationResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Rejects all revisions in document.
+     * @param request Request object
+     * @return ApiResponse< RevisionsModificationResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< RevisionsModificationResponse > rejectAllRevisionsWithHttpInfo(RejectAllRevisionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = rejectAllRevisionsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< RevisionsModificationResponse >() { }.getType();
@@ -21923,12 +22562,13 @@ public class WordsApi {
     }
 
     /**
-        * Rejects all revisions in document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Rejects all revisions in document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call rejectAllRevisionsAsync(RejectAllRevisionsRequest request, final ApiCallback< RevisionsModificationResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -21962,6 +22602,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call removeRangeCall(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -22028,11 +22669,12 @@ public class WordsApi {
     }
 
     /**
-        * Removes the range from the document.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes the range from the document.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse removeRange(RemoveRangeRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = removeRangeWithHttpInfo(request);
@@ -22049,11 +22691,12 @@ public class WordsApi {
     }
 
     /**
-        * Removes the range from the document.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Removes the range from the document.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > removeRangeWithHttpInfo(RemoveRangeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = removeRangeValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -22061,12 +22704,13 @@ public class WordsApi {
     }
 
     /**
-        * Removes the range from the document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Removes the range from the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call removeRangeAsync(RemoveRangeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -22100,6 +22744,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderDrawingObjectCall(RenderDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -22177,11 +22822,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders drawing object to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders drawing object to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderDrawingObject(RenderDrawingObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderDrawingObjectWithHttpInfo(request);
@@ -22198,11 +22844,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders drawing object to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders drawing object to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderDrawingObjectWithHttpInfo(RenderDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -22210,12 +22857,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders drawing object to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders drawing object to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderDrawingObjectAsync(RenderDrawingObjectRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -22249,6 +22897,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathCall(RenderDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -22320,11 +22969,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders drawing object to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders drawing object to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderDrawingObjectWithoutNodePath(RenderDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderDrawingObjectWithoutNodePathWithHttpInfo(request);
@@ -22341,11 +22991,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders drawing object to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders drawing object to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderDrawingObjectWithoutNodePathWithHttpInfo(RenderDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -22353,12 +23004,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders drawing object to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders drawing object to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathAsync(RenderDrawingObjectWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -22392,6 +23044,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderMathObjectCall(RenderMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -22469,11 +23122,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders math object to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders math object to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderMathObject(RenderMathObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderMathObjectWithHttpInfo(request);
@@ -22490,11 +23144,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders math object to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders math object to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderMathObjectWithHttpInfo(RenderMathObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -22502,12 +23157,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders math object to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders math object to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderMathObjectAsync(RenderMathObjectRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -22541,6 +23197,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderMathObjectWithoutNodePathCall(RenderMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -22612,11 +23269,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders math object to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders math object to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderMathObjectWithoutNodePath(RenderMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderMathObjectWithoutNodePathWithHttpInfo(request);
@@ -22633,11 +23291,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders math object to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders math object to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderMathObjectWithoutNodePathWithHttpInfo(RenderMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -22645,12 +23304,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders math object to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders math object to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderMathObjectWithoutNodePathAsync(RenderMathObjectWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -22684,6 +23344,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderPageCall(RenderPageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -22755,11 +23416,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders page to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders page to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderPage(RenderPageRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderPageWithHttpInfo(request);
@@ -22776,11 +23438,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders page to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders page to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderPageWithHttpInfo(RenderPageRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderPageValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -22788,12 +23451,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders page to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders page to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderPageAsync(RenderPageRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -22827,6 +23491,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderParagraphCall(RenderParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -22904,11 +23569,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders paragraph to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders paragraph to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderParagraph(RenderParagraphRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderParagraphWithHttpInfo(request);
@@ -22925,11 +23591,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders paragraph to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders paragraph to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderParagraphWithHttpInfo(RenderParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderParagraphValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -22937,12 +23604,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders paragraph to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders paragraph to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderParagraphAsync(RenderParagraphRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -22976,6 +23644,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderParagraphWithoutNodePathCall(RenderParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -23047,11 +23716,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders paragraph to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders paragraph to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderParagraphWithoutNodePath(RenderParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderParagraphWithoutNodePathWithHttpInfo(request);
@@ -23068,11 +23738,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders paragraph to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders paragraph to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderParagraphWithoutNodePathWithHttpInfo(RenderParagraphWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderParagraphWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -23080,12 +23751,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders paragraph to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders paragraph to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderParagraphWithoutNodePathAsync(RenderParagraphWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -23119,6 +23791,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderTableCall(RenderTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -23196,11 +23869,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders table to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders table to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderTable(RenderTableRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderTableWithHttpInfo(request);
@@ -23217,11 +23891,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders table to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders table to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderTableWithHttpInfo(RenderTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderTableValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -23229,12 +23904,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders table to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders table to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderTableAsync(RenderTableRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -23268,6 +23944,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call renderTableWithoutNodePathCall(RenderTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -23339,11 +24016,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders table to specified format.
-        * @param request Request object
-        * @return File
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders table to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public File renderTableWithoutNodePath(RenderTableWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< File > resp = renderTableWithoutNodePathWithHttpInfo(request);
@@ -23360,11 +24038,12 @@ public class WordsApi {
     }
 
     /**
-        * Renders table to specified format.
-        * @param request Request object
-        * @return ApiResponse< File >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Renders table to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< File > renderTableWithoutNodePathWithHttpInfo(RenderTableWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderTableWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< File >() { }.getType();
@@ -23372,12 +24051,13 @@ public class WordsApi {
     }
 
     /**
-        * Renders table to specified format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Renders table to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call renderTableWithoutNodePathAsync(RenderTableWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -23411,6 +24091,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call replaceTextCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getReplaceText();
@@ -23477,11 +24158,12 @@ public class WordsApi {
     }
 
     /**
-        * Replaces document text.
-        * @param request Request object
-        * @return ReplaceTextResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Replaces document text.
+     * @param request Request object
+     * @return ReplaceTextResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ReplaceTextResponse replaceText(ReplaceTextRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ReplaceTextResponse > resp = replaceTextWithHttpInfo(request);
@@ -23498,11 +24180,12 @@ public class WordsApi {
     }
 
     /**
-        * Replaces document text.
-        * @param request Request object
-        * @return ApiResponse< ReplaceTextResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Replaces document text.
+     * @param request Request object
+     * @return ApiResponse< ReplaceTextResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ReplaceTextResponse > replaceTextWithHttpInfo(ReplaceTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ReplaceTextResponse >() { }.getType();
@@ -23510,12 +24193,13 @@ public class WordsApi {
     }
 
     /**
-        * Replaces document text. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Replaces document text. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call replaceTextAsync(ReplaceTextRequest request, final ApiCallback< ReplaceTextResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -23549,6 +24233,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call replaceWithTextCall(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getRangeText();
@@ -23620,11 +24305,12 @@ public class WordsApi {
     }
 
     /**
-        * Replaces the content in the range.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Replaces the content in the range.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse replaceWithText(ReplaceWithTextRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = replaceWithTextWithHttpInfo(request);
@@ -23641,11 +24327,12 @@ public class WordsApi {
     }
 
     /**
-        * Replaces the content in the range.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Replaces the content in the range.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > replaceWithTextWithHttpInfo(ReplaceWithTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = replaceWithTextValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -23653,12 +24340,13 @@ public class WordsApi {
     }
 
     /**
-        * Replaces the content in the range. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Replaces the content in the range. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call replaceWithTextAsync(ReplaceWithTextRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -23692,6 +24380,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call resetCacheCall(ResetCacheRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -23742,10 +24431,11 @@ public class WordsApi {
     }
 
     /**
-        * Resets font's cache.
-        * @param request Request object
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Resets font's cache.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public void resetCache(ResetCacheRequest request) throws ApiException, IOException {
         try {
     resetCacheWithHttpInfo(request);
@@ -23760,23 +24450,25 @@ public class WordsApi {
     }
 
     /**
-        * Resets font's cache.
-        * @param request Request object
-        * @return ApiResponse< Void >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Resets font's cache.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< Void > resetCacheWithHttpInfo(ResetCacheRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = resetCacheValidateBeforeCall(request, null, null);
         return apiClient.execute(call);
     }
 
     /**
-        * Resets font's cache. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Resets font's cache. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call resetCacheAsync(ResetCacheRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -23809,6 +24501,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call saveAsCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getSaveOptionsData();
@@ -23873,11 +24566,12 @@ public class WordsApi {
     }
 
     /**
-        * Converts document to destination format with detailed settings and saves result to storage.
-        * @param request Request object
-        * @return SaveResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Converts document to destination format with detailed settings and saves result to storage.
+     * @param request Request object
+     * @return SaveResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SaveResponse saveAs(SaveAsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SaveResponse > resp = saveAsWithHttpInfo(request);
@@ -23894,11 +24588,12 @@ public class WordsApi {
     }
 
     /**
-        * Converts document to destination format with detailed settings and saves result to storage.
-        * @param request Request object
-        * @return ApiResponse< SaveResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Converts document to destination format with detailed settings and saves result to storage.
+     * @param request Request object
+     * @return ApiResponse< SaveResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SaveResponse > saveAsWithHttpInfo(SaveAsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
@@ -23906,12 +24601,13 @@ public class WordsApi {
     }
 
     /**
-        * Converts document to destination format with detailed settings and saves result to storage. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Converts document to destination format with detailed settings and saves result to storage. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call saveAsAsync(SaveAsRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -23945,6 +24641,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call saveAsRangeCall(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDocumentParameters();
@@ -24015,11 +24712,12 @@ public class WordsApi {
     }
 
     /**
-        * Saves the selected range as a new document.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Saves the selected range as a new document.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse saveAsRange(SaveAsRangeRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = saveAsRangeWithHttpInfo(request);
@@ -24036,11 +24734,12 @@ public class WordsApi {
     }
 
     /**
-        * Saves the selected range as a new document.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Saves the selected range as a new document.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > saveAsRangeWithHttpInfo(SaveAsRangeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsRangeValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -24048,12 +24747,13 @@ public class WordsApi {
     }
 
     /**
-        * Saves the selected range as a new document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Saves the selected range as a new document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call saveAsRangeAsync(SaveAsRangeRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -24087,6 +24787,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call saveAsTiffCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getSaveOptions();
@@ -24168,11 +24869,12 @@ public class WordsApi {
     }
 
     /**
-        * Converts document to tiff with detailed settings and saves result to storage.
-        * @param request Request object
-        * @return SaveResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Converts document to tiff with detailed settings and saves result to storage.
+     * @param request Request object
+     * @return SaveResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SaveResponse saveAsTiff(SaveAsTiffRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SaveResponse > resp = saveAsTiffWithHttpInfo(request);
@@ -24189,11 +24891,12 @@ public class WordsApi {
     }
 
     /**
-        * Converts document to tiff with detailed settings and saves result to storage.
-        * @param request Request object
-        * @return ApiResponse< SaveResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Converts document to tiff with detailed settings and saves result to storage.
+     * @param request Request object
+     * @return ApiResponse< SaveResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SaveResponse > saveAsTiffWithHttpInfo(SaveAsTiffRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
@@ -24201,12 +24904,13 @@ public class WordsApi {
     }
 
     /**
-        * Converts document to tiff with detailed settings and saves result to storage. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Converts document to tiff with detailed settings and saves result to storage. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call saveAsTiffAsync(SaveAsTiffRequest request, final ApiCallback< SaveResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -24240,6 +24944,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call searchCall(SearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -24304,11 +25009,12 @@ public class WordsApi {
     }
 
     /**
-        * Searches text in document.
-        * @param request Request object
-        * @return SearchResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Searches text in document.
+     * @param request Request object
+     * @return SearchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SearchResponse search(SearchRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SearchResponse > resp = searchWithHttpInfo(request);
@@ -24325,11 +25031,12 @@ public class WordsApi {
     }
 
     /**
-        * Searches text in document.
-        * @param request Request object
-        * @return ApiResponse< SearchResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Searches text in document.
+     * @param request Request object
+     * @return ApiResponse< SearchResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SearchResponse > searchWithHttpInfo(SearchRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = searchValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SearchResponse >() { }.getType();
@@ -24337,12 +25044,13 @@ public class WordsApi {
     }
 
     /**
-        * Searches text in document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Searches text in document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call searchAsync(SearchRequest request, final ApiCallback< SearchResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -24376,6 +25084,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call splitDocumentCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -24445,11 +25154,12 @@ public class WordsApi {
     }
 
     /**
-        * Splits document.
-        * @param request Request object
-        * @return SplitDocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Splits document.
+     * @param request Request object
+     * @return SplitDocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SplitDocumentResponse splitDocument(SplitDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SplitDocumentResponse > resp = splitDocumentWithHttpInfo(request);
@@ -24466,11 +25176,12 @@ public class WordsApi {
     }
 
     /**
-        * Splits document.
-        * @param request Request object
-        * @return ApiResponse< SplitDocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Splits document.
+     * @param request Request object
+     * @return ApiResponse< SplitDocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SplitDocumentResponse > splitDocumentWithHttpInfo(SplitDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SplitDocumentResponse >() { }.getType();
@@ -24478,12 +25189,13 @@ public class WordsApi {
     }
 
     /**
-        * Splits document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Splits document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call splitDocumentAsync(SplitDocumentRequest request, final ApiCallback< SplitDocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -24517,6 +25229,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call unprotectDocumentCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProtectionRequest();
@@ -24581,11 +25294,12 @@ public class WordsApi {
     }
 
     /**
-        * Unprotects document.
-        * @param request Request object
-        * @return ProtectionDataResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Unprotects document.
+     * @param request Request object
+     * @return ProtectionDataResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ProtectionDataResponse unprotectDocument(UnprotectDocumentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ProtectionDataResponse > resp = unprotectDocumentWithHttpInfo(request);
@@ -24602,11 +25316,12 @@ public class WordsApi {
     }
 
     /**
-        * Unprotects document.
-        * @param request Request object
-        * @return ApiResponse< ProtectionDataResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Unprotects document.
+     * @param request Request object
+     * @return ApiResponse< ProtectionDataResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ProtectionDataResponse > unprotectDocumentWithHttpInfo(UnprotectDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
@@ -24614,12 +25329,13 @@ public class WordsApi {
     }
 
     /**
-        * Unprotects document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Unprotects document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call unprotectDocumentAsync(UnprotectDocumentRequest request, final ApiCallback< ProtectionDataResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -24653,6 +25369,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateBookmarkCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getBookmarkData();
@@ -24725,11 +25442,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates document bookmark.
-        * @param request Request object
-        * @return BookmarkResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates document bookmark.
+     * @param request Request object
+     * @return BookmarkResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public BookmarkResponse updateBookmark(UpdateBookmarkRequest request) throws ApiException, IOException {
         try {
             ApiResponse< BookmarkResponse > resp = updateBookmarkWithHttpInfo(request);
@@ -24746,11 +25464,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates document bookmark.
-        * @param request Request object
-        * @return ApiResponse< BookmarkResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates document bookmark.
+     * @param request Request object
+     * @return ApiResponse< BookmarkResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< BookmarkResponse > updateBookmarkWithHttpInfo(UpdateBookmarkRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< BookmarkResponse >() { }.getType();
@@ -24758,12 +25477,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates document bookmark. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates document bookmark. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateBookmarkAsync(UpdateBookmarkRequest request, final ApiCallback< BookmarkResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -24797,6 +25517,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateBorderCall(UpdateBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getBorderProperties();
@@ -24875,11 +25596,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return BorderResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return BorderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public BorderResponse updateBorder(UpdateBorderRequest request) throws ApiException, IOException {
         try {
             ApiResponse< BorderResponse > resp = updateBorderWithHttpInfo(request);
@@ -24896,11 +25618,12 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row.
-        * @param request Request object
-        * @return ApiResponse< BorderResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * 'nodePath' should refer to paragraph, cell or row.
+     * @param request Request object
+     * @return ApiResponse< BorderResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< BorderResponse > updateBorderWithHttpInfo(UpdateBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateBorderValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
@@ -24908,12 +25631,13 @@ public class WordsApi {
     }
 
     /**
-        * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateBorderAsync(UpdateBorderRequest request, final ApiCallback< BorderResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -24947,6 +25671,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateCommentCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getComment();
@@ -25019,11 +25744,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates the comment, returns updated comment data.
-        * @param request Request object
-        * @return CommentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates the comment, returns updated comment data.
+     * @param request Request object
+     * @return CommentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public CommentResponse updateComment(UpdateCommentRequest request) throws ApiException, IOException {
         try {
             ApiResponse< CommentResponse > resp = updateCommentWithHttpInfo(request);
@@ -25040,11 +25766,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates the comment, returns updated comment data.
-        * @param request Request object
-        * @return ApiResponse< CommentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates the comment, returns updated comment data.
+     * @param request Request object
+     * @return ApiResponse< CommentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< CommentResponse > updateCommentWithHttpInfo(UpdateCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
@@ -25052,12 +25779,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates the comment, returns updated comment data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates the comment, returns updated comment data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateCommentAsync(UpdateCommentRequest request, final ApiCallback< CommentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -25091,6 +25819,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateDrawingObjectCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -25179,11 +25908,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates drawing object, returns updated  drawing object's data.
-        * @param request Request object
-        * @return DrawingObjectResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates drawing object, returns updated  drawing object's data.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DrawingObjectResponse updateDrawingObject(UpdateDrawingObjectRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = updateDrawingObjectWithHttpInfo(request);
@@ -25200,11 +25930,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates drawing object, returns updated  drawing object's data.
-        * @param request Request object
-        * @return ApiResponse< DrawingObjectResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates drawing object, returns updated  drawing object's data.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DrawingObjectResponse > updateDrawingObjectWithHttpInfo(UpdateDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
@@ -25212,12 +25943,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates drawing object, returns updated  drawing object's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates drawing object, returns updated  drawing object's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateDrawingObjectAsync(UpdateDrawingObjectRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -25251,6 +25983,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathCall(UpdateDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -25333,11 +26066,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates drawing object, returns updated  drawing object's data.
-        * @param request Request object
-        * @return DrawingObjectResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates drawing object, returns updated  drawing object's data.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DrawingObjectResponse updateDrawingObjectWithoutNodePath(UpdateDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DrawingObjectResponse > resp = updateDrawingObjectWithoutNodePathWithHttpInfo(request);
@@ -25354,11 +26088,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates drawing object, returns updated  drawing object's data.
-        * @param request Request object
-        * @return ApiResponse< DrawingObjectResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates drawing object, returns updated  drawing object's data.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DrawingObjectResponse > updateDrawingObjectWithoutNodePathWithHttpInfo(UpdateDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
@@ -25366,12 +26101,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates drawing object, returns updated  drawing object's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates drawing object, returns updated  drawing object's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathAsync(UpdateDrawingObjectWithoutNodePathRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -25405,6 +26141,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateFieldCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getField();
@@ -25483,11 +26220,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates field's properties, returns updated field's data.
-        * @param request Request object
-        * @return FieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates field's properties, returns updated field's data.
+     * @param request Request object
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FieldResponse updateField(UpdateFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FieldResponse > resp = updateFieldWithHttpInfo(request);
@@ -25504,11 +26242,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates field's properties, returns updated field's data.
-        * @param request Request object
-        * @return ApiResponse< FieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates field's properties, returns updated field's data.
+     * @param request Request object
+     * @return ApiResponse< FieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FieldResponse > updateFieldWithHttpInfo(UpdateFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
@@ -25516,12 +26255,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates field's properties, returns updated field's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates field's properties, returns updated field's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateFieldAsync(UpdateFieldRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -25555,6 +26295,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateFieldsCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -25614,11 +26355,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates (reevaluate) fields in document.
-        * @param request Request object
-        * @return DocumentResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates (reevaluate) fields in document.
+     * @param request Request object
+     * @return DocumentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public DocumentResponse updateFields(UpdateFieldsRequest request) throws ApiException, IOException {
         try {
             ApiResponse< DocumentResponse > resp = updateFieldsWithHttpInfo(request);
@@ -25635,11 +26377,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates (reevaluate) fields in document.
-        * @param request Request object
-        * @return ApiResponse< DocumentResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates (reevaluate) fields in document.
+     * @param request Request object
+     * @return ApiResponse< DocumentResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< DocumentResponse > updateFieldsWithHttpInfo(UpdateFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
@@ -25647,12 +26390,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates (reevaluate) fields in document. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates (reevaluate) fields in document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateFieldsAsync(UpdateFieldsRequest request, final ApiCallback< DocumentResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -25686,6 +26430,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateFootnoteCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFootnoteDto();
@@ -25764,11 +26509,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates footnote's properties, returns updated run's data.
-        * @param request Request object
-        * @return FootnoteResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates footnote's properties, returns updated run's data.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FootnoteResponse updateFootnote(UpdateFootnoteRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = updateFootnoteWithHttpInfo(request);
@@ -25785,11 +26531,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates footnote's properties, returns updated run's data.
-        * @param request Request object
-        * @return ApiResponse< FootnoteResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates footnote's properties, returns updated run's data.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FootnoteResponse > updateFootnoteWithHttpInfo(UpdateFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
@@ -25797,12 +26544,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates footnote's properties, returns updated run's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates footnote's properties, returns updated run's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateFootnoteAsync(UpdateFootnoteRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -25836,6 +26584,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateFootnoteWithoutNodePathCall(UpdateFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFootnoteDto();
@@ -25908,11 +26657,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates footnote's properties, returns updated run's data.
-        * @param request Request object
-        * @return FootnoteResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates footnote's properties, returns updated run's data.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FootnoteResponse updateFootnoteWithoutNodePath(UpdateFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FootnoteResponse > resp = updateFootnoteWithoutNodePathWithHttpInfo(request);
@@ -25929,11 +26679,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates footnote's properties, returns updated run's data.
-        * @param request Request object
-        * @return ApiResponse< FootnoteResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates footnote's properties, returns updated run's data.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FootnoteResponse > updateFootnoteWithoutNodePathWithHttpInfo(UpdateFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
@@ -25941,12 +26692,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates footnote's properties, returns updated run's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates footnote's properties, returns updated run's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateFootnoteWithoutNodePathAsync(UpdateFootnoteWithoutNodePathRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -25980,6 +26732,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateFormFieldCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormField();
@@ -26058,11 +26811,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates properties of form field, returns updated form field.
-        * @param request Request object
-        * @return FormFieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates properties of form field, returns updated form field.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FormFieldResponse updateFormField(UpdateFormFieldRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = updateFormFieldWithHttpInfo(request);
@@ -26079,11 +26833,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates properties of form field, returns updated form field.
-        * @param request Request object
-        * @return ApiResponse< FormFieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates properties of form field, returns updated form field.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FormFieldResponse > updateFormFieldWithHttpInfo(UpdateFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
@@ -26091,12 +26846,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates properties of form field, returns updated form field. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates properties of form field, returns updated form field. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateFormFieldAsync(UpdateFormFieldRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -26130,6 +26886,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateFormFieldWithoutNodePathCall(UpdateFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormField();
@@ -26202,11 +26959,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates properties of form field, returns updated form field.
-        * @param request Request object
-        * @return FormFieldResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates properties of form field, returns updated form field.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FormFieldResponse updateFormFieldWithoutNodePath(UpdateFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FormFieldResponse > resp = updateFormFieldWithoutNodePathWithHttpInfo(request);
@@ -26223,11 +26981,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates properties of form field, returns updated form field.
-        * @param request Request object
-        * @return ApiResponse< FormFieldResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates properties of form field, returns updated form field.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FormFieldResponse > updateFormFieldWithoutNodePathWithHttpInfo(UpdateFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
@@ -26235,12 +26994,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates properties of form field, returns updated form field. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates properties of form field, returns updated form field. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateFormFieldWithoutNodePathAsync(UpdateFormFieldWithoutNodePathRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -26274,6 +27034,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateListCall(UpdateListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getListUpdate();
@@ -26346,11 +27107,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates list properties, returns updated list.
-        * @param request Request object
-        * @return ListResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates list properties, returns updated list.
+     * @param request Request object
+     * @return ListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ListResponse updateList(UpdateListRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ListResponse > resp = updateListWithHttpInfo(request);
@@ -26367,11 +27129,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates list properties, returns updated list.
-        * @param request Request object
-        * @return ApiResponse< ListResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates list properties, returns updated list.
+     * @param request Request object
+     * @return ApiResponse< ListResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ListResponse > updateListWithHttpInfo(UpdateListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateListValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
@@ -26379,12 +27142,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates list properties, returns updated list. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates list properties, returns updated list. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateListAsync(UpdateListRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -26418,6 +27182,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateListLevelCall(UpdateListLevelRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getListUpdate();
@@ -26496,11 +27261,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates list level in document list, returns updated list.
-        * @param request Request object
-        * @return ListResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates list level in document list, returns updated list.
+     * @param request Request object
+     * @return ListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ListResponse updateListLevel(UpdateListLevelRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ListResponse > resp = updateListLevelWithHttpInfo(request);
@@ -26517,11 +27283,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates list level in document list, returns updated list.
-        * @param request Request object
-        * @return ApiResponse< ListResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates list level in document list, returns updated list.
+     * @param request Request object
+     * @return ApiResponse< ListResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ListResponse > updateListLevelWithHttpInfo(UpdateListLevelRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateListLevelValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
@@ -26529,12 +27296,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates list level in document list, returns updated list. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates list level in document list, returns updated list. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateListLevelAsync(UpdateListLevelRequest request, final ApiCallback< ListResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -26568,6 +27336,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateParagraphFormatCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDto();
@@ -26646,11 +27415,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph format properties, returns updated format properties.
-        * @param request Request object
-        * @return ParagraphFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates paragraph format properties, returns updated format properties.
+     * @param request Request object
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphFormatResponse updateParagraphFormat(UpdateParagraphFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphFormatResponse > resp = updateParagraphFormatWithHttpInfo(request);
@@ -26667,11 +27437,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph format properties, returns updated format properties.
-        * @param request Request object
-        * @return ApiResponse< ParagraphFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates paragraph format properties, returns updated format properties.
+     * @param request Request object
+     * @return ApiResponse< ParagraphFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphFormatResponse > updateParagraphFormatWithHttpInfo(UpdateParagraphFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
@@ -26679,12 +27450,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph format properties, returns updated format properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates paragraph format properties, returns updated format properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateParagraphFormatAsync(UpdateParagraphFormatRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -26718,6 +27490,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateParagraphFormatWithoutNodePathCall(UpdateParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDto();
@@ -26790,11 +27563,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph format properties, returns updated format properties.
-        * @param request Request object
-        * @return ParagraphFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates paragraph format properties, returns updated format properties.
+     * @param request Request object
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphFormatResponse updateParagraphFormatWithoutNodePath(UpdateParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphFormatResponse > resp = updateParagraphFormatWithoutNodePathWithHttpInfo(request);
@@ -26811,11 +27585,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph format properties, returns updated format properties.
-        * @param request Request object
-        * @return ApiResponse< ParagraphFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates paragraph format properties, returns updated format properties.
+     * @param request Request object
+     * @return ApiResponse< ParagraphFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphFormatResponse > updateParagraphFormatWithoutNodePathWithHttpInfo(UpdateParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateParagraphFormatWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
@@ -26823,12 +27598,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph format properties, returns updated format properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates paragraph format properties, returns updated format properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateParagraphFormatWithoutNodePathAsync(UpdateParagraphFormatWithoutNodePathRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -26862,6 +27638,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateParagraphListFormatCall(UpdateParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDto();
@@ -26940,11 +27717,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph list format properties, returns updated list format properties.
-        * @param request Request object
-        * @return ParagraphListFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates paragraph list format properties, returns updated list format properties.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphListFormatResponse updateParagraphListFormat(UpdateParagraphListFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = updateParagraphListFormatWithHttpInfo(request);
@@ -26961,11 +27739,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph list format properties, returns updated list format properties.
-        * @param request Request object
-        * @return ApiResponse< ParagraphListFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates paragraph list format properties, returns updated list format properties.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphListFormatResponse > updateParagraphListFormatWithHttpInfo(UpdateParagraphListFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateParagraphListFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
@@ -26973,12 +27752,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph list format properties, returns updated list format properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates paragraph list format properties, returns updated list format properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateParagraphListFormatAsync(UpdateParagraphListFormatRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -27012,6 +27792,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathCall(UpdateParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getDto();
@@ -27084,11 +27865,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph list format properties, returns updated list format properties.
-        * @param request Request object
-        * @return ParagraphListFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates paragraph list format properties, returns updated list format properties.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public ParagraphListFormatResponse updateParagraphListFormatWithoutNodePath(UpdateParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< ParagraphListFormatResponse > resp = updateParagraphListFormatWithoutNodePathWithHttpInfo(request);
@@ -27105,11 +27887,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph list format properties, returns updated list format properties.
-        * @param request Request object
-        * @return ApiResponse< ParagraphListFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates paragraph list format properties, returns updated list format properties.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< ParagraphListFormatResponse > updateParagraphListFormatWithoutNodePathWithHttpInfo(UpdateParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
@@ -27117,12 +27900,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates paragraph list format properties, returns updated list format properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates paragraph list format properties, returns updated list format properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathAsync(UpdateParagraphListFormatWithoutNodePathRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -27156,6 +27940,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateRunCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getRun();
@@ -27234,11 +28019,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates run's properties, returns updated run's data.
-        * @param request Request object
-        * @return RunResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates run's properties, returns updated run's data.
+     * @param request Request object
+     * @return RunResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public RunResponse updateRun(UpdateRunRequest request) throws ApiException, IOException {
         try {
             ApiResponse< RunResponse > resp = updateRunWithHttpInfo(request);
@@ -27255,11 +28041,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates run's properties, returns updated run's data.
-        * @param request Request object
-        * @return ApiResponse< RunResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates run's properties, returns updated run's data.
+     * @param request Request object
+     * @return ApiResponse< RunResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< RunResponse > updateRunWithHttpInfo(UpdateRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
@@ -27267,12 +28054,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates run's properties, returns updated run's data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates run's properties, returns updated run's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateRunAsync(UpdateRunRequest request, final ApiCallback< RunResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -27306,6 +28094,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateRunFontCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFontDto();
@@ -27384,11 +28173,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates font properties, returns updated font data.
-        * @param request Request object
-        * @return FontResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates font properties, returns updated font data.
+     * @param request Request object
+     * @return FontResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FontResponse updateRunFont(UpdateRunFontRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FontResponse > resp = updateRunFontWithHttpInfo(request);
@@ -27405,11 +28195,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates font properties, returns updated font data.
-        * @param request Request object
-        * @return ApiResponse< FontResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates font properties, returns updated font data.
+     * @param request Request object
+     * @return ApiResponse< FontResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FontResponse > updateRunFontWithHttpInfo(UpdateRunFontRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FontResponse >() { }.getType();
@@ -27417,12 +28208,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates font properties, returns updated font data. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates font properties, returns updated font data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateRunFontAsync(UpdateRunFontRequest request, final ApiCallback< FontResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -27456,6 +28248,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateSectionPageSetupCall(UpdateSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getPageSetup();
@@ -27528,11 +28321,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates page setup of section.
-        * @param request Request object
-        * @return SectionPageSetupResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates page setup of section.
+     * @param request Request object
+     * @return SectionPageSetupResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public SectionPageSetupResponse updateSectionPageSetup(UpdateSectionPageSetupRequest request) throws ApiException, IOException {
         try {
             ApiResponse< SectionPageSetupResponse > resp = updateSectionPageSetupWithHttpInfo(request);
@@ -27549,11 +28343,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates page setup of section.
-        * @param request Request object
-        * @return ApiResponse< SectionPageSetupResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates page setup of section.
+     * @param request Request object
+     * @return ApiResponse< SectionPageSetupResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< SectionPageSetupResponse > updateSectionPageSetupWithHttpInfo(UpdateSectionPageSetupRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateSectionPageSetupValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< SectionPageSetupResponse >() { }.getType();
@@ -27561,12 +28356,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates page setup of section. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates page setup of section. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateSectionPageSetupAsync(UpdateSectionPageSetupRequest request, final ApiCallback< SectionPageSetupResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -27600,6 +28396,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateStyleCall(UpdateStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getStyleUpdate();
@@ -27672,11 +28469,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates style properties, returns an updated style.
-        * @param request Request object
-        * @return StyleResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates style properties, returns an updated style.
+     * @param request Request object
+     * @return StyleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public StyleResponse updateStyle(UpdateStyleRequest request) throws ApiException, IOException {
         try {
             ApiResponse< StyleResponse > resp = updateStyleWithHttpInfo(request);
@@ -27693,11 +28491,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates style properties, returns an updated style.
-        * @param request Request object
-        * @return ApiResponse< StyleResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates style properties, returns an updated style.
+     * @param request Request object
+     * @return ApiResponse< StyleResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< StyleResponse > updateStyleWithHttpInfo(UpdateStyleRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateStyleValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
@@ -27705,12 +28504,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates style properties, returns an updated style. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates style properties, returns an updated style. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateStyleAsync(UpdateStyleRequest request, final ApiCallback< StyleResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -27744,6 +28544,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateTableCellFormatCall(UpdateTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormat();
@@ -27822,11 +28623,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table cell format.
-        * @param request Request object
-        * @return TableCellFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates a table cell format.
+     * @param request Request object
+     * @return TableCellFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableCellFormatResponse updateTableCellFormat(UpdateTableCellFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableCellFormatResponse > resp = updateTableCellFormatWithHttpInfo(request);
@@ -27843,11 +28645,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table cell format.
-        * @param request Request object
-        * @return ApiResponse< TableCellFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates a table cell format.
+     * @param request Request object
+     * @return ApiResponse< TableCellFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableCellFormatResponse > updateTableCellFormatWithHttpInfo(UpdateTableCellFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTableCellFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableCellFormatResponse >() { }.getType();
@@ -27855,12 +28658,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table cell format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates a table cell format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateTableCellFormatAsync(UpdateTableCellFormatRequest request, final ApiCallback< TableCellFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -27894,6 +28698,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateTablePropertiesCall(UpdateTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProperties();
@@ -27972,11 +28777,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table properties.
-        * @param request Request object
-        * @return TablePropertiesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates a table properties.
+     * @param request Request object
+     * @return TablePropertiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TablePropertiesResponse updateTableProperties(UpdateTablePropertiesRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TablePropertiesResponse > resp = updateTablePropertiesWithHttpInfo(request);
@@ -27993,11 +28799,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table properties.
-        * @param request Request object
-        * @return ApiResponse< TablePropertiesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates a table properties.
+     * @param request Request object
+     * @return ApiResponse< TablePropertiesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TablePropertiesResponse > updateTablePropertiesWithHttpInfo(UpdateTablePropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
@@ -28005,12 +28812,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates a table properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateTablePropertiesAsync(UpdateTablePropertiesRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -28044,6 +28852,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathCall(UpdateTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getProperties();
@@ -28116,11 +28925,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table properties.
-        * @param request Request object
-        * @return TablePropertiesResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates a table properties.
+     * @param request Request object
+     * @return TablePropertiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TablePropertiesResponse updateTablePropertiesWithoutNodePath(UpdateTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TablePropertiesResponse > resp = updateTablePropertiesWithoutNodePathWithHttpInfo(request);
@@ -28137,11 +28947,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table properties.
-        * @param request Request object
-        * @return ApiResponse< TablePropertiesResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates a table properties.
+     * @param request Request object
+     * @return ApiResponse< TablePropertiesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TablePropertiesResponse > updateTablePropertiesWithoutNodePathWithHttpInfo(UpdateTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesWithoutNodePathValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
@@ -28149,12 +28960,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table properties. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates a table properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathAsync(UpdateTablePropertiesWithoutNodePathRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -28188,6 +29000,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call updateTableRowFormatCall(UpdateTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = request.getFormat();
@@ -28266,11 +29079,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table row format.
-        * @param request Request object
-        * @return TableRowFormatResponse
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates a table row format.
+     * @param request Request object
+     * @return TableRowFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public TableRowFormatResponse updateTableRowFormat(UpdateTableRowFormatRequest request) throws ApiException, IOException {
         try {
             ApiResponse< TableRowFormatResponse > resp = updateTableRowFormatWithHttpInfo(request);
@@ -28287,11 +29101,12 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table row format.
-        * @param request Request object
-        * @return ApiResponse< TableRowFormatResponse >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Updates a table row format.
+     * @param request Request object
+     * @return ApiResponse< TableRowFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< TableRowFormatResponse > updateTableRowFormatWithHttpInfo(UpdateTableRowFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTableRowFormatValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< TableRowFormatResponse >() { }.getType();
@@ -28299,12 +29114,13 @@ public class WordsApi {
     }
 
     /**
-        * Updates a table row format. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Updates a table row format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call updateTableRowFormatAsync(UpdateTableRowFormatRequest request, final ApiCallback< TableRowFormatResponse > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
@@ -28338,6 +29154,7 @@ public class WordsApi {
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     private com.squareup.okhttp.Call uploadFileCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Object localVarPostBody = null;
@@ -28400,11 +29217,12 @@ public class WordsApi {
     }
 
     /**
-        * Upload file.
-        * @param request Request object
-        * @return FilesUploadResult
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Upload file.
+     * @param request Request object
+     * @return FilesUploadResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     public FilesUploadResult uploadFile(UploadFileRequest request) throws ApiException, IOException {
         try {
             ApiResponse< FilesUploadResult > resp = uploadFileWithHttpInfo(request);
@@ -28421,11 +29239,12 @@ public class WordsApi {
     }
 
     /**
-        * Upload file.
-        * @param request Request object
-        * @return ApiResponse< FilesUploadResult >;
-        * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-        */
+     * Upload file.
+     * @param request Request object
+     * @return ApiResponse< FilesUploadResult >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
     private ApiResponse< FilesUploadResult > uploadFileWithHttpInfo(UploadFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, null, null);
         Type localVarReturnType = new TypeToken< FilesUploadResult >() { }.getType();
@@ -28433,12 +29252,13 @@ public class WordsApi {
     }
 
     /**
-        * Upload file. (asynchronously)
-        * @param request Request object
-        * @param callback The callback to be executed when the API call finishes
-        * @return The request call
-        * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-        */
+     * Upload file. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
     public com.squareup.okhttp.Call uploadFileAsync(UploadFileRequest request, final ApiCallback< FilesUploadResult > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;

@@ -882,6 +882,7 @@ public class ApiClient {
      * @param progressRequestListener Progress request listener
      * @return The HTTP call
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener);
@@ -903,6 +904,7 @@ public class ApiClient {
      * @param progressRequestListener Progress request listener
      * @return The HTTP request 
      * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
      */
     public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         addOAuthAuthentication(headerParams);
@@ -1040,6 +1042,7 @@ public class ApiClient {
      * which could contain text fields and file fields.
      *
      * @param formParams Form parameters in the form of Map
+     * @throws IOException If fail to serialize the request body object
      * @return RequestBody
      */
     public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) throws IOException {
@@ -1064,7 +1067,7 @@ public class ApiClient {
      *
      * @param file The given file
      * @return The guessed Content-Type
-     * @throw IOException If is failed
+     * @throws IOException If fail to serialize the request body object
      */
     public String guessContentTypeFromFile(byte[] file) throws IOException {
         String contentType = URLConnection.guessContentTypeFromStream(new ByteArrayInputStream(file));
@@ -1078,7 +1081,7 @@ public class ApiClient {
 
      /**
      * Request OAuth token
-     @throw ApiException If authorization is failed
+     @throws ApiException If authorization is failed
      */
     public void requestToken() throws ApiException {
         try {
