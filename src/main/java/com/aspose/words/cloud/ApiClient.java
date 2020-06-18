@@ -1064,6 +1064,7 @@ public class ApiClient {
      *
      * @param file The given file
      * @return The guessed Content-Type
+     * @throw IOException If is failed
      */
     public String guessContentTypeFromFile(byte[] file) throws IOException {
         String contentType = URLConnection.guessContentTypeFromStream(new ByteArrayInputStream(file));
