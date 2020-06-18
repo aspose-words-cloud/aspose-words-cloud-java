@@ -62,6 +62,7 @@ public class ApiClient {
     private Interceptor loggingInterceptor;
 
     private String accessToken;
+    private String refreshToken;
     private String appKey;
     private String appSid;
 
@@ -238,6 +239,17 @@ public class ApiClient {
      */
     public ApiClient setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+        return this;
+    }
+
+    /**
+     * Set refresh token for the OAuth2 authentication.
+     *
+     * @param refreshToken Access token
+     * @return An instance of OkHttpClient
+     */
+    public ApiClient setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
         return this;
     }
 
@@ -799,7 +811,7 @@ public class ApiClient {
             }
 
             @Override
-            public void onResponse(Response response) {
+            public void onResponse(Response response) throws IOException {
                 T result;
                 try {
                     result = (T) handleResponse(response, returnType);
@@ -871,7 +883,7 @@ public class ApiClient {
      * @return The HTTP call
      * @throws ApiException If fail to serialize the request body object
      */
-    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener);
 
         return httpClient.newCall(request);
@@ -892,7 +904,7 @@ public class ApiClient {
      * @return The HTTP request 
      * @throws ApiException If fail to serialize the request body object
      */
-    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
         addOAuthAuthentication(headerParams);
         final String url = buildUrl(path, queryParams, collectionQueryParams);
         final Request.Builder reqBuilder = new Request.Builder().url(url);
@@ -1030,7 +1042,7 @@ public class ApiClient {
      * @param formParams Form parameters in the form of Map
      * @return RequestBody
      */
-    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) {
+    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) throws IOException {
         MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
         for (Entry<String, Object> param : formParams.entrySet()) {
             if (param.getValue() instanceof byte[]) {
@@ -1053,14 +1065,8 @@ public class ApiClient {
      * @param file The given file
      * @return The guessed Content-Type
      */
-    public String guessContentTypeFromFile(byte[] file)  {
-        String contentType = null;
-        try {
-            contentType = URLConnection.guessContentTypeFromStream(new ByteArrayInputStream(file));
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+    public String guessContentTypeFromFile(byte[] file) throws IOException {
+        String contentType = URLConnection.guessContentTypeFromStream(new ByteArrayInputStream(file));
         if (contentType == null) {
             return "application/octet-stream";
         } 
