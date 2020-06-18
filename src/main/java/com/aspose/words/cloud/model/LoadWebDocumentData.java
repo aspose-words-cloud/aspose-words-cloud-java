@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="LoadWebDocumentData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,60 +47,60 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Contains data for load web document.")
 public class LoadWebDocumentData {
-  @SerializedName("LoadingDocumentUrl")
-  private String loadingDocumentUrl = null;
+    @SerializedName("LoadingDocumentUrl")
+    private String loadingDocumentUrl = null;
 
-  @SerializedName("SaveOptions")
-  private SaveOptionsData saveOptions = null;
-
-  public LoadWebDocumentData loadingDocumentUrl(String loadingDocumentUrl) {
-    this.loadingDocumentUrl = loadingDocumentUrl;
-    return this;
-  }
-
-   /**
-   * Gets or sets web document url.
-   * @return loadingDocumentUrl
-  **/
-  @ApiModelProperty(value = "Gets or sets web document url.")
-  public String getLoadingDocumentUrl() {
-    return loadingDocumentUrl;
-  }
-
-  public void setLoadingDocumentUrl(String loadingDocumentUrl) {
-    this.loadingDocumentUrl = loadingDocumentUrl;
-  }
-
-  public LoadWebDocumentData saveOptions(SaveOptionsData saveOptions) {
-    this.saveOptions = saveOptions;
-    return this;
-  }
-
-   /**
-   * Get saveOptions
-   * @return saveOptions
-  **/
-  @ApiModelProperty(value = "")
-  public SaveOptionsData getSaveOptions() {
-    return saveOptions;
-  }
-
-  public void setSaveOptions(SaveOptionsData saveOptions) {
-    this.saveOptions = saveOptions;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("SaveOptions")
+    private SaveOptionsData saveOptions = null;
+    public LoadWebDocumentData loadingDocumentUrl(String loadingDocumentUrl) {
+        this.loadingDocumentUrl = loadingDocumentUrl;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets web document url.
+    * @return loadingDocumentUrl
+    **/
+    @ApiModelProperty(value = "Gets or sets web document url.")
+    public String getLoadingDocumentUrl() {
+        return loadingDocumentUrl;
     }
-    LoadWebDocumentData loadWebDocumentData = (LoadWebDocumentData) o;
-    return Objects.equals(this.loadingDocumentUrl, loadWebDocumentData.loadingDocumentUrl) &&
-        Objects.equals(this.saveOptions, loadWebDocumentData.saveOptions);
+
+    public void setLoadingDocumentUrl(String loadingDocumentUrl) {
+        this.loadingDocumentUrl = loadingDocumentUrl;
+    }
+
+    public LoadWebDocumentData saveOptions(SaveOptionsData saveOptions) {
+        this.saveOptions = saveOptions;
+        return this;
+    }
+
+    /**
+     * Gets or sets save options.
+    * @return saveOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets save options.")
+    public SaveOptionsData getSaveOptions() {
+        return saveOptions;
+    }
+
+    public void setSaveOptions(SaveOptionsData saveOptions) {
+        this.saveOptions = saveOptions;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        LoadWebDocumentData loadWebDocumentData = (LoadWebDocumentData) o;
+        return
+            Objects.equals(this.loadingDocumentUrl, loadWebDocumentData.loadingDocumentUrl) &&
+            Objects.equals(this.saveOptions, loadWebDocumentData.saveOptions);
   }
 
   @Override
@@ -108,12 +108,10 @@ public class LoadWebDocumentData {
     return Objects.hash(loadingDocumentUrl, saveOptions);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoadWebDocumentData {\n");
-    
     sb.append("    loadingDocumentUrl: ").append(toIndentedString(loadingDocumentUrl)).append("\n");
     sb.append("    saveOptions: ").append(toIndentedString(saveOptions)).append("\n");
     sb.append("}");
@@ -130,6 +128,4 @@ public class LoadWebDocumentData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

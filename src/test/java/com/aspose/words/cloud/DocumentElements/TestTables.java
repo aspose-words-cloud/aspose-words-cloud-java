@@ -325,9 +325,9 @@ public void testInsertTable() throws ApiException, IOException {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        InsertTableRequest request = new InsertTableRequest(remoteName, "",
+        InsertTableRequest request = new InsertTableRequest(remoteName, body, "",
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null, body);
+                null, null, null, null);
 
         TableResponse result = TestInitializer.wordsApi.insertTable(request);
         assertNotNull(result);
@@ -344,9 +344,9 @@ public void testInsertTableWithoutNodePath() throws ApiException, IOException {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        InsertTableWithoutNodePathRequest request = new InsertTableWithoutNodePathRequest(remoteName,
+        InsertTableWithoutNodePathRequest request = new InsertTableWithoutNodePathRequest(remoteName, body,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null, body);
+                null, null, null, null);
 
         TableResponse result = TestInitializer.wordsApi.insertTableWithoutNodePath(request);
         assertNotNull(result);
@@ -364,9 +364,9 @@ public void testInsertTableCell() throws ApiException, IOException {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        InsertTableCellRequest request = new InsertTableCellRequest(remoteName, sourcePath,
+        InsertTableCellRequest request = new InsertTableCellRequest(remoteName, body, sourcePath,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null, body);
+                null, null, null, null);
 
         TableCellResponse result = TestInitializer.wordsApi.insertTableCell(request);
         assertNotNull(result);
@@ -384,9 +384,9 @@ public void testInsertTableRow() throws ApiException, IOException {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        InsertTableRowRequest request = new InsertTableRowRequest(remoteName, sourcePath,
+        InsertTableRowRequest request = new InsertTableRowRequest(remoteName, body, sourcePath,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null, body);
+                null, null, null, null);
 
         TableRowResponse result = TestInitializer.wordsApi.insertTableRow(request);
         assertNotNull(result);
@@ -444,9 +444,9 @@ public void testUpdateTableCellFormat() throws ApiException, IOException {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        UpdateTableCellFormatRequest request = new UpdateTableCellFormatRequest(remoteName, sourcePath, index,
+        UpdateTableCellFormatRequest request = new UpdateTableCellFormatRequest(remoteName, body, sourcePath, index,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null, body);
+                null, null, null, null);
 
         TableCellFormatResponse result = TestInitializer.wordsApi.updateTableCellFormat(request);
         assertNotNull(result);
@@ -504,9 +504,9 @@ public void testUpdateTableProperties() throws ApiException, IOException {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(remoteName, "", index,
+        UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(remoteName, body,"", index,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null, body);
+                null, null, null, null);
 
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTableProperties(request);
         assertNotNull(result);
@@ -526,9 +526,9 @@ public void testUpdateTablePropertiesWithoutNodePath() throws ApiException, IOEx
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        UpdateTablePropertiesWithoutNodePathRequest request = new UpdateTablePropertiesWithoutNodePathRequest(remoteName, index,
+        UpdateTablePropertiesWithoutNodePathRequest request = new UpdateTablePropertiesWithoutNodePathRequest(remoteName, body, index,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null, body);
+                null, null, null, null);
 
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTablePropertiesWithoutNodePath(request);
         assertNotNull(result);
@@ -548,9 +548,9 @@ public void testUpdateTableRowFormat() throws ApiException, IOException {
 
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalTestFolder, testFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
-        UpdateTableRowFormatRequest request = new UpdateTableRowFormatRequest(remoteName, sourcePath, index,
+        UpdateTableRowFormatRequest request = new UpdateTableRowFormatRequest(remoteName, body, sourcePath, index,
                 PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null, body);
+                null, null, null, null);
 
         TableRowFormatResponse result = TestInitializer.wordsApi.updateTableRowFormat(request);
         assertNotNull(result);

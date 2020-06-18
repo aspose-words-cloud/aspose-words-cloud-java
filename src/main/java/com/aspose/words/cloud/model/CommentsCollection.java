@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="CommentsCollection.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Collection of comments.")
 public class CommentsCollection extends LinkElement {
-  @SerializedName("CommentList")
-  private List<Comment> commentList = null;
-
-  public CommentsCollection commentList(List<Comment> commentList) {
-    this.commentList = commentList;
-    return this;
-  }
-
-  public CommentsCollection addCommentListItem(Comment commentListItem) {
-    if (this.commentList == null) {
-      this.commentList = new ArrayList<Comment>();
+    @SerializedName("CommentList")
+    private List<Comment> commentList = null;
+    public CommentsCollection commentList(List<Comment> commentList) {
+        this.commentList = commentList;
+        return this;
     }
-    this.commentList.add(commentListItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of comments.
-   * @return commentList
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of comments.")
-  public List<Comment> getCommentList() {
-    return commentList;
-  }
-
-  public void setCommentList(List<Comment> commentList) {
-    this.commentList = commentList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public CommentsCollection addCommentListItem(Comment commentListItem) {
+        if (this.commentList == null) {
+            this.commentList = new ArrayList<Comment>();
+        }
+        this.commentList.add(commentListItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of comments.
+    * @return commentList
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of comments.")
+    public List<Comment> getCommentList() {
+        return commentList;
     }
-    CommentsCollection commentsCollection = (CommentsCollection) o;
-    return Objects.equals(this.commentList, commentsCollection.commentList) &&
-        super.equals(o);
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        CommentsCollection commentsCollection = (CommentsCollection) o;
+        return
+            Objects.equals(this.commentList, commentsCollection.commentList) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(commentList, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class CommentsCollection extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

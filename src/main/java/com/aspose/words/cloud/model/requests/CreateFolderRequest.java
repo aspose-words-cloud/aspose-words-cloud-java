@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CreateFolderRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -33,51 +35,51 @@ import java.io.File;
  */
 public class CreateFolderRequest {
     /*
-     * Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
+     * Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
      */
-    private String Path;
+    private String path;
 
     /*
-     * Storage name
+     * Storage name.
      */
-    private String StorageName;
-    
+    private String storageName;
+
     /*
-     * Initializes a new instance of the createFolderRequest class.
-     *  
-     * @param String path Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
-     * @param String storageName Storage name
+     * Initializes a new instance of the CreateFolderRequest class.
+     *
+     * @param String path Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
+     * @param String storageName Storage name.
      */
-    public CreateFolderRequest(String path,  String storageName) {
-        Path = path;
-        StorageName = storageName;
+    public CreateFolderRequest(String path, String storageName) {
+        this.path = path;
+        this.storageName = storageName;
     }
 
     /*
-     *  Gets Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
+     * Gets Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
      */
     public String getPath() {
-        return Path;
+        return this.path;
     }
 
     /*
-     * Sets Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
+     * Sets Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
      */
     public void setPath(String value) {
-        Path = value;
+        this.path = value;
     }
 
     /*
-     *  Gets Storage name
+     * Gets Storage name.
      */
     public String getStorageName() {
-        return StorageName;
+        return this.storageName;
     }
 
     /*
-     * Sets Storage name
+     * Sets Storage name.
      */
     public void setStorageName(String value) {
-        StorageName = value;
+        this.storageName = value;
     }
 }

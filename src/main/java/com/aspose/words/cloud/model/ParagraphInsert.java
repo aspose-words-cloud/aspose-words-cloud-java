@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ParagraphInsert.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,38 +47,38 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Paragraph element.")
 public class ParagraphInsert {
-  @SerializedName("Text")
-  private String text = null;
-
-  public ParagraphInsert text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Gets or sets paragraph&#39;s text.
-   * @return text
-  **/
-  @ApiModelProperty(value = "Gets or sets paragraph's text.")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Text")
+    private String text = null;
+    public ParagraphInsert text(String text) {
+        this.text = text;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets paragraph's text.
+    * @return text
+    **/
+    @ApiModelProperty(value = "Gets or sets paragraph's text.")
+    public String getText() {
+        return text;
     }
-    ParagraphInsert paragraphInsert = (ParagraphInsert) o;
-    return Objects.equals(this.text, paragraphInsert.text);
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ParagraphInsert paragraphInsert = (ParagraphInsert) o;
+        return
+            Objects.equals(this.text, paragraphInsert.text);
   }
 
   @Override
@@ -86,12 +86,10 @@ public class ParagraphInsert {
     return Objects.hash(text);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParagraphInsert {\n");
-    
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -107,6 +105,4 @@ public class ParagraphInsert {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

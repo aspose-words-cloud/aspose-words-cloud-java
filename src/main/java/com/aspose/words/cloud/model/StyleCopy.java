@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StyleCopy.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,38 +47,38 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a single document style to insert.")
 public class StyleCopy {
-  @SerializedName("StyleName")
-  private String styleName = null;
-
-  public StyleCopy styleName(String styleName) {
-    this.styleName = styleName;
-    return this;
-  }
-
-   /**
-   * Gets or sets the case sensitive name of the style to copy from it.
-   * @return styleName
-  **/
-  @ApiModelProperty(value = "Gets or sets the case sensitive name of the style to copy from it.")
-  public String getStyleName() {
-    return styleName;
-  }
-
-  public void setStyleName(String styleName) {
-    this.styleName = styleName;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("StyleName")
+    private String styleName = null;
+    public StyleCopy styleName(String styleName) {
+        this.styleName = styleName;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the case sensitive name of the style to copy from it.
+    * @return styleName
+    **/
+    @ApiModelProperty(value = "Gets or sets the case sensitive name of the style to copy from it.")
+    public String getStyleName() {
+        return styleName;
     }
-    StyleCopy styleCopy = (StyleCopy) o;
-    return Objects.equals(this.styleName, styleCopy.styleName);
+
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        StyleCopy styleCopy = (StyleCopy) o;
+        return
+            Objects.equals(this.styleName, styleCopy.styleName);
   }
 
   @Override
@@ -86,12 +86,10 @@ public class StyleCopy {
     return Objects.hash(styleName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleCopy {\n");
-    
     sb.append("    styleName: ").append(toIndentedString(styleName)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -107,6 +105,4 @@ public class StyleCopy {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

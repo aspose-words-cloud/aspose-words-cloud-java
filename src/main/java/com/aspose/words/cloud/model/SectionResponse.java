@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SectionResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}.")
 public class SectionResponse extends WordsResponse {
-  @SerializedName("Section")
-  private Section section = null;
-
-  public SectionResponse section(Section section) {
-    this.section = section;
-    return this;
-  }
-
-   /**
-   * Get section
-   * @return section
-  **/
-  @ApiModelProperty(value = "")
-  public Section getSection() {
-    return section;
-  }
-
-  public void setSection(Section section) {
-    this.section = section;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Section")
+    private Section section = null;
+    public SectionResponse section(Section section) {
+        this.section = section;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets section.
+    * @return section
+    **/
+    @ApiModelProperty(value = "Gets or sets section.")
+    public Section getSection() {
+        return section;
     }
-    SectionResponse sectionResponse = (SectionResponse) o;
-    return Objects.equals(this.section, sectionResponse.section) &&
-        super.equals(o);
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SectionResponse sectionResponse = (SectionResponse) o;
+        return
+            Objects.equals(this.section, sectionResponse.section) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(section, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class SectionResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

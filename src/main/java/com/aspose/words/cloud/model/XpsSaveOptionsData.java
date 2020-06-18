@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="XpsSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,112 +47,111 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for xps save options.")
 public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("BookmarksOutlineLevel")
-  private Integer bookmarksOutlineLevel = null;
+    @SerializedName("BookmarksOutlineLevel")
+    private Integer bookmarksOutlineLevel = null;
 
-  @SerializedName("HeadingsOutlineLevels")
-  private Integer headingsOutlineLevels = null;
+    @SerializedName("HeadingsOutlineLevels")
+    private Integer headingsOutlineLevels = null;
 
-  @SerializedName("OutlineOptions")
-  private OutlineOptionsData outlineOptions = null;
+    @SerializedName("OutlineOptions")
+    private OutlineOptionsData outlineOptions = null;
 
-  @SerializedName("UseBookFoldPrintingSettings")
-  private Boolean useBookFoldPrintingSettings = null;
-
-  public XpsSaveOptionsData bookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
-    this.bookmarksOutlineLevel = bookmarksOutlineLevel;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
-   * @return bookmarksOutlineLevel
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.")
-  public Integer getBookmarksOutlineLevel() {
-    return bookmarksOutlineLevel;
-  }
-
-  public void setBookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
-    this.bookmarksOutlineLevel = bookmarksOutlineLevel;
-  }
-
-  public XpsSaveOptionsData headingsOutlineLevels(Integer headingsOutlineLevels) {
-    this.headingsOutlineLevels = headingsOutlineLevels;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
-   * @return headingsOutlineLevels
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.")
-  public Integer getHeadingsOutlineLevels() {
-    return headingsOutlineLevels;
-  }
-
-  public void setHeadingsOutlineLevels(Integer headingsOutlineLevels) {
-    this.headingsOutlineLevels = headingsOutlineLevels;
-  }
-
-  public XpsSaveOptionsData outlineOptions(OutlineOptionsData outlineOptions) {
-    this.outlineOptions = outlineOptions;
-    return this;
-  }
-
-   /**
-   * Get outlineOptions
-   * @return outlineOptions
-  **/
-  @ApiModelProperty(value = "")
-  public OutlineOptionsData getOutlineOptions() {
-    return outlineOptions;
-  }
-
-  public void setOutlineOptions(OutlineOptionsData outlineOptions) {
-    this.outlineOptions = outlineOptions;
-  }
-
-  public XpsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
-    this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-    return this;
-  }
-
-   /**
-   * Gets or sets determines whether the document should be saved using a booklet printing layout.
-   * @return useBookFoldPrintingSettings
-  **/
-  @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
-  public Boolean isUseBookFoldPrintingSettings() {
-    return useBookFoldPrintingSettings;
-  }
-
-  public void setUseBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
-    this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("UseBookFoldPrintingSettings")
+    private Boolean useBookFoldPrintingSettings = null;
+    public XpsSaveOptionsData bookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
+        this.bookmarksOutlineLevel = bookmarksOutlineLevel;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
+    * @return bookmarksOutlineLevel
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.")
+    public Integer getBookmarksOutlineLevel() {
+        return bookmarksOutlineLevel;
     }
-    XpsSaveOptionsData xpsSaveOptionsData = (XpsSaveOptionsData) o;
-    return Objects.equals(this.bookmarksOutlineLevel, xpsSaveOptionsData.bookmarksOutlineLevel) &&
-        Objects.equals(this.headingsOutlineLevels, xpsSaveOptionsData.headingsOutlineLevels) &&
-        Objects.equals(this.outlineOptions, xpsSaveOptionsData.outlineOptions) &&
-        Objects.equals(this.useBookFoldPrintingSettings, xpsSaveOptionsData.useBookFoldPrintingSettings) &&
-        super.equals(o);
+
+    public void setBookmarksOutlineLevel(Integer bookmarksOutlineLevel) {
+        this.bookmarksOutlineLevel = bookmarksOutlineLevel;
+    }
+
+    public XpsSaveOptionsData headingsOutlineLevels(Integer headingsOutlineLevels) {
+        this.headingsOutlineLevels = headingsOutlineLevels;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
+    * @return headingsOutlineLevels
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.")
+    public Integer getHeadingsOutlineLevels() {
+        return headingsOutlineLevels;
+    }
+
+    public void setHeadingsOutlineLevels(Integer headingsOutlineLevels) {
+        this.headingsOutlineLevels = headingsOutlineLevels;
+    }
+
+    public XpsSaveOptionsData outlineOptions(OutlineOptionsData outlineOptions) {
+        this.outlineOptions = outlineOptions;
+        return this;
+    }
+
+    /**
+     * Gets or sets allows to specify outline options.
+    * @return outlineOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets allows to specify outline options.")
+    public OutlineOptionsData getOutlineOptions() {
+        return outlineOptions;
+    }
+
+    public void setOutlineOptions(OutlineOptionsData outlineOptions) {
+        this.outlineOptions = outlineOptions;
+    }
+
+    public XpsSaveOptionsData useBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
+        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+        return this;
+    }
+
+    /**
+     * Gets or sets determines whether the document should be saved using a booklet printing layout.
+    * @return useBookFoldPrintingSettings
+    **/
+    @ApiModelProperty(value = "Gets or sets determines whether the document should be saved using a booklet printing layout.")
+    public Boolean getUseBookFoldPrintingSettings() {
+        return useBookFoldPrintingSettings;
+    }
+
+    public void setUseBookFoldPrintingSettings(Boolean useBookFoldPrintingSettings) {
+        this.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        XpsSaveOptionsData xpsSaveOptionsData = (XpsSaveOptionsData) o;
+        return
+            Objects.equals(this.bookmarksOutlineLevel, xpsSaveOptionsData.bookmarksOutlineLevel) &&
+            Objects.equals(this.headingsOutlineLevels, xpsSaveOptionsData.headingsOutlineLevels) &&
+            Objects.equals(this.outlineOptions, xpsSaveOptionsData.outlineOptions) &&
+            Objects.equals(this.useBookFoldPrintingSettings, xpsSaveOptionsData.useBookFoldPrintingSettings) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(bookmarksOutlineLevel, headingsOutlineLevels, outlineOptions, useBookFoldPrintingSettings, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -177,6 +176,4 @@ public class XpsSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

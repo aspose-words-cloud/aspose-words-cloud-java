@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SearchResult.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,75 +47,73 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Result of search operation.")
 public class SearchResult {
-  @SerializedName("RangeStart")
-  private DocumentPosition rangeStart = null;
+    @SerializedName("RangeEnd")
+    private DocumentPosition rangeEnd = null;
 
-  @SerializedName("RangeEnd")
-  private DocumentPosition rangeEnd = null;
-
-  public SearchResult rangeStart(DocumentPosition rangeStart) {
-    this.rangeStart = rangeStart;
-    return this;
-  }
-
-   /**
-   * Get rangeStart
-   * @return rangeStart
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentPosition getRangeStart() {
-    return rangeStart;
-  }
-
-  public void setRangeStart(DocumentPosition rangeStart) {
-    this.rangeStart = rangeStart;
-  }
-
-  public SearchResult rangeEnd(DocumentPosition rangeEnd) {
-    this.rangeEnd = rangeEnd;
-    return this;
-  }
-
-   /**
-   * Get rangeEnd
-   * @return rangeEnd
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentPosition getRangeEnd() {
-    return rangeEnd;
-  }
-
-  public void setRangeEnd(DocumentPosition rangeEnd) {
-    this.rangeEnd = rangeEnd;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("RangeStart")
+    private DocumentPosition rangeStart = null;
+    public SearchResult rangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets link to result range end node.
+    * @return rangeEnd
+    **/
+    @ApiModelProperty(value = "Gets or sets link to result range end node.")
+    public DocumentPosition getRangeEnd() {
+        return rangeEnd;
     }
-    SearchResult searchResult = (SearchResult) o;
-    return Objects.equals(this.rangeStart, searchResult.rangeStart) &&
-        Objects.equals(this.rangeEnd, searchResult.rangeEnd);
+
+    public void setRangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+    }
+
+    public SearchResult rangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to result range start node.
+    * @return rangeStart
+    **/
+    @ApiModelProperty(value = "Gets or sets link to result range start node.")
+    public DocumentPosition getRangeStart() {
+        return rangeStart;
+    }
+
+    public void setRangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SearchResult searchResult = (SearchResult) o;
+        return
+            Objects.equals(this.rangeEnd, searchResult.rangeEnd) &&
+            Objects.equals(this.rangeStart, searchResult.rangeStart);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rangeStart, rangeEnd);
+    return Objects.hash(rangeEnd, rangeStart);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResult {\n");
-    
-    sb.append("    rangeStart: ").append(toIndentedString(rangeStart)).append("\n");
     sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
+    sb.append("    rangeStart: ").append(toIndentedString(rangeStart)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,6 +128,4 @@ public class SearchResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

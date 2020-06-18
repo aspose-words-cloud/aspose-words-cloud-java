@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ErrorDetails.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,79 +43,77 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * The error details
+ * The error details.
  */
-@ApiModel(description = "The error details")
+@ApiModel(description = "The error details.")
 public class ErrorDetails {
-  @SerializedName("RequestId")
-  private String requestId = null;
+    @SerializedName("ErrorDateTime")
+    private OffsetDateTime errorDateTime = null;
 
-  @SerializedName("ErrorDateTime")
-  private OffsetDateTime errorDateTime = null;
-
-  public ErrorDetails requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * The request id.
-   * @return requestId
-  **/
-  @ApiModelProperty(value = "The request id.")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
-  public ErrorDetails errorDateTime(OffsetDateTime errorDateTime) {
-    this.errorDateTime = errorDateTime;
-    return this;
-  }
-
-   /**
-   * Error datetime.
-   * @return errorDateTime
-  **/
-  @ApiModelProperty(value = "Error datetime.")
-  public OffsetDateTime getErrorDateTime() {
-    return errorDateTime;
-  }
-
-  public void setErrorDateTime(OffsetDateTime errorDateTime) {
-    this.errorDateTime = errorDateTime;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("RequestId")
+    private String requestId = null;
+    public ErrorDetails errorDateTime(OffsetDateTime errorDateTime) {
+        this.errorDateTime = errorDateTime;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Error datetime.
+    * @return errorDateTime
+    **/
+    @ApiModelProperty(value = "Error datetime.")
+    public OffsetDateTime getErrorDateTime() {
+        return errorDateTime;
     }
-    ErrorDetails errorDetails = (ErrorDetails) o;
-    return Objects.equals(this.requestId, errorDetails.requestId) &&
-        Objects.equals(this.errorDateTime, errorDetails.errorDateTime);
+
+    public void setErrorDateTime(OffsetDateTime errorDateTime) {
+        this.errorDateTime = errorDateTime;
+    }
+
+    public ErrorDetails requestId(String requestId) {
+        this.requestId = requestId;
+        return this;
+    }
+
+    /**
+     * The request id.
+    * @return requestId
+    **/
+    @ApiModelProperty(value = "The request id.")
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ErrorDetails errorDetails = (ErrorDetails) o;
+        return
+            Objects.equals(this.errorDateTime, errorDetails.errorDateTime) &&
+            Objects.equals(this.requestId, errorDetails.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, errorDateTime);
+    return Objects.hash(errorDateTime, requestId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorDetails {\n");
-    
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    errorDateTime: ").append(toIndentedString(errorDateTime)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,6 +128,4 @@ public class ErrorDetails {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

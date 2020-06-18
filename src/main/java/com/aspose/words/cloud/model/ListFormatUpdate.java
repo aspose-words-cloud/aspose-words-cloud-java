@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ListFormatUpdate.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,79 +43,77 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph list format element for update.             
+ * Paragraph list format element for update.
  */
-@ApiModel(description = "Paragraph list format element for update.             ")
+@ApiModel(description = "Paragraph list format element for update.")
 public class ListFormatUpdate {
-  @SerializedName("ListLevelNumber")
-  private Integer listLevelNumber = null;
+    @SerializedName("ListId")
+    private Integer listId = null;
 
-  @SerializedName("ListId")
-  private Integer listId = null;
-
-  public ListFormatUpdate listLevelNumber(Integer listLevelNumber) {
-    this.listLevelNumber = listLevelNumber;
-    return this;
-  }
-
-   /**
-   * Gets or sets the list level number (0 to 8) for the paragraph.
-   * @return listLevelNumber
-  **/
-  @ApiModelProperty(value = "Gets or sets the list level number (0 to 8) for the paragraph.")
-  public Integer getListLevelNumber() {
-    return listLevelNumber;
-  }
-
-  public void setListLevelNumber(Integer listLevelNumber) {
-    this.listLevelNumber = listLevelNumber;
-  }
-
-  public ListFormatUpdate listId(Integer listId) {
-    this.listId = listId;
-    return this;
-  }
-
-   /**
-   * Gets or sets the list id of this paragraph.
-   * @return listId
-  **/
-  @ApiModelProperty(value = "Gets or sets the list id of this paragraph.")
-  public Integer getListId() {
-    return listId;
-  }
-
-  public void setListId(Integer listId) {
-    this.listId = listId;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ListLevelNumber")
+    private Integer listLevelNumber = null;
+    public ListFormatUpdate listId(Integer listId) {
+        this.listId = listId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the list id of this paragraph.
+    * @return listId
+    **/
+    @ApiModelProperty(value = "Gets or sets the list id of this paragraph.")
+    public Integer getListId() {
+        return listId;
     }
-    ListFormatUpdate listFormatUpdate = (ListFormatUpdate) o;
-    return Objects.equals(this.listLevelNumber, listFormatUpdate.listLevelNumber) &&
-        Objects.equals(this.listId, listFormatUpdate.listId);
+
+    public void setListId(Integer listId) {
+        this.listId = listId;
+    }
+
+    public ListFormatUpdate listLevelNumber(Integer listLevelNumber) {
+        this.listLevelNumber = listLevelNumber;
+        return this;
+    }
+
+    /**
+     * Gets or sets the list level number (0 to 8) for the paragraph.
+    * @return listLevelNumber
+    **/
+    @ApiModelProperty(value = "Gets or sets the list level number (0 to 8) for the paragraph.")
+    public Integer getListLevelNumber() {
+        return listLevelNumber;
+    }
+
+    public void setListLevelNumber(Integer listLevelNumber) {
+        this.listLevelNumber = listLevelNumber;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ListFormatUpdate listFormatUpdate = (ListFormatUpdate) o;
+        return
+            Objects.equals(this.listId, listFormatUpdate.listId) &&
+            Objects.equals(this.listLevelNumber, listFormatUpdate.listLevelNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(listLevelNumber, listId);
+    return Objects.hash(listId, listLevelNumber);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListFormatUpdate {\n");
-    
-    sb.append("    listLevelNumber: ").append(toIndentedString(listLevelNumber)).append("\n");
     sb.append("    listId: ").append(toIndentedString(listId)).append("\n");
+    sb.append("    listLevelNumber: ").append(toIndentedString(listLevelNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,6 +128,4 @@ public class ListFormatUpdate {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

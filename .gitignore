@@ -25,3 +25,5 @@ build
 Settings/servercreds.json
 .classpath
 .project
+/aspose-words-cloud.iml
+/out.tmp

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Field.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,68 +47,67 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Field.")
 public class Field extends FieldLink {
-  @SerializedName("LocaleId")
-  private String localeId = null;
+    @SerializedName("LocaleId")
+    private String localeId = null;
 
-  @SerializedName("Result")
-  private String result = null;
-
-  public Field localeId(String localeId) {
-    this.localeId = localeId;
-    return this;
-  }
-
-   /**
-   * Gets or sets LCID of the field.
-   * @return localeId
-  **/
-  @ApiModelProperty(value = "Gets or sets LCID of the field.")
-  public String getLocaleId() {
-    return localeId;
-  }
-
-  public void setLocaleId(String localeId) {
-    this.localeId = localeId;
-  }
-
-  public Field result(String result) {
-    this.result = result;
-    return this;
-  }
-
-   /**
-   * Gets or sets field result.
-   * @return result
-  **/
-  @ApiModelProperty(value = "Gets or sets field result.")
-  public String getResult() {
-    return result;
-  }
-
-  public void setResult(String result) {
-    this.result = result;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Result")
+    private String result = null;
+    public Field localeId(String localeId) {
+        this.localeId = localeId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets LCID of the field.
+    * @return localeId
+    **/
+    @ApiModelProperty(value = "Gets or sets LCID of the field.")
+    public String getLocaleId() {
+        return localeId;
     }
-    Field field = (Field) o;
-    return Objects.equals(this.localeId, field.localeId) &&
-        Objects.equals(this.result, field.result) &&
-        super.equals(o);
+
+    public void setLocaleId(String localeId) {
+        this.localeId = localeId;
+    }
+
+    public Field result(String result) {
+        this.result = result;
+        return this;
+    }
+
+    /**
+     * Gets or sets field result.
+    * @return result
+    **/
+    @ApiModelProperty(value = "Gets or sets field result.")
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Field field = (Field) o;
+        return
+            Objects.equals(this.localeId, field.localeId) &&
+            Objects.equals(this.result, field.result) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(localeId, result, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -131,6 +130,4 @@ public class Field extends FieldLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

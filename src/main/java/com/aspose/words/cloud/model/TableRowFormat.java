@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableRowFormat.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,161 +47,158 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents all formatting for a table row.")
 public class TableRowFormat extends LinkElement {
-  @SerializedName("AllowBreakAcrossPages")
-  private Boolean allowBreakAcrossPages = null;
+    /**
+     * Gets or sets the rule for determining the height of the table row.
+     */
+    @JsonAdapter(HeightRuleEnum.Adapter.class)
+    public enum HeightRuleEnum {
+        ATLEAST("AtLeast"),
+        EXACTLY("Exactly"),
+        AUTO("Auto");
 
-  @SerializedName("HeadingFormat")
-  private Boolean headingFormat = null;
+        private String value;
 
-  @SerializedName("Height")
-  private Double height = null;
+        HeightRuleEnum(String value) {
+            this.value = value;
+        }
 
-  /**
-   * Gets or sets the rule for determining the height of the table row.
-   */
-  @JsonAdapter(HeightRuleEnum.Adapter.class)
-  public enum HeightRuleEnum {
-    ATLEAST("AtLeast"),
-    
-    EXACTLY("Exactly"),
-    
-    AUTO("Auto");
+        public String getValue() {
+            return value;
+        }
 
-    private String value;
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
 
-    HeightRuleEnum(String value) {
-      this.value = value;
+        public static HeightRuleEnum fromValue(String text) {
+            for (HeightRuleEnum b : HeightRuleEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< HeightRuleEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final HeightRuleEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public HeightRuleEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return HeightRuleEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("AllowBreakAcrossPages")
+    private Boolean allowBreakAcrossPages = null;
+
+    @SerializedName("HeadingFormat")
+    private Boolean headingFormat = null;
+
+    @SerializedName("Height")
+    private Double height = null;
+
+    @SerializedName("HeightRule")
+    private HeightRuleEnum heightRule = null;
+    public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {
+        this.allowBreakAcrossPages = allowBreakAcrossPages;
+        return this;
+    }
+
+    /**
+     * Gets or sets true if the text in a table row is allowed to split across a page break.
+    * @return allowBreakAcrossPages
+    **/
+    @ApiModelProperty(value = "Gets or sets true if the text in a table row is allowed to split across a page break.")
+    public Boolean getAllowBreakAcrossPages() {
+        return allowBreakAcrossPages;
+    }
+
+    public void setAllowBreakAcrossPages(Boolean allowBreakAcrossPages) {
+        this.allowBreakAcrossPages = allowBreakAcrossPages;
+    }
+
+    public TableRowFormat headingFormat(Boolean headingFormat) {
+        this.headingFormat = headingFormat;
+        return this;
+    }
+
+    /**
+     * Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
+    * @return headingFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.")
+    public Boolean getHeadingFormat() {
+        return headingFormat;
+    }
+
+    public void setHeadingFormat(Boolean headingFormat) {
+        this.headingFormat = headingFormat;
+    }
+
+    public TableRowFormat height(Double height) {
+        this.height = height;
+        return this;
+    }
+
+    /**
+     * Gets or sets the height of the table row in points.
+    * @return height
+    **/
+    @ApiModelProperty(value = "Gets or sets the height of the table row in points.")
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    public TableRowFormat heightRule(HeightRuleEnum heightRule) {
+        this.heightRule = heightRule;
+        return this;
+    }
+
+    /**
+     * Gets or sets the rule for determining the height of the table row.
+    * @return heightRule
+    **/
+    @ApiModelProperty(value = "Gets or sets the rule for determining the height of the table row.")
+    public HeightRuleEnum getHeightRule() {
+        return heightRule;
+    }
+
+    public void setHeightRule(HeightRuleEnum heightRule) {
+        this.heightRule = heightRule;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static HeightRuleEnum fromValue(String text) {
-      for (HeightRuleEnum b : HeightRuleEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<HeightRuleEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final HeightRuleEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public HeightRuleEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return HeightRuleEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("HeightRule")
-  private HeightRuleEnum heightRule = null;
-
-  public TableRowFormat allowBreakAcrossPages(Boolean allowBreakAcrossPages) {
-    this.allowBreakAcrossPages = allowBreakAcrossPages;
-    return this;
-  }
-
-   /**
-   * Gets or sets true if the text in a table row is allowed to split across a page break.
-   * @return allowBreakAcrossPages
-  **/
-  @ApiModelProperty(value = "Gets or sets true if the text in a table row is allowed to split across a page break.")
-  public Boolean isAllowBreakAcrossPages() {
-    return allowBreakAcrossPages;
-  }
-
-  public void setAllowBreakAcrossPages(Boolean allowBreakAcrossPages) {
-    this.allowBreakAcrossPages = allowBreakAcrossPages;
-  }
-
-  public TableRowFormat headingFormat(Boolean headingFormat) {
-    this.headingFormat = headingFormat;
-    return this;
-  }
-
-   /**
-   * Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
-   * @return headingFormat
-  **/
-  @ApiModelProperty(value = "Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.")
-  public Boolean isHeadingFormat() {
-    return headingFormat;
-  }
-
-  public void setHeadingFormat(Boolean headingFormat) {
-    this.headingFormat = headingFormat;
-  }
-
-  public TableRowFormat height(Double height) {
-    this.height = height;
-    return this;
-  }
-
-   /**
-   * Gets or sets the height of the table row in points.
-   * @return height
-  **/
-  @ApiModelProperty(value = "Gets or sets the height of the table row in points.")
-  public Double getHeight() {
-    return height;
-  }
-
-  public void setHeight(Double height) {
-    this.height = height;
-  }
-
-  public TableRowFormat heightRule(HeightRuleEnum heightRule) {
-    this.heightRule = heightRule;
-    return this;
-  }
-
-   /**
-   * Gets or sets the rule for determining the height of the table row.
-   * @return heightRule
-  **/
-  @ApiModelProperty(value = "Gets or sets the rule for determining the height of the table row.")
-  public HeightRuleEnum getHeightRule() {
-    return heightRule;
-  }
-
-  public void setHeightRule(HeightRuleEnum heightRule) {
-    this.heightRule = heightRule;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    TableRowFormat tableRowFormat = (TableRowFormat) o;
-    return Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
-        Objects.equals(this.headingFormat, tableRowFormat.headingFormat) &&
-        Objects.equals(this.height, tableRowFormat.height) &&
-        Objects.equals(this.heightRule, tableRowFormat.heightRule) &&
-        super.equals(o);
+        TableRowFormat tableRowFormat = (TableRowFormat) o;
+        return
+            Objects.equals(this.allowBreakAcrossPages, tableRowFormat.allowBreakAcrossPages) &&
+            Objects.equals(this.headingFormat, tableRowFormat.headingFormat) &&
+            Objects.equals(this.height, tableRowFormat.height) &&
+            Objects.equals(this.heightRule, tableRowFormat.heightRule) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(allowBreakAcrossPages, headingFormat, height, heightRule, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -226,6 +223,4 @@ public class TableRowFormat extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

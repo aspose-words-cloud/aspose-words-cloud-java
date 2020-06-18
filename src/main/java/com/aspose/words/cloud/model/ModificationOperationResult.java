@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ModificationOperationResult.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,75 +47,73 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "result of the operation which modifies the original document and saves the result.")
 public class ModificationOperationResult {
-  @SerializedName("Source")
-  private FileLink source = null;
+    @SerializedName("Dest")
+    private FileLink dest = null;
 
-  @SerializedName("Dest")
-  private FileLink dest = null;
-
-  public ModificationOperationResult source(FileLink source) {
-    this.source = source;
-    return this;
-  }
-
-   /**
-   * Get source
-   * @return source
-  **/
-  @ApiModelProperty(value = "")
-  public FileLink getSource() {
-    return source;
-  }
-
-  public void setSource(FileLink source) {
-    this.source = source;
-  }
-
-  public ModificationOperationResult dest(FileLink dest) {
-    this.dest = dest;
-    return this;
-  }
-
-   /**
-   * Get dest
-   * @return dest
-  **/
-  @ApiModelProperty(value = "")
-  public FileLink getDest() {
-    return dest;
-  }
-
-  public void setDest(FileLink dest) {
-    this.dest = dest;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Source")
+    private FileLink source = null;
+    public ModificationOperationResult dest(FileLink dest) {
+        this.dest = dest;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets link to the dest document (result of the modification operation).
+    * @return dest
+    **/
+    @ApiModelProperty(value = "Gets or sets link to the dest document (result of the modification operation).")
+    public FileLink getDest() {
+        return dest;
     }
-    ModificationOperationResult modificationOperationResult = (ModificationOperationResult) o;
-    return Objects.equals(this.source, modificationOperationResult.source) &&
-        Objects.equals(this.dest, modificationOperationResult.dest);
+
+    public void setDest(FileLink dest) {
+        this.dest = dest;
+    }
+
+    public ModificationOperationResult source(FileLink source) {
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to the source document (source for the modification operation).
+    * @return source
+    **/
+    @ApiModelProperty(value = "Gets or sets link to the source document (source for the modification operation).")
+    public FileLink getSource() {
+        return source;
+    }
+
+    public void setSource(FileLink source) {
+        this.source = source;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ModificationOperationResult modificationOperationResult = (ModificationOperationResult) o;
+        return
+            Objects.equals(this.dest, modificationOperationResult.dest) &&
+            Objects.equals(this.source, modificationOperationResult.source);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, dest);
+    return Objects.hash(dest, source);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModificationOperationResult {\n");
-    
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    dest: ").append(toIndentedString(dest)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -130,6 +128,4 @@ public class ModificationOperationResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

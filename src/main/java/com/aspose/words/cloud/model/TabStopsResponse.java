@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TabStopsResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,58 +43,58 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.")
 public class TabStopsResponse extends WordsResponse {
-  @SerializedName("TabStops")
-  private List<TabStop> tabStops = null;
-
-  public TabStopsResponse tabStops(List<TabStop> tabStops) {
-    this.tabStops = tabStops;
-    return this;
-  }
-
-  public TabStopsResponse addTabStopsItem(TabStop tabStopsItem) {
-    if (this.tabStops == null) {
-      this.tabStops = new ArrayList<TabStop>();
+    @SerializedName("TabStops")
+    private List<TabStop> tabStops = null;
+    public TabStopsResponse tabStops(List<TabStop> tabStops) {
+        this.tabStops = tabStops;
+        return this;
     }
-    this.tabStops.add(tabStopsItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets represents a tab stop.
-   * @return tabStops
-  **/
-  @ApiModelProperty(value = "Gets or sets represents a tab stop.")
-  public List<TabStop> getTabStops() {
-    return tabStops;
-  }
-
-  public void setTabStops(List<TabStop> tabStops) {
-    this.tabStops = tabStops;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public TabStopsResponse addTabStopsItem(TabStop tabStopsItem) {
+        if (this.tabStops == null) {
+            this.tabStops = new ArrayList<TabStop>();
+        }
+        this.tabStops.add(tabStopsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets represents a tab stop.
+    * @return tabStops
+    **/
+    @ApiModelProperty(value = "Gets or sets represents a tab stop.")
+    public List<TabStop> getTabStops() {
+        return tabStops;
     }
-    TabStopsResponse tabStopsResponse = (TabStopsResponse) o;
-    return Objects.equals(this.tabStops, tabStopsResponse.tabStops) &&
-        super.equals(o);
+
+    public void setTabStops(List<TabStop> tabStops) {
+        this.tabStops = tabStops;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TabStopsResponse tabStopsResponse = (TabStopsResponse) o;
+        return
+            Objects.equals(this.tabStops, tabStopsResponse.tabStops) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(tabStops, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +116,4 @@ public class TabStopsResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

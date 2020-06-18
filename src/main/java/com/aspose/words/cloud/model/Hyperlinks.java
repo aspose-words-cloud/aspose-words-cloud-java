@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Hyperlinks.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Collection of Hyperlink.")
 public class Hyperlinks extends LinkElement {
-  @SerializedName("HyperlinkList")
-  private List<Hyperlink> hyperlinkList = null;
-
-  public Hyperlinks hyperlinkList(List<Hyperlink> hyperlinkList) {
-    this.hyperlinkList = hyperlinkList;
-    return this;
-  }
-
-  public Hyperlinks addHyperlinkListItem(Hyperlink hyperlinkListItem) {
-    if (this.hyperlinkList == null) {
-      this.hyperlinkList = new ArrayList<Hyperlink>();
+    @SerializedName("HyperlinkList")
+    private List<Hyperlink> hyperlinkList = null;
+    public Hyperlinks hyperlinkList(List<Hyperlink> hyperlinkList) {
+        this.hyperlinkList = hyperlinkList;
+        return this;
     }
-    this.hyperlinkList.add(hyperlinkListItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets array of Hyperlink.
-   * @return hyperlinkList
-  **/
-  @ApiModelProperty(value = "Gets or sets array of Hyperlink.")
-  public List<Hyperlink> getHyperlinkList() {
-    return hyperlinkList;
-  }
-
-  public void setHyperlinkList(List<Hyperlink> hyperlinkList) {
-    this.hyperlinkList = hyperlinkList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public Hyperlinks addHyperlinkListItem(Hyperlink hyperlinkListItem) {
+        if (this.hyperlinkList == null) {
+            this.hyperlinkList = new ArrayList<Hyperlink>();
+        }
+        this.hyperlinkList.add(hyperlinkListItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets array of Hyperlink.
+    * @return hyperlinkList
+    **/
+    @ApiModelProperty(value = "Gets or sets array of Hyperlink.")
+    public List<Hyperlink> getHyperlinkList() {
+        return hyperlinkList;
     }
-    Hyperlinks hyperlinks = (Hyperlinks) o;
-    return Objects.equals(this.hyperlinkList, hyperlinks.hyperlinkList) &&
-        super.equals(o);
+
+    public void setHyperlinkList(List<Hyperlink> hyperlinkList) {
+        this.hyperlinkList = hyperlinkList;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Hyperlinks hyperlinks = (Hyperlinks) o;
+        return
+            Objects.equals(this.hyperlinkList, hyperlinks.hyperlinkList) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(hyperlinkList, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class Hyperlinks extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

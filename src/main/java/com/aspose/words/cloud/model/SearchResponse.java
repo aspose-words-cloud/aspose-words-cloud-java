@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SearchResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,72 +43,72 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/search.")
 public class SearchResponse extends WordsResponse {
-  @SerializedName("SearchingPattern")
-  private String searchingPattern = null;
+    @SerializedName("SearchingPattern")
+    private String searchingPattern = null;
 
-  @SerializedName("SearchResults")
-  private SearchResultsCollection searchResults = null;
-
-  public SearchResponse searchingPattern(String searchingPattern) {
-    this.searchingPattern = searchingPattern;
-    return this;
-  }
-
-   /**
-   * Gets or sets a regular expression pattern used to find matches.
-   * @return searchingPattern
-  **/
-  @ApiModelProperty(value = "Gets or sets a regular expression pattern used to find matches.")
-  public String getSearchingPattern() {
-    return searchingPattern;
-  }
-
-  public void setSearchingPattern(String searchingPattern) {
-    this.searchingPattern = searchingPattern;
-  }
-
-  public SearchResponse searchResults(SearchResultsCollection searchResults) {
-    this.searchResults = searchResults;
-    return this;
-  }
-
-   /**
-   * Get searchResults
-   * @return searchResults
-  **/
-  @ApiModelProperty(value = "")
-  public SearchResultsCollection getSearchResults() {
-    return searchResults;
-  }
-
-  public void setSearchResults(SearchResultsCollection searchResults) {
-    this.searchResults = searchResults;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("SearchResults")
+    private SearchResultsCollection searchResults = null;
+    public SearchResponse searchingPattern(String searchingPattern) {
+        this.searchingPattern = searchingPattern;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets a regular expression pattern used to find matches.
+    * @return searchingPattern
+    **/
+    @ApiModelProperty(value = "Gets or sets a regular expression pattern used to find matches.")
+    public String getSearchingPattern() {
+        return searchingPattern;
     }
-    SearchResponse searchResponse = (SearchResponse) o;
-    return Objects.equals(this.searchingPattern, searchResponse.searchingPattern) &&
-        Objects.equals(this.searchResults, searchResponse.searchResults) &&
-        super.equals(o);
+
+    public void setSearchingPattern(String searchingPattern) {
+        this.searchingPattern = searchingPattern;
+    }
+
+    public SearchResponse searchResults(SearchResultsCollection searchResults) {
+        this.searchResults = searchResults;
+        return this;
+    }
+
+    /**
+     * Gets or sets collection of search results.
+    * @return searchResults
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of search results.")
+    public SearchResultsCollection getSearchResults() {
+        return searchResults;
+    }
+
+    public void setSearchResults(SearchResultsCollection searchResults) {
+        this.searchResults = searchResults;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SearchResponse searchResponse = (SearchResponse) o;
+        return
+            Objects.equals(this.searchingPattern, searchResponse.searchingPattern) &&
+            Objects.equals(this.searchResults, searchResponse.searchResults) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(searchingPattern, searchResults, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -131,6 +131,4 @@ public class SearchResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

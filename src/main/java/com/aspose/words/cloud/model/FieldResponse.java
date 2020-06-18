@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FieldResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/fields/{1}.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/fields/{1}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/fields/{1}.")
 public class FieldResponse extends WordsResponse {
-  @SerializedName("Field")
-  private Field field = null;
-
-  public FieldResponse field(Field field) {
-    this.field = field;
-    return this;
-  }
-
-   /**
-   * Get field
-   * @return field
-  **/
-  @ApiModelProperty(value = "")
-  public Field getField() {
-    return field;
-  }
-
-  public void setField(Field field) {
-    this.field = field;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Field")
+    private Field field = null;
+    public FieldResponse field(Field field) {
+        this.field = field;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets field information.
+    * @return field
+    **/
+    @ApiModelProperty(value = "Gets or sets field information.")
+    public Field getField() {
+        return field;
     }
-    FieldResponse fieldResponse = (FieldResponse) o;
-    return Objects.equals(this.field, fieldResponse.field) &&
-        super.equals(o);
+
+    public void setField(Field field) {
+        this.field = field;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FieldResponse fieldResponse = (FieldResponse) o;
+        return
+            Objects.equals(this.field, fieldResponse.field) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(field, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class FieldResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

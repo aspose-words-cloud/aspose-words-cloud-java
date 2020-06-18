@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableLinkCollection.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Collection of links to tables.")
 public class TableLinkCollection extends LinkElement {
-  @SerializedName("TableLinkList")
-  private List<TableLink> tableLinkList = null;
-
-  public TableLinkCollection tableLinkList(List<TableLink> tableLinkList) {
-    this.tableLinkList = tableLinkList;
-    return this;
-  }
-
-  public TableLinkCollection addTableLinkListItem(TableLink tableLinkListItem) {
-    if (this.tableLinkList == null) {
-      this.tableLinkList = new ArrayList<TableLink>();
+    @SerializedName("TableLinkList")
+    private List<TableLink> tableLinkList = null;
+    public TableLinkCollection tableLinkList(List<TableLink> tableLinkList) {
+        this.tableLinkList = tableLinkList;
+        return this;
     }
-    this.tableLinkList.add(tableLinkListItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of table&#39;s links.
-   * @return tableLinkList
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of table's links.")
-  public List<TableLink> getTableLinkList() {
-    return tableLinkList;
-  }
-
-  public void setTableLinkList(List<TableLink> tableLinkList) {
-    this.tableLinkList = tableLinkList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public TableLinkCollection addTableLinkListItem(TableLink tableLinkListItem) {
+        if (this.tableLinkList == null) {
+            this.tableLinkList = new ArrayList<TableLink>();
+        }
+        this.tableLinkList.add(tableLinkListItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of table's links.
+    * @return tableLinkList
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of table's links.")
+    public List<TableLink> getTableLinkList() {
+        return tableLinkList;
     }
-    TableLinkCollection tableLinkCollection = (TableLinkCollection) o;
-    return Objects.equals(this.tableLinkList, tableLinkCollection.tableLinkList) &&
-        super.equals(o);
+
+    public void setTableLinkList(List<TableLink> tableLinkList) {
+        this.tableLinkList = tableLinkList;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TableLinkCollection tableLinkCollection = (TableLinkCollection) o;
+        return
+            Objects.equals(this.tableLinkList, tableLinkCollection.tableLinkList) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(tableLinkList, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class TableLinkCollection extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

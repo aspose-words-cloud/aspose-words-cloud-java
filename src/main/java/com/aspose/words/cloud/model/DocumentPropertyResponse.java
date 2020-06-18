@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentPropertyResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  GET documentProperties/{propertyName}.")
 public class DocumentPropertyResponse extends WordsResponse {
-  @SerializedName("DocumentProperty")
-  private DocumentProperty documentProperty = null;
-
-  public DocumentPropertyResponse documentProperty(DocumentProperty documentProperty) {
-    this.documentProperty = documentProperty;
-    return this;
-  }
-
-   /**
-   * Get documentProperty
-   * @return documentProperty
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentProperty getDocumentProperty() {
-    return documentProperty;
-  }
-
-  public void setDocumentProperty(DocumentProperty documentProperty) {
-    this.documentProperty = documentProperty;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("DocumentProperty")
+    private DocumentProperty documentProperty = null;
+    public DocumentPropertyResponse documentProperty(DocumentProperty documentProperty) {
+        this.documentProperty = documentProperty;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets document property.
+    * @return documentProperty
+    **/
+    @ApiModelProperty(value = "Gets or sets document property.")
+    public DocumentProperty getDocumentProperty() {
+        return documentProperty;
     }
-    DocumentPropertyResponse documentPropertyResponse = (DocumentPropertyResponse) o;
-    return Objects.equals(this.documentProperty, documentPropertyResponse.documentProperty) &&
-        super.equals(o);
+
+    public void setDocumentProperty(DocumentProperty documentProperty) {
+        this.documentProperty = documentProperty;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentPropertyResponse documentPropertyResponse = (DocumentPropertyResponse) o;
+        return
+            Objects.equals(this.documentProperty, documentPropertyResponse.documentProperty) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(documentProperty, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class DocumentPropertyResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

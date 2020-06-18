@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetFilesListRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -33,51 +35,51 @@ import java.io.File;
  */
 public class GetFilesListRequest {
     /*
-     * Folder path e.g. /Folder1
+     * Folder path e.g. /Folder1.
      */
-    private String Path;
+    private String path;
 
     /*
-     * Storage name
+     * Storage name.
      */
-    private String StorageName;
-    
+    private String storageName;
+
     /*
-     * Initializes a new instance of the getFilesListRequest class.
-     *  
-     * @param String path Folder path e.g. /Folder1
-     * @param String storageName Storage name
+     * Initializes a new instance of the GetFilesListRequest class.
+     *
+     * @param String path Folder path e.g. /Folder1.
+     * @param String storageName Storage name.
      */
-    public GetFilesListRequest(String path,  String storageName) {
-        Path = path;
-        StorageName = storageName;
+    public GetFilesListRequest(String path, String storageName) {
+        this.path = path;
+        this.storageName = storageName;
     }
 
     /*
-     *  Gets Folder path e.g. /Folder1
+     * Gets Folder path e.g. /Folder1.
      */
     public String getPath() {
-        return Path;
+        return this.path;
     }
 
     /*
-     * Sets Folder path e.g. /Folder1
+     * Sets Folder path e.g. /Folder1.
      */
     public void setPath(String value) {
-        Path = value;
+        this.path = value;
     }
 
     /*
-     *  Gets Storage name
+     * Gets Storage name.
      */
     public String getStorageName() {
-        return StorageName;
+        return this.storageName;
     }
 
     /*
-     * Sets Storage name
+     * Sets Storage name.
      */
     public void setStorageName(String value) {
-        StorageName = value;
+        this.storageName = value;
     }
 }

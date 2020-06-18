@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentEntryList.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,46 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a list of documents which will be appended to the original resource document.")
 public class DocumentEntryList {
-  @SerializedName("DocumentEntries")
-  private List<DocumentEntry> documentEntries = null;
-
-  public DocumentEntryList documentEntries(List<DocumentEntry> documentEntries) {
-    this.documentEntries = documentEntries;
-    return this;
-  }
-
-  public DocumentEntryList addDocumentEntriesItem(DocumentEntry documentEntriesItem) {
-    if (this.documentEntries == null) {
-      this.documentEntries = new ArrayList<DocumentEntry>();
+    @SerializedName("DocumentEntries")
+    private List<DocumentEntry> documentEntries = null;
+    public DocumentEntryList documentEntries(List<DocumentEntry> documentEntries) {
+        this.documentEntries = documentEntries;
+        return this;
     }
-    this.documentEntries.add(documentEntriesItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets list of documents.
-   * @return documentEntries
-  **/
-  @ApiModelProperty(value = "Gets or sets list of documents.")
-  public List<DocumentEntry> getDocumentEntries() {
-    return documentEntries;
-  }
-
-  public void setDocumentEntries(List<DocumentEntry> documentEntries) {
-    this.documentEntries = documentEntries;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public DocumentEntryList addDocumentEntriesItem(DocumentEntry documentEntriesItem) {
+        if (this.documentEntries == null) {
+            this.documentEntries = new ArrayList<DocumentEntry>();
+        }
+        this.documentEntries.add(documentEntriesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets list of documents.
+    * @return documentEntries
+    **/
+    @ApiModelProperty(value = "Gets or sets list of documents.")
+    public List<DocumentEntry> getDocumentEntries() {
+        return documentEntries;
     }
-    DocumentEntryList documentEntryList = (DocumentEntryList) o;
-    return Objects.equals(this.documentEntries, documentEntryList.documentEntries);
+
+    public void setDocumentEntries(List<DocumentEntry> documentEntries) {
+        this.documentEntries = documentEntries;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentEntryList documentEntryList = (DocumentEntryList) o;
+        return
+            Objects.equals(this.documentEntries, documentEntryList.documentEntries);
   }
 
   @Override
@@ -94,12 +94,10 @@ public class DocumentEntryList {
     return Objects.hash(documentEntries);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentEntryList {\n");
-    
     sb.append("    documentEntries: ").append(toIndentedString(documentEntries)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -115,6 +113,4 @@ public class DocumentEntryList {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

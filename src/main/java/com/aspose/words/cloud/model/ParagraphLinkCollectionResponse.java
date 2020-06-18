@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ParagraphLinkCollectionResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs.")
 public class ParagraphLinkCollectionResponse extends WordsResponse {
-  @SerializedName("Paragraphs")
-  private ParagraphLinkCollection paragraphs = null;
-
-  public ParagraphLinkCollectionResponse paragraphs(ParagraphLinkCollection paragraphs) {
-    this.paragraphs = paragraphs;
-    return this;
-  }
-
-   /**
-   * Get paragraphs
-   * @return paragraphs
-  **/
-  @ApiModelProperty(value = "")
-  public ParagraphLinkCollection getParagraphs() {
-    return paragraphs;
-  }
-
-  public void setParagraphs(ParagraphLinkCollection paragraphs) {
-    this.paragraphs = paragraphs;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Paragraphs")
+    private ParagraphLinkCollection paragraphs = null;
+    public ParagraphLinkCollectionResponse paragraphs(ParagraphLinkCollection paragraphs) {
+        this.paragraphs = paragraphs;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of paragraphs.
+    * @return paragraphs
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of paragraphs.")
+    public ParagraphLinkCollection getParagraphs() {
+        return paragraphs;
     }
-    ParagraphLinkCollectionResponse paragraphLinkCollectionResponse = (ParagraphLinkCollectionResponse) o;
-    return Objects.equals(this.paragraphs, paragraphLinkCollectionResponse.paragraphs) &&
-        super.equals(o);
+
+    public void setParagraphs(ParagraphLinkCollection paragraphs) {
+        this.paragraphs = paragraphs;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ParagraphLinkCollectionResponse paragraphLinkCollectionResponse = (ParagraphLinkCollectionResponse) o;
+        return
+            Objects.equals(this.paragraphs, paragraphLinkCollectionResponse.paragraphs) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(paragraphs, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class ParagraphLinkCollectionResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

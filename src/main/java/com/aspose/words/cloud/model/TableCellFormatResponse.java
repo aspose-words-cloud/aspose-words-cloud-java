@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableCellFormatResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.")
 public class TableCellFormatResponse extends WordsResponse {
-  @SerializedName("CellFormat")
-  private TableCellFormat cellFormat = null;
-
-  public TableCellFormatResponse cellFormat(TableCellFormat cellFormat) {
-    this.cellFormat = cellFormat;
-    return this;
-  }
-
-   /**
-   * Get cellFormat
-   * @return cellFormat
-  **/
-  @ApiModelProperty(value = "")
-  public TableCellFormat getCellFormat() {
-    return cellFormat;
-  }
-
-  public void setCellFormat(TableCellFormat cellFormat) {
-    this.cellFormat = cellFormat;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("CellFormat")
+    private TableCellFormat cellFormat = null;
+    public TableCellFormatResponse cellFormat(TableCellFormat cellFormat) {
+        this.cellFormat = cellFormat;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets table.
+    * @return cellFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets table.")
+    public TableCellFormat getCellFormat() {
+        return cellFormat;
     }
-    TableCellFormatResponse tableCellFormatResponse = (TableCellFormatResponse) o;
-    return Objects.equals(this.cellFormat, tableCellFormatResponse.cellFormat) &&
-        super.equals(o);
+
+    public void setCellFormat(TableCellFormat cellFormat) {
+        this.cellFormat = cellFormat;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TableCellFormatResponse tableCellFormatResponse = (TableCellFormatResponse) o;
+        return
+            Objects.equals(this.cellFormat, tableCellFormatResponse.cellFormat) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(cellFormat, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class TableCellFormatResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

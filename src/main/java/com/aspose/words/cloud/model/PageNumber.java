@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="PageNumber.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,119 +47,117 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Class is used for insert page number request building.")
 public class PageNumber {
-  @SerializedName("Format")
-  private String format = null;
+    @SerializedName("Alignment")
+    private String alignment = null;
 
-  @SerializedName("Alignment")
-  private String alignment = null;
+    @SerializedName("Format")
+    private String format = null;
 
-  @SerializedName("IsTop")
-  private Boolean isTop = null;
+    @SerializedName("IsTop")
+    private Boolean isTop = null;
 
-  @SerializedName("SetPageNumberOnFirstPage")
-  private Boolean setPageNumberOnFirstPage = null;
-
-  public PageNumber format(String format) {
-    this.format = format;
-    return this;
-  }
-
-   /**
-   * Gets or sets page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
-   * @return format
-  **/
-  @ApiModelProperty(value = "Gets or sets page number format, e.g. \"{PAGE} of {NUMPAGES}\".")
-  public String getFormat() {
-    return format;
-  }
-
-  public void setFormat(String format) {
-    this.format = format;
-  }
-
-  public PageNumber alignment(String alignment) {
-    this.alignment = alignment;
-    return this;
-  }
-
-   /**
-   * Gets or sets text alignment, possible values are left, right, center or justify.
-   * @return alignment
-  **/
-  @ApiModelProperty(value = "Gets or sets text alignment, possible values are left, right, center or justify.")
-  public String getAlignment() {
-    return alignment;
-  }
-
-  public void setAlignment(String alignment) {
-    this.alignment = alignment;
-  }
-
-  public PageNumber isTop(Boolean isTop) {
-    this.isTop = isTop;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
-   * @return isTop
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.")
-  public Boolean isIsTop() {
-    return isTop;
-  }
-
-  public void setIsTop(Boolean isTop) {
-    this.isTop = isTop;
-  }
-
-  public PageNumber setPageNumberOnFirstPage(Boolean setPageNumberOnFirstPage) {
-    this.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether if true the page number is added on first page too.
-   * @return setPageNumberOnFirstPage
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether if true the page number is added on first page too.")
-  public Boolean isSetPageNumberOnFirstPage() {
-    return setPageNumberOnFirstPage;
-  }
-
-  public void setSetPageNumberOnFirstPage(Boolean setPageNumberOnFirstPage) {
-    this.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("SetPageNumberOnFirstPage")
+    private Boolean setPageNumberOnFirstPage = null;
+    public PageNumber alignment(String alignment) {
+        this.alignment = alignment;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets text alignment, possible values are left, right, center or justify.
+    * @return alignment
+    **/
+    @ApiModelProperty(value = "Gets or sets text alignment, possible values are left, right, center or justify.")
+    public String getAlignment() {
+        return alignment;
     }
-    PageNumber pageNumber = (PageNumber) o;
-    return Objects.equals(this.format, pageNumber.format) &&
-        Objects.equals(this.alignment, pageNumber.alignment) &&
-        Objects.equals(this.isTop, pageNumber.isTop) &&
-        Objects.equals(this.setPageNumberOnFirstPage, pageNumber.setPageNumberOnFirstPage);
+
+    public void setAlignment(String alignment) {
+        this.alignment = alignment;
+    }
+
+    public PageNumber format(String format) {
+        this.format = format;
+        return this;
+    }
+
+    /**
+     * Gets or sets page number format, e.g. "{PAGE} of {NUMPAGES}".
+    * @return format
+    **/
+    @ApiModelProperty(value = "Gets or sets page number format, e.g. \"{PAGE} of {NUMPAGES}\".")
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public PageNumber isTop(Boolean isTop) {
+        this.isTop = isTop;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
+    * @return isTop
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.")
+    public Boolean getIsTop() {
+        return isTop;
+    }
+
+    public void setIsTop(Boolean isTop) {
+        this.isTop = isTop;
+    }
+
+    public PageNumber setPageNumberOnFirstPage(Boolean setPageNumberOnFirstPage) {
+        this.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value indicating whether if true the page number is added on first page too.
+    * @return setPageNumberOnFirstPage
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether if true the page number is added on first page too.")
+    public Boolean getSetPageNumberOnFirstPage() {
+        return setPageNumberOnFirstPage;
+    }
+
+    public void setSetPageNumberOnFirstPage(Boolean setPageNumberOnFirstPage) {
+        this.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        PageNumber pageNumber = (PageNumber) o;
+        return
+            Objects.equals(this.alignment, pageNumber.alignment) &&
+            Objects.equals(this.format, pageNumber.format) &&
+            Objects.equals(this.isTop, pageNumber.isTop) &&
+            Objects.equals(this.setPageNumberOnFirstPage, pageNumber.setPageNumberOnFirstPage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, alignment, isTop, setPageNumberOnFirstPage);
+    return Objects.hash(alignment, format, isTop, setPageNumberOnFirstPage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageNumber {\n");
-    
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    isTop: ").append(toIndentedString(isTop)).append("\n");
     sb.append("    setPageNumberOnFirstPage: ").append(toIndentedString(setPageNumberOnFirstPage)).append("\n");
     sb.append("}");
@@ -176,6 +174,4 @@ public class PageNumber {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

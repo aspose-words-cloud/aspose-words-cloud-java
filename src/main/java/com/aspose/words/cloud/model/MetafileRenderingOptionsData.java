@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="MetafileRenderingOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,144 +47,143 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for options of metafile rendering.")
 public class MetafileRenderingOptionsData {
-  @SerializedName("EmfPlusDualRenderingMode")
-  private String emfPlusDualRenderingMode = null;
+    @SerializedName("EmfPlusDualRenderingMode")
+    private String emfPlusDualRenderingMode = null;
 
-  @SerializedName("EmulateRasterOperations")
-  private Boolean emulateRasterOperations = null;
+    @SerializedName("EmulateRasterOperations")
+    private Boolean emulateRasterOperations = null;
 
-  @SerializedName("RenderingMode")
-  private String renderingMode = null;
+    @SerializedName("RenderingMode")
+    private String renderingMode = null;
 
-  @SerializedName("UseEmfEmbeddedToWmf")
-  private Boolean useEmfEmbeddedToWmf = null;
+    @SerializedName("ScaleWmfFontsToMetafileSize")
+    private Boolean scaleWmfFontsToMetafileSize = null;
 
-  @SerializedName("ScaleWmfFontsToMetafileSize")
-  private Boolean scaleWmfFontsToMetafileSize = null;
-
-  public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
-    this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets determines how EMF+ Dual metafiles should be rendered.
-   * @return emfPlusDualRenderingMode
-  **/
-  @ApiModelProperty(value = "Gets or sets determines how EMF+ Dual metafiles should be rendered.")
-  public String getEmfPlusDualRenderingMode() {
-    return emfPlusDualRenderingMode;
-  }
-
-  public void setEmfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
-    this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
-  }
-
-  public MetafileRenderingOptionsData emulateRasterOperations(Boolean emulateRasterOperations) {
-    this.emulateRasterOperations = emulateRasterOperations;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining whether or not the raster operations should be emulated.             
-   * @return emulateRasterOperations
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining whether or not the raster operations should be emulated.             ")
-  public Boolean isEmulateRasterOperations() {
-    return emulateRasterOperations;
-  }
-
-  public void setEmulateRasterOperations(Boolean emulateRasterOperations) {
-    this.emulateRasterOperations = emulateRasterOperations;
-  }
-
-  public MetafileRenderingOptionsData renderingMode(String renderingMode) {
-    this.renderingMode = renderingMode;
-    return this;
-  }
-
-   /**
-   * Gets or sets determines how metafile images should be rendered.
-   * @return renderingMode
-  **/
-  @ApiModelProperty(value = "Gets or sets determines how metafile images should be rendered.")
-  public String getRenderingMode() {
-    return renderingMode;
-  }
-
-  public void setRenderingMode(String renderingMode) {
-    this.renderingMode = renderingMode;
-  }
-
-  public MetafileRenderingOptionsData useEmfEmbeddedToWmf(Boolean useEmfEmbeddedToWmf) {
-    this.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
-    return this;
-  }
-
-   /**
-   * Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.
-   * @return useEmfEmbeddedToWmf
-  **/
-  @ApiModelProperty(value = "Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.")
-  public Boolean isUseEmfEmbeddedToWmf() {
-    return useEmfEmbeddedToWmf;
-  }
-
-  public void setUseEmfEmbeddedToWmf(Boolean useEmfEmbeddedToWmf) {
-    this.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
-  }
-
-  public MetafileRenderingOptionsData scaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
-    this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
-   * @return scaleWmfFontsToMetafileSize
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.")
-  public Boolean isScaleWmfFontsToMetafileSize() {
-    return scaleWmfFontsToMetafileSize;
-  }
-
-  public void setScaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
-    this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("UseEmfEmbeddedToWmf")
+    private Boolean useEmfEmbeddedToWmf = null;
+    public MetafileRenderingOptionsData emfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
+        this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets determines how EMF+ Dual metafiles should be rendered.
+    * @return emfPlusDualRenderingMode
+    **/
+    @ApiModelProperty(value = "Gets or sets determines how EMF+ Dual metafiles should be rendered.")
+    public String getEmfPlusDualRenderingMode() {
+        return emfPlusDualRenderingMode;
     }
-    MetafileRenderingOptionsData metafileRenderingOptionsData = (MetafileRenderingOptionsData) o;
-    return Objects.equals(this.emfPlusDualRenderingMode, metafileRenderingOptionsData.emfPlusDualRenderingMode) &&
-        Objects.equals(this.emulateRasterOperations, metafileRenderingOptionsData.emulateRasterOperations) &&
-        Objects.equals(this.renderingMode, metafileRenderingOptionsData.renderingMode) &&
-        Objects.equals(this.useEmfEmbeddedToWmf, metafileRenderingOptionsData.useEmfEmbeddedToWmf) &&
-        Objects.equals(this.scaleWmfFontsToMetafileSize, metafileRenderingOptionsData.scaleWmfFontsToMetafileSize);
+
+    public void setEmfPlusDualRenderingMode(String emfPlusDualRenderingMode) {
+        this.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
+    }
+
+    public MetafileRenderingOptionsData emulateRasterOperations(Boolean emulateRasterOperations) {
+        this.emulateRasterOperations = emulateRasterOperations;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value determining whether or not the raster operations should be emulated.
+    * @return emulateRasterOperations
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not the raster operations should be emulated.")
+    public Boolean getEmulateRasterOperations() {
+        return emulateRasterOperations;
+    }
+
+    public void setEmulateRasterOperations(Boolean emulateRasterOperations) {
+        this.emulateRasterOperations = emulateRasterOperations;
+    }
+
+    public MetafileRenderingOptionsData renderingMode(String renderingMode) {
+        this.renderingMode = renderingMode;
+        return this;
+    }
+
+    /**
+     * Gets or sets determines how metafile images should be rendered.
+    * @return renderingMode
+    **/
+    @ApiModelProperty(value = "Gets or sets determines how metafile images should be rendered.")
+    public String getRenderingMode() {
+        return renderingMode;
+    }
+
+    public void setRenderingMode(String renderingMode) {
+        this.renderingMode = renderingMode;
+    }
+
+    public MetafileRenderingOptionsData scaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
+        this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page.
+     * The default value is true.
+    * @return scaleWmfFontsToMetafileSize
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.")
+    public Boolean getScaleWmfFontsToMetafileSize() {
+        return scaleWmfFontsToMetafileSize;
+    }
+
+    public void setScaleWmfFontsToMetafileSize(Boolean scaleWmfFontsToMetafileSize) {
+        this.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
+    }
+
+    public MetafileRenderingOptionsData useEmfEmbeddedToWmf(Boolean useEmfEmbeddedToWmf) {
+        this.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
+        return this;
+    }
+
+    /**
+     * Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.
+    * @return useEmfEmbeddedToWmf
+    **/
+    @ApiModelProperty(value = "Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.")
+    public Boolean getUseEmfEmbeddedToWmf() {
+        return useEmfEmbeddedToWmf;
+    }
+
+    public void setUseEmfEmbeddedToWmf(Boolean useEmfEmbeddedToWmf) {
+        this.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        MetafileRenderingOptionsData metafileRenderingOptionsData = (MetafileRenderingOptionsData) o;
+        return
+            Objects.equals(this.emfPlusDualRenderingMode, metafileRenderingOptionsData.emfPlusDualRenderingMode) &&
+            Objects.equals(this.emulateRasterOperations, metafileRenderingOptionsData.emulateRasterOperations) &&
+            Objects.equals(this.renderingMode, metafileRenderingOptionsData.renderingMode) &&
+            Objects.equals(this.scaleWmfFontsToMetafileSize, metafileRenderingOptionsData.scaleWmfFontsToMetafileSize) &&
+            Objects.equals(this.useEmfEmbeddedToWmf, metafileRenderingOptionsData.useEmfEmbeddedToWmf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emfPlusDualRenderingMode, emulateRasterOperations, renderingMode, useEmfEmbeddedToWmf, scaleWmfFontsToMetafileSize);
+    return Objects.hash(emfPlusDualRenderingMode, emulateRasterOperations, renderingMode, scaleWmfFontsToMetafileSize, useEmfEmbeddedToWmf);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetafileRenderingOptionsData {\n");
-    
     sb.append("    emfPlusDualRenderingMode: ").append(toIndentedString(emfPlusDualRenderingMode)).append("\n");
     sb.append("    emulateRasterOperations: ").append(toIndentedString(emulateRasterOperations)).append("\n");
     sb.append("    renderingMode: ").append(toIndentedString(renderingMode)).append("\n");
-    sb.append("    useEmfEmbeddedToWmf: ").append(toIndentedString(useEmfEmbeddedToWmf)).append("\n");
     sb.append("    scaleWmfFontsToMetafileSize: ").append(toIndentedString(scaleWmfFontsToMetafileSize)).append("\n");
+    sb.append("    useEmfEmbeddedToWmf: ").append(toIndentedString(useEmfEmbeddedToWmf)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,6 +198,4 @@ public class MetafileRenderingOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

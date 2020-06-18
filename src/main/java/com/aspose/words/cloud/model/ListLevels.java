@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ListLevels.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a single document list.")
 public class ListLevels extends LinkElement {
-  @SerializedName("ListLevel")
-  private List<ListLevel> listLevel = null;
-
-  public ListLevels listLevel(List<ListLevel> listLevel) {
-    this.listLevel = listLevel;
-    return this;
-  }
-
-  public ListLevels addListLevelItem(ListLevel listLevelItem) {
-    if (this.listLevel == null) {
-      this.listLevel = new ArrayList<ListLevel>();
+    @SerializedName("ListLevel")
+    private List<ListLevel> listLevel = null;
+    public ListLevels listLevel(List<ListLevel> listLevel) {
+        this.listLevel = listLevel;
+        return this;
     }
-    this.listLevel.add(listLevelItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets the collection of list levels for this list.
-   * @return listLevel
-  **/
-  @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
-  public List<ListLevel> getListLevel() {
-    return listLevel;
-  }
-
-  public void setListLevel(List<ListLevel> listLevel) {
-    this.listLevel = listLevel;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ListLevels addListLevelItem(ListLevel listLevelItem) {
+        if (this.listLevel == null) {
+            this.listLevel = new ArrayList<ListLevel>();
+        }
+        this.listLevel.add(listLevelItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the collection of list levels for this list.
+    * @return listLevel
+    **/
+    @ApiModelProperty(value = "Gets or sets the collection of list levels for this list.")
+    public List<ListLevel> getListLevel() {
+        return listLevel;
     }
-    ListLevels listLevels = (ListLevels) o;
-    return Objects.equals(this.listLevel, listLevels.listLevel) &&
-        super.equals(o);
+
+    public void setListLevel(List<ListLevel> listLevel) {
+        this.listLevel = listLevel;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ListLevels listLevels = (ListLevels) o;
+        return
+            Objects.equals(this.listLevel, listLevels.listLevel) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(listLevel, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class ListLevels extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ReportEngineSettings.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,178 +47,174 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Report engine settings.")
 public class ReportEngineSettings {
-  /**
-   * Gets or sets type of datasource.
-   */
-  @JsonAdapter(DataSourceTypeEnum.Adapter.class)
-  public enum DataSourceTypeEnum {
-    XML("Xml"),
-    
-    JSON("Json"),
-    
-    CSV("Csv");
+    /**
+     * Gets or sets type of datasource.
+     */
+    @JsonAdapter(DataSourceTypeEnum.Adapter.class)
+    public enum DataSourceTypeEnum {
+        XML("Xml"),
+        JSON("Json"),
+        CSV("Csv");
 
-    private String value;
+        private String value;
 
-    DataSourceTypeEnum(String value) {
-      this.value = value;
+        DataSourceTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static DataSourceTypeEnum fromValue(String text) {
+            for (DataSourceTypeEnum b : DataSourceTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< DataSourceTypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DataSourceTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DataSourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return DataSourceTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("CsvDataLoadOptions")
+    private CsvDataLoadOptions csvDataLoadOptions = null;
+
+    @SerializedName("DataSourceName")
+    private String dataSourceName = null;
+
+    @SerializedName("DataSourceType")
+    private DataSourceTypeEnum dataSourceType = null;
+
+    @SerializedName("ReportBuildOptions")
+    private List<ReportBuildOptions> reportBuildOptions = null;
+    public ReportEngineSettings csvDataLoadOptions(CsvDataLoadOptions csvDataLoadOptions) {
+        this.csvDataLoadOptions = csvDataLoadOptions;
+        return this;
+    }
+
+    /**
+     * Gets or sets options for parsing CSV data.
+    * @return csvDataLoadOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets options for parsing CSV data.")
+    public CsvDataLoadOptions getCsvDataLoadOptions() {
+        return csvDataLoadOptions;
+    }
+
+    public void setCsvDataLoadOptions(CsvDataLoadOptions csvDataLoadOptions) {
+        this.csvDataLoadOptions = csvDataLoadOptions;
+    }
+
+    public ReportEngineSettings dataSourceName(String dataSourceName) {
+        this.dataSourceName = dataSourceName;
+        return this;
+    }
+
+    /**
+     * Gets or sets a name to reference the data source object in the template.
+    * @return dataSourceName
+    **/
+    @ApiModelProperty(value = "Gets or sets a name to reference the data source object in the template.")
+    public String getDataSourceName() {
+        return dataSourceName;
+    }
+
+    public void setDataSourceName(String dataSourceName) {
+        this.dataSourceName = dataSourceName;
+    }
+
+    public ReportEngineSettings dataSourceType(DataSourceTypeEnum dataSourceType) {
+        this.dataSourceType = dataSourceType;
+        return this;
+    }
+
+    /**
+     * Gets or sets type of datasource.
+    * @return dataSourceType
+    **/
+    @ApiModelProperty(value = "Gets or sets type of datasource.")
+    public DataSourceTypeEnum getDataSourceType() {
+        return dataSourceType;
+    }
+
+    public void setDataSourceType(DataSourceTypeEnum dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
+
+    public ReportEngineSettings reportBuildOptions(List<ReportBuildOptions> reportBuildOptions) {
+        this.reportBuildOptions = reportBuildOptions;
+        return this;
+    }
+
+    public ReportEngineSettings addReportBuildOptionsItem(ReportBuildOptions reportBuildOptionsItem) {
+        if (this.reportBuildOptions == null) {
+            this.reportBuildOptions = new ArrayList<ReportBuildOptions>();
+        }
+        this.reportBuildOptions.add(reportBuildOptionsItem);
+        return this;
+    }
+
+    /**
+     * Gets or sets type of options to build report.
+    * @return reportBuildOptions
+    **/
+    @ApiModelProperty(value = "Gets or sets type of options to build report.")
+    public List<ReportBuildOptions> getReportBuildOptions() {
+        return reportBuildOptions;
+    }
+
+    public void setReportBuildOptions(List<ReportBuildOptions> reportBuildOptions) {
+        this.reportBuildOptions = reportBuildOptions;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static DataSourceTypeEnum fromValue(String text) {
-      for (DataSourceTypeEnum b : DataSourceTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<DataSourceTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final DataSourceTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public DataSourceTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return DataSourceTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("DataSourceType")
-  private DataSourceTypeEnum dataSourceType = null;
-
-  @SerializedName("ReportBuildOptions")
-  private List<ReportBuildOptions> reportBuildOptions = null;
-
-  @SerializedName("DataSourceName")
-  private String dataSourceName = null;
-
-  @SerializedName("CsvDataLoadOptions")
-  private CsvDataLoadOptions csvDataLoadOptions = null;
-
-  public ReportEngineSettings dataSourceType(DataSourceTypeEnum dataSourceType) {
-    this.dataSourceType = dataSourceType;
-    return this;
-  }
-
-   /**
-   * Gets or sets type of datasource.
-   * @return dataSourceType
-  **/
-  @ApiModelProperty(value = "Gets or sets type of datasource.")
-  public DataSourceTypeEnum getDataSourceType() {
-    return dataSourceType;
-  }
-
-  public void setDataSourceType(DataSourceTypeEnum dataSourceType) {
-    this.dataSourceType = dataSourceType;
-  }
-
-  public ReportEngineSettings reportBuildOptions(List<ReportBuildOptions> reportBuildOptions) {
-    this.reportBuildOptions = reportBuildOptions;
-    return this;
-  }
-
-  public ReportEngineSettings addReportBuildOptionsItem(ReportBuildOptions reportBuildOptionsItem) {
-    if (this.reportBuildOptions == null) {
-      this.reportBuildOptions = new ArrayList<ReportBuildOptions>();
-    }
-    this.reportBuildOptions.add(reportBuildOptionsItem);
-    return this;
-  }
-
-   /**
-   * Gets or sets type of options to build report.
-   * @return reportBuildOptions
-  **/
-  @ApiModelProperty(value = "Gets or sets type of options to build report.")
-  public List<ReportBuildOptions> getReportBuildOptions() {
-    return reportBuildOptions;
-  }
-
-  public void setReportBuildOptions(List<ReportBuildOptions> reportBuildOptions) {
-    this.reportBuildOptions = reportBuildOptions;
-  }
-
-  public ReportEngineSettings dataSourceName(String dataSourceName) {
-    this.dataSourceName = dataSourceName;
-    return this;
-  }
-
-   /**
-   * Gets or sets a name to reference the data source object in the template.
-   * @return dataSourceName
-  **/
-  @ApiModelProperty(value = "Gets or sets a name to reference the data source object in the template.")
-  public String getDataSourceName() {
-    return dataSourceName;
-  }
-
-  public void setDataSourceName(String dataSourceName) {
-    this.dataSourceName = dataSourceName;
-  }
-
-  public ReportEngineSettings csvDataLoadOptions(CsvDataLoadOptions csvDataLoadOptions) {
-    this.csvDataLoadOptions = csvDataLoadOptions;
-    return this;
-  }
-
-   /**
-   * Get csvDataLoadOptions
-   * @return csvDataLoadOptions
-  **/
-  @ApiModelProperty(value = "")
-  public CsvDataLoadOptions getCsvDataLoadOptions() {
-    return csvDataLoadOptions;
-  }
-
-  public void setCsvDataLoadOptions(CsvDataLoadOptions csvDataLoadOptions) {
-    this.csvDataLoadOptions = csvDataLoadOptions;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ReportEngineSettings reportEngineSettings = (ReportEngineSettings) o;
-    return Objects.equals(this.dataSourceType, reportEngineSettings.dataSourceType) &&
-        Objects.equals(this.reportBuildOptions, reportEngineSettings.reportBuildOptions) &&
-        Objects.equals(this.dataSourceName, reportEngineSettings.dataSourceName) &&
-        Objects.equals(this.csvDataLoadOptions, reportEngineSettings.csvDataLoadOptions);
+        ReportEngineSettings reportEngineSettings = (ReportEngineSettings) o;
+        return
+            Objects.equals(this.csvDataLoadOptions, reportEngineSettings.csvDataLoadOptions) &&
+            Objects.equals(this.dataSourceName, reportEngineSettings.dataSourceName) &&
+            Objects.equals(this.dataSourceType, reportEngineSettings.dataSourceType) &&
+            Objects.equals(this.reportBuildOptions, reportEngineSettings.reportBuildOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSourceType, reportBuildOptions, dataSourceName, csvDataLoadOptions);
+    return Objects.hash(csvDataLoadOptions, dataSourceName, dataSourceType, reportBuildOptions);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportEngineSettings {\n");
-    
+    sb.append("    csvDataLoadOptions: ").append(toIndentedString(csvDataLoadOptions)).append("\n");
+    sb.append("    dataSourceName: ").append(toIndentedString(dataSourceName)).append("\n");
     sb.append("    dataSourceType: ").append(toIndentedString(dataSourceType)).append("\n");
     sb.append("    reportBuildOptions: ").append(toIndentedString(reportBuildOptions)).append("\n");
-    sb.append("    dataSourceName: ").append(toIndentedString(dataSourceName)).append("\n");
-    sb.append("    csvDataLoadOptions: ").append(toIndentedString(csvDataLoadOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -233,6 +229,4 @@ public class ReportEngineSettings {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

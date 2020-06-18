@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FootnotesResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/footnotes.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/footnotes.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/footnotes.")
 public class FootnotesResponse extends WordsResponse {
-  @SerializedName("Footnotes")
-  private FootnoteCollection footnotes = null;
-
-  public FootnotesResponse footnotes(FootnoteCollection footnotes) {
-    this.footnotes = footnotes;
-    return this;
-  }
-
-   /**
-   * Get footnotes
-   * @return footnotes
-  **/
-  @ApiModelProperty(value = "")
-  public FootnoteCollection getFootnotes() {
-    return footnotes;
-  }
-
-  public void setFootnotes(FootnoteCollection footnotes) {
-    this.footnotes = footnotes;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Footnotes")
+    private FootnoteCollection footnotes = null;
+    public FootnotesResponse footnotes(FootnoteCollection footnotes) {
+        this.footnotes = footnotes;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of footnotes.
+    * @return footnotes
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of footnotes.")
+    public FootnoteCollection getFootnotes() {
+        return footnotes;
     }
-    FootnotesResponse footnotesResponse = (FootnotesResponse) o;
-    return Objects.equals(this.footnotes, footnotesResponse.footnotes) &&
-        super.equals(o);
+
+    public void setFootnotes(FootnoteCollection footnotes) {
+        this.footnotes = footnotes;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FootnotesResponse footnotesResponse = (FootnotesResponse) o;
+        return
+            Objects.equals(this.footnotes, footnotesResponse.footnotes) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(footnotes, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class FootnotesResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

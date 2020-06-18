@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="OfficeMathObjectsCollection.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Collection of OfficeMath objects.")
 public class OfficeMathObjectsCollection extends LinkElement {
-  @SerializedName("List")
-  private List<OfficeMathObject> list = null;
-
-  public OfficeMathObjectsCollection list(List<OfficeMathObject> list) {
-    this.list = list;
-    return this;
-  }
-
-  public OfficeMathObjectsCollection addListItem(OfficeMathObject listItem) {
-    if (this.list == null) {
-      this.list = new ArrayList<OfficeMathObject>();
+    @SerializedName("List")
+    private List<OfficeMathObject> list = null;
+    public OfficeMathObjectsCollection list(List<OfficeMathObject> list) {
+        this.list = list;
+        return this;
     }
-    this.list.add(listItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of OfficeMath objects.
-   * @return list
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of OfficeMath objects.")
-  public List<OfficeMathObject> getList() {
-    return list;
-  }
-
-  public void setList(List<OfficeMathObject> list) {
-    this.list = list;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public OfficeMathObjectsCollection addListItem(OfficeMathObject listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<OfficeMathObject>();
+        }
+        this.list.add(listItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of OfficeMath objects.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of OfficeMath objects.")
+    public List<OfficeMathObject> getList() {
+        return list;
     }
-    OfficeMathObjectsCollection officeMathObjectsCollection = (OfficeMathObjectsCollection) o;
-    return Objects.equals(this.list, officeMathObjectsCollection.list) &&
-        super.equals(o);
+
+    public void setList(List<OfficeMathObject> list) {
+        this.list = list;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        OfficeMathObjectsCollection officeMathObjectsCollection = (OfficeMathObjectsCollection) o;
+        return
+            Objects.equals(this.list, officeMathObjectsCollection.list) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(list, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class OfficeMathObjectsCollection extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

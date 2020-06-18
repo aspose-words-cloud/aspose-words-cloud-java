@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="XamlFixedSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,68 +47,69 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for xaml fixed save options.")
 public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("ResourcesFolder")
-  private String resourcesFolder = null;
+    @SerializedName("ResourcesFolder")
+    private String resourcesFolder = null;
 
-  @SerializedName("ResourcesFolderAlias")
-  private String resourcesFolderAlias = null;
-
-  public XamlFixedSaveOptionsData resourcesFolder(String resourcesFolder) {
-    this.resourcesFolder = resourcesFolder;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.
-   * @return resourcesFolder
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.")
-  public String getResourcesFolder() {
-    return resourcesFolder;
-  }
-
-  public void setResourcesFolder(String resourcesFolder) {
-    this.resourcesFolder = resourcesFolder;
-  }
-
-  public XamlFixedSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
-    this.resourcesFolderAlias = resourcesFolderAlias;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.
-   * @return resourcesFolderAlias
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.")
-  public String getResourcesFolderAlias() {
-    return resourcesFolderAlias;
-  }
-
-  public void setResourcesFolderAlias(String resourcesFolderAlias) {
-    this.resourcesFolderAlias = resourcesFolderAlias;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ResourcesFolderAlias")
+    private String resourcesFolderAlias = null;
+    public XamlFixedSaveOptionsData resourcesFolder(String resourcesFolder) {
+        this.resourcesFolder = resourcesFolder;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format.
+     * Default is null.
+    * @return resourcesFolder
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.")
+    public String getResourcesFolder() {
+        return resourcesFolder;
     }
-    XamlFixedSaveOptionsData xamlFixedSaveOptionsData = (XamlFixedSaveOptionsData) o;
-    return Objects.equals(this.resourcesFolder, xamlFixedSaveOptionsData.resourcesFolder) &&
-        Objects.equals(this.resourcesFolderAlias, xamlFixedSaveOptionsData.resourcesFolderAlias) &&
-        super.equals(o);
+
+    public void setResourcesFolder(String resourcesFolder) {
+        this.resourcesFolder = resourcesFolder;
+    }
+
+    public XamlFixedSaveOptionsData resourcesFolderAlias(String resourcesFolderAlias) {
+        this.resourcesFolderAlias = resourcesFolderAlias;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document.
+     * Default is null.
+    * @return resourcesFolderAlias
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.")
+    public String getResourcesFolderAlias() {
+        return resourcesFolderAlias;
+    }
+
+    public void setResourcesFolderAlias(String resourcesFolderAlias) {
+        this.resourcesFolderAlias = resourcesFolderAlias;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        XamlFixedSaveOptionsData xamlFixedSaveOptionsData = (XamlFixedSaveOptionsData) o;
+        return
+            Objects.equals(this.resourcesFolder, xamlFixedSaveOptionsData.resourcesFolder) &&
+            Objects.equals(this.resourcesFolderAlias, xamlFixedSaveOptionsData.resourcesFolderAlias) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(resourcesFolder, resourcesFolderAlias, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -131,6 +132,4 @@ public class XamlFixedSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

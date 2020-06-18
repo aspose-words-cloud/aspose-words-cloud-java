@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Runs.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents DTO for collection of runs.")
 public class Runs extends LinkElement {
-  @SerializedName("List")
-  private List<Run> list = null;
-
-  public Runs list(List<Run> list) {
-    this.list = list;
-    return this;
-  }
-
-  public Runs addListItem(Run listItem) {
-    if (this.list == null) {
-      this.list = new ArrayList<Run>();
+    @SerializedName("List")
+    private List<Run> list = null;
+    public Runs list(List<Run> list) {
+        this.list = list;
+        return this;
     }
-    this.list.add(listItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of fields.
-   * @return list
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of fields.")
-  public List<Run> getList() {
-    return list;
-  }
-
-  public void setList(List<Run> list) {
-    this.list = list;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public Runs addListItem(Run listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<Run>();
+        }
+        this.list.add(listItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of fields.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of fields.")
+    public List<Run> getList() {
+        return list;
     }
-    Runs runs = (Runs) o;
-    return Objects.equals(this.list, runs.list) &&
-        super.equals(o);
+
+    public void setList(List<Run> list) {
+        this.list = list;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Runs runs = (Runs) o;
+        return
+            Objects.equals(this.list, runs.list) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(list, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class Runs extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

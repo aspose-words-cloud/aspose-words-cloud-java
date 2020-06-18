@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="RevisionsModificationResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).")
 public class RevisionsModificationResponse extends WordsResponse {
-  @SerializedName("Result")
-  private ModificationOperationResult result = null;
-
-  public RevisionsModificationResponse result(ModificationOperationResult result) {
-    this.result = result;
-    return this;
-  }
-
-   /**
-   * Get result
-   * @return result
-  **/
-  @ApiModelProperty(value = "")
-  public ModificationOperationResult getResult() {
-    return result;
-  }
-
-  public void setResult(ModificationOperationResult result) {
-    this.result = result;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Result")
+    private ModificationOperationResult result = null;
+    public RevisionsModificationResponse result(ModificationOperationResult result) {
+        this.result = result;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets result of the modification operations for the revisions collection.
+    * @return result
+    **/
+    @ApiModelProperty(value = "Gets or sets result of the modification operations for the revisions collection.")
+    public ModificationOperationResult getResult() {
+        return result;
     }
-    RevisionsModificationResponse revisionsModificationResponse = (RevisionsModificationResponse) o;
-    return Objects.equals(this.result, revisionsModificationResponse.result) &&
-        super.equals(o);
+
+    public void setResult(ModificationOperationResult result) {
+        this.result = result;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        RevisionsModificationResponse revisionsModificationResponse = (RevisionsModificationResponse) o;
+        return
+            Objects.equals(this.result, revisionsModificationResponse.result) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(result, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class RevisionsModificationResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

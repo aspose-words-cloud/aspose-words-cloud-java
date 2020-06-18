@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReplaceRange.java">
+ * <copyright company="Aspose" file="MarkdownSaveOptionsData.java">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,21 +43,24 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Range element.
+ * Container class for markdown save options.
  */
-@ApiModel(description = "Range element.")
-public class ReplaceRange {
+@ApiModel(description = "Container class for markdown save options.")
+public class MarkdownSaveOptionsData extends TxtSaveOptionsBaseData {
     /**
-     * Gets or sets range's text type.
+     * Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format.
+     * The default value is Auto.
      */
-    @JsonAdapter(TextTypeEnum.Adapter.class)
-    public enum TextTypeEnum {
-        TEXT("Text"),
-        HTML("Html");
+    @JsonAdapter(TableContentAlignmentEnum.Adapter.class)
+    public enum TableContentAlignmentEnum {
+        AUTO("Auto"),
+        LEFT("Left"),
+        CENTER("Center"),
+        RIGHT("Right");
 
         private String value;
 
-        TextTypeEnum(String value) {
+        TableContentAlignmentEnum(String value) {
             this.value = value;
         }
 
@@ -70,8 +73,8 @@ public class ReplaceRange {
             return String.valueOf(value);
         }
 
-        public static TextTypeEnum fromValue(String text) {
-            for (TextTypeEnum b : TextTypeEnum.values()) {
+        public static TableContentAlignmentEnum fromValue(String text) {
+            for (TableContentAlignmentEnum b : TableContentAlignmentEnum.values()) {
                 if (String.valueOf(b.value).equals(text)) {
                     return b;
                 }
@@ -79,59 +82,39 @@ public class ReplaceRange {
             return null;
         }
 
-        public static class Adapter extends TypeAdapter< TextTypeEnum > {
+        public static class Adapter extends TypeAdapter< TableContentAlignmentEnum > {
             @Override
-            public void write(final JsonWriter jsonWriter, final TextTypeEnum enumeration) throws IOException {
+            public void write(final JsonWriter jsonWriter, final TableContentAlignmentEnum enumeration) throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public TextTypeEnum read(final JsonReader jsonReader) throws IOException {
+            public TableContentAlignmentEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return TextTypeEnum.fromValue(String.valueOf(value));
+                return TableContentAlignmentEnum.fromValue(String.valueOf(value));
             }
         }
     }
 
-    @SerializedName("Text")
-    private String text = null;
-
-    @SerializedName("TextType")
-    private TextTypeEnum textType = null;
-    public ReplaceRange text(String text) {
-        this.text = text;
+    @SerializedName("TableContentAlignment")
+    private TableContentAlignmentEnum tableContentAlignment = null;
+    public MarkdownSaveOptionsData tableContentAlignment(TableContentAlignmentEnum tableContentAlignment) {
+        this.tableContentAlignment = tableContentAlignment;
         return this;
     }
 
     /**
-     * Gets or sets range's text.
-    * @return text
+     * Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format.
+     * The default value is Auto.
+    * @return tableContentAlignment
     **/
-    @ApiModelProperty(value = "Gets or sets range's text.")
-    public String getText() {
-        return text;
+    @ApiModelProperty(value = "Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.")
+    public TableContentAlignmentEnum getTableContentAlignment() {
+        return tableContentAlignment;
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public ReplaceRange textType(TextTypeEnum textType) {
-        this.textType = textType;
-        return this;
-    }
-
-    /**
-     * Gets or sets range's text type.
-    * @return textType
-    **/
-    @ApiModelProperty(value = "Gets or sets range's text type.")
-    public TextTypeEnum getTextType() {
-        return textType;
-    }
-
-    public void setTextType(TextTypeEnum textType) {
-        this.textType = textType;
+    public void setTableContentAlignment(TableContentAlignmentEnum tableContentAlignment) {
+        this.tableContentAlignment = tableContentAlignment;
     }
 
     @Override
@@ -143,23 +126,23 @@ public class ReplaceRange {
             return false;
         }
 
-        ReplaceRange replaceRange = (ReplaceRange) o;
+        MarkdownSaveOptionsData markdownSaveOptionsData = (MarkdownSaveOptionsData) o;
         return
-            Objects.equals(this.text, replaceRange.text) &&
-            Objects.equals(this.textType, replaceRange.textType);
+            Objects.equals(this.tableContentAlignment, markdownSaveOptionsData.tableContentAlignment) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, textType);
+    return Objects.hash(tableContentAlignment, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReplaceRange {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
-    sb.append("    textType: ").append(toIndentedString(textType)).append("\n");
+    sb.append("class MarkdownSaveOptionsData {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    tableContentAlignment: ").append(toIndentedString(tableContentAlignment)).append("\n");
     sb.append("}");
     return sb.toString();
   }

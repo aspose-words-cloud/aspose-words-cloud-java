@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetFieldRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,41 +37,41 @@ public class GetFieldRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private String name;
 
     /*
      * Path to the node, which contains collection of fields.
      */
-    private String NodePath;
+    private String nodePath;
 
     /*
      * Object index.
      */
-    private Integer Index;
+    private Integer index;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private String folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private String storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private String loadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
-    
+    private String password;
+
     /*
-     * Initializes a new instance of the getFieldRequest class.
-     *  
+     * Initializes a new instance of the GetFieldRequest class.
+     *
      * @param String name The document name.
      * @param String nodePath Path to the node, which contains collection of fields.
      * @param Integer index Object index.
@@ -78,111 +80,111 @@ public class GetFieldRequest {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetFieldRequest(String name,  String nodePath,  Integer index,  String folder,  String storage,  String loadEncoding,  String password) {
-        Name = name;
-        NodePath = nodePath;
-        Index = index;
-        Folder = folder;
-        Storage = storage;
-        LoadEncoding = loadEncoding;
-        Password = password;
+    public GetFieldRequest(String name, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password) {
+        this.name = name;
+        this.nodePath = nodePath;
+        this.index = index;
+        this.folder = folder;
+        this.storage = storage;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
     }
 
     /*
-     *  Gets The document name.
+     * Gets The document name.
      */
     public String getName() {
-        return Name;
+        return this.name;
     }
 
     /*
      * Sets The document name.
      */
     public void setName(String value) {
-        Name = value;
+        this.name = value;
     }
 
     /*
-     *  Gets Path to the node, which contains collection of fields.
+     * Gets Path to the node, which contains collection of fields.
      */
     public String getNodePath() {
-        return NodePath;
+        return this.nodePath;
     }
 
     /*
      * Sets Path to the node, which contains collection of fields.
      */
     public void setNodePath(String value) {
-        NodePath = value;
+        this.nodePath = value;
     }
 
     /*
-     *  Gets Object index.
+     * Gets Object index.
      */
     public Integer getIndex() {
-        return Index;
+        return this.index;
     }
 
     /*
      * Sets Object index.
      */
     public void setIndex(Integer value) {
-        Index = value;
+        this.index = value;
     }
 
     /*
-     *  Gets Original document folder.
+     * Gets Original document folder.
      */
     public String getFolder() {
-        return Folder;
+        return this.folder;
     }
 
     /*
      * Sets Original document folder.
      */
     public void setFolder(String value) {
-        Folder = value;
+        this.folder = value;
     }
 
     /*
-     *  Gets Original document storage.
+     * Gets Original document storage.
      */
     public String getStorage() {
-        return Storage;
+        return this.storage;
     }
 
     /*
      * Sets Original document storage.
      */
     public void setStorage(String value) {
-        Storage = value;
+        this.storage = value;
     }
 
     /*
-     *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public String getLoadEncoding() {
-        return LoadEncoding;
+        return this.loadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public void setLoadEncoding(String value) {
-        LoadEncoding = value;
+        this.loadEncoding = value;
     }
 
     /*
-     *  Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document.
      */
     public String getPassword() {
-        return Password;
+        return this.password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
     public void setPassword(String value) {
-        Password = value;
+        this.password = value;
     }
 }

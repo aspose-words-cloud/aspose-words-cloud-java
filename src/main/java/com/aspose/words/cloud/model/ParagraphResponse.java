@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ParagraphResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.")
 public class ParagraphResponse extends WordsResponse {
-  @SerializedName("Paragraph")
-  private Paragraph paragraph = null;
-
-  public ParagraphResponse paragraph(Paragraph paragraph) {
-    this.paragraph = paragraph;
-    return this;
-  }
-
-   /**
-   * Get paragraph
-   * @return paragraph
-  **/
-  @ApiModelProperty(value = "")
-  public Paragraph getParagraph() {
-    return paragraph;
-  }
-
-  public void setParagraph(Paragraph paragraph) {
-    this.paragraph = paragraph;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Paragraph")
+    private Paragraph paragraph = null;
+    public ParagraphResponse paragraph(Paragraph paragraph) {
+        this.paragraph = paragraph;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets paragraph.
+    * @return paragraph
+    **/
+    @ApiModelProperty(value = "Gets or sets paragraph.")
+    public Paragraph getParagraph() {
+        return paragraph;
     }
-    ParagraphResponse paragraphResponse = (ParagraphResponse) o;
-    return Objects.equals(this.paragraph, paragraphResponse.paragraph) &&
-        super.equals(o);
+
+    public void setParagraph(Paragraph paragraph) {
+        this.paragraph = paragraph;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ParagraphResponse paragraphResponse = (ParagraphResponse) o;
+        return
+            Objects.equals(this.paragraph, paragraphResponse.paragraph) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(paragraph, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class ParagraphResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TiffSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,90 +47,90 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for tiff save options.")
 public class TiffSaveOptionsData extends ImageSaveOptionsData {
-  @SerializedName("ThresholdForFloydSteinbergDithering")
-  private Integer thresholdForFloydSteinbergDithering = null;
+    @SerializedName("ThresholdForFloydSteinbergDithering")
+    private Integer thresholdForFloydSteinbergDithering = null;
 
-  @SerializedName("TiffBinarizationMethod")
-  private String tiffBinarizationMethod = null;
+    @SerializedName("TiffBinarizationMethod")
+    private String tiffBinarizationMethod = null;
 
-  @SerializedName("TiffCompression")
-  private String tiffCompression = null;
-
-  public TiffSaveOptionsData thresholdForFloydSteinbergDithering(Integer thresholdForFloydSteinbergDithering) {
-    this.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
-    return this;
-  }
-
-   /**
-   * Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.
-   * @return thresholdForFloydSteinbergDithering
-  **/
-  @ApiModelProperty(value = "Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.")
-  public Integer getThresholdForFloydSteinbergDithering() {
-    return thresholdForFloydSteinbergDithering;
-  }
-
-  public void setThresholdForFloydSteinbergDithering(Integer thresholdForFloydSteinbergDithering) {
-    this.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
-  }
-
-  public TiffSaveOptionsData tiffBinarizationMethod(String tiffBinarizationMethod) {
-    this.tiffBinarizationMethod = tiffBinarizationMethod;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies method used while converting images to 1 bpp format.
-   * @return tiffBinarizationMethod
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies method used while converting images to 1 bpp format.")
-  public String getTiffBinarizationMethod() {
-    return tiffBinarizationMethod;
-  }
-
-  public void setTiffBinarizationMethod(String tiffBinarizationMethod) {
-    this.tiffBinarizationMethod = tiffBinarizationMethod;
-  }
-
-  public TiffSaveOptionsData tiffCompression(String tiffCompression) {
-    this.tiffCompression = tiffCompression;
-    return this;
-  }
-
-   /**
-   * Gets or sets type of compression.
-   * @return tiffCompression
-  **/
-  @ApiModelProperty(value = "Gets or sets type of compression.")
-  public String getTiffCompression() {
-    return tiffCompression;
-  }
-
-  public void setTiffCompression(String tiffCompression) {
-    this.tiffCompression = tiffCompression;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("TiffCompression")
+    private String tiffCompression = null;
+    public TiffSaveOptionsData thresholdForFloydSteinbergDithering(Integer thresholdForFloydSteinbergDithering) {
+        this.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering.
+     * Default value is 128.
+    * @return thresholdForFloydSteinbergDithering
+    **/
+    @ApiModelProperty(value = "Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.")
+    public Integer getThresholdForFloydSteinbergDithering() {
+        return thresholdForFloydSteinbergDithering;
     }
-    TiffSaveOptionsData tiffSaveOptionsData = (TiffSaveOptionsData) o;
-    return Objects.equals(this.thresholdForFloydSteinbergDithering, tiffSaveOptionsData.thresholdForFloydSteinbergDithering) &&
-        Objects.equals(this.tiffBinarizationMethod, tiffSaveOptionsData.tiffBinarizationMethod) &&
-        Objects.equals(this.tiffCompression, tiffSaveOptionsData.tiffCompression) &&
-        super.equals(o);
+
+    public void setThresholdForFloydSteinbergDithering(Integer thresholdForFloydSteinbergDithering) {
+        this.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
+    }
+
+    public TiffSaveOptionsData tiffBinarizationMethod(String tiffBinarizationMethod) {
+        this.tiffBinarizationMethod = tiffBinarizationMethod;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies method used while converting images to 1 bpp format.
+    * @return tiffBinarizationMethod
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies method used while converting images to 1 bpp format.")
+    public String getTiffBinarizationMethod() {
+        return tiffBinarizationMethod;
+    }
+
+    public void setTiffBinarizationMethod(String tiffBinarizationMethod) {
+        this.tiffBinarizationMethod = tiffBinarizationMethod;
+    }
+
+    public TiffSaveOptionsData tiffCompression(String tiffCompression) {
+        this.tiffCompression = tiffCompression;
+        return this;
+    }
+
+    /**
+     * Gets or sets type of compression.
+    * @return tiffCompression
+    **/
+    @ApiModelProperty(value = "Gets or sets type of compression.")
+    public String getTiffCompression() {
+        return tiffCompression;
+    }
+
+    public void setTiffCompression(String tiffCompression) {
+        this.tiffCompression = tiffCompression;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TiffSaveOptionsData tiffSaveOptionsData = (TiffSaveOptionsData) o;
+        return
+            Objects.equals(this.thresholdForFloydSteinbergDithering, tiffSaveOptionsData.thresholdForFloydSteinbergDithering) &&
+            Objects.equals(this.tiffBinarizationMethod, tiffSaveOptionsData.tiffBinarizationMethod) &&
+            Objects.equals(this.tiffCompression, tiffSaveOptionsData.tiffCompression) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(thresholdForFloydSteinbergDithering, tiffBinarizationMethod, tiffCompression, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -154,6 +154,4 @@ public class TiffSaveOptionsData extends ImageSaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

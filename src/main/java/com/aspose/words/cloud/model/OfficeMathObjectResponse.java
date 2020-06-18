@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="OfficeMathObjectResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/officeMathObjects/0.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/officeMathObjects/0.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/officeMathObjects/0.")
 public class OfficeMathObjectResponse extends WordsResponse {
-  @SerializedName("OfficeMathObject")
-  private OfficeMathObject officeMathObject = null;
-
-  public OfficeMathObjectResponse officeMathObject(OfficeMathObject officeMathObject) {
-    this.officeMathObject = officeMathObject;
-    return this;
-  }
-
-   /**
-   * Get officeMathObject
-   * @return officeMathObject
-  **/
-  @ApiModelProperty(value = "")
-  public OfficeMathObject getOfficeMathObject() {
-    return officeMathObject;
-  }
-
-  public void setOfficeMathObject(OfficeMathObject officeMathObject) {
-    this.officeMathObject = officeMathObject;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("OfficeMathObject")
+    private OfficeMathObject officeMathObject = null;
+    public OfficeMathObjectResponse officeMathObject(OfficeMathObject officeMathObject) {
+        this.officeMathObject = officeMathObject;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets officeMathObject information.
+    * @return officeMathObject
+    **/
+    @ApiModelProperty(value = "Gets or sets officeMathObject information.")
+    public OfficeMathObject getOfficeMathObject() {
+        return officeMathObject;
     }
-    OfficeMathObjectResponse officeMathObjectResponse = (OfficeMathObjectResponse) o;
-    return Objects.equals(this.officeMathObject, officeMathObjectResponse.officeMathObject) &&
-        super.equals(o);
+
+    public void setOfficeMathObject(OfficeMathObject officeMathObject) {
+        this.officeMathObject = officeMathObject;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        OfficeMathObjectResponse officeMathObjectResponse = (OfficeMathObjectResponse) o;
+        return
+            Objects.equals(this.officeMathObject, officeMathObjectResponse.officeMathObject) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(officeMathObject, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class OfficeMathObjectResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

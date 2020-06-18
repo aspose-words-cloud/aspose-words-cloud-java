@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StylesResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,58 +43,58 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.")
 public class StylesResponse extends WordsResponse {
-  @SerializedName("Styles")
-  private List<Style> styles = null;
-
-  public StylesResponse styles(List<Style> styles) {
-    this.styles = styles;
-    return this;
-  }
-
-  public StylesResponse addStylesItem(Style stylesItem) {
-    if (this.styles == null) {
-      this.styles = new ArrayList<Style>();
+    @SerializedName("Styles")
+    private List<Style> styles = null;
+    public StylesResponse styles(List<Style> styles) {
+        this.styles = styles;
+        return this;
     }
-    this.styles.add(stylesItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets styles which are contained in document.
-   * @return styles
-  **/
-  @ApiModelProperty(value = "Gets or sets styles which are contained in document.")
-  public List<Style> getStyles() {
-    return styles;
-  }
-
-  public void setStyles(List<Style> styles) {
-    this.styles = styles;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public StylesResponse addStylesItem(Style stylesItem) {
+        if (this.styles == null) {
+            this.styles = new ArrayList<Style>();
+        }
+        this.styles.add(stylesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets styles which are contained in document.
+    * @return styles
+    **/
+    @ApiModelProperty(value = "Gets or sets styles which are contained in document.")
+    public List<Style> getStyles() {
+        return styles;
     }
-    StylesResponse stylesResponse = (StylesResponse) o;
-    return Objects.equals(this.styles, stylesResponse.styles) &&
-        super.equals(o);
+
+    public void setStyles(List<Style> styles) {
+        this.styles = styles;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        StylesResponse stylesResponse = (StylesResponse) o;
+        return
+            Objects.equals(this.styles, stylesResponse.styles) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(styles, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +116,4 @@ public class StylesResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

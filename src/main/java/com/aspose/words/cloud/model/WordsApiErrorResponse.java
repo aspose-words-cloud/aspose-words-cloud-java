@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="WordsApiErrorResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Response for Api error.")
 public class WordsApiErrorResponse extends WordsResponse {
-  @SerializedName("Error")
-  private ApiError error = null;
-
-  public WordsApiErrorResponse error(ApiError error) {
-    this.error = error;
-    return this;
-  }
-
-   /**
-   * Get error
-   * @return error
-  **/
-  @ApiModelProperty(value = "")
-  public ApiError getError() {
-    return error;
-  }
-
-  public void setError(ApiError error) {
-    this.error = error;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Error")
+    private ApiError error = null;
+    public WordsApiErrorResponse error(ApiError error) {
+        this.error = error;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets error.
+    * @return error
+    **/
+    @ApiModelProperty(value = "Gets or sets error.")
+    public ApiError getError() {
+        return error;
     }
-    WordsApiErrorResponse wordsApiErrorResponse = (WordsApiErrorResponse) o;
-    return Objects.equals(this.error, wordsApiErrorResponse.error) &&
-        super.equals(o);
+
+    public void setError(ApiError error) {
+        this.error = error;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        WordsApiErrorResponse wordsApiErrorResponse = (WordsApiErrorResponse) o;
+        return
+            Objects.equals(this.error, wordsApiErrorResponse.error) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(error, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class WordsApiErrorResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FormFieldCheckbox.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,90 +47,89 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "FormField checkbox element.")
 public class FormFieldCheckbox extends FormField {
-  @SerializedName("CheckBoxSize")
-  private Double checkBoxSize = null;
+    @SerializedName("CheckBoxSize")
+    private Double checkBoxSize = null;
 
-  @SerializedName("Checked")
-  private Boolean checked = null;
+    @SerializedName("Checked")
+    private Boolean checked = null;
 
-  @SerializedName("IsCheckBoxExactSize")
-  private Boolean isCheckBoxExactSize = null;
-
-  public FormFieldCheckbox checkBoxSize(Double checkBoxSize) {
-    this.checkBoxSize = checkBoxSize;
-    return this;
-  }
-
-   /**
-   * Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
-   * @return checkBoxSize
-  **/
-  @ApiModelProperty(value = "Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.")
-  public Double getCheckBoxSize() {
-    return checkBoxSize;
-  }
-
-  public void setCheckBoxSize(Double checkBoxSize) {
-    this.checkBoxSize = checkBoxSize;
-  }
-
-  public FormFieldCheckbox checked(Boolean checked) {
-    this.checked = checked;
-    return this;
-  }
-
-   /**
-   * Gets or sets the checked status of the check box form field.
-   * @return checked
-  **/
-  @ApiModelProperty(value = "Gets or sets the checked status of the check box form field.")
-  public Boolean isChecked() {
-    return checked;
-  }
-
-  public void setChecked(Boolean checked) {
-    this.checked = checked;
-  }
-
-  public FormFieldCheckbox isCheckBoxExactSize(Boolean isCheckBoxExactSize) {
-    this.isCheckBoxExactSize = isCheckBoxExactSize;
-    return this;
-  }
-
-   /**
-   * Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
-   * @return isCheckBoxExactSize
-  **/
-  @ApiModelProperty(value = "Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.")
-  public Boolean isIsCheckBoxExactSize() {
-    return isCheckBoxExactSize;
-  }
-
-  public void setIsCheckBoxExactSize(Boolean isCheckBoxExactSize) {
-    this.isCheckBoxExactSize = isCheckBoxExactSize;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("IsCheckBoxExactSize")
+    private Boolean isCheckBoxExactSize = null;
+    public FormFieldCheckbox checkBoxSize(Double checkBoxSize) {
+        this.checkBoxSize = checkBoxSize;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
+    * @return checkBoxSize
+    **/
+    @ApiModelProperty(value = "Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.")
+    public Double getCheckBoxSize() {
+        return checkBoxSize;
     }
-    FormFieldCheckbox formFieldCheckbox = (FormFieldCheckbox) o;
-    return Objects.equals(this.checkBoxSize, formFieldCheckbox.checkBoxSize) &&
-        Objects.equals(this.checked, formFieldCheckbox.checked) &&
-        Objects.equals(this.isCheckBoxExactSize, formFieldCheckbox.isCheckBoxExactSize) &&
-        super.equals(o);
+
+    public void setCheckBoxSize(Double checkBoxSize) {
+        this.checkBoxSize = checkBoxSize;
+    }
+
+    public FormFieldCheckbox checked(Boolean checked) {
+        this.checked = checked;
+        return this;
+    }
+
+    /**
+     * Gets or sets the checked status of the check box form field.
+    * @return checked
+    **/
+    @ApiModelProperty(value = "Gets or sets the checked status of the check box form field.")
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
+
+    public FormFieldCheckbox isCheckBoxExactSize(Boolean isCheckBoxExactSize) {
+        this.isCheckBoxExactSize = isCheckBoxExactSize;
+        return this;
+    }
+
+    /**
+     * Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
+    * @return isCheckBoxExactSize
+    **/
+    @ApiModelProperty(value = "Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.")
+    public Boolean getIsCheckBoxExactSize() {
+        return isCheckBoxExactSize;
+    }
+
+    public void setIsCheckBoxExactSize(Boolean isCheckBoxExactSize) {
+        this.isCheckBoxExactSize = isCheckBoxExactSize;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FormFieldCheckbox formFieldCheckbox = (FormFieldCheckbox) o;
+        return
+            Objects.equals(this.checkBoxSize, formFieldCheckbox.checkBoxSize) &&
+            Objects.equals(this.checked, formFieldCheckbox.checked) &&
+            Objects.equals(this.isCheckBoxExactSize, formFieldCheckbox.isCheckBoxExactSize) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(checkBoxSize, checked, isCheckBoxExactSize, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -154,6 +153,4 @@ public class FormFieldCheckbox extends FormField {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

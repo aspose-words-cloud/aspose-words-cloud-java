@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="BorderResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
+ * This response should be returned by the service when handling:
+ * GET {nodeWithBorders}/borders.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET {nodeWithBorders}/borders.")
 public class BorderResponse extends WordsResponse {
-  @SerializedName("Border")
-  private Border border = null;
-
-  public BorderResponse border(Border border) {
-    this.border = border;
-    return this;
-  }
-
-   /**
-   * Get border
-   * @return border
-  **/
-  @ApiModelProperty(value = "")
-  public Border getBorder() {
-    return border;
-  }
-
-  public void setBorder(Border border) {
-    this.border = border;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Border")
+    private Border border = null;
+    public BorderResponse border(Border border) {
+        this.border = border;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets table.
+    * @return border
+    **/
+    @ApiModelProperty(value = "Gets or sets table.")
+    public Border getBorder() {
+        return border;
     }
-    BorderResponse borderResponse = (BorderResponse) o;
-    return Objects.equals(this.border, borderResponse.border) &&
-        super.equals(o);
+
+    public void setBorder(Border border) {
+        this.border = border;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        BorderResponse borderResponse = (BorderResponse) o;
+        return
+            Objects.equals(this.border, borderResponse.border) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(border, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class BorderResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

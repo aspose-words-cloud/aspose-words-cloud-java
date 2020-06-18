@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="RtfSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,112 +47,111 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for rtf save options.")
 public class RtfSaveOptionsData extends SaveOptionsData {
-  @SerializedName("ExportCompactSize")
-  private Boolean exportCompactSize = null;
+    @SerializedName("ExportCompactSize")
+    private Boolean exportCompactSize = null;
 
-  @SerializedName("ExportImagesForOldReaders")
-  private Boolean exportImagesForOldReaders = null;
+    @SerializedName("ExportImagesForOldReaders")
+    private Boolean exportImagesForOldReaders = null;
 
-  @SerializedName("PrettyFormat")
-  private Boolean prettyFormat = null;
+    @SerializedName("PrettyFormat")
+    private Boolean prettyFormat = null;
 
-  @SerializedName("SaveImagesAsWmf")
-  private Boolean saveImagesAsWmf = null;
-
-  public RtfSaveOptionsData exportCompactSize(Boolean exportCompactSize) {
-    this.exportCompactSize = exportCompactSize;
-    return this;
-  }
-
-   /**
-   * Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
-   * @return exportCompactSize
-  **/
-  @ApiModelProperty(value = "Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.")
-  public Boolean isExportCompactSize() {
-    return exportCompactSize;
-  }
-
-  public void setExportCompactSize(Boolean exportCompactSize) {
-    this.exportCompactSize = exportCompactSize;
-  }
-
-  public RtfSaveOptionsData exportImagesForOldReaders(Boolean exportImagesForOldReaders) {
-    this.exportImagesForOldReaders = exportImagesForOldReaders;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies whether the keywords for \&quot;old readers\&quot; are written to RTF or not.
-   * @return exportImagesForOldReaders
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.")
-  public Boolean isExportImagesForOldReaders() {
-    return exportImagesForOldReaders;
-  }
-
-  public void setExportImagesForOldReaders(Boolean exportImagesForOldReaders) {
-    this.exportImagesForOldReaders = exportImagesForOldReaders;
-  }
-
-  public RtfSaveOptionsData prettyFormat(Boolean prettyFormat) {
-    this.prettyFormat = prettyFormat;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies whether or not use pretty formats output.
-   * @return prettyFormat
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
-  public Boolean isPrettyFormat() {
-    return prettyFormat;
-  }
-
-  public void setPrettyFormat(Boolean prettyFormat) {
-    this.prettyFormat = prettyFormat;
-  }
-
-  public RtfSaveOptionsData saveImagesAsWmf(Boolean saveImagesAsWmf) {
-    this.saveImagesAsWmf = saveImagesAsWmf;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
-   * @return saveImagesAsWmf
-  **/
-  @ApiModelProperty(value = "Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.")
-  public Boolean isSaveImagesAsWmf() {
-    return saveImagesAsWmf;
-  }
-
-  public void setSaveImagesAsWmf(Boolean saveImagesAsWmf) {
-    this.saveImagesAsWmf = saveImagesAsWmf;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("SaveImagesAsWmf")
+    private Boolean saveImagesAsWmf = null;
+    public RtfSaveOptionsData exportCompactSize(Boolean exportCompactSize) {
+        this.exportCompactSize = exportCompactSize;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
+    * @return exportCompactSize
+    **/
+    @ApiModelProperty(value = "Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.")
+    public Boolean getExportCompactSize() {
+        return exportCompactSize;
     }
-    RtfSaveOptionsData rtfSaveOptionsData = (RtfSaveOptionsData) o;
-    return Objects.equals(this.exportCompactSize, rtfSaveOptionsData.exportCompactSize) &&
-        Objects.equals(this.exportImagesForOldReaders, rtfSaveOptionsData.exportImagesForOldReaders) &&
-        Objects.equals(this.prettyFormat, rtfSaveOptionsData.prettyFormat) &&
-        Objects.equals(this.saveImagesAsWmf, rtfSaveOptionsData.saveImagesAsWmf) &&
-        super.equals(o);
+
+    public void setExportCompactSize(Boolean exportCompactSize) {
+        this.exportCompactSize = exportCompactSize;
+    }
+
+    public RtfSaveOptionsData exportImagesForOldReaders(Boolean exportImagesForOldReaders) {
+        this.exportImagesForOldReaders = exportImagesForOldReaders;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies whether the keywords for "old readers" are written to RTF or not.
+    * @return exportImagesForOldReaders
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.")
+    public Boolean getExportImagesForOldReaders() {
+        return exportImagesForOldReaders;
+    }
+
+    public void setExportImagesForOldReaders(Boolean exportImagesForOldReaders) {
+        this.exportImagesForOldReaders = exportImagesForOldReaders;
+    }
+
+    public RtfSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies whether or not use pretty formats output.
+    * @return prettyFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
+    public Boolean getPrettyFormat() {
+        return prettyFormat;
+    }
+
+    public void setPrettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+    }
+
+    public RtfSaveOptionsData saveImagesAsWmf(Boolean saveImagesAsWmf) {
+        this.saveImagesAsWmf = saveImagesAsWmf;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
+    * @return saveImagesAsWmf
+    **/
+    @ApiModelProperty(value = "Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.")
+    public Boolean getSaveImagesAsWmf() {
+        return saveImagesAsWmf;
+    }
+
+    public void setSaveImagesAsWmf(Boolean saveImagesAsWmf) {
+        this.saveImagesAsWmf = saveImagesAsWmf;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        RtfSaveOptionsData rtfSaveOptionsData = (RtfSaveOptionsData) o;
+        return
+            Objects.equals(this.exportCompactSize, rtfSaveOptionsData.exportCompactSize) &&
+            Objects.equals(this.exportImagesForOldReaders, rtfSaveOptionsData.exportImagesForOldReaders) &&
+            Objects.equals(this.prettyFormat, rtfSaveOptionsData.prettyFormat) &&
+            Objects.equals(this.saveImagesAsWmf, rtfSaveOptionsData.saveImagesAsWmf) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(exportCompactSize, exportImagesForOldReaders, prettyFormat, saveImagesAsWmf, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -177,6 +176,4 @@ public class RtfSaveOptionsData extends SaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

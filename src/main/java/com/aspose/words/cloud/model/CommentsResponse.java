@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="CommentsResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/comments.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/comments.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/comments.")
 public class CommentsResponse extends WordsResponse {
-  @SerializedName("Comments")
-  private CommentsCollection comments = null;
-
-  public CommentsResponse comments(CommentsCollection comments) {
-    this.comments = comments;
-    return this;
-  }
-
-   /**
-   * Get comments
-   * @return comments
-  **/
-  @ApiModelProperty(value = "")
-  public CommentsCollection getComments() {
-    return comments;
-  }
-
-  public void setComments(CommentsCollection comments) {
-    this.comments = comments;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Comments")
+    private CommentsCollection comments = null;
+    public CommentsResponse comments(CommentsCollection comments) {
+        this.comments = comments;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of comments.
+    * @return comments
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of comments.")
+    public CommentsCollection getComments() {
+        return comments;
     }
-    CommentsResponse commentsResponse = (CommentsResponse) o;
-    return Objects.equals(this.comments, commentsResponse.comments) &&
-        super.equals(o);
+
+    public void setComments(CommentsCollection comments) {
+        this.comments = comments;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        CommentsResponse commentsResponse = (CommentsResponse) o;
+        return
+            Objects.equals(this.comments, commentsResponse.comments) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(comments, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class CommentsResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="TableRowFormatResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.")
 public class TableRowFormatResponse extends WordsResponse {
-  @SerializedName("RowFormat")
-  private TableRowFormat rowFormat = null;
-
-  public TableRowFormatResponse rowFormat(TableRowFormat rowFormat) {
-    this.rowFormat = rowFormat;
-    return this;
-  }
-
-   /**
-   * Get rowFormat
-   * @return rowFormat
-  **/
-  @ApiModelProperty(value = "")
-  public TableRowFormat getRowFormat() {
-    return rowFormat;
-  }
-
-  public void setRowFormat(TableRowFormat rowFormat) {
-    this.rowFormat = rowFormat;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("RowFormat")
+    private TableRowFormat rowFormat = null;
+    public TableRowFormatResponse rowFormat(TableRowFormat rowFormat) {
+        this.rowFormat = rowFormat;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets table.
+    * @return rowFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets table.")
+    public TableRowFormat getRowFormat() {
+        return rowFormat;
     }
-    TableRowFormatResponse tableRowFormatResponse = (TableRowFormatResponse) o;
-    return Objects.equals(this.rowFormat, tableRowFormatResponse.rowFormat) &&
-        super.equals(o);
+
+    public void setRowFormat(TableRowFormat rowFormat) {
+        this.rowFormat = rowFormat;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        TableRowFormatResponse tableRowFormatResponse = (TableRowFormatResponse) o;
+        return
+            Objects.equals(this.rowFormat, tableRowFormatResponse.rowFormat) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(rowFormat, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class TableRowFormatResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

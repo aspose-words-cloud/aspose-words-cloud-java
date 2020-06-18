@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents the response with document description.")
 public class DocumentResponse extends WordsResponse {
-  @SerializedName("Document")
-  private Document document = null;
-
-  public DocumentResponse document(Document document) {
-    this.document = document;
-    return this;
-  }
-
-   /**
-   * Get document
-   * @return document
-  **/
-  @ApiModelProperty(value = "")
-  public Document getDocument() {
-    return document;
-  }
-
-  public void setDocument(Document document) {
-    this.document = document;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Document")
+    private Document document = null;
+    public DocumentResponse document(Document document) {
+        this.document = document;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets document description.
+    * @return document
+    **/
+    @ApiModelProperty(value = "Gets or sets document description.")
+    public Document getDocument() {
+        return document;
     }
-    DocumentResponse documentResponse = (DocumentResponse) o;
-    return Objects.equals(this.document, documentResponse.document) &&
-        super.equals(o);
+
+    public void setDocument(Document document) {
+        this.document = document;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentResponse documentResponse = (DocumentResponse) o;
+        return
+            Objects.equals(this.document, documentResponse.document) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(document, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class DocumentResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FormFieldTextInput.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,167 +47,161 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "FormField text input element.")
 public class FormFieldTextInput extends FormField {
-  @SerializedName("MaxLength")
-  private Integer maxLength = null;
+    /**
+     * Gets or sets the type of a text form field.
+     */
+    @JsonAdapter(TextInputTypeEnum.Adapter.class)
+    public enum TextInputTypeEnum {
+        REGULAR("Regular"),
+        NUMBER("Number"),
+        DATE("Date"),
+        CURRENTDATE("CurrentDate"),
+        CURRENTTIME("CurrentTime"),
+        CALCULATED("Calculated");
 
-  @SerializedName("TextInputDefault")
-  private String textInputDefault = null;
+        private String value;
 
-  @SerializedName("TextInputFormat")
-  private String textInputFormat = null;
+        TextInputTypeEnum(String value) {
+            this.value = value;
+        }
 
-  /**
-   * Gets or sets the type of a text form field.
-   */
-  @JsonAdapter(TextInputTypeEnum.Adapter.class)
-  public enum TextInputTypeEnum {
-    REGULAR("Regular"),
-    
-    NUMBER("Number"),
-    
-    DATE("Date"),
-    
-    CURRENTDATE("CurrentDate"),
-    
-    CURRENTTIME("CurrentTime"),
-    
-    CALCULATED("Calculated");
+        public String getValue() {
+            return value;
+        }
 
-    private String value;
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
 
-    TextInputTypeEnum(String value) {
-      this.value = value;
+        public static TextInputTypeEnum fromValue(String text) {
+            for (TextInputTypeEnum b : TextInputTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< TextInputTypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TextInputTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TextInputTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TextInputTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("MaxLength")
+    private Integer maxLength = null;
+
+    @SerializedName("TextInputDefault")
+    private String textInputDefault = null;
+
+    @SerializedName("TextInputFormat")
+    private String textInputFormat = null;
+
+    @SerializedName("TextInputType")
+    private TextInputTypeEnum textInputType = null;
+    public FormFieldTextInput maxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+        return this;
+    }
+
+    /**
+     * Gets or sets maximum length for the text field. Zero when the length is not limited.
+    * @return maxLength
+    **/
+    @ApiModelProperty(value = "Gets or sets maximum length for the text field. Zero when the length is not limited.")
+    public Integer getMaxLength() {
+        return maxLength;
+    }
+
+    public void setMaxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+    }
+
+    public FormFieldTextInput textInputDefault(String textInputDefault) {
+        this.textInputDefault = textInputDefault;
+        return this;
+    }
+
+    /**
+     * Gets or sets the default string or a calculation expression of a text form field.
+    * @return textInputDefault
+    **/
+    @ApiModelProperty(value = "Gets or sets the default string or a calculation expression of a text form field.")
+    public String getTextInputDefault() {
+        return textInputDefault;
+    }
+
+    public void setTextInputDefault(String textInputDefault) {
+        this.textInputDefault = textInputDefault;
+    }
+
+    public FormFieldTextInput textInputFormat(String textInputFormat) {
+        this.textInputFormat = textInputFormat;
+        return this;
+    }
+
+    /**
+     * Gets or sets returns or sets the text formatting for a text form field.
+    * @return textInputFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets returns or sets the text formatting for a text form field.")
+    public String getTextInputFormat() {
+        return textInputFormat;
+    }
+
+    public void setTextInputFormat(String textInputFormat) {
+        this.textInputFormat = textInputFormat;
+    }
+
+    public FormFieldTextInput textInputType(TextInputTypeEnum textInputType) {
+        this.textInputType = textInputType;
+        return this;
+    }
+
+    /**
+     * Gets or sets the type of a text form field.
+    * @return textInputType
+    **/
+    @ApiModelProperty(value = "Gets or sets the type of a text form field.")
+    public TextInputTypeEnum getTextInputType() {
+        return textInputType;
+    }
+
+    public void setTextInputType(TextInputTypeEnum textInputType) {
+        this.textInputType = textInputType;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TextInputTypeEnum fromValue(String text) {
-      for (TextInputTypeEnum b : TextInputTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<TextInputTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TextInputTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TextInputTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TextInputTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("TextInputType")
-  private TextInputTypeEnum textInputType = null;
-
-  public FormFieldTextInput maxLength(Integer maxLength) {
-    this.maxLength = maxLength;
-    return this;
-  }
-
-   /**
-   * Gets or sets maximum length for the text field. Zero when the length is not limited.
-   * @return maxLength
-  **/
-  @ApiModelProperty(value = "Gets or sets maximum length for the text field. Zero when the length is not limited.")
-  public Integer getMaxLength() {
-    return maxLength;
-  }
-
-  public void setMaxLength(Integer maxLength) {
-    this.maxLength = maxLength;
-  }
-
-  public FormFieldTextInput textInputDefault(String textInputDefault) {
-    this.textInputDefault = textInputDefault;
-    return this;
-  }
-
-   /**
-   * Gets or sets the default string or a calculation expression of a text form field.
-   * @return textInputDefault
-  **/
-  @ApiModelProperty(value = "Gets or sets the default string or a calculation expression of a text form field.")
-  public String getTextInputDefault() {
-    return textInputDefault;
-  }
-
-  public void setTextInputDefault(String textInputDefault) {
-    this.textInputDefault = textInputDefault;
-  }
-
-  public FormFieldTextInput textInputFormat(String textInputFormat) {
-    this.textInputFormat = textInputFormat;
-    return this;
-  }
-
-   /**
-   * Gets or sets returns or sets the text formatting for a text form field.
-   * @return textInputFormat
-  **/
-  @ApiModelProperty(value = "Gets or sets returns or sets the text formatting for a text form field.")
-  public String getTextInputFormat() {
-    return textInputFormat;
-  }
-
-  public void setTextInputFormat(String textInputFormat) {
-    this.textInputFormat = textInputFormat;
-  }
-
-  public FormFieldTextInput textInputType(TextInputTypeEnum textInputType) {
-    this.textInputType = textInputType;
-    return this;
-  }
-
-   /**
-   * Gets or sets the type of a text form field.
-   * @return textInputType
-  **/
-  @ApiModelProperty(value = "Gets or sets the type of a text form field.")
-  public TextInputTypeEnum getTextInputType() {
-    return textInputType;
-  }
-
-  public void setTextInputType(TextInputTypeEnum textInputType) {
-    this.textInputType = textInputType;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    FormFieldTextInput formFieldTextInput = (FormFieldTextInput) o;
-    return Objects.equals(this.maxLength, formFieldTextInput.maxLength) &&
-        Objects.equals(this.textInputDefault, formFieldTextInput.textInputDefault) &&
-        Objects.equals(this.textInputFormat, formFieldTextInput.textInputFormat) &&
-        Objects.equals(this.textInputType, formFieldTextInput.textInputType) &&
-        super.equals(o);
+        FormFieldTextInput formFieldTextInput = (FormFieldTextInput) o;
+        return
+            Objects.equals(this.maxLength, formFieldTextInput.maxLength) &&
+            Objects.equals(this.textInputDefault, formFieldTextInput.textInputDefault) &&
+            Objects.equals(this.textInputFormat, formFieldTextInput.textInputFormat) &&
+            Objects.equals(this.textInputType, formFieldTextInput.textInputType) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(maxLength, textInputDefault, textInputFormat, textInputType, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -232,6 +226,4 @@ public class FormFieldTextInput extends FormField {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

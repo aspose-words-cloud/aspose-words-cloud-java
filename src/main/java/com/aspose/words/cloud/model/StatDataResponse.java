@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StatDataResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,72 +43,71 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Response for the request of the document&#39;s statistical data.
+ * Response for the request of the document's statistical data.
  */
 @ApiModel(description = "Response for the request of the document's statistical data.")
 public class StatDataResponse extends WordsResponse {
-  @SerializedName("DocumentLink")
-  private FileLink documentLink = null;
+    @SerializedName("DocumentLink")
+    private FileLink documentLink = null;
 
-  @SerializedName("StatData")
-  private DocumentStatData statData = null;
-
-  public StatDataResponse documentLink(FileLink documentLink) {
-    this.documentLink = documentLink;
-    return this;
-  }
-
-   /**
-   * Get documentLink
-   * @return documentLink
-  **/
-  @ApiModelProperty(value = "")
-  public FileLink getDocumentLink() {
-    return documentLink;
-  }
-
-  public void setDocumentLink(FileLink documentLink) {
-    this.documentLink = documentLink;
-  }
-
-  public StatDataResponse statData(DocumentStatData statData) {
-    this.statData = statData;
-    return this;
-  }
-
-   /**
-   * Get statData
-   * @return statData
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentStatData getStatData() {
-    return statData;
-  }
-
-  public void setStatData(DocumentStatData statData) {
-    this.statData = statData;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("StatData")
+    private DocumentStatData statData = null;
+    public StatDataResponse documentLink(FileLink documentLink) {
+        this.documentLink = documentLink;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets link to the document.
+    * @return documentLink
+    **/
+    @ApiModelProperty(value = "Gets or sets link to the document.")
+    public FileLink getDocumentLink() {
+        return documentLink;
     }
-    StatDataResponse statDataResponse = (StatDataResponse) o;
-    return Objects.equals(this.documentLink, statDataResponse.documentLink) &&
-        Objects.equals(this.statData, statDataResponse.statData) &&
-        super.equals(o);
+
+    public void setDocumentLink(FileLink documentLink) {
+        this.documentLink = documentLink;
+    }
+
+    public StatDataResponse statData(DocumentStatData statData) {
+        this.statData = statData;
+        return this;
+    }
+
+    /**
+     * Gets or sets statistical data of the document.
+    * @return statData
+    **/
+    @ApiModelProperty(value = "Gets or sets statistical data of the document.")
+    public DocumentStatData getStatData() {
+        return statData;
+    }
+
+    public void setStatData(DocumentStatData statData) {
+        this.statData = statData;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        StatDataResponse statDataResponse = (StatDataResponse) o;
+        return
+            Objects.equals(this.documentLink, statDataResponse.documentLink) &&
+            Objects.equals(this.statData, statDataResponse.statData) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(documentLink, statData, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -131,6 +130,4 @@ public class StatDataResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

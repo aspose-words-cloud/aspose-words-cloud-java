@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="ClassificationResult.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,60 +47,60 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a single classification result.")
 public class ClassificationResult {
-  @SerializedName("ClassName")
-  private String className = null;
+    @SerializedName("ClassName")
+    private String className = null;
 
-  @SerializedName("ClassProbability")
-  private Double classProbability = null;
-
-  public ClassificationResult className(String className) {
-    this.className = className;
-    return this;
-  }
-
-   /**
-   * Gets or sets the name of the class.
-   * @return className
-  **/
-  @ApiModelProperty(value = "Gets or sets the name of the class.")
-  public String getClassName() {
-    return className;
-  }
-
-  public void setClassName(String className) {
-    this.className = className;
-  }
-
-  public ClassificationResult classProbability(Double classProbability) {
-    this.classProbability = classProbability;
-    return this;
-  }
-
-   /**
-   * Gets or sets the probability of class.
-   * @return classProbability
-  **/
-  @ApiModelProperty(value = "Gets or sets the probability of class.")
-  public Double getClassProbability() {
-    return classProbability;
-  }
-
-  public void setClassProbability(Double classProbability) {
-    this.classProbability = classProbability;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("ClassProbability")
+    private Double classProbability = null;
+    public ClassificationResult className(String className) {
+        this.className = className;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the name of the class.
+    * @return className
+    **/
+    @ApiModelProperty(value = "Gets or sets the name of the class.")
+    public String getClassName() {
+        return className;
     }
-    ClassificationResult classificationResult = (ClassificationResult) o;
-    return Objects.equals(this.className, classificationResult.className) &&
-        Objects.equals(this.classProbability, classificationResult.classProbability);
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public ClassificationResult classProbability(Double classProbability) {
+        this.classProbability = classProbability;
+        return this;
+    }
+
+    /**
+     * Gets or sets the probability of class.
+    * @return classProbability
+    **/
+    @ApiModelProperty(value = "Gets or sets the probability of class.")
+    public Double getClassProbability() {
+        return classProbability;
+    }
+
+    public void setClassProbability(Double classProbability) {
+        this.classProbability = classProbability;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ClassificationResult classificationResult = (ClassificationResult) o;
+        return
+            Objects.equals(this.className, classificationResult.className) &&
+            Objects.equals(this.classProbability, classificationResult.classProbability);
   }
 
   @Override
@@ -108,12 +108,10 @@ public class ClassificationResult {
     return Objects.hash(className, classProbability);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClassificationResult {\n");
-    
     sb.append("    className: ").append(toIndentedString(className)).append("\n");
     sb.append("    classProbability: ").append(toIndentedString(classProbability)).append("\n");
     sb.append("}");
@@ -130,6 +128,4 @@ public class ClassificationResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

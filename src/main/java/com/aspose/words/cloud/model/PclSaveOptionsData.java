@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="PclSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,68 +47,67 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Container class for pcl save options.")
 public class PclSaveOptionsData extends FixedPageSaveOptionsData {
-  @SerializedName("FalllbackFontName")
-  private String falllbackFontName = null;
+    @SerializedName("FalllbackFontName")
+    private String falllbackFontName = null;
 
-  @SerializedName("RasterizeTransformedElements")
-  private Boolean rasterizeTransformedElements = null;
-
-  public PclSaveOptionsData falllbackFontName(String falllbackFontName) {
-    this.falllbackFontName = falllbackFontName;
-    return this;
-  }
-
-   /**
-   * Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
-   * @return falllbackFontName
-  **/
-  @ApiModelProperty(value = "Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.")
-  public String getFalllbackFontName() {
-    return falllbackFontName;
-  }
-
-  public void setFalllbackFontName(String falllbackFontName) {
-    this.falllbackFontName = falllbackFontName;
-  }
-
-  public PclSaveOptionsData rasterizeTransformedElements(Boolean rasterizeTransformedElements) {
-    this.rasterizeTransformedElements = rasterizeTransformedElements;
-    return this;
-  }
-
-   /**
-   * Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
-   * @return rasterizeTransformedElements
-  **/
-  @ApiModelProperty(value = "Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.")
-  public Boolean isRasterizeTransformedElements() {
-    return rasterizeTransformedElements;
-  }
-
-  public void setRasterizeTransformedElements(Boolean rasterizeTransformedElements) {
-    this.rasterizeTransformedElements = rasterizeTransformedElements;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("RasterizeTransformedElements")
+    private Boolean rasterizeTransformedElements = null;
+    public PclSaveOptionsData falllbackFontName(String falllbackFontName) {
+        this.falllbackFontName = falllbackFontName;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
+    * @return falllbackFontName
+    **/
+    @ApiModelProperty(value = "Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.")
+    public String getFalllbackFontName() {
+        return falllbackFontName;
     }
-    PclSaveOptionsData pclSaveOptionsData = (PclSaveOptionsData) o;
-    return Objects.equals(this.falllbackFontName, pclSaveOptionsData.falllbackFontName) &&
-        Objects.equals(this.rasterizeTransformedElements, pclSaveOptionsData.rasterizeTransformedElements) &&
-        super.equals(o);
+
+    public void setFalllbackFontName(String falllbackFontName) {
+        this.falllbackFontName = falllbackFontName;
+    }
+
+    public PclSaveOptionsData rasterizeTransformedElements(Boolean rasterizeTransformedElements) {
+        this.rasterizeTransformedElements = rasterizeTransformedElements;
+        return this;
+    }
+
+    /**
+     * Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
+    * @return rasterizeTransformedElements
+    **/
+    @ApiModelProperty(value = "Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.")
+    public Boolean getRasterizeTransformedElements() {
+        return rasterizeTransformedElements;
+    }
+
+    public void setRasterizeTransformedElements(Boolean rasterizeTransformedElements) {
+        this.rasterizeTransformedElements = rasterizeTransformedElements;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        PclSaveOptionsData pclSaveOptionsData = (PclSaveOptionsData) o;
+        return
+            Objects.equals(this.falllbackFontName, pclSaveOptionsData.falllbackFontName) &&
+            Objects.equals(this.rasterizeTransformedElements, pclSaveOptionsData.rasterizeTransformedElements) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(falllbackFontName, rasterizeTransformedElements, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -131,6 +130,4 @@ public class PclSaveOptionsData extends FixedPageSaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

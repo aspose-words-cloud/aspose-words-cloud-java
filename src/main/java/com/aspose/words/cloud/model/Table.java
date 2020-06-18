@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Table.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,76 +47,75 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Table element.")
 public class Table extends NodeLink {
-  @SerializedName("TableProperties")
-  private TableProperties tableProperties = null;
+    @SerializedName("TableProperties")
+    private TableProperties tableProperties = null;
 
-  @SerializedName("TableRowList")
-  private List<TableRow> tableRowList = null;
-
-  public Table tableProperties(TableProperties tableProperties) {
-    this.tableProperties = tableProperties;
-    return this;
-  }
-
-   /**
-   * Get tableProperties
-   * @return tableProperties
-  **/
-  @ApiModelProperty(value = "")
-  public TableProperties getTableProperties() {
-    return tableProperties;
-  }
-
-  public void setTableProperties(TableProperties tableProperties) {
-    this.tableProperties = tableProperties;
-  }
-
-  public Table tableRowList(List<TableRow> tableRowList) {
-    this.tableRowList = tableRowList;
-    return this;
-  }
-
-  public Table addTableRowListItem(TableRow tableRowListItem) {
-    if (this.tableRowList == null) {
-      this.tableRowList = new ArrayList<TableRow>();
+    @SerializedName("TableRowList")
+    private List<TableRow> tableRowList = null;
+    public Table tableProperties(TableProperties tableProperties) {
+        this.tableProperties = tableProperties;
+        return this;
     }
-    this.tableRowList.add(tableRowListItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of table&#39;s rows.
-   * @return tableRowList
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of table's rows.")
-  public List<TableRow> getTableRowList() {
-    return tableRowList;
-  }
-
-  public void setTableRowList(List<TableRow> tableRowList) {
-    this.tableRowList = tableRowList;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Gets or sets table properties.
+    * @return tableProperties
+    **/
+    @ApiModelProperty(value = "Gets or sets table properties.")
+    public TableProperties getTableProperties() {
+        return tableProperties;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setTableProperties(TableProperties tableProperties) {
+        this.tableProperties = tableProperties;
     }
-    Table table = (Table) o;
-    return Objects.equals(this.tableProperties, table.tableProperties) &&
-        Objects.equals(this.tableRowList, table.tableRowList) &&
-        super.equals(o);
+
+    public Table tableRowList(List<TableRow> tableRowList) {
+        this.tableRowList = tableRowList;
+        return this;
+    }
+
+    public Table addTableRowListItem(TableRow tableRowListItem) {
+        if (this.tableRowList == null) {
+            this.tableRowList = new ArrayList<TableRow>();
+        }
+        this.tableRowList.add(tableRowListItem);
+        return this;
+    }
+
+    /**
+     * Gets or sets collection of table's rows.
+    * @return tableRowList
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of table's rows.")
+    public List<TableRow> getTableRowList() {
+        return tableRowList;
+    }
+
+    public void setTableRowList(List<TableRow> tableRowList) {
+        this.tableRowList = tableRowList;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Table table = (Table) o;
+        return
+            Objects.equals(this.tableProperties, table.tableProperties) &&
+            Objects.equals(this.tableRowList, table.tableRowList) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(tableProperties, tableRowList, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -139,6 +138,4 @@ public class Table extends NodeLink {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

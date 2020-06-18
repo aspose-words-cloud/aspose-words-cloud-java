@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="WordMLSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for wml save options.")
 public class WordMLSaveOptionsData extends SaveOptionsData {
-  @SerializedName("PrettyFormat")
-  private Boolean prettyFormat = null;
-
-  public WordMLSaveOptionsData prettyFormat(Boolean prettyFormat) {
-    this.prettyFormat = prettyFormat;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies whether or not use pretty formats output.
-   * @return prettyFormat
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
-  public Boolean isPrettyFormat() {
-    return prettyFormat;
-  }
-
-  public void setPrettyFormat(Boolean prettyFormat) {
-    this.prettyFormat = prettyFormat;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("PrettyFormat")
+    private Boolean prettyFormat = null;
+    public WordMLSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets specifies whether or not use pretty formats output.
+    * @return prettyFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
+    public Boolean getPrettyFormat() {
+        return prettyFormat;
     }
-    WordMLSaveOptionsData wordMLSaveOptionsData = (WordMLSaveOptionsData) o;
-    return Objects.equals(this.prettyFormat, wordMLSaveOptionsData.prettyFormat) &&
-        super.equals(o);
+
+    public void setPrettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        WordMLSaveOptionsData wordMLSaveOptionsData = (WordMLSaveOptionsData) o;
+        return
+            Objects.equals(this.prettyFormat, wordMLSaveOptionsData.prettyFormat) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(prettyFormat, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class WordMLSaveOptionsData extends SaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

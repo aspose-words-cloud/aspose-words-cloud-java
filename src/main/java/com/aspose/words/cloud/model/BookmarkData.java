@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="BookmarkData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,60 +47,60 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "DTO for bookmark updating.")
 public class BookmarkData {
-  @SerializedName("Name")
-  private String name = null;
+    @SerializedName("Name")
+    private String name = null;
 
-  @SerializedName("Text")
-  private String text = null;
-
-  public BookmarkData name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Gets or sets the name of the bookmark.
-   * @return name
-  **/
-  @ApiModelProperty(value = "Gets or sets the name of the bookmark.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public BookmarkData text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Gets or sets the text enclosed in the bookmark.
-   * @return text
-  **/
-  @ApiModelProperty(value = "Gets or sets the text enclosed in the bookmark.")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Text")
+    private String text = null;
+    public BookmarkData name(String name) {
+        this.name = name;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets the name of the bookmark.
+    * @return name
+    **/
+    @ApiModelProperty(value = "Gets or sets the name of the bookmark.")
+    public String getName() {
+        return name;
     }
-    BookmarkData bookmarkData = (BookmarkData) o;
-    return Objects.equals(this.name, bookmarkData.name) &&
-        Objects.equals(this.text, bookmarkData.text);
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BookmarkData text(String text) {
+        this.text = text;
+        return this;
+    }
+
+    /**
+     * Gets or sets the text enclosed in the bookmark.
+    * @return text
+    **/
+    @ApiModelProperty(value = "Gets or sets the text enclosed in the bookmark.")
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        BookmarkData bookmarkData = (BookmarkData) o;
+        return
+            Objects.equals(this.name, bookmarkData.name) &&
+            Objects.equals(this.text, bookmarkData.text);
   }
 
   @Override
@@ -108,12 +108,10 @@ public class BookmarkData {
     return Objects.hash(name, text);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BookmarkData {\n");
-    
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
@@ -130,6 +128,4 @@ public class BookmarkData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

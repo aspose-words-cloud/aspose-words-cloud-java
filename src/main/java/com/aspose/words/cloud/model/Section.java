@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Section.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,142 +47,141 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Section element.")
 public class Section extends LinkElement {
-  @SerializedName("ChildNodes")
-  private List<NodeLink> childNodes = null;
+    @SerializedName("ChildNodes")
+    private List<NodeLink> childNodes = null;
 
-  @SerializedName("HeaderFooters")
-  private LinkElement headerFooters = null;
+    @SerializedName("HeaderFooters")
+    private LinkElement headerFooters = null;
 
-  @SerializedName("PageSetup")
-  private LinkElement pageSetup = null;
+    @SerializedName("PageSetup")
+    private LinkElement pageSetup = null;
 
-  @SerializedName("Paragraphs")
-  private LinkElement paragraphs = null;
+    @SerializedName("Paragraphs")
+    private LinkElement paragraphs = null;
 
-  @SerializedName("Tables")
-  private LinkElement tables = null;
-
-  public Section childNodes(List<NodeLink> childNodes) {
-    this.childNodes = childNodes;
-    return this;
-  }
-
-  public Section addChildNodesItem(NodeLink childNodesItem) {
-    if (this.childNodes == null) {
-      this.childNodes = new ArrayList<NodeLink>();
+    @SerializedName("Tables")
+    private LinkElement tables = null;
+    public Section childNodes(List<NodeLink> childNodes) {
+        this.childNodes = childNodes;
+        return this;
     }
-    this.childNodes.add(childNodesItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets child nodes.
-   * @return childNodes
-  **/
-  @ApiModelProperty(value = "Gets or sets child nodes.")
-  public List<NodeLink> getChildNodes() {
-    return childNodes;
-  }
-
-  public void setChildNodes(List<NodeLink> childNodes) {
-    this.childNodes = childNodes;
-  }
-
-  public Section headerFooters(LinkElement headerFooters) {
-    this.headerFooters = headerFooters;
-    return this;
-  }
-
-   /**
-   * Get headerFooters
-   * @return headerFooters
-  **/
-  @ApiModelProperty(value = "")
-  public LinkElement getHeaderFooters() {
-    return headerFooters;
-  }
-
-  public void setHeaderFooters(LinkElement headerFooters) {
-    this.headerFooters = headerFooters;
-  }
-
-  public Section pageSetup(LinkElement pageSetup) {
-    this.pageSetup = pageSetup;
-    return this;
-  }
-
-   /**
-   * Get pageSetup
-   * @return pageSetup
-  **/
-  @ApiModelProperty(value = "")
-  public LinkElement getPageSetup() {
-    return pageSetup;
-  }
-
-  public void setPageSetup(LinkElement pageSetup) {
-    this.pageSetup = pageSetup;
-  }
-
-  public Section paragraphs(LinkElement paragraphs) {
-    this.paragraphs = paragraphs;
-    return this;
-  }
-
-   /**
-   * Get paragraphs
-   * @return paragraphs
-  **/
-  @ApiModelProperty(value = "")
-  public LinkElement getParagraphs() {
-    return paragraphs;
-  }
-
-  public void setParagraphs(LinkElement paragraphs) {
-    this.paragraphs = paragraphs;
-  }
-
-  public Section tables(LinkElement tables) {
-    this.tables = tables;
-    return this;
-  }
-
-   /**
-   * Get tables
-   * @return tables
-  **/
-  @ApiModelProperty(value = "")
-  public LinkElement getTables() {
-    return tables;
-  }
-
-  public void setTables(LinkElement tables) {
-    this.tables = tables;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public Section addChildNodesItem(NodeLink childNodesItem) {
+        if (this.childNodes == null) {
+            this.childNodes = new ArrayList<NodeLink>();
+        }
+        this.childNodes.add(childNodesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets child nodes.
+    * @return childNodes
+    **/
+    @ApiModelProperty(value = "Gets or sets child nodes.")
+    public List<NodeLink> getChildNodes() {
+        return childNodes;
     }
-    Section section = (Section) o;
-    return Objects.equals(this.childNodes, section.childNodes) &&
-        Objects.equals(this.headerFooters, section.headerFooters) &&
-        Objects.equals(this.pageSetup, section.pageSetup) &&
-        Objects.equals(this.paragraphs, section.paragraphs) &&
-        Objects.equals(this.tables, section.tables) &&
-        super.equals(o);
+
+    public void setChildNodes(List<NodeLink> childNodes) {
+        this.childNodes = childNodes;
+    }
+
+    public Section headerFooters(LinkElement headerFooters) {
+        this.headerFooters = headerFooters;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to HeaderFooters resource.
+    * @return headerFooters
+    **/
+    @ApiModelProperty(value = "Gets or sets link to HeaderFooters resource.")
+    public LinkElement getHeaderFooters() {
+        return headerFooters;
+    }
+
+    public void setHeaderFooters(LinkElement headerFooters) {
+        this.headerFooters = headerFooters;
+    }
+
+    public Section pageSetup(LinkElement pageSetup) {
+        this.pageSetup = pageSetup;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to PageSetup resource.
+    * @return pageSetup
+    **/
+    @ApiModelProperty(value = "Gets or sets link to PageSetup resource.")
+    public LinkElement getPageSetup() {
+        return pageSetup;
+    }
+
+    public void setPageSetup(LinkElement pageSetup) {
+        this.pageSetup = pageSetup;
+    }
+
+    public Section paragraphs(LinkElement paragraphs) {
+        this.paragraphs = paragraphs;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to Paragraphs resource.
+    * @return paragraphs
+    **/
+    @ApiModelProperty(value = "Gets or sets link to Paragraphs resource.")
+    public LinkElement getParagraphs() {
+        return paragraphs;
+    }
+
+    public void setParagraphs(LinkElement paragraphs) {
+        this.paragraphs = paragraphs;
+    }
+
+    public Section tables(LinkElement tables) {
+        this.tables = tables;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to Tables resource.
+    * @return tables
+    **/
+    @ApiModelProperty(value = "Gets or sets link to Tables resource.")
+    public LinkElement getTables() {
+        return tables;
+    }
+
+    public void setTables(LinkElement tables) {
+        this.tables = tables;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Section section = (Section) o;
+        return
+            Objects.equals(this.childNodes, section.childNodes) &&
+            Objects.equals(this.headerFooters, section.headerFooters) &&
+            Objects.equals(this.pageSetup, section.pageSetup) &&
+            Objects.equals(this.paragraphs, section.paragraphs) &&
+            Objects.equals(this.tables, section.tables) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(childNodes, headerFooters, pageSetup, paragraphs, tables, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -208,6 +207,4 @@ public class Section extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

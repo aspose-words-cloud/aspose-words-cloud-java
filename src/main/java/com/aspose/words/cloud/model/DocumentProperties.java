@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="DocumentProperties.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Collection of document properties.")
 public class DocumentProperties extends LinkElement {
-  @SerializedName("List")
-  private List<DocumentProperty> list = null;
-
-  public DocumentProperties list(List<DocumentProperty> list) {
-    this.list = list;
-    return this;
-  }
-
-  public DocumentProperties addListItem(DocumentProperty listItem) {
-    if (this.list == null) {
-      this.list = new ArrayList<DocumentProperty>();
+    @SerializedName("List")
+    private List<DocumentProperty> list = null;
+    public DocumentProperties list(List<DocumentProperty> list) {
+        this.list = list;
+        return this;
     }
-    this.list.add(listItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of document properties.
-   * @return list
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of document properties.")
-  public List<DocumentProperty> getList() {
-    return list;
-  }
-
-  public void setList(List<DocumentProperty> list) {
-    this.list = list;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public DocumentProperties addListItem(DocumentProperty listItem) {
+        if (this.list == null) {
+            this.list = new ArrayList<DocumentProperty>();
+        }
+        this.list.add(listItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of document properties.
+    * @return list
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of document properties.")
+    public List<DocumentProperty> getList() {
+        return list;
     }
-    DocumentProperties documentProperties = (DocumentProperties) o;
-    return Objects.equals(this.list, documentProperties.list) &&
-        super.equals(o);
+
+    public void setList(List<DocumentProperty> list) {
+        this.list = list;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        DocumentProperties documentProperties = (DocumentProperties) o;
+        return
+            Objects.equals(this.list, documentProperties.list) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(list, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class DocumentProperties extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

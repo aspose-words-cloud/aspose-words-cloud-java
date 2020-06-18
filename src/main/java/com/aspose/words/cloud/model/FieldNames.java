@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FieldNames.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,54 +47,53 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a collection of merge fields within a document.")
 public class FieldNames extends LinkElement {
-  @SerializedName("Names")
-  private List<String> names = null;
-
-  public FieldNames names(List<String> names) {
-    this.names = names;
-    return this;
-  }
-
-  public FieldNames addNamesItem(String namesItem) {
-    if (this.names == null) {
-      this.names = new ArrayList<String>();
+    @SerializedName("Names")
+    private List<String> names = null;
+    public FieldNames names(List<String> names) {
+        this.names = names;
+        return this;
     }
-    this.names.add(namesItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets collection of fields names.
-   * @return names
-  **/
-  @ApiModelProperty(value = "Gets or sets collection of fields names.")
-  public List<String> getNames() {
-    return names;
-  }
-
-  public void setNames(List<String> names) {
-    this.names = names;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FieldNames addNamesItem(String namesItem) {
+        if (this.names == null) {
+            this.names = new ArrayList<String>();
+        }
+        this.names.add(namesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of fields names.
+    * @return names
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of fields names.")
+    public List<String> getNames() {
+        return names;
     }
-    FieldNames fieldNames = (FieldNames) o;
-    return Objects.equals(this.names, fieldNames.names) &&
-        super.equals(o);
+
+    public void setNames(List<String> names) {
+        this.names = names;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FieldNames fieldNames = (FieldNames) o;
+        return
+            Objects.equals(this.names, fieldNames.names) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(names, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -116,6 +115,4 @@ public class FieldNames extends LinkElement {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

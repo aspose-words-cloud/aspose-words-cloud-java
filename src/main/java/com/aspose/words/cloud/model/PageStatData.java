@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="PageStatData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,125 +43,123 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Container for the page&#39;s statistical data.
+ * Container for the page's statistical data.
  */
 @ApiModel(description = "Container for the page's statistical data.")
 public class PageStatData {
-  @SerializedName("PageNumber")
-  private Integer pageNumber = null;
+    @SerializedName("FootnotesStatData")
+    private FootnotesStatData footnotesStatData = null;
 
-  @SerializedName("WordCount")
-  private Integer wordCount = null;
+    @SerializedName("PageNumber")
+    private Integer pageNumber = null;
 
-  @SerializedName("ParagraphCount")
-  private Integer paragraphCount = null;
+    @SerializedName("ParagraphCount")
+    private Integer paragraphCount = null;
 
-  @SerializedName("FootnotesStatData")
-  private FootnotesStatData footnotesStatData = null;
-
-  public PageStatData pageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-    return this;
-  }
-
-   /**
-   * Gets or sets page number.
-   * @return pageNumber
-  **/
-  @ApiModelProperty(value = "Gets or sets page number.")
-  public Integer getPageNumber() {
-    return pageNumber;
-  }
-
-  public void setPageNumber(Integer pageNumber) {
-    this.pageNumber = pageNumber;
-  }
-
-  public PageStatData wordCount(Integer wordCount) {
-    this.wordCount = wordCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets total count of words in the page.
-   * @return wordCount
-  **/
-  @ApiModelProperty(value = "Gets or sets total count of words in the page.")
-  public Integer getWordCount() {
-    return wordCount;
-  }
-
-  public void setWordCount(Integer wordCount) {
-    this.wordCount = wordCount;
-  }
-
-  public PageStatData paragraphCount(Integer paragraphCount) {
-    this.paragraphCount = paragraphCount;
-    return this;
-  }
-
-   /**
-   * Gets or sets total count of paragraphs in the page.
-   * @return paragraphCount
-  **/
-  @ApiModelProperty(value = "Gets or sets total count of paragraphs in the page.")
-  public Integer getParagraphCount() {
-    return paragraphCount;
-  }
-
-  public void setParagraphCount(Integer paragraphCount) {
-    this.paragraphCount = paragraphCount;
-  }
-
-  public PageStatData footnotesStatData(FootnotesStatData footnotesStatData) {
-    this.footnotesStatData = footnotesStatData;
-    return this;
-  }
-
-   /**
-   * Get footnotesStatData
-   * @return footnotesStatData
-  **/
-  @ApiModelProperty(value = "")
-  public FootnotesStatData getFootnotesStatData() {
-    return footnotesStatData;
-  }
-
-  public void setFootnotesStatData(FootnotesStatData footnotesStatData) {
-    this.footnotesStatData = footnotesStatData;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("WordCount")
+    private Integer wordCount = null;
+    public PageStatData footnotesStatData(FootnotesStatData footnotesStatData) {
+        this.footnotesStatData = footnotesStatData;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets detailed statistics of footnotes.
+    * @return footnotesStatData
+    **/
+    @ApiModelProperty(value = "Gets or sets detailed statistics of footnotes.")
+    public FootnotesStatData getFootnotesStatData() {
+        return footnotesStatData;
     }
-    PageStatData pageStatData = (PageStatData) o;
-    return Objects.equals(this.pageNumber, pageStatData.pageNumber) &&
-        Objects.equals(this.wordCount, pageStatData.wordCount) &&
-        Objects.equals(this.paragraphCount, pageStatData.paragraphCount) &&
-        Objects.equals(this.footnotesStatData, pageStatData.footnotesStatData);
+
+    public void setFootnotesStatData(FootnotesStatData footnotesStatData) {
+        this.footnotesStatData = footnotesStatData;
+    }
+
+    public PageStatData pageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
+        return this;
+    }
+
+    /**
+     * Gets or sets page number.
+    * @return pageNumber
+    **/
+    @ApiModelProperty(value = "Gets or sets page number.")
+    public Integer getPageNumber() {
+        return pageNumber;
+    }
+
+    public void setPageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
+    }
+
+    public PageStatData paragraphCount(Integer paragraphCount) {
+        this.paragraphCount = paragraphCount;
+        return this;
+    }
+
+    /**
+     * Gets or sets total count of paragraphs in the page.
+    * @return paragraphCount
+    **/
+    @ApiModelProperty(value = "Gets or sets total count of paragraphs in the page.")
+    public Integer getParagraphCount() {
+        return paragraphCount;
+    }
+
+    public void setParagraphCount(Integer paragraphCount) {
+        this.paragraphCount = paragraphCount;
+    }
+
+    public PageStatData wordCount(Integer wordCount) {
+        this.wordCount = wordCount;
+        return this;
+    }
+
+    /**
+     * Gets or sets total count of words in the page.
+    * @return wordCount
+    **/
+    @ApiModelProperty(value = "Gets or sets total count of words in the page.")
+    public Integer getWordCount() {
+        return wordCount;
+    }
+
+    public void setWordCount(Integer wordCount) {
+        this.wordCount = wordCount;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        PageStatData pageStatData = (PageStatData) o;
+        return
+            Objects.equals(this.footnotesStatData, pageStatData.footnotesStatData) &&
+            Objects.equals(this.pageNumber, pageStatData.pageNumber) &&
+            Objects.equals(this.paragraphCount, pageStatData.paragraphCount) &&
+            Objects.equals(this.wordCount, pageStatData.wordCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageNumber, wordCount, paragraphCount, footnotesStatData);
+    return Objects.hash(footnotesStatData, pageNumber, paragraphCount, wordCount);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PageStatData {\n");
-    
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
-    sb.append("    wordCount: ").append(toIndentedString(wordCount)).append("\n");
-    sb.append("    paragraphCount: ").append(toIndentedString(paragraphCount)).append("\n");
     sb.append("    footnotesStatData: ").append(toIndentedString(footnotesStatData)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    paragraphCount: ").append(toIndentedString(paragraphCount)).append("\n");
+    sb.append("    wordCount: ").append(toIndentedString(wordCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -176,6 +174,4 @@ public class PageStatData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

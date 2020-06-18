@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SplitDocumentResult.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,105 +47,103 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Result of splitting document.")
 public class SplitDocumentResult {
-  @SerializedName("SourceDocument")
-  private FileLink sourceDocument = null;
+    @SerializedName("Pages")
+    private List<FileLink> pages = null;
 
-  @SerializedName("Pages")
-  private List<FileLink> pages = null;
+    @SerializedName("SourceDocument")
+    private FileLink sourceDocument = null;
 
-  @SerializedName("ZippedPages")
-  private FileLink zippedPages = null;
-
-  public SplitDocumentResult sourceDocument(FileLink sourceDocument) {
-    this.sourceDocument = sourceDocument;
-    return this;
-  }
-
-   /**
-   * Get sourceDocument
-   * @return sourceDocument
-  **/
-  @ApiModelProperty(value = "")
-  public FileLink getSourceDocument() {
-    return sourceDocument;
-  }
-
-  public void setSourceDocument(FileLink sourceDocument) {
-    this.sourceDocument = sourceDocument;
-  }
-
-  public SplitDocumentResult pages(List<FileLink> pages) {
-    this.pages = pages;
-    return this;
-  }
-
-  public SplitDocumentResult addPagesItem(FileLink pagesItem) {
-    if (this.pages == null) {
-      this.pages = new ArrayList<FileLink>();
+    @SerializedName("ZippedPages")
+    private FileLink zippedPages = null;
+    public SplitDocumentResult pages(List<FileLink> pages) {
+        this.pages = pages;
+        return this;
     }
-    this.pages.add(pagesItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets array of pages.
-   * @return pages
-  **/
-  @ApiModelProperty(value = "Gets or sets array of pages.")
-  public List<FileLink> getPages() {
-    return pages;
-  }
-
-  public void setPages(List<FileLink> pages) {
-    this.pages = pages;
-  }
-
-  public SplitDocumentResult zippedPages(FileLink zippedPages) {
-    this.zippedPages = zippedPages;
-    return this;
-  }
-
-   /**
-   * Get zippedPages
-   * @return zippedPages
-  **/
-  @ApiModelProperty(value = "")
-  public FileLink getZippedPages() {
-    return zippedPages;
-  }
-
-  public void setZippedPages(FileLink zippedPages) {
-    this.zippedPages = zippedPages;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public SplitDocumentResult addPagesItem(FileLink pagesItem) {
+        if (this.pages == null) {
+            this.pages = new ArrayList<FileLink>();
+        }
+        this.pages.add(pagesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets array of pages.
+    * @return pages
+    **/
+    @ApiModelProperty(value = "Gets or sets array of pages.")
+    public List<FileLink> getPages() {
+        return pages;
     }
-    SplitDocumentResult splitDocumentResult = (SplitDocumentResult) o;
-    return Objects.equals(this.sourceDocument, splitDocumentResult.sourceDocument) &&
-        Objects.equals(this.pages, splitDocumentResult.pages) &&
-        Objects.equals(this.zippedPages, splitDocumentResult.zippedPages);
+
+    public void setPages(List<FileLink> pages) {
+        this.pages = pages;
+    }
+
+    public SplitDocumentResult sourceDocument(FileLink sourceDocument) {
+        this.sourceDocument = sourceDocument;
+        return this;
+    }
+
+    /**
+     * Gets or sets linkt to the source document.
+    * @return sourceDocument
+    **/
+    @ApiModelProperty(value = "Gets or sets linkt to the source document.")
+    public FileLink getSourceDocument() {
+        return sourceDocument;
+    }
+
+    public void setSourceDocument(FileLink sourceDocument) {
+        this.sourceDocument = sourceDocument;
+    }
+
+    public SplitDocumentResult zippedPages(FileLink zippedPages) {
+        this.zippedPages = zippedPages;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to the file archive with pages.
+    * @return zippedPages
+    **/
+    @ApiModelProperty(value = "Gets or sets link to the file archive with pages.")
+    public FileLink getZippedPages() {
+        return zippedPages;
+    }
+
+    public void setZippedPages(FileLink zippedPages) {
+        this.zippedPages = zippedPages;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SplitDocumentResult splitDocumentResult = (SplitDocumentResult) o;
+        return
+            Objects.equals(this.pages, splitDocumentResult.pages) &&
+            Objects.equals(this.sourceDocument, splitDocumentResult.sourceDocument) &&
+            Objects.equals(this.zippedPages, splitDocumentResult.zippedPages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceDocument, pages, zippedPages);
+    return Objects.hash(pages, sourceDocument, zippedPages);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplitDocumentResult {\n");
-    
-    sb.append("    sourceDocument: ").append(toIndentedString(sourceDocument)).append("\n");
     sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
+    sb.append("    sourceDocument: ").append(toIndentedString(sourceDocument)).append("\n");
     sb.append("    zippedPages: ").append(toIndentedString(zippedPages)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -161,6 +159,4 @@ public class SplitDocumentResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

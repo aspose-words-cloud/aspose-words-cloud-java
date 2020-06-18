@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Error.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,125 +43,123 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Error
+ * Error.
  */
-@ApiModel(description = "Error")
+@ApiModel(description = "Error.")
 public class Error {
-  @SerializedName("Code")
-  private String code = null;
+    @SerializedName("Code")
+    private String code = null;
 
-  @SerializedName("Message")
-  private String message = null;
+    @SerializedName("Description")
+    private String description = null;
 
-  @SerializedName("Description")
-  private String description = null;
+    @SerializedName("InnerError")
+    private ErrorDetails innerError = null;
 
-  @SerializedName("InnerError")
-  private ErrorDetails innerError = null;
-
-  public Error code(String code) {
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * Code             
-   * @return code
-  **/
-  @ApiModelProperty(value = "Code             ")
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public Error message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Message             
-   * @return message
-  **/
-  @ApiModelProperty(value = "Message             ")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public Error description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Description             
-   * @return description
-  **/
-  @ApiModelProperty(value = "Description             ")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Error innerError(ErrorDetails innerError) {
-    this.innerError = innerError;
-    return this;
-  }
-
-   /**
-   * Get innerError
-   * @return innerError
-  **/
-  @ApiModelProperty(value = "")
-  public ErrorDetails getInnerError() {
-    return innerError;
-  }
-
-  public void setInnerError(ErrorDetails innerError) {
-    this.innerError = innerError;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Message")
+    private String message = null;
+    public Error code(String code) {
+        this.code = code;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Code.
+    * @return code
+    **/
+    @ApiModelProperty(value = "Code.")
+    public String getCode() {
+        return code;
     }
-    Error error = (Error) o;
-    return Objects.equals(this.code, error.code) &&
-        Objects.equals(this.message, error.message) &&
-        Objects.equals(this.description, error.description) &&
-        Objects.equals(this.innerError, error.innerError);
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Error description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Description.
+    * @return description
+    **/
+    @ApiModelProperty(value = "Description.")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Error innerError(ErrorDetails innerError) {
+        this.innerError = innerError;
+        return this;
+    }
+
+    /**
+     * Inner Error.
+    * @return innerError
+    **/
+    @ApiModelProperty(value = "Inner Error.")
+    public ErrorDetails getInnerError() {
+        return innerError;
+    }
+
+    public void setInnerError(ErrorDetails innerError) {
+        this.innerError = innerError;
+    }
+
+    public Error message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Message.
+    * @return message
+    **/
+    @ApiModelProperty(value = "Message.")
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Error error = (Error) o;
+        return
+            Objects.equals(this.code, error.code) &&
+            Objects.equals(this.description, error.description) &&
+            Objects.equals(this.innerError, error.innerError) &&
+            Objects.equals(this.message, error.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message, description, innerError);
+    return Objects.hash(code, description, innerError, message);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Error {\n");
-    
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    innerError: ").append(toIndentedString(innerError)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -176,6 +174,4 @@ public class Error {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

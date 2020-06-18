@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="RangeDocument.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,38 +47,38 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Range element.")
 public class RangeDocument {
-  @SerializedName("DocumentName")
-  private String documentName = null;
-
-  public RangeDocument documentName(String documentName) {
-    this.documentName = documentName;
-    return this;
-  }
-
-   /**
-   * Gets or sets name for new document.
-   * @return documentName
-  **/
-  @ApiModelProperty(value = "Gets or sets name for new document.")
-  public String getDocumentName() {
-    return documentName;
-  }
-
-  public void setDocumentName(String documentName) {
-    this.documentName = documentName;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("DocumentName")
+    private String documentName = null;
+    public RangeDocument documentName(String documentName) {
+        this.documentName = documentName;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets name for new document.
+    * @return documentName
+    **/
+    @ApiModelProperty(value = "Gets or sets name for new document.")
+    public String getDocumentName() {
+        return documentName;
     }
-    RangeDocument rangeDocument = (RangeDocument) o;
-    return Objects.equals(this.documentName, rangeDocument.documentName);
+
+    public void setDocumentName(String documentName) {
+        this.documentName = documentName;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        RangeDocument rangeDocument = (RangeDocument) o;
+        return
+            Objects.equals(this.documentName, rangeDocument.documentName);
   }
 
   @Override
@@ -86,12 +86,10 @@ public class RangeDocument {
     return Objects.hash(documentName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RangeDocument {\n");
-    
     sb.append("    documentName: ").append(toIndentedString(documentName)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -107,6 +105,4 @@ public class RangeDocument {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

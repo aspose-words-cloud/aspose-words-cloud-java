@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="AvailableFontsResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,114 +47,113 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "The list of fonts, available for document processing.")
 public class AvailableFontsResponse extends WordsResponse {
-  @SerializedName("AdditionalFonts")
-  private List<FontInfo> additionalFonts = null;
+    @SerializedName("AdditionalFonts")
+    private List<FontInfo> additionalFonts = null;
 
-  @SerializedName("CustomFonts")
-  private List<FontInfo> customFonts = null;
+    @SerializedName("CustomFonts")
+    private List<FontInfo> customFonts = null;
 
-  @SerializedName("SystemFonts")
-  private List<FontInfo> systemFonts = null;
-
-  public AvailableFontsResponse additionalFonts(List<FontInfo> additionalFonts) {
-    this.additionalFonts = additionalFonts;
-    return this;
-  }
-
-  public AvailableFontsResponse addAdditionalFontsItem(FontInfo additionalFontsItem) {
-    if (this.additionalFonts == null) {
-      this.additionalFonts = new ArrayList<FontInfo>();
+    @SerializedName("SystemFonts")
+    private List<FontInfo> systemFonts = null;
+    public AvailableFontsResponse additionalFonts(List<FontInfo> additionalFonts) {
+        this.additionalFonts = additionalFonts;
+        return this;
     }
-    this.additionalFonts.add(additionalFontsItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets the list of addititional fonts, provided by aspose team.
-   * @return additionalFonts
-  **/
-  @ApiModelProperty(value = "Gets or sets the list of addititional fonts, provided by aspose team.")
-  public List<FontInfo> getAdditionalFonts() {
-    return additionalFonts;
-  }
-
-  public void setAdditionalFonts(List<FontInfo> additionalFonts) {
-    this.additionalFonts = additionalFonts;
-  }
-
-  public AvailableFontsResponse customFonts(List<FontInfo> customFonts) {
-    this.customFonts = customFonts;
-    return this;
-  }
-
-  public AvailableFontsResponse addCustomFontsItem(FontInfo customFontsItem) {
-    if (this.customFonts == null) {
-      this.customFonts = new ArrayList<FontInfo>();
+    public AvailableFontsResponse addAdditionalFontsItem(FontInfo additionalFontsItem) {
+        if (this.additionalFonts == null) {
+            this.additionalFonts = new ArrayList<FontInfo>();
+        }
+        this.additionalFonts.add(additionalFontsItem);
+        return this;
     }
-    this.customFonts.add(customFontsItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets custom user fonts (from user file storage). To use them, you should specify \&quot;fontsLocation\&quot; parameter in any request.
-   * @return customFonts
-  **/
-  @ApiModelProperty(value = "Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.")
-  public List<FontInfo> getCustomFonts() {
-    return customFonts;
-  }
-
-  public void setCustomFonts(List<FontInfo> customFonts) {
-    this.customFonts = customFonts;
-  }
-
-  public AvailableFontsResponse systemFonts(List<FontInfo> systemFonts) {
-    this.systemFonts = systemFonts;
-    return this;
-  }
-
-  public AvailableFontsResponse addSystemFontsItem(FontInfo systemFontsItem) {
-    if (this.systemFonts == null) {
-      this.systemFonts = new ArrayList<FontInfo>();
+    /**
+     * Gets or sets the list of addititional fonts, provided by aspose team.
+    * @return additionalFonts
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of addititional fonts, provided by aspose team.")
+    public List<FontInfo> getAdditionalFonts() {
+        return additionalFonts;
     }
-    this.systemFonts.add(systemFontsItem);
-    return this;
-  }
 
-   /**
-   * Gets or sets the list of system fonts, availiable on the server.
-   * @return systemFonts
-  **/
-  @ApiModelProperty(value = "Gets or sets the list of system fonts, availiable on the server.")
-  public List<FontInfo> getSystemFonts() {
-    return systemFonts;
-  }
-
-  public void setSystemFonts(List<FontInfo> systemFonts) {
-    this.systemFonts = systemFonts;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public void setAdditionalFonts(List<FontInfo> additionalFonts) {
+        this.additionalFonts = additionalFonts;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public AvailableFontsResponse customFonts(List<FontInfo> customFonts) {
+        this.customFonts = customFonts;
+        return this;
     }
-    AvailableFontsResponse availableFontsResponse = (AvailableFontsResponse) o;
-    return Objects.equals(this.additionalFonts, availableFontsResponse.additionalFonts) &&
-        Objects.equals(this.customFonts, availableFontsResponse.customFonts) &&
-        Objects.equals(this.systemFonts, availableFontsResponse.systemFonts) &&
-        super.equals(o);
+
+    public AvailableFontsResponse addCustomFontsItem(FontInfo customFontsItem) {
+        if (this.customFonts == null) {
+            this.customFonts = new ArrayList<FontInfo>();
+        }
+        this.customFonts.add(customFontsItem);
+        return this;
+    }
+
+    /**
+     * Gets or sets custom user fonts (from user file storage). To use them, you should specify "fontsLocation" parameter in any request.
+    * @return customFonts
+    **/
+    @ApiModelProperty(value = "Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.")
+    public List<FontInfo> getCustomFonts() {
+        return customFonts;
+    }
+
+    public void setCustomFonts(List<FontInfo> customFonts) {
+        this.customFonts = customFonts;
+    }
+
+    public AvailableFontsResponse systemFonts(List<FontInfo> systemFonts) {
+        this.systemFonts = systemFonts;
+        return this;
+    }
+
+    public AvailableFontsResponse addSystemFontsItem(FontInfo systemFontsItem) {
+        if (this.systemFonts == null) {
+            this.systemFonts = new ArrayList<FontInfo>();
+        }
+        this.systemFonts.add(systemFontsItem);
+        return this;
+    }
+
+    /**
+     * Gets or sets the list of system fonts, availiable on the server.
+    * @return systemFonts
+    **/
+    @ApiModelProperty(value = "Gets or sets the list of system fonts, availiable on the server.")
+    public List<FontInfo> getSystemFonts() {
+        return systemFonts;
+    }
+
+    public void setSystemFonts(List<FontInfo> systemFonts) {
+        this.systemFonts = systemFonts;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        AvailableFontsResponse availableFontsResponse = (AvailableFontsResponse) o;
+        return
+            Objects.equals(this.additionalFonts, availableFontsResponse.additionalFonts) &&
+            Objects.equals(this.customFonts, availableFontsResponse.customFonts) &&
+            Objects.equals(this.systemFonts, availableFontsResponse.systemFonts) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(additionalFonts, customFonts, systemFonts, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -178,6 +177,4 @@ public class AvailableFontsResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

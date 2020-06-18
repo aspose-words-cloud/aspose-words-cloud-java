@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="PdfEncryptionDetailsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,104 +47,104 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for details of encryption.")
 public class PdfEncryptionDetailsData {
-  @SerializedName("EncryptionAlgorithm")
-  private String encryptionAlgorithm = null;
+    @SerializedName("EncryptionAlgorithm")
+    private String encryptionAlgorithm = null;
 
-  @SerializedName("OwnerPassword")
-  private String ownerPassword = null;
+    @SerializedName("OwnerPassword")
+    private String ownerPassword = null;
 
-  @SerializedName("Permissions")
-  private String permissions = null;
+    @SerializedName("Permissions")
+    private String permissions = null;
 
-  @SerializedName("UserPassword")
-  private String userPassword = null;
-
-  public PdfEncryptionDetailsData encryptionAlgorithm(String encryptionAlgorithm) {
-    this.encryptionAlgorithm = encryptionAlgorithm;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the encryption algorithm to use.
-   * @return encryptionAlgorithm
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the encryption algorithm to use.")
-  public String getEncryptionAlgorithm() {
-    return encryptionAlgorithm;
-  }
-
-  public void setEncryptionAlgorithm(String encryptionAlgorithm) {
-    this.encryptionAlgorithm = encryptionAlgorithm;
-  }
-
-  public PdfEncryptionDetailsData ownerPassword(String ownerPassword) {
-    this.ownerPassword = ownerPassword;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the owner password for the encrypted PDF document.
-   * @return ownerPassword
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the owner password for the encrypted PDF document.")
-  public String getOwnerPassword() {
-    return ownerPassword;
-  }
-
-  public void setOwnerPassword(String ownerPassword) {
-    this.ownerPassword = ownerPassword;
-  }
-
-  public PdfEncryptionDetailsData permissions(String permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.")
-  public String getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(String permissions) {
-    this.permissions = permissions;
-  }
-
-  public PdfEncryptionDetailsData userPassword(String userPassword) {
-    this.userPassword = userPassword;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies the user password required for opening the encrypted PDF document.
-   * @return userPassword
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies the user password required for opening the encrypted PDF document.")
-  public String getUserPassword() {
-    return userPassword;
-  }
-
-  public void setUserPassword(String userPassword) {
-    this.userPassword = userPassword;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("UserPassword")
+    private String userPassword = null;
+    public PdfEncryptionDetailsData encryptionAlgorithm(String encryptionAlgorithm) {
+        this.encryptionAlgorithm = encryptionAlgorithm;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets specifies the encryption algorithm to use.
+    * @return encryptionAlgorithm
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the encryption algorithm to use.")
+    public String getEncryptionAlgorithm() {
+        return encryptionAlgorithm;
     }
-    PdfEncryptionDetailsData pdfEncryptionDetailsData = (PdfEncryptionDetailsData) o;
-    return Objects.equals(this.encryptionAlgorithm, pdfEncryptionDetailsData.encryptionAlgorithm) &&
-        Objects.equals(this.ownerPassword, pdfEncryptionDetailsData.ownerPassword) &&
-        Objects.equals(this.permissions, pdfEncryptionDetailsData.permissions) &&
-        Objects.equals(this.userPassword, pdfEncryptionDetailsData.userPassword);
+
+    public void setEncryptionAlgorithm(String encryptionAlgorithm) {
+        this.encryptionAlgorithm = encryptionAlgorithm;
+    }
+
+    public PdfEncryptionDetailsData ownerPassword(String ownerPassword) {
+        this.ownerPassword = ownerPassword;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the owner password for the encrypted PDF document.
+    * @return ownerPassword
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the owner password for the encrypted PDF document.")
+    public String getOwnerPassword() {
+        return ownerPassword;
+    }
+
+    public void setOwnerPassword(String ownerPassword) {
+        this.ownerPassword = ownerPassword;
+    }
+
+    public PdfEncryptionDetailsData permissions(String permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.
+    * @return permissions
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.")
+    public String getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
+    }
+
+    public PdfEncryptionDetailsData userPassword(String userPassword) {
+        this.userPassword = userPassword;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies the user password required for opening the encrypted PDF document.
+    * @return userPassword
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies the user password required for opening the encrypted PDF document.")
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        PdfEncryptionDetailsData pdfEncryptionDetailsData = (PdfEncryptionDetailsData) o;
+        return
+            Objects.equals(this.encryptionAlgorithm, pdfEncryptionDetailsData.encryptionAlgorithm) &&
+            Objects.equals(this.ownerPassword, pdfEncryptionDetailsData.ownerPassword) &&
+            Objects.equals(this.permissions, pdfEncryptionDetailsData.permissions) &&
+            Objects.equals(this.userPassword, pdfEncryptionDetailsData.userPassword);
   }
 
   @Override
@@ -152,12 +152,10 @@ public class PdfEncryptionDetailsData {
     return Objects.hash(encryptionAlgorithm, ownerPassword, permissions, userPassword);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfEncryptionDetailsData {\n");
-    
     sb.append("    encryptionAlgorithm: ").append(toIndentedString(encryptionAlgorithm)).append("\n");
     sb.append("    ownerPassword: ").append(toIndentedString(ownerPassword)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
@@ -176,6 +174,4 @@ public class PdfEncryptionDetailsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

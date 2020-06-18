@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StyleInsert.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,111 +47,108 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a single document style to insert.")
 public class StyleInsert {
-  @SerializedName("StyleName")
-  private String styleName = null;
+    /**
+     * Gets or sets the StyleType value that specifies the type of the style to create.
+     */
+    @JsonAdapter(StyleTypeEnum.Adapter.class)
+    public enum StyleTypeEnum {
+        PARAGRAPH("Paragraph"),
+        CHARACTER("Character"),
+        TABLE("Table"),
+        LIST("List");
 
-  /**
-   * Gets or sets the StyleType value that specifies the type of the style to create.
-   */
-  @JsonAdapter(StyleTypeEnum.Adapter.class)
-  public enum StyleTypeEnum {
-    PARAGRAPH("Paragraph"),
-    
-    CHARACTER("Character"),
-    
-    TABLE("Table"),
-    
-    LIST("List");
+        private String value;
 
-    private String value;
+        StyleTypeEnum(String value) {
+            this.value = value;
+        }
 
-    StyleTypeEnum(String value) {
-      this.value = value;
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StyleTypeEnum fromValue(String text) {
+            for (StyleTypeEnum b : StyleTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< StyleTypeEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StyleTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StyleTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StyleTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("StyleName")
+    private String styleName = null;
+
+    @SerializedName("StyleType")
+    private StyleTypeEnum styleType = null;
+    public StyleInsert styleName(String styleName) {
+        this.styleName = styleName;
+        return this;
+    }
+
+    /**
+     * Gets or sets the case sensitive name of the style to create.
+    * @return styleName
+    **/
+    @ApiModelProperty(value = "Gets or sets the case sensitive name of the style to create.")
+    public String getStyleName() {
+        return styleName;
+    }
+
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
+    }
+
+    public StyleInsert styleType(StyleTypeEnum styleType) {
+        this.styleType = styleType;
+        return this;
+    }
+
+    /**
+     * Gets or sets the StyleType value that specifies the type of the style to create.
+    * @return styleType
+    **/
+    @ApiModelProperty(value = "Gets or sets the StyleType value that specifies the type of the style to create.")
+    public StyleTypeEnum getStyleType() {
+        return styleType;
+    }
+
+    public void setStyleType(StyleTypeEnum styleType) {
+        this.styleType = styleType;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StyleTypeEnum fromValue(String text) {
-      for (StyleTypeEnum b : StyleTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<StyleTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StyleTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StyleTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StyleTypeEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("StyleType")
-  private StyleTypeEnum styleType = null;
-
-  public StyleInsert styleName(String styleName) {
-    this.styleName = styleName;
-    return this;
-  }
-
-   /**
-   * Gets or sets the case sensitive name of the style to create.
-   * @return styleName
-  **/
-  @ApiModelProperty(value = "Gets or sets the case sensitive name of the style to create.")
-  public String getStyleName() {
-    return styleName;
-  }
-
-  public void setStyleName(String styleName) {
-    this.styleName = styleName;
-  }
-
-  public StyleInsert styleType(StyleTypeEnum styleType) {
-    this.styleType = styleType;
-    return this;
-  }
-
-   /**
-   * Gets or sets the StyleType value that specifies the type of the style to create.
-   * @return styleType
-  **/
-  @ApiModelProperty(value = "Gets or sets the StyleType value that specifies the type of the style to create.")
-  public StyleTypeEnum getStyleType() {
-    return styleType;
-  }
-
-  public void setStyleType(StyleTypeEnum styleType) {
-    this.styleType = styleType;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    StyleInsert styleInsert = (StyleInsert) o;
-    return Objects.equals(this.styleName, styleInsert.styleName) &&
-        Objects.equals(this.styleType, styleInsert.styleType);
+        StyleInsert styleInsert = (StyleInsert) o;
+        return
+            Objects.equals(this.styleName, styleInsert.styleName) &&
+            Objects.equals(this.styleType, styleInsert.styleType);
   }
 
   @Override
@@ -159,12 +156,10 @@ public class StyleInsert {
     return Objects.hash(styleName, styleType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StyleInsert {\n");
-    
     sb.append("    styleName: ").append(toIndentedString(styleName)).append("\n");
     sb.append("    styleType: ").append(toIndentedString(styleType)).append("\n");
     sb.append("}");
@@ -181,6 +176,4 @@ public class StyleInsert {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

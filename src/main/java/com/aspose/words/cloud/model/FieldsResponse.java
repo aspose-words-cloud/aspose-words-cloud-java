@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="FieldsResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/fields.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/fields.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/fields.")
 public class FieldsResponse extends WordsResponse {
-  @SerializedName("Fields")
-  private FieldCollection fields = null;
-
-  public FieldsResponse fields(FieldCollection fields) {
-    this.fields = fields;
-    return this;
-  }
-
-   /**
-   * Get fields
-   * @return fields
-  **/
-  @ApiModelProperty(value = "")
-  public FieldCollection getFields() {
-    return fields;
-  }
-
-  public void setFields(FieldCollection fields) {
-    this.fields = fields;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Fields")
+    private FieldCollection fields = null;
+    public FieldsResponse fields(FieldCollection fields) {
+        this.fields = fields;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets collection of fields.
+    * @return fields
+    **/
+    @ApiModelProperty(value = "Gets or sets collection of fields.")
+    public FieldCollection getFields() {
+        return fields;
     }
-    FieldsResponse fieldsResponse = (FieldsResponse) o;
-    return Objects.equals(this.fields, fieldsResponse.fields) &&
-        super.equals(o);
+
+    public void setFields(FieldCollection fields) {
+        this.fields = fields;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        FieldsResponse fieldsResponse = (FieldsResponse) o;
+        return
+            Objects.equals(this.fields, fieldsResponse.fields) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(fields, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class FieldsResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

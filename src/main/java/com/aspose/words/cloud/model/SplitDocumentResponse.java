@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SplitDocumentResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,46 +47,45 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "This response should be returned by the service when handling:  POST /{name}/split .")
 public class SplitDocumentResponse extends WordsResponse {
-  @SerializedName("SplitResult")
-  private SplitDocumentResult splitResult = null;
-
-  public SplitDocumentResponse splitResult(SplitDocumentResult splitResult) {
-    this.splitResult = splitResult;
-    return this;
-  }
-
-   /**
-   * Get splitResult
-   * @return splitResult
-  **/
-  @ApiModelProperty(value = "")
-  public SplitDocumentResult getSplitResult() {
-    return splitResult;
-  }
-
-  public void setSplitResult(SplitDocumentResult splitResult) {
-    this.splitResult = splitResult;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("SplitResult")
+    private SplitDocumentResult splitResult = null;
+    public SplitDocumentResponse splitResult(SplitDocumentResult splitResult) {
+        this.splitResult = splitResult;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets resylt of splitting document.
+    * @return splitResult
+    **/
+    @ApiModelProperty(value = "Gets or sets resylt of splitting document.")
+    public SplitDocumentResult getSplitResult() {
+        return splitResult;
     }
-    SplitDocumentResponse splitDocumentResponse = (SplitDocumentResponse) o;
-    return Objects.equals(this.splitResult, splitDocumentResponse.splitResult) &&
-        super.equals(o);
+
+    public void setSplitResult(SplitDocumentResult splitResult) {
+        this.splitResult = splitResult;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SplitDocumentResponse splitDocumentResponse = (SplitDocumentResponse) o;
+        return
+            Objects.equals(this.splitResult, splitDocumentResponse.splitResult) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(splitResult, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +107,4 @@ public class SplitDocumentResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

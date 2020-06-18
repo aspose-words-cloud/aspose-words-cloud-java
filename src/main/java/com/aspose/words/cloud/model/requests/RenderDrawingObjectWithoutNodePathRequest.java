@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderDrawingObjectWithoutNodePathRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,46 +37,46 @@ public class RenderDrawingObjectWithoutNodePathRequest {
     /*
      * The document name.
      */
-    private String Name;
+    private String name;
 
     /*
      * The destination format.
      */
-    private String Format;
+    private String format;
 
     /*
      * Object index.
      */
-    private Integer Index;
+    private Integer index;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private String folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private String storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private String loadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
+    private String password;
 
     /*
      * Folder in filestorage with custom fonts.
      */
-    private String FontsLocation;
-    
+    private String fontsLocation;
+
     /*
-     * Initializes a new instance of the renderDrawingObjectWithoutNodePathRequest class.
-     *  
+     * Initializes a new instance of the RenderDrawingObjectWithoutNodePathRequest class.
+     *
      * @param String name The document name.
      * @param String format The destination format.
      * @param Integer index Object index.
@@ -84,126 +86,126 @@ public class RenderDrawingObjectWithoutNodePathRequest {
      * @param String password Password for opening an encrypted document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderDrawingObjectWithoutNodePathRequest(String name,  String format,  Integer index,  String folder,  String storage,  String loadEncoding,  String password,  String fontsLocation) {
-        Name = name;
-        Format = format;
-        Index = index;
-        Folder = folder;
-        Storage = storage;
-        LoadEncoding = loadEncoding;
-        Password = password;
-        FontsLocation = fontsLocation;
+    public RenderDrawingObjectWithoutNodePathRequest(String name, String format, Integer index, String folder, String storage, String loadEncoding, String password, String fontsLocation) {
+        this.name = name;
+        this.format = format;
+        this.index = index;
+        this.folder = folder;
+        this.storage = storage;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
+        this.fontsLocation = fontsLocation;
     }
 
     /*
-     *  Gets The document name.
+     * Gets The document name.
      */
     public String getName() {
-        return Name;
+        return this.name;
     }
 
     /*
      * Sets The document name.
      */
     public void setName(String value) {
-        Name = value;
+        this.name = value;
     }
 
     /*
-     *  Gets The destination format.
+     * Gets The destination format.
      */
     public String getFormat() {
-        return Format;
+        return this.format;
     }
 
     /*
      * Sets The destination format.
      */
     public void setFormat(String value) {
-        Format = value;
+        this.format = value;
     }
 
     /*
-     *  Gets Object index.
+     * Gets Object index.
      */
     public Integer getIndex() {
-        return Index;
+        return this.index;
     }
 
     /*
      * Sets Object index.
      */
     public void setIndex(Integer value) {
-        Index = value;
+        this.index = value;
     }
 
     /*
-     *  Gets Original document folder.
+     * Gets Original document folder.
      */
     public String getFolder() {
-        return Folder;
+        return this.folder;
     }
 
     /*
      * Sets Original document folder.
      */
     public void setFolder(String value) {
-        Folder = value;
+        this.folder = value;
     }
 
     /*
-     *  Gets Original document storage.
+     * Gets Original document storage.
      */
     public String getStorage() {
-        return Storage;
+        return this.storage;
     }
 
     /*
      * Sets Original document storage.
      */
     public void setStorage(String value) {
-        Storage = value;
+        this.storage = value;
     }
 
     /*
-     *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public String getLoadEncoding() {
-        return LoadEncoding;
+        return this.loadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public void setLoadEncoding(String value) {
-        LoadEncoding = value;
+        this.loadEncoding = value;
     }
 
     /*
-     *  Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document.
      */
     public String getPassword() {
-        return Password;
+        return this.password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
     public void setPassword(String value) {
-        Password = value;
+        this.password = value;
     }
 
     /*
-     *  Gets Folder in filestorage with custom fonts.
+     * Gets Folder in filestorage with custom fonts.
      */
     public String getFontsLocation() {
-        return FontsLocation;
+        return this.fontsLocation;
     }
 
     /*
      * Sets Folder in filestorage with custom fonts.
      */
     public void setFontsLocation(String value) {
-        FontsLocation = value;
+        this.fontsLocation = value;
     }
 }

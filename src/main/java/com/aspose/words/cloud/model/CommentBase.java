@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="CommentBase.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,168 +46,165 @@ import io.swagger.annotations.ApiModelProperty;
  * Comment.
  */
 @ApiModel(description = "Comment.")
-
 public class CommentBase {
-  @SerializedName("RangeStart")
-  private DocumentPosition rangeStart = null;
+    @SerializedName("Author")
+    private String author = null;
 
-  @SerializedName("RangeEnd")
-  private DocumentPosition rangeEnd = null;
+    @SerializedName("DateTime")
+    private OffsetDateTime dateTime = null;
 
-  @SerializedName("Author")
-  private String author = null;
+    @SerializedName("Initial")
+    private String initial = null;
 
-  @SerializedName("Initial")
-  private String initial = null;
+    @SerializedName("RangeEnd")
+    private DocumentPosition rangeEnd = null;
 
-  @SerializedName("DateTime")
-  private OffsetDateTime dateTime = null;
+    @SerializedName("RangeStart")
+    private DocumentPosition rangeStart = null;
 
-  @SerializedName("Text")
-  private String text = null;
-
-  public CommentBase rangeStart(DocumentPosition rangeStart) {
-    this.rangeStart = rangeStart;
-    return this;
-  }
-
-   /**
-   * Get rangeStart
-   * @return rangeStart
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentPosition getRangeStart() {
-    return rangeStart;
-  }
-
-  public void setRangeStart(DocumentPosition rangeStart) {
-    this.rangeStart = rangeStart;
-  }
-
-  public CommentBase rangeEnd(DocumentPosition rangeEnd) {
-    this.rangeEnd = rangeEnd;
-    return this;
-  }
-
-   /**
-   * Get rangeEnd
-   * @return rangeEnd
-  **/
-  @ApiModelProperty(value = "")
-  public DocumentPosition getRangeEnd() {
-    return rangeEnd;
-  }
-
-  public void setRangeEnd(DocumentPosition rangeEnd) {
-    this.rangeEnd = rangeEnd;
-  }
-
-  public CommentBase author(String author) {
-    this.author = author;
-    return this;
-  }
-
-   /**
-   * Gets or sets returns or sets the author name for a comment.
-   * @return author
-  **/
-  @ApiModelProperty(value = "Gets or sets returns or sets the author name for a comment.")
-  public String getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
-
-  public CommentBase initial(String initial) {
-    this.initial = initial;
-    return this;
-  }
-
-   /**
-   * Gets or sets returns or sets the initials of the user associated with a specific comment.
-   * @return initial
-  **/
-  @ApiModelProperty(value = "Gets or sets returns or sets the initials of the user associated with a specific comment.")
-  public String getInitial() {
-    return initial;
-  }
-
-  public void setInitial(String initial) {
-    this.initial = initial;
-  }
-
-  public CommentBase dateTime(OffsetDateTime dateTime) {
-    this.dateTime = dateTime;
-    return this;
-  }
-
-   /**
-   * Gets or sets the date and time that the comment was made.
-   * @return dateTime
-  **/
-  @ApiModelProperty(value = "Gets or sets the date and time that the comment was made.")
-  public OffsetDateTime getDateTime() {
-    return dateTime;
-  }
-
-  public void setDateTime(OffsetDateTime dateTime) {
-    this.dateTime = dateTime;
-  }
-
-  public CommentBase text(String text) {
-    this.text = text;
-    return this;
-  }
-
-   /**
-   * Gets or sets this is a convenience property that allows to easily get or set text of the comment.
-   * @return text
-  **/
-  @ApiModelProperty(value = "Gets or sets this is a convenience property that allows to easily get or set text of the comment.")
-  public String getText() {
-    return text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Text")
+    private String text = null;
+    public CommentBase author(String author) {
+        this.author = author;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets returns or sets the author name for a comment.
+    * @return author
+    **/
+    @ApiModelProperty(value = "Gets or sets returns or sets the author name for a comment.")
+    public String getAuthor() {
+        return author;
     }
-    CommentBase commentBase = (CommentBase) o;
-    return Objects.equals(this.rangeStart, commentBase.rangeStart) &&
-        Objects.equals(this.rangeEnd, commentBase.rangeEnd) &&
-        Objects.equals(this.author, commentBase.author) &&
-        Objects.equals(this.initial, commentBase.initial) &&
-        Objects.equals(this.dateTime, commentBase.dateTime) &&
-        Objects.equals(this.text, commentBase.text);
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public CommentBase dateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+        return this;
+    }
+
+    /**
+     * Gets or sets the date and time that the comment was made.
+    * @return dateTime
+    **/
+    @ApiModelProperty(value = "Gets or sets the date and time that the comment was made.")
+    public OffsetDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(OffsetDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public CommentBase initial(String initial) {
+        this.initial = initial;
+        return this;
+    }
+
+    /**
+     * Gets or sets returns or sets the initials of the user associated with a specific comment.
+    * @return initial
+    **/
+    @ApiModelProperty(value = "Gets or sets returns or sets the initials of the user associated with a specific comment.")
+    public String getInitial() {
+        return initial;
+    }
+
+    public void setInitial(String initial) {
+        this.initial = initial;
+    }
+
+    public CommentBase rangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to comment range end node.
+    * @return rangeEnd
+    **/
+    @ApiModelProperty(value = "Gets or sets link to comment range end node.")
+    public DocumentPosition getRangeEnd() {
+        return rangeEnd;
+    }
+
+    public void setRangeEnd(DocumentPosition rangeEnd) {
+        this.rangeEnd = rangeEnd;
+    }
+
+    public CommentBase rangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+        return this;
+    }
+
+    /**
+     * Gets or sets link to comment range start node.
+    * @return rangeStart
+    **/
+    @ApiModelProperty(value = "Gets or sets link to comment range start node.")
+    public DocumentPosition getRangeStart() {
+        return rangeStart;
+    }
+
+    public void setRangeStart(DocumentPosition rangeStart) {
+        this.rangeStart = rangeStart;
+    }
+
+    public CommentBase text(String text) {
+        this.text = text;
+        return this;
+    }
+
+    /**
+     * Gets or sets this is a convenience property that allows to easily get or set text of the comment.
+    * @return text
+    **/
+    @ApiModelProperty(value = "Gets or sets this is a convenience property that allows to easily get or set text of the comment.")
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        CommentBase commentBase = (CommentBase) o;
+        return
+            Objects.equals(this.author, commentBase.author) &&
+            Objects.equals(this.dateTime, commentBase.dateTime) &&
+            Objects.equals(this.initial, commentBase.initial) &&
+            Objects.equals(this.rangeEnd, commentBase.rangeEnd) &&
+            Objects.equals(this.rangeStart, commentBase.rangeStart) &&
+            Objects.equals(this.text, commentBase.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rangeStart, rangeEnd, author, initial, dateTime, text);
+    return Objects.hash(author, dateTime, initial, rangeEnd, rangeStart, text);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentBase {\n");
-    
-    sb.append("    rangeStart: ").append(toIndentedString(rangeStart)).append("\n");
-    sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    initial: ").append(toIndentedString(initial)).append("\n");
     sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
+    sb.append("    initial: ").append(toIndentedString(initial)).append("\n");
+    sb.append("    rangeEnd: ").append(toIndentedString(rangeEnd)).append("\n");
+    sb.append("    rangeStart: ").append(toIndentedString(rangeStart)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -223,6 +220,4 @@ public class CommentBase {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

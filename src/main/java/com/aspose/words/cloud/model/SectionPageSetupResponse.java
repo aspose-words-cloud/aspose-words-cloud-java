@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="SectionPageSetupResponse.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,50 +43,50 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup.
+ * This response should be returned by the service when handling:
+ * GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup.
  */
 @ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup.")
 public class SectionPageSetupResponse extends WordsResponse {
-  @SerializedName("PageSetup")
-  private PageSetup pageSetup = null;
-
-  public SectionPageSetupResponse pageSetup(PageSetup pageSetup) {
-    this.pageSetup = pageSetup;
-    return this;
-  }
-
-   /**
-   * Get pageSetup
-   * @return pageSetup
-  **/
-  @ApiModelProperty(value = "")
-  public PageSetup getPageSetup() {
-    return pageSetup;
-  }
-
-  public void setPageSetup(PageSetup pageSetup) {
-    this.pageSetup = pageSetup;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("PageSetup")
+    private PageSetup pageSetup = null;
+    public SectionPageSetupResponse pageSetup(PageSetup pageSetup) {
+        this.pageSetup = pageSetup;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Gets or sets section.
+    * @return pageSetup
+    **/
+    @ApiModelProperty(value = "Gets or sets section.")
+    public PageSetup getPageSetup() {
+        return pageSetup;
     }
-    SectionPageSetupResponse sectionPageSetupResponse = (SectionPageSetupResponse) o;
-    return Objects.equals(this.pageSetup, sectionPageSetupResponse.pageSetup) &&
-        super.equals(o);
+
+    public void setPageSetup(PageSetup pageSetup) {
+        this.pageSetup = pageSetup;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SectionPageSetupResponse sectionPageSetupResponse = (SectionPageSetupResponse) o;
+        return
+            Objects.equals(this.pageSetup, sectionPageSetupResponse.pageSetup) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(pageSetup, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -108,6 +108,4 @@ public class SectionPageSetupResponse extends WordsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

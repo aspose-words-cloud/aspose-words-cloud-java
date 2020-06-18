@@ -1,7 +1,7 @@
 /*
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetRangeTextRequest.java">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,9 +22,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  * </summary>
- * --------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------
  */
+
 package com.aspose.words.cloud.model.requests;
+
 import com.aspose.words.cloud.model.*;
 import java.io.File;
 
@@ -35,41 +37,43 @@ public class GetRangeTextRequest {
     /*
      * The document.
      */
-    private String Name;
+    private String name;
 
     /*
-     * The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * The range start identifier.
+     * Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
+     * It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
-    private String RangeStartIdentifier;
+    private String rangeStartIdentifier;
 
     /*
      * The range end identifier.
      */
-    private String RangeEndIdentifier;
+    private String rangeEndIdentifier;
 
     /*
      * Original document folder.
      */
-    private String Folder;
+    private String folder;
 
     /*
      * Original document storage.
      */
-    private String Storage;
+    private String storage;
 
     /*
      * Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
-    private String LoadEncoding;
+    private String loadEncoding;
 
     /*
      * Password for opening an encrypted document.
      */
-    private String Password;
-    
+    private String password;
+
     /*
-     * Initializes a new instance of the getRangeTextRequest class.
-     *  
+     * Initializes a new instance of the GetRangeTextRequest class.
+     *
      * @param String name The document.
      * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      * @param String rangeEndIdentifier The range end identifier.
@@ -78,111 +82,111 @@ public class GetRangeTextRequest {
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetRangeTextRequest(String name,  String rangeStartIdentifier,  String rangeEndIdentifier,  String folder,  String storage,  String loadEncoding,  String password) {
-        Name = name;
-        RangeStartIdentifier = rangeStartIdentifier;
-        RangeEndIdentifier = rangeEndIdentifier;
-        Folder = folder;
-        Storage = storage;
-        LoadEncoding = loadEncoding;
-        Password = password;
+    public GetRangeTextRequest(String name, String rangeStartIdentifier, String rangeEndIdentifier, String folder, String storage, String loadEncoding, String password) {
+        this.name = name;
+        this.rangeStartIdentifier = rangeStartIdentifier;
+        this.rangeEndIdentifier = rangeEndIdentifier;
+        this.folder = folder;
+        this.storage = storage;
+        this.loadEncoding = loadEncoding;
+        this.password = password;
     }
 
     /*
-     *  Gets The document.
+     * Gets The document.
      */
     public String getName() {
-        return Name;
+        return this.name;
     }
 
     /*
      * Sets The document.
      */
     public void setName(String value) {
-        Name = value;
+        this.name = value;
     }
 
     /*
-     *  Gets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Gets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     public String getRangeStartIdentifier() {
-        return RangeStartIdentifier;
+        return this.rangeStartIdentifier;
     }
 
     /*
      * Sets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     public void setRangeStartIdentifier(String value) {
-        RangeStartIdentifier = value;
+        this.rangeStartIdentifier = value;
     }
 
     /*
-     *  Gets The range end identifier.
+     * Gets The range end identifier.
      */
     public String getRangeEndIdentifier() {
-        return RangeEndIdentifier;
+        return this.rangeEndIdentifier;
     }
 
     /*
      * Sets The range end identifier.
      */
     public void setRangeEndIdentifier(String value) {
-        RangeEndIdentifier = value;
+        this.rangeEndIdentifier = value;
     }
 
     /*
-     *  Gets Original document folder.
+     * Gets Original document folder.
      */
     public String getFolder() {
-        return Folder;
+        return this.folder;
     }
 
     /*
      * Sets Original document folder.
      */
     public void setFolder(String value) {
-        Folder = value;
+        this.folder = value;
     }
 
     /*
-     *  Gets Original document storage.
+     * Gets Original document storage.
      */
     public String getStorage() {
-        return Storage;
+        return this.storage;
     }
 
     /*
      * Sets Original document storage.
      */
     public void setStorage(String value) {
-        Storage = value;
+        this.storage = value;
     }
 
     /*
-     *  Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+     * Gets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public String getLoadEncoding() {
-        return LoadEncoding;
+        return this.loadEncoding;
     }
 
     /*
      * Sets Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      */
     public void setLoadEncoding(String value) {
-        LoadEncoding = value;
+        this.loadEncoding = value;
     }
 
     /*
-     *  Gets Password for opening an encrypted document.
+     * Gets Password for opening an encrypted document.
      */
     public String getPassword() {
-        return Password;
+        return this.password;
     }
 
     /*
      * Sets Password for opening an encrypted document.
      */
     public void setPassword(String value) {
-        Password = value;
+        this.password = value;
     }
 }

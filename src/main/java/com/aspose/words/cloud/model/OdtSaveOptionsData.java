@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="OdtSaveOptionsData.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,159 +47,159 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "container class for odt/ott save options.")
 public class OdtSaveOptionsData extends SaveOptionsData {
-  @SerializedName("IsStrictSchema11")
-  private Boolean isStrictSchema11 = null;
+    /**
+     * Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
+     * Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
+     */
+    @JsonAdapter(MeasureUnitEnum.Adapter.class)
+    public enum MeasureUnitEnum {
+        CENTIMETERS("Centimeters"),
+        INCHES("Inches");
 
-  /**
-   * Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
-   */
-  @JsonAdapter(MeasureUnitEnum.Adapter.class)
-  public enum MeasureUnitEnum {
-    CENTIMETERS("Centimeters"),
-    
-    INCHES("Inches");
+        private String value;
 
-    private String value;
+        MeasureUnitEnum(String value) {
+            this.value = value;
+        }
 
-    MeasureUnitEnum(String value) {
-      this.value = value;
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static MeasureUnitEnum fromValue(String text) {
+            for (MeasureUnitEnum b : MeasureUnitEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public static class Adapter extends TypeAdapter< MeasureUnitEnum > {
+            @Override
+            public void write(final JsonWriter jsonWriter, final MeasureUnitEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public MeasureUnitEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return MeasureUnitEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public String getValue() {
-      return value;
+    @SerializedName("IsStrictSchema11")
+    private Boolean isStrictSchema11 = null;
+
+    @SerializedName("MeasureUnit")
+    private MeasureUnitEnum measureUnit = null;
+
+    @SerializedName("Password")
+    private String password = null;
+
+    @SerializedName("PrettyFormat")
+    private Boolean prettyFormat = null;
+    public OdtSaveOptionsData isStrictSchema11(Boolean isStrictSchema11) {
+        this.isStrictSchema11 = isStrictSchema11;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.
+    * @return isStrictSchema11
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.")
+    public Boolean getIsStrictSchema11() {
+        return isStrictSchema11;
+    }
+
+    public void setIsStrictSchema11(Boolean isStrictSchema11) {
+        this.isStrictSchema11 = isStrictSchema11;
+    }
+
+    public OdtSaveOptionsData measureUnit(MeasureUnitEnum measureUnit) {
+        this.measureUnit = measureUnit;
+        return this;
+    }
+
+    /**
+     * Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
+     * Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
+    * @return measureUnit
+    **/
+    @ApiModelProperty(value = "Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters. Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.")
+    public MeasureUnitEnum getMeasureUnit() {
+        return measureUnit;
+    }
+
+    public void setMeasureUnit(MeasureUnitEnum measureUnit) {
+        this.measureUnit = measureUnit;
+    }
+
+    public OdtSaveOptionsData password(String password) {
+        this.password = password;
+        return this;
+    }
+
+    /**
+     * Gets or sets a password to encrypt document.
+    * @return password
+    **/
+    @ApiModelProperty(value = "Gets or sets a password to encrypt document.")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public OdtSaveOptionsData prettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
+        return this;
+    }
+
+    /**
+     * Gets or sets specifies whether or not use pretty formats output.
+    * @return prettyFormat
+    **/
+    @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
+    public Boolean getPrettyFormat() {
+        return prettyFormat;
+    }
+
+    public void setPrettyFormat(Boolean prettyFormat) {
+        this.prettyFormat = prettyFormat;
     }
 
     @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static MeasureUnitEnum fromValue(String text) {
-      for (MeasureUnitEnum b : MeasureUnitEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
         }
-      }
-      return null;
-    }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-    public static class Adapter extends TypeAdapter<MeasureUnitEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final MeasureUnitEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public MeasureUnitEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return MeasureUnitEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
-  @SerializedName("MeasureUnit")
-  private MeasureUnitEnum measureUnit = null;
-
-  @SerializedName("Password")
-  private String password = null;
-
-  @SerializedName("PrettyFormat")
-  private Boolean prettyFormat = null;
-
-  public OdtSaveOptionsData isStrictSchema11(Boolean isStrictSchema11) {
-    this.isStrictSchema11 = isStrictSchema11;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.
-   * @return isStrictSchema11
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.")
-  public Boolean isIsStrictSchema11() {
-    return isStrictSchema11;
-  }
-
-  public void setIsStrictSchema11(Boolean isStrictSchema11) {
-    this.isStrictSchema11 = isStrictSchema11;
-  }
-
-  public OdtSaveOptionsData measureUnit(MeasureUnitEnum measureUnit) {
-    this.measureUnit = measureUnit;
-    return this;
-  }
-
-   /**
-   * Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
-   * @return measureUnit
-  **/
-  @ApiModelProperty(value = "Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.")
-  public MeasureUnitEnum getMeasureUnit() {
-    return measureUnit;
-  }
-
-  public void setMeasureUnit(MeasureUnitEnum measureUnit) {
-    this.measureUnit = measureUnit;
-  }
-
-  public OdtSaveOptionsData password(String password) {
-    this.password = password;
-    return this;
-  }
-
-   /**
-   * Gets or sets a password to encrypt document.
-   * @return password
-  **/
-  @ApiModelProperty(value = "Gets or sets a password to encrypt document.")
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public OdtSaveOptionsData prettyFormat(Boolean prettyFormat) {
-    this.prettyFormat = prettyFormat;
-    return this;
-  }
-
-   /**
-   * Gets or sets specifies whether or not use pretty formats output.
-   * @return prettyFormat
-  **/
-  @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
-  public Boolean isPrettyFormat() {
-    return prettyFormat;
-  }
-
-  public void setPrettyFormat(Boolean prettyFormat) {
-    this.prettyFormat = prettyFormat;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    OdtSaveOptionsData odtSaveOptionsData = (OdtSaveOptionsData) o;
-    return Objects.equals(this.isStrictSchema11, odtSaveOptionsData.isStrictSchema11) &&
-        Objects.equals(this.measureUnit, odtSaveOptionsData.measureUnit) &&
-        Objects.equals(this.password, odtSaveOptionsData.password) &&
-        Objects.equals(this.prettyFormat, odtSaveOptionsData.prettyFormat) &&
-        super.equals(o);
+        OdtSaveOptionsData odtSaveOptionsData = (OdtSaveOptionsData) o;
+        return
+            Objects.equals(this.isStrictSchema11, odtSaveOptionsData.isStrictSchema11) &&
+            Objects.equals(this.measureUnit, odtSaveOptionsData.measureUnit) &&
+            Objects.equals(this.password, odtSaveOptionsData.password) &&
+            Objects.equals(this.prettyFormat, odtSaveOptionsData.prettyFormat) &&
+            super.equals(o);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(isStrictSchema11, measureUnit, password, prettyFormat, super.hashCode());
   }
-
 
   @Override
   public String toString() {
@@ -224,6 +224,4 @@ public class OdtSaveOptionsData extends SaveOptionsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

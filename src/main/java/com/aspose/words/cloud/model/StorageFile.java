@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose">
- *   Copyright (c) 2019 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="StorageFile.java">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,148 +43,146 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * File or folder information
+ * File or folder information.
  */
-@ApiModel(description = "File or folder information")
+@ApiModel(description = "File or folder information.")
 public class StorageFile {
-  @SerializedName("Name")
-  private String name = null;
+    @SerializedName("IsFolder")
+    private Boolean isFolder = null;
 
-  @SerializedName("IsFolder")
-  private Boolean isFolder = null;
+    @SerializedName("ModifiedDate")
+    private OffsetDateTime modifiedDate = null;
 
-  @SerializedName("ModifiedDate")
-  private OffsetDateTime modifiedDate = null;
+    @SerializedName("Name")
+    private String name = null;
 
-  @SerializedName("Size")
-  private Long size = null;
+    @SerializedName("Path")
+    private String path = null;
 
-  @SerializedName("Path")
-  private String path = null;
-
-  public StorageFile name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * File or folder name.
-   * @return name
-  **/
-  @ApiModelProperty(value = "File or folder name.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public StorageFile isFolder(Boolean isFolder) {
-    this.isFolder = isFolder;
-    return this;
-  }
-
-   /**
-   * True if it is a folder.
-   * @return isFolder
-  **/
-  @ApiModelProperty(value = "True if it is a folder.")
-  public Boolean isIsFolder() {
-    return isFolder;
-  }
-
-  public void setIsFolder(Boolean isFolder) {
-    this.isFolder = isFolder;
-  }
-
-  public StorageFile modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
-    return this;
-  }
-
-   /**
-   * File or folder last modified DateTime.
-   * @return modifiedDate
-  **/
-  @ApiModelProperty(value = "File or folder last modified DateTime.")
-  public OffsetDateTime getModifiedDate() {
-    return modifiedDate;
-  }
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
-  }
-
-  public StorageFile size(Long size) {
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * File or folder size.
-   * @return size
-  **/
-  @ApiModelProperty(value = "File or folder size.")
-  public Long getSize() {
-    return size;
-  }
-
-  public void setSize(Long size) {
-    this.size = size;
-  }
-
-  public StorageFile path(String path) {
-    this.path = path;
-    return this;
-  }
-
-   /**
-   * File or folder path.
-   * @return path
-  **/
-  @ApiModelProperty(value = "File or folder path.")
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    @SerializedName("Size")
+    private Integer size = null;
+    public StorageFile isFolder(Boolean isFolder) {
+        this.isFolder = isFolder;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * True if it is a folder.
+    * @return isFolder
+    **/
+    @ApiModelProperty(value = "True if it is a folder.")
+    public Boolean getIsFolder() {
+        return isFolder;
     }
-    StorageFile storageFile = (StorageFile) o;
-    return Objects.equals(this.name, storageFile.name) &&
-        Objects.equals(this.isFolder, storageFile.isFolder) &&
-        Objects.equals(this.modifiedDate, storageFile.modifiedDate) &&
-        Objects.equals(this.size, storageFile.size) &&
-        Objects.equals(this.path, storageFile.path);
+
+    public void setIsFolder(Boolean isFolder) {
+        this.isFolder = isFolder;
+    }
+
+    public StorageFile modifiedDate(OffsetDateTime modifiedDate) {
+        this.modifiedDate = modifiedDate;
+        return this;
+    }
+
+    /**
+     * File or folder last modified DateTime.
+    * @return modifiedDate
+    **/
+    @ApiModelProperty(value = "File or folder last modified DateTime.")
+    public OffsetDateTime getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(OffsetDateTime modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public StorageFile name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * File or folder name.
+    * @return name
+    **/
+    @ApiModelProperty(value = "File or folder name.")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public StorageFile path(String path) {
+        this.path = path;
+        return this;
+    }
+
+    /**
+     * File or folder path.
+    * @return path
+    **/
+    @ApiModelProperty(value = "File or folder path.")
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public StorageFile size(Integer size) {
+        this.size = size;
+        return this;
+    }
+
+    /**
+     * File or folder size.
+    * @return size
+    **/
+    @ApiModelProperty(value = "File or folder size.")
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        StorageFile storageFile = (StorageFile) o;
+        return
+            Objects.equals(this.isFolder, storageFile.isFolder) &&
+            Objects.equals(this.modifiedDate, storageFile.modifiedDate) &&
+            Objects.equals(this.name, storageFile.name) &&
+            Objects.equals(this.path, storageFile.path) &&
+            Objects.equals(this.size, storageFile.size);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, isFolder, modifiedDate, size, path);
+    return Objects.hash(isFolder, modifiedDate, name, path, size);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StorageFile {\n");
-    
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isFolder: ").append(toIndentedString(isFolder)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,6 +197,4 @@ public class StorageFile {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-
