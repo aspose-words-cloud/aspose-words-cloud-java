@@ -46,69 +46,9 @@ import io.swagger.annotations.ApiModelProperty;
  * Container class for text save options.
  */
 @ApiModel(description = "Container class for text save options.")
-public class TextSaveOptionsData extends SaveOptionsData {
-    /**
-     * Gets or sets specifies whether to output headers and footers when exporting in plain text format.
-     * default value is TxtExportHeadersFootersMode.PrimaryOnly.
-     */
-    @JsonAdapter(ExportHeadersFootersModeEnum.Adapter.class)
-    public enum ExportHeadersFootersModeEnum {
-        NONE("None"),
-        PRIMARYONLY("PrimaryOnly"),
-        ALLATEND("AllAtEnd");
-
-        private String value;
-
-        ExportHeadersFootersModeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static ExportHeadersFootersModeEnum fromValue(String text) {
-            for (ExportHeadersFootersModeEnum b : ExportHeadersFootersModeEnum.values()) {
-                if (String.valueOf(b.value).equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter< ExportHeadersFootersModeEnum > {
-            @Override
-            public void write(final JsonWriter jsonWriter, final ExportHeadersFootersModeEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public ExportHeadersFootersModeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return ExportHeadersFootersModeEnum.fromValue(String.valueOf(value));
-            }
-        }
-    }
-
+public class TextSaveOptionsData extends TxtSaveOptionsBaseData {
     @SerializedName("AddBidiMarks")
     private Boolean addBidiMarks = null;
-
-    @SerializedName("Encoding")
-    private String encoding = null;
-
-    @SerializedName("ExportHeadersFootersMode")
-    private ExportHeadersFootersModeEnum exportHeadersFootersMode = null;
-
-    @SerializedName("ForcePageBreaks")
-    private Boolean forcePageBreaks = null;
-
-    @SerializedName("ParagraphBreak")
-    private String paragraphBreak = null;
 
     @SerializedName("PreserveTableLayout")
     private Boolean preserveTableLayout = null;
@@ -132,80 +72,6 @@ public class TextSaveOptionsData extends SaveOptionsData {
 
     public void setAddBidiMarks(Boolean addBidiMarks) {
         this.addBidiMarks = addBidiMarks;
-    }
-
-    public TextSaveOptionsData encoding(String encoding) {
-        this.encoding = encoding;
-        return this;
-    }
-
-    /**
-     * Gets or sets specifies the encoding to use when exporting in plain text format.
-    * @return encoding
-    **/
-    @ApiModelProperty(value = "Gets or sets specifies the encoding to use when exporting in plain text format.")
-    public String getEncoding() {
-        return encoding;
-    }
-
-    public void setEncoding(String encoding) {
-        this.encoding = encoding;
-    }
-
-    public TextSaveOptionsData exportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
-        this.exportHeadersFootersMode = exportHeadersFootersMode;
-        return this;
-    }
-
-    /**
-     * Gets or sets specifies whether to output headers and footers when exporting in plain text format.
-     * default value is TxtExportHeadersFootersMode.PrimaryOnly.
-    * @return exportHeadersFootersMode
-    **/
-    @ApiModelProperty(value = "Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.")
-    public ExportHeadersFootersModeEnum getExportHeadersFootersMode() {
-        return exportHeadersFootersMode;
-    }
-
-    public void setExportHeadersFootersMode(ExportHeadersFootersModeEnum exportHeadersFootersMode) {
-        this.exportHeadersFootersMode = exportHeadersFootersMode;
-    }
-
-    public TextSaveOptionsData forcePageBreaks(Boolean forcePageBreaks) {
-        this.forcePageBreaks = forcePageBreaks;
-        return this;
-    }
-
-    /**
-     * Gets or sets allows to specify whether the page breaks should be preserved during export.
-     * The default value is false.
-    * @return forcePageBreaks
-    **/
-    @ApiModelProperty(value = "Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.")
-    public Boolean getForcePageBreaks() {
-        return forcePageBreaks;
-    }
-
-    public void setForcePageBreaks(Boolean forcePageBreaks) {
-        this.forcePageBreaks = forcePageBreaks;
-    }
-
-    public TextSaveOptionsData paragraphBreak(String paragraphBreak) {
-        this.paragraphBreak = paragraphBreak;
-        return this;
-    }
-
-    /**
-     * Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.
-    * @return paragraphBreak
-    **/
-    @ApiModelProperty(value = "Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.")
-    public String getParagraphBreak() {
-        return paragraphBreak;
-    }
-
-    public void setParagraphBreak(String paragraphBreak) {
-        this.paragraphBreak = paragraphBreak;
     }
 
     public TextSaveOptionsData preserveTableLayout(Boolean preserveTableLayout) {
@@ -256,10 +122,6 @@ public class TextSaveOptionsData extends SaveOptionsData {
         TextSaveOptionsData textSaveOptionsData = (TextSaveOptionsData) o;
         return
             Objects.equals(this.addBidiMarks, textSaveOptionsData.addBidiMarks) &&
-            Objects.equals(this.encoding, textSaveOptionsData.encoding) &&
-            Objects.equals(this.exportHeadersFootersMode, textSaveOptionsData.exportHeadersFootersMode) &&
-            Objects.equals(this.forcePageBreaks, textSaveOptionsData.forcePageBreaks) &&
-            Objects.equals(this.paragraphBreak, textSaveOptionsData.paragraphBreak) &&
             Objects.equals(this.preserveTableLayout, textSaveOptionsData.preserveTableLayout) &&
             Objects.equals(this.simplifyListLabels, textSaveOptionsData.simplifyListLabels) &&
             super.equals(o);
@@ -267,7 +129,7 @@ public class TextSaveOptionsData extends SaveOptionsData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addBidiMarks, encoding, exportHeadersFootersMode, forcePageBreaks, paragraphBreak, preserveTableLayout, simplifyListLabels, super.hashCode());
+    return Objects.hash(addBidiMarks, preserveTableLayout, simplifyListLabels, super.hashCode());
   }
 
   @Override
@@ -276,10 +138,6 @@ public class TextSaveOptionsData extends SaveOptionsData {
     sb.append("class TextSaveOptionsData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    addBidiMarks: ").append(toIndentedString(addBidiMarks)).append("\n");
-    sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
-    sb.append("    exportHeadersFootersMode: ").append(toIndentedString(exportHeadersFootersMode)).append("\n");
-    sb.append("    forcePageBreaks: ").append(toIndentedString(forcePageBreaks)).append("\n");
-    sb.append("    paragraphBreak: ").append(toIndentedString(paragraphBreak)).append("\n");
     sb.append("    preserveTableLayout: ").append(toIndentedString(preserveTableLayout)).append("\n");
     sb.append("    simplifyListLabels: ").append(toIndentedString(simplifyListLabels)).append("\n");
     sb.append("}");
