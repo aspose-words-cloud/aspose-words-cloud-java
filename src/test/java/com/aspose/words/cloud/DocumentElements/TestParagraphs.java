@@ -313,7 +313,8 @@ public class TestParagraphs extends TestCase {
     public void testUpdateParagraphFormat() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "UpdateParagraphFormat.doc";
-        ParagraphFormatUpdate body = (ParagraphFormatUpdate)(new ParagraphFormatUpdate().alignment(ParagraphFormatBase.AlignmentEnum.RIGHT));
+        ParagraphFormatUpdate body = new ParagraphFormatUpdate();
+        body.alignment(ParagraphFormatUpdate.AlignmentEnum.RIGHT);
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         UpdateParagraphFormatRequest request = new UpdateParagraphFormatRequest(remoteName, body, "", 0,
@@ -321,24 +322,6 @@ public class TestParagraphs extends TestCase {
                 null, null, null, null);
 
         ParagraphFormatResponse result = TestInitializer.wordsApi.updateParagraphFormat(request);
-        assertNotNull(result);
-    }
-
-    /*
-     * Test for updating paragraph format
-     */
-    @Test
-    public void testUpdateParagraphFormatWithoutNodePath() throws ApiException, IOException {
-        String fileName = "test_multi_pages.docx";
-        String remoteName = "UpdateParagraphFormat.doc";
-        ParagraphFormat body = new ParagraphFormat().alignment(ParagraphFormat.AlignmentEnum.RIGHT);
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
-
-        UpdateParagraphFormatWithoutNodePathRequest request = new UpdateParagraphFormatWithoutNodePathRequest(remoteName, body, 0,
-                PathUtil.get(TestInitializer.RemoteTestFolder, testFolder), null, null,
-                null, null, null, null);
-
-        ParagraphFormatResponse result = TestInitializer.wordsApi.updateParagraphFormatWithoutNodePath(request);
         assertNotNull(result);
     }
 
