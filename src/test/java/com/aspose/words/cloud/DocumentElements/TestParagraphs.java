@@ -313,7 +313,7 @@ public class TestParagraphs extends TestCase {
     public void testUpdateParagraphFormat() throws ApiException, IOException {
         String fileName = "test_multi_pages.docx";
         String remoteName = "UpdateParagraphFormat.doc";
-        ParagraphFormat body = new ParagraphFormat().alignment(ParagraphFormat.AlignmentEnum.RIGHT);
+        ParagraphFormatUpdate body = (ParagraphFormatUpdate)(new ParagraphFormatUpdate().alignment(ParagraphFormatBase.AlignmentEnum.RIGHT));
         TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(TestInitializer.RemoteTestFolder, testFolder, remoteName).replace("\\", "/"));
 
         UpdateParagraphFormatRequest request = new UpdateParagraphFormatRequest(remoteName, body, "", 0,
