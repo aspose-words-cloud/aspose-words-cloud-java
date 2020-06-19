@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ParagraphFormat.java">
+ * <copyright company="Aspose" file="ParagraphFormatUpdate.java">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -43,50 +43,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph format element.
+ * Paragraph format element update DTO.
  */
-@ApiModel(description = "Paragraph format element.")
-public class ParagraphFormat extends ParagraphFormatBase {
-    @SerializedName("IsHeading")
-    private Boolean isHeading = null;
-
-    @SerializedName("IsListItem")
-    private Boolean isListItem = null;
-    public ParagraphFormat isHeading(Boolean isHeading) {
-        this.isHeading = isHeading;
-        return this;
-    }
-
-    /**
-     * Gets or sets True when the paragraph style is one of the built-in Heading styles.
-    * @return isHeading
-    **/
-    @ApiModelProperty(value = "Gets or sets True when the paragraph style is one of the built-in Heading styles.")
-    public Boolean getIsHeading() {
-        return isHeading;
-    }
-
-    public void setIsHeading(Boolean isHeading) {
-        this.isHeading = isHeading;
-    }
-
-    public ParagraphFormat isListItem(Boolean isListItem) {
-        this.isListItem = isListItem;
-        return this;
-    }
-
-    /**
-     * Gets or sets True when the paragraph is an item in a bulleted or numbered list.
-    * @return isListItem
-    **/
-    @ApiModelProperty(value = "Gets or sets True when the paragraph is an item in a bulleted or numbered list.")
-    public Boolean getIsListItem() {
-        return isListItem;
-    }
-
-    public void setIsListItem(Boolean isListItem) {
-        this.isListItem = isListItem;
-    }
+@ApiModel(description = "Paragraph format element update DTO.")
+public class ParagraphFormatUpdate extends ParagraphFormatBase {
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -97,25 +57,19 @@ public class ParagraphFormat extends ParagraphFormatBase {
             return false;
         }
 
-        ParagraphFormat paragraphFormat = (ParagraphFormat) o;
-        return
-            Objects.equals(this.isHeading, paragraphFormat.isHeading) &&
-            Objects.equals(this.isListItem, paragraphFormat.isListItem) &&
-            super.equals(o);
+        return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isHeading, isListItem, super.hashCode());
+    return Objects.hash(super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ParagraphFormat {\n");
+    sb.append("class ParagraphFormatUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    isHeading: ").append(toIndentedString(isHeading)).append("\n");
-    sb.append("    isListItem: ").append(toIndentedString(isListItem)).append("\n");
     sb.append("}");
     return sb.toString();
   }
