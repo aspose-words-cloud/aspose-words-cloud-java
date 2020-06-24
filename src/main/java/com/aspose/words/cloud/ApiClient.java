@@ -1047,8 +1047,7 @@ public class ApiClient {
      */
     public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) throws IOException {
         MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
-        if (formParams.isEmpty())
-        {
+        if (formParams.isEmpty()) {
             Headers partHeaders = Headers.of("Content-Disposition", "form-data");
             mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("none"), new byte[] {}));
         }
