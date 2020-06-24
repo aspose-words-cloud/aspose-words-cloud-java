@@ -1058,7 +1058,8 @@ public class ApiClient {
                     Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + param.getKey() + "\"");
                     MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
                     mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
-                } else {
+                } 
+                else {
                     Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
                     mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));
                 }
