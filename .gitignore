@@ -21,9 +21,11 @@ target
 .gradle
 build
 .idea/
-.gitignore
 Settings/servercreds.json
 .classpath
 .project
 /aspose-words-cloud.iml
 /out.tmp
+
+# VS Code
+.vs/*
