@@ -74,7 +74,7 @@ public class TestClassification  extends TestCase
     @Test
     public void testClassifyDocument() throws ApiException, IOException
     {
-        String remoteFileName = "Source.docx";
+        String remoteFileName = "TestClassifyDocument.docx";
 
         TestInitializer.UploadFile(
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
@@ -89,33 +89,6 @@ public class TestClassification  extends TestCase
             null,
             "3",
             null
-        );
-
-        ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);
-        assertNotNull(result);
-    }
-
-    /*
-     * Test for document classification with taxonomy documents.
-     */
-    @Test
-    public void testClassifyTaxonomyDocuments() throws ApiException, IOException
-    {
-        String remoteFileName = "Source.docx";
-
-        TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
-            remoteDataFolder + "/" + remoteFileName
-        );
-
-        ClassifyDocumentRequest request = new ClassifyDocumentRequest(
-            remoteFileName,
-            remoteDataFolder,
-            null,
-            null,
-            null,
-            "3",
-            "documents"
         );
 
         ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);

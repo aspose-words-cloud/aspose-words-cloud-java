@@ -57,37 +57,6 @@ public class TestWatermark  extends TestCase
      * Test for adding watermark image.
      */
     @Test
-    public void testInsertDocumentWatermarkImage() throws ApiException, IOException
-    {
-        String remoteFileName = "TestInsertWatermarkImage.docx";
-
-        TestInitializer.UploadFile(
-            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
-            remoteDataFolder + "/" + remoteFileName
-        );
-
-        InsertWatermarkImageRequest request = new InsertWatermarkImageRequest(
-            remoteFileName,
-            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
-            remoteDataFolder,
-            null,
-            null,
-            null,
-            TestInitializer.RemoteTestOut + "/" + remoteFileName,
-            null,
-            null,
-            null,
-            null
-        );
-
-        DocumentResponse result = TestInitializer.wordsApi.insertWatermarkImage(request);
-        assertNotNull(result);
-    }
-
-    /*
-     * Test for adding watermark image.
-     */
-    @Test
     public void testInsertWatermarkImage() throws ApiException, IOException
     {
         String remoteFileName = "TestInsertWatermarkImage.docx";

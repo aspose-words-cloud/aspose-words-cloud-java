@@ -45,7 +45,6 @@ public class TestParagraph  extends TestCase
 {
     private String remoteDataFolder = TestInitializer.RemoteTestFolder + "/DocumentElements/Paragraphs";
     private String localFile = "Common/test_multi_pages.docx";
-    private String fieldFolder = "DocumentElements/Fields";
     private String listFolder = "DocumentElements/ParagraphListFormat";
     private String tabStopFolder = "DocumentElements/Paragraphs";
 
