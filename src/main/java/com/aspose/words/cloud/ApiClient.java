@@ -1047,16 +1047,22 @@ public class ApiClient {
      */
     public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) throws IOException {
         MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
-        for (Entry<String, Object> param : formParams.entrySet()) {
-            if (param.getValue() instanceof byte[]) {
-                byte[] file = (byte[]) param.getValue();
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + param.getKey() + "\"");
-                MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
-                mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
-            } 
-            else {
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
-                mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));
+        if (formParams.isEmpty()) {
+            Headers partHeaders = Headers.of("Content-Disposition", "form-data");
+            mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("none"), new byte[] {}));
+        }
+        else {
+            for (Entry<String, Object> param : formParams.entrySet()) {
+                if (param.getValue() instanceof byte[]) {
+                    byte[] file = (byte[]) param.getValue();
+                    Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + param.getKey() + "\"");
+                    MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
+                    mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
+                } 
+                else {
+                    Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
+                    mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));
+                }
             }
         }
         return mpBuilder.build();
