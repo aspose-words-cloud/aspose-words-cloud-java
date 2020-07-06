@@ -42,7 +42,7 @@ public class UpdateParagraphFormatRequest {
     /*
      * Paragraph format object.
      */
-    private ParagraphFormat dto;
+    private ParagraphFormatUpdate dto;
 
     /*
      * Path to the node which contains paragraphs.
@@ -93,7 +93,7 @@ public class UpdateParagraphFormatRequest {
      * Initializes a new instance of the UpdateParagraphFormatRequest class.
      *
      * @param String name The document name.
-     * @param ParagraphFormat dto Paragraph format object.
+     * @param ParagraphFormatUpdate dto Paragraph format object.
      * @param String nodePath Path to the node which contains paragraphs.
      * @param Integer index Object index.
      * @param String folder Original document folder.
@@ -104,7 +104,7 @@ public class UpdateParagraphFormatRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateParagraphFormatRequest(String name, ParagraphFormat dto, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateParagraphFormatRequest(String name, ParagraphFormatUpdate dto, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
         this.dto = dto;
         this.nodePath = nodePath;
@@ -135,14 +135,14 @@ public class UpdateParagraphFormatRequest {
     /*
      * Gets Paragraph format object.
      */
-    public ParagraphFormat getDto() {
+    public ParagraphFormatUpdate getDto() {
         return this.dto;
     }
 
     /*
      * Sets Paragraph format object.
      */
-    public void setDto(ParagraphFormat value) {
+    public void setDto(ParagraphFormatUpdate value) {
         this.dto = value;
     }
 
