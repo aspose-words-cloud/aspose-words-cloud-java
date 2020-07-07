@@ -109,7 +109,7 @@ public class TestFile  extends TestCase
         );
 
         MoveFileRequest request = new MoveFileRequest(
-            remoteDataFolder + "/TestMoveFileDest.docx",
+            TestInitializer.RemoteTestOut + "/TestMoveFileDest.docx",
             remoteDataFolder + "/" + remoteFileName,
             null,
             null,
