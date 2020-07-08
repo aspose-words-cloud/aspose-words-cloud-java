@@ -109,7 +109,7 @@ public class TestFile  extends TestCase
         );
 
         MoveFileRequest request = new MoveFileRequest(
-            TestInitializer.RemoteTestOut + "/TestMoveFileDest.docx",
+            TestInitializer.RemoteTestOut + "/TestMoveFileDest_" + java.util.UUID.randomUUID().toString() + ".docx",
             remoteDataFolder + "/" + remoteFileName,
             null,
             null,

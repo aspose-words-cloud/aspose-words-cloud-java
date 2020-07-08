@@ -139,7 +139,7 @@ public class TestFolder  extends TestCase
         );
 
         MoveFolderRequest request = new MoveFolderRequest(
-            TestInitializer.RemoteTestOut + "/TestMoveFolderDest",
+            TestInitializer.RemoteTestOut + "/TestMoveFolderDest_" + java.util.UUID.randomUUID().toString(),
             remoteDataFolder + "/TestMoveFolderSrc",
             null,
             null
