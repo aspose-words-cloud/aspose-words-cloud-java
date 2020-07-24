@@ -70,8 +70,8 @@ public class TestParagraph  extends TestCase
 
         GetParagraphRequest request = new GetParagraphRequest(
             remoteFileName,
-            "sections/0",
             0,
+            "sections/0",
             remoteDataFolder,
             null,
             null,
@@ -95,16 +95,17 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetParagraphWithoutNodePathRequest request = new GetParagraphWithoutNodePathRequest(
+        GetParagraphRequest request = new GetParagraphRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        ParagraphResponse result = TestInitializer.wordsApi.getParagraphWithoutNodePath(request);
+        ParagraphResponse result = TestInitializer.wordsApi.getParagraph(request);
         assertNotNull(result);
     }
 
@@ -147,15 +148,16 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetParagraphsWithoutNodePathRequest request = new GetParagraphsWithoutNodePathRequest(
+        GetParagraphsRequest request = new GetParagraphsRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        ParagraphLinkCollectionResponse result = TestInitializer.wordsApi.getParagraphsWithoutNodePath(request);
+        ParagraphLinkCollectionResponse result = TestInitializer.wordsApi.getParagraphs(request);
         assertNotNull(result);
     }
 
@@ -323,9 +325,10 @@ public class TestParagraph  extends TestCase
         ParagraphInsert requestParagraph = new ParagraphInsert();
         requestParagraph.setText("This is a new paragraph for your document");
 
-        InsertParagraphWithoutNodePathRequest request = new InsertParagraphWithoutNodePathRequest(
+        InsertParagraphRequest request = new InsertParagraphRequest(
             remoteFileName,
             requestParagraph,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -336,7 +339,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphResponse result = TestInitializer.wordsApi.insertParagraphWithoutNodePath(request);
+        ParagraphResponse result = TestInitializer.wordsApi.insertParagraph(request);
         assertNotNull(result);
     }
 
@@ -356,8 +359,8 @@ public class TestParagraph  extends TestCase
         RenderParagraphRequest request = new RenderParagraphRequest(
             remoteFileName,
             "png",
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -382,10 +385,11 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        RenderParagraphWithoutNodePathRequest request = new RenderParagraphWithoutNodePathRequest(
+        RenderParagraphRequest request = new RenderParagraphRequest(
             remoteFileName,
             "png",
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -393,7 +397,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderParagraphWithoutNodePath(request);
+        File result = TestInitializer.wordsApi.renderParagraph(request);
         assertNotNull(result);
     }
 
@@ -412,8 +416,8 @@ public class TestParagraph  extends TestCase
 
         GetParagraphFormatRequest request = new GetParagraphFormatRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -437,16 +441,17 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetParagraphFormatWithoutNodePathRequest request = new GetParagraphFormatWithoutNodePathRequest(
+        GetParagraphFormatRequest request = new GetParagraphFormatRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        ParagraphFormatResponse result = TestInitializer.wordsApi.getParagraphFormatWithoutNodePath(request);
+        ParagraphFormatResponse result = TestInitializer.wordsApi.getParagraphFormat(request);
         assertNotNull(result);
     }
 
@@ -469,8 +474,8 @@ public class TestParagraph  extends TestCase
         UpdateParagraphFormatRequest request = new UpdateParagraphFormatRequest(
             remoteFileName,
             requestDto,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -499,8 +504,8 @@ public class TestParagraph  extends TestCase
 
         DeleteParagraphRequest request = new DeleteParagraphRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -526,9 +531,10 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteParagraphWithoutNodePathRequest request = new DeleteParagraphWithoutNodePathRequest(
+        DeleteParagraphRequest request = new DeleteParagraphRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -538,7 +544,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteParagraphWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteParagraph(request);
     }
 
     /*
@@ -556,8 +562,8 @@ public class TestParagraph  extends TestCase
 
         GetParagraphListFormatRequest request = new GetParagraphListFormatRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -581,16 +587,17 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetParagraphListFormatWithoutNodePathRequest request = new GetParagraphListFormatWithoutNodePathRequest(
+        GetParagraphListFormatRequest request = new GetParagraphListFormatRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        ParagraphListFormatResponse result = TestInitializer.wordsApi.getParagraphListFormatWithoutNodePath(request);
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.getParagraphListFormat(request);
         assertNotNull(result);
     }
 
@@ -613,8 +620,8 @@ public class TestParagraph  extends TestCase
         UpdateParagraphListFormatRequest request = new UpdateParagraphListFormatRequest(
             remoteFileName,
             requestDto,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -644,10 +651,11 @@ public class TestParagraph  extends TestCase
         ListFormatUpdate requestDto = new ListFormatUpdate();
         requestDto.setListId(2);
 
-        UpdateParagraphListFormatWithoutNodePathRequest request = new UpdateParagraphListFormatWithoutNodePathRequest(
+        UpdateParagraphListFormatRequest request = new UpdateParagraphListFormatRequest(
             remoteFileName,
             requestDto,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -657,7 +665,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphListFormatResponse result = TestInitializer.wordsApi.updateParagraphListFormatWithoutNodePath(request);
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.updateParagraphListFormat(request);
         assertNotNull(result);
     }
 
@@ -676,8 +684,8 @@ public class TestParagraph  extends TestCase
 
         DeleteParagraphListFormatRequest request = new DeleteParagraphListFormatRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -704,9 +712,10 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteParagraphListFormatWithoutNodePathRequest request = new DeleteParagraphListFormatWithoutNodePathRequest(
+        DeleteParagraphListFormatRequest request = new DeleteParagraphListFormatRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -716,7 +725,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphListFormatResponse result = TestInitializer.wordsApi.deleteParagraphListFormatWithoutNodePath(request);
+        ParagraphListFormatResponse result = TestInitializer.wordsApi.deleteParagraphListFormat(request);
         assertNotNull(result);
     }
 
@@ -735,8 +744,8 @@ public class TestParagraph  extends TestCase
 
         GetParagraphTabStopsRequest request = new GetParagraphTabStopsRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -760,16 +769,17 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetParagraphTabStopsWithoutNodePathRequest request = new GetParagraphTabStopsWithoutNodePathRequest(
+        GetParagraphTabStopsRequest request = new GetParagraphTabStopsRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        TabStopsResponse result = TestInitializer.wordsApi.getParagraphTabStopsWithoutNodePath(request);
+        TabStopsResponse result = TestInitializer.wordsApi.getParagraphTabStops(request);
         assertNotNull(result);
     }
 
@@ -794,8 +804,8 @@ public class TestParagraph  extends TestCase
         InsertOrUpdateParagraphTabStopRequest request = new InsertOrUpdateParagraphTabStopRequest(
             remoteFileName,
             requestDto,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -825,10 +835,11 @@ public class TestParagraph  extends TestCase
         requestDto.setLeader(TabStopInsert.LeaderEnum.NONE);
         requestDto.setPosition((double)72);
 
-        InsertOrUpdateParagraphTabStopWithoutNodePathRequest request = new InsertOrUpdateParagraphTabStopWithoutNodePathRequest(
+        InsertOrUpdateParagraphTabStopRequest request = new InsertOrUpdateParagraphTabStopRequest(
             remoteFileName,
             requestDto,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -836,7 +847,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        TabStopsResponse result = TestInitializer.wordsApi.insertOrUpdateParagraphTabStopWithoutNodePath(request);
+        TabStopsResponse result = TestInitializer.wordsApi.insertOrUpdateParagraphTabStop(request);
         assertNotNull(result);
     }
 
@@ -855,8 +866,8 @@ public class TestParagraph  extends TestCase
 
         DeleteAllParagraphTabStopsRequest request = new DeleteAllParagraphTabStopsRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -881,9 +892,10 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteAllParagraphTabStopsWithoutNodePathRequest request = new DeleteAllParagraphTabStopsWithoutNodePathRequest(
+        DeleteAllParagraphTabStopsRequest request = new DeleteAllParagraphTabStopsRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -891,7 +903,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        TabStopsResponse result = TestInitializer.wordsApi.deleteAllParagraphTabStopsWithoutNodePath(request);
+        TabStopsResponse result = TestInitializer.wordsApi.deleteAllParagraphTabStops(request);
         assertNotNull(result);
     }
 
@@ -911,8 +923,8 @@ public class TestParagraph  extends TestCase
         DeleteParagraphTabStopRequest request = new DeleteParagraphTabStopRequest(
             remoteFileName,
             (double)72,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -937,10 +949,11 @@ public class TestParagraph  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteParagraphTabStopWithoutNodePathRequest request = new DeleteParagraphTabStopWithoutNodePathRequest(
+        DeleteParagraphTabStopRequest request = new DeleteParagraphTabStopRequest(
             remoteFileName,
             (double)72,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -948,7 +961,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        TabStopsResponse result = TestInitializer.wordsApi.deleteParagraphTabStopWithoutNodePath(request);
+        TabStopsResponse result = TestInitializer.wordsApi.deleteParagraphTabStop(request);
         assertNotNull(result);
     }
 }

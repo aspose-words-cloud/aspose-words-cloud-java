@@ -104,9 +104,10 @@ public class TestFootnote  extends TestCase
         requestFootnoteDto.setFootnoteType(FootnoteInsert.FootnoteTypeEnum.ENDNOTE);
         requestFootnoteDto.setText("test endnote");
 
-        InsertFootnoteWithoutNodePathRequest request = new InsertFootnoteWithoutNodePathRequest(
+        InsertFootnoteRequest request = new InsertFootnoteRequest(
             remoteFileName,
             requestFootnoteDto,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -116,7 +117,7 @@ public class TestFootnote  extends TestCase
             null
         );
 
-        FootnoteResponse result = TestInitializer.wordsApi.insertFootnoteWithoutNodePath(request);
+        FootnoteResponse result = TestInitializer.wordsApi.insertFootnote(request);
         assertNotNull(result);
     }
 
@@ -135,8 +136,8 @@ public class TestFootnote  extends TestCase
 
         DeleteFootnoteRequest request = new DeleteFootnoteRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -162,9 +163,10 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteFootnoteWithoutNodePathRequest request = new DeleteFootnoteWithoutNodePathRequest(
+        DeleteFootnoteRequest request = new DeleteFootnoteRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -174,7 +176,7 @@ public class TestFootnote  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteFootnoteWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteFootnote(request);
     }
 
     /*
@@ -216,15 +218,16 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetFootnotesWithoutNodePathRequest request = new GetFootnotesWithoutNodePathRequest(
+        GetFootnotesRequest request = new GetFootnotesRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        FootnotesResponse result = TestInitializer.wordsApi.getFootnotesWithoutNodePath(request);
+        FootnotesResponse result = TestInitializer.wordsApi.getFootnotes(request);
         assertNotNull(result);
     }
 
@@ -243,8 +246,8 @@ public class TestFootnote  extends TestCase
 
         GetFootnoteRequest request = new GetFootnoteRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -268,16 +271,17 @@ public class TestFootnote  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetFootnoteWithoutNodePathRequest request = new GetFootnoteWithoutNodePathRequest(
+        GetFootnoteRequest request = new GetFootnoteRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        FootnoteResponse result = TestInitializer.wordsApi.getFootnoteWithoutNodePath(request);
+        FootnoteResponse result = TestInitializer.wordsApi.getFootnote(request);
         assertNotNull(result);
     }
 
@@ -300,8 +304,8 @@ public class TestFootnote  extends TestCase
         UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
             requestFootnoteDto,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -331,10 +335,11 @@ public class TestFootnote  extends TestCase
         FootnoteUpdate requestFootnoteDto = new FootnoteUpdate();
         requestFootnoteDto.setText("new text is here");
 
-        UpdateFootnoteWithoutNodePathRequest request = new UpdateFootnoteWithoutNodePathRequest(
+        UpdateFootnoteRequest request = new UpdateFootnoteRequest(
             remoteFileName,
             requestFootnoteDto,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -344,7 +349,7 @@ public class TestFootnote  extends TestCase
             null
         );
 
-        FootnoteResponse result = TestInitializer.wordsApi.updateFootnoteWithoutNodePath(request);
+        FootnoteResponse result = TestInitializer.wordsApi.updateFootnote(request);
         assertNotNull(result);
     }
 }

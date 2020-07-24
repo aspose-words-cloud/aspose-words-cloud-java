@@ -92,15 +92,16 @@ public class TestMathObject  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetOfficeMathObjectsWithoutNodePathRequest request = new GetOfficeMathObjectsWithoutNodePathRequest(
+        GetOfficeMathObjectsRequest request = new GetOfficeMathObjectsRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjectsWithoutNodePath(request);
+        OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjects(request);
         assertNotNull(result);
     }
 
@@ -119,8 +120,8 @@ public class TestMathObject  extends TestCase
 
         GetOfficeMathObjectRequest request = new GetOfficeMathObjectRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -144,16 +145,17 @@ public class TestMathObject  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetOfficeMathObjectWithoutNodePathRequest request = new GetOfficeMathObjectWithoutNodePathRequest(
+        GetOfficeMathObjectRequest request = new GetOfficeMathObjectRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObjectWithoutNodePath(request);
+        OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObject(request);
         assertNotNull(result);
     }
 
@@ -173,8 +175,8 @@ public class TestMathObject  extends TestCase
         RenderMathObjectRequest request = new RenderMathObjectRequest(
             remoteFileName,
             "png",
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -199,10 +201,11 @@ public class TestMathObject  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        RenderMathObjectWithoutNodePathRequest request = new RenderMathObjectWithoutNodePathRequest(
+        RenderMathObjectRequest request = new RenderMathObjectRequest(
             remoteFileName,
             "png",
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -210,7 +213,7 @@ public class TestMathObject  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderMathObjectWithoutNodePath(request);
+        File result = TestInitializer.wordsApi.renderMathObject(request);
         assertNotNull(result);
     }
 
@@ -229,8 +232,8 @@ public class TestMathObject  extends TestCase
 
         DeleteOfficeMathObjectRequest request = new DeleteOfficeMathObjectRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -256,9 +259,10 @@ public class TestMathObject  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteOfficeMathObjectWithoutNodePathRequest request = new DeleteOfficeMathObjectWithoutNodePathRequest(
+        DeleteOfficeMathObjectRequest request = new DeleteOfficeMathObjectRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -268,6 +272,6 @@ public class TestMathObject  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteOfficeMathObjectWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteOfficeMathObject(request);
     }
 }

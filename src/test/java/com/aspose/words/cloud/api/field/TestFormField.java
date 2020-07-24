@@ -77,8 +77,8 @@ public class TestFormField  extends TestCase
         UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
             requestFormField,
-            "sections/0",
             0,
+            "sections/0",
             remoteDataFolder,
             null,
             null,
@@ -113,10 +113,11 @@ public class TestFormField  extends TestCase
         requestFormField.setTextInputType(FormFieldTextInput.TextInputTypeEnum.REGULAR);
         requestFormField.setTextInputDefault("No name");
 
-        UpdateFormFieldWithoutNodePathRequest request = new UpdateFormFieldWithoutNodePathRequest(
+        UpdateFormFieldRequest request = new UpdateFormFieldRequest(
             remoteFileName,
             requestFormField,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -126,7 +127,7 @@ public class TestFormField  extends TestCase
             null
         );
 
-        FormFieldResponse result = TestInitializer.wordsApi.updateFormFieldWithoutNodePath(request);
+        FormFieldResponse result = TestInitializer.wordsApi.updateFormField(request);
         assertNotNull(result);
     }
 
@@ -145,8 +146,8 @@ public class TestFormField  extends TestCase
 
         GetFormFieldRequest request = new GetFormFieldRequest(
             remoteFileName,
-            "sections/0",
             0,
+            "sections/0",
             remoteDataFolder,
             null,
             null,
@@ -170,16 +171,17 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetFormFieldWithoutNodePathRequest request = new GetFormFieldWithoutNodePathRequest(
+        GetFormFieldRequest request = new GetFormFieldRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        FormFieldResponse result = TestInitializer.wordsApi.getFormFieldWithoutNodePath(request);
+        FormFieldResponse result = TestInitializer.wordsApi.getFormField(request);
         assertNotNull(result);
     }
 
@@ -222,15 +224,16 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetFormFieldsWithoutNodePathRequest request = new GetFormFieldsWithoutNodePathRequest(
+        GetFormFieldsRequest request = new GetFormFieldsRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        FormFieldsResponse result = TestInitializer.wordsApi.getFormFieldsWithoutNodePath(request);
+        FormFieldsResponse result = TestInitializer.wordsApi.getFormFields(request);
         assertNotNull(result);
     }
 
@@ -296,9 +299,10 @@ public class TestFormField  extends TestCase
         requestFormField.setTextInputDefault("123");
         requestFormField.setTextInputFormat("UPPERCASE");
 
-        InsertFormFieldWithoutNodePathRequest request = new InsertFormFieldWithoutNodePathRequest(
+        InsertFormFieldRequest request = new InsertFormFieldRequest(
             remoteFileName,
             requestFormField,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -309,7 +313,7 @@ public class TestFormField  extends TestCase
             null
         );
 
-        FormFieldResponse result = TestInitializer.wordsApi.insertFormFieldWithoutNodePath(request);
+        FormFieldResponse result = TestInitializer.wordsApi.insertFormField(request);
         assertNotNull(result);
     }
 
@@ -328,8 +332,8 @@ public class TestFormField  extends TestCase
 
         DeleteFormFieldRequest request = new DeleteFormFieldRequest(
             remoteFileName,
-            "sections/0",
             0,
+            "sections/0",
             remoteDataFolder,
             null,
             null,
@@ -355,9 +359,10 @@ public class TestFormField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteFormFieldWithoutNodePathRequest request = new DeleteFormFieldWithoutNodePathRequest(
+        DeleteFormFieldRequest request = new DeleteFormFieldRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -367,6 +372,6 @@ public class TestFormField  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteFormFieldWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteFormField(request);
     }
 }
