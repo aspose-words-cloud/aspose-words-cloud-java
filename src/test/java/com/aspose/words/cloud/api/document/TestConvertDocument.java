@@ -86,6 +86,28 @@ public class TestConvertDocument  extends TestCase
     }
 
     /*
+     * Test for converting document online to one of the available formats.
+     */
+    @Test
+    public void testSaveAsOnline() throws ApiException, IOException
+    {
+        String localName = "test_multi_pages.docx";
+
+        SaveOptionsData requestSaveOptionsData = new SaveOptionsData();
+        requestSaveOptionsData.setSaveFormat("pdf");
+        requestSaveOptionsData.setFileName(TestInitializer.RemoteTestOut + "/TestSaveAs.pdf");
+
+        SaveAsOnlineRequest request = new SaveAsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/" + localName).toAbsolutePath()),
+            requestSaveOptionsData,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.saveAsOnline(request);
+        assertNotNull(result);
+    }
+
+    /*
      * Test for converting document to one of the available formats.
      */
     @Test

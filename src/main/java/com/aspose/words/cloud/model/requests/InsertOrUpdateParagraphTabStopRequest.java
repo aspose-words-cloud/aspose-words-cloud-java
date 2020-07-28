@@ -45,14 +45,14 @@ public class InsertOrUpdateParagraphTabStopRequest {
     private TabStopInsert dto;
 
     /*
-     * Path to the node which contains paragraph.
-     */
-    private String nodePath;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * Path to the node which contains paragraph.
+     */
+    private String nodePath;
 
     /*
      * Original document folder.
@@ -84,19 +84,19 @@ public class InsertOrUpdateParagraphTabStopRequest {
      *
      * @param String name The document name.
      * @param TabStopInsert dto Paragraph tab stop.
-     * @param String nodePath Path to the node which contains paragraph.
      * @param Integer index Object index.
+     * @param String nodePath Path to the node which contains paragraph.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      */
-    public InsertOrUpdateParagraphTabStopRequest(String name, TabStopInsert dto, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName) {
+    public InsertOrUpdateParagraphTabStopRequest(String name, TabStopInsert dto, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName) {
         this.name = name;
         this.dto = dto;
-        this.nodePath = nodePath;
         this.index = index;
+        this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -133,20 +133,6 @@ public class InsertOrUpdateParagraphTabStopRequest {
     }
 
     /*
-     * Gets Path to the node which contains paragraph.
-     */
-    public String getNodePath() {
-        return this.nodePath;
-    }
-
-    /*
-     * Sets Path to the node which contains paragraph.
-     */
-    public void setNodePath(String value) {
-        this.nodePath = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -158,6 +144,20 @@ public class InsertOrUpdateParagraphTabStopRequest {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets Path to the node which contains paragraph.
+     */
+    public String getNodePath() {
+        return this.nodePath;
+    }
+
+    /*
+     * Sets Path to the node which contains paragraph.
+     */
+    public void setNodePath(String value) {
+        this.nodePath = value;
     }
 
     /*

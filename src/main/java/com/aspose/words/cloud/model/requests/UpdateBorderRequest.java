@@ -45,14 +45,14 @@ public class UpdateBorderRequest {
     private Border borderProperties;
 
     /*
-     * Path to the node with border(node should be paragraph, cell or row).
-     */
-    private String nodePath;
-
-    /*
      * Border type.
      */
     private String borderType;
+
+    /*
+     * Path to the node with border(node should be paragraph, cell or row).
+     */
+    private String nodePath;
 
     /*
      * Original document folder.
@@ -94,8 +94,8 @@ public class UpdateBorderRequest {
      *
      * @param String name The document name.
      * @param Border borderProperties Border properties.
-     * @param String nodePath Path to the node with border(node should be paragraph, cell or row).
      * @param String borderType Border type.
+     * @param String nodePath Path to the node with border(node should be paragraph, cell or row).
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -104,11 +104,11 @@ public class UpdateBorderRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateBorderRequest(String name, Border borderProperties, String nodePath, String borderType, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateBorderRequest(String name, Border borderProperties, String borderType, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
         this.borderProperties = borderProperties;
-        this.nodePath = nodePath;
         this.borderType = borderType;
+        this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -147,20 +147,6 @@ public class UpdateBorderRequest {
     }
 
     /*
-     * Gets Path to the node with border(node should be paragraph, cell or row).
-     */
-    public String getNodePath() {
-        return this.nodePath;
-    }
-
-    /*
-     * Sets Path to the node with border(node should be paragraph, cell or row).
-     */
-    public void setNodePath(String value) {
-        this.nodePath = value;
-    }
-
-    /*
      * Gets Border type.
      */
     public String getBorderType() {
@@ -172,6 +158,20 @@ public class UpdateBorderRequest {
      */
     public void setBorderType(String value) {
         this.borderType = value;
+    }
+
+    /*
+     * Gets Path to the node with border(node should be paragraph, cell or row).
+     */
+    public String getNodePath() {
+        return this.nodePath;
+    }
+
+    /*
+     * Sets Path to the node with border(node should be paragraph, cell or row).
+     */
+    public void setNodePath(String value) {
+        this.nodePath = value;
     }
 
     /*

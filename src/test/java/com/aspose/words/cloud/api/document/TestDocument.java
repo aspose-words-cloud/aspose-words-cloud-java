@@ -87,9 +87,9 @@ public class TestDocument  extends TestCase
         String remoteFileName = "TestCreateDocument.doc";
 
         CreateDocumentRequest request = new CreateDocumentRequest(
-            null,
             remoteFileName,
-            remoteDataFolder
+            remoteDataFolder,
+            null
         );
 
         DocumentResponse result = TestInitializer.wordsApi.createDocument(request);

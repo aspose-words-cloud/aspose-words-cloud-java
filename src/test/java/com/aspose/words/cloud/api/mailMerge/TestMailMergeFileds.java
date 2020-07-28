@@ -66,7 +66,7 @@ public class TestMailMergeFileds  extends TestCase
             true
         );
 
-        FieldNamesResponse result = TestInitializer.wordsApi.getDocumentFieldNamesOnline(request);
+        File result = TestInitializer.wordsApi.getDocumentFieldNamesOnline(request);
         assertNotNull(result);
     }
 

@@ -80,4 +80,21 @@ public class TestDocumentStatistics  extends TestCase
         StatDataResponse result = TestInitializer.wordsApi.getDocumentStatistics(request);
         assertNotNull(result);
     }
+
+    /*
+     * Test for document classification online.
+     */
+    @Test
+    public void testGetDocumentStatisticsOnline() throws ApiException, IOException
+    {
+        GetDocumentStatisticsOnlineRequest request = new GetDocumentStatisticsOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            null,
+            null,
+            null
+        );
+
+        File result = TestInitializer.wordsApi.getDocumentStatisticsOnline(request);
+        assertNotNull(result);
+    }
 }

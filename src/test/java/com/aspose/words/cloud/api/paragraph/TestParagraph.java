@@ -78,7 +78,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphResponse result = TestInitializer.wordsApi.getParagraph(request);
+        File result = TestInitializer.wordsApi.getParagraph(request);
         assertNotNull(result);
     }
 
@@ -105,7 +105,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphResponse result = TestInitializer.wordsApi.getParagraph(request);
+        File result = TestInitializer.wordsApi.getParagraph(request);
         assertNotNull(result);
     }
 
@@ -131,7 +131,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphLinkCollectionResponse result = TestInitializer.wordsApi.getParagraphs(request);
+        File result = TestInitializer.wordsApi.getParagraphs(request);
         assertNotNull(result);
     }
 
@@ -157,7 +157,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphLinkCollectionResponse result = TestInitializer.wordsApi.getParagraphs(request);
+        File result = TestInitializer.wordsApi.getParagraphs(request);
         assertNotNull(result);
     }
 
@@ -305,7 +305,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphResponse result = TestInitializer.wordsApi.insertParagraph(request);
+        File result = TestInitializer.wordsApi.insertParagraph(request);
         assertNotNull(result);
     }
 
@@ -339,7 +339,7 @@ public class TestParagraph  extends TestCase
             null
         );
 
-        ParagraphResponse result = TestInitializer.wordsApi.insertParagraph(request);
+        File result = TestInitializer.wordsApi.insertParagraph(request);
         assertNotNull(result);
     }
 

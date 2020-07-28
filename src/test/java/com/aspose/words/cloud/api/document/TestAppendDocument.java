@@ -91,4 +91,36 @@ public class TestAppendDocument  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.appendDocument(request);
         assertNotNull(result);
     }
+
+    /*
+     * Test for appending document online.
+     */
+    @Test
+    public void testAppendDocumentOnline() throws ApiException, IOException
+    {
+        String remoteFileName = "TestAppendDocument.docx";
+
+        TestInitializer.UploadFile(
+            PathUtil.get(TestInitializer.LocalTestFolder, localFile),
+            remoteDataFolder + "/" + remoteFileName
+        );
+
+        DocumentEntry requestDocumentListDocumentEntries0 = new DocumentEntry();
+        requestDocumentListDocumentEntries0.setHref(remoteDataFolder + "/" + remoteFileName);
+        requestDocumentListDocumentEntries0.setImportFormatMode("KeepSourceFormatting");
+
+        ArrayList<DocumentEntry> requestDocumentListDocumentEntries = new ArrayList<DocumentEntry>();
+        requestDocumentListDocumentEntries.add(requestDocumentListDocumentEntries0);
+
+        DocumentEntryList requestDocumentList = new DocumentEntryList();
+        requestDocumentList.setDocumentEntries(requestDocumentListDocumentEntries);
+
+        AppendDocumentOnlineRequest request = new AppendDocumentOnlineRequest(
+            Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, localFile).toAbsolutePath()),
+            requestDocumentList
+        );
+
+        File result = TestInitializer.wordsApi.appendDocumentOnline(request);
+        assertNotNull(result);
+    }
 }
