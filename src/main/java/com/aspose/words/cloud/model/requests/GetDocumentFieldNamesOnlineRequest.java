@@ -35,49 +35,49 @@ import java.io.File;
  */
 public class GetDocumentFieldNamesOnlineRequest {
     /*
-     * File with template.
+     * The document.
      */
-    private byte[] template;
+    private byte[] document;
 
     /*
-     * Use non merge fields or not.
+     * If true, result includes "mustache" field names.
      */
     private Boolean useNonMergeFields;
 
     /*
      * Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
      *
-     * @param byte[] template File with template.
-     * @param Boolean useNonMergeFields Use non merge fields or not.
+     * @param byte[] document The document.
+     * @param Boolean useNonMergeFields If true, result includes "mustache" field names.
      */
-    public GetDocumentFieldNamesOnlineRequest(byte[] template, Boolean useNonMergeFields) {
-        this.template = template;
+    public GetDocumentFieldNamesOnlineRequest(byte[] document, Boolean useNonMergeFields) {
+        this.document = document;
         this.useNonMergeFields = useNonMergeFields;
     }
 
     /*
-     * Gets File with template.
+     * Gets The document.
      */
-    public byte[] getTemplate() {
-        return this.template;
+    public byte[] getDocument() {
+        return this.document;
     }
 
     /*
-     * Sets File with template.
+     * Sets The document.
      */
-    public void setTemplate(byte[] value) {
-        this.template = value;
+    public void setDocument(byte[] value) {
+        this.document = value;
     }
 
     /*
-     * Gets Use non merge fields or not.
+     * Gets If true, result includes "mustache" field names.
      */
     public Boolean getUseNonMergeFields() {
         return this.useNonMergeFields;
     }
 
     /*
-     * Sets Use non merge fields or not.
+     * Sets If true, result includes "mustache" field names.
      */
     public void setUseNonMergeFields(Boolean value) {
         this.useNonMergeFields = value;

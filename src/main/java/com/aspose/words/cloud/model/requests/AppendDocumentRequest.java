@@ -40,7 +40,7 @@ public class AppendDocumentRequest {
     private String name;
 
     /*
-     * DocumentEntryList with a list of documents to append.
+     * <see cref="DocumentEntryList"/> with a list of documents to append.
      */
     private DocumentEntryList documentList;
 
@@ -83,7 +83,7 @@ public class AppendDocumentRequest {
      * Initializes a new instance of the AppendDocumentRequest class.
      *
      * @param String name Original document name.
-     * @param DocumentEntryList documentList DocumentEntryList with a list of documents to append.
+     * @param DocumentEntryList documentList <see cref="DocumentEntryList"/> with a list of documents to append.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -119,14 +119,14 @@ public class AppendDocumentRequest {
     }
 
     /*
-     * Gets DocumentEntryList with a list of documents to append.
+     * Gets <see cref="DocumentEntryList"/> with a list of documents to append.
      */
     public DocumentEntryList getDocumentList() {
         return this.documentList;
     }
 
     /*
-     * Sets DocumentEntryList with a list of documents to append.
+     * Sets <see cref="DocumentEntryList"/> with a list of documents to append.
      */
     public void setDocumentList(DocumentEntryList value) {
         this.documentList = value;

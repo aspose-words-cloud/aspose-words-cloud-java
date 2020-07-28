@@ -45,11 +45,6 @@ public class ConvertDocumentRequest {
     private String format;
 
     /*
-     * Original document storage.
-     */
-    private String storage;
-
-    /*
      * Path for saving operation result to the local storage.
      */
     private String outPath;
@@ -58,6 +53,11 @@ public class ConvertDocumentRequest {
      * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
      */
     private String fileNameFieldValue;
+
+    /*
+     * Original document storage.
+     */
+    private String storage;
 
     /*
      * Folder in filestorage with custom fonts.
@@ -69,17 +69,17 @@ public class ConvertDocumentRequest {
      *
      * @param byte[] document Converting document.
      * @param String format Format to convert.
-     * @param String storage Original document storage.
      * @param String outPath Path for saving operation result to the local storage.
      * @param String fileNameFieldValue This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+     * @param String storage Original document storage.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public ConvertDocumentRequest(byte[] document, String format, String storage, String outPath, String fileNameFieldValue, String fontsLocation) {
+    public ConvertDocumentRequest(byte[] document, String format, String outPath, String fileNameFieldValue, String storage, String fontsLocation) {
         this.document = document;
         this.format = format;
-        this.storage = storage;
         this.outPath = outPath;
         this.fileNameFieldValue = fileNameFieldValue;
+        this.storage = storage;
         this.fontsLocation = fontsLocation;
     }
 
@@ -112,20 +112,6 @@ public class ConvertDocumentRequest {
     }
 
     /*
-     * Gets Original document storage.
-     */
-    public String getStorage() {
-        return this.storage;
-    }
-
-    /*
-     * Sets Original document storage.
-     */
-    public void setStorage(String value) {
-        this.storage = value;
-    }
-
-    /*
      * Gets Path for saving operation result to the local storage.
      */
     public String getOutPath() {
@@ -151,6 +137,20 @@ public class ConvertDocumentRequest {
      */
     public void setFileNameFieldValue(String value) {
         this.fileNameFieldValue = value;
+    }
+
+    /*
+     * Gets Original document storage.
+     */
+    public String getStorage() {
+        return this.storage;
+    }
+
+    /*
+     * Sets Original document storage.
+     */
+    public void setStorage(String value) {
+        this.storage = value;
     }
 
     /*

@@ -73,17 +73,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/revisions/acceptAll";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/revisions/acceptAll".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -210,19 +208,17 @@ public class WordsApi {
         Object localVarPostBody = request.getDocumentList();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/appendDocument";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/appendDocument".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -343,6 +339,146 @@ public class WordsApi {
     }
 
     /**
+     * Build call for appendDocumentOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call appendDocumentOnlineCall(AppendDocumentOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/appendDocument";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        if (request.getDocumentList() != null)
+            localVarFormParams.put("DocumentList", request.getDocumentList());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call appendDocumentOnlineValidateBeforeCall(AppendDocumentOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling appendDocumentOnline");
+        }
+
+        // verify the required parameter 'DocumentList' is set
+        if (request.getDocumentList() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'DocumentList' when calling appendDocumentOnline");
+        }
+
+        com.squareup.okhttp.Call call = appendDocumentOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Appends documents to original document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File appendDocumentOnline(AppendDocumentOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = appendDocumentOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = appendDocumentOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Appends documents to original document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > appendDocumentOnlineWithHttpInfo(AppendDocumentOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = appendDocumentOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Appends documents to original document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call appendDocumentOnlineAsync(AppendDocumentOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = appendDocumentOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for applyStyleToDocumentElement
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -354,20 +490,18 @@ public class WordsApi {
         Object localVarPostBody = request.getStyleApply();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{styledNodePath}/style";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "styledNodePath", request.getStyledNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{styledNodePath}/style".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "styledNodePath" + "\\}", request.getStyledNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -504,17 +638,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/buildReport";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/buildReport".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -657,11 +789,10 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/buildReport";
-        localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "documentFileName", request.getDocumentFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "documentFileName", request.getDocumentFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -807,11 +938,10 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/classify";
-        localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "bestClassesCount", request.getBestClassesCount());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "bestClassesCount", request.getBestClassesCount());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -938,18 +1068,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{documentName}/classify";
-        localVarPath = addParameterToPath(localVarPath, "documentName", request.getDocumentName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{documentName}/classify".replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "bestClassesCount", request.getBestClassesCount());
-        addParameterToQuery(localVarQueryParams, "taxonomy", request.getTaxonomy());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "bestClassesCount", request.getBestClassesCount());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "taxonomy", request.getTaxonomy());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1076,17 +1204,15 @@ public class WordsApi {
         Object localVarPostBody = request.getCompareData();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/compareDocument";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/compareDocument".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1219,15 +1345,14 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/convert";
-        localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "outPath", request.getOutPath());
-        addParameterToQuery(localVarQueryParams, "fileNameFieldValue", request.getFileNameFieldValue());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "outPath", request.getOutPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fileNameFieldValue", request.getFileNameFieldValue());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1361,16 +1486,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/copy/{srcPath}";
-        localVarPath = addParameterToPath(localVarPath, "srcPath", request.getSrcPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/copy/{srcPath}".replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "destPath", request.getDestPath());
-        addParameterToQuery(localVarQueryParams, "srcStorageName", request.getSrcStorageName());
-        addParameterToQuery(localVarQueryParams, "destStorageName", request.getDestStorageName());
-        addParameterToQuery(localVarQueryParams, "versionId", request.getVersionId());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destPath", request.getDestPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "srcStorageName", request.getSrcStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destStorageName", request.getDestStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", request.getVersionId());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1497,15 +1620,13 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/copy/{srcPath}";
-        localVarPath = addParameterToPath(localVarPath, "srcPath", request.getSrcPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/copy/{srcPath}".replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "destPath", request.getDestPath());
-        addParameterToQuery(localVarQueryParams, "srcStorageName", request.getSrcStorageName());
-        addParameterToQuery(localVarQueryParams, "destStorageName", request.getDestStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destPath", request.getDestPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "srcStorageName", request.getSrcStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destStorageName", request.getDestStorageName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1632,19 +1753,17 @@ public class WordsApi {
         Object localVarPostBody = request.getStyleCopy();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles/copy";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles/copy".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1777,13 +1896,12 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/create";
-        localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "fileName", request.getFileName());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fileName", request.getFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1912,13 +2030,11 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2040,20 +2156,18 @@ public class WordsApi {
         Object localVarPostBody = request.getProperty();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "propertyName", request.getPropertyName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2190,19 +2304,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2241,6 +2353,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteAllParagraphTabStops");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteAllParagraphTabStops");
         }
 
         // verify the required parameter 'Index' is set
@@ -2323,6 +2440,147 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteAllParagraphTabStopsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathCall(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteAllParagraphTabStopsWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteAllParagraphTabStopsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Remove all tab stops.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TabStopsResponse deleteAllParagraphTabStopsWithoutNodePath(DeleteAllParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TabStopsResponse > resp = deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TabStopsResponse > resp = deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Remove all tab stops.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TabStopsResponse > deleteAllParagraphTabStopsWithoutNodePathWithHttpInfo(DeleteAllParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove all tab stops. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteAllParagraphTabStopsWithoutNodePathAsync(DeleteAllParagraphTabStopsWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteBorder
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -2334,21 +2592,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "borderType", request.getBorderType());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2387,6 +2643,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteBorder");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteBorder");
         }
 
         // verify the required parameter 'BorderType' is set
@@ -2480,20 +2741,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2532,6 +2791,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteBorders");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteBorders");
         }
 
         com.squareup.okhttp.Call call = deleteBordersCall(request, progressListener, progressRequestListener);
@@ -2620,20 +2884,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "commentIndex", request.getCommentIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments/{commentIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2760,20 +3022,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "propertyName", request.getPropertyName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2900,21 +3160,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2953,6 +3211,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteDrawingObject");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteDrawingObject");
         }
 
         // verify the required parameter 'Index' is set
@@ -3030,6 +3293,144 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteDrawingObjectWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathCall(DeleteDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathValidateBeforeCall(DeleteDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteDrawingObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteDrawingObjectWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteDrawingObjectWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Removes drawing object from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteDrawingObjectWithoutNodePath(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+    deleteDrawingObjectWithoutNodePathWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+    deleteDrawingObjectWithoutNodePathWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes drawing object from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteDrawingObjectWithoutNodePathWithHttpInfo(DeleteDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes drawing object from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteDrawingObjectWithoutNodePathAsync(DeleteDrawingObjectWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteDrawingObjectWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteField
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -3041,21 +3442,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3094,6 +3493,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteField");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteField");
         }
 
         // verify the required parameter 'Index' is set
@@ -3182,20 +3586,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3234,6 +3636,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFields");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteFields");
         }
 
         com.squareup.okhttp.Call call = deleteFieldsCall(request, progressListener, progressRequestListener);
@@ -3306,6 +3713,276 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteFieldsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteFieldsWithoutNodePathCall(DeleteFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteFieldsWithoutNodePathValidateBeforeCall(DeleteFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFieldsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteFieldsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Removes fields from section paragraph.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteFieldsWithoutNodePath(DeleteFieldsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+    deleteFieldsWithoutNodePathWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+    deleteFieldsWithoutNodePathWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes fields from section paragraph.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteFieldsWithoutNodePathWithHttpInfo(DeleteFieldsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteFieldsWithoutNodePathValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes fields from section paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteFieldsWithoutNodePathAsync(DeleteFieldsWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteFieldsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    /**
+     * Build call for deleteFieldWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteFieldWithoutNodePathCall(DeleteFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteFieldWithoutNodePathValidateBeforeCall(DeleteFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFieldWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteFieldWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteFieldWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Deletes field from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteFieldWithoutNodePath(DeleteFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+    deleteFieldWithoutNodePathWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+    deleteFieldWithoutNodePathWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Deletes field from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteFieldWithoutNodePathWithHttpInfo(DeleteFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteFieldWithoutNodePathValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Deletes field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteFieldWithoutNodePathAsync(DeleteFieldWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteFieldWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteFile
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -3317,14 +3994,12 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-        addParameterToQuery(localVarQueryParams, "versionId", request.getVersionId());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", request.getVersionId());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3446,14 +4121,12 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-        addParameterToQuery(localVarQueryParams, "recursive", request.getRecursive());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "recursive", request.getRecursive());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3575,21 +4248,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3628,6 +4299,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFootnote");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteFootnote");
         }
 
         // verify the required parameter 'Index' is set
@@ -3705,6 +4381,144 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteFootnoteWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteFootnoteWithoutNodePathCall(DeleteFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteFootnoteWithoutNodePathValidateBeforeCall(DeleteFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFootnoteWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteFootnoteWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteFootnoteWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Removes footnote from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteFootnoteWithoutNodePath(DeleteFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+    deleteFootnoteWithoutNodePathWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+    deleteFootnoteWithoutNodePathWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes footnote from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteFootnoteWithoutNodePathWithHttpInfo(DeleteFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes footnote from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteFootnoteWithoutNodePathAsync(DeleteFootnoteWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteFootnoteWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteFormField
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -3716,21 +4530,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -3769,6 +4581,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFormField");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteFormField");
         }
 
         // verify the required parameter 'Index' is set
@@ -3846,6 +4663,144 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteFormFieldWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteFormFieldWithoutNodePathCall(DeleteFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteFormFieldWithoutNodePathValidateBeforeCall(DeleteFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFormFieldWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteFormFieldWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteFormFieldWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Removes form field from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteFormFieldWithoutNodePath(DeleteFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+    deleteFormFieldWithoutNodePathWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+    deleteFormFieldWithoutNodePathWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes form field from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteFormFieldWithoutNodePathWithHttpInfo(DeleteFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes form field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteFormFieldWithoutNodePathAsync(DeleteFormFieldWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteFormFieldWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteHeaderFooter
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -3857,21 +4812,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionPath", request.getSectionPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4003,21 +4956,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionPath", request.getSectionPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "headersFootersTypes", request.getHeadersFootersTypes());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "headersFootersTypes", request.getHeadersFootersTypes());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4144,19 +5095,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/macros";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/macros".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4278,21 +5227,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4331,6 +5278,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteOfficeMathObject");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteOfficeMathObject");
         }
 
         // verify the required parameter 'Index' is set
@@ -4408,6 +5360,144 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteOfficeMathObjectWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathCall(DeleteOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathValidateBeforeCall(DeleteOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteOfficeMathObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteOfficeMathObjectWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteOfficeMathObjectWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Removes OfficeMath object from document.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteOfficeMathObjectWithoutNodePath(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+    deleteOfficeMathObjectWithoutNodePathWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+    deleteOfficeMathObjectWithoutNodePathWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes OfficeMath object from document.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteOfficeMathObjectWithoutNodePathWithHttpInfo(DeleteOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteOfficeMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes OfficeMath object from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteOfficeMathObjectWithoutNodePathAsync(DeleteOfficeMathObjectWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteOfficeMathObjectWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteParagraph
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -4419,21 +5509,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4472,6 +5560,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraph");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraph");
         }
 
         // verify the required parameter 'Index' is set
@@ -4560,21 +5653,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4613,6 +5704,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphListFormat");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraphListFormat");
         }
 
         // verify the required parameter 'Index' is set
@@ -4695,6 +5791,297 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteParagraphListFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathCall(DeleteParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathValidateBeforeCall(DeleteParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphListFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphListFormatWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Delete paragraph list format, returns updated list format properties.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public ParagraphListFormatResponse deleteParagraphListFormatWithoutNodePath(DeleteParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< ParagraphListFormatResponse > resp = deleteParagraphListFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< ParagraphListFormatResponse > resp = deleteParagraphListFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Delete paragraph list format, returns updated list format properties.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< ParagraphListFormatResponse > deleteParagraphListFormatWithoutNodePathWithHttpInfo(DeleteParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete paragraph list format, returns updated list format properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteParagraphListFormatWithoutNodePathAsync(DeleteParagraphListFormatWithoutNodePathRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphListFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for deleteParagraphOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphOnlineCall(DeleteParagraphOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/{nodePath}/paragraphs/{index}".replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphOnlineValidateBeforeCall(DeleteParagraphOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraphOnline");
+        }
+
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling deleteParagraphOnline");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphOnline");
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Removes paragraph from section.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File deleteParagraphOnline(DeleteParagraphOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = deleteParagraphOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = deleteParagraphOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes paragraph from section.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > deleteParagraphOnlineWithHttpInfo(DeleteParagraphOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Removes paragraph from section. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteParagraphOnlineAsync(DeleteParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteParagraphTabStop
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -4706,20 +6093,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "position", request.getPosition());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "position", request.getPosition());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -4763,6 +6148,11 @@ public class WordsApi {
         // verify the required parameter 'Position' is set
         if (request.getPosition() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Position' when calling deleteParagraphTabStop");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteParagraphTabStop");
         }
 
         // verify the required parameter 'Index' is set
@@ -4845,6 +6235,433 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteParagraphTabStopWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathCall(DeleteParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstop".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "position", request.getPosition());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathValidateBeforeCall(DeleteParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+
+        // verify the required parameter 'Position' is set
+        if (request.getPosition() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Position' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphTabStopWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Remove the i-th tab stop.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TabStopsResponse deleteParagraphTabStopWithoutNodePath(DeleteParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TabStopsResponse > resp = deleteParagraphTabStopWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TabStopsResponse > resp = deleteParagraphTabStopWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Remove the i-th tab stop.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TabStopsResponse > deleteParagraphTabStopWithoutNodePathWithHttpInfo(DeleteParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove the i-th tab stop. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteParagraphTabStopWithoutNodePathAsync(DeleteParagraphTabStopWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphTabStopWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for deleteParagraphWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphWithoutNodePathCall(DeleteParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphWithoutNodePathValidateBeforeCall(DeleteParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Removes paragraph from section.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteParagraphWithoutNodePath(DeleteParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+    deleteParagraphWithoutNodePathWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+    deleteParagraphWithoutNodePathWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes paragraph from section.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteParagraphWithoutNodePathWithHttpInfo(DeleteParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphWithoutNodePathValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Removes paragraph from section. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteParagraphWithoutNodePathAsync(DeleteParagraphWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    /**
+     * Build call for deleteParagraphWithoutNodePathOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteParagraphWithoutNodePathOnlineCall(DeleteParagraphWithoutNodePathOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/paragraphs/{index}".replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteParagraphWithoutNodePathOnlineValidateBeforeCall(DeleteParagraphWithoutNodePathOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphWithoutNodePathOnline");
+        }
+
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling deleteParagraphWithoutNodePathOnline");
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphWithoutNodePathOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Removes paragraph from section.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File deleteParagraphWithoutNodePathOnline(DeleteParagraphWithoutNodePathOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = deleteParagraphWithoutNodePathOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = deleteParagraphWithoutNodePathOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Removes paragraph from section.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > deleteParagraphWithoutNodePathOnlineWithHttpInfo(DeleteParagraphWithoutNodePathOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteParagraphWithoutNodePathOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Removes paragraph from section. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteParagraphWithoutNodePathOnlineAsync(DeleteParagraphWithoutNodePathOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteParagraphWithoutNodePathOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteRun
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -4856,21 +6673,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5002,20 +6817,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5142,21 +6955,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5195,6 +7006,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteTable");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling deleteTable");
         }
 
         // verify the required parameter 'Index' is set
@@ -5283,21 +7099,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5429,21 +7243,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5564,6 +7376,144 @@ public class WordsApi {
     }
 
     /**
+     * Build call for deleteTableWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteTableWithoutNodePathCall(DeleteTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/tables/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTableWithoutNodePathValidateBeforeCall(DeleteTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteTableWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteTableWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = deleteTableWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Deletes a table.
+     * @param request Request object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public void deleteTableWithoutNodePath(DeleteTableWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+    deleteTableWithoutNodePathWithHttpInfo(request);
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+    deleteTableWithoutNodePathWithHttpInfo(request);
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Deletes a table.
+     * @param request Request object
+     * @return ApiResponse< Void >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< Void > deleteTableWithoutNodePathWithHttpInfo(DeleteTableWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = deleteTableWithoutNodePathValidateBeforeCall(request, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Deletes a table. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteTableWithoutNodePathAsync(DeleteTableWithoutNodePathRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteTableWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+
+    /**
      * Build call for deleteWatermark
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -5575,19 +7525,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/deleteLast";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/watermarks/deleteLast".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5714,14 +7662,12 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-        addParameterToQuery(localVarQueryParams, "versionId", request.getVersionId());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", request.getVersionId());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5848,21 +7794,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/MailMerge";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/MailMerge".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "withRegions", request.getWithRegions());
-        addParameterToQuery(localVarQueryParams, "mailMergeDataFile", request.getMailMergeDataFile());
-        addParameterToQuery(localVarQueryParams, "cleanup", request.getCleanup());
-        addParameterToQuery(localVarQueryParams, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "mailMergeDataFile", request.getMailMergeDataFile());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -5992,13 +7936,12 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/MailMerge";
-        localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "withRegions", request.getWithRegions());
-        addParameterToQuery(localVarQueryParams, "cleanup", request.getCleanup());
-        addParameterToQuery(localVarQueryParams, "documentFileName", request.getDocumentFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "withRegions", request.getWithRegions());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "cleanup", request.getCleanup());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "documentFileName", request.getDocumentFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -6136,11 +8079,10 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/fonts/available";
-        localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -6263,17 +8205,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "bookmarkName", request.getBookmarkName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -6405,16 +8345,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/bookmarks".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -6541,18 +8479,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "borderType", request.getBorderType());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -6591,6 +8527,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getBorder");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getBorder");
         }
 
         // verify the required parameter 'BorderType' is set
@@ -6684,17 +8625,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -6733,6 +8672,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getBorders");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getBorders");
         }
 
         com.squareup.okhttp.Call call = getBordersCall(request, progressListener, progressRequestListener);
@@ -6821,17 +8765,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "commentIndex", request.getCommentIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments/{commentIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -6963,16 +8905,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7099,16 +9039,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{documentName}";
-        localVarPath = addParameterToPath(localVarPath, "documentName", request.getDocumentName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{documentName}".replaceAll("\\{" + "documentName" + "\\}", request.getDocumentName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7235,18 +9173,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7285,6 +9221,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectByIndex");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getDocumentDrawingObjectByIndex");
         }
 
         // verify the required parameter 'Index' is set
@@ -7367,6 +9308,146 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getDocumentDrawingObjectByIndexWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathCall(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectByIndexWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectByIndexWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Reads document drawing object common info by its index or convert to format specified.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public DrawingObjectResponse getDocumentDrawingObjectByIndexWithoutNodePath(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< DrawingObjectResponse > resp = getDocumentDrawingObjectByIndexWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< DrawingObjectResponse > resp = getDocumentDrawingObjectByIndexWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads document drawing object common info by its index or convert to format specified.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getDocumentDrawingObjectByIndexWithoutNodePathAsync(GetDocumentDrawingObjectByIndexWithoutNodePathRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getDocumentDrawingObjectImageData
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -7378,18 +9459,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7428,6 +9507,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectImageData");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getDocumentDrawingObjectImageData");
         }
 
         // verify the required parameter 'Index' is set
@@ -7510,6 +9594,146 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getDocumentDrawingObjectImageDataWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathCall(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/drawingObjects/{index}/imageData".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectImageDataWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectImageDataWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Reads drawing object image data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getDocumentDrawingObjectImageDataWithoutNodePath(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getDocumentDrawingObjectImageDataWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getDocumentDrawingObjectImageDataWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads drawing object image data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getDocumentDrawingObjectImageDataWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads drawing object image data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getDocumentDrawingObjectImageDataWithoutNodePathAsync(GetDocumentDrawingObjectImageDataWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getDocumentDrawingObjectOleData
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -7521,18 +9745,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7571,6 +9793,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectOleData");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getDocumentDrawingObjectOleData");
         }
 
         // verify the required parameter 'Index' is set
@@ -7653,6 +9880,146 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getDocumentDrawingObjectOleDataWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathCall(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/drawingObjects/{index}/oleData".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectOleDataWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectOleDataWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Gets drawing object OLE data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getDocumentDrawingObjectOleDataWithoutNodePath(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getDocumentDrawingObjectOleDataWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getDocumentDrawingObjectOleDataWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Gets drawing object OLE data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getDocumentDrawingObjectOleDataWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets drawing object OLE data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getDocumentDrawingObjectOleDataWithoutNodePathAsync(GetDocumentDrawingObjectOleDataWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getDocumentDrawingObjects
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -7664,17 +10031,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7713,6 +10078,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjects");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getDocumentDrawingObjects");
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsCall(request, progressListener, progressRequestListener);
@@ -7790,6 +10160,140 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getDocumentDrawingObjectsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathCall(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/drawingObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathValidateBeforeCall(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Reads document drawing objects common info.
+     * @param request Request object
+     * @return DrawingObjectsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public DrawingObjectsResponse getDocumentDrawingObjectsWithoutNodePath(GetDocumentDrawingObjectsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< DrawingObjectsResponse > resp = getDocumentDrawingObjectsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< DrawingObjectsResponse > resp = getDocumentDrawingObjectsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads document drawing objects common info.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsWithoutNodePathWithHttpInfo(GetDocumentDrawingObjectsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< DrawingObjectsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads document drawing objects common info. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getDocumentDrawingObjectsWithoutNodePathAsync(GetDocumentDrawingObjectsWithoutNodePathRequest request, final ApiCallback< DrawingObjectsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDocumentDrawingObjectsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< DrawingObjectsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getDocumentFieldNames
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -7801,17 +10305,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/mailMerge/FieldNames";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/mailMerge/FieldNames".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "useNonMergeFields", request.getUseNonMergeFields());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useNonMergeFields", request.getUseNonMergeFields());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -7938,18 +10440,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/mailMerge/FieldNames";
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/online/mailMerge/FieldNames";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "useNonMergeFields", request.getUseNonMergeFields());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useNonMergeFields", request.getUseNonMergeFields());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getTemplate() != null)
-            localVarFormParams.put("Template", request.getTemplate());
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
 
         final String[] localVarAccepts = {
             "application/xml", "application/json"
@@ -7976,14 +10477,14 @@ public class WordsApi {
         }
 
         String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentFieldNamesOnlineValidateBeforeCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Template' is set
-        if (request.getTemplate() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling getDocumentFieldNamesOnline");
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling getDocumentFieldNamesOnline");
         }
 
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineCall(request, progressListener, progressRequestListener);
@@ -7993,19 +10494,19 @@ public class WordsApi {
     /**
      * Reads document field names.
      * @param request Request object
-     * @return FieldNamesResponse
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public FieldNamesResponse getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
+    public File getDocumentFieldNamesOnline(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
         try {
-            ApiResponse< FieldNamesResponse > resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
+            ApiResponse< File > resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse< FieldNamesResponse > resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
+                ApiResponse< File > resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -8015,13 +10516,13 @@ public class WordsApi {
     /**
      * Reads document field names.
      * @param request Request object
-     * @return ApiResponse< FieldNamesResponse >;
+     * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< FieldNamesResponse > getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
+    private ApiResponse< File > getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FieldNamesResponse >() { }.getType();
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -8033,7 +10534,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentFieldNamesOnlineAsync(GetDocumentFieldNamesOnlineRequest request, final ApiCallback< FieldNamesResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getDocumentFieldNamesOnlineAsync(GetDocumentFieldNamesOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -8055,7 +10556,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FieldNamesResponse >() { }.getType();
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -8072,17 +10573,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "hyperlinkIndex", request.getHyperlinkIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "hyperlinkIndex" + "\\}", request.getHyperlinkIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -8214,16 +10713,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/hyperlinks";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/hyperlinks".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -8350,16 +10847,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/documentProperties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -8486,17 +10981,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "propertyName", request.getPropertyName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/documentProperties/{propertyName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "propertyName" + "\\}", request.getPropertyName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -8628,16 +11121,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/protection";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/protection".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -8764,19 +11255,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/statistics";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/statistics".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "includeComments", request.getIncludeComments());
-        addParameterToQuery(localVarQueryParams, "includeFootnotes", request.getIncludeFootnotes());
-        addParameterToQuery(localVarQueryParams, "includeTextInShapes", request.getIncludeTextInShapes());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "includeComments", request.getIncludeComments());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "includeFootnotes", request.getIncludeFootnotes());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "includeTextInShapes", request.getIncludeTextInShapes());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -8892,6 +11381,141 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getDocumentStatisticsOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getDocumentStatisticsOnlineCall(GetDocumentStatisticsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/statistics";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "includeComments", request.getIncludeComments());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "includeFootnotes", request.getIncludeFootnotes());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "includeTextInShapes", request.getIncludeTextInShapes());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getDocumentStatisticsOnlineValidateBeforeCall(GetDocumentStatisticsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling getDocumentStatisticsOnline");
+        }
+
+        com.squareup.okhttp.Call call = getDocumentStatisticsOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Reads document statistics.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getDocumentStatisticsOnline(GetDocumentStatisticsOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getDocumentStatisticsOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getDocumentStatisticsOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads document statistics.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getDocumentStatisticsOnlineWithHttpInfo(GetDocumentStatisticsOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getDocumentStatisticsOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads document statistics. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getDocumentStatisticsOnlineAsync(GetDocumentStatisticsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getDocumentStatisticsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getDocumentWithFormat
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -8903,19 +11527,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "outPath", request.getOutPath());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "outPath", request.getOutPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -9047,18 +11669,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -9097,6 +11717,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getField");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getField");
         }
 
         // verify the required parameter 'Index' is set
@@ -9190,17 +11815,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -9239,6 +11862,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFields");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFields");
         }
 
         com.squareup.okhttp.Call call = getFieldsCall(request, progressListener, progressRequestListener);
@@ -9316,6 +11944,280 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getFieldsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getFieldsWithoutNodePathCall(GetFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFieldsWithoutNodePathValidateBeforeCall(GetFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFieldsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getFieldsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Get fields from document.
+     * @param request Request object
+     * @return FieldsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FieldsResponse getFieldsWithoutNodePath(GetFieldsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FieldsResponse > resp = getFieldsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FieldsResponse > resp = getFieldsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Get fields from document.
+     * @param request Request object
+     * @return ApiResponse< FieldsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FieldsResponse > getFieldsWithoutNodePathWithHttpInfo(GetFieldsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getFieldsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FieldsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get fields from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFieldsWithoutNodePathAsync(GetFieldsWithoutNodePathRequest request, final ApiCallback< FieldsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFieldsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FieldsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getFieldWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getFieldWithoutNodePathCall(GetFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFieldWithoutNodePathValidateBeforeCall(GetFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFieldWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getFieldWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getFieldWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Gets field from document.
+     * @param request Request object
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FieldResponse getFieldWithoutNodePath(GetFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FieldResponse > resp = getFieldWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FieldResponse > resp = getFieldWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Gets field from document.
+     * @param request Request object
+     * @return ApiResponse< FieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FieldResponse > getFieldWithoutNodePathWithHttpInfo(GetFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getFieldWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets field from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFieldWithoutNodePathAsync(GetFieldWithoutNodePathRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFieldWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getFilesList
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -9327,13 +12229,11 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -9460,18 +12360,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -9510,6 +12408,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFootnote");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFootnote");
         }
 
         // verify the required parameter 'Index' is set
@@ -9603,17 +12506,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -9652,6 +12553,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFootnotes");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFootnotes");
         }
 
         com.squareup.okhttp.Call call = getFootnotesCall(request, progressListener, progressRequestListener);
@@ -9729,6 +12635,280 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getFootnotesWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getFootnotesWithoutNodePathCall(GetFootnotesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/footnotes".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFootnotesWithoutNodePathValidateBeforeCall(GetFootnotesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFootnotesWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getFootnotesWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Gets footnotes from document.
+     * @param request Request object
+     * @return FootnotesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FootnotesResponse getFootnotesWithoutNodePath(GetFootnotesWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FootnotesResponse > resp = getFootnotesWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FootnotesResponse > resp = getFootnotesWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Gets footnotes from document.
+     * @param request Request object
+     * @return ApiResponse< FootnotesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FootnotesResponse > getFootnotesWithoutNodePathWithHttpInfo(GetFootnotesWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getFootnotesWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FootnotesResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets footnotes from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFootnotesWithoutNodePathAsync(GetFootnotesWithoutNodePathRequest request, final ApiCallback< FootnotesResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFootnotesWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FootnotesResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getFootnoteWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getFootnoteWithoutNodePathCall(GetFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFootnoteWithoutNodePathValidateBeforeCall(GetFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFootnoteWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getFootnoteWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getFootnoteWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Reads footnote by index.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FootnoteResponse getFootnoteWithoutNodePath(GetFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FootnoteResponse > resp = getFootnoteWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FootnoteResponse > resp = getFootnoteWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads footnote by index.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FootnoteResponse > getFootnoteWithoutNodePathWithHttpInfo(GetFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads footnote by index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFootnoteWithoutNodePathAsync(GetFootnoteWithoutNodePathRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFootnoteWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getFormField
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -9740,18 +12920,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -9790,6 +12968,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFormField");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFormField");
         }
 
         // verify the required parameter 'Index' is set
@@ -9883,17 +13066,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -9932,6 +13113,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFormFields");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getFormFields");
         }
 
         com.squareup.okhttp.Call call = getFormFieldsCall(request, progressListener, progressRequestListener);
@@ -10009,6 +13195,280 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getFormFieldsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getFormFieldsWithoutNodePathCall(GetFormFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/formfields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFormFieldsWithoutNodePathValidateBeforeCall(GetFormFieldsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFormFieldsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getFormFieldsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Gets form fields from document.
+     * @param request Request object
+     * @return FormFieldsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FormFieldsResponse getFormFieldsWithoutNodePath(GetFormFieldsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FormFieldsResponse > resp = getFormFieldsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FormFieldsResponse > resp = getFormFieldsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Gets form fields from document.
+     * @param request Request object
+     * @return ApiResponse< FormFieldsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FormFieldsResponse > getFormFieldsWithoutNodePathWithHttpInfo(GetFormFieldsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getFormFieldsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FormFieldsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets form fields from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFormFieldsWithoutNodePathAsync(GetFormFieldsWithoutNodePathRequest request, final ApiCallback< FormFieldsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFormFieldsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FormFieldsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getFormFieldWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getFormFieldWithoutNodePathCall(GetFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getFormFieldWithoutNodePathValidateBeforeCall(GetFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFormFieldWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getFormFieldWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getFormFieldWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Returns representation of an one of the form field.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FormFieldResponse getFormFieldWithoutNodePath(GetFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FormFieldResponse > resp = getFormFieldWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FormFieldResponse > resp = getFormFieldWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns representation of an one of the form field.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FormFieldResponse > getFormFieldWithoutNodePathWithHttpInfo(GetFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns representation of an one of the form field. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getFormFieldWithoutNodePathAsync(GetFormFieldWithoutNodePathRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getFormFieldWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getHeaderFooter
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -10020,18 +13480,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "headerFooterIndex", request.getHeaderFooterIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "filterByType", request.getFilterByType());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "filterByType", request.getFilterByType());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10163,19 +13621,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "headerFooterIndex", request.getHeaderFooterIndex());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "headerFooterIndex" + "\\}", request.getHeaderFooterIndex().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "filterByType", request.getFilterByType());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "filterByType", request.getFilterByType());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10312,18 +13768,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionPath", request.getSectionPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "filterByType", request.getFilterByType());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "filterByType", request.getFilterByType());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10455,17 +13909,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "listId", request.getListId());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists/{listId}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10597,16 +14049,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10733,18 +14183,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10783,6 +14231,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getOfficeMathObject");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getOfficeMathObject");
         }
 
         // verify the required parameter 'Index' is set
@@ -10876,17 +14329,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -10925,6 +14376,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getOfficeMathObjects");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getOfficeMathObjects");
         }
 
         com.squareup.okhttp.Call call = getOfficeMathObjectsCall(request, progressListener, progressRequestListener);
@@ -11002,6 +14458,280 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getOfficeMathObjectsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathCall(GetOfficeMathObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/OfficeMathObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathValidateBeforeCall(GetOfficeMathObjectsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getOfficeMathObjectsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getOfficeMathObjectsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Gets OfficeMath objects from document.
+     * @param request Request object
+     * @return OfficeMathObjectsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public OfficeMathObjectsResponse getOfficeMathObjectsWithoutNodePath(GetOfficeMathObjectsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< OfficeMathObjectsResponse > resp = getOfficeMathObjectsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< OfficeMathObjectsResponse > resp = getOfficeMathObjectsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Gets OfficeMath objects from document.
+     * @param request Request object
+     * @return ApiResponse< OfficeMathObjectsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsWithoutNodePathWithHttpInfo(GetOfficeMathObjectsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getOfficeMathObjectsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< OfficeMathObjectsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Gets OfficeMath objects from document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getOfficeMathObjectsWithoutNodePathAsync(GetOfficeMathObjectsWithoutNodePathRequest request, final ApiCallback< OfficeMathObjectsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getOfficeMathObjectsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< OfficeMathObjectsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getOfficeMathObjectWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathCall(GetOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathValidateBeforeCall(GetOfficeMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getOfficeMathObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getOfficeMathObjectWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getOfficeMathObjectWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Reads OfficeMath object by index.
+     * @param request Request object
+     * @return OfficeMathObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public OfficeMathObjectResponse getOfficeMathObjectWithoutNodePath(GetOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< OfficeMathObjectResponse > resp = getOfficeMathObjectWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< OfficeMathObjectResponse > resp = getOfficeMathObjectWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Reads OfficeMath object by index.
+     * @param request Request object
+     * @return ApiResponse< OfficeMathObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectWithoutNodePathWithHttpInfo(GetOfficeMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getOfficeMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< OfficeMathObjectResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reads OfficeMath object by index. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getOfficeMathObjectWithoutNodePathAsync(GetOfficeMathObjectWithoutNodePathRequest request, final ApiCallback< OfficeMathObjectResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getOfficeMathObjectWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< OfficeMathObjectResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getParagraph
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -11013,18 +14743,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -11065,6 +14793,11 @@ public class WordsApi {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraph");
         }
 
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraph");
+        }
+
         // verify the required parameter 'Index' is set
         if (request.getIndex() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraph");
@@ -11077,19 +14810,19 @@ public class WordsApi {
     /**
      * This resource represents one of the paragraphs contained in the document.
      * @param request Request object
-     * @return ParagraphResponse
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphResponse getParagraph(GetParagraphRequest request) throws ApiException, IOException {
+    public File getParagraph(GetParagraphRequest request) throws ApiException, IOException {
         try {
-            ApiResponse< ParagraphResponse > resp = getParagraphWithHttpInfo(request);
+            ApiResponse< File > resp = getParagraphWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse< ParagraphResponse > resp = getParagraphWithHttpInfo(request);
+                ApiResponse< File > resp = getParagraphWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -11099,13 +14832,13 @@ public class WordsApi {
     /**
      * This resource represents one of the paragraphs contained in the document.
      * @param request Request object
-     * @return ApiResponse< ParagraphResponse >;
+     * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphResponse > getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException, IOException {
+    private ApiResponse< File > getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -11117,7 +14850,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphAsync(GetParagraphRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphAsync(GetParagraphRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11139,7 +14872,7 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -11156,18 +14889,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -11206,6 +14937,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphFormat");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraphFormat");
         }
 
         // verify the required parameter 'Index' is set
@@ -11288,6 +15024,146 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getParagraphFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphFormatWithoutNodePathCall(GetParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/format".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphFormatWithoutNodePathValidateBeforeCall(GetParagraphFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphFormatWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Represents all the formatting for a paragraph.
+     * @param request Request object
+     * @return ParagraphFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public ParagraphFormatResponse getParagraphFormatWithoutNodePath(GetParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< ParagraphFormatResponse > resp = getParagraphFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< ParagraphFormatResponse > resp = getParagraphFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Represents all the formatting for a paragraph.
+     * @param request Request object
+     * @return ApiResponse< ParagraphFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< ParagraphFormatResponse > getParagraphFormatWithoutNodePathWithHttpInfo(GetParagraphFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Represents all the formatting for a paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphFormatWithoutNodePathAsync(GetParagraphFormatWithoutNodePathRequest request, final ApiCallback< ParagraphFormatResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getParagraphListFormat
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -11299,18 +15175,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -11349,6 +15223,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphListFormat");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraphListFormat");
         }
 
         // verify the required parameter 'Index' is set
@@ -11431,6 +15310,291 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getParagraphListFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphListFormatWithoutNodePathCall(GetParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphListFormatWithoutNodePathValidateBeforeCall(GetParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphListFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphListFormatWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphListFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Represents list format for a paragraph.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public ParagraphListFormatResponse getParagraphListFormatWithoutNodePath(GetParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< ParagraphListFormatResponse > resp = getParagraphListFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< ParagraphListFormatResponse > resp = getParagraphListFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Represents list format for a paragraph.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatWithoutNodePathWithHttpInfo(GetParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Represents list format for a paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphListFormatWithoutNodePathAsync(GetParagraphListFormatWithoutNodePathRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphListFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getParagraphOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphOnlineCall(GetParagraphOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/{nodePath}/paragraphs/{index}".replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphOnlineValidateBeforeCall(GetParagraphOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraphOnline");
+        }
+
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling getParagraphOnline");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphOnline");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getParagraphOnline(GetParagraphOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getParagraphOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getParagraphOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getParagraphOnlineWithHttpInfo(GetParagraphOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphOnlineAsync(GetParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getParagraphs
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -11442,17 +15606,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -11493,6 +15655,11 @@ public class WordsApi {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphs");
         }
 
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraphs");
+        }
+
         com.squareup.okhttp.Call call = getParagraphsCall(request, progressListener, progressRequestListener);
         return call;
     }
@@ -11500,19 +15667,19 @@ public class WordsApi {
     /**
      * Returns a list of paragraphs that are contained in the document.
      * @param request Request object
-     * @return ParagraphLinkCollectionResponse
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphLinkCollectionResponse getParagraphs(GetParagraphsRequest request) throws ApiException, IOException {
+    public File getParagraphs(GetParagraphsRequest request) throws ApiException, IOException {
         try {
-            ApiResponse< ParagraphLinkCollectionResponse > resp = getParagraphsWithHttpInfo(request);
+            ApiResponse< File > resp = getParagraphsWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse< ParagraphLinkCollectionResponse > resp = getParagraphsWithHttpInfo(request);
+                ApiResponse< File > resp = getParagraphsWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -11522,13 +15689,13 @@ public class WordsApi {
     /**
      * Returns a list of paragraphs that are contained in the document.
      * @param request Request object
-     * @return ApiResponse< ParagraphLinkCollectionResponse >;
+     * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException, IOException {
+    private ApiResponse< File > getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphLinkCollectionResponse >() { }.getType();
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -11540,7 +15707,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getParagraphsAsync(GetParagraphsRequest request, final ApiCallback< ParagraphLinkCollectionResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call getParagraphsAsync(GetParagraphsRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -11562,7 +15729,414 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphLinkCollectionResponse >() { }.getType();
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getParagraphsOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphsOnlineCall(GetParagraphsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/{nodePath}/paragraphs".replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphsOnlineValidateBeforeCall(GetParagraphsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraphsOnline");
+        }
+
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling getParagraphsOnline");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphsOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getParagraphsOnline(GetParagraphsOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getParagraphsOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getParagraphsOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getParagraphsOnlineWithHttpInfo(GetParagraphsOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphsOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphsOnlineAsync(GetParagraphsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getParagraphsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphsWithoutNodePathCall(GetParagraphsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphsWithoutNodePathValidateBeforeCall(GetParagraphsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getParagraphsWithoutNodePath(GetParagraphsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getParagraphsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getParagraphsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getParagraphsWithoutNodePathWithHttpInfo(GetParagraphsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphsWithoutNodePathAsync(GetParagraphsWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getParagraphsWithoutNodePathOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphsWithoutNodePathOnlineCall(GetParagraphsWithoutNodePathOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/paragraphs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphsWithoutNodePathOnlineValidateBeforeCall(GetParagraphsWithoutNodePathOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling getParagraphsWithoutNodePathOnline");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphsWithoutNodePathOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getParagraphsWithoutNodePathOnline(GetParagraphsWithoutNodePathOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getParagraphsWithoutNodePathOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getParagraphsWithoutNodePathOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getParagraphsWithoutNodePathOnlineWithHttpInfo(GetParagraphsWithoutNodePathOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphsWithoutNodePathOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns a list of paragraphs that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphsWithoutNodePathOnlineAsync(GetParagraphsWithoutNodePathOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphsWithoutNodePathOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -11579,18 +16153,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -11629,6 +16201,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphTabStops");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getParagraphTabStops");
         }
 
         // verify the required parameter 'Index' is set
@@ -11711,6 +16288,425 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getParagraphTabStopsWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathCall(GetParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathValidateBeforeCall(GetParagraphTabStopsWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphTabStopsWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphTabStopsWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Get all tab stops for the paragraph.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TabStopsResponse getParagraphTabStopsWithoutNodePath(GetParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TabStopsResponse > resp = getParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TabStopsResponse > resp = getParagraphTabStopsWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Get all tab stops for the paragraph.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TabStopsResponse > getParagraphTabStopsWithoutNodePathWithHttpInfo(GetParagraphTabStopsWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get all tab stops for the paragraph. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphTabStopsWithoutNodePathAsync(GetParagraphTabStopsWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphTabStopsWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getParagraphWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphWithoutNodePathCall(GetParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphWithoutNodePathValidateBeforeCall(GetParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getParagraphWithoutNodePath(GetParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getParagraphWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getParagraphWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getParagraphWithoutNodePathWithHttpInfo(GetParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphWithoutNodePathAsync(GetParagraphWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getParagraphWithoutNodePathOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getParagraphWithoutNodePathOnlineCall(GetParagraphWithoutNodePathOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/paragraphs/{index}".replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getParagraphWithoutNodePathOnlineValidateBeforeCall(GetParagraphWithoutNodePathOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphWithoutNodePathOnline");
+        }
+
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling getParagraphWithoutNodePathOnline");
+        }
+
+        com.squareup.okhttp.Call call = getParagraphWithoutNodePathOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File getParagraphWithoutNodePathOnline(GetParagraphWithoutNodePathOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = getParagraphWithoutNodePathOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = getParagraphWithoutNodePathOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > getParagraphWithoutNodePathOnlineWithHttpInfo(GetParagraphWithoutNodePathOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getParagraphWithoutNodePathOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This resource represents one of the paragraphs contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getParagraphWithoutNodePathOnlineAsync(GetParagraphWithoutNodePathOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getParagraphWithoutNodePathOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getRangeText
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -11722,18 +16718,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "rangeStartIdentifier", request.getRangeStartIdentifier());
-        localVarPath = addParameterToPath(localVarPath, "rangeEndIdentifier", request.getRangeEndIdentifier());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -11865,18 +16859,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -12013,18 +17005,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -12161,17 +17151,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -12303,17 +17291,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -12445,17 +17431,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -12587,16 +17571,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -12723,17 +17705,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles/{styleName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "styleName", request.getStyleName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles/{styleName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "styleName" + "\\}", request.getStyleName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -12865,17 +17845,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{styledNodePath}/style";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "styledNodePath", request.getStyledNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{styledNodePath}/style".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "styledNodePath" + "\\}", request.getStyledNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -13007,16 +17985,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -13143,18 +18119,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -13193,6 +18167,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTable");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getTable");
         }
 
         // verify the required parameter 'Index' is set
@@ -13286,18 +18265,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -13434,18 +18411,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -13582,18 +18557,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -13632,6 +18605,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTableProperties");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getTableProperties");
         }
 
         // verify the required parameter 'Index' is set
@@ -13714,6 +18692,146 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getTablePropertiesWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getTablePropertiesWithoutNodePathCall(GetTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/tables/{index}/properties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTablePropertiesWithoutNodePathValidateBeforeCall(GetTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTablePropertiesWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTablePropertiesWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getTablePropertiesWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Returns a table properties.
+     * @param request Request object
+     * @return TablePropertiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TablePropertiesResponse getTablePropertiesWithoutNodePath(GetTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TablePropertiesResponse > resp = getTablePropertiesWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TablePropertiesResponse > resp = getTablePropertiesWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns a table properties.
+     * @param request Request object
+     * @return ApiResponse< TablePropertiesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TablePropertiesResponse > getTablePropertiesWithoutNodePathWithHttpInfo(GetTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getTablePropertiesWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns a table properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTablePropertiesWithoutNodePathAsync(GetTablePropertiesWithoutNodePathRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTablePropertiesWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for getTableRow
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -13725,18 +18843,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -13873,18 +18989,16 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -14021,17 +19135,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -14070,6 +19182,11 @@ public class WordsApi {
         // verify the required parameter 'Name' is set
         if (request.getName() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTables");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling getTables");
         }
 
         com.squareup.okhttp.Call call = getTablesCall(request, progressListener, progressRequestListener);
@@ -14147,6 +19264,280 @@ public class WordsApi {
     }
 
     /**
+     * Build call for getTablesWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getTablesWithoutNodePathCall(GetTablesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/tables".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTablesWithoutNodePathValidateBeforeCall(GetTablesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTablesWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getTablesWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Returns a list of tables that are contained in the document.
+     * @param request Request object
+     * @return TableLinkCollectionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TableLinkCollectionResponse getTablesWithoutNodePath(GetTablesWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TableLinkCollectionResponse > resp = getTablesWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TableLinkCollectionResponse > resp = getTablesWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns a list of tables that are contained in the document.
+     * @param request Request object
+     * @return ApiResponse< TableLinkCollectionResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TableLinkCollectionResponse > getTablesWithoutNodePathWithHttpInfo(GetTablesWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getTablesWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TableLinkCollectionResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns a list of tables that are contained in the document. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTablesWithoutNodePathAsync(GetTablesWithoutNodePathRequest request, final ApiCallback< TableLinkCollectionResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTablesWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TableLinkCollectionResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for getTableWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getTableWithoutNodePathCall(GetTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/tables/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTableWithoutNodePathValidateBeforeCall(GetTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTableWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTableWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = getTableWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Returns a table.
+     * @param request Request object
+     * @return TableResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TableResponse getTableWithoutNodePath(GetTableWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TableResponse > resp = getTableWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TableResponse > resp = getTableWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Returns a table.
+     * @param request Request object
+     * @return ApiResponse< TableResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TableResponse > getTableWithoutNodePathWithHttpInfo(GetTableWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = getTableWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Returns a table. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getTableWithoutNodePathAsync(GetTableWithoutNodePathRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTableWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertComment
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -14158,19 +19549,17 @@ public class WordsApi {
         Object localVarPostBody = request.getComment();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -14302,20 +19691,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -14369,6 +19756,11 @@ public class WordsApi {
         // verify the required parameter 'ImageFile' is set
         if (request.getImageFile() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling insertDrawingObject");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertDrawingObject");
         }
 
         com.squareup.okhttp.Call call = insertDrawingObjectCall(request, progressListener, progressRequestListener);
@@ -14446,6 +19838,158 @@ public class WordsApi {
     }
 
     /**
+     * Build call for insertDrawingObjectWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathCall(InsertDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/drawingObjects".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDrawingObject() != null)
+            localVarFormParams.put("DrawingObject", request.getDrawingObject());
+
+        if (request.getImageFile() != null)
+            localVarFormParams.put("ImageFile", request.getImageFile());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathValidateBeforeCall(InsertDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertDrawingObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'DrawingObject' is set
+        if (request.getDrawingObject() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'DrawingObject' when calling insertDrawingObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'ImageFile' is set
+        if (request.getImageFile() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling insertDrawingObjectWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertDrawingObjectWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Adds drawing object to document, returns added  drawing object's data.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public DrawingObjectResponse insertDrawingObjectWithoutNodePath(InsertDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< DrawingObjectResponse > resp = insertDrawingObjectWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< DrawingObjectResponse > resp = insertDrawingObjectWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds drawing object to document, returns added  drawing object's data.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< DrawingObjectResponse > insertDrawingObjectWithoutNodePathWithHttpInfo(InsertDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds drawing object to document, returns added  drawing object's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertDrawingObjectWithoutNodePathAsync(InsertDrawingObjectWithoutNodePathRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertDrawingObjectWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertField
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -14457,21 +20001,19 @@ public class WordsApi {
         Object localVarPostBody = request.getField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "insertBeforeNode", request.getInsertBeforeNode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -14515,6 +20057,11 @@ public class WordsApi {
         // verify the required parameter 'Field' is set
         if (request.getField() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling insertField");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertField");
         }
 
         com.squareup.okhttp.Call call = insertFieldCall(request, progressListener, progressRequestListener);
@@ -14592,6 +20139,149 @@ public class WordsApi {
     }
 
     /**
+     * Build call for insertFieldWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertFieldWithoutNodePathCall(InsertFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getField();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/fields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertFieldWithoutNodePathValidateBeforeCall(InsertFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertFieldWithoutNodePath");
+        }
+
+        // verify the required parameter 'Field' is set
+        if (request.getField() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling insertFieldWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertFieldWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Adds field to document, returns inserted field's data.
+     * @param request Request object
+     * @return FieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FieldResponse insertFieldWithoutNodePath(InsertFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FieldResponse > resp = insertFieldWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FieldResponse > resp = insertFieldWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds field to document, returns inserted field's data.
+     * @param request Request object
+     * @return ApiResponse< FieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FieldResponse > insertFieldWithoutNodePathWithHttpInfo(InsertFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertFieldWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds field to document, returns inserted field's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertFieldWithoutNodePathAsync(InsertFieldWithoutNodePathRequest request, final ApiCallback< FieldResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertFieldWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertFootnote
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -14603,20 +20293,18 @@ public class WordsApi {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -14660,6 +20348,11 @@ public class WordsApi {
         // verify the required parameter 'FootnoteDto' is set
         if (request.getFootnoteDto() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling insertFootnote");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertFootnote");
         }
 
         com.squareup.okhttp.Call call = insertFootnoteCall(request, progressListener, progressRequestListener);
@@ -14737,6 +20430,148 @@ public class WordsApi {
     }
 
     /**
+     * Build call for insertFootnoteWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertFootnoteWithoutNodePathCall(InsertFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getFootnoteDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/footnotes".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertFootnoteWithoutNodePathValidateBeforeCall(InsertFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertFootnoteWithoutNodePath");
+        }
+
+        // verify the required parameter 'FootnoteDto' is set
+        if (request.getFootnoteDto() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling insertFootnoteWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertFootnoteWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Adds footnote to document, returns added footnote's data.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FootnoteResponse insertFootnoteWithoutNodePath(InsertFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FootnoteResponse > resp = insertFootnoteWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FootnoteResponse > resp = insertFootnoteWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds footnote to document, returns added footnote's data.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FootnoteResponse > insertFootnoteWithoutNodePathWithHttpInfo(InsertFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds footnote to document, returns added footnote's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertFootnoteWithoutNodePathAsync(InsertFootnoteWithoutNodePathRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertFootnoteWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertFormField
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -14748,21 +20583,19 @@ public class WordsApi {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "insertBeforeNode", request.getInsertBeforeNode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -14806,6 +20639,11 @@ public class WordsApi {
         // verify the required parameter 'FormField' is set
         if (request.getFormField() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling insertFormField");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertFormField");
         }
 
         com.squareup.okhttp.Call call = insertFormFieldCall(request, progressListener, progressRequestListener);
@@ -14883,6 +20721,149 @@ public class WordsApi {
     }
 
     /**
+     * Build call for insertFormFieldWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertFormFieldWithoutNodePathCall(InsertFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getFormField();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/formfields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertFormFieldWithoutNodePathValidateBeforeCall(InsertFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertFormFieldWithoutNodePath");
+        }
+
+        // verify the required parameter 'FormField' is set
+        if (request.getFormField() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling insertFormFieldWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertFormFieldWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Adds form field to paragraph, returns added form field's data.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FormFieldResponse insertFormFieldWithoutNodePath(InsertFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FormFieldResponse > resp = insertFormFieldWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FormFieldResponse > resp = insertFormFieldWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds form field to paragraph, returns added form field's data.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FormFieldResponse > insertFormFieldWithoutNodePathWithHttpInfo(InsertFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds form field to paragraph, returns added form field's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertFormFieldWithoutNodePathAsync(InsertFormFieldWithoutNodePathRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertFormFieldWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertHeaderFooter
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -14894,20 +20875,18 @@ public class WordsApi {
         Object localVarPostBody = request.getHeaderFooterType();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionPath", request.getSectionPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{sectionPath}/headersfooters".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionPath" + "\\}", request.getSectionPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -15044,19 +21023,17 @@ public class WordsApi {
         Object localVarPostBody = request.getListInsert();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -15188,19 +21165,17 @@ public class WordsApi {
         Object localVarPostBody = request.getDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -15244,6 +21219,11 @@ public class WordsApi {
         // verify the required parameter 'Dto' is set
         if (request.getDto() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling insertOrUpdateParagraphTabStop");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertOrUpdateParagraphTabStop");
         }
 
         // verify the required parameter 'Index' is set
@@ -15326,6 +21306,152 @@ public class WordsApi {
     }
 
     /**
+     * Build call for insertOrUpdateParagraphTabStopWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathCall(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/tabstops".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling insertOrUpdateParagraphTabStopWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Insert or resplace tab stop if a tab stop with the position exists.
+     * @param request Request object
+     * @return TabStopsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TabStopsResponse insertOrUpdateParagraphTabStopWithoutNodePath(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TabStopsResponse > resp = insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TabStopsResponse > resp = insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Insert or resplace tab stop if a tab stop with the position exists.
+     * @param request Request object
+     * @return ApiResponse< TabStopsResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TabStopsResponse > insertOrUpdateParagraphTabStopWithoutNodePathWithHttpInfo(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert or resplace tab stop if a tab stop with the position exists. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertOrUpdateParagraphTabStopWithoutNodePathAsync(InsertOrUpdateParagraphTabStopWithoutNodePathRequest request, final ApiCallback< TabStopsResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertPageNumbers
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -15337,19 +21463,17 @@ public class WordsApi {
         Object localVarPostBody = request.getPageNumber();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/PageNumbers";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/PageNumbers".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -15481,21 +21605,19 @@ public class WordsApi {
         Object localVarPostBody = request.getParagraph();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "insertBeforeNode", request.getInsertBeforeNode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -15536,6 +21658,11 @@ public class WordsApi {
             throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertParagraph");
         }
 
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertParagraph");
+        }
+
         // verify the required parameter 'Paragraph' is set
         if (request.getParagraph() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling insertParagraph");
@@ -15548,19 +21675,19 @@ public class WordsApi {
     /**
      * Adds paragraph to document, returns added paragraph's data.
      * @param request Request object
-     * @return ParagraphResponse
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    public ParagraphResponse insertParagraph(InsertParagraphRequest request) throws ApiException, IOException {
+    public File insertParagraph(InsertParagraphRequest request) throws ApiException, IOException {
         try {
-            ApiResponse< ParagraphResponse > resp = insertParagraphWithHttpInfo(request);
+            ApiResponse< File > resp = insertParagraphWithHttpInfo(request);
             return resp.getData();
         }
         catch (ApiException ex) {
             if (ex.getCode() == NotAuth) {
                 apiClient.requestToken();
-                ApiResponse< ParagraphResponse > resp = insertParagraphWithHttpInfo(request);
+                ApiResponse< File > resp = insertParagraphWithHttpInfo(request);
                 return resp.getData();
             }
             throw ex;
@@ -15570,13 +21697,13 @@ public class WordsApi {
     /**
      * Adds paragraph to document, returns added paragraph's data.
      * @param request Request object
-     * @return ApiResponse< ParagraphResponse >;
+     * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
      */
-    private ApiResponse< ParagraphResponse > insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException, IOException {
+    private ApiResponse< File > insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -15588,7 +21715,7 @@ public class WordsApi {
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call insertParagraphAsync(InsertParagraphRequest request, final ApiCallback< ParagraphResponse > callback) throws ApiException, IOException {
+    public com.squareup.okhttp.Call insertParagraphAsync(InsertParagraphRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -15610,7 +21737,447 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for insertParagraphOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertParagraphOnlineCall(InsertParagraphOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/{nodePath}/paragraphs".replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        if (request.getParagraph() != null)
+            localVarFormParams.put("Paragraph", request.getParagraph());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertParagraphOnlineValidateBeforeCall(InsertParagraphOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertParagraphOnline");
+        }
+
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling insertParagraphOnline");
+        }
+
+        // verify the required parameter 'Paragraph' is set
+        if (request.getParagraph() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling insertParagraphOnline");
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File insertParagraphOnline(InsertParagraphOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = insertParagraphOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = insertParagraphOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > insertParagraphOnlineWithHttpInfo(InsertParagraphOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertParagraphOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertParagraphOnlineAsync(InsertParagraphOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for insertParagraphWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertParagraphWithoutNodePathCall(InsertParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getParagraph();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertParagraphWithoutNodePathValidateBeforeCall(InsertParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertParagraphWithoutNodePath");
+        }
+
+        // verify the required parameter 'Paragraph' is set
+        if (request.getParagraph() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling insertParagraphWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File insertParagraphWithoutNodePath(InsertParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = insertParagraphWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = insertParagraphWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > insertParagraphWithoutNodePathWithHttpInfo(InsertParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertParagraphWithoutNodePathAsync(InsertParagraphWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
+     * Build call for insertParagraphWithoutNodePathOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertParagraphWithoutNodePathOnlineCall(InsertParagraphWithoutNodePathOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/paragraphs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        if (request.getParagraph() != null)
+            localVarFormParams.put("Paragraph", request.getParagraph());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertParagraphWithoutNodePathOnlineValidateBeforeCall(InsertParagraphWithoutNodePathOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling insertParagraphWithoutNodePathOnline");
+        }
+
+        // verify the required parameter 'Paragraph' is set
+        if (request.getParagraph() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling insertParagraphWithoutNodePathOnline");
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File insertParagraphWithoutNodePathOnline(InsertParagraphWithoutNodePathOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = insertParagraphWithoutNodePathOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = insertParagraphWithoutNodePathOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > insertParagraphWithoutNodePathOnlineWithHttpInfo(InsertParagraphWithoutNodePathOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds paragraph to document, returns added paragraph's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertParagraphWithoutNodePathOnlineAsync(InsertParagraphWithoutNodePathOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertParagraphWithoutNodePathOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -15627,21 +22194,19 @@ public class WordsApi {
         Object localVarPostBody = request.getRun();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "insertBeforeNode", request.getInsertBeforeNode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "insertBeforeNode", request.getInsertBeforeNode());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -15778,19 +22343,17 @@ public class WordsApi {
         Object localVarPostBody = request.getStyleInsert();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles/insert";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles/insert".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -15922,20 +22485,18 @@ public class WordsApi {
         Object localVarPostBody = request.getTable();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -15979,6 +22540,11 @@ public class WordsApi {
         // verify the required parameter 'Table' is set
         if (request.getTable() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Table' when calling insertTable");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling insertTable");
         }
 
         com.squareup.okhttp.Call call = insertTableCall(request, progressListener, progressRequestListener);
@@ -16067,20 +22633,18 @@ public class WordsApi {
         Object localVarPostBody = request.getCell();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -16217,20 +22781,18 @@ public class WordsApi {
         Object localVarPostBody = request.getRow();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -16356,6 +22918,148 @@ public class WordsApi {
     }
 
     /**
+     * Build call for insertTableWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call insertTableWithoutNodePathCall(InsertTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getTable();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/tables".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertTableWithoutNodePathValidateBeforeCall(InsertTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertTableWithoutNodePath");
+        }
+
+        // verify the required parameter 'Table' is set
+        if (request.getTable() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Table' when calling insertTableWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = insertTableWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Adds table to document, returns added table's data.
+     * @param request Request object
+     * @return TableResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TableResponse insertTableWithoutNodePath(InsertTableWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TableResponse > resp = insertTableWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TableResponse > resp = insertTableWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Adds table to document, returns added table's data.
+     * @param request Request object
+     * @return ApiResponse< TableResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TableResponse > insertTableWithoutNodePathWithHttpInfo(InsertTableWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = insertTableWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Adds table to document, returns added table's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertTableWithoutNodePathAsync(InsertTableWithoutNodePathRequest request, final ApiCallback< TableResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertTableWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for insertWatermarkImage
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -16367,21 +23071,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/images";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/watermarks/images".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "rotationAngle", request.getRotationAngle());
-        addParameterToQuery(localVarQueryParams, "image", request.getImage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "rotationAngle", request.getRotationAngle());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "image", request.getImage());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -16510,19 +23212,17 @@ public class WordsApi {
         Object localVarPostBody = request.getWatermarkText();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/texts";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/watermarks/texts".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -16655,11 +23355,10 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/loadWebDocument";
-        localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -16786,16 +23485,14 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/move/{srcPath}";
-        localVarPath = addParameterToPath(localVarPath, "srcPath", request.getSrcPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/move/{srcPath}".replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "destPath", request.getDestPath());
-        addParameterToQuery(localVarQueryParams, "srcStorageName", request.getSrcStorageName());
-        addParameterToQuery(localVarQueryParams, "destStorageName", request.getDestStorageName());
-        addParameterToQuery(localVarQueryParams, "versionId", request.getVersionId());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destPath", request.getDestPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "srcStorageName", request.getSrcStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destStorageName", request.getDestStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "versionId", request.getVersionId());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -16922,15 +23619,13 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/folder/move/{srcPath}";
-        localVarPath = addParameterToPath(localVarPath, "srcPath", request.getSrcPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/folder/move/{srcPath}".replaceAll("\\{" + "srcPath" + "\\}", request.getSrcPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "destPath", request.getDestPath());
-        addParameterToQuery(localVarQueryParams, "srcStorageName", request.getSrcStorageName());
-        addParameterToQuery(localVarQueryParams, "destStorageName", request.getDestStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destPath", request.getDestPath());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "srcStorageName", request.getSrcStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destStorageName", request.getDestStorageName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -17046,145 +23741,6 @@ public class WordsApi {
     }
 
     /**
-     * Build call for optimizeDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call optimizeDocumentCall(OptimizeDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getOptions();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/compatibility/optimize";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call optimizeDocumentValidateBeforeCall(OptimizeDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling optimizeDocument");
-        }
-
-        // verify the required parameter 'Options' is set
-        if (request.getOptions() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Options' when calling optimizeDocument");
-        }
-
-        com.squareup.okhttp.Call call = optimizeDocumentCall(request, progressListener, progressRequestListener);
-        return call;
-    }
-
-    /**
-     * Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
-     * @param request Request object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @throws IOException If fail to serialize the request body object
-     */
-    public void optimizeDocument(OptimizeDocumentRequest request) throws ApiException, IOException {
-        try {
-    optimizeDocumentWithHttpInfo(request);
-        }
-        catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
-                apiClient.requestToken();
-    optimizeDocumentWithHttpInfo(request);
-            }
-            throw ex;
-        }
-    }
-
-    /**
-     * Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
-     * @param request Request object
-     * @return ApiResponse< Void >;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @throws IOException If fail to serialize the request body object
-     */
-    private ApiResponse< Void > optimizeDocumentWithHttpInfo(OptimizeDocumentRequest request) throws ApiException, IOException {
-        com.squareup.okhttp.Call call = optimizeDocumentValidateBeforeCall(request, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word. (asynchronously)
-     * @param request Request object
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call optimizeDocumentAsync(OptimizeDocumentRequest request, final ApiCallback< Void > callback) throws ApiException, IOException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = optimizeDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-
-    /**
      * Build call for protectDocument
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -17196,17 +23752,15 @@ public class WordsApi {
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/protection";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/protection".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -17338,17 +23892,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/revisions/rejectAll";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/revisions/rejectAll".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -17475,19 +24027,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "rangeStartIdentifier", request.getRangeStartIdentifier());
-        localVarPath = addParameterToPath(localVarPath, "rangeEndIdentifier", request.getRangeEndIdentifier());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -17619,20 +24169,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -17676,6 +24224,11 @@ public class WordsApi {
         // verify the required parameter 'Format' is set
         if (request.getFormat() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderDrawingObject");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling renderDrawingObject");
         }
 
         // verify the required parameter 'Index' is set
@@ -17758,6 +24311,153 @@ public class WordsApi {
     }
 
     /**
+     * Build call for renderDrawingObjectWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathCall(RenderDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/drawingObjects/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathValidateBeforeCall(RenderDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderDrawingObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderDrawingObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderDrawingObjectWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = renderDrawingObjectWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Renders drawing object to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File renderDrawingObjectWithoutNodePath(RenderDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = renderDrawingObjectWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = renderDrawingObjectWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Renders drawing object to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > renderDrawingObjectWithoutNodePathWithHttpInfo(RenderDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = renderDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Renders drawing object to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call renderDrawingObjectWithoutNodePathAsync(RenderDrawingObjectWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = renderDrawingObjectWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for renderMathObject
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -17769,20 +24469,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -17826,6 +24524,11 @@ public class WordsApi {
         // verify the required parameter 'Format' is set
         if (request.getFormat() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderMathObject");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling renderMathObject");
         }
 
         // verify the required parameter 'Index' is set
@@ -17908,6 +24611,153 @@ public class WordsApi {
     }
 
     /**
+     * Build call for renderMathObjectWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call renderMathObjectWithoutNodePathCall(RenderMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/OfficeMathObjects/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call renderMathObjectWithoutNodePathValidateBeforeCall(RenderMathObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderMathObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderMathObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderMathObjectWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = renderMathObjectWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Renders math object to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File renderMathObjectWithoutNodePath(RenderMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = renderMathObjectWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = renderMathObjectWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Renders math object to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > renderMathObjectWithoutNodePathWithHttpInfo(RenderMathObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = renderMathObjectWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Renders math object to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call renderMathObjectWithoutNodePathAsync(RenderMathObjectWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = renderMathObjectWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for renderPage
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -17919,19 +24769,17 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/pages/{pageIndex}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "pageIndex", request.getPageIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/pages/{pageIndex}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "pageIndex" + "\\}", request.getPageIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -18068,20 +24916,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -18125,6 +24971,11 @@ public class WordsApi {
         // verify the required parameter 'Format' is set
         if (request.getFormat() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderParagraph");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling renderParagraph");
         }
 
         // verify the required parameter 'Index' is set
@@ -18207,6 +25058,153 @@ public class WordsApi {
     }
 
     /**
+     * Build call for renderParagraphWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call renderParagraphWithoutNodePathCall(RenderParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call renderParagraphWithoutNodePathValidateBeforeCall(RenderParagraphWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderParagraphWithoutNodePath");
+        }
+
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderParagraphWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderParagraphWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = renderParagraphWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Renders paragraph to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File renderParagraphWithoutNodePath(RenderParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = renderParagraphWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = renderParagraphWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Renders paragraph to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > renderParagraphWithoutNodePathWithHttpInfo(RenderParagraphWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = renderParagraphWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Renders paragraph to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call renderParagraphWithoutNodePathAsync(RenderParagraphWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = renderParagraphWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for renderTable
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -18218,20 +25216,18 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -18275,6 +25271,11 @@ public class WordsApi {
         // verify the required parameter 'Format' is set
         if (request.getFormat() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderTable");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling renderTable");
         }
 
         // verify the required parameter 'Index' is set
@@ -18357,6 +25358,153 @@ public class WordsApi {
     }
 
     /**
+     * Build call for renderTableWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call renderTableWithoutNodePathCall(RenderTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/tables/{index}/render".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call renderTableWithoutNodePathValidateBeforeCall(RenderTableWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderTableWithoutNodePath");
+        }
+
+        // verify the required parameter 'Format' is set
+        if (request.getFormat() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderTableWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderTableWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = renderTableWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Renders table to specified format.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File renderTableWithoutNodePath(RenderTableWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = renderTableWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = renderTableWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Renders table to specified format.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > renderTableWithoutNodePathWithHttpInfo(RenderTableWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = renderTableWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Renders table to specified format. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call renderTableWithoutNodePathAsync(RenderTableWithoutNodePathRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = renderTableWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for replaceText
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -18368,19 +25516,17 @@ public class WordsApi {
         Object localVarPostBody = request.getReplaceText();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/replaceText";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/replaceText".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -18512,19 +25658,17 @@ public class WordsApi {
         Object localVarPostBody = request.getRangeText();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "rangeStartIdentifier", request.getRangeStartIdentifier());
-        localVarPath = addParameterToPath(localVarPath, "rangeEndIdentifier", request.getRangeEndIdentifier());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -18662,7 +25806,6 @@ public class WordsApi {
 
         // create path and map variables
         String localVarPath = "/words/fonts/cache";
-        localVarPath = localVarPath.replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -18783,17 +25926,15 @@ public class WordsApi {
         Object localVarPostBody = request.getSaveOptionsData();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/saveAs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/saveAs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -18914,6 +26055,147 @@ public class WordsApi {
     }
 
     /**
+     * Build call for saveAsOnline
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call saveAsOnlineCall(SaveAsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/online/saveAs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDocument() != null)
+            localVarFormParams.put("Document", request.getDocument());
+
+        if (request.getSaveOptionsData() != null)
+            localVarFormParams.put("SaveOptionsData", request.getSaveOptionsData());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call saveAsOnlineValidateBeforeCall(SaveAsOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Document' is set
+        if (request.getDocument() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling saveAsOnline");
+        }
+
+        // verify the required parameter 'SaveOptionsData' is set
+        if (request.getSaveOptionsData() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'SaveOptionsData' when calling saveAsOnline");
+        }
+
+        com.squareup.okhttp.Call call = saveAsOnlineCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Converts document to destination format with detailed settings and saves result to storage.
+     * @param request Request object
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public File saveAsOnline(SaveAsOnlineRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< File > resp = saveAsOnlineWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< File > resp = saveAsOnlineWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Converts document to destination format with detailed settings and saves result to storage.
+     * @param request Request object
+     * @return ApiResponse< File >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< File > saveAsOnlineWithHttpInfo(SaveAsOnlineRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = saveAsOnlineValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Converts document to destination format with detailed settings and saves result to storage. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call saveAsOnlineAsync(SaveAsOnlineRequest request, final ApiCallback< File > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = saveAsOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< File >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for saveAsRange
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -18925,18 +26207,16 @@ public class WordsApi {
         Object localVarPostBody = request.getDocumentParameters();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "rangeStartIdentifier", request.getRangeStartIdentifier());
-        localVarPath = addParameterToPath(localVarPath, "rangeEndIdentifier", request.getRangeEndIdentifier());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeStartIdentifier" + "\\}", request.getRangeStartIdentifier().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "rangeEndIdentifier" + "\\}", request.getRangeEndIdentifier().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -19073,34 +26353,32 @@ public class WordsApi {
         Object localVarPostBody = request.getSaveOptions();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/saveAs/tiff";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/saveAs/tiff".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "useAntiAliasing", request.getUseAntiAliasing());
-        addParameterToQuery(localVarQueryParams, "useHighQualityRendering", request.getUseHighQualityRendering());
-        addParameterToQuery(localVarQueryParams, "imageBrightness", request.getImageBrightness());
-        addParameterToQuery(localVarQueryParams, "imageColorMode", request.getImageColorMode());
-        addParameterToQuery(localVarQueryParams, "imageContrast", request.getImageContrast());
-        addParameterToQuery(localVarQueryParams, "numeralFormat", request.getNumeralFormat());
-        addParameterToQuery(localVarQueryParams, "pageCount", request.getPageCount());
-        addParameterToQuery(localVarQueryParams, "pageIndex", request.getPageIndex());
-        addParameterToQuery(localVarQueryParams, "paperColor", request.getPaperColor());
-        addParameterToQuery(localVarQueryParams, "pixelFormat", request.getPixelFormat());
-        addParameterToQuery(localVarQueryParams, "resolution", request.getResolution());
-        addParameterToQuery(localVarQueryParams, "scale", request.getScale());
-        addParameterToQuery(localVarQueryParams, "tiffCompression", request.getTiffCompression());
-        addParameterToQuery(localVarQueryParams, "dmlRenderingMode", request.getDmlRenderingMode());
-        addParameterToQuery(localVarQueryParams, "dmlEffectsRenderingMode", request.getDmlEffectsRenderingMode());
-        addParameterToQuery(localVarQueryParams, "tiffBinarizationMethod", request.getTiffBinarizationMethod());
-        addParameterToQuery(localVarQueryParams, "zipOutput", request.getZipOutput());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useAntiAliasing", request.getUseAntiAliasing());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "useHighQualityRendering", request.getUseHighQualityRendering());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageBrightness", request.getImageBrightness());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageColorMode", request.getImageColorMode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "imageContrast", request.getImageContrast());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "numeralFormat", request.getNumeralFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pageCount", request.getPageCount());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pageIndex", request.getPageIndex());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "paperColor", request.getPaperColor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pixelFormat", request.getPixelFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "resolution", request.getResolution());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "scale", request.getScale());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "tiffCompression", request.getTiffCompression());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "dmlRenderingMode", request.getDmlRenderingMode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "dmlEffectsRenderingMode", request.getDmlEffectsRenderingMode());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "tiffBinarizationMethod", request.getTiffBinarizationMethod());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "zipOutput", request.getZipOutput());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -19232,17 +26510,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/search";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/search".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "pattern", request.getPattern());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "pattern", request.getPattern());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -19374,22 +26650,20 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/split";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/split".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "from", request.getFrom());
-        addParameterToQuery(localVarQueryParams, "to", request.getTo());
-        addParameterToQuery(localVarQueryParams, "zipOutput", request.getZipOutput());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "format", request.getFormat());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "from", request.getFrom());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "to", request.getTo());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "zipOutput", request.getZipOutput());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fontsLocation", request.getFontsLocation());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -19521,17 +26795,15 @@ public class WordsApi {
         Object localVarPostBody = request.getProtectionRequest();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/protection";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/protection".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -19663,20 +26935,18 @@ public class WordsApi {
         Object localVarPostBody = request.getBookmarkData();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "bookmarkName", request.getBookmarkName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "bookmarkName" + "\\}", request.getBookmarkName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -19813,21 +27083,19 @@ public class WordsApi {
         Object localVarPostBody = request.getBorderProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "borderType", request.getBorderType());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "borderType" + "\\}", request.getBorderType().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -19871,6 +27139,11 @@ public class WordsApi {
         // verify the required parameter 'BorderProperties' is set
         if (request.getBorderProperties() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'BorderProperties' when calling updateBorder");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateBorder");
         }
 
         // verify the required parameter 'BorderType' is set
@@ -19964,20 +27237,18 @@ public class WordsApi {
         Object localVarPostBody = request.getComment();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "commentIndex", request.getCommentIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/comments/{commentIndex}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "commentIndex" + "\\}", request.getCommentIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -20114,21 +27385,19 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -20182,6 +27451,11 @@ public class WordsApi {
         // verify the required parameter 'ImageFile' is set
         if (request.getImageFile() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling updateDrawingObject");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateDrawingObject");
         }
 
         // verify the required parameter 'Index' is set
@@ -20264,6 +27538,164 @@ public class WordsApi {
     }
 
     /**
+     * Build call for updateDrawingObjectWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathCall(UpdateDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/drawingObjects/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        if (request.getDrawingObject() != null)
+            localVarFormParams.put("DrawingObject", request.getDrawingObject());
+
+        if (request.getImageFile() != null)
+            localVarFormParams.put("ImageFile", request.getImageFile());
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "multipart/form-data"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathValidateBeforeCall(UpdateDrawingObjectWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateDrawingObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'DrawingObject' is set
+        if (request.getDrawingObject() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'DrawingObject' when calling updateDrawingObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'ImageFile' is set
+        if (request.getImageFile() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling updateDrawingObjectWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateDrawingObjectWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = updateDrawingObjectWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Updates drawing object, returns updated  drawing object's data.
+     * @param request Request object
+     * @return DrawingObjectResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public DrawingObjectResponse updateDrawingObjectWithoutNodePath(UpdateDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< DrawingObjectResponse > resp = updateDrawingObjectWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< DrawingObjectResponse > resp = updateDrawingObjectWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates drawing object, returns updated  drawing object's data.
+     * @param request Request object
+     * @return ApiResponse< DrawingObjectResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< DrawingObjectResponse > updateDrawingObjectWithoutNodePathWithHttpInfo(UpdateDrawingObjectWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateDrawingObjectWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates drawing object, returns updated  drawing object's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateDrawingObjectWithoutNodePathAsync(UpdateDrawingObjectWithoutNodePathRequest request, final ApiCallback< DrawingObjectResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateDrawingObjectWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for updateField
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -20275,21 +27707,19 @@ public class WordsApi {
         Object localVarPostBody = request.getField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/fields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -20333,6 +27763,11 @@ public class WordsApi {
         // verify the required parameter 'Field' is set
         if (request.getField() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling updateField");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateField");
         }
 
         // verify the required parameter 'Index' is set
@@ -20426,17 +27861,15 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/{name}/updateFields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/updateFields".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -20563,21 +27996,19 @@ public class WordsApi {
         Object localVarPostBody = request.getFootnoteDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -20621,6 +28052,11 @@ public class WordsApi {
         // verify the required parameter 'FootnoteDto' is set
         if (request.getFootnoteDto() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling updateFootnote");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateFootnote");
         }
 
         // verify the required parameter 'Index' is set
@@ -20703,6 +28139,154 @@ public class WordsApi {
     }
 
     /**
+     * Build call for updateFootnoteWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateFootnoteWithoutNodePathCall(UpdateFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getFootnoteDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/footnotes/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateFootnoteWithoutNodePathValidateBeforeCall(UpdateFootnoteWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateFootnoteWithoutNodePath");
+        }
+
+        // verify the required parameter 'FootnoteDto' is set
+        if (request.getFootnoteDto() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling updateFootnoteWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateFootnoteWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = updateFootnoteWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Updates footnote's properties, returns updated run's data.
+     * @param request Request object
+     * @return FootnoteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FootnoteResponse updateFootnoteWithoutNodePath(UpdateFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FootnoteResponse > resp = updateFootnoteWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FootnoteResponse > resp = updateFootnoteWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates footnote's properties, returns updated run's data.
+     * @param request Request object
+     * @return ApiResponse< FootnoteResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FootnoteResponse > updateFootnoteWithoutNodePathWithHttpInfo(UpdateFootnoteWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateFootnoteWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates footnote's properties, returns updated run's data. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateFootnoteWithoutNodePathAsync(UpdateFootnoteWithoutNodePathRequest request, final ApiCallback< FootnoteResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateFootnoteWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for updateFormField
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -20714,21 +28298,19 @@ public class WordsApi {
         Object localVarPostBody = request.getFormField();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -20772,6 +28354,11 @@ public class WordsApi {
         // verify the required parameter 'FormField' is set
         if (request.getFormField() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling updateFormField");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateFormField");
         }
 
         // verify the required parameter 'Index' is set
@@ -20854,6 +28441,154 @@ public class WordsApi {
     }
 
     /**
+     * Build call for updateFormFieldWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateFormFieldWithoutNodePathCall(UpdateFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getFormField();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/formfields/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateFormFieldWithoutNodePathValidateBeforeCall(UpdateFormFieldWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateFormFieldWithoutNodePath");
+        }
+
+        // verify the required parameter 'FormField' is set
+        if (request.getFormField() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling updateFormFieldWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateFormFieldWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = updateFormFieldWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Updates properties of form field, returns updated form field.
+     * @param request Request object
+     * @return FormFieldResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public FormFieldResponse updateFormFieldWithoutNodePath(UpdateFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< FormFieldResponse > resp = updateFormFieldWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< FormFieldResponse > resp = updateFormFieldWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates properties of form field, returns updated form field.
+     * @param request Request object
+     * @return ApiResponse< FormFieldResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< FormFieldResponse > updateFormFieldWithoutNodePathWithHttpInfo(UpdateFormFieldWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateFormFieldWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates properties of form field, returns updated form field. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateFormFieldWithoutNodePathAsync(UpdateFormFieldWithoutNodePathRequest request, final ApiCallback< FormFieldResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateFormFieldWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for updateList
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -20865,20 +28600,18 @@ public class WordsApi {
         Object localVarPostBody = request.getListUpdate();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "listId", request.getListId());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists/{listId}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -21015,21 +28748,19 @@ public class WordsApi {
         Object localVarPostBody = request.getListUpdate();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "listId", request.getListId());
-        localVarPath = addParameterToPath(localVarPath, "listLevel", request.getListLevel());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "listId" + "\\}", request.getListId().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "listLevel" + "\\}", request.getListLevel().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -21171,21 +28902,19 @@ public class WordsApi {
         Object localVarPostBody = request.getDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -21229,6 +28958,11 @@ public class WordsApi {
         // verify the required parameter 'Dto' is set
         if (request.getDto() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphFormat");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateParagraphFormat");
         }
 
         // verify the required parameter 'Index' is set
@@ -21322,21 +29056,19 @@ public class WordsApi {
         Object localVarPostBody = request.getDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -21380,6 +29112,11 @@ public class WordsApi {
         // verify the required parameter 'Dto' is set
         if (request.getDto() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphListFormat");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateParagraphListFormat");
         }
 
         // verify the required parameter 'Index' is set
@@ -21462,6 +29199,154 @@ public class WordsApi {
     }
 
     /**
+     * Build call for updateParagraphListFormatWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathCall(UpdateParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getDto();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/paragraphs/{index}/listFormat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathValidateBeforeCall(UpdateParagraphListFormatWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateParagraphListFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Dto' is set
+        if (request.getDto() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphListFormatWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateParagraphListFormatWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Updates paragraph list format properties, returns updated list format properties.
+     * @param request Request object
+     * @return ParagraphListFormatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public ParagraphListFormatResponse updateParagraphListFormatWithoutNodePath(UpdateParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< ParagraphListFormatResponse > resp = updateParagraphListFormatWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< ParagraphListFormatResponse > resp = updateParagraphListFormatWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates paragraph list format properties, returns updated list format properties.
+     * @param request Request object
+     * @return ApiResponse< ParagraphListFormatResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< ParagraphListFormatResponse > updateParagraphListFormatWithoutNodePathWithHttpInfo(UpdateParagraphListFormatWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates paragraph list format properties, returns updated list format properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateParagraphListFormatWithoutNodePathAsync(UpdateParagraphListFormatWithoutNodePathRequest request, final ApiCallback< ParagraphListFormatResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateParagraphListFormatWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for updateRun
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -21473,21 +29358,19 @@ public class WordsApi {
         Object localVarPostBody = request.getRun();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -21629,21 +29512,19 @@ public class WordsApi {
         Object localVarPostBody = request.getFontDto();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "paragraphPath" + "\\}", request.getParagraphPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -21785,20 +29666,18 @@ public class WordsApi {
         Object localVarPostBody = request.getPageSetup();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "sectionIndex" + "\\}", request.getSectionIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -21935,20 +29814,18 @@ public class WordsApi {
         Object localVarPostBody = request.getStyleUpdate();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/styles/{styleName}/update";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "styleName", request.getStyleName());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/styles/{styleName}/update".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "styleName" + "\\}", request.getStyleName().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -22085,21 +29962,19 @@ public class WordsApi {
         Object localVarPostBody = request.getFormat();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tableRowPath" + "\\}", request.getTableRowPath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -22241,21 +30116,19 @@ public class WordsApi {
         Object localVarPostBody = request.getProperties();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "nodePath" + "\\}", request.getNodePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -22299,6 +30172,11 @@ public class WordsApi {
         // verify the required parameter 'Properties' is set
         if (request.getProperties() == null) {
             throw new ApiException(BadRequest, "Missing the required parameter 'Properties' when calling updateTableProperties");
+        }
+
+        // verify the required parameter 'NodePath' is set
+        if (request.getNodePath() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'NodePath' when calling updateTableProperties");
         }
 
         // verify the required parameter 'Index' is set
@@ -22381,6 +30259,154 @@ public class WordsApi {
     }
 
     /**
+     * Build call for updateTablePropertiesWithoutNodePath
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathCall(UpdateTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        Object localVarPostBody = request.getProperties();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/tables/{index}/properties".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathValidateBeforeCall(UpdateTablePropertiesWithoutNodePathRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        // verify the required parameter 'Name' is set
+        if (request.getName() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateTablePropertiesWithoutNodePath");
+        }
+
+        // verify the required parameter 'Properties' is set
+        if (request.getProperties() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Properties' when calling updateTablePropertiesWithoutNodePath");
+        }
+
+        // verify the required parameter 'Index' is set
+        if (request.getIndex() == null) {
+            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTablePropertiesWithoutNodePath");
+        }
+
+        com.squareup.okhttp.Call call = updateTablePropertiesWithoutNodePathCall(request, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Updates a table properties.
+     * @param request Request object
+     * @return TablePropertiesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    public TablePropertiesResponse updateTablePropertiesWithoutNodePath(UpdateTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
+        try {
+            ApiResponse< TablePropertiesResponse > resp = updateTablePropertiesWithoutNodePathWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse< TablePropertiesResponse > resp = updateTablePropertiesWithoutNodePathWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Updates a table properties.
+     * @param request Request object
+     * @return ApiResponse< TablePropertiesResponse >;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws IOException If fail to serialize the request body object
+     */
+    private ApiResponse< TablePropertiesResponse > updateTablePropertiesWithoutNodePathWithHttpInfo(UpdateTablePropertiesWithoutNodePathRequest request) throws ApiException, IOException {
+        com.squareup.okhttp.Call call = updateTablePropertiesWithoutNodePathValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Updates a table properties. (asynchronously)
+     * @param request Request object
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateTablePropertiesWithoutNodePathAsync(UpdateTablePropertiesWithoutNodePathRequest request, final ApiCallback< TablePropertiesResponse > callback) throws ApiException, IOException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateTablePropertiesWithoutNodePathValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+
+    /**
      * Build call for updateTableRowFormat
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -22392,21 +30418,19 @@ public class WordsApi {
         Object localVarPostBody = request.getFormat();
 
         // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat".replaceAll("\\{" + "name" + "\\}", request.getName().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "tablePath" + "\\}", request.getTablePath().toString()).replaceAll("//", "/")
+    .replaceAll("\\{" + "index" + "\\}", request.getIndex().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getFolder());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getStorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "loadEncoding", request.getLoadEncoding());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "password", request.getPassword());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "destFileName", request.getDestFileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionAuthor", request.getRevisionAuthor());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "revisionDateTime", request.getRevisionDateTime());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -22548,13 +30572,11 @@ public class WordsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/words/storage/file/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
+        String localVarPath = "/words/storage/file/{path}".replaceAll("\\{" + "path" + "\\}", request.getPath().toString()).replaceAll("//", "/");
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storageName", request.getStorageName());
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -22676,11 +30698,7 @@ public class WordsApi {
         return call;
     }
 
-    private void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
-        queryParams.addAll(apiClient.parameterToPair(paramName, paramValue));
-    }
-
-    private String addParameterToPath(String path, String paramName, Object paramValue) {
+    private String addParameterToQuery(List<Pair> queryParams, String path, String paramName, Object paramValue) {
         if (path.contains("{" + paramName + "}")) {
             if (paramValue == null || paramValue.equals("")) {
                 return path.replace("{" + paramName + "}", "");
@@ -22690,6 +30708,7 @@ public class WordsApi {
             }
         }
 
+        queryParams.addAll(apiClient.parameterToPair(paramName, paramValue));
         return path;
     }
 }

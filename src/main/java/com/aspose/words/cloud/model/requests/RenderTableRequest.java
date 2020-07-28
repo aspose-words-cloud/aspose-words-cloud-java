@@ -45,14 +45,14 @@ public class RenderTableRequest {
     private String format;
 
     /*
-     * Object index.
-     */
-    private Integer index;
-
-    /*
      * Path to the node, which contains tables.
      */
     private String nodePath;
+
+    /*
+     * Object index.
+     */
+    private Integer index;
 
     /*
      * Original document folder.
@@ -84,19 +84,19 @@ public class RenderTableRequest {
      *
      * @param String name The document name.
      * @param String format The destination format.
-     * @param Integer index Object index.
      * @param String nodePath Path to the node, which contains tables.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderTableRequest(String name, String format, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String fontsLocation) {
+    public RenderTableRequest(String name, String format, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password, String fontsLocation) {
         this.name = name;
         this.format = format;
-        this.index = index;
         this.nodePath = nodePath;
+        this.index = index;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -133,20 +133,6 @@ public class RenderTableRequest {
     }
 
     /*
-     * Gets Object index.
-     */
-    public Integer getIndex() {
-        return this.index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        this.index = value;
-    }
-
-    /*
      * Gets Path to the node, which contains tables.
      */
     public String getNodePath() {
@@ -158,6 +144,20 @@ public class RenderTableRequest {
      */
     public void setNodePath(String value) {
         this.nodePath = value;
+    }
+
+    /*
+     * Gets Object index.
+     */
+    public Integer getIndex() {
+        return this.index;
+    }
+
+    /*
+     * Sets Object index.
+     */
+    public void setIndex(Integer value) {
+        this.index = value;
     }
 
     /*

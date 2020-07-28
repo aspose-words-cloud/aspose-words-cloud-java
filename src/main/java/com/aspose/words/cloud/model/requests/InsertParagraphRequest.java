@@ -40,14 +40,14 @@ public class InsertParagraphRequest {
     private String name;
 
     /*
-     * Paragraph data.
-     */
-    private ParagraphInsert paragraph;
-
-    /*
      * Path to the node which contains paragraphs.
      */
     private String nodePath;
+
+    /*
+     * Paragraph data.
+     */
+    private ParagraphInsert paragraph;
 
     /*
      * Original document folder.
@@ -93,8 +93,8 @@ public class InsertParagraphRequest {
      * Initializes a new instance of the InsertParagraphRequest class.
      *
      * @param String name The document name.
-     * @param ParagraphInsert paragraph Paragraph data.
      * @param String nodePath Path to the node which contains paragraphs.
+     * @param ParagraphInsert paragraph Paragraph data.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -104,10 +104,10 @@ public class InsertParagraphRequest {
      * @param String revisionDateTime The date and time to use for revisions.
      * @param String insertBeforeNode Paragraph will be inserted before node with index.
      */
-    public InsertParagraphRequest(String name, ParagraphInsert paragraph, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, String insertBeforeNode) {
+    public InsertParagraphRequest(String name, String nodePath, ParagraphInsert paragraph, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, String insertBeforeNode) {
         this.name = name;
-        this.paragraph = paragraph;
         this.nodePath = nodePath;
+        this.paragraph = paragraph;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -133,20 +133,6 @@ public class InsertParagraphRequest {
     }
 
     /*
-     * Gets Paragraph data.
-     */
-    public ParagraphInsert getParagraph() {
-        return this.paragraph;
-    }
-
-    /*
-     * Sets Paragraph data.
-     */
-    public void setParagraph(ParagraphInsert value) {
-        this.paragraph = value;
-    }
-
-    /*
      * Gets Path to the node which contains paragraphs.
      */
     public String getNodePath() {
@@ -158,6 +144,20 @@ public class InsertParagraphRequest {
      */
     public void setNodePath(String value) {
         this.nodePath = value;
+    }
+
+    /*
+     * Gets Paragraph data.
+     */
+    public ParagraphInsert getParagraph() {
+        return this.paragraph;
+    }
+
+    /*
+     * Sets Paragraph data.
+     */
+    public void setParagraph(ParagraphInsert value) {
+        this.paragraph = value;
     }
 
     /*

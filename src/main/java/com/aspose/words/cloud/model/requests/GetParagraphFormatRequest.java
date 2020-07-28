@@ -40,14 +40,14 @@ public class GetParagraphFormatRequest {
     private String name;
 
     /*
-     * Object index.
-     */
-    private Integer index;
-
-    /*
      * Path to the node which contains paragraphs.
      */
     private String nodePath;
+
+    /*
+     * Object index.
+     */
+    private Integer index;
 
     /*
      * Original document folder.
@@ -73,17 +73,17 @@ public class GetParagraphFormatRequest {
      * Initializes a new instance of the GetParagraphFormatRequest class.
      *
      * @param String name The document name.
-     * @param Integer index Object index.
      * @param String nodePath Path to the node which contains paragraphs.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetParagraphFormatRequest(String name, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password) {
+    public GetParagraphFormatRequest(String name, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password) {
         this.name = name;
-        this.index = index;
         this.nodePath = nodePath;
+        this.index = index;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -105,20 +105,6 @@ public class GetParagraphFormatRequest {
     }
 
     /*
-     * Gets Object index.
-     */
-    public Integer getIndex() {
-        return this.index;
-    }
-
-    /*
-     * Sets Object index.
-     */
-    public void setIndex(Integer value) {
-        this.index = value;
-    }
-
-    /*
      * Gets Path to the node which contains paragraphs.
      */
     public String getNodePath() {
@@ -130,6 +116,20 @@ public class GetParagraphFormatRequest {
      */
     public void setNodePath(String value) {
         this.nodePath = value;
+    }
+
+    /*
+     * Gets Object index.
+     */
+    public Integer getIndex() {
+        return this.index;
+    }
+
+    /*
+     * Sets Object index.
+     */
+    public void setIndex(Integer value) {
+        this.index = value;
     }
 
     /*

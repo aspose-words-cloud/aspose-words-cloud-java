@@ -40,14 +40,14 @@ public class GetBorderRequest {
     private String name;
 
     /*
-     * Border type.
-     */
-    private String borderType;
-
-    /*
      * Path to the node with border(node should be paragraph, cell or row).
      */
     private String nodePath;
+
+    /*
+     * Border type.
+     */
+    private String borderType;
 
     /*
      * Original document folder.
@@ -73,17 +73,17 @@ public class GetBorderRequest {
      * Initializes a new instance of the GetBorderRequest class.
      *
      * @param String name The document name.
-     * @param String borderType Border type.
      * @param String nodePath Path to the node with border(node should be paragraph, cell or row).
+     * @param String borderType Border type.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetBorderRequest(String name, String borderType, String nodePath, String folder, String storage, String loadEncoding, String password) {
+    public GetBorderRequest(String name, String nodePath, String borderType, String folder, String storage, String loadEncoding, String password) {
         this.name = name;
-        this.borderType = borderType;
         this.nodePath = nodePath;
+        this.borderType = borderType;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -105,20 +105,6 @@ public class GetBorderRequest {
     }
 
     /*
-     * Gets Border type.
-     */
-    public String getBorderType() {
-        return this.borderType;
-    }
-
-    /*
-     * Sets Border type.
-     */
-    public void setBorderType(String value) {
-        this.borderType = value;
-    }
-
-    /*
      * Gets Path to the node with border(node should be paragraph, cell or row).
      */
     public String getNodePath() {
@@ -130,6 +116,20 @@ public class GetBorderRequest {
      */
     public void setNodePath(String value) {
         this.nodePath = value;
+    }
+
+    /*
+     * Gets Border type.
+     */
+    public String getBorderType() {
+        return this.borderType;
+    }
+
+    /*
+     * Sets Border type.
+     */
+    public void setBorderType(String value) {
+        this.borderType = value;
     }
 
     /*

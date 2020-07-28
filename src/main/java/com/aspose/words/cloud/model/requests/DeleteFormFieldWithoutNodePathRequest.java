@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="OptimizeDocumentRequest.java">
+ * <copyright company="Aspose" file="DeleteFormFieldWithoutNodePathRequest.java">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -31,18 +31,18 @@ import com.aspose.words.cloud.model.*;
 import java.io.File;
 
 /*
- * Request model for optimizeDocument operation.
+ * Request model for deleteFormFieldWithoutNodePath operation.
  */
-public class OptimizeDocumentRequest {
+public class DeleteFormFieldWithoutNodePathRequest {
     /*
      * The document name.
      */
     private String name;
 
     /*
-     * The document optimization options.
+     * Object index.
      */
-    private OptimizationOptions options;
+    private Integer index;
 
     /*
      * Original document folder.
@@ -80,10 +80,10 @@ public class OptimizeDocumentRequest {
     private String revisionDateTime;
 
     /*
-     * Initializes a new instance of the OptimizeDocumentRequest class.
+     * Initializes a new instance of the DeleteFormFieldWithoutNodePathRequest class.
      *
      * @param String name The document name.
-     * @param OptimizationOptions options The document optimization options.
+     * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -92,9 +92,9 @@ public class OptimizeDocumentRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public OptimizeDocumentRequest(String name, OptimizationOptions options, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public DeleteFormFieldWithoutNodePathRequest(String name, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
-        this.options = options;
+        this.index = index;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -119,17 +119,17 @@ public class OptimizeDocumentRequest {
     }
 
     /*
-     * Gets The document optimization options.
+     * Gets Object index.
      */
-    public OptimizationOptions getOptions() {
-        return this.options;
+    public Integer getIndex() {
+        return this.index;
     }
 
     /*
-     * Sets The document optimization options.
+     * Sets Object index.
      */
-    public void setOptions(OptimizationOptions value) {
-        this.options = value;
+    public void setIndex(Integer value) {
+        this.index = value;
     }
 
     /*

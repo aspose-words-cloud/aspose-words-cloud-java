@@ -35,11 +35,6 @@ import java.io.File;
  */
 public class CreateDocumentRequest {
     /*
-     * Original document storage.
-     */
-    private String storage;
-
-    /*
      * The document name.
      */
     private String fileName;
@@ -50,30 +45,21 @@ public class CreateDocumentRequest {
     private String folder;
 
     /*
+     * Original document storage.
+     */
+    private String storage;
+
+    /*
      * Initializes a new instance of the CreateDocumentRequest class.
      *
-     * @param String storage Original document storage.
      * @param String fileName The document name.
      * @param String folder The document folder.
+     * @param String storage Original document storage.
      */
-    public CreateDocumentRequest(String storage, String fileName, String folder) {
-        this.storage = storage;
+    public CreateDocumentRequest(String fileName, String folder, String storage) {
         this.fileName = fileName;
         this.folder = folder;
-    }
-
-    /*
-     * Gets Original document storage.
-     */
-    public String getStorage() {
-        return this.storage;
-    }
-
-    /*
-     * Sets Original document storage.
-     */
-    public void setStorage(String value) {
-        this.storage = value;
+        this.storage = storage;
     }
 
     /*
@@ -102,5 +88,19 @@ public class CreateDocumentRequest {
      */
     public void setFolder(String value) {
         this.folder = value;
+    }
+
+    /*
+     * Gets Original document storage.
+     */
+    public String getStorage() {
+        return this.storage;
+    }
+
+    /*
+     * Sets Original document storage.
+     */
+    public void setStorage(String value) {
+        this.storage = value;
     }
 }
