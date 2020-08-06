@@ -92,15 +92,16 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetTablesWithoutNodePathRequest request = new GetTablesWithoutNodePathRequest(
+        GetTablesRequest request = new GetTablesRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        TableLinkCollectionResponse result = TestInitializer.wordsApi.getTablesWithoutNodePath(request);
+        TableLinkCollectionResponse result = TestInitializer.wordsApi.getTables(request);
         assertNotNull(result);
     }
 
@@ -119,8 +120,8 @@ public class TestTable  extends TestCase
 
         GetTableRequest request = new GetTableRequest(
             remoteFileName,
-            "",
             1,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -144,16 +145,17 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetTableWithoutNodePathRequest request = new GetTableWithoutNodePathRequest(
+        GetTableRequest request = new GetTableRequest(
             remoteFileName,
             1,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        TableResponse result = TestInitializer.wordsApi.getTableWithoutNodePath(request);
+        TableResponse result = TestInitializer.wordsApi.getTable(request);
         assertNotNull(result);
     }
 
@@ -172,8 +174,8 @@ public class TestTable  extends TestCase
 
         DeleteTableRequest request = new DeleteTableRequest(
             remoteFileName,
-            "",
             1,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -199,9 +201,10 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteTableWithoutNodePathRequest request = new DeleteTableWithoutNodePathRequest(
+        DeleteTableRequest request = new DeleteTableRequest(
             remoteFileName,
             1,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -211,7 +214,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteTableWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteTable(request);
     }
 
     /*
@@ -265,9 +268,10 @@ public class TestTable  extends TestCase
         requestTable.setColumnsCount(5);
         requestTable.setRowsCount(4);
 
-        InsertTableWithoutNodePathRequest request = new InsertTableWithoutNodePathRequest(
+        InsertTableRequest request = new InsertTableRequest(
             remoteFileName,
             requestTable,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -277,7 +281,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        TableResponse result = TestInitializer.wordsApi.insertTableWithoutNodePath(request);
+        TableResponse result = TestInitializer.wordsApi.insertTable(request);
         assertNotNull(result);
     }
 
@@ -296,8 +300,8 @@ public class TestTable  extends TestCase
 
         GetTablePropertiesRequest request = new GetTablePropertiesRequest(
             remoteFileName,
-            "",
             1,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -321,16 +325,17 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetTablePropertiesWithoutNodePathRequest request = new GetTablePropertiesWithoutNodePathRequest(
+        GetTablePropertiesRequest request = new GetTablePropertiesRequest(
             remoteFileName,
             1,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        TablePropertiesResponse result = TestInitializer.wordsApi.getTablePropertiesWithoutNodePath(request);
+        TablePropertiesResponse result = TestInitializer.wordsApi.getTableProperties(request);
         assertNotNull(result);
     }
 
@@ -358,8 +363,8 @@ public class TestTable  extends TestCase
         UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(
             remoteFileName,
             requestProperties,
-            "",
             1,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -394,10 +399,11 @@ public class TestTable  extends TestCase
         requestProperties.setCellSpacing((double)2);
         requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
-        UpdateTablePropertiesWithoutNodePathRequest request = new UpdateTablePropertiesWithoutNodePathRequest(
+        UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(
             remoteFileName,
             requestProperties,
             1,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -407,7 +413,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        TablePropertiesResponse result = TestInitializer.wordsApi.updateTablePropertiesWithoutNodePath(request);
+        TablePropertiesResponse result = TestInitializer.wordsApi.updateTableProperties(request);
         assertNotNull(result);
     }
 
@@ -732,8 +738,8 @@ public class TestTable  extends TestCase
         RenderTableRequest request = new RenderTableRequest(
             remoteFileName,
             "png",
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -758,10 +764,11 @@ public class TestTable  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        RenderTableWithoutNodePathRequest request = new RenderTableWithoutNodePathRequest(
+        RenderTableRequest request = new RenderTableRequest(
             remoteFileName,
             "png",
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -769,7 +776,7 @@ public class TestTable  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderTableWithoutNodePath(request);
+        File result = TestInitializer.wordsApi.renderTable(request);
         assertNotNull(result);
     }
 }

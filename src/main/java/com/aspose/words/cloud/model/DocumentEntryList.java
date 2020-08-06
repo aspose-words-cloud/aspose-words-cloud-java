@@ -47,8 +47,29 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Represents a list of documents which will be appended to the original resource document.")
 public class DocumentEntryList {
+    @SerializedName("ApplyBaseDocumentHeadersAndFootersToAppendingDocuments")
+    private Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments = null;
+
     @SerializedName("DocumentEntries")
     private List<DocumentEntry> documentEntries = null;
+    public DocumentEntryList applyBaseDocumentHeadersAndFootersToAppendingDocuments(Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments) {
+        this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+        return this;
+    }
+
+    /**
+     * Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.
+    * @return applyBaseDocumentHeadersAndFootersToAppendingDocuments
+    **/
+    @ApiModelProperty(value = "Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.")
+    public Boolean getApplyBaseDocumentHeadersAndFootersToAppendingDocuments() {
+        return applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+    }
+
+    public void setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(Boolean applyBaseDocumentHeadersAndFootersToAppendingDocuments) {
+        this.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+    }
+
     public DocumentEntryList documentEntries(List<DocumentEntry> documentEntries) {
         this.documentEntries = documentEntries;
         return this;
@@ -86,18 +107,20 @@ public class DocumentEntryList {
 
         DocumentEntryList documentEntryList = (DocumentEntryList) o;
         return
+            Objects.equals(this.applyBaseDocumentHeadersAndFootersToAppendingDocuments, documentEntryList.applyBaseDocumentHeadersAndFootersToAppendingDocuments) &&
             Objects.equals(this.documentEntries, documentEntryList.documentEntries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentEntries);
+    return Objects.hash(applyBaseDocumentHeadersAndFootersToAppendingDocuments, documentEntries);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentEntryList {\n");
+    sb.append("    applyBaseDocumentHeadersAndFootersToAppendingDocuments: ").append(toIndentedString(applyBaseDocumentHeadersAndFootersToAppendingDocuments)).append("\n");
     sb.append("    documentEntries: ").append(toIndentedString(documentEntries)).append("\n");
     sb.append("}");
     return sb.toString();

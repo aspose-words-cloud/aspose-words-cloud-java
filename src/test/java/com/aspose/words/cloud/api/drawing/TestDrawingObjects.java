@@ -93,15 +93,16 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetDocumentDrawingObjectsWithoutNodePathRequest request = new GetDocumentDrawingObjectsWithoutNodePathRequest(
+        GetDocumentDrawingObjectsRequest request = new GetDocumentDrawingObjectsRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        DrawingObjectsResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectsWithoutNodePath(request);
+        DrawingObjectsResponse result = TestInitializer.wordsApi.getDocumentDrawingObjects(request);
         assertNotNull(result);
     }
 
@@ -120,8 +121,8 @@ public class TestDrawingObjects  extends TestCase
 
         GetDocumentDrawingObjectByIndexRequest request = new GetDocumentDrawingObjectByIndexRequest(
             remoteFileName,
-            "sections/0",
             0,
+            "sections/0",
             remoteDataFolder,
             null,
             null,
@@ -145,16 +146,17 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetDocumentDrawingObjectByIndexWithoutNodePathRequest request = new GetDocumentDrawingObjectByIndexWithoutNodePathRequest(
+        GetDocumentDrawingObjectByIndexRequest request = new GetDocumentDrawingObjectByIndexRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        DrawingObjectResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectByIndexWithoutNodePath(request);
+        DrawingObjectResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectByIndex(request);
         assertNotNull(result);
     }
 
@@ -174,8 +176,8 @@ public class TestDrawingObjects  extends TestCase
         RenderDrawingObjectRequest request = new RenderDrawingObjectRequest(
             remoteFileName,
             "png",
-            "sections/0",
             0,
+            "sections/0",
             remoteDataFolder,
             null,
             null,
@@ -200,10 +202,11 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        RenderDrawingObjectWithoutNodePathRequest request = new RenderDrawingObjectWithoutNodePathRequest(
+        RenderDrawingObjectRequest request = new RenderDrawingObjectRequest(
             remoteFileName,
             "png",
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -211,7 +214,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        File result = TestInitializer.wordsApi.renderDrawingObjectWithoutNodePath(request);
+        File result = TestInitializer.wordsApi.renderDrawingObject(request);
         assertNotNull(result);
     }
 
@@ -230,8 +233,8 @@ public class TestDrawingObjects  extends TestCase
 
         GetDocumentDrawingObjectImageDataRequest request = new GetDocumentDrawingObjectImageDataRequest(
             remoteFileName,
-            "sections/0",
             0,
+            "sections/0",
             remoteDataFolder,
             null,
             null,
@@ -255,16 +258,17 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetDocumentDrawingObjectImageDataWithoutNodePathRequest request = new GetDocumentDrawingObjectImageDataWithoutNodePathRequest(
+        GetDocumentDrawingObjectImageDataRequest request = new GetDocumentDrawingObjectImageDataRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentDrawingObjectImageDataWithoutNodePath(request);
+        File result = TestInitializer.wordsApi.getDocumentDrawingObjectImageData(request);
         assertNotNull(result);
     }
 
@@ -283,8 +287,8 @@ public class TestDrawingObjects  extends TestCase
 
         GetDocumentDrawingObjectOleDataRequest request = new GetDocumentDrawingObjectOleDataRequest(
             remoteFileName,
-            "sections/0",
             0,
+            "sections/0",
             remoteDataFolder,
             null,
             null,
@@ -308,16 +312,17 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetDocumentDrawingObjectOleDataWithoutNodePathRequest request = new GetDocumentDrawingObjectOleDataWithoutNodePathRequest(
+        GetDocumentDrawingObjectOleDataRequest request = new GetDocumentDrawingObjectOleDataRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        File result = TestInitializer.wordsApi.getDocumentDrawingObjectOleDataWithoutNodePath(request);
+        File result = TestInitializer.wordsApi.getDocumentDrawingObjectOleData(request);
         assertNotNull(result);
     }
 
@@ -383,10 +388,11 @@ public class TestDrawingObjects  extends TestCase
         requestDrawingObject.setRelativeVerticalPosition(DrawingObjectInsert.RelativeVerticalPositionEnum.MARGIN);
         requestDrawingObject.setWrapType(DrawingObjectInsert.WrapTypeEnum.INLINE);
 
-        InsertDrawingObjectWithoutNodePathRequest request = new InsertDrawingObjectWithoutNodePathRequest(
+        InsertDrawingObjectRequest request = new InsertDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
+            null,
             remoteDataFolder,
             null,
             null,
@@ -396,7 +402,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObjectWithoutNodePath(request);
+        DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
         assertNotNull(result);
     }
 
@@ -415,8 +421,8 @@ public class TestDrawingObjects  extends TestCase
 
         DeleteDrawingObjectRequest request = new DeleteDrawingObjectRequest(
             remoteFileName,
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -442,9 +448,10 @@ public class TestDrawingObjects  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteDrawingObjectWithoutNodePathRequest request = new DeleteDrawingObjectWithoutNodePathRequest(
+        DeleteDrawingObjectRequest request = new DeleteDrawingObjectRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -454,7 +461,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteDrawingObjectWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteDrawingObject(request);
     }
 
     /*
@@ -477,8 +484,8 @@ public class TestDrawingObjects  extends TestCase
             remoteFileName,
             requestDrawingObject,
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
-            "",
             0,
+            "",
             remoteDataFolder,
             null,
             null,
@@ -508,11 +515,12 @@ public class TestDrawingObjects  extends TestCase
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
         requestDrawingObject.setLeft((double)0);
 
-        UpdateDrawingObjectWithoutNodePathRequest request = new UpdateDrawingObjectWithoutNodePathRequest(
+        UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
             requestDrawingObject,
             Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, "Common/aspose-cloud.png").toAbsolutePath()),
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -522,7 +530,7 @@ public class TestDrawingObjects  extends TestCase
             null
         );
 
-        DrawingObjectResponse result = TestInitializer.wordsApi.updateDrawingObjectWithoutNodePath(request);
+        DrawingObjectResponse result = TestInitializer.wordsApi.updateDrawingObject(request);
         assertNotNull(result);
     }
 }

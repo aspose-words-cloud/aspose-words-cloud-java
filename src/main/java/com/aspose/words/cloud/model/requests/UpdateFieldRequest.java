@@ -45,14 +45,14 @@ public class UpdateFieldRequest {
     private FieldUpdate field;
 
     /*
-     * Path to the node, which contains collection of fields.
-     */
-    private String nodePath;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * Path to the node, which contains collection of fields.
+     */
+    private String nodePath;
 
     /*
      * Original document folder.
@@ -94,8 +94,8 @@ public class UpdateFieldRequest {
      *
      * @param String name The document name.
      * @param FieldUpdate field Field data.
-     * @param String nodePath Path to the node, which contains collection of fields.
      * @param Integer index Object index.
+     * @param String nodePath Path to the node, which contains collection of fields.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -104,11 +104,11 @@ public class UpdateFieldRequest {
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
      */
-    public UpdateFieldRequest(String name, FieldUpdate field, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
+    public UpdateFieldRequest(String name, FieldUpdate field, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime) {
         this.name = name;
         this.field = field;
-        this.nodePath = nodePath;
         this.index = index;
+        this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -147,20 +147,6 @@ public class UpdateFieldRequest {
     }
 
     /*
-     * Gets Path to the node, which contains collection of fields.
-     */
-    public String getNodePath() {
-        return this.nodePath;
-    }
-
-    /*
-     * Sets Path to the node, which contains collection of fields.
-     */
-    public void setNodePath(String value) {
-        this.nodePath = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -172,6 +158,20 @@ public class UpdateFieldRequest {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets Path to the node, which contains collection of fields.
+     */
+    public String getNodePath() {
+        return this.nodePath;
+    }
+
+    /*
+     * Sets Path to the node, which contains collection of fields.
+     */
+    public void setNodePath(String value) {
+        this.nodePath = value;
     }
 
     /*

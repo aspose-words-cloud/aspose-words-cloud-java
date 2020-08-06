@@ -133,16 +133,14 @@ public class TestFolder  extends TestCase
     @Test
     public void testMoveFolder() throws ApiException, IOException
     {
-        String folderToMove = remoteDataFolder + "/TestMoveFolder";
-
         TestInitializer.UploadFile(
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
-            folderToMove + "Src/TestMoveFolderSrc.docx"
+            remoteDataFolder + "/TestMoveFolderSrc/TestMoveFolderSrc.docx"
         );
 
         MoveFolderRequest request = new MoveFolderRequest(
-            folderToMove + "Dest",
-            folderToMove + "Src",
+            TestInitializer.RemoteTestOut + "/TestMoveFolderDest_" + java.util.UUID.randomUUID().toString(),
+            remoteDataFolder + "/TestMoveFolderSrc",
             null,
             null
         );

@@ -45,14 +45,14 @@ public class RenderParagraphRequest {
     private String format;
 
     /*
-     * Path to the node, which contains paragraphs.
-     */
-    private String nodePath;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * Path to the node, which contains paragraphs.
+     */
+    private String nodePath;
 
     /*
      * Original document folder.
@@ -84,19 +84,19 @@ public class RenderParagraphRequest {
      *
      * @param String name The document name.
      * @param String format The destination format.
-     * @param String nodePath Path to the node, which contains paragraphs.
      * @param Integer index Object index.
+     * @param String nodePath Path to the node, which contains paragraphs.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
-    public RenderParagraphRequest(String name, String format, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password, String fontsLocation) {
+    public RenderParagraphRequest(String name, String format, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password, String fontsLocation) {
         this.name = name;
         this.format = format;
-        this.nodePath = nodePath;
         this.index = index;
+        this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -133,20 +133,6 @@ public class RenderParagraphRequest {
     }
 
     /*
-     * Gets Path to the node, which contains paragraphs.
-     */
-    public String getNodePath() {
-        return this.nodePath;
-    }
-
-    /*
-     * Sets Path to the node, which contains paragraphs.
-     */
-    public void setNodePath(String value) {
-        this.nodePath = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -158,6 +144,20 @@ public class RenderParagraphRequest {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets Path to the node, which contains paragraphs.
+     */
+    public String getNodePath() {
+        return this.nodePath;
+    }
+
+    /*
+     * Sets Path to the node, which contains paragraphs.
+     */
+    public void setNodePath(String value) {
+        this.nodePath = value;
     }
 
     /*

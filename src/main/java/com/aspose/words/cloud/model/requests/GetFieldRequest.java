@@ -40,14 +40,14 @@ public class GetFieldRequest {
     private String name;
 
     /*
-     * Path to the node, which contains collection of fields.
-     */
-    private String nodePath;
-
-    /*
      * Object index.
      */
     private Integer index;
+
+    /*
+     * Path to the node, which contains collection of fields.
+     */
+    private String nodePath;
 
     /*
      * Original document folder.
@@ -73,17 +73,17 @@ public class GetFieldRequest {
      * Initializes a new instance of the GetFieldRequest class.
      *
      * @param String name The document name.
-     * @param String nodePath Path to the node, which contains collection of fields.
      * @param Integer index Object index.
+     * @param String nodePath Path to the node, which contains collection of fields.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
      */
-    public GetFieldRequest(String name, String nodePath, Integer index, String folder, String storage, String loadEncoding, String password) {
+    public GetFieldRequest(String name, Integer index, String nodePath, String folder, String storage, String loadEncoding, String password) {
         this.name = name;
-        this.nodePath = nodePath;
         this.index = index;
+        this.nodePath = nodePath;
         this.folder = folder;
         this.storage = storage;
         this.loadEncoding = loadEncoding;
@@ -105,20 +105,6 @@ public class GetFieldRequest {
     }
 
     /*
-     * Gets Path to the node, which contains collection of fields.
-     */
-    public String getNodePath() {
-        return this.nodePath;
-    }
-
-    /*
-     * Sets Path to the node, which contains collection of fields.
-     */
-    public void setNodePath(String value) {
-        this.nodePath = value;
-    }
-
-    /*
      * Gets Object index.
      */
     public Integer getIndex() {
@@ -130,6 +116,20 @@ public class GetFieldRequest {
      */
     public void setIndex(Integer value) {
         this.index = value;
+    }
+
+    /*
+     * Gets Path to the node, which contains collection of fields.
+     */
+    public String getNodePath() {
+        return this.nodePath;
+    }
+
+    /*
+     * Sets Path to the node, which contains collection of fields.
+     */
+    public void setNodePath(String value) {
+        this.nodePath = value;
     }
 
     /*

@@ -94,8 +94,8 @@ public class TestTableBorder  extends TestCase
 
         GetBorderRequest request = new GetBorderRequest(
             remoteFileName,
-            "tables/1/rows/0/cells/0",
             "left",
+            "tables/1/rows/0/cells/0",
             remoteDataFolder,
             null,
             null,
@@ -150,8 +150,8 @@ public class TestTableBorder  extends TestCase
 
         DeleteBorderRequest request = new DeleteBorderRequest(
             remoteFileName,
-            "tables/1/rows/0/cells/0",
             "left",
+            "tables/1/rows/0/cells/0",
             remoteDataFolder,
             null,
             null,
@@ -192,8 +192,8 @@ public class TestTableBorder  extends TestCase
         UpdateBorderRequest request = new UpdateBorderRequest(
             remoteFileName,
             requestBorderProperties,
-            "tables/1/rows/0/cells/0",
             "left",
+            "tables/1/rows/0/cells/0",
             remoteDataFolder,
             null,
             null,

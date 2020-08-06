@@ -95,15 +95,16 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetFieldsWithoutNodePathRequest request = new GetFieldsWithoutNodePathRequest(
+        GetFieldsRequest request = new GetFieldsRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        FieldsResponse result = TestInitializer.wordsApi.getFieldsWithoutNodePath(request);
+        FieldsResponse result = TestInitializer.wordsApi.getFields(request);
         assertNotNull(result);
     }
 
@@ -123,8 +124,8 @@ public class TestField  extends TestCase
 
         GetFieldRequest request = new GetFieldRequest(
             remoteFileName,
-            "sections/0/paragraphs/0",
             0,
+            "sections/0/paragraphs/0",
             remoteDataFolder,
             null,
             null,
@@ -149,16 +150,17 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        GetFieldWithoutNodePathRequest request = new GetFieldWithoutNodePathRequest(
+        GetFieldRequest request = new GetFieldRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
             null
         );
 
-        FieldResponse result = TestInitializer.wordsApi.getFieldWithoutNodePath(request);
+        FieldResponse result = TestInitializer.wordsApi.getField(request);
         assertNotNull(result);
     }
 
@@ -214,9 +216,10 @@ public class TestField  extends TestCase
         FieldInsert requestField = new FieldInsert();
         requestField.setFieldCode("{ NUMPAGES }");
 
-        InsertFieldWithoutNodePathRequest request = new InsertFieldWithoutNodePathRequest(
+        InsertFieldRequest request = new InsertFieldRequest(
             remoteFileName,
             requestField,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -227,7 +230,7 @@ public class TestField  extends TestCase
             null
         );
 
-        FieldResponse result = TestInitializer.wordsApi.insertFieldWithoutNodePath(request);
+        FieldResponse result = TestInitializer.wordsApi.insertField(request);
         assertNotNull(result);
     }
 
@@ -251,8 +254,8 @@ public class TestField  extends TestCase
         UpdateFieldRequest request = new UpdateFieldRequest(
             remoteFileName,
             requestField,
-            "sections/0/paragraphs/0",
             0,
+            "sections/0/paragraphs/0",
             remoteDataFolder,
             null,
             null,
@@ -316,8 +319,8 @@ public class TestField  extends TestCase
 
         DeleteFieldRequest request = new DeleteFieldRequest(
             remoteFileName,
-            "sections/0/paragraphs/0",
             0,
+            "sections/0/paragraphs/0",
             remoteDataFolder,
             null,
             null,
@@ -344,9 +347,10 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteFieldWithoutNodePathRequest request = new DeleteFieldWithoutNodePathRequest(
+        DeleteFieldRequest request = new DeleteFieldRequest(
             remoteFileName,
             0,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -356,7 +360,7 @@ public class TestField  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteFieldWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteField(request);
     }
 
     /*
@@ -402,8 +406,9 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteFieldsWithoutNodePathRequest request = new DeleteFieldsWithoutNodePathRequest(
+        DeleteFieldsRequest request = new DeleteFieldsRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -413,7 +418,7 @@ public class TestField  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteFieldsWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteFields(request);
     }
 
     /*
@@ -459,8 +464,9 @@ public class TestField  extends TestCase
             remoteDataFolder + "/" + remoteFileName
         );
 
-        DeleteFieldsWithoutNodePathRequest request = new DeleteFieldsWithoutNodePathRequest(
+        DeleteFieldsRequest request = new DeleteFieldsRequest(
             remoteFileName,
+            null,
             remoteDataFolder,
             null,
             null,
@@ -470,7 +476,7 @@ public class TestField  extends TestCase
             null
         );
 
-        TestInitializer.wordsApi.deleteFieldsWithoutNodePath(request);
+        TestInitializer.wordsApi.deleteFields(request);
     }
 
     /*
