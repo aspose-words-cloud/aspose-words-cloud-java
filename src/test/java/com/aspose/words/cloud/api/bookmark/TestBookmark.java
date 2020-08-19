@@ -78,7 +78,7 @@ public class TestBookmark  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getBookmarks());
         assertEquals(3, result.getBookmarks().getBookmarkList().size());
-        assertEquals("aspose", result.getBookmarks().getBookmarkList()[1].getName());
+        assertEquals("aspose", result.getBookmarks().getBookmarkList().get(1).getName());
     }
 
     /*
