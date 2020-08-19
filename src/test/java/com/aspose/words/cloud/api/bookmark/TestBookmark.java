@@ -76,6 +76,9 @@ public class TestBookmark  extends TestCase
 
         BookmarksResponse result = TestInitializer.wordsApi.getBookmarks(request);
         assertNotNull(result);
+       assertNotNull(result.getBookmarks);
+       assertEquals(3, result.getBookmarks.getBookmarkList.size());
+       assertEquals("aspose", result.getBookmarks.getBookmarkList[1].getName);
     }
 
     /*
