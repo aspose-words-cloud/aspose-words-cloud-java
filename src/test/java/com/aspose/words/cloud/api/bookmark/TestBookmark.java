@@ -76,6 +76,9 @@ public class TestBookmark  extends TestCase
 
         BookmarksResponse result = TestInitializer.wordsApi.getBookmarks(request);
         assertNotNull(result);
+        assertNotNull(result.getBookmarks());
+        assertEquals(3, result.getBookmarks().getBookmarkList().size());
+        assertEquals("aspose", result.getBookmarks().getBookmarkList().get(1).getName());
     }
 
     /*
@@ -85,6 +88,7 @@ public class TestBookmark  extends TestCase
     public void testGetBookmarkByName() throws ApiException, IOException
     {
         String remoteFileName = "TestGetDocumentBookmarkByName.docx";
+        String bookmarkName = "aspose";
 
         TestInitializer.UploadFile(
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
@@ -93,7 +97,7 @@ public class TestBookmark  extends TestCase
 
         GetBookmarkByNameRequest request = new GetBookmarkByNameRequest(
             remoteFileName,
-            "aspose",
+            bookmarkName,
             remoteDataFolder,
             null,
             null,
@@ -102,6 +106,8 @@ public class TestBookmark  extends TestCase
 
         BookmarkResponse result = TestInitializer.wordsApi.getBookmarkByName(request);
         assertNotNull(result);
+        assertNotNull(result.getBookmark());
+        assertEquals(bookmarkName, result.getBookmark().getName());
     }
 
     /*
@@ -112,6 +118,7 @@ public class TestBookmark  extends TestCase
     {
         String remoteFileName = "TestUpdateDocumentBookmark.docx";
         String bookmarkName = "aspose";
+        String bookmarkText = "This will be the text for Aspose";
 
         TestInitializer.UploadFile(
             PathUtil.get(TestInitializer.LocalTestFolder, localFile),
@@ -120,7 +127,7 @@ public class TestBookmark  extends TestCase
 
         BookmarkData requestBookmarkData = new BookmarkData();
         requestBookmarkData.setName(bookmarkName);
-        requestBookmarkData.setText("This will be the text for Aspose");
+        requestBookmarkData.setText(bookmarkText);
 
         UpdateBookmarkRequest request = new UpdateBookmarkRequest(
             remoteFileName,
@@ -137,5 +144,8 @@ public class TestBookmark  extends TestCase
 
         BookmarkResponse result = TestInitializer.wordsApi.updateBookmark(request);
         assertNotNull(result);
+        assertNotNull(result.getBookmark());
+        assertEquals(bookmarkName, result.getBookmark().getName());
+        assertEquals(bookmarkText, result.getBookmark().getText());
     }
 }
