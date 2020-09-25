@@ -157,8 +157,7 @@ public class GetDocumentRequest implements RequestIfc {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException
-    {
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException {
         // verify the required parameter 'DocumentName' is set
         if (getDocumentName() == null) {
             throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'DocumentName' when calling getDocument");

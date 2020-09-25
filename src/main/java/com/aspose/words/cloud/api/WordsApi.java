@@ -11532,8 +11532,7 @@ public class WordsApi {
 
         try {
             int count = response.getData().getCount();
-            if (count != requests.length)
-            {
+            if (count != requests.length) {
                 throw new ApiException(400, "The number of responses does not match the number of requests.");
             }
 
@@ -11544,8 +11543,7 @@ public class WordsApi {
 
             return result;
         }
-        catch (javax.mail.MessagingException e)
-        {
+        catch (javax.mail.MessagingException e) {
             throw new ApiException(e);
         }
     }

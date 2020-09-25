@@ -949,7 +949,7 @@ public class ApiClient {
             reqBody = null;
         } 
         else if (body instanceof RequestBody) {
-            reqBody = (RequestBody)body;
+            reqBody = (RequestBody) body;
         }
         else if ("application/x-www-form-urlencoded".equals(contentType)) {
             reqBody = buildRequestBodyFormEncoding(formParams);
@@ -1186,8 +1186,7 @@ public class ApiClient {
     /**
      * Parse batch part
      */
-    public Object parseBatchPart(Request masterRequest, BodyPart bodyPart, Type returnType) throws IOException, MessagingException, ApiException
-    {
+    public Object parseBatchPart(Request masterRequest, BodyPart bodyPart, Type returnType) throws IOException, MessagingException, ApiException {
         InputStream is = bodyPart.getInputStream();
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
@@ -1207,13 +1206,12 @@ public class ApiClient {
             }
 
             Headers.Builder headersBuilder = new Headers.Builder();
-            while(true) {
+            while (true) {
                 int splitIndex = stringData.indexOf("\r\n", lastSplitIndex + 2);
                 String headerStr = stringData.substring(lastSplitIndex + 2, splitIndex);
                 lastSplitIndex = splitIndex;
 
-                if (headerStr.isEmpty())
-                {
+                if (headerStr.isEmpty()) {
                     break;
                 }
 
@@ -1231,8 +1229,7 @@ public class ApiClient {
             Response response = new Response.Builder().request(masterRequest).protocol(Protocol.HTTP_1_1).code(responseCode).headers(headers).body(responseBody).build();
             return deserialize(response, returnType);
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             throw new ApiException(400, "Invalid response format.");
         }
     }

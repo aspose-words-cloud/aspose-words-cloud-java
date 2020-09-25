@@ -40,8 +40,7 @@ public class ChildRequestContent extends RequestBody {
     private Request request;
     private URI baseUri;
 
-    public ChildRequestContent(Request request, String rootUrl)
-    {
+    public ChildRequestContent(Request request, String rootUrl) {
         this.request = request;
         this.baseUri = URI.create(rootUrl);
     }
