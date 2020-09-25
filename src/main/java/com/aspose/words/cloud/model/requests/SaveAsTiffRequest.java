@@ -27,13 +27,17 @@
 
 package com.aspose.words.cloud.model.requests;
 
+import com.aspose.words.cloud.*;
 import com.aspose.words.cloud.model.*;
-import java.io.File;
+import com.squareup.okhttp.*;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
 
 /*
  * Request model for saveAsTiff operation.
  */
-public class SaveAsTiffRequest {
+public class SaveAsTiffRequest implements RequestIfc {
     /*
      * The document name.
      */
@@ -543,5 +547,94 @@ public class SaveAsTiffRequest {
      */
     public void setFontsLocation(String value) {
         this.fontsLocation = value;
+    }
+
+    /*
+     * Creates the http request based on this request model.
+     *
+     * @param apiClient ApiClient instance
+     * @throws ApiException If fail to serialize the request body object
+     * @throws IOException If fail to serialize the request body object
+     */
+    public Request buildHttpRequest(ApiClient apiClient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener, Boolean addAuthHeaders) throws ApiException, IOException
+    {
+        // verify the required parameter 'Name' is set
+        if (getName() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'Name' when calling saveAsTiff");
+        }
+
+        // verify the required parameter 'SaveOptions' is set
+        if (getSaveOptions() == null) {
+            throw new ApiException(apiClient.getBadRequestCode(), "Missing the required parameter 'SaveOptions' when calling saveAsTiff");
+        }
+
+        Object localVarPostBody = getSaveOptions();
+
+        // create path and map variables
+        String localVarPath = "/words/{name}/saveAs/tiff";
+        localVarPath = apiClient.addParameterToPath(localVarPath, "name", getName());
+        localVarPath = localVarPath.replaceAll("//", "/");
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        apiClient.addParameterToQuery(localVarQueryParams, "folder", getFolder());
+        apiClient.addParameterToQuery(localVarQueryParams, "storage", getStorage());
+        apiClient.addParameterToQuery(localVarQueryParams, "loadEncoding", getLoadEncoding());
+        apiClient.addParameterToQuery(localVarQueryParams, "password", getPassword());
+        apiClient.addParameterToQuery(localVarQueryParams, "useAntiAliasing", getUseAntiAliasing());
+        apiClient.addParameterToQuery(localVarQueryParams, "useHighQualityRendering", getUseHighQualityRendering());
+        apiClient.addParameterToQuery(localVarQueryParams, "imageBrightness", getImageBrightness());
+        apiClient.addParameterToQuery(localVarQueryParams, "imageColorMode", getImageColorMode());
+        apiClient.addParameterToQuery(localVarQueryParams, "imageContrast", getImageContrast());
+        apiClient.addParameterToQuery(localVarQueryParams, "numeralFormat", getNumeralFormat());
+        apiClient.addParameterToQuery(localVarQueryParams, "pageCount", getPageCount());
+        apiClient.addParameterToQuery(localVarQueryParams, "pageIndex", getPageIndex());
+        apiClient.addParameterToQuery(localVarQueryParams, "paperColor", getPaperColor());
+        apiClient.addParameterToQuery(localVarQueryParams, "pixelFormat", getPixelFormat());
+        apiClient.addParameterToQuery(localVarQueryParams, "resolution", getResolution());
+        apiClient.addParameterToQuery(localVarQueryParams, "scale", getScale());
+        apiClient.addParameterToQuery(localVarQueryParams, "tiffCompression", getTiffCompression());
+        apiClient.addParameterToQuery(localVarQueryParams, "dmlRenderingMode", getDmlRenderingMode());
+        apiClient.addParameterToQuery(localVarQueryParams, "dmlEffectsRenderingMode", getDmlEffectsRenderingMode());
+        apiClient.addParameterToQuery(localVarQueryParams, "tiffBinarizationMethod", getTiffBinarizationMethod());
+        apiClient.addParameterToQuery(localVarQueryParams, "zipOutput", getZipOutput());
+        apiClient.addParameterToQuery(localVarQueryParams, "fontsLocation", getFontsLocation());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/xml", "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/xml", "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        return apiClient.buildRequest(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, addAuthHeaders, progressRequestListener);
+    }
+
+    /*
+     * Gets response type for this request.
+     */
+    public Type getResponseType() {
+        return SaveResponse.class;
     }
 }
