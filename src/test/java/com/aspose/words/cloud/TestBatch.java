@@ -32,11 +32,15 @@ import com.aspose.words.cloud.model.requests.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class TestBatch  extends TestCase {
     private String testFolder = "DocumentElements/Paragraphs";
+    private String reportingFolder = "DocumentActions/Reporting";
 
     @Override
     protected void setUp() throws Exception {
@@ -53,7 +57,9 @@ public void testBatch() throws ApiException, IOException {
         String remoteName = "TestGetDocumentParagraphByIndex.docx";
         String remoteFolder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder);
 
-        TestInitializer.UploadFile(PathUtil.get(TestInitializer.LocalCommonFolder, fileName), PathUtil.get(remoteFolder, remoteName).replace("\\", "/"));
+        String file = PathUtil.get(TestInitializer.LocalCommonFolder, fileName);
+        String remote_path = PathUtil.get(remoteFolder, remoteName).replace("\\", "/");
+        UploadFileRequest request0 = new UploadFileRequest(Files.readAllBytes(new File(file).toPath()), remote_path, null);
 
         GetParagraphsRequest request1 = new GetParagraphsRequest(remoteName,"sections/0", remoteFolder, null, null, null);
 
@@ -65,11 +71,27 @@ public void testBatch() throws ApiException, IOException {
 
         DeleteParagraphRequest request4 = new DeleteParagraphRequest(remoteName, 0, "", remoteFolder, null, null, null, null, null, null);
 
-        Object[] result = TestInitializer.wordsApi.batch(request1, request2, request3, request4);
-        assertEquals(4, result.length);
-        assertTrue(result[0] instanceof ParagraphLinkCollectionResponse); // GetParagraphs
-        assertTrue(result[1] instanceof ParagraphResponse); // GetParagraph
-        assertTrue(result[2] instanceof ParagraphResponse); // InsertParagraph
-        assertNull(result[3]); // DeleteParagraph
+        String localDocumentFile = "ReportTemplate.docx";
+        String localDataFile = new String(Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/ReportData.json")), "utf8");
+
+        ReportEngineSettings requestReportEngineSettings = new ReportEngineSettings();
+        requestReportEngineSettings.setDataSourceType(ReportEngineSettings.DataSourceTypeEnum.JSON);
+        requestReportEngineSettings.setDataSourceName("persons");
+
+        BuildReportOnlineRequest request5 = new BuildReportOnlineRequest(
+                Files.readAllBytes(Paths.get(TestInitializer.LocalTestFolder, reportingFolder + "/" + localDocumentFile).toAbsolutePath()),
+                localDataFile,
+                requestReportEngineSettings,
+                null
+        );
+
+        Object[] result = TestInitializer.wordsApi.batch(request0, request1, request2, request3, request4, request5);
+        assertEquals(6, result.length);
+        assertTrue(result[0] instanceof FilesUploadResult); // UploadFile
+        assertTrue(result[1] instanceof ParagraphLinkCollectionResponse); // GetParagraphs
+        assertTrue(result[2] instanceof ParagraphResponse); // GetParagraph
+        assertTrue(result[3] instanceof ParagraphResponse); // InsertParagraph
+        assertNull(result[4]); // DeleteParagraph
+        assertTrue(result[5] instanceof File); // BuildReportOnline
     }
 }
