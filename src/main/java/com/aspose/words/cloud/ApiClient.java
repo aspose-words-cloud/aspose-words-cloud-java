@@ -933,11 +933,6 @@ public class ApiClient {
             addOAuthAuthentication(headerParams);
         }
 
-        final String url = buildUrl(path, queryParams, collectionQueryParams);
-        final Request.Builder reqBuilder = new Request.Builder().url(url);
-
-        processHeaderParams(headerParams, reqBuilder, addAuthHeaders);
-
         String contentType = (String) headerParams.get("Content-Type");
         // ensuring a default content type
         if (contentType == null) {
@@ -955,7 +950,10 @@ public class ApiClient {
             reqBody = buildRequestBodyFormEncoding(formParams);
         } 
         else if ("multipart/form-data".equals(contentType)) {
-            reqBody = buildRequestBodyMultipart(formParams);
+            String boundary = UUID.randomUUID().toString();
+            contentType += "; boundary=" + boundary;
+            headerParams.put("Content-Type", contentType);
+            reqBody = buildRequestBodyMultipart(formParams, boundary);
         } 
         else if (body == null) {
             if ("DELETE".equals(method)) {
@@ -970,6 +968,10 @@ public class ApiClient {
         else {
             reqBody = serialize(body, contentType);
         }
+
+        final String url = buildUrl(path, queryParams, collectionQueryParams);
+        final Request.Builder reqBuilder = new Request.Builder().url(url);
+        processHeaderParams(headerParams, reqBuilder, addAuthHeaders);
 
         Request request = null;
         if (progressRequestListener != null && reqBody != null) {
@@ -1075,8 +1077,8 @@ public class ApiClient {
      * @throws IOException If fail to serialize the request body object
      * @return RequestBody
      */
-    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) throws IOException {
-        MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
+    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams, String boundary) throws IOException {
+        MultipartBuilder mpBuilder = new MultipartBuilder(boundary).type(MultipartBuilder.FORM);
         if (formParams.isEmpty()) {
             Headers partHeaders = Headers.of("Content-Disposition", "form-data");
             mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("none"), new byte[] {}));

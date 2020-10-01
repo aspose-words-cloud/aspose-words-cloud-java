@@ -32,8 +32,11 @@ import com.aspose.words.cloud.model.requests.*;
 import junit.framework.TestCase;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class TestBatch  extends TestCase {
     private String testFolder = "DocumentElements/Paragraphs";
@@ -55,7 +58,7 @@ public void testBatch() throws ApiException, IOException {
         String remoteFolder = PathUtil.get(TestInitializer.RemoteTestFolder, testFolder);
 
         String file = PathUtil.get(TestInitializer.LocalCommonFolder, fileName);
-        String remote_path = PathUtil.get(remoteFolder, remoteName).replace("\", "/");
+        String remote_path = PathUtil.get(remoteFolder, remoteName).replace("\\", "/");
         UploadFileRequest request0 = new UploadFileRequest(Files.readAllBytes(new File(file).toPath()), remote_path, null);
 
         GetParagraphsRequest request1 = new GetParagraphsRequest(remoteName,"sections/0", remoteFolder, null, null, null);
