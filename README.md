@@ -79,7 +79,7 @@ This repository contains Aspose.Words Cloud SDK for Java source code. This SDK a
 
 
 ## How to use the SDK?
-The complete source code is available in this repository folder. You can either directly use it in your project via source code or get [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-words-cloud) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/wordscloud/Available+SDKs).
+The complete source code is available in this repository folder. You can either directly use it in your project via source code or get [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-words-cloud) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/words/getting-started/available-sdks/).
 
 ### Prerequisites
 
@@ -144,7 +144,7 @@ Your feedback is very important to us. Please feel free to contact us using our 
 [Website](https://www.aspose.cloud/)  
 [Product Home](https://products.aspose.cloud/words/family)  
 [API Reference](https://apireference.aspose.cloud/words/)  
-[Documentation](https://docs.aspose.cloud/display/wordscloud/Home)  
+[Documentation](https://docs.aspose.cloud/words/)  
 [Blog](https://blog.aspose.cloud/category/words/)  
 
 ## Other languages
