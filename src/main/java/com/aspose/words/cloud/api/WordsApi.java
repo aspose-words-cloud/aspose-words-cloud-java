@@ -37,8 +37,6 @@ import java.lang.reflect.Type;
 import java.util.*;
 
 public class WordsApi {
-    private Integer NotAuth = 401;
-    private Integer BadRequest = 400;
     private ApiClient apiClient;
 
     public WordsApi(String appSid, String appKey, String baseUrl) {
@@ -61,71 +59,9 @@ public class WordsApi {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for acceptAllRevisions
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call acceptAllRevisionsCall(AcceptAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/revisions/acceptAll";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call acceptAllRevisionsValidateBeforeCall(AcceptAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling acceptAllRevisions");
-        }
-
-        com.squareup.okhttp.Call call = acceptAllRevisionsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -141,7 +77,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< RevisionsModificationResponse > resp = acceptAllRevisionsWithHttpInfo(request);
                 return resp.getData();
@@ -159,8 +95,7 @@ public class WordsApi {
      */
     private ApiResponse< RevisionsModificationResponse > acceptAllRevisionsWithHttpInfo(AcceptAllRevisionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = acceptAllRevisionsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< RevisionsModificationResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -193,83 +128,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = acceptAllRevisionsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< RevisionsModificationResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for appendDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call appendDocumentCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getDocumentList();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/appendDocument";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call appendDocumentValidateBeforeCall(AppendDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling appendDocument");
-        }
-
-        // verify the required parameter 'DocumentList' is set
-        if (request.getDocumentList() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DocumentList' when calling appendDocument");
-        }
-
-        com.squareup.okhttp.Call call = appendDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -285,7 +150,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = appendDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -303,8 +168,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > appendDocumentWithHttpInfo(AppendDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -337,89 +201,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = appendDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for applyStyleToDocumentElement
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call applyStyleToDocumentElementCall(ApplyStyleToDocumentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getStyleApply();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{styledNodePath}/style";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "styledNodePath", request.getStyledNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call applyStyleToDocumentElementValidateBeforeCall(ApplyStyleToDocumentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling applyStyleToDocumentElement");
-        }
-
-        // verify the required parameter 'StyleApply' is set
-        if (request.getStyleApply() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'StyleApply' when calling applyStyleToDocumentElement");
-        }
-
-        // verify the required parameter 'StyledNodePath' is set
-        if (request.getStyledNodePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'StyledNodePath' when calling applyStyleToDocumentElement");
-        }
-
-        com.squareup.okhttp.Call call = applyStyleToDocumentElementCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -435,7 +223,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< WordsResponse > resp = applyStyleToDocumentElementWithHttpInfo(request);
                 return resp.getData();
@@ -453,8 +241,7 @@ public class WordsApi {
      */
     private ApiResponse< WordsResponse > applyStyleToDocumentElementWithHttpInfo(ApplyStyleToDocumentElementRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = applyStyleToDocumentElementValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< WordsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -487,91 +274,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = applyStyleToDocumentElementValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< WordsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for buildReport
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call buildReportCall(BuildReportRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/buildReport";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getData() != null)
-            localVarFormParams.put("Data", request.getData());
-
-        if (request.getReportEngineSettings() != null)
-            localVarFormParams.put("ReportEngineSettings", request.getReportEngineSettings());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call buildReportValidateBeforeCall(BuildReportRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling buildReport");
-        }
-
-        // verify the required parameter 'Data' is set
-        if (request.getData() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling buildReport");
-        }
-
-        // verify the required parameter 'ReportEngineSettings' is set
-        if (request.getReportEngineSettings() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ReportEngineSettings' when calling buildReport");
-        }
-
-        com.squareup.okhttp.Call call = buildReportCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -587,7 +296,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = buildReportWithHttpInfo(request);
                 return resp.getData();
@@ -605,8 +314,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > buildReportWithHttpInfo(BuildReportRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = buildReportValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -639,89 +347,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = buildReportValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for buildReportOnline
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call buildReportOnlineCall(BuildReportOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/buildReport";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "documentFileName", request.getDocumentFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getTemplate() != null)
-            localVarFormParams.put("Template", request.getTemplate());
-
-        if (request.getData() != null)
-            localVarFormParams.put("Data", request.getData());
-
-        if (request.getReportEngineSettings() != null)
-            localVarFormParams.put("ReportEngineSettings", request.getReportEngineSettings());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call buildReportOnlineValidateBeforeCall(BuildReportOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Template' is set
-        if (request.getTemplate() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling buildReportOnline");
-        }
-
-        // verify the required parameter 'Data' is set
-        if (request.getData() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling buildReportOnline");
-        }
-
-        // verify the required parameter 'ReportEngineSettings' is set
-        if (request.getReportEngineSettings() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ReportEngineSettings' when calling buildReportOnline");
-        }
-
-        com.squareup.okhttp.Call call = buildReportOnlineCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -737,7 +369,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = buildReportOnlineWithHttpInfo(request);
                 return resp.getData();
@@ -755,8 +387,7 @@ public class WordsApi {
      */
     private ApiResponse< File > buildReportOnlineWithHttpInfo(BuildReportOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = buildReportOnlineValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -789,71 +420,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = buildReportOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for classify
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call classifyCall(ClassifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getText();
-
-        // create path and map variables
-        String localVarPath = "/words/classify";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "bestClassesCount", request.getBestClassesCount());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call classifyValidateBeforeCall(ClassifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Text' is set
-        if (request.getText() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Text' when calling classify");
-        }
-
-        com.squareup.okhttp.Call call = classifyCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -869,7 +442,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ClassificationResponse > resp = classifyWithHttpInfo(request);
                 return resp.getData();
@@ -887,8 +460,7 @@ public class WordsApi {
      */
     private ApiResponse< ClassificationResponse > classifyWithHttpInfo(ClassifyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = classifyValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ClassificationResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -921,77 +493,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = classifyValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ClassificationResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for classifyDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call classifyDocumentCall(ClassifyDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{documentName}/classify";
-        localVarPath = addParameterToPath(localVarPath, "documentName", request.getDocumentName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "bestClassesCount", request.getBestClassesCount());
-        addParameterToQuery(localVarQueryParams, "taxonomy", request.getTaxonomy());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call classifyDocumentValidateBeforeCall(ClassifyDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'DocumentName' is set
-        if (request.getDocumentName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DocumentName' when calling classifyDocument");
-        }
-
-        com.squareup.okhttp.Call call = classifyDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -1007,7 +515,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ClassificationResponse > resp = classifyDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -1025,8 +533,7 @@ public class WordsApi {
      */
     private ApiResponse< ClassificationResponse > classifyDocumentWithHttpInfo(ClassifyDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = classifyDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ClassificationResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -1059,81 +566,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = classifyDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ClassificationResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for compareDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call compareDocumentCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getCompareData();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/compareDocument";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call compareDocumentValidateBeforeCall(CompareDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling compareDocument");
-        }
-
-        // verify the required parameter 'CompareData' is set
-        if (request.getCompareData() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'CompareData' when calling compareDocument");
-        }
-
-        com.squareup.okhttp.Call call = compareDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -1149,7 +588,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = compareDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -1167,8 +606,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > compareDocumentWithHttpInfo(CompareDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -1201,82 +639,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = compareDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for convertDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call convertDocumentCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/convert";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "outPath", request.getOutPath());
-        addParameterToQuery(localVarQueryParams, "fileNameFieldValue", request.getFileNameFieldValue());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getDocument() != null)
-            localVarFormParams.put("Document", request.getDocument());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call convertDocumentValidateBeforeCall(ConvertDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Document' is set
-        if (request.getDocument() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Document' when calling convertDocument");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling convertDocument");
-        }
-
-        com.squareup.okhttp.Call call = convertDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -1292,7 +661,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = convertDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -1310,8 +679,7 @@ public class WordsApi {
      */
     private ApiResponse< File > convertDocumentWithHttpInfo(ConvertDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -1344,80 +712,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = convertDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for copyFile
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call copyFileCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/file/copy/{srcPath}";
-        localVarPath = addParameterToPath(localVarPath, "srcPath", request.getSrcPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "destPath", request.getDestPath());
-        addParameterToQuery(localVarQueryParams, "srcStorageName", request.getSrcStorageName());
-        addParameterToQuery(localVarQueryParams, "destStorageName", request.getDestStorageName());
-        addParameterToQuery(localVarQueryParams, "versionId", request.getVersionId());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call copyFileValidateBeforeCall(CopyFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'DestPath' is set
-        if (request.getDestPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DestPath' when calling copyFile");
-        }
-
-        // verify the required parameter 'SrcPath' is set
-        if (request.getSrcPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SrcPath' when calling copyFile");
-        }
-
-        com.squareup.okhttp.Call call = copyFileCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -1431,7 +732,7 @@ public class WordsApi {
     copyFileWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     copyFileWithHttpInfo(request);
             }
@@ -1485,74 +786,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for copyFolder
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call copyFolderCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/folder/copy/{srcPath}";
-        localVarPath = addParameterToPath(localVarPath, "srcPath", request.getSrcPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "destPath", request.getDestPath());
-        addParameterToQuery(localVarQueryParams, "srcStorageName", request.getSrcStorageName());
-        addParameterToQuery(localVarQueryParams, "destStorageName", request.getDestStorageName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call copyFolderValidateBeforeCall(CopyFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'DestPath' is set
-        if (request.getDestPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DestPath' when calling copyFolder");
-        }
-
-        // verify the required parameter 'SrcPath' is set
-        if (request.getSrcPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SrcPath' when calling copyFolder");
-        }
-
-        com.squareup.okhttp.Call call = copyFolderCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -1566,7 +802,7 @@ public class WordsApi {
     copyFolderWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     copyFolderWithHttpInfo(request);
             }
@@ -1620,78 +856,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for copyStyle
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call copyStyleCall(CopyStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getStyleCopy();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/styles/copy";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call copyStyleValidateBeforeCall(CopyStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling copyStyle");
-        }
-
-        // verify the required parameter 'StyleCopy' is set
-        if (request.getStyleCopy() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'StyleCopy' when calling copyStyle");
-        }
-
-        com.squareup.okhttp.Call call = copyStyleCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -1707,7 +874,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< StyleResponse > resp = copyStyleWithHttpInfo(request);
                 return resp.getData();
@@ -1725,8 +892,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > copyStyleWithHttpInfo(CopyStyleRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = copyStyleValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -1759,69 +925,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = copyStyleValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for createDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call createDocumentCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/create";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "fileName", request.getFileName());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createDocumentValidateBeforeCall(CreateDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-
-        com.squareup.okhttp.Call call = createDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -1839,7 +949,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = createDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -1859,8 +969,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > createDocumentWithHttpInfo(CreateDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -1895,72 +1004,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = createDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for createFolder
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call createFolderCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createFolderValidateBeforeCall(CreateFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Path' is set
-        if (request.getPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling createFolder");
-        }
-
-        com.squareup.okhttp.Call call = createFolderCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -1974,7 +1024,7 @@ public class WordsApi {
     createFolderWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     createFolderWithHttpInfo(request);
             }
@@ -2028,84 +1078,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for createOrUpdateDocumentProperty
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call createOrUpdateDocumentPropertyCall(CreateOrUpdateDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getProperty();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "propertyName", request.getPropertyName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createOrUpdateDocumentPropertyValidateBeforeCall(CreateOrUpdateDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling createOrUpdateDocumentProperty");
-        }
-
-        // verify the required parameter 'PropertyName' is set
-        if (request.getPropertyName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'PropertyName' when calling createOrUpdateDocumentProperty");
-        }
-
-        // verify the required parameter 'Property' is set
-        if (request.getProperty() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Property' when calling createOrUpdateDocumentProperty");
-        }
-
-        com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -2121,7 +1096,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentPropertyResponse > resp = createOrUpdateDocumentPropertyWithHttpInfo(request);
                 return resp.getData();
@@ -2139,8 +1114,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentPropertyResponse > createOrUpdateDocumentPropertyWithHttpInfo(CreateOrUpdateDocumentPropertyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentPropertyResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -2173,83 +1147,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = createOrUpdateDocumentPropertyValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentPropertyResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for deleteAllParagraphTabStops
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteAllParagraphTabStopsCall(DeleteAllParagraphTabStopsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteAllParagraphTabStopsValidateBeforeCall(DeleteAllParagraphTabStopsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteAllParagraphTabStops");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteAllParagraphTabStops");
-        }
-
-        com.squareup.okhttp.Call call = deleteAllParagraphTabStopsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -2265,7 +1169,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TabStopsResponse > resp = deleteAllParagraphTabStopsWithHttpInfo(request);
                 return resp.getData();
@@ -2283,8 +1187,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > deleteAllParagraphTabStopsWithHttpInfo(DeleteAllParagraphTabStopsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -2317,85 +1220,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteAllParagraphTabStopsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for deleteBorder
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteBorderCall(DeleteBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "borderType", request.getBorderType());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteBorderValidateBeforeCall(DeleteBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteBorder");
-        }
-
-        // verify the required parameter 'BorderType' is set
-        if (request.getBorderType() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'BorderType' when calling deleteBorder");
-        }
-
-        com.squareup.okhttp.Call call = deleteBorderCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -2411,7 +1242,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< BorderResponse > resp = deleteBorderWithHttpInfo(request);
                 return resp.getData();
@@ -2429,8 +1260,7 @@ public class WordsApi {
      */
     private ApiResponse< BorderResponse > deleteBorderWithHttpInfo(DeleteBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteBorderValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -2463,79 +1293,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteBorderValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for deleteBorders
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteBordersCall(DeleteBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteBordersValidateBeforeCall(DeleteBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteBorders");
-        }
-
-        com.squareup.okhttp.Call call = deleteBordersCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -2551,7 +1315,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< BordersResponse > resp = deleteBordersWithHttpInfo(request);
                 return resp.getData();
@@ -2569,8 +1333,7 @@ public class WordsApi {
      */
     private ApiResponse< BordersResponse > deleteBordersWithHttpInfo(DeleteBordersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteBordersValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< BordersResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -2603,84 +1366,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteBordersValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< BordersResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for deleteComment
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteCommentCall(DeleteCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "commentIndex", request.getCommentIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteCommentValidateBeforeCall(DeleteCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteComment");
-        }
-
-        // verify the required parameter 'CommentIndex' is set
-        if (request.getCommentIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'CommentIndex' when calling deleteComment");
-        }
-
-        com.squareup.okhttp.Call call = deleteCommentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -2694,7 +1386,7 @@ public class WordsApi {
     deleteCommentWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteCommentWithHttpInfo(request);
             }
@@ -2748,79 +1440,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteDocumentProperty
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteDocumentPropertyCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "propertyName", request.getPropertyName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteDocumentPropertyValidateBeforeCall(DeleteDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteDocumentProperty");
-        }
-
-        // verify the required parameter 'PropertyName' is set
-        if (request.getPropertyName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'PropertyName' when calling deleteDocumentProperty");
-        }
-
-        com.squareup.okhttp.Call call = deleteDocumentPropertyCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -2834,7 +1456,7 @@ public class WordsApi {
     deleteDocumentPropertyWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteDocumentPropertyWithHttpInfo(request);
             }
@@ -2888,80 +1510,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteDrawingObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteDrawingObjectCall(DeleteDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteDrawingObjectValidateBeforeCall(DeleteDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteDrawingObject");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteDrawingObject");
-        }
-
-        com.squareup.okhttp.Call call = deleteDrawingObjectCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -2975,7 +1526,7 @@ public class WordsApi {
     deleteDrawingObjectWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteDrawingObjectWithHttpInfo(request);
             }
@@ -3029,80 +1580,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteFieldCall(DeleteFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteFieldValidateBeforeCall(DeleteFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteField");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteField");
-        }
-
-        com.squareup.okhttp.Call call = deleteFieldCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -3116,7 +1596,7 @@ public class WordsApi {
     deleteFieldWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteFieldWithHttpInfo(request);
             }
@@ -3170,74 +1650,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteFields
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteFieldsCall(DeleteFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteFieldsValidateBeforeCall(DeleteFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFields");
-        }
-
-        com.squareup.okhttp.Call call = deleteFieldsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -3251,7 +1666,7 @@ public class WordsApi {
     deleteFieldsWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteFieldsWithHttpInfo(request);
             }
@@ -3305,68 +1720,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteFile
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteFileCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/file/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-        addParameterToQuery(localVarQueryParams, "versionId", request.getVersionId());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteFileValidateBeforeCall(DeleteFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Path' is set
-        if (request.getPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling deleteFile");
-        }
-
-        com.squareup.okhttp.Call call = deleteFileCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -3380,7 +1736,7 @@ public class WordsApi {
     deleteFileWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteFileWithHttpInfo(request);
             }
@@ -3434,68 +1790,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteFolder
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteFolderCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-        addParameterToQuery(localVarQueryParams, "recursive", request.getRecursive());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteFolderValidateBeforeCall(DeleteFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Path' is set
-        if (request.getPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling deleteFolder");
-        }
-
-        com.squareup.okhttp.Call call = deleteFolderCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -3509,7 +1806,7 @@ public class WordsApi {
     deleteFolderWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteFolderWithHttpInfo(request);
             }
@@ -3563,80 +1860,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteFootnote
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteFootnoteCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteFootnoteValidateBeforeCall(DeleteFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFootnote");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteFootnote");
-        }
-
-        com.squareup.okhttp.Call call = deleteFootnoteCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -3650,7 +1876,7 @@ public class WordsApi {
     deleteFootnoteWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteFootnoteWithHttpInfo(request);
             }
@@ -3704,80 +1930,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteFormField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteFormFieldCall(DeleteFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteFormFieldValidateBeforeCall(DeleteFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteFormField");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteFormField");
-        }
-
-        com.squareup.okhttp.Call call = deleteFormFieldCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -3791,7 +1946,7 @@ public class WordsApi {
     deleteFormFieldWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteFormFieldWithHttpInfo(request);
             }
@@ -3845,85 +2000,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteHeaderFooter
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteHeaderFooterCall(DeleteHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionPath", request.getSectionPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteHeaderFooterValidateBeforeCall(DeleteHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteHeaderFooter");
-        }
-
-        // verify the required parameter 'SectionPath' is set
-        if (request.getSectionPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionPath' when calling deleteHeaderFooter");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteHeaderFooter");
-        }
-
-        com.squareup.okhttp.Call call = deleteHeaderFooterCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -3937,7 +2016,7 @@ public class WordsApi {
     deleteHeaderFooterWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteHeaderFooterWithHttpInfo(request);
             }
@@ -3991,80 +2070,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteHeadersFooters
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteHeadersFootersCall(DeleteHeadersFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionPath", request.getSectionPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "headersFootersTypes", request.getHeadersFootersTypes());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteHeadersFootersValidateBeforeCall(DeleteHeadersFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteHeadersFooters");
-        }
-
-        // verify the required parameter 'SectionPath' is set
-        if (request.getSectionPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionPath' when calling deleteHeadersFooters");
-        }
-
-        com.squareup.okhttp.Call call = deleteHeadersFootersCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -4078,7 +2086,7 @@ public class WordsApi {
     deleteHeadersFootersWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteHeadersFootersWithHttpInfo(request);
             }
@@ -4132,73 +2140,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteMacros
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteMacrosCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/macros";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteMacrosValidateBeforeCall(DeleteMacrosRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteMacros");
-        }
-
-        com.squareup.okhttp.Call call = deleteMacrosCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -4212,7 +2156,7 @@ public class WordsApi {
     deleteMacrosWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteMacrosWithHttpInfo(request);
             }
@@ -4266,80 +2210,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteOfficeMathObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteOfficeMathObjectCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteOfficeMathObjectValidateBeforeCall(DeleteOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteOfficeMathObject");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteOfficeMathObject");
-        }
-
-        com.squareup.okhttp.Call call = deleteOfficeMathObjectCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -4353,7 +2226,7 @@ public class WordsApi {
     deleteOfficeMathObjectWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteOfficeMathObjectWithHttpInfo(request);
             }
@@ -4407,80 +2280,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteParagraph
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteParagraphCall(DeleteParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteParagraphValidateBeforeCall(DeleteParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraph");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraph");
-        }
-
-        com.squareup.okhttp.Call call = deleteParagraphCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -4494,7 +2296,7 @@ public class WordsApi {
     deleteParagraphWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteParagraphWithHttpInfo(request);
             }
@@ -4548,80 +2350,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteParagraphListFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteParagraphListFormatCall(DeleteParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteParagraphListFormatValidateBeforeCall(DeleteParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphListFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphListFormat");
-        }
-
-        com.squareup.okhttp.Call call = deleteParagraphListFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -4637,7 +2368,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ParagraphListFormatResponse > resp = deleteParagraphListFormatWithHttpInfo(request);
                 return resp.getData();
@@ -4655,8 +2386,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphListFormatResponse > deleteParagraphListFormatWithHttpInfo(DeleteParagraphListFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphListFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -4689,89 +2419,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphListFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for deleteParagraphTabStop
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteParagraphTabStopCall(DeleteParagraphTabStopRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "position", request.getPosition());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteParagraphTabStopValidateBeforeCall(DeleteParagraphTabStopRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteParagraphTabStop");
-        }
-
-        // verify the required parameter 'Position' is set
-        if (request.getPosition() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Position' when calling deleteParagraphTabStop");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteParagraphTabStop");
-        }
-
-        com.squareup.okhttp.Call call = deleteParagraphTabStopCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -4787,7 +2441,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TabStopsResponse > resp = deleteParagraphTabStopWithHttpInfo(request);
                 return resp.getData();
@@ -4805,8 +2459,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > deleteParagraphTabStopWithHttpInfo(DeleteParagraphTabStopRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteParagraphTabStopValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -4839,90 +2492,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParagraphTabStopValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for deleteRun
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteRunCall(DeleteRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteRunValidateBeforeCall(DeleteRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteRun");
-        }
-
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling deleteRun");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteRun");
-        }
-
-        com.squareup.okhttp.Call call = deleteRunCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -4936,7 +2512,7 @@ public class WordsApi {
     deleteRunWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteRunWithHttpInfo(request);
             }
@@ -4990,79 +2566,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteSection
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteSectionCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteSectionValidateBeforeCall(DeleteSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteSection");
-        }
-
-        // verify the required parameter 'SectionIndex' is set
-        if (request.getSectionIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionIndex' when calling deleteSection");
-        }
-
-        com.squareup.okhttp.Call call = deleteSectionCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -5076,7 +2582,7 @@ public class WordsApi {
     deleteSectionWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteSectionWithHttpInfo(request);
             }
@@ -5130,80 +2636,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteTable
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteTableCall(DeleteTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTableValidateBeforeCall(DeleteTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteTable");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteTable");
-        }
-
-        com.squareup.okhttp.Call call = deleteTableCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -5217,7 +2652,7 @@ public class WordsApi {
     deleteTableWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteTableWithHttpInfo(request);
             }
@@ -5271,85 +2706,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteTableCell
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteTableCellCall(DeleteTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTableCellValidateBeforeCall(DeleteTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteTableCell");
-        }
-
-        // verify the required parameter 'TableRowPath' is set
-        if (request.getTableRowPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TableRowPath' when calling deleteTableCell");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteTableCell");
-        }
-
-        com.squareup.okhttp.Call call = deleteTableCellCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -5363,7 +2722,7 @@ public class WordsApi {
     deleteTableCellWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteTableCellWithHttpInfo(request);
             }
@@ -5417,85 +2776,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteTableRow
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteTableRowCall(DeleteTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteTableRowValidateBeforeCall(DeleteTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteTableRow");
-        }
-
-        // verify the required parameter 'TablePath' is set
-        if (request.getTablePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TablePath' when calling deleteTableRow");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling deleteTableRow");
-        }
-
-        com.squareup.okhttp.Call call = deleteTableRowCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -5509,7 +2792,7 @@ public class WordsApi {
     deleteTableRowWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     deleteTableRowWithHttpInfo(request);
             }
@@ -5563,73 +2846,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for deleteWatermark
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call deleteWatermarkCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/deleteLast";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteWatermarkValidateBeforeCall(DeleteWatermarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling deleteWatermark");
-        }
-
-        com.squareup.okhttp.Call call = deleteWatermarkCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -5645,7 +2864,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = deleteWatermarkWithHttpInfo(request);
                 return resp.getData();
@@ -5663,8 +2882,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > deleteWatermarkWithHttpInfo(DeleteWatermarkRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -5697,73 +2915,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = deleteWatermarkValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for downloadFile
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call downloadFileCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/file/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-        addParameterToQuery(localVarQueryParams, "versionId", request.getVersionId());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call downloadFileValidateBeforeCall(DownloadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Path' is set
-        if (request.getPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling downloadFile");
-        }
-
-        com.squareup.okhttp.Call call = downloadFileCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -5779,7 +2937,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = downloadFileWithHttpInfo(request);
                 return resp.getData();
@@ -5797,8 +2955,7 @@ public class WordsApi {
      */
     private ApiResponse< File > downloadFileWithHttpInfo(DownloadFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -5831,82 +2988,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = downloadFileValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for executeMailMerge
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call executeMailMergeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/MailMerge";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "withRegions", request.getWithRegions());
-        addParameterToQuery(localVarQueryParams, "mailMergeDataFile", request.getMailMergeDataFile());
-        addParameterToQuery(localVarQueryParams, "cleanup", request.getCleanup());
-        addParameterToQuery(localVarQueryParams, "useWholeParagraphAsRegion", request.getUseWholeParagraphAsRegion());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getData() != null)
-            localVarFormParams.put("Data", request.getData());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call executeMailMergeValidateBeforeCall(ExecuteMailMergeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling executeMailMerge");
-        }
-
-        com.squareup.okhttp.Call call = executeMailMergeCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -5922,7 +3010,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = executeMailMergeWithHttpInfo(request);
                 return resp.getData();
@@ -5940,8 +3028,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > executeMailMergeWithHttpInfo(ExecuteMailMergeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -5974,83 +3061,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = executeMailMergeValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for executeMailMergeOnline
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call executeMailMergeOnlineCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/MailMerge";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "withRegions", request.getWithRegions());
-        addParameterToQuery(localVarQueryParams, "cleanup", request.getCleanup());
-        addParameterToQuery(localVarQueryParams, "documentFileName", request.getDocumentFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getTemplate() != null)
-            localVarFormParams.put("Template", request.getTemplate());
-
-        if (request.getData() != null)
-            localVarFormParams.put("Data", request.getData());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call executeMailMergeOnlineValidateBeforeCall(ExecuteMailMergeOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Template' is set
-        if (request.getTemplate() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling executeMailMergeOnline");
-        }
-
-        // verify the required parameter 'Data' is set
-        if (request.getData() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling executeMailMergeOnline");
-        }
-
-        com.squareup.okhttp.Call call = executeMailMergeOnlineCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -6066,7 +3083,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = executeMailMergeOnlineWithHttpInfo(request);
                 return resp.getData();
@@ -6084,8 +3101,7 @@ public class WordsApi {
      */
     private ApiResponse< File > executeMailMergeOnlineWithHttpInfo(ExecuteMailMergeOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -6118,67 +3134,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = executeMailMergeOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getAvailableFonts
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getAvailableFontsCall(GetAvailableFontsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/fonts/available";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAvailableFontsValidateBeforeCall(GetAvailableFontsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-
-        com.squareup.okhttp.Call call = getAvailableFontsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -6194,7 +3156,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< AvailableFontsResponse > resp = getAvailableFontsWithHttpInfo(request);
                 return resp.getData();
@@ -6212,8 +3174,7 @@ public class WordsApi {
      */
     private ApiResponse< AvailableFontsResponse > getAvailableFontsWithHttpInfo(GetAvailableFontsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getAvailableFontsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< AvailableFontsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -6246,81 +3207,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getAvailableFontsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< AvailableFontsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getBookmarkByName
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getBookmarkByNameCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "bookmarkName", request.getBookmarkName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBookmarkByNameValidateBeforeCall(GetBookmarkByNameRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getBookmarkByName");
-        }
-
-        // verify the required parameter 'BookmarkName' is set
-        if (request.getBookmarkName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkName' when calling getBookmarkByName");
-        }
-
-        com.squareup.okhttp.Call call = getBookmarkByNameCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -6336,7 +3229,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< BookmarkResponse > resp = getBookmarkByNameWithHttpInfo(request);
                 return resp.getData();
@@ -6354,8 +3247,7 @@ public class WordsApi {
      */
     private ApiResponse< BookmarkResponse > getBookmarkByNameWithHttpInfo(GetBookmarkByNameRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< BookmarkResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -6388,75 +3280,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBookmarkByNameValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< BookmarkResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getBookmarks
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getBookmarksCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBookmarksValidateBeforeCall(GetBookmarksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getBookmarks");
-        }
-
-        com.squareup.okhttp.Call call = getBookmarksCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -6472,7 +3302,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< BookmarksResponse > resp = getBookmarksWithHttpInfo(request);
                 return resp.getData();
@@ -6490,8 +3320,7 @@ public class WordsApi {
      */
     private ApiResponse< BookmarksResponse > getBookmarksWithHttpInfo(GetBookmarksRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< BookmarksResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -6524,82 +3353,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBookmarksValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< BookmarksResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getBorder
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getBorderCall(GetBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "borderType", request.getBorderType());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBorderValidateBeforeCall(GetBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getBorder");
-        }
-
-        // verify the required parameter 'BorderType' is set
-        if (request.getBorderType() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'BorderType' when calling getBorder");
-        }
-
-        com.squareup.okhttp.Call call = getBorderCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -6615,7 +3375,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< BorderResponse > resp = getBorderWithHttpInfo(request);
                 return resp.getData();
@@ -6633,8 +3393,7 @@ public class WordsApi {
      */
     private ApiResponse< BorderResponse > getBorderWithHttpInfo(GetBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBorderValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -6667,76 +3426,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBorderValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getBorders
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getBordersCall(GetBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBordersValidateBeforeCall(GetBordersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getBorders");
-        }
-
-        com.squareup.okhttp.Call call = getBordersCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -6752,7 +3448,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< BordersResponse > resp = getBordersWithHttpInfo(request);
                 return resp.getData();
@@ -6770,8 +3466,7 @@ public class WordsApi {
      */
     private ApiResponse< BordersResponse > getBordersWithHttpInfo(GetBordersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getBordersValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< BordersResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -6804,81 +3499,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getBordersValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< BordersResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getComment
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getCommentCall(GetCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "commentIndex", request.getCommentIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCommentValidateBeforeCall(GetCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getComment");
-        }
-
-        // verify the required parameter 'CommentIndex' is set
-        if (request.getCommentIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'CommentIndex' when calling getComment");
-        }
-
-        com.squareup.okhttp.Call call = getCommentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -6894,7 +3521,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< CommentResponse > resp = getCommentWithHttpInfo(request);
                 return resp.getData();
@@ -6912,8 +3539,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentResponse > getCommentWithHttpInfo(GetCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getCommentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -6946,75 +3572,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getComments
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getCommentsCall(GetCommentsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/comments";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCommentsValidateBeforeCall(GetCommentsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getComments");
-        }
-
-        com.squareup.okhttp.Call call = getCommentsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -7030,7 +3594,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< CommentsResponse > resp = getCommentsWithHttpInfo(request);
                 return resp.getData();
@@ -7048,8 +3612,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentsResponse > getCommentsWithHttpInfo(GetCommentsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getCommentsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< CommentsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -7082,75 +3645,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getCommentsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< CommentsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentCall(GetDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{documentName}";
-        localVarPath = addParameterToPath(localVarPath, "documentName", request.getDocumentName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentValidateBeforeCall(GetDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'DocumentName' is set
-        if (request.getDocumentName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DocumentName' when calling getDocument");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -7166,7 +3667,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = getDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -7184,8 +3685,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > getDocumentWithHttpInfo(GetDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -7218,82 +3718,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentDrawingObjectByIndex
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexCall(GetDocumentDrawingObjectByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentDrawingObjectByIndexValidateBeforeCall(GetDocumentDrawingObjectByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectByIndex");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectByIndex");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -7309,7 +3740,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DrawingObjectResponse > resp = getDocumentDrawingObjectByIndexWithHttpInfo(request);
                 return resp.getData();
@@ -7327,8 +3758,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectResponse > getDocumentDrawingObjectByIndexWithHttpInfo(GetDocumentDrawingObjectByIndexRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -7361,82 +3791,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectByIndexValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentDrawingObjectImageData
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataCall(GetDocumentDrawingObjectImageDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentDrawingObjectImageDataValidateBeforeCall(GetDocumentDrawingObjectImageDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectImageData");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectImageData");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -7452,7 +3813,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = getDocumentDrawingObjectImageDataWithHttpInfo(request);
                 return resp.getData();
@@ -7470,8 +3831,7 @@ public class WordsApi {
      */
     private ApiResponse< File > getDocumentDrawingObjectImageDataWithHttpInfo(GetDocumentDrawingObjectImageDataRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -7504,82 +3864,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectImageDataValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentDrawingObjectOleData
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataCall(GetDocumentDrawingObjectOleDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentDrawingObjectOleDataValidateBeforeCall(GetDocumentDrawingObjectOleDataRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjectOleData");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getDocumentDrawingObjectOleData");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -7595,7 +3886,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = getDocumentDrawingObjectOleDataWithHttpInfo(request);
                 return resp.getData();
@@ -7613,8 +3904,7 @@ public class WordsApi {
      */
     private ApiResponse< File > getDocumentDrawingObjectOleDataWithHttpInfo(GetDocumentDrawingObjectOleDataRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -7647,76 +3937,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectOleDataValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentDrawingObjects
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentDrawingObjectsCall(GetDocumentDrawingObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentDrawingObjectsValidateBeforeCall(GetDocumentDrawingObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentDrawingObjects");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentDrawingObjectsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -7732,7 +3959,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DrawingObjectsResponse > resp = getDocumentDrawingObjectsWithHttpInfo(request);
                 return resp.getData();
@@ -7750,8 +3977,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectsResponse > getDocumentDrawingObjectsWithHttpInfo(GetDocumentDrawingObjectsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DrawingObjectsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -7784,76 +4010,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentDrawingObjectsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DrawingObjectsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentFieldNames
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentFieldNamesCall(GetDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/mailMerge/FieldNames";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "useNonMergeFields", request.getUseNonMergeFields());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentFieldNamesValidateBeforeCall(GetDocumentFieldNamesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentFieldNames");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentFieldNamesCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -7869,7 +4032,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FieldNamesResponse > resp = getDocumentFieldNamesWithHttpInfo(request);
                 return resp.getData();
@@ -7887,8 +4050,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldNamesResponse > getDocumentFieldNamesWithHttpInfo(GetDocumentFieldNamesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FieldNamesResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -7921,73 +4083,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentFieldNamesValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FieldNamesResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentFieldNamesOnline
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentFieldNamesOnlineCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/mailMerge/FieldNames";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "useNonMergeFields", request.getUseNonMergeFields());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getTemplate() != null)
-            localVarFormParams.put("Template", request.getTemplate());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentFieldNamesOnlineValidateBeforeCall(GetDocumentFieldNamesOnlineRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Template' is set
-        if (request.getTemplate() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Template' when calling getDocumentFieldNamesOnline");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -8003,7 +4105,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FieldNamesResponse > resp = getDocumentFieldNamesOnlineWithHttpInfo(request);
                 return resp.getData();
@@ -8021,8 +4123,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldNamesResponse > getDocumentFieldNamesOnlineWithHttpInfo(GetDocumentFieldNamesOnlineRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FieldNamesResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -8055,81 +4156,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentFieldNamesOnlineValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FieldNamesResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentHyperlinkByIndex
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentHyperlinkByIndexCall(GetDocumentHyperlinkByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/hyperlinks/{hyperlinkIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "hyperlinkIndex", request.getHyperlinkIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentHyperlinkByIndexValidateBeforeCall(GetDocumentHyperlinkByIndexRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentHyperlinkByIndex");
-        }
-
-        // verify the required parameter 'HyperlinkIndex' is set
-        if (request.getHyperlinkIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'HyperlinkIndex' when calling getDocumentHyperlinkByIndex");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -8145,7 +4178,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< HyperlinkResponse > resp = getDocumentHyperlinkByIndexWithHttpInfo(request);
                 return resp.getData();
@@ -8163,8 +4196,7 @@ public class WordsApi {
      */
     private ApiResponse< HyperlinkResponse > getDocumentHyperlinkByIndexWithHttpInfo(GetDocumentHyperlinkByIndexRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< HyperlinkResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -8197,75 +4229,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentHyperlinkByIndexValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< HyperlinkResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentHyperlinks
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentHyperlinksCall(GetDocumentHyperlinksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/hyperlinks";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentHyperlinksValidateBeforeCall(GetDocumentHyperlinksRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentHyperlinks");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentHyperlinksCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -8281,7 +4251,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< HyperlinksResponse > resp = getDocumentHyperlinksWithHttpInfo(request);
                 return resp.getData();
@@ -8299,8 +4269,7 @@ public class WordsApi {
      */
     private ApiResponse< HyperlinksResponse > getDocumentHyperlinksWithHttpInfo(GetDocumentHyperlinksRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentHyperlinksValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< HyperlinksResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -8333,75 +4302,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentHyperlinksValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< HyperlinksResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentProperties
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentPropertiesCall(GetDocumentPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentPropertiesValidateBeforeCall(GetDocumentPropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentProperties");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentPropertiesCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -8417,7 +4324,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentPropertiesResponse > resp = getDocumentPropertiesWithHttpInfo(request);
                 return resp.getData();
@@ -8435,8 +4342,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentPropertiesResponse > getDocumentPropertiesWithHttpInfo(GetDocumentPropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertiesValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentPropertiesResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -8469,81 +4375,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentPropertiesValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentPropertiesResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentProperty
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentPropertyCall(GetDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/documentProperties/{propertyName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "propertyName", request.getPropertyName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentPropertyValidateBeforeCall(GetDocumentPropertyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentProperty");
-        }
-
-        // verify the required parameter 'PropertyName' is set
-        if (request.getPropertyName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'PropertyName' when calling getDocumentProperty");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentPropertyCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -8559,7 +4397,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentPropertyResponse > resp = getDocumentPropertyWithHttpInfo(request);
                 return resp.getData();
@@ -8577,8 +4415,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentPropertyResponse > getDocumentPropertyWithHttpInfo(GetDocumentPropertyRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentPropertyValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentPropertyResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -8611,75 +4448,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentPropertyValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentPropertyResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentProtection
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentProtectionCall(GetDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/protection";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentProtectionValidateBeforeCall(GetDocumentProtectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentProtection");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentProtectionCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -8695,7 +4470,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ProtectionDataResponse > resp = getDocumentProtectionWithHttpInfo(request);
                 return resp.getData();
@@ -8713,8 +4488,7 @@ public class WordsApi {
      */
     private ApiResponse< ProtectionDataResponse > getDocumentProtectionWithHttpInfo(GetDocumentProtectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentProtectionValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -8747,78 +4521,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentProtectionValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentStatistics
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentStatisticsCall(GetDocumentStatisticsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/statistics";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "includeComments", request.getIncludeComments());
-        addParameterToQuery(localVarQueryParams, "includeFootnotes", request.getIncludeFootnotes());
-        addParameterToQuery(localVarQueryParams, "includeTextInShapes", request.getIncludeTextInShapes());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentStatisticsValidateBeforeCall(GetDocumentStatisticsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentStatistics");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentStatisticsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -8834,7 +4543,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< StatDataResponse > resp = getDocumentStatisticsWithHttpInfo(request);
                 return resp.getData();
@@ -8852,8 +4561,7 @@ public class WordsApi {
      */
     private ApiResponse< StatDataResponse > getDocumentStatisticsWithHttpInfo(GetDocumentStatisticsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentStatisticsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< StatDataResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -8886,83 +4594,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentStatisticsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< StatDataResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getDocumentWithFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getDocumentWithFormatCall(GetDocumentWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "outPath", request.getOutPath());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDocumentWithFormatValidateBeforeCall(GetDocumentWithFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getDocumentWithFormat");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling getDocumentWithFormat");
-        }
-
-        com.squareup.okhttp.Call call = getDocumentWithFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -8978,7 +4616,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = getDocumentWithFormatWithHttpInfo(request);
                 return resp.getData();
@@ -8996,8 +4634,7 @@ public class WordsApi {
      */
     private ApiResponse< File > getDocumentWithFormatWithHttpInfo(GetDocumentWithFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getDocumentWithFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -9030,82 +4667,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getDocumentWithFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getFieldCall(GetFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFieldValidateBeforeCall(GetFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getField");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getField");
-        }
-
-        com.squareup.okhttp.Call call = getFieldCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -9121,7 +4689,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FieldResponse > resp = getFieldWithHttpInfo(request);
                 return resp.getData();
@@ -9139,8 +4707,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldResponse > getFieldWithHttpInfo(GetFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -9173,76 +4740,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getFields
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getFieldsCall(GetFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFieldsValidateBeforeCall(GetFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFields");
-        }
-
-        com.squareup.okhttp.Call call = getFieldsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -9258,7 +4762,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FieldsResponse > resp = getFieldsWithHttpInfo(request);
                 return resp.getData();
@@ -9276,8 +4780,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldsResponse > getFieldsWithHttpInfo(GetFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FieldsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -9310,72 +4813,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FieldsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getFilesList
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getFilesListCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/folder/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFilesListValidateBeforeCall(GetFilesListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Path' is set
-        if (request.getPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling getFilesList");
-        }
-
-        com.squareup.okhttp.Call call = getFilesListCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -9391,7 +4835,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FilesList > resp = getFilesListWithHttpInfo(request);
                 return resp.getData();
@@ -9409,8 +4853,7 @@ public class WordsApi {
      */
     private ApiResponse< FilesList > getFilesListWithHttpInfo(GetFilesListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FilesList >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -9443,82 +4886,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFilesListValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FilesList >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getFootnote
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getFootnoteCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFootnoteValidateBeforeCall(GetFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFootnote");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getFootnote");
-        }
-
-        com.squareup.okhttp.Call call = getFootnoteCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -9534,7 +4908,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FootnoteResponse > resp = getFootnoteWithHttpInfo(request);
                 return resp.getData();
@@ -9552,8 +4926,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnoteResponse > getFootnoteWithHttpInfo(GetFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnoteValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -9586,76 +4959,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getFootnotes
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getFootnotesCall(GetFootnotesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFootnotesValidateBeforeCall(GetFootnotesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFootnotes");
-        }
-
-        com.squareup.okhttp.Call call = getFootnotesCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -9671,7 +4981,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FootnotesResponse > resp = getFootnotesWithHttpInfo(request);
                 return resp.getData();
@@ -9689,8 +4999,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnotesResponse > getFootnotesWithHttpInfo(GetFootnotesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFootnotesValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FootnotesResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -9723,82 +5032,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFootnotesValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FootnotesResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getFormField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getFormFieldCall(GetFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFormFieldValidateBeforeCall(GetFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFormField");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getFormField");
-        }
-
-        com.squareup.okhttp.Call call = getFormFieldCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -9814,7 +5054,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FormFieldResponse > resp = getFormFieldWithHttpInfo(request);
                 return resp.getData();
@@ -9832,8 +5072,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldResponse > getFormFieldWithHttpInfo(GetFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -9866,76 +5105,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getFormFields
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getFormFieldsCall(GetFormFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFormFieldsValidateBeforeCall(GetFormFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getFormFields");
-        }
-
-        com.squareup.okhttp.Call call = getFormFieldsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -9951,7 +5127,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FormFieldsResponse > resp = getFormFieldsWithHttpInfo(request);
                 return resp.getData();
@@ -9969,8 +5145,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldsResponse > getFormFieldsWithHttpInfo(GetFormFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getFormFieldsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FormFieldsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -10003,82 +5178,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getFormFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FormFieldsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getHeaderFooter
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getHeaderFooterCall(GetHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/headersfooters/{headerFooterIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "headerFooterIndex", request.getHeaderFooterIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "filterByType", request.getFilterByType());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getHeaderFooterValidateBeforeCall(GetHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getHeaderFooter");
-        }
-
-        // verify the required parameter 'HeaderFooterIndex' is set
-        if (request.getHeaderFooterIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'HeaderFooterIndex' when calling getHeaderFooter");
-        }
-
-        com.squareup.okhttp.Call call = getHeaderFooterCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -10094,7 +5200,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< HeaderFooterResponse > resp = getHeaderFooterWithHttpInfo(request);
                 return resp.getData();
@@ -10112,8 +5218,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFooterResponse > getHeaderFooterWithHttpInfo(GetHeaderFooterRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -10146,88 +5251,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFooterValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getHeaderFooterOfSection
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getHeaderFooterOfSectionCall(GetHeaderFooterOfSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "headerFooterIndex", request.getHeaderFooterIndex());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "filterByType", request.getFilterByType());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getHeaderFooterOfSectionValidateBeforeCall(GetHeaderFooterOfSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getHeaderFooterOfSection");
-        }
-
-        // verify the required parameter 'HeaderFooterIndex' is set
-        if (request.getHeaderFooterIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'HeaderFooterIndex' when calling getHeaderFooterOfSection");
-        }
-
-        // verify the required parameter 'SectionIndex' is set
-        if (request.getSectionIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionIndex' when calling getHeaderFooterOfSection");
-        }
-
-        com.squareup.okhttp.Call call = getHeaderFooterOfSectionCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -10243,7 +5273,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< HeaderFooterResponse > resp = getHeaderFooterOfSectionWithHttpInfo(request);
                 return resp.getData();
@@ -10261,8 +5291,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFooterResponse > getHeaderFooterOfSectionWithHttpInfo(GetHeaderFooterOfSectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -10295,82 +5324,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFooterOfSectionValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getHeaderFooters
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getHeaderFootersCall(GetHeaderFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionPath", request.getSectionPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "filterByType", request.getFilterByType());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getHeaderFootersValidateBeforeCall(GetHeaderFootersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getHeaderFooters");
-        }
-
-        // verify the required parameter 'SectionPath' is set
-        if (request.getSectionPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionPath' when calling getHeaderFooters");
-        }
-
-        com.squareup.okhttp.Call call = getHeaderFootersCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -10386,7 +5346,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< HeaderFootersResponse > resp = getHeaderFootersWithHttpInfo(request);
                 return resp.getData();
@@ -10404,8 +5364,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFootersResponse > getHeaderFootersWithHttpInfo(GetHeaderFootersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getHeaderFootersValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< HeaderFootersResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -10438,81 +5397,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getHeaderFootersValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< HeaderFootersResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getList
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getListCall(GetListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "listId", request.getListId());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getListValidateBeforeCall(GetListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getList");
-        }
-
-        // verify the required parameter 'ListId' is set
-        if (request.getListId() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ListId' when calling getList");
-        }
-
-        com.squareup.okhttp.Call call = getListCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -10528,7 +5419,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ListResponse > resp = getListWithHttpInfo(request);
                 return resp.getData();
@@ -10546,8 +5437,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > getListWithHttpInfo(GetListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getListValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -10580,75 +5470,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getListValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getLists
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getListsCall(GetListsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/lists";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getListsValidateBeforeCall(GetListsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getLists");
-        }
-
-        com.squareup.okhttp.Call call = getListsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -10664,7 +5492,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ListsResponse > resp = getListsWithHttpInfo(request);
                 return resp.getData();
@@ -10682,8 +5510,7 @@ public class WordsApi {
      */
     private ApiResponse< ListsResponse > getListsWithHttpInfo(GetListsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getListsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ListsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -10716,82 +5543,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getListsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ListsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getOfficeMathObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getOfficeMathObjectCall(GetOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getOfficeMathObjectValidateBeforeCall(GetOfficeMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getOfficeMathObject");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getOfficeMathObject");
-        }
-
-        com.squareup.okhttp.Call call = getOfficeMathObjectCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -10807,7 +5565,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< OfficeMathObjectResponse > resp = getOfficeMathObjectWithHttpInfo(request);
                 return resp.getData();
@@ -10825,8 +5583,7 @@ public class WordsApi {
      */
     private ApiResponse< OfficeMathObjectResponse > getOfficeMathObjectWithHttpInfo(GetOfficeMathObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< OfficeMathObjectResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -10859,76 +5616,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getOfficeMathObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< OfficeMathObjectResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getOfficeMathObjects
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getOfficeMathObjectsCall(GetOfficeMathObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getOfficeMathObjectsValidateBeforeCall(GetOfficeMathObjectsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getOfficeMathObjects");
-        }
-
-        com.squareup.okhttp.Call call = getOfficeMathObjectsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -10944,7 +5638,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< OfficeMathObjectsResponse > resp = getOfficeMathObjectsWithHttpInfo(request);
                 return resp.getData();
@@ -10962,8 +5656,7 @@ public class WordsApi {
      */
     private ApiResponse< OfficeMathObjectsResponse > getOfficeMathObjectsWithHttpInfo(GetOfficeMathObjectsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getOfficeMathObjectsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< OfficeMathObjectsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -10996,82 +5689,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getOfficeMathObjectsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< OfficeMathObjectsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getParagraph
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getParagraphCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParagraphValidateBeforeCall(GetParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraph");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraph");
-        }
-
-        com.squareup.okhttp.Call call = getParagraphCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -11087,7 +5711,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ParagraphResponse > resp = getParagraphWithHttpInfo(request);
                 return resp.getData();
@@ -11105,8 +5729,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphResponse > getParagraphWithHttpInfo(GetParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -11139,82 +5762,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getParagraphFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getParagraphFormatCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParagraphFormatValidateBeforeCall(GetParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphFormat");
-        }
-
-        com.squareup.okhttp.Call call = getParagraphFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -11230,7 +5784,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ParagraphFormatResponse > resp = getParagraphFormatWithHttpInfo(request);
                 return resp.getData();
@@ -11248,8 +5802,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphFormatResponse > getParagraphFormatWithHttpInfo(GetParagraphFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -11282,82 +5835,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getParagraphListFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getParagraphListFormatCall(GetParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParagraphListFormatValidateBeforeCall(GetParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphListFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphListFormat");
-        }
-
-        com.squareup.okhttp.Call call = getParagraphListFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -11373,7 +5857,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ParagraphListFormatResponse > resp = getParagraphListFormatWithHttpInfo(request);
                 return resp.getData();
@@ -11391,8 +5875,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphListFormatResponse > getParagraphListFormatWithHttpInfo(GetParagraphListFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphListFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -11425,76 +5908,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphListFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getParagraphs
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getParagraphsCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParagraphsValidateBeforeCall(GetParagraphsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphs");
-        }
-
-        com.squareup.okhttp.Call call = getParagraphsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -11510,7 +5930,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ParagraphLinkCollectionResponse > resp = getParagraphsWithHttpInfo(request);
                 return resp.getData();
@@ -11528,8 +5948,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphLinkCollectionResponse > getParagraphsWithHttpInfo(GetParagraphsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphLinkCollectionResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -11562,82 +5981,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphLinkCollectionResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getParagraphTabStops
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getParagraphTabStopsCall(GetParagraphTabStopsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParagraphTabStopsValidateBeforeCall(GetParagraphTabStopsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getParagraphTabStops");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getParagraphTabStops");
-        }
-
-        com.squareup.okhttp.Call call = getParagraphTabStopsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -11653,7 +6003,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TabStopsResponse > resp = getParagraphTabStopsWithHttpInfo(request);
                 return resp.getData();
@@ -11671,8 +6021,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > getParagraphTabStopsWithHttpInfo(GetParagraphTabStopsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getParagraphTabStopsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -11705,82 +6054,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getParagraphTabStopsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getRangeText
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getRangeTextCall(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "rangeStartIdentifier", request.getRangeStartIdentifier());
-        localVarPath = addParameterToPath(localVarPath, "rangeEndIdentifier", request.getRangeEndIdentifier());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRangeTextValidateBeforeCall(GetRangeTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getRangeText");
-        }
-
-        // verify the required parameter 'RangeStartIdentifier' is set
-        if (request.getRangeStartIdentifier() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling getRangeText");
-        }
-
-        com.squareup.okhttp.Call call = getRangeTextCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -11796,7 +6076,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< RangeTextResponse > resp = getRangeTextWithHttpInfo(request);
                 return resp.getData();
@@ -11814,8 +6094,7 @@ public class WordsApi {
      */
     private ApiResponse< RangeTextResponse > getRangeTextWithHttpInfo(GetRangeTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRangeTextValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< RangeTextResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -11848,87 +6127,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRangeTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< RangeTextResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getRun
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getRunCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRunValidateBeforeCall(GetRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getRun");
-        }
-
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getRun");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getRun");
-        }
-
-        com.squareup.okhttp.Call call = getRunCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -11944,7 +6149,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< RunResponse > resp = getRunWithHttpInfo(request);
                 return resp.getData();
@@ -11962,8 +6167,7 @@ public class WordsApi {
      */
     private ApiResponse< RunResponse > getRunWithHttpInfo(GetRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -11996,87 +6200,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getRunFont
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getRunFontCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRunFontValidateBeforeCall(GetRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getRunFont");
-        }
-
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getRunFont");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getRunFont");
-        }
-
-        com.squareup.okhttp.Call call = getRunFontCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -12092,7 +6222,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FontResponse > resp = getRunFontWithHttpInfo(request);
                 return resp.getData();
@@ -12110,8 +6240,7 @@ public class WordsApi {
      */
     private ApiResponse< FontResponse > getRunFontWithHttpInfo(GetRunFontRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FontResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -12144,81 +6273,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunFontValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FontResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getRuns
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getRunsCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRunsValidateBeforeCall(GetRunsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getRuns");
-        }
-
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling getRuns");
-        }
-
-        com.squareup.okhttp.Call call = getRunsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -12234,7 +6295,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< RunsResponse > resp = getRunsWithHttpInfo(request);
                 return resp.getData();
@@ -12252,8 +6313,7 @@ public class WordsApi {
      */
     private ApiResponse< RunsResponse > getRunsWithHttpInfo(GetRunsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< RunsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -12286,81 +6346,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getRunsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< RunsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getSection
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getSectionCall(GetSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getSectionValidateBeforeCall(GetSectionRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getSection");
-        }
-
-        // verify the required parameter 'SectionIndex' is set
-        if (request.getSectionIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionIndex' when calling getSection");
-        }
-
-        com.squareup.okhttp.Call call = getSectionCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -12376,7 +6368,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SectionResponse > resp = getSectionWithHttpInfo(request);
                 return resp.getData();
@@ -12394,8 +6386,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionResponse > getSectionWithHttpInfo(GetSectionRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SectionResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -12428,81 +6419,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SectionResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getSectionPageSetup
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getSectionPageSetupCall(GetSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getSectionPageSetupValidateBeforeCall(GetSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getSectionPageSetup");
-        }
-
-        // verify the required parameter 'SectionIndex' is set
-        if (request.getSectionIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionIndex' when calling getSectionPageSetup");
-        }
-
-        com.squareup.okhttp.Call call = getSectionPageSetupCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -12518,7 +6441,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SectionPageSetupResponse > resp = getSectionPageSetupWithHttpInfo(request);
                 return resp.getData();
@@ -12536,8 +6459,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionPageSetupResponse > getSectionPageSetupWithHttpInfo(GetSectionPageSetupRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionPageSetupValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SectionPageSetupResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -12570,75 +6492,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionPageSetupValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SectionPageSetupResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getSections
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getSectionsCall(GetSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/sections";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getSectionsValidateBeforeCall(GetSectionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getSections");
-        }
-
-        com.squareup.okhttp.Call call = getSectionsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -12654,7 +6514,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SectionLinkCollectionResponse > resp = getSectionsWithHttpInfo(request);
                 return resp.getData();
@@ -12672,8 +6532,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionLinkCollectionResponse > getSectionsWithHttpInfo(GetSectionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getSectionsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SectionLinkCollectionResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -12706,81 +6565,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getSectionsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SectionLinkCollectionResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getStyle
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getStyleCall(GetStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/styles/{styleName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "styleName", request.getStyleName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStyleValidateBeforeCall(GetStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getStyle");
-        }
-
-        // verify the required parameter 'StyleName' is set
-        if (request.getStyleName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'StyleName' when calling getStyle");
-        }
-
-        com.squareup.okhttp.Call call = getStyleCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -12796,7 +6587,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< StyleResponse > resp = getStyleWithHttpInfo(request);
                 return resp.getData();
@@ -12814,8 +6605,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > getStyleWithHttpInfo(GetStyleRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getStyleValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -12848,81 +6638,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStyleValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getStyleFromDocumentElement
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getStyleFromDocumentElementCall(GetStyleFromDocumentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{styledNodePath}/style";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "styledNodePath", request.getStyledNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStyleFromDocumentElementValidateBeforeCall(GetStyleFromDocumentElementRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getStyleFromDocumentElement");
-        }
-
-        // verify the required parameter 'StyledNodePath' is set
-        if (request.getStyledNodePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'StyledNodePath' when calling getStyleFromDocumentElement");
-        }
-
-        com.squareup.okhttp.Call call = getStyleFromDocumentElementCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -12938,7 +6660,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< StyleResponse > resp = getStyleFromDocumentElementWithHttpInfo(request);
                 return resp.getData();
@@ -12956,8 +6678,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > getStyleFromDocumentElementWithHttpInfo(GetStyleFromDocumentElementRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getStyleFromDocumentElementValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -12990,75 +6711,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStyleFromDocumentElementValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getStyles
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getStylesCall(GetStylesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/styles";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStylesValidateBeforeCall(GetStylesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getStyles");
-        }
-
-        com.squareup.okhttp.Call call = getStylesCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -13074,7 +6733,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< StylesResponse > resp = getStylesWithHttpInfo(request);
                 return resp.getData();
@@ -13092,8 +6751,7 @@ public class WordsApi {
      */
     private ApiResponse< StylesResponse > getStylesWithHttpInfo(GetStylesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getStylesValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< StylesResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -13126,82 +6784,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getStylesValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< StylesResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getTable
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getTableCall(GetTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTableValidateBeforeCall(GetTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTable");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTable");
-        }
-
-        com.squareup.okhttp.Call call = getTableCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -13217,7 +6806,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableResponse > resp = getTableWithHttpInfo(request);
                 return resp.getData();
@@ -13235,8 +6824,7 @@ public class WordsApi {
      */
     private ApiResponse< TableResponse > getTableWithHttpInfo(GetTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -13269,87 +6857,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getTableCell
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getTableCellCall(GetTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTableCellValidateBeforeCall(GetTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTableCell");
-        }
-
-        // verify the required parameter 'TableRowPath' is set
-        if (request.getTableRowPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TableRowPath' when calling getTableCell");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTableCell");
-        }
-
-        com.squareup.okhttp.Call call = getTableCellCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -13365,7 +6879,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableCellResponse > resp = getTableCellWithHttpInfo(request);
                 return resp.getData();
@@ -13383,8 +6897,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellResponse > getTableCellWithHttpInfo(GetTableCellRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableCellValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableCellResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -13417,87 +6930,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableCellValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableCellResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getTableCellFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getTableCellFormatCall(GetTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTableCellFormatValidateBeforeCall(GetTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTableCellFormat");
-        }
-
-        // verify the required parameter 'TableRowPath' is set
-        if (request.getTableRowPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TableRowPath' when calling getTableCellFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTableCellFormat");
-        }
-
-        com.squareup.okhttp.Call call = getTableCellFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -13513,7 +6952,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableCellFormatResponse > resp = getTableCellFormatWithHttpInfo(request);
                 return resp.getData();
@@ -13531,8 +6970,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellFormatResponse > getTableCellFormatWithHttpInfo(GetTableCellFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableCellFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableCellFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -13565,82 +7003,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableCellFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableCellFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getTableProperties
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getTablePropertiesCall(GetTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTablePropertiesValidateBeforeCall(GetTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTableProperties");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTableProperties");
-        }
-
-        com.squareup.okhttp.Call call = getTablePropertiesCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -13656,7 +7025,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TablePropertiesResponse > resp = getTablePropertiesWithHttpInfo(request);
                 return resp.getData();
@@ -13674,8 +7043,7 @@ public class WordsApi {
      */
     private ApiResponse< TablePropertiesResponse > getTablePropertiesWithHttpInfo(GetTablePropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablePropertiesValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -13708,87 +7076,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTablePropertiesValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getTableRow
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getTableRowCall(GetTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTableRowValidateBeforeCall(GetTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTableRow");
-        }
-
-        // verify the required parameter 'TablePath' is set
-        if (request.getTablePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TablePath' when calling getTableRow");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTableRow");
-        }
-
-        com.squareup.okhttp.Call call = getTableRowCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -13804,7 +7098,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableRowResponse > resp = getTableRowWithHttpInfo(request);
                 return resp.getData();
@@ -13822,8 +7116,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowResponse > getTableRowWithHttpInfo(GetTableRowRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableRowValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableRowResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -13856,87 +7149,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableRowValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableRowResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getTableRowFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getTableRowFormatCall(GetTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTableRowFormatValidateBeforeCall(GetTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTableRowFormat");
-        }
-
-        // verify the required parameter 'TablePath' is set
-        if (request.getTablePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TablePath' when calling getTableRowFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling getTableRowFormat");
-        }
-
-        com.squareup.okhttp.Call call = getTableRowFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -13952,7 +7171,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableRowFormatResponse > resp = getTableRowFormatWithHttpInfo(request);
                 return resp.getData();
@@ -13970,8 +7189,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowFormatResponse > getTableRowFormatWithHttpInfo(GetTableRowFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTableRowFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableRowFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -14004,76 +7222,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTableRowFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableRowFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for getTables
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call getTablesCall(GetTablesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTablesValidateBeforeCall(GetTablesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling getTables");
-        }
-
-        com.squareup.okhttp.Call call = getTablesCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -14089,7 +7244,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableLinkCollectionResponse > resp = getTablesWithHttpInfo(request);
                 return resp.getData();
@@ -14107,8 +7262,7 @@ public class WordsApi {
      */
     private ApiResponse< TableLinkCollectionResponse > getTablesWithHttpInfo(GetTablesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = getTablesValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableLinkCollectionResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -14141,83 +7295,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = getTablesValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableLinkCollectionResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertComment
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertCommentCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getComment();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/comments";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertCommentValidateBeforeCall(InsertCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertComment");
-        }
-
-        // verify the required parameter 'Comment' is set
-        if (request.getComment() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Comment' when calling insertComment");
-        }
-
-        com.squareup.okhttp.Call call = insertCommentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -14233,7 +7317,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< CommentResponse > resp = insertCommentWithHttpInfo(request);
                 return resp.getData();
@@ -14251,8 +7335,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentResponse > insertCommentWithHttpInfo(InsertCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -14285,94 +7368,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertDrawingObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertDrawingObjectCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getDrawingObject() != null)
-            localVarFormParams.put("DrawingObject", request.getDrawingObject());
-
-        if (request.getImageFile() != null)
-            localVarFormParams.put("ImageFile", request.getImageFile());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertDrawingObjectValidateBeforeCall(InsertDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertDrawingObject");
-        }
-
-        // verify the required parameter 'DrawingObject' is set
-        if (request.getDrawingObject() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DrawingObject' when calling insertDrawingObject");
-        }
-
-        // verify the required parameter 'ImageFile' is set
-        if (request.getImageFile() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling insertDrawingObject");
-        }
-
-        com.squareup.okhttp.Call call = insertDrawingObjectCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -14388,7 +7390,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DrawingObjectResponse > resp = insertDrawingObjectWithHttpInfo(request);
                 return resp.getData();
@@ -14406,8 +7408,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectResponse > insertDrawingObjectWithHttpInfo(InsertDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -14440,85 +7441,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertFieldCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getField();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "insertBeforeNode", request.getInsertBeforeNode());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertFieldValidateBeforeCall(InsertFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertField");
-        }
-
-        // verify the required parameter 'Field' is set
-        if (request.getField() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling insertField");
-        }
-
-        com.squareup.okhttp.Call call = insertFieldCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -14534,7 +7463,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FieldResponse > resp = insertFieldWithHttpInfo(request);
                 return resp.getData();
@@ -14552,8 +7481,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldResponse > insertFieldWithHttpInfo(InsertFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -14586,84 +7514,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertFootnote
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertFootnoteCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getFootnoteDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertFootnoteValidateBeforeCall(InsertFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertFootnote");
-        }
-
-        // verify the required parameter 'FootnoteDto' is set
-        if (request.getFootnoteDto() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling insertFootnote");
-        }
-
-        com.squareup.okhttp.Call call = insertFootnoteCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -14679,7 +7536,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FootnoteResponse > resp = insertFootnoteWithHttpInfo(request);
                 return resp.getData();
@@ -14697,8 +7554,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnoteResponse > insertFootnoteWithHttpInfo(InsertFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -14731,85 +7587,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertFormField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertFormFieldCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getFormField();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "insertBeforeNode", request.getInsertBeforeNode());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertFormFieldValidateBeforeCall(InsertFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertFormField");
-        }
-
-        // verify the required parameter 'FormField' is set
-        if (request.getFormField() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling insertFormField");
-        }
-
-        com.squareup.okhttp.Call call = insertFormFieldCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -14825,7 +7609,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FormFieldResponse > resp = insertFormFieldWithHttpInfo(request);
                 return resp.getData();
@@ -14843,8 +7627,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldResponse > insertFormFieldWithHttpInfo(InsertFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -14877,89 +7660,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertHeaderFooter
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertHeaderFooterCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getHeaderFooterType();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{sectionPath}/headersfooters";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionPath", request.getSectionPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertHeaderFooterValidateBeforeCall(InsertHeaderFooterRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertHeaderFooter");
-        }
-
-        // verify the required parameter 'HeaderFooterType' is set
-        if (request.getHeaderFooterType() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'HeaderFooterType' when calling insertHeaderFooter");
-        }
-
-        // verify the required parameter 'SectionPath' is set
-        if (request.getSectionPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionPath' when calling insertHeaderFooter");
-        }
-
-        com.squareup.okhttp.Call call = insertHeaderFooterCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -14975,7 +7682,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< HeaderFooterResponse > resp = insertHeaderFooterWithHttpInfo(request);
                 return resp.getData();
@@ -14993,8 +7700,7 @@ public class WordsApi {
      */
     private ApiResponse< HeaderFooterResponse > insertHeaderFooterWithHttpInfo(InsertHeaderFooterRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -15027,83 +7733,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertHeaderFooterValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< HeaderFooterResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertList
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertListCall(InsertListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getListInsert();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/lists";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertListValidateBeforeCall(InsertListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertList");
-        }
-
-        // verify the required parameter 'ListInsert' is set
-        if (request.getListInsert() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ListInsert' when calling insertList");
-        }
-
-        com.squareup.okhttp.Call call = insertListCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -15119,7 +7755,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ListResponse > resp = insertListWithHttpInfo(request);
                 return resp.getData();
@@ -15137,8 +7773,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > insertListWithHttpInfo(InsertListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertListValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -15171,88 +7806,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertListValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertOrUpdateParagraphTabStop
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopCall(InsertOrUpdateParagraphTabStopRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertOrUpdateParagraphTabStopValidateBeforeCall(InsertOrUpdateParagraphTabStopRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertOrUpdateParagraphTabStop");
-        }
-
-        // verify the required parameter 'Dto' is set
-        if (request.getDto() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling insertOrUpdateParagraphTabStop");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling insertOrUpdateParagraphTabStop");
-        }
-
-        com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -15268,7 +7828,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TabStopsResponse > resp = insertOrUpdateParagraphTabStopWithHttpInfo(request);
                 return resp.getData();
@@ -15286,8 +7846,7 @@ public class WordsApi {
      */
     private ApiResponse< TabStopsResponse > insertOrUpdateParagraphTabStopWithHttpInfo(InsertOrUpdateParagraphTabStopRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -15320,83 +7879,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertOrUpdateParagraphTabStopValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TabStopsResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertPageNumbers
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertPageNumbersCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getPageNumber();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/PageNumbers";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertPageNumbersValidateBeforeCall(InsertPageNumbersRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertPageNumbers");
-        }
-
-        // verify the required parameter 'PageNumber' is set
-        if (request.getPageNumber() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'PageNumber' when calling insertPageNumbers");
-        }
-
-        com.squareup.okhttp.Call call = insertPageNumbersCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -15412,7 +7901,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = insertPageNumbersWithHttpInfo(request);
                 return resp.getData();
@@ -15430,8 +7919,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > insertPageNumbersWithHttpInfo(InsertPageNumbersRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -15464,85 +7952,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertPageNumbersValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertParagraph
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertParagraphCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getParagraph();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "insertBeforeNode", request.getInsertBeforeNode());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertParagraphValidateBeforeCall(InsertParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertParagraph");
-        }
-
-        // verify the required parameter 'Paragraph' is set
-        if (request.getParagraph() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Paragraph' when calling insertParagraph");
-        }
-
-        com.squareup.okhttp.Call call = insertParagraphCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -15558,7 +7974,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ParagraphResponse > resp = insertParagraphWithHttpInfo(request);
                 return resp.getData();
@@ -15576,8 +7992,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphResponse > insertParagraphWithHttpInfo(InsertParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -15610,90 +8025,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertRun
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertRunCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getRun();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "insertBeforeNode", request.getInsertBeforeNode());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertRunValidateBeforeCall(InsertRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertRun");
-        }
-
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling insertRun");
-        }
-
-        // verify the required parameter 'Run' is set
-        if (request.getRun() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Run' when calling insertRun");
-        }
-
-        com.squareup.okhttp.Call call = insertRunCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -15709,7 +8047,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< RunResponse > resp = insertRunWithHttpInfo(request);
                 return resp.getData();
@@ -15727,8 +8065,7 @@ public class WordsApi {
      */
     private ApiResponse< RunResponse > insertRunWithHttpInfo(InsertRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -15761,83 +8098,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertStyle
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertStyleCall(InsertStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getStyleInsert();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/styles/insert";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertStyleValidateBeforeCall(InsertStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertStyle");
-        }
-
-        // verify the required parameter 'StyleInsert' is set
-        if (request.getStyleInsert() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'StyleInsert' when calling insertStyle");
-        }
-
-        com.squareup.okhttp.Call call = insertStyleCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -15853,7 +8120,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< StyleResponse > resp = insertStyleWithHttpInfo(request);
                 return resp.getData();
@@ -15871,8 +8138,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > insertStyleWithHttpInfo(InsertStyleRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertStyleValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -15905,84 +8171,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertStyleValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertTable
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertTableCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getTable();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertTableValidateBeforeCall(InsertTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertTable");
-        }
-
-        // verify the required parameter 'Table' is set
-        if (request.getTable() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Table' when calling insertTable");
-        }
-
-        com.squareup.okhttp.Call call = insertTableCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -15998,7 +8193,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableResponse > resp = insertTableWithHttpInfo(request);
                 return resp.getData();
@@ -16016,8 +8211,7 @@ public class WordsApi {
      */
     private ApiResponse< TableResponse > insertTableWithHttpInfo(InsertTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -16050,89 +8244,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertTableCell
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertTableCellCall(InsertTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getCell();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertTableCellValidateBeforeCall(InsertTableCellRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertTableCell");
-        }
-
-        // verify the required parameter 'Cell' is set
-        if (request.getCell() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Cell' when calling insertTableCell");
-        }
-
-        // verify the required parameter 'TableRowPath' is set
-        if (request.getTableRowPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TableRowPath' when calling insertTableCell");
-        }
-
-        com.squareup.okhttp.Call call = insertTableCellCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -16148,7 +8266,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableCellResponse > resp = insertTableCellWithHttpInfo(request);
                 return resp.getData();
@@ -16166,8 +8284,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellResponse > insertTableCellWithHttpInfo(InsertTableCellRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableCellValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableCellResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -16200,89 +8317,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableCellValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableCellResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertTableRow
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertTableRowCall(InsertTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getRow();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertTableRowValidateBeforeCall(InsertTableRowRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertTableRow");
-        }
-
-        // verify the required parameter 'Row' is set
-        if (request.getRow() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Row' when calling insertTableRow");
-        }
-
-        // verify the required parameter 'TablePath' is set
-        if (request.getTablePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TablePath' when calling insertTableRow");
-        }
-
-        com.squareup.okhttp.Call call = insertTableRowCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -16298,7 +8339,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableRowResponse > resp = insertTableRowWithHttpInfo(request);
                 return resp.getData();
@@ -16316,8 +8357,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowResponse > insertTableRowWithHttpInfo(InsertTableRowRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertTableRowValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableRowResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -16350,82 +8390,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertTableRowValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableRowResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertWatermarkImage
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertWatermarkImageCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/images";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-        addParameterToQuery(localVarQueryParams, "rotationAngle", request.getRotationAngle());
-        addParameterToQuery(localVarQueryParams, "image", request.getImage());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getImageFile() != null)
-            localVarFormParams.put("ImageFile", request.getImageFile());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertWatermarkImageValidateBeforeCall(InsertWatermarkImageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertWatermarkImage");
-        }
-
-        com.squareup.okhttp.Call call = insertWatermarkImageCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -16441,7 +8412,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = insertWatermarkImageWithHttpInfo(request);
                 return resp.getData();
@@ -16459,8 +8430,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > insertWatermarkImageWithHttpInfo(InsertWatermarkImageRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -16493,83 +8463,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertWatermarkImageValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for insertWatermarkText
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call insertWatermarkTextCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getWatermarkText();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/watermarks/texts";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call insertWatermarkTextValidateBeforeCall(InsertWatermarkTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling insertWatermarkText");
-        }
-
-        // verify the required parameter 'WatermarkText' is set
-        if (request.getWatermarkText() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'WatermarkText' when calling insertWatermarkText");
-        }
-
-        com.squareup.okhttp.Call call = insertWatermarkTextCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -16585,7 +8485,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = insertWatermarkTextWithHttpInfo(request);
                 return resp.getData();
@@ -16603,8 +8503,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > insertWatermarkTextWithHttpInfo(InsertWatermarkTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -16637,71 +8536,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = insertWatermarkTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for loadWebDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call loadWebDocumentCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getData();
-
-        // create path and map variables
-        String localVarPath = "/words/loadWebDocument";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call loadWebDocumentValidateBeforeCall(LoadWebDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Data' is set
-        if (request.getData() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Data' when calling loadWebDocument");
-        }
-
-        com.squareup.okhttp.Call call = loadWebDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -16717,7 +8558,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SaveResponse > resp = loadWebDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -16735,8 +8576,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveResponse > loadWebDocumentWithHttpInfo(LoadWebDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -16769,80 +8609,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = loadWebDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for moveFile
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call moveFileCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/file/move/{srcPath}";
-        localVarPath = addParameterToPath(localVarPath, "srcPath", request.getSrcPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "destPath", request.getDestPath());
-        addParameterToQuery(localVarQueryParams, "srcStorageName", request.getSrcStorageName());
-        addParameterToQuery(localVarQueryParams, "destStorageName", request.getDestStorageName());
-        addParameterToQuery(localVarQueryParams, "versionId", request.getVersionId());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call moveFileValidateBeforeCall(MoveFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'DestPath' is set
-        if (request.getDestPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DestPath' when calling moveFile");
-        }
-
-        // verify the required parameter 'SrcPath' is set
-        if (request.getSrcPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SrcPath' when calling moveFile");
-        }
-
-        com.squareup.okhttp.Call call = moveFileCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -16856,7 +8629,7 @@ public class WordsApi {
     moveFileWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     moveFileWithHttpInfo(request);
             }
@@ -16910,74 +8683,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for moveFolder
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call moveFolderCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/folder/move/{srcPath}";
-        localVarPath = addParameterToPath(localVarPath, "srcPath", request.getSrcPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "destPath", request.getDestPath());
-        addParameterToQuery(localVarQueryParams, "srcStorageName", request.getSrcStorageName());
-        addParameterToQuery(localVarQueryParams, "destStorageName", request.getDestStorageName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call moveFolderValidateBeforeCall(MoveFolderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'DestPath' is set
-        if (request.getDestPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DestPath' when calling moveFolder");
-        }
-
-        // verify the required parameter 'SrcPath' is set
-        if (request.getSrcPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SrcPath' when calling moveFolder");
-        }
-
-        com.squareup.okhttp.Call call = moveFolderCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -16991,7 +8699,7 @@ public class WordsApi {
     moveFolderWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     moveFolderWithHttpInfo(request);
             }
@@ -17045,78 +8753,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for optimizeDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call optimizeDocumentCall(OptimizeDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getOptions();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/compatibility/optimize";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call optimizeDocumentValidateBeforeCall(OptimizeDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling optimizeDocument");
-        }
-
-        // verify the required parameter 'Options' is set
-        if (request.getOptions() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Options' when calling optimizeDocument");
-        }
-
-        com.squareup.okhttp.Call call = optimizeDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -17130,7 +8769,7 @@ public class WordsApi {
     optimizeDocumentWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     optimizeDocumentWithHttpInfo(request);
             }
@@ -17184,76 +8823,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for protectDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call protectDocumentCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getProtectionRequest();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/protection";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call protectDocumentValidateBeforeCall(ProtectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling protectDocument");
-        }
-
-        // verify the required parameter 'ProtectionRequest' is set
-        if (request.getProtectionRequest() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ProtectionRequest' when calling protectDocument");
-        }
-
-        com.squareup.okhttp.Call call = protectDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -17269,7 +8841,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ProtectionDataResponse > resp = protectDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -17287,8 +8859,7 @@ public class WordsApi {
      */
     private ApiResponse< ProtectionDataResponse > protectDocumentWithHttpInfo(ProtectDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -17321,76 +8892,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = protectDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for rejectAllRevisions
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call rejectAllRevisionsCall(RejectAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/revisions/rejectAll";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call rejectAllRevisionsValidateBeforeCall(RejectAllRevisionsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling rejectAllRevisions");
-        }
-
-        com.squareup.okhttp.Call call = rejectAllRevisionsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -17406,7 +8914,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< RevisionsModificationResponse > resp = rejectAllRevisionsWithHttpInfo(request);
                 return resp.getData();
@@ -17424,8 +8932,7 @@ public class WordsApi {
      */
     private ApiResponse< RevisionsModificationResponse > rejectAllRevisionsWithHttpInfo(RejectAllRevisionsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = rejectAllRevisionsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< RevisionsModificationResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -17458,83 +8965,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = rejectAllRevisionsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< RevisionsModificationResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for removeRange
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call removeRangeCall(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "rangeStartIdentifier", request.getRangeStartIdentifier());
-        localVarPath = addParameterToPath(localVarPath, "rangeEndIdentifier", request.getRangeEndIdentifier());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeRangeValidateBeforeCall(RemoveRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling removeRange");
-        }
-
-        // verify the required parameter 'RangeStartIdentifier' is set
-        if (request.getRangeStartIdentifier() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling removeRange");
-        }
-
-        com.squareup.okhttp.Call call = removeRangeCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -17550,7 +8987,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = removeRangeWithHttpInfo(request);
                 return resp.getData();
@@ -17568,8 +9005,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > removeRangeWithHttpInfo(RemoveRangeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = removeRangeValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -17602,89 +9038,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = removeRangeValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for renderDrawingObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call renderDrawingObjectCall(RenderDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call renderDrawingObjectValidateBeforeCall(RenderDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderDrawingObject");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderDrawingObject");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderDrawingObject");
-        }
-
-        com.squareup.okhttp.Call call = renderDrawingObjectCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -17700,7 +9060,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = renderDrawingObjectWithHttpInfo(request);
                 return resp.getData();
@@ -17718,8 +9078,7 @@ public class WordsApi {
      */
     private ApiResponse< File > renderDrawingObjectWithHttpInfo(RenderDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderDrawingObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -17752,89 +9111,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for renderMathObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call renderMathObjectCall(RenderMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call renderMathObjectValidateBeforeCall(RenderMathObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderMathObject");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderMathObject");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderMathObject");
-        }
-
-        com.squareup.okhttp.Call call = renderMathObjectCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -17850,7 +9133,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = renderMathObjectWithHttpInfo(request);
                 return resp.getData();
@@ -17868,8 +9151,7 @@ public class WordsApi {
      */
     private ApiResponse< File > renderMathObjectWithHttpInfo(RenderMathObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderMathObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -17902,88 +9184,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderMathObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for renderPage
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call renderPageCall(RenderPageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/pages/{pageIndex}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "pageIndex", request.getPageIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call renderPageValidateBeforeCall(RenderPageRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderPage");
-        }
-
-        // verify the required parameter 'PageIndex' is set
-        if (request.getPageIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'PageIndex' when calling renderPage");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderPage");
-        }
-
-        com.squareup.okhttp.Call call = renderPageCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -17999,7 +9206,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = renderPageWithHttpInfo(request);
                 return resp.getData();
@@ -18017,8 +9224,7 @@ public class WordsApi {
      */
     private ApiResponse< File > renderPageWithHttpInfo(RenderPageRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderPageValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -18051,89 +9257,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderPageValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for renderParagraph
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call renderParagraphCall(RenderParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call renderParagraphValidateBeforeCall(RenderParagraphRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderParagraph");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderParagraph");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderParagraph");
-        }
-
-        com.squareup.okhttp.Call call = renderParagraphCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -18149,7 +9279,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = renderParagraphWithHttpInfo(request);
                 return resp.getData();
@@ -18167,8 +9297,7 @@ public class WordsApi {
      */
     private ApiResponse< File > renderParagraphWithHttpInfo(RenderParagraphRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderParagraphValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -18201,89 +9330,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderParagraphValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for renderTable
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call renderTableCall(RenderTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/render";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call renderTableValidateBeforeCall(RenderTableRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling renderTable");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling renderTable");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling renderTable");
-        }
-
-        com.squareup.okhttp.Call call = renderTableCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -18299,7 +9352,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< File > resp = renderTableWithHttpInfo(request);
                 return resp.getData();
@@ -18317,8 +9370,7 @@ public class WordsApi {
      */
     private ApiResponse< File > renderTableWithHttpInfo(RenderTableRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = renderTableValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -18351,83 +9403,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = renderTableValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< File >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for replaceText
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call replaceTextCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getReplaceText();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/replaceText";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call replaceTextValidateBeforeCall(ReplaceTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling replaceText");
-        }
-
-        // verify the required parameter 'ReplaceText' is set
-        if (request.getReplaceText() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ReplaceText' when calling replaceText");
-        }
-
-        com.squareup.okhttp.Call call = replaceTextCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -18443,7 +9425,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ReplaceTextResponse > resp = replaceTextWithHttpInfo(request);
                 return resp.getData();
@@ -18461,8 +9443,7 @@ public class WordsApi {
      */
     private ApiResponse< ReplaceTextResponse > replaceTextWithHttpInfo(ReplaceTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ReplaceTextResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -18495,88 +9476,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = replaceTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ReplaceTextResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for replaceWithText
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call replaceWithTextCall(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getRangeText();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "rangeStartIdentifier", request.getRangeStartIdentifier());
-        localVarPath = addParameterToPath(localVarPath, "rangeEndIdentifier", request.getRangeEndIdentifier());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call replaceWithTextValidateBeforeCall(ReplaceWithTextRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling replaceWithText");
-        }
-
-        // verify the required parameter 'RangeStartIdentifier' is set
-        if (request.getRangeStartIdentifier() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling replaceWithText");
-        }
-
-        // verify the required parameter 'RangeText' is set
-        if (request.getRangeText() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'RangeText' when calling replaceWithText");
-        }
-
-        com.squareup.okhttp.Call call = replaceWithTextCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -18592,7 +9498,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = replaceWithTextWithHttpInfo(request);
                 return resp.getData();
@@ -18610,8 +9516,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > replaceWithTextWithHttpInfo(ReplaceWithTextRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = replaceWithTextValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -18644,66 +9549,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = replaceWithTextValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for resetCache
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call resetCacheCall(ResetCacheRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/fonts/cache";
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call resetCacheValidateBeforeCall(ResetCacheRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-
-        com.squareup.okhttp.Call call = resetCacheCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -18717,7 +9569,7 @@ public class WordsApi {
     resetCacheWithHttpInfo(request);
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
     resetCacheWithHttpInfo(request);
             }
@@ -18771,76 +9623,9 @@ public class WordsApi {
         return call;
     }
 
-    /**
-     * Build call for saveAs
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call saveAsCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getSaveOptionsData();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/saveAs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call saveAsValidateBeforeCall(SaveAsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling saveAs");
-        }
-
-        // verify the required parameter 'SaveOptionsData' is set
-        if (request.getSaveOptionsData() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SaveOptionsData' when calling saveAs");
-        }
-
-        com.squareup.okhttp.Call call = saveAsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -18856,7 +9641,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SaveResponse > resp = saveAsWithHttpInfo(request);
                 return resp.getData();
@@ -18874,8 +9659,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveResponse > saveAsWithHttpInfo(SaveAsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -18908,87 +9692,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for saveAsRange
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call saveAsRangeCall(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getDocumentParameters();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "rangeStartIdentifier", request.getRangeStartIdentifier());
-        localVarPath = addParameterToPath(localVarPath, "rangeEndIdentifier", request.getRangeEndIdentifier());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call saveAsRangeValidateBeforeCall(SaveAsRangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling saveAsRange");
-        }
-
-        // verify the required parameter 'RangeStartIdentifier' is set
-        if (request.getRangeStartIdentifier() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'RangeStartIdentifier' when calling saveAsRange");
-        }
-
-        // verify the required parameter 'DocumentParameters' is set
-        if (request.getDocumentParameters() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DocumentParameters' when calling saveAsRange");
-        }
-
-        com.squareup.okhttp.Call call = saveAsRangeCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -19004,7 +9714,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = saveAsRangeWithHttpInfo(request);
                 return resp.getData();
@@ -19022,8 +9732,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > saveAsRangeWithHttpInfo(SaveAsRangeRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsRangeValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -19056,98 +9765,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsRangeValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for saveAsTiff
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call saveAsTiffCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getSaveOptions();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/saveAs/tiff";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "useAntiAliasing", request.getUseAntiAliasing());
-        addParameterToQuery(localVarQueryParams, "useHighQualityRendering", request.getUseHighQualityRendering());
-        addParameterToQuery(localVarQueryParams, "imageBrightness", request.getImageBrightness());
-        addParameterToQuery(localVarQueryParams, "imageColorMode", request.getImageColorMode());
-        addParameterToQuery(localVarQueryParams, "imageContrast", request.getImageContrast());
-        addParameterToQuery(localVarQueryParams, "numeralFormat", request.getNumeralFormat());
-        addParameterToQuery(localVarQueryParams, "pageCount", request.getPageCount());
-        addParameterToQuery(localVarQueryParams, "pageIndex", request.getPageIndex());
-        addParameterToQuery(localVarQueryParams, "paperColor", request.getPaperColor());
-        addParameterToQuery(localVarQueryParams, "pixelFormat", request.getPixelFormat());
-        addParameterToQuery(localVarQueryParams, "resolution", request.getResolution());
-        addParameterToQuery(localVarQueryParams, "scale", request.getScale());
-        addParameterToQuery(localVarQueryParams, "tiffCompression", request.getTiffCompression());
-        addParameterToQuery(localVarQueryParams, "dmlRenderingMode", request.getDmlRenderingMode());
-        addParameterToQuery(localVarQueryParams, "dmlEffectsRenderingMode", request.getDmlEffectsRenderingMode());
-        addParameterToQuery(localVarQueryParams, "tiffBinarizationMethod", request.getTiffBinarizationMethod());
-        addParameterToQuery(localVarQueryParams, "zipOutput", request.getZipOutput());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call saveAsTiffValidateBeforeCall(SaveAsTiffRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling saveAsTiff");
-        }
-
-        // verify the required parameter 'SaveOptions' is set
-        if (request.getSaveOptions() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SaveOptions' when calling saveAsTiff");
-        }
-
-        com.squareup.okhttp.Call call = saveAsTiffCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -19163,7 +9787,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SaveResponse > resp = saveAsTiffWithHttpInfo(request);
                 return resp.getData();
@@ -19181,8 +9805,7 @@ public class WordsApi {
      */
     private ApiResponse< SaveResponse > saveAsTiffWithHttpInfo(SaveAsTiffRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -19215,81 +9838,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = saveAsTiffValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SaveResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for search
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call searchCall(SearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/search";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "pattern", request.getPattern());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call searchValidateBeforeCall(SearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling search");
-        }
-
-        // verify the required parameter 'Pattern' is set
-        if (request.getPattern() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Pattern' when calling search");
-        }
-
-        com.squareup.okhttp.Call call = searchCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -19305,7 +9860,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SearchResponse > resp = searchWithHttpInfo(request);
                 return resp.getData();
@@ -19323,8 +9878,7 @@ public class WordsApi {
      */
     private ApiResponse< SearchResponse > searchWithHttpInfo(SearchRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = searchValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SearchResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -19357,86 +9911,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = searchValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SearchResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for splitDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call splitDocumentCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/split";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "format", request.getFormat());
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "from", request.getFrom());
-        addParameterToQuery(localVarQueryParams, "to", request.getTo());
-        addParameterToQuery(localVarQueryParams, "zipOutput", request.getZipOutput());
-        addParameterToQuery(localVarQueryParams, "fontsLocation", request.getFontsLocation());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call splitDocumentValidateBeforeCall(SplitDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling splitDocument");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling splitDocument");
-        }
-
-        com.squareup.okhttp.Call call = splitDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -19452,7 +9933,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SplitDocumentResponse > resp = splitDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -19470,8 +9951,7 @@ public class WordsApi {
      */
     private ApiResponse< SplitDocumentResponse > splitDocumentWithHttpInfo(SplitDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SplitDocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -19504,81 +9984,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = splitDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SplitDocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for unprotectDocument
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call unprotectDocumentCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getProtectionRequest();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/protection";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call unprotectDocumentValidateBeforeCall(UnprotectDocumentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling unprotectDocument");
-        }
-
-        // verify the required parameter 'ProtectionRequest' is set
-        if (request.getProtectionRequest() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ProtectionRequest' when calling unprotectDocument");
-        }
-
-        com.squareup.okhttp.Call call = unprotectDocumentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -19594,7 +10006,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ProtectionDataResponse > resp = unprotectDocumentWithHttpInfo(request);
                 return resp.getData();
@@ -19612,8 +10024,7 @@ public class WordsApi {
      */
     private ApiResponse< ProtectionDataResponse > unprotectDocumentWithHttpInfo(UnprotectDocumentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -19646,89 +10057,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = unprotectDocumentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ProtectionDataResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateBookmark
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateBookmarkCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getBookmarkData();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/bookmarks/{bookmarkName}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "bookmarkName", request.getBookmarkName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateBookmarkValidateBeforeCall(UpdateBookmarkRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateBookmark");
-        }
-
-        // verify the required parameter 'BookmarkData' is set
-        if (request.getBookmarkData() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkData' when calling updateBookmark");
-        }
-
-        // verify the required parameter 'BookmarkName' is set
-        if (request.getBookmarkName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'BookmarkName' when calling updateBookmark");
-        }
-
-        com.squareup.okhttp.Call call = updateBookmarkCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -19744,7 +10079,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< BookmarkResponse > resp = updateBookmarkWithHttpInfo(request);
                 return resp.getData();
@@ -19762,8 +10097,7 @@ public class WordsApi {
      */
     private ApiResponse< BookmarkResponse > updateBookmarkWithHttpInfo(UpdateBookmarkRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< BookmarkResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -19796,90 +10130,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateBookmarkValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< BookmarkResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateBorder
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateBorderCall(UpdateBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getBorderProperties();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/borders/{borderType}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "borderType", request.getBorderType());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateBorderValidateBeforeCall(UpdateBorderRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateBorder");
-        }
-
-        // verify the required parameter 'BorderProperties' is set
-        if (request.getBorderProperties() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'BorderProperties' when calling updateBorder");
-        }
-
-        // verify the required parameter 'BorderType' is set
-        if (request.getBorderType() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'BorderType' when calling updateBorder");
-        }
-
-        com.squareup.okhttp.Call call = updateBorderCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -19895,7 +10152,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< BorderResponse > resp = updateBorderWithHttpInfo(request);
                 return resp.getData();
@@ -19913,8 +10170,7 @@ public class WordsApi {
      */
     private ApiResponse< BorderResponse > updateBorderWithHttpInfo(UpdateBorderRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateBorderValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -19947,89 +10203,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateBorderValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< BorderResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateComment
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateCommentCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getComment();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/comments/{commentIndex}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "commentIndex", request.getCommentIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateCommentValidateBeforeCall(UpdateCommentRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateComment");
-        }
-
-        // verify the required parameter 'CommentIndex' is set
-        if (request.getCommentIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'CommentIndex' when calling updateComment");
-        }
-
-        // verify the required parameter 'Comment' is set
-        if (request.getComment() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Comment' when calling updateComment");
-        }
-
-        com.squareup.okhttp.Call call = updateCommentCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -20045,7 +10225,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< CommentResponse > resp = updateCommentWithHttpInfo(request);
                 return resp.getData();
@@ -20063,8 +10243,7 @@ public class WordsApi {
      */
     private ApiResponse< CommentResponse > updateCommentWithHttpInfo(UpdateCommentRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -20097,100 +10276,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateCommentValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< CommentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateDrawingObject
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateDrawingObjectCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getDrawingObject() != null)
-            localVarFormParams.put("DrawingObject", request.getDrawingObject());
-
-        if (request.getImageFile() != null)
-            localVarFormParams.put("ImageFile", request.getImageFile());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateDrawingObjectValidateBeforeCall(UpdateDrawingObjectRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateDrawingObject");
-        }
-
-        // verify the required parameter 'DrawingObject' is set
-        if (request.getDrawingObject() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'DrawingObject' when calling updateDrawingObject");
-        }
-
-        // verify the required parameter 'ImageFile' is set
-        if (request.getImageFile() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ImageFile' when calling updateDrawingObject");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateDrawingObject");
-        }
-
-        com.squareup.okhttp.Call call = updateDrawingObjectCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -20206,7 +10298,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DrawingObjectResponse > resp = updateDrawingObjectWithHttpInfo(request);
                 return resp.getData();
@@ -20224,8 +10316,7 @@ public class WordsApi {
      */
     private ApiResponse< DrawingObjectResponse > updateDrawingObjectWithHttpInfo(UpdateDrawingObjectRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -20258,90 +10349,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateDrawingObjectValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DrawingObjectResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateFieldCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getField();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/fields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateFieldValidateBeforeCall(UpdateFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateField");
-        }
-
-        // verify the required parameter 'Field' is set
-        if (request.getField() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Field' when calling updateField");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateField");
-        }
-
-        com.squareup.okhttp.Call call = updateFieldCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -20357,7 +10371,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FieldResponse > resp = updateFieldWithHttpInfo(request);
                 return resp.getData();
@@ -20375,8 +10389,7 @@ public class WordsApi {
      */
     private ApiResponse< FieldResponse > updateFieldWithHttpInfo(UpdateFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -20409,76 +10422,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FieldResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateFields
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateFieldsCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/updateFields";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateFieldsValidateBeforeCall(UpdateFieldsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateFields");
-        }
-
-        com.squareup.okhttp.Call call = updateFieldsCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -20494,7 +10444,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< DocumentResponse > resp = updateFieldsWithHttpInfo(request);
                 return resp.getData();
@@ -20512,8 +10462,7 @@ public class WordsApi {
      */
     private ApiResponse< DocumentResponse > updateFieldsWithHttpInfo(UpdateFieldsRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -20546,90 +10495,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFieldsValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< DocumentResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateFootnote
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateFootnoteCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getFootnoteDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/footnotes/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateFootnoteValidateBeforeCall(UpdateFootnoteRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateFootnote");
-        }
-
-        // verify the required parameter 'FootnoteDto' is set
-        if (request.getFootnoteDto() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'FootnoteDto' when calling updateFootnote");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateFootnote");
-        }
-
-        com.squareup.okhttp.Call call = updateFootnoteCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -20645,7 +10517,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FootnoteResponse > resp = updateFootnoteWithHttpInfo(request);
                 return resp.getData();
@@ -20663,8 +10535,7 @@ public class WordsApi {
      */
     private ApiResponse< FootnoteResponse > updateFootnoteWithHttpInfo(UpdateFootnoteRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -20697,90 +10568,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFootnoteValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FootnoteResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateFormField
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateFormFieldCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getFormField();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/formfields/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateFormFieldValidateBeforeCall(UpdateFormFieldRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateFormField");
-        }
-
-        // verify the required parameter 'FormField' is set
-        if (request.getFormField() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'FormField' when calling updateFormField");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateFormField");
-        }
-
-        com.squareup.okhttp.Call call = updateFormFieldCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -20796,7 +10590,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FormFieldResponse > resp = updateFormFieldWithHttpInfo(request);
                 return resp.getData();
@@ -20814,8 +10608,7 @@ public class WordsApi {
      */
     private ApiResponse< FormFieldResponse > updateFormFieldWithHttpInfo(UpdateFormFieldRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -20848,89 +10641,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateFormFieldValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FormFieldResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateList
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateListCall(UpdateListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getListUpdate();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "listId", request.getListId());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateListValidateBeforeCall(UpdateListRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateList");
-        }
-
-        // verify the required parameter 'ListUpdate' is set
-        if (request.getListUpdate() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ListUpdate' when calling updateList");
-        }
-
-        // verify the required parameter 'ListId' is set
-        if (request.getListId() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ListId' when calling updateList");
-        }
-
-        com.squareup.okhttp.Call call = updateListCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -20946,7 +10663,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ListResponse > resp = updateListWithHttpInfo(request);
                 return resp.getData();
@@ -20964,8 +10681,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > updateListWithHttpInfo(UpdateListRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateListValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -20998,95 +10714,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateListValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateListLevel
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateListLevelCall(UpdateListLevelRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getListUpdate();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "listId", request.getListId());
-        localVarPath = addParameterToPath(localVarPath, "listLevel", request.getListLevel());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateListLevelValidateBeforeCall(UpdateListLevelRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateListLevel");
-        }
-
-        // verify the required parameter 'ListUpdate' is set
-        if (request.getListUpdate() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ListUpdate' when calling updateListLevel");
-        }
-
-        // verify the required parameter 'ListId' is set
-        if (request.getListId() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ListId' when calling updateListLevel");
-        }
-
-        // verify the required parameter 'ListLevel' is set
-        if (request.getListLevel() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ListLevel' when calling updateListLevel");
-        }
-
-        com.squareup.okhttp.Call call = updateListLevelCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -21102,7 +10736,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ListResponse > resp = updateListLevelWithHttpInfo(request);
                 return resp.getData();
@@ -21120,8 +10754,7 @@ public class WordsApi {
      */
     private ApiResponse< ListResponse > updateListLevelWithHttpInfo(UpdateListLevelRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateListLevelValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -21154,90 +10787,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateListLevelValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ListResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateParagraphFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateParagraphFormatCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateParagraphFormatValidateBeforeCall(UpdateParagraphFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateParagraphFormat");
-        }
-
-        // verify the required parameter 'Dto' is set
-        if (request.getDto() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateParagraphFormat");
-        }
-
-        com.squareup.okhttp.Call call = updateParagraphFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -21253,7 +10809,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ParagraphFormatResponse > resp = updateParagraphFormatWithHttpInfo(request);
                 return resp.getData();
@@ -21271,8 +10827,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphFormatResponse > updateParagraphFormatWithHttpInfo(UpdateParagraphFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -21305,90 +10860,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateParagraphFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateParagraphListFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateParagraphListFormatCall(UpdateParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateParagraphListFormatValidateBeforeCall(UpdateParagraphListFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateParagraphListFormat");
-        }
-
-        // verify the required parameter 'Dto' is set
-        if (request.getDto() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Dto' when calling updateParagraphListFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateParagraphListFormat");
-        }
-
-        com.squareup.okhttp.Call call = updateParagraphListFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -21404,7 +10882,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< ParagraphListFormatResponse > resp = updateParagraphListFormatWithHttpInfo(request);
                 return resp.getData();
@@ -21422,8 +10900,7 @@ public class WordsApi {
      */
     private ApiResponse< ParagraphListFormatResponse > updateParagraphListFormatWithHttpInfo(UpdateParagraphListFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateParagraphListFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -21456,95 +10933,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateParagraphListFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< ParagraphListFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateRun
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateRunCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getRun();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRunValidateBeforeCall(UpdateRunRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateRun");
-        }
-
-        // verify the required parameter 'Run' is set
-        if (request.getRun() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Run' when calling updateRun");
-        }
-
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling updateRun");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateRun");
-        }
-
-        com.squareup.okhttp.Call call = updateRunCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -21560,7 +10955,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< RunResponse > resp = updateRunWithHttpInfo(request);
                 return resp.getData();
@@ -21578,8 +10973,7 @@ public class WordsApi {
      */
     private ApiResponse< RunResponse > updateRunWithHttpInfo(UpdateRunRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -21612,95 +11006,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateRunValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< RunResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateRunFont
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateRunFontCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getFontDto();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "paragraphPath", request.getParagraphPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRunFontValidateBeforeCall(UpdateRunFontRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateRunFont");
-        }
-
-        // verify the required parameter 'FontDto' is set
-        if (request.getFontDto() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'FontDto' when calling updateRunFont");
-        }
-
-        // verify the required parameter 'ParagraphPath' is set
-        if (request.getParagraphPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'ParagraphPath' when calling updateRunFont");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateRunFont");
-        }
-
-        com.squareup.okhttp.Call call = updateRunFontCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -21716,7 +11028,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FontResponse > resp = updateRunFontWithHttpInfo(request);
                 return resp.getData();
@@ -21734,8 +11046,7 @@ public class WordsApi {
      */
     private ApiResponse< FontResponse > updateRunFontWithHttpInfo(UpdateRunFontRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FontResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -21768,89 +11079,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateRunFontValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FontResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateSectionPageSetup
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateSectionPageSetupCall(UpdateSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getPageSetup();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "sectionIndex", request.getSectionIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateSectionPageSetupValidateBeforeCall(UpdateSectionPageSetupRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateSectionPageSetup");
-        }
-
-        // verify the required parameter 'SectionIndex' is set
-        if (request.getSectionIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'SectionIndex' when calling updateSectionPageSetup");
-        }
-
-        // verify the required parameter 'PageSetup' is set
-        if (request.getPageSetup() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'PageSetup' when calling updateSectionPageSetup");
-        }
-
-        com.squareup.okhttp.Call call = updateSectionPageSetupCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -21866,7 +11101,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< SectionPageSetupResponse > resp = updateSectionPageSetupWithHttpInfo(request);
                 return resp.getData();
@@ -21884,8 +11119,7 @@ public class WordsApi {
      */
     private ApiResponse< SectionPageSetupResponse > updateSectionPageSetupWithHttpInfo(UpdateSectionPageSetupRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateSectionPageSetupValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< SectionPageSetupResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -21918,89 +11152,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateSectionPageSetupValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< SectionPageSetupResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateStyle
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateStyleCall(UpdateStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getStyleUpdate();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/styles/{styleName}/update";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "styleName", request.getStyleName());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateStyleValidateBeforeCall(UpdateStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateStyle");
-        }
-
-        // verify the required parameter 'StyleUpdate' is set
-        if (request.getStyleUpdate() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'StyleUpdate' when calling updateStyle");
-        }
-
-        // verify the required parameter 'StyleName' is set
-        if (request.getStyleName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'StyleName' when calling updateStyle");
-        }
-
-        com.squareup.okhttp.Call call = updateStyleCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -22016,7 +11174,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< StyleResponse > resp = updateStyleWithHttpInfo(request);
                 return resp.getData();
@@ -22034,8 +11192,7 @@ public class WordsApi {
      */
     private ApiResponse< StyleResponse > updateStyleWithHttpInfo(UpdateStyleRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateStyleValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -22068,95 +11225,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateStyleValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< StyleResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateTableCellFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateTableCellFormatCall(UpdateTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getFormat();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tableRowPath", request.getTableRowPath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTableCellFormatValidateBeforeCall(UpdateTableCellFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateTableCellFormat");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling updateTableCellFormat");
-        }
-
-        // verify the required parameter 'TableRowPath' is set
-        if (request.getTableRowPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TableRowPath' when calling updateTableCellFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableCellFormat");
-        }
-
-        com.squareup.okhttp.Call call = updateTableCellFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -22172,7 +11247,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableCellFormatResponse > resp = updateTableCellFormatWithHttpInfo(request);
                 return resp.getData();
@@ -22190,8 +11265,7 @@ public class WordsApi {
      */
     private ApiResponse< TableCellFormatResponse > updateTableCellFormatWithHttpInfo(UpdateTableCellFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTableCellFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableCellFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -22224,90 +11298,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTableCellFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableCellFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateTableProperties
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateTablePropertiesCall(UpdateTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getProperties();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{nodePath}/tables/{index}/properties";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = addParameterToPath(localVarPath, "nodePath", request.getNodePath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTablePropertiesValidateBeforeCall(UpdateTablePropertiesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateTableProperties");
-        }
-
-        // verify the required parameter 'Properties' is set
-        if (request.getProperties() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Properties' when calling updateTableProperties");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableProperties");
-        }
-
-        com.squareup.okhttp.Call call = updateTablePropertiesCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -22323,7 +11320,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TablePropertiesResponse > resp = updateTablePropertiesWithHttpInfo(request);
                 return resp.getData();
@@ -22341,8 +11338,7 @@ public class WordsApi {
      */
     private ApiResponse< TablePropertiesResponse > updateTablePropertiesWithHttpInfo(UpdateTablePropertiesRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTablePropertiesValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -22375,95 +11371,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTablePropertiesValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TablePropertiesResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for updateTableRowFormat
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call updateTableRowFormatCall(UpdateTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = request.getFormat();
-
-        // create path and map variables
-        String localVarPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
-        localVarPath = addParameterToPath(localVarPath, "name", request.getName());
-        localVarPath = addParameterToPath(localVarPath, "tablePath", request.getTablePath());
-        localVarPath = addParameterToPath(localVarPath, "index", request.getIndex());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "folder", request.getFolder());
-        addParameterToQuery(localVarQueryParams, "storage", request.getStorage());
-        addParameterToQuery(localVarQueryParams, "loadEncoding", request.getLoadEncoding());
-        addParameterToQuery(localVarQueryParams, "password", request.getPassword());
-        addParameterToQuery(localVarQueryParams, "destFileName", request.getDestFileName());
-        addParameterToQuery(localVarQueryParams, "revisionAuthor", request.getRevisionAuthor());
-        addParameterToQuery(localVarQueryParams, "revisionDateTime", request.getRevisionDateTime());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/xml", "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateTableRowFormatValidateBeforeCall(UpdateTableRowFormatRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'Name' is set
-        if (request.getName() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Name' when calling updateTableRowFormat");
-        }
-
-        // verify the required parameter 'Format' is set
-        if (request.getFormat() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Format' when calling updateTableRowFormat");
-        }
-
-        // verify the required parameter 'TablePath' is set
-        if (request.getTablePath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'TablePath' when calling updateTableRowFormat");
-        }
-
-        // verify the required parameter 'Index' is set
-        if (request.getIndex() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Index' when calling updateTableRowFormat");
-        }
-
-        com.squareup.okhttp.Call call = updateTableRowFormatCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -22479,7 +11393,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< TableRowFormatResponse > resp = updateTableRowFormatWithHttpInfo(request);
                 return resp.getData();
@@ -22497,8 +11411,7 @@ public class WordsApi {
      */
     private ApiResponse< TableRowFormatResponse > updateTableRowFormatWithHttpInfo(UpdateTableRowFormatRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = updateTableRowFormatValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< TableRowFormatResponse >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -22531,79 +11444,13 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = updateTableRowFormatValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< TableRowFormatResponse >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
-    }
-
-    /**
-     * Build call for uploadFile
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
-     */
-    private com.squareup.okhttp.Call uploadFileCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/words/storage/file/{path}";
-        localVarPath = addParameterToPath(localVarPath, "path", request.getPath());
-        localVarPath = localVarPath.replaceAll("//", "/");
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        addParameterToQuery(localVarQueryParams, "storageName", request.getStorageName());
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
-        if (request.getFileContent() != null)
-            localVarFormParams.put("FileContent", request.getFileContent());
-
-        final String[] localVarAccepts = {
-            "application/xml", "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "multipart/form-data"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if (progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "JWT" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call uploadFileValidateBeforeCall(UploadFileRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        // verify the required parameter 'FileContent' is set
-        if (request.getFileContent() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'FileContent' when calling uploadFile");
-        }
-
-        // verify the required parameter 'Path' is set
-        if (request.getPath() == null) {
-            throw new ApiException(BadRequest, "Missing the required parameter 'Path' when calling uploadFile");
-        }
-
-        com.squareup.okhttp.Call call = uploadFileCall(request, progressListener, progressRequestListener);
-        return call;
+        return apiClient.buildCall(request.buildHttpRequest(apiClient, progressListener, progressRequestListener, true));
     }
 
     /**
@@ -22619,7 +11466,7 @@ public class WordsApi {
             return resp.getData();
         }
         catch (ApiException ex) {
-            if (ex.getCode() == NotAuth) {
+            if (ex.getCode() == apiClient.getNotAuthCode()) {
                 apiClient.requestToken();
                 ApiResponse< FilesUploadResult > resp = uploadFileWithHttpInfo(request);
                 return resp.getData();
@@ -22637,8 +11484,7 @@ public class WordsApi {
      */
     private ApiResponse< FilesUploadResult > uploadFileWithHttpInfo(UploadFileRequest request) throws ApiException, IOException {
         com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, null, null);
-        Type localVarReturnType = new TypeToken< FilesUploadResult >() { }.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call, request.getResponseType());
     }
 
     /**
@@ -22671,25 +11517,34 @@ public class WordsApi {
         }
 
         com.squareup.okhttp.Call call = uploadFileValidateBeforeCall(request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken< FilesUploadResult >() { }.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, request.getResponseType(), callback);
         return call;
     }
 
-    private void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
-        queryParams.addAll(apiClient.parameterToPair(paramName, paramValue));
-    }
-
-    private String addParameterToPath(String path, String paramName, Object paramValue) {
-        if (path.contains("{" + paramName + "}")) {
-            if (paramValue == null || paramValue.equals("")) {
-                return path.replace("{" + paramName + "}", "");
-            } 
-            else {
-                return path.replace("{" + paramName + "}", paramValue.toString());
-            }
+    public Object[] batch(RequestIfc... requests) throws ApiException, IOException {
+        if (requests == null || requests.length == 0) {
+             return null;
         }
 
-        return path;
+        com.squareup.okhttp.Request masterRequest = apiClient.buildBatchRequest(requests);
+        com.squareup.okhttp.Call call = apiClient.buildCall(masterRequest);
+        ApiResponse<javax.mail.internet.MimeMultipart> response = apiClient.execute(call, javax.mail.internet.MimeMultipart.class);
+
+        try {
+            int count = response.getData().getCount();
+            if (count != requests.length) {
+                throw new ApiException(400, "The number of responses does not match the number of requests.");
+            }
+
+            Object[] result = new Object[count];
+            for (int i = 0; i < count; i++) {
+                result[i] = apiClient.parseBatchPart(masterRequest, response.getData().getBodyPart(i), requests[i].getResponseType());
+            }
+
+            return result;
+        }
+        catch (javax.mail.MessagingException e) {
+            throw new ApiException(e);
+        }
     }
 }

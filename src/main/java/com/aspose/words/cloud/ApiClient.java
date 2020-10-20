@@ -27,6 +27,7 @@
 
 package com.aspose.words.cloud;
 
+import com.aspose.words.cloud.model.requests.RequestIfc;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -36,6 +37,10 @@ import okio.Okio;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 
+import javax.mail.BodyPart;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URLConnection;
@@ -51,10 +56,12 @@ public class ApiClient {
     private String apiVersion = "v4.0";
     private String baseUrl = "https://api.aspose.cloud";
     private String basePath = baseUrl + "/" + apiVersion;
-    private String clientVersion = "20.9";
+    private String clientVersion = "20.10";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
+    private Integer notAuthCode = 401;
+    private Integer badRequestCode = 400;
 
     private OkHttpClient httpClient;
     private JSON json;
@@ -90,6 +97,24 @@ public class ApiClient {
         addDefaultHeader("x-aspose-client-version", clientVersion);
         setConnectTimeout(5 * 60 * 1000);
         setReadTimeout(5 * 60 * 1000);
+    }
+
+     /**
+     * Get NotAuth http code
+     *
+     * @return App Key
+     */
+    public Integer getNotAuthCode() {
+        return notAuthCode;
+    }
+
+    /**
+     * Get BadRequest http code
+     *
+     * @return App Key
+     */
+    public Integer getBadRequestCode() {
+        return badRequestCode;
     }
 
      /**
@@ -600,7 +625,17 @@ public class ApiClient {
             return null;
         }
 
-        if ("byte[]".equals(returnType.toString())) {
+        if (returnType.equals(MimeMultipart.class)) {
+            try {
+                InputStream in = response.body().byteStream();
+                ByteArrayDataSource dataSource = new ByteArrayDataSource(in, "multipart/form-data");
+                return (T) new MimeMultipart(dataSource);
+            }
+            catch (IOException | MessagingException e) {
+                throw new ApiException(e);
+            }
+        }
+        else if (returnType.equals(byte[].class)) {
             // Handle binary response (byte array).
             try {
                 return (T) response.body().bytes();
@@ -871,22 +906,9 @@ public class ApiClient {
     /**
      * Build HTTP call with the given options.
      *
-     * @param path The sub-path of the HTTP URL
-     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
-     * @param queryParams The query parameters
-     * @param collectionQueryParams The collection query parameters
-     * @param body The request body object
-     * @param headerParams The header parameters
-     * @param formParams The form parameters
-     * @param authNames The authentications to apply
-     * @param progressRequestListener Progress request listener
-     * @return The HTTP call
-     * @throws ApiException If fail to serialize the request body object
-     * @throws IOException If fail to serialize the request body object
+     * @param request The http request instance
      */
-    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener);
-
+    public Call buildCall(Request request) {
         return httpClient.newCall(request);
     }
 
@@ -906,11 +928,10 @@ public class ApiClient {
      * @throws ApiException If fail to serialize the request body object
      * @throws IOException If fail to serialize the request body object
      */
-    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
-        addOAuthAuthentication(headerParams);
-        final String url = buildUrl(path, queryParams, collectionQueryParams);
-        final Request.Builder reqBuilder = new Request.Builder().url(url);
-        processHeaderParams(headerParams, reqBuilder);
+    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, Boolean addAuthHeaders, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException, IOException {
+        if (addAuthHeaders) {
+            addOAuthAuthentication(headerParams);
+        }
 
         String contentType = (String) headerParams.get("Content-Type");
         // ensuring a default content type
@@ -922,11 +943,17 @@ public class ApiClient {
         if (!HttpMethod.permitsRequestBody(method)) {
             reqBody = null;
         } 
+        else if (body instanceof RequestBody) {
+            reqBody = (RequestBody) body;
+        }
         else if ("application/x-www-form-urlencoded".equals(contentType)) {
             reqBody = buildRequestBodyFormEncoding(formParams);
         } 
         else if ("multipart/form-data".equals(contentType)) {
-            reqBody = buildRequestBodyMultipart(formParams);
+            String boundary = UUID.randomUUID().toString();
+            contentType += "; boundary=" + boundary;
+            headerParams.put("Content-Type", contentType);
+            reqBody = buildRequestBodyMultipart(formParams, boundary);
         } 
         else if (body == null) {
             if ("DELETE".equals(method)) {
@@ -942,8 +969,11 @@ public class ApiClient {
             reqBody = serialize(body, contentType);
         }
 
-        Request request = null;
+        final String url = buildUrl(path, queryParams, collectionQueryParams);
+        final Request.Builder reqBuilder = new Request.Builder().url(url);
+        processHeaderParams(headerParams, reqBuilder, addAuthHeaders);
 
+        Request request = null;
         if (progressRequestListener != null && reqBody != null) {
             ProgressRequestBody progressRequestBody = new ProgressRequestBody(reqBody, progressRequestListener);
             request = reqBuilder.method(method, progressRequestBody).build();
@@ -1012,13 +1042,15 @@ public class ApiClient {
      * @param headerParams Header parameters in the ofrm of Map
      * @param reqBuilder Reqeust.Builder
      */
-    public void processHeaderParams(Map<String, String> headerParams, Request.Builder reqBuilder) {
+    public void processHeaderParams(Map<String, String> headerParams, Request.Builder reqBuilder, Boolean addDefaultHeaders) {
         for (Entry<String, String> param : headerParams.entrySet()) {
             reqBuilder.header(param.getKey(), parameterToString(param.getValue()));
         }
-        for (Entry<String, String> header : defaultHeaderMap.entrySet()) {
-            if (!headerParams.containsKey(header.getKey())) {
-                reqBuilder.header(header.getKey(), parameterToString(header.getValue()));
+        if (addDefaultHeaders) {
+            for (Entry<String, String> header : defaultHeaderMap.entrySet()) {
+                if (!headerParams.containsKey(header.getKey())) {
+                    reqBuilder.header(header.getKey(), parameterToString(header.getValue()));
+                }
             }
         }
     }
@@ -1045,8 +1077,8 @@ public class ApiClient {
      * @throws IOException If fail to serialize the request body object
      * @return RequestBody
      */
-    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) throws IOException {
-        MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
+    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams, String boundary) throws IOException {
+        MultipartBuilder mpBuilder = new MultipartBuilder(boundary).type(MultipartBuilder.FORM);
         if (formParams.isEmpty()) {
             Headers partHeaders = Headers.of("Content-Disposition", "form-data");
             mpBuilder.addPart(partHeaders, RequestBody.create(MediaType.parse("none"), new byte[] {}));
@@ -1110,6 +1142,97 @@ public class ApiClient {
         }
         catch (Exception ex) {
             throw new ApiException(ex);
+        }
+    }
+
+    /**
+    * AddParameterToQuery
+    */
+    public void addParameterToQuery(List<Pair> queryParams, String paramName, Object paramValue) {
+        queryParams.addAll(parameterToPair(paramName, paramValue));
+    }
+
+    /**
+    * AddParameterToPath
+    */
+    public String addParameterToPath(String path, String paramName, Object paramValue) {
+        if (path.contains("{" + paramName + "}")) {
+            if (paramValue == null || paramValue.equals("")) {
+                return path.replace("{" + paramName + "}", "");
+            } 
+            else {
+                return path.replace("{" + paramName + "}", paramValue.toString());
+            }
+        }
+
+        return path;
+    }
+
+    /**
+     * Build batch request
+     */
+    public Request buildBatchRequest(RequestIfc[] requests) throws ApiException, IOException {
+        Headers multipartHeaders = Headers.of("Content-Disposition", "form-data");
+        MultipartBuilder builder = new MultipartBuilder().type(MultipartBuilder.FORM);
+        for (RequestIfc request : requests) {
+            Request httpRequest = request.buildHttpRequest(this, null, null, false);
+            builder.addPart(multipartHeaders, new ChildRequestContent(httpRequest, basePath + "/words/"));
+        }
+
+        RequestBody requestBody = builder.build();
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", requestBody.contentType().toString());
+        return buildRequest("/words/batch", "PUT", new ArrayList<>(), new ArrayList<>(), requestBody, headers, new HashMap<>(), true, null);
+    }
+
+    /**
+     * Parse batch part
+     */
+    public Object parseBatchPart(Request masterRequest, BodyPart bodyPart, Type returnType) throws IOException, MessagingException, ApiException {
+        InputStream is = bodyPart.getInputStream();
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        int nRead;
+        byte[] data = new byte[16384];
+
+        while ((nRead = is.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+
+        try {
+            String stringData = buffer.toString("UTF-8");
+            int lastSplitIndex = stringData.indexOf("\r\n");
+            Integer responseCode = Integer.parseInt(stringData.substring(0, lastSplitIndex).split("\\s+")[0]);
+            if (responseCode != 200) {
+                return new ApiException(responseCode, stringData);
+            }
+
+            Headers.Builder headersBuilder = new Headers.Builder();
+            while (true) {
+                int splitIndex = stringData.indexOf("\r\n", lastSplitIndex + 2);
+                String headerStr = stringData.substring(lastSplitIndex + 2, splitIndex);
+                lastSplitIndex = splitIndex;
+
+                if (headerStr.isEmpty()) {
+                    break;
+                }
+
+                headersBuilder.add(headerStr);
+            }
+
+            ResponseBody responseBody = null;
+            Headers headers = headersBuilder.build();
+            byte[] rawBody = buffer.toByteArray();
+            if (rawBody.length != lastSplitIndex + 2) {
+                byte[] responseBytes = Arrays.copyOfRange(rawBody, lastSplitIndex + 2, rawBody.length);
+                responseBody = ResponseBody.create(MediaType.parse(headers.get("Content-Type")), responseBytes);
+            }
+
+            Response response = new Response.Builder().request(masterRequest).protocol(Protocol.HTTP_1_1).code(responseCode).headers(headers).body(responseBody).build();
+            return deserialize(response, returnType);
+        }
+        catch (Exception e) {
+            throw new ApiException(400, "Invalid response format.");
         }
     }
 
