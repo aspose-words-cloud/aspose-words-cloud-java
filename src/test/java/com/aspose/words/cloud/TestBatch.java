@@ -84,14 +84,14 @@ public void testBatch() throws ApiException, IOException {
                 requestReportEngineSettings,
                 null
         );
+        TestInitializer.wordsApi.uploadFile(request0);
 
-        Object[] result = TestInitializer.wordsApi.batch(request0, request1, request2, request3, request4, request5);
-        assertEquals(6, result.length);
-        assertTrue(result[0] instanceof FilesUploadResult); // UploadFile
-        assertTrue(result[1] instanceof ParagraphLinkCollectionResponse); // GetParagraphs
-        assertTrue(result[2] instanceof ParagraphResponse); // GetParagraph
-        assertTrue(result[3] instanceof ParagraphResponse); // InsertParagraph
-        assertNull(result[4]); // DeleteParagraph
-        assertTrue(result[5] instanceof File); // BuildReportOnline
+        Object[] result = TestInitializer.wordsApi.batch(request1, request2, request3, request4, request5);
+        assertEquals(5, result.length);
+        assertTrue(result[0] instanceof ParagraphLinkCollectionResponse); // GetParagraphs
+        assertTrue(result[1] instanceof ParagraphResponse); // GetParagraph
+        assertTrue(result[2] instanceof ParagraphResponse); // InsertParagraph
+        assertNull(result[3]); // DeleteParagraph
+        assertTrue(result[4] instanceof File); // BuildReportOnline
     }
 }
