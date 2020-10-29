@@ -76,6 +76,10 @@ public class TestLists  extends TestCase
 
         ListsResponse result = TestInitializer.wordsApi.getLists(request);
         assertNotNull(result);
+        assertNotNull(result.getLists());
+        assertNotNull(result.getLists().getListInfo());
+        assertEquals(2, result.getLists().getListInfo().size());
+        assertEquals(1, result.getLists().getListInfo().get(0).getListId());
     }
 
     /*
@@ -102,6 +106,8 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.getList(request);
         assertNotNull(result);
+        assertNotNull(result.getList());
+        assertEquals(1, result.getList().getListId());
     }
 
     /*
@@ -135,6 +141,9 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.updateList(request);
         assertNotNull(result);
+        assertNotNull(result.getList());
+        assertEquals(1, result.getList().getListId());
+        assertEquals(true, result.getList().getIsRestartAtEachSection());
     }
 
     /*
@@ -169,6 +178,11 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.updateListLevel(request);
         assertNotNull(result);
+        assertNotNull(result.getList());
+        assertNotNull(result.getList().getListLevels());
+        assertNotNull(result.getList().getListLevels().getListLevel());
+        assertEquals(9, result.getList().getListLevels().getListLevel().size());
+
     }
 
     /*
@@ -201,5 +215,7 @@ public class TestLists  extends TestCase
 
         ListResponse result = TestInitializer.wordsApi.insertList(request);
         assertNotNull(result);
+        assertNotNull(result.getList());
+        assertEquals(3, result.getList().getListId());
     }
 }

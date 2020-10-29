@@ -78,6 +78,8 @@ public class TestPageSetup  extends TestCase
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.getSectionPageSetup(request);
         assertNotNull(result);
+        assertNotNull(result.getPageSetup());
+        assertEquals(1, result.getPageSetup().getLineStartingNumber());
     }
 
     /*
@@ -114,6 +116,10 @@ public class TestPageSetup  extends TestCase
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.updateSectionPageSetup(request);
         assertNotNull(result);
+        assertNotNull(result.getPageSetup());
+        assertEquals(true, result.getPageSetup().getRtlGutter());
+
+
     }
 
     /*

@@ -77,6 +77,10 @@ public class TestSection  extends TestCase
 
         SectionResponse result = TestInitializer.wordsApi.getSection(request);
         assertNotNull(result);
+        assertNotNull(result.getSection());
+        assertNotNull(result.getSection().getChildNodes());
+        assertEquals(13, result.getSection().getChildNodes().size());
+        assertEquals("0.3.0", result.getSection().getChildNodes().get(0).getNodeId());
     }
 
     /*
@@ -102,6 +106,10 @@ public class TestSection  extends TestCase
 
         SectionLinkCollectionResponse result = TestInitializer.wordsApi.getSections(request);
         assertNotNull(result);
+        assertNotNull(result.getSections());
+        assertNotNull(result.getSections().getSectionLinkList());
+        assertEquals(1, result.getSections().getSectionLinkList().size());
+        assertEquals("0", result.getSections().getSectionLinkList().get(0).getNodeId());
     }
 
     /*

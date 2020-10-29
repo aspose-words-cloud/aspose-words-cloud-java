@@ -77,6 +77,11 @@ public class TestTableBorder  extends TestCase
 
         BordersResponse result = TestInitializer.wordsApi.getBorders(request);
         assertNotNull(result);
+        assertNotNull(result.getBorders());
+        assertNotNull(result.getBorders().getList());
+        assertEquals(6, result.getBorders().getList().size());
+        assertNotNull(result.getBorders().getList().get(0).getColor());
+        assertEquals("#000000", result.getBorders().getList().get(0).getColor().getWeb());
     }
 
     /*
@@ -104,6 +109,9 @@ public class TestTableBorder  extends TestCase
 
         BorderResponse result = TestInitializer.wordsApi.getBorder(request);
         assertNotNull(result);
+        assertNotNull(result.getBorder());
+        assertNotNull(result.getBorder().getColor());
+        assertEquals("#000000", result.getBorder().getColor().getWeb());
     }
 
     /*
@@ -133,6 +141,11 @@ public class TestTableBorder  extends TestCase
 
         BordersResponse result = TestInitializer.wordsApi.deleteBorders(request);
         assertNotNull(result);
+        assertNotNull(result.getBorders());
+        assertNotNull(result.getBorders().getList());
+        assertEquals(6, result.getBorders().getList().size());
+        assertNotNull(result.getBorders().getList().get(0).getColor());
+        assertEquals("", result.getBorders().getList().get(0).getColor().getWeb());
     }
 
     /*
@@ -163,6 +176,9 @@ public class TestTableBorder  extends TestCase
 
         BorderResponse result = TestInitializer.wordsApi.deleteBorder(request);
         assertNotNull(result);
+        assertNotNull(result.getBorder());
+        assertNotNull(result.getBorder().getColor());
+        assertEquals("", result.getBorder().getColor().getWeb());
     }
 
     /*
@@ -205,5 +221,11 @@ public class TestTableBorder  extends TestCase
 
         BorderResponse result = TestInitializer.wordsApi.updateBorder(request);
         assertNotNull(result);
+        assertNotNull(result.getBorder());
+        assertNotNull(result.getBorder().getColor());
+        assertEquals("#000002", result.getBorder().getColor().getWeb());
+        assertEquals(6, result.getBorder().getDistanceFromText());
+        assertEquals(2, result.getBorder().getLineWidth());
+        assertEquals(true, result.getBorder().getShadow());
     }
 }

@@ -78,6 +78,9 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectsResponse result = TestInitializer.wordsApi.getDocumentDrawingObjects(request);
         assertNotNull(result);
+        assertNotNull(result.getDrawingObjects());
+        assertNotNull(result.getDrawingObjects().getList());
+        assertEquals(1, result.getDrawingObjects().getList().size());
     }
 
     /*
@@ -104,6 +107,9 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectsResponse result = TestInitializer.wordsApi.getDocumentDrawingObjects(request);
         assertNotNull(result);
+        assertNotNull(result.getDrawingObjects());
+        assertNotNull(result.getDrawingObjects().getList());
+        assertEquals(1, result.getDrawingObjects().getList().size());
     }
 
     /*
@@ -131,6 +137,8 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectByIndex(request);
         assertNotNull(result);
+        assertNotNull(result.getDrawingObject());
+        assertEquals(300, result.getDrawingObject().getHeight());
     }
 
     /*
@@ -158,6 +166,8 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.getDocumentDrawingObjectByIndex(request);
         assertNotNull(result);
+        assertNotNull(result.getDrawingObject());
+        assertEquals(300, result.getDrawingObject().getHeight());
     }
 
     /*
@@ -364,6 +374,8 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
         assertNotNull(result);
+        assertNotNull(result.getDrawingObject());
+        assertEquals("0.3.7.1", result.getDrawingObject().getNodeId());
     }
 
     /*
@@ -404,6 +416,8 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
         assertNotNull(result);
+        assertNotNull(result.getDrawingObject());
+        assertEquals("0.3.7.1", result.getDrawingObject().getNodeId());
     }
 
     /*
@@ -478,7 +492,7 @@ public class TestDrawingObjects  extends TestCase
         );
 
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
-        requestDrawingObject.setLeft((double)0);
+        requestDrawingObject.setLeft((double)1);
 
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
@@ -497,6 +511,8 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.updateDrawingObject(request);
         assertNotNull(result);
+        assertNotNull(result.getDrawingObject());
+        assertEquals(1, result.getDrawingObject().getLeft());
     }
 
     /*
@@ -513,7 +529,7 @@ public class TestDrawingObjects  extends TestCase
         );
 
         DrawingObjectUpdate requestDrawingObject = new DrawingObjectUpdate();
-        requestDrawingObject.setLeft((double)0);
+        requestDrawingObject.setLeft((double)1);
 
         UpdateDrawingObjectRequest request = new UpdateDrawingObjectRequest(
             remoteFileName,
@@ -532,5 +548,7 @@ public class TestDrawingObjects  extends TestCase
 
         DrawingObjectResponse result = TestInitializer.wordsApi.updateDrawingObject(request);
         assertNotNull(result);
+        assertNotNull(result.getDrawingObject());
+        assertEquals(1, result.getDrawingObject().getLeft());
     }
 }

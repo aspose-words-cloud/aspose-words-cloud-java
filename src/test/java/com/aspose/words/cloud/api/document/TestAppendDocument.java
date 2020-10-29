@@ -90,5 +90,7 @@ public class TestAppendDocument  extends TestCase
 
         DocumentResponse result = TestInitializer.wordsApi.appendDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getDocument());
+        assertEquals("TestAppendDocument.docx", result.getDocument().getFileName());
     }
 }
