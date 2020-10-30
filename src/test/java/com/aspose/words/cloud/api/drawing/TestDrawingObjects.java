@@ -375,7 +375,7 @@ public class TestDrawingObjects  extends TestCase
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
         assertNotNull(result);
         assertNotNull(result.getDrawingObject());
-        assertEquals("0.3.7.1", result.getDrawingObject().getNodeId());
+        assertEquals(true, result.getDrawingObject().getNodeId().startsWith("0.3.7.1"));
     }
 
     /*
@@ -417,7 +417,7 @@ public class TestDrawingObjects  extends TestCase
         DrawingObjectResponse result = TestInitializer.wordsApi.insertDrawingObject(request);
         assertNotNull(result);
         assertNotNull(result.getDrawingObject());
-        assertEquals("0.3.7.1", result.getDrawingObject().getNodeId());
+        assertEquals(true, result.getDrawingObject().getNodeId().startsWith("0.3.7.1"));
     }
 
     /*

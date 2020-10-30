@@ -80,7 +80,7 @@ public class TestTable  extends TestCase
         assertNotNull(result.getTables());
         assertNotNull(result.getTables().getTableLinkList());
         assertEquals(5, result.getTables().getTableLinkList().size());
-        assertEquals("0.0.1", result.getTables().getTableLinkList().get(0).getNodeId());
+        assertEquals(true, result.getTables().getTableLinkList().get(0).getNodeId().startsWith("0.0.1"));
     }
 
     /*
@@ -110,7 +110,7 @@ public class TestTable  extends TestCase
         assertNotNull(result.getTables());
         assertNotNull(result.getTables().getTableLinkList());
         assertEquals(5, result.getTables().getTableLinkList().size());
-        assertEquals("0.0.1", result.getTables().getTableLinkList().get(0).getNodeId());
+        assertEquals(true, result.getTables().getTableLinkList().get(0).getNodeId().startsWith("0.0.1"));
     }
 
     /*
@@ -339,7 +339,7 @@ public class TestTable  extends TestCase
         TablePropertiesResponse result = TestInitializer.wordsApi.getTableProperties(request);
         assertNotNull(result);
         assertNotNull(result.getProperties());
-        assertEquals("Table Grid", result.getProperties().getStyleName());
+        assertEquals(true, result.getProperties().getStyleName().startsWith("Table Grid"));
     }
 
     /*
@@ -368,7 +368,7 @@ public class TestTable  extends TestCase
         TablePropertiesResponse result = TestInitializer.wordsApi.getTableProperties(request);
         assertNotNull(result);
         assertNotNull(result.getProperties());
-        assertEquals("Table Grid", result.getProperties().getStyleName());
+        assertEquals(true, result.getProperties().getStyleName().startsWith("Table Grid"));
     }
 
     /*
@@ -650,7 +650,7 @@ public class TestTable  extends TestCase
         TableCellResponse result = TestInitializer.wordsApi.getTableCell(request);
         assertNotNull(result);
         assertNotNull(result.getCell());
-        assertEquals("0.0.5.0.0", result.getCell().getNodeId());
+        assertEquals(true, result.getCell().getNodeId().startsWith("0.0.5.0.0"));
     }
 
     /*
@@ -713,7 +713,7 @@ public class TestTable  extends TestCase
         TableCellResponse result = TestInitializer.wordsApi.insertTableCell(request);
         assertNotNull(result);
         assertNotNull(result.getCell());
-        assertEquals("0.0.5.0.3", result.getCell().getNodeId());
+        assertEquals(true, result.getCell().getNodeId().startsWith("0.0.5.0.3"));
     }
 
     /*

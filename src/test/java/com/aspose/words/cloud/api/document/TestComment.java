@@ -78,7 +78,7 @@ public class TestComment  extends TestCase
         CommentResponse result = TestInitializer.wordsApi.getComment(request);
         assertNotNull(result);
         assertNotNull(result.getComment());
-        assertEquals("Comment 1\r\n\r\n", result.getComment().getText());
+        assertEquals(true, result.getComment().getText().startsWith("Comment 1"));
     }
 
     /*
@@ -107,7 +107,7 @@ public class TestComment  extends TestCase
         assertNotNull(result.getComments());
         assertNotNull(result.getComments().getCommentList());
         assertEquals(1, result.getComments().getCommentList().size());
-        assertEquals("Comment 1\r\n\r\n", result.getComments().getCommentList().get(0).getText());
+        assertEquals(true, result.getComments().getCommentList().get(0).getText().startsWith("Comment 1"));
     }
 
     /*
@@ -159,10 +159,10 @@ public class TestComment  extends TestCase
         CommentResponse result = TestInitializer.wordsApi.insertComment(request);
         assertNotNull(result);
         assertNotNull(result.getComment());
-        assertEquals("A new Comment\r\n", result.getComment().getText());
+        assertEquals(true, result.getComment().getText().startsWith("A new Comment"));
         assertNotNull(result.getComment().getRangeStart());
         assertNotNull(result.getComment().getRangeStart().getNode());
-        assertEquals("0.3.0.4", result.getComment().getRangeStart().getNode().getNodeId());
+        assertEquals(true, result.getComment().getRangeStart().getNode().getNodeId().startsWith("0.3.0.4"));
     }
 
     /*
@@ -215,10 +215,10 @@ public class TestComment  extends TestCase
         CommentResponse result = TestInitializer.wordsApi.updateComment(request);
         assertNotNull(result);
         assertNotNull(result.getComment());
-        assertEquals("A new Comment\r\n", result.getComment().getText());
+        assertEquals(true, result.getComment().getText().startsWith("A new Comment"));
         assertNotNull(result.getComment().getRangeStart());
         assertNotNull(result.getComment().getRangeStart().getNode());
-        assertEquals("0.3.0.1", result.getComment().getRangeStart().getNode().getNodeId());
+        assertEquals(true, result.getComment().getRangeStart().getNode().getNodeId().startsWith("0.3.0.1"));
     }
 
     /*

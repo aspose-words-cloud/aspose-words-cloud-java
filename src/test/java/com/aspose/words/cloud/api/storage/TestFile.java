@@ -71,7 +71,7 @@ public class TestFile  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getUploaded());
         assertEquals(1, result.getUploaded().size());
-        assertEquals("TestUploadFile.docx", result.getUploaded().get(0));
+        assertEquals(true, result.getUploaded().get(0).startsWith("TestUploadFile.docx"));
     }
 
     /*

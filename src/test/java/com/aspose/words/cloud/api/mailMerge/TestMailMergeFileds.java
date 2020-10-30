@@ -71,7 +71,7 @@ public class TestMailMergeFileds  extends TestCase
         assertNotNull(result.getFieldNames());
         assertNotNull(result.getFieldNames().getNames());
         assertEquals(15, result.getFieldNames().getNames().size());
-        assertEquals("TableStart:Order", result.getFieldNames().getNames().get(0));
+        assertEquals(true, result.getFieldNames().getNames().get(0).startsWith("TableStart:Order"));
     }
 
     /*

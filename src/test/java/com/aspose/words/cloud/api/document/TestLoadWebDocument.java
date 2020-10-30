@@ -77,6 +77,6 @@ public class TestLoadWebDocument  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getSaveResult());
         assertNotNull(result.getSaveResult().getDestDocument());
-        assertEquals("google.doc", result.getSaveResult().getDestDocument().getHref());
+        assertEquals(true, result.getSaveResult().getDestDocument().getHref().startsWith("google.doc"));
     }
 }

@@ -81,7 +81,7 @@ public class TestTableBorder  extends TestCase
         assertNotNull(result.getBorders().getList());
         assertEquals(6, result.getBorders().getList().size());
         assertNotNull(result.getBorders().getList().get(0).getColor());
-        assertEquals("#000000", result.getBorders().getList().get(0).getColor().getWeb());
+        assertEquals(true, result.getBorders().getList().get(0).getColor().getWeb().startsWith("#000000"));
     }
 
     /*
@@ -111,7 +111,7 @@ public class TestTableBorder  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getBorder());
         assertNotNull(result.getBorder().getColor());
-        assertEquals("#000000", result.getBorder().getColor().getWeb());
+        assertEquals(true, result.getBorder().getColor().getWeb().startsWith("#000000"));
     }
 
     /*
@@ -145,7 +145,7 @@ public class TestTableBorder  extends TestCase
         assertNotNull(result.getBorders().getList());
         assertEquals(6, result.getBorders().getList().size());
         assertNotNull(result.getBorders().getList().get(0).getColor());
-        assertEquals("", result.getBorders().getList().get(0).getColor().getWeb());
+        assertEquals(true, result.getBorders().getList().get(0).getColor().getWeb().startsWith(""));
     }
 
     /*
@@ -178,7 +178,7 @@ public class TestTableBorder  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getBorder());
         assertNotNull(result.getBorder().getColor());
-        assertEquals("", result.getBorder().getColor().getWeb());
+        assertEquals(true, result.getBorder().getColor().getWeb().startsWith(""));
     }
 
     /*
@@ -223,7 +223,7 @@ public class TestTableBorder  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getBorder());
         assertNotNull(result.getBorder().getColor());
-        assertEquals("#000002", result.getBorder().getColor().getWeb());
+        assertEquals(true, result.getBorder().getColor().getWeb().startsWith("#000002"));
         assertEquals(6, result.getBorder().getDistanceFromText());
         assertEquals(2, result.getBorder().getLineWidth());
         assertEquals(true, result.getBorder().getShadow());

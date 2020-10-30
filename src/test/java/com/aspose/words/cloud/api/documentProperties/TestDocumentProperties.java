@@ -80,8 +80,8 @@ public class TestDocumentProperties  extends TestCase
         assertNotNull(result.getDocumentProperties().getList());
         assertEquals(24, result.getDocumentProperties().getList().size());
         assertNotNull(result.getDocumentProperties().getList().get(0));
-        assertEquals("Author", result.getDocumentProperties().getList().get(0).getName());
-        assertEquals("", result.getDocumentProperties().getList().get(0).getValue());
+        assertEquals(true, result.getDocumentProperties().getList().get(0).getName().startsWith("Author"));
+        assertEquals(true, result.getDocumentProperties().getList().get(0).getValue().startsWith(""));
     }
 
     /*
@@ -109,8 +109,8 @@ public class TestDocumentProperties  extends TestCase
         DocumentPropertyResponse result = TestInitializer.wordsApi.getDocumentProperty(request);
         assertNotNull(result);
         assertNotNull(result.getDocumentProperty());
-        assertEquals("Author", result.getDocumentProperty().getName());
-        assertEquals("", result.getDocumentProperty().getValue());
+        assertEquals(true, result.getDocumentProperty().getName().startsWith("Author"));
+        assertEquals(true, result.getDocumentProperty().getValue().startsWith(""));
     }
 
     /*
@@ -173,7 +173,7 @@ public class TestDocumentProperties  extends TestCase
         DocumentPropertyResponse result = TestInitializer.wordsApi.createOrUpdateDocumentProperty(request);
         assertNotNull(result);
         assertNotNull(result.getDocumentProperty());
-        assertEquals("AsposeAuthor", result.getDocumentProperty().getName());
-        assertEquals("Imran Anwar", result.getDocumentProperty().getValue());
+        assertEquals(true, result.getDocumentProperty().getName().startsWith("AsposeAuthor"));
+        assertEquals(true, result.getDocumentProperty().getValue().startsWith("Imran Anwar"));
     }
 }

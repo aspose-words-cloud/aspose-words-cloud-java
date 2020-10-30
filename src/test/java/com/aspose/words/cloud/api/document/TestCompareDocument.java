@@ -91,6 +91,6 @@ public class TestCompareDocument  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.compareDocument(request);
         assertNotNull(result);
         assertNotNull(result.getDocument());
-        assertEquals("TestCompareDocumentOut.doc", result.getDocument().getFileName());
+        assertEquals(true, result.getDocument().getFileName().startsWith("TestCompareDocumentOut.doc"));
     }
 }

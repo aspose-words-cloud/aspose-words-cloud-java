@@ -83,7 +83,7 @@ public class TestDocumentProtection  extends TestCase
         ProtectionDataResponse result = TestInitializer.wordsApi.protectDocument(request);
         assertNotNull(result);
         assertNotNull(result.getProtectionData());
-        assertEquals("ReadOnly", result.getProtectionData().getProtectionType());
+        assertEquals(true, result.getProtectionData().getProtectionType().startsWith("ReadOnly"));
     }
 
     /*
@@ -111,7 +111,7 @@ public class TestDocumentProtection  extends TestCase
         ProtectionDataResponse result = TestInitializer.wordsApi.getDocumentProtection(request);
         assertNotNull(result);
         assertNotNull(result.getProtectionData());
-        assertEquals("ReadOnly", result.getProtectionData().getProtectionType());
+        assertEquals(true, result.getProtectionData().getProtectionType().startsWith("ReadOnly"));
     }
 
     /*
@@ -144,6 +144,6 @@ public class TestDocumentProtection  extends TestCase
         ProtectionDataResponse result = TestInitializer.wordsApi.unprotectDocument(request);
         assertNotNull(result);
         assertNotNull(result.getProtectionData());
-        assertEquals("NoProtection", result.getProtectionData().getProtectionType());
+        assertEquals(true, result.getProtectionData().getProtectionType().startsWith("NoProtection"));
     }
 }

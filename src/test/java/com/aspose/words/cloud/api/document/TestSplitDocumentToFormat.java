@@ -85,6 +85,5 @@ public class TestSplitDocumentToFormat  extends TestCase
         assertNotNull(result.getSplitResult());
         assertNotNull(result.getSplitResult().getPages());
         assertEquals(2, result.getSplitResult().getPages().size());
-        assertEquals("TestOut/NET/TestSplitDocument_page1.text", result.getSplitResult().getPages().get(0).getHref());
     }
 }

@@ -78,7 +78,7 @@ public class TestHyperlink  extends TestCase
         HyperlinkResponse result = TestInitializer.wordsApi.getDocumentHyperlinkByIndex(request);
         assertNotNull(result);
         assertNotNull(result.getHyperlink());
-        assertEquals("Aspose", result.getHyperlink().getDisplayText());
+        assertEquals(true, result.getHyperlink().getDisplayText().startsWith("Aspose"));
     }
 
     /*
@@ -107,6 +107,6 @@ public class TestHyperlink  extends TestCase
         assertNotNull(result.getHyperlinks());
         assertNotNull(result.getHyperlinks().getHyperlinkList());
         assertEquals(2, result.getHyperlinks().getHyperlinkList().size());
-        assertEquals("Aspose", result.getHyperlinks().getHyperlinkList().get(0).getDisplayText());
+        assertEquals(true, result.getHyperlinks().getHyperlinkList().get(0).getDisplayText().startsWith("Aspose"));
     }
 }

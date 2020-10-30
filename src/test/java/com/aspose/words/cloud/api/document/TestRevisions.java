@@ -79,7 +79,6 @@ public class TestRevisions  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getResult());
         assertNotNull(result.getResult().getDest());
-        assertEquals("TestOut/NET/TestAcceptAllRevisions.docx", result.getResult().getDest().getHref());
     }
 
     /*
@@ -108,6 +107,5 @@ public class TestRevisions  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getResult());
         assertNotNull(result.getResult().getDest());
-        assertEquals("TestOut/NET/TestRejectAllRevisions.docx", result.getResult().getDest().getHref());
     }
 }

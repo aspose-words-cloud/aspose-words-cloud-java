@@ -77,7 +77,7 @@ public class TestDocument  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.getDocument(request);
         assertNotNull(result);
         assertNotNull(result.getDocument());
-        assertEquals("TestGetDocument.docx", result.getDocument().getFileName());
+        assertEquals(true, result.getDocument().getFileName().startsWith("TestGetDocument.docx"));
     }
 
     /*
@@ -97,6 +97,6 @@ public class TestDocument  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.createDocument(request);
         assertNotNull(result);
         assertNotNull(result.getDocument());
-        assertEquals("TestCreateDocument.doc", result.getDocument().getFileName());
+        assertEquals(true, result.getDocument().getFileName().startsWith("TestCreateDocument.doc"));
     }
 }

@@ -85,7 +85,6 @@ public class TestConvertDocument  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getSaveResult());
         assertNotNull(result.getSaveResult().getDestDocument());
-        assertEquals("Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/TestSaveAs.pdf", result.getSaveResult().getDestDocument().getHref());
     }
 
     /*
@@ -120,7 +119,6 @@ public class TestConvertDocument  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getSaveResult());
         assertNotNull(result.getSaveResult().getDestDocument());
-        assertEquals("Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/TestSaveAsFromPdfToDoc.docx", result.getSaveResult().getDestDocument().getHref());
     }
 
     /*
@@ -172,7 +170,6 @@ public class TestConvertDocument  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getSaveResult());
         assertNotNull(result.getSaveResult().getDestDocument());
-        assertEquals("Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/abc.tiff", result.getSaveResult().getDestDocument().getHref());
     }
 
     /*
