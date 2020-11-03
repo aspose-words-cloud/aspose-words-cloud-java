@@ -86,7 +86,7 @@ public class TestRun  extends TestCase
         RunResponse result = TestInitializer.wordsApi.updateRun(request);
         assertNotNull(result);
         assertNotNull(result.getRun());
-        assertEquals(true, result.getRun().getText().startsWith("run with text"));
+        assertEquals("run with text", result.getRun().getText());
     }
 
     /*
@@ -122,8 +122,8 @@ public class TestRun  extends TestCase
         RunResponse result = TestInitializer.wordsApi.insertRun(request);
         assertNotNull(result);
         assertNotNull(result.getRun());
-        assertEquals(true, result.getRun().getText().startsWith("run with text"));
-        assertEquals(true, result.getRun().getNodeId().startsWith("0.0.1.3"));
+        assertEquals("run with text", result.getRun().getText());
+        assertEquals("0.0.1.3", result.getRun().getNodeId());
     }
 
     /*

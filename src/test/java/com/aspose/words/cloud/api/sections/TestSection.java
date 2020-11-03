@@ -80,7 +80,7 @@ public class TestSection  extends TestCase
         assertNotNull(result.getSection());
         assertNotNull(result.getSection().getChildNodes());
         assertEquals(13, result.getSection().getChildNodes().size());
-        assertEquals(true, result.getSection().getChildNodes().get(0).getNodeId().startsWith("0.3.0"));
+        assertEquals("0.3.0", result.getSection().getChildNodes().get(0).getNodeId());
     }
 
     /*
@@ -109,7 +109,7 @@ public class TestSection  extends TestCase
         assertNotNull(result.getSections());
         assertNotNull(result.getSections().getSectionLinkList());
         assertEquals(1, result.getSections().getSectionLinkList().size());
-        assertEquals(true, result.getSections().getSectionLinkList().get(0).getNodeId().startsWith("0"));
+        assertEquals("0", result.getSections().getSectionLinkList().get(0).getNodeId());
     }
 
     /*

@@ -78,7 +78,7 @@ public class TestBookmark  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getBookmarks());
         assertEquals(3, result.getBookmarks().getBookmarkList().size());
-        assertEquals(true, result.getBookmarks().getBookmarkList().get(1).getName().startsWith("aspose"));
+        assertEquals("aspose", result.getBookmarks().getBookmarkList().get(1).getName());
     }
 
     /*
@@ -107,7 +107,7 @@ public class TestBookmark  extends TestCase
         BookmarkResponse result = TestInitializer.wordsApi.getBookmarkByName(request);
         assertNotNull(result);
         assertNotNull(result.getBookmark());
-        assertEquals(true, result.getBookmark().getName().startsWith(bookmarkName));
+        assertEquals(bookmarkName, result.getBookmark().getName());
     }
 
     /*
@@ -145,7 +145,7 @@ public class TestBookmark  extends TestCase
         BookmarkResponse result = TestInitializer.wordsApi.updateBookmark(request);
         assertNotNull(result);
         assertNotNull(result.getBookmark());
-        assertEquals(true, result.getBookmark().getName().startsWith(bookmarkName));
-        assertEquals(true, result.getBookmark().getText().startsWith(bookmarkText));
+        assertEquals(bookmarkName, result.getBookmark().getName());
+        assertEquals(bookmarkText, result.getBookmark().getText());
     }
 }

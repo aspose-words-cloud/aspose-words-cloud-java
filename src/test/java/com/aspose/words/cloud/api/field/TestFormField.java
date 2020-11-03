@@ -91,8 +91,8 @@ public class TestFormField  extends TestCase
         FormFieldResponse result = TestInitializer.wordsApi.updateFormField(request);
         assertNotNull(result);
         assertNotNull(result.getFormField());
-        assertEquals(true, result.getFormField().getName().startsWith("FullName"));
-        assertEquals(true, result.getFormField().getStatusText().startsWith(""));
+        assertEquals("FullName", result.getFormField().getName());
+        assertEquals("", result.getFormField().getStatusText());
     }
 
     /*
@@ -133,8 +133,8 @@ public class TestFormField  extends TestCase
         FormFieldResponse result = TestInitializer.wordsApi.updateFormField(request);
         assertNotNull(result);
         assertNotNull(result.getFormField());
-        assertEquals(true, result.getFormField().getName().startsWith("FullName"));
-        assertEquals(true, result.getFormField().getStatusText().startsWith(""));
+        assertEquals("FullName", result.getFormField().getName());
+        assertEquals("", result.getFormField().getStatusText());
     }
 
     /*
@@ -163,7 +163,7 @@ public class TestFormField  extends TestCase
         FormFieldResponse result = TestInitializer.wordsApi.getFormField(request);
         assertNotNull(result);
         assertNotNull(result.getFormField());
-        assertEquals(true, result.getFormField().getName().startsWith("FullName"));
+        assertEquals("FullName", result.getFormField().getName());
     }
 
     /*
@@ -192,7 +192,7 @@ public class TestFormField  extends TestCase
         FormFieldResponse result = TestInitializer.wordsApi.getFormField(request);
         assertNotNull(result);
         assertNotNull(result.getFormField());
-        assertEquals(true, result.getFormField().getName().startsWith("FullName"));
+        assertEquals("FullName", result.getFormField().getName());
     }
 
     /*
@@ -222,7 +222,7 @@ public class TestFormField  extends TestCase
         assertNotNull(result.getFormFields());
         assertNotNull(result.getFormFields().getList());
         assertEquals(5, result.getFormFields().getList().size());
-        assertEquals(true, result.getFormFields().getList().get(0).getName().startsWith("FullName"));
+        assertEquals("FullName", result.getFormFields().getList().get(0).getName());
     }
 
     /*
@@ -252,7 +252,7 @@ public class TestFormField  extends TestCase
         assertNotNull(result.getFormFields());
         assertNotNull(result.getFormFields().getList());
         assertEquals(5, result.getFormFields().getList().size());
-        assertEquals(true, result.getFormFields().getList().get(0).getName().startsWith("FullName"));
+        assertEquals("FullName", result.getFormFields().getList().get(0).getName());
     }
 
     /*
@@ -294,8 +294,8 @@ public class TestFormField  extends TestCase
         FormFieldResponse result = TestInitializer.wordsApi.insertFormField(request);
         assertNotNull(result);
         assertNotNull(result.getFormField());
-        assertEquals(true, result.getFormField().getName().startsWith("FullName"));
-        assertEquals(true, result.getFormField().getStatusText().startsWith(""));
+        assertEquals("FullName", result.getFormField().getName());
+        assertEquals("", result.getFormField().getStatusText());
     }
 
     /*
@@ -337,8 +337,8 @@ public class TestFormField  extends TestCase
         FormFieldResponse result = TestInitializer.wordsApi.insertFormField(request);
         assertNotNull(result);
         assertNotNull(result.getFormField());
-        assertEquals(true, result.getFormField().getName().startsWith("FullName"));
-        assertEquals(true, result.getFormField().getStatusText().startsWith(""));
+        assertEquals("FullName", result.getFormField().getName());
+        assertEquals("", result.getFormField().getStatusText());
     }
 
     /*

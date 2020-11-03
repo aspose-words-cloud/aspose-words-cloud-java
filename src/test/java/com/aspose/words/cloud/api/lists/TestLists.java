@@ -79,7 +79,7 @@ public class TestLists  extends TestCase
         assertNotNull(result.getLists());
         assertNotNull(result.getLists().getListInfo());
         assertEquals(2, result.getLists().getListInfo().size());
-        assertEquals(1, result.getLists().getListInfo().get(0).getListId());
+        assertEquals(Integer.valueOf(1), result.getLists().getListInfo().get(0).getListId());
     }
 
     /*
@@ -107,7 +107,7 @@ public class TestLists  extends TestCase
         ListResponse result = TestInitializer.wordsApi.getList(request);
         assertNotNull(result);
         assertNotNull(result.getList());
-        assertEquals(1, result.getList().getListId());
+        assertEquals(Integer.valueOf(1), result.getList().getListId());
     }
 
     /*
@@ -142,8 +142,8 @@ public class TestLists  extends TestCase
         ListResponse result = TestInitializer.wordsApi.updateList(request);
         assertNotNull(result);
         assertNotNull(result.getList());
-        assertEquals(1, result.getList().getListId());
-        assertEquals(true, result.getList().getIsRestartAtEachSection());
+        assertEquals(Integer.valueOf(1), result.getList().getListId());
+        assertEquals(Boolean.valueOf(true), result.getList().getIsRestartAtEachSection());
     }
 
     /*
@@ -216,6 +216,6 @@ public class TestLists  extends TestCase
         ListResponse result = TestInitializer.wordsApi.insertList(request);
         assertNotNull(result);
         assertNotNull(result.getList());
-        assertEquals(3, result.getList().getListId());
+        assertEquals(Integer.valueOf(3), result.getList().getListId());
     }
 }

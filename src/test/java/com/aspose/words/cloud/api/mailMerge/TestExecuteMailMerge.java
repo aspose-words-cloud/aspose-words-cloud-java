@@ -106,6 +106,6 @@ public class TestExecuteMailMerge  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.executeMailMerge(request);
         assertNotNull(result);
         assertNotNull(result.getDocument());
-        assertEquals(true, result.getDocument().getFileName().startsWith("TestExecuteMailMerge.docx"));
+        assertEquals("TestExecuteMailMerge.docx", result.getDocument().getFileName());
     }
 }

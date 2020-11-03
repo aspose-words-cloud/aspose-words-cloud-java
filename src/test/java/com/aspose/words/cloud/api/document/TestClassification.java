@@ -66,7 +66,7 @@ public class TestClassification  extends TestCase
 
         ClassificationResponse result = TestInitializer.wordsApi.classify(request);
         assertNotNull(result);
-        assertEquals(true, result.getBestClassName().startsWith("Science"));
+        assertEquals("Science", result.getBestClassName());
         assertNotNull(result.getBestResults());
         assertEquals(3, result.getBestResults().size());
     }
@@ -96,7 +96,7 @@ public class TestClassification  extends TestCase
 
         ClassificationResponse result = TestInitializer.wordsApi.classifyDocument(request);
         assertNotNull(result);
-        assertEquals(true, result.getBestClassName().startsWith("Hobbies_&_Interests"));
+        assertEquals("Hobbies_&_Interests", result.getBestClassName());
         assertNotNull(result.getBestResults());
         assertEquals(3, result.getBestResults().size());
     }

@@ -88,7 +88,7 @@ public class TestWatermark  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.insertWatermarkImage(request);
         assertNotNull(result);
         assertNotNull(result.getDocument());
-        assertEquals(true, result.getDocument().getFileName().startsWith("TestInsertWatermarkImage.docx"));
+        assertEquals("TestInsertWatermarkImage.docx", result.getDocument().getFileName());
     }
 
     /*
@@ -106,7 +106,7 @@ public class TestWatermark  extends TestCase
 
         WatermarkText requestWatermarkText = new WatermarkText();
         requestWatermarkText.setText("This is the text");
-        requestWatermarkText.setRotationAngle((double)90);
+        requestWatermarkText.setRotationAngle((double)90.0);
 
         InsertWatermarkTextRequest request = new InsertWatermarkTextRequest(
             remoteFileName,
@@ -123,7 +123,7 @@ public class TestWatermark  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.insertWatermarkText(request);
         assertNotNull(result);
         assertNotNull(result.getDocument());
-        assertEquals(true, result.getDocument().getFileName().startsWith("TestInsertWatermarkText.docx"));
+        assertEquals("TestInsertWatermarkText.docx", result.getDocument().getFileName());
     }
 
     /*
@@ -153,6 +153,6 @@ public class TestWatermark  extends TestCase
         DocumentResponse result = TestInitializer.wordsApi.deleteWatermark(request);
         assertNotNull(result);
         assertNotNull(result.getDocument());
-        assertEquals(true, result.getDocument().getFileName().startsWith("TestDeleteWatermark.docx"));
+        assertEquals("TestDeleteWatermark.docx", result.getDocument().getFileName());
     }
 }

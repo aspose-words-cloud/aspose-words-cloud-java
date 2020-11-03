@@ -78,7 +78,7 @@ public class TestStyles  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getStyles());
         assertEquals(22, result.getStyles().size());
-        assertEquals(true, result.getStyles().get(0).getName().startsWith("Default Paragraph Font"));
+        assertEquals("Default Paragraph Font", result.getStyles().get(0).getName());
     }
 
     /*
@@ -106,7 +106,7 @@ public class TestStyles  extends TestCase
         StyleResponse result = TestInitializer.wordsApi.getStyle(request);
         assertNotNull(result);
         assertNotNull(result.getStyle());
-        assertEquals(true, result.getStyle().getName().startsWith("Heading 1"));
+        assertEquals("Heading 1", result.getStyle().getName());
     }
 
     /*
@@ -141,7 +141,7 @@ public class TestStyles  extends TestCase
         StyleResponse result = TestInitializer.wordsApi.updateStyle(request);
         assertNotNull(result);
         assertNotNull(result.getStyle());
-        assertEquals(true, result.getStyle().getName().startsWith("My Style"));
+        assertEquals("My Style", result.getStyle().getName());
     }
 
     /*
@@ -176,7 +176,7 @@ public class TestStyles  extends TestCase
         StyleResponse result = TestInitializer.wordsApi.insertStyle(request);
         assertNotNull(result);
         assertNotNull(result.getStyle());
-        assertEquals(true, result.getStyle().getName().startsWith("My Style"));
+        assertEquals("My Style", result.getStyle().getName());
     }
 
     /*
@@ -210,7 +210,7 @@ public class TestStyles  extends TestCase
         StyleResponse result = TestInitializer.wordsApi.copyStyle(request);
         assertNotNull(result);
         assertNotNull(result.getStyle());
-        assertEquals(true, result.getStyle().getName().startsWith("Heading 1_0"));
+        assertEquals("Heading 1_0", result.getStyle().getName());
     }
 
     /*
@@ -238,7 +238,7 @@ public class TestStyles  extends TestCase
         StyleResponse result = TestInitializer.wordsApi.getStyleFromDocumentElement(request);
         assertNotNull(result);
         assertNotNull(result.getStyle());
-        assertEquals(true, result.getStyle().getName().startsWith("TOC 1"));
+        assertEquals("TOC 1", result.getStyle().getName());
     }
 
     /*

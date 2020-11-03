@@ -80,7 +80,7 @@ public class TestTable  extends TestCase
         assertNotNull(result.getTables());
         assertNotNull(result.getTables().getTableLinkList());
         assertEquals(5, result.getTables().getTableLinkList().size());
-        assertEquals(true, result.getTables().getTableLinkList().get(0).getNodeId().startsWith("0.0.1"));
+        assertEquals("0.0.1", result.getTables().getTableLinkList().get(0).getNodeId());
     }
 
     /*
@@ -110,7 +110,7 @@ public class TestTable  extends TestCase
         assertNotNull(result.getTables());
         assertNotNull(result.getTables().getTableLinkList());
         assertEquals(5, result.getTables().getTableLinkList().size());
-        assertEquals(true, result.getTables().getTableLinkList().get(0).getNodeId().startsWith("0.0.1"));
+        assertEquals("0.0.1", result.getTables().getTableLinkList().get(0).getNodeId());
     }
 
     /*
@@ -339,7 +339,7 @@ public class TestTable  extends TestCase
         TablePropertiesResponse result = TestInitializer.wordsApi.getTableProperties(request);
         assertNotNull(result);
         assertNotNull(result.getProperties());
-        assertEquals(true, result.getProperties().getStyleName().startsWith("Table Grid"));
+        assertEquals("Table Grid", result.getProperties().getStyleName());
     }
 
     /*
@@ -368,7 +368,7 @@ public class TestTable  extends TestCase
         TablePropertiesResponse result = TestInitializer.wordsApi.getTableProperties(request);
         assertNotNull(result);
         assertNotNull(result.getProperties());
-        assertEquals(true, result.getProperties().getStyleName().startsWith("Table Grid"));
+        assertEquals("Table Grid", result.getProperties().getStyleName());
     }
 
     /*
@@ -389,7 +389,7 @@ public class TestTable  extends TestCase
         requestProperties.setAllowAutoFit(false);
         requestProperties.setBidi(true);
         requestProperties.setBottomPadding((double)1);
-        requestProperties.setCellSpacing((double)2);
+        requestProperties.setCellSpacing((double)2.0);
         requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
         UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(
@@ -409,10 +409,10 @@ public class TestTable  extends TestCase
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTableProperties(request);
         assertNotNull(result);
         assertNotNull(result.getProperties());
-        assertEquals(false, result.getProperties().getAllowAutoFit());
-        assertEquals(true, result.getProperties().getBidi());
-        assertEquals(1, result.getProperties().getBottomPadding());
-        assertEquals(2, result.getProperties().getCellSpacing());
+        assertEquals(Boolean.valueOf(false), result.getProperties().getAllowAutoFit());
+        assertEquals(Boolean.valueOf(true), result.getProperties().getBidi());
+        assertEquals(1.0, result.getProperties().getBottomPadding());
+        assertEquals(2.0, result.getProperties().getCellSpacing());
     }
 
     /*
@@ -432,8 +432,8 @@ public class TestTable  extends TestCase
         requestProperties.setAlignment(TableProperties.AlignmentEnum.RIGHT);
         requestProperties.setAllowAutoFit(false);
         requestProperties.setBidi(true);
-        requestProperties.setBottomPadding((double)1);
-        requestProperties.setCellSpacing((double)2);
+        requestProperties.setBottomPadding((double)1.0);
+        requestProperties.setCellSpacing((double)2.0);
         requestProperties.setStyleOptions(TableProperties.StyleOptionsEnum.COLUMNBANDS);
 
         UpdateTablePropertiesRequest request = new UpdateTablePropertiesRequest(
@@ -453,10 +453,10 @@ public class TestTable  extends TestCase
         TablePropertiesResponse result = TestInitializer.wordsApi.updateTableProperties(request);
         assertNotNull(result);
         assertNotNull(result.getProperties());
-        assertEquals(false, result.getProperties().getAllowAutoFit());
-        assertEquals(true, result.getProperties().getBidi());
-        assertEquals(1, result.getProperties().getBottomPadding());
-        assertEquals(2, result.getProperties().getCellSpacing());
+        assertEquals(Boolean.valueOf(false), result.getProperties().getAllowAutoFit());
+        assertEquals(Boolean.valueOf(true), result.getProperties().getBidi());
+        assertEquals(1.0, result.getProperties().getBottomPadding());
+        assertEquals(2.0, result.getProperties().getCellSpacing());
     }
 
     /*
@@ -580,7 +580,7 @@ public class TestTable  extends TestCase
         TableRowFormatResponse result = TestInitializer.wordsApi.getTableRowFormat(request);
         assertNotNull(result);
         assertNotNull(result.getRowFormat());
-        assertEquals(true, result.getRowFormat().getAllowBreakAcrossPages());
+        assertEquals(Boolean.valueOf(true), result.getRowFormat().getAllowBreakAcrossPages());
     }
 
     /*
@@ -599,7 +599,7 @@ public class TestTable  extends TestCase
         TableRowFormat requestFormat = new TableRowFormat();
         requestFormat.setAllowBreakAcrossPages(true);
         requestFormat.setHeadingFormat(true);
-        requestFormat.setHeight((double)10);
+        requestFormat.setHeight((double)10.0);
         requestFormat.setHeightRule(TableRowFormat.HeightRuleEnum.EXACTLY);
 
         UpdateTableRowFormatRequest request = new UpdateTableRowFormatRequest(
@@ -619,9 +619,9 @@ public class TestTable  extends TestCase
         TableRowFormatResponse result = TestInitializer.wordsApi.updateTableRowFormat(request);
         assertNotNull(result);
         assertNotNull(result.getRowFormat());
-        assertEquals(true, result.getRowFormat().getAllowBreakAcrossPages());
-        assertEquals(true, result.getRowFormat().getHeadingFormat());
-        assertEquals(10, result.getRowFormat().getHeight());
+        assertEquals(Boolean.valueOf(true), result.getRowFormat().getAllowBreakAcrossPages());
+        assertEquals(Boolean.valueOf(true), result.getRowFormat().getHeadingFormat());
+        assertEquals(10.0, result.getRowFormat().getHeight());
     }
 
     /*
@@ -650,7 +650,7 @@ public class TestTable  extends TestCase
         TableCellResponse result = TestInitializer.wordsApi.getTableCell(request);
         assertNotNull(result);
         assertNotNull(result.getCell());
-        assertEquals(true, result.getCell().getNodeId().startsWith("0.0.5.0.0"));
+        assertEquals("0.0.5.0.0", result.getCell().getNodeId());
     }
 
     /*
@@ -713,7 +713,7 @@ public class TestTable  extends TestCase
         TableCellResponse result = TestInitializer.wordsApi.insertTableCell(request);
         assertNotNull(result);
         assertNotNull(result.getCell());
-        assertEquals(true, result.getCell().getNodeId().startsWith("0.0.5.0.3"));
+        assertEquals("0.0.5.0.3", result.getCell().getNodeId());
     }
 
     /*
@@ -742,7 +742,7 @@ public class TestTable  extends TestCase
         TableCellFormatResponse result = TestInitializer.wordsApi.getTableCellFormat(request);
         assertNotNull(result);
         assertNotNull(result.getCellFormat());
-        assertEquals(true, result.getCellFormat().getWrapText());
+        assertEquals(Boolean.valueOf(true), result.getCellFormat().getWrapText());
     }
 
     /*
@@ -759,7 +759,7 @@ public class TestTable  extends TestCase
         );
 
         TableCellFormat requestFormat = new TableCellFormat();
-        requestFormat.setBottomPadding((double)5);
+        requestFormat.setBottomPadding((double)5.0);
         requestFormat.setFitText(true);
         requestFormat.setHorizontalMerge(TableCellFormat.HorizontalMergeEnum.FIRST);
         requestFormat.setWrapText(true);
@@ -781,9 +781,9 @@ public class TestTable  extends TestCase
         TableCellFormatResponse result = TestInitializer.wordsApi.updateTableCellFormat(request);
         assertNotNull(result);
         assertNotNull(result.getCellFormat());
-        assertEquals(5, result.getCellFormat().getBottomPadding());
-        assertEquals(true, result.getCellFormat().getFitText());
-        assertEquals(true, result.getCellFormat().getWrapText());
+        assertEquals(5.0, result.getCellFormat().getBottomPadding());
+        assertEquals(Boolean.valueOf(true), result.getCellFormat().getFitText());
+        assertEquals(Boolean.valueOf(true), result.getCellFormat().getWrapText());
     }
 
     /*

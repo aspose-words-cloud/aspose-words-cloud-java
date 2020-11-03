@@ -84,7 +84,7 @@ public class TestText  extends TestCase
 
         ReplaceTextResponse result = TestInitializer.wordsApi.replaceText(request);
         assertNotNull(result);
-        assertEquals(3, result.getMatches());
+        assertEquals(Integer.valueOf(3), result.getMatches());
     }
 
     /*
@@ -116,6 +116,6 @@ public class TestText  extends TestCase
         assertNotNull(result.getSearchResults().getResultsList());
         assertEquals(23, result.getSearchResults().getResultsList().size());
         assertNotNull(result.getSearchResults().getResultsList().get(0).getRangeStart());
-        assertEquals(65, result.getSearchResults().getResultsList().get(0).getRangeStart().getOffset());
+        assertEquals(Integer.valueOf(65), result.getSearchResults().getResultsList().get(0).getRangeStart().getOffset());
     }
 }

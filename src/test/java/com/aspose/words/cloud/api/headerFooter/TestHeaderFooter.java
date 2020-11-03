@@ -111,7 +111,7 @@ public class TestHeaderFooter  extends TestCase
         assertNotNull(result.getHeaderFooter());
         assertNotNull(result.getHeaderFooter().getChildNodes());
         assertEquals(1, result.getHeaderFooter().getChildNodes().size());
-        assertEquals(true, result.getHeaderFooter().getChildNodes().get(0).getNodeId().startsWith("0.0.0"));
+        assertEquals("0.0.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
     }
 
     /*
@@ -143,7 +143,7 @@ public class TestHeaderFooter  extends TestCase
         assertNotNull(result.getHeaderFooter());
         assertNotNull(result.getHeaderFooter().getChildNodes());
         assertEquals(1, result.getHeaderFooter().getChildNodes().size());
-        assertEquals(true, result.getHeaderFooter().getChildNodes().get(0).getNodeId().startsWith("0.0.0"));
+        assertEquals("0.0.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
     }
 
     /*
@@ -235,6 +235,6 @@ public class TestHeaderFooter  extends TestCase
         assertNotNull(result.getHeaderFooter());
         assertNotNull(result.getHeaderFooter().getChildNodes());
         assertEquals(1, result.getHeaderFooter().getChildNodes().size());
-        assertEquals(true, result.getHeaderFooter().getChildNodes().get(0).getNodeId().startsWith("0.2.0"));
+        assertEquals("0.2.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
     }
 }
