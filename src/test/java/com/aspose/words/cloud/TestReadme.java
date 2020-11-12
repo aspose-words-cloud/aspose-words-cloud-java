@@ -52,8 +52,8 @@ public class TestReadme extends TestCase {
 public void testReadmeCode() throws ApiException, IOException 
 {
         Map<String, String> creds = TestInitializer.GetConfig(TestInitializer.CONFIG_PATH);
-        String appSid = creds.get("AppSid");
-        String appKey = creds.get("AppKey");
+        String clientId = creds.get("ClientId");
+        String clientSecret = creds.get("ClientSecret");
         String baseUrl = creds.get("BaseUrl");
 
         String localFolder = TestInitializer.LocalCommonFolder;
@@ -65,7 +65,7 @@ public void testReadmeCode() throws ApiException, IOException
         // Start README example
 
         // if baseUrl is null, WordsApi uses default https://api.aspose.cloud 
-        WordsApi wordsApi = new WordsApi(appSid, appKey, baseUrl);
+        WordsApi wordsApi = new WordsApi(clientId, clientSecret, baseUrl);
 
         String localPath = PathUtil.get(localFolder, fileName);
         String remotePath = PathUtil.get(remoteFolder, remoteName);

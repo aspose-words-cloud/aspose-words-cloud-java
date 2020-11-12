@@ -117,7 +117,7 @@ Add this dependency to your project's POM:
         // Start README example
 
         // if baseUrl is null, WordsApi uses default https://api.aspose.cloud 
-        WordsApi wordsApi = new WordsApi(appSid, appKey, baseUrl);
+        WordsApi wordsApi = new WordsApi(clientId, clientSecret, baseUrl);
 
         String localPath = PathUtil.get(localFolder, fileName);
         String remotePath = PathUtil.get(remoteFolder, remoteName);

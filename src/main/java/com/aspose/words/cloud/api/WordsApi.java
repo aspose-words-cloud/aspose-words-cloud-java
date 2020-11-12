@@ -39,8 +39,8 @@ import java.util.*;
 public class WordsApi {
     private ApiClient apiClient;
 
-    public WordsApi(String appSid, String appKey, String baseUrl) {
-        this(new ApiClient(appSid, appKey, baseUrl));
+    public WordsApi(String clientId, String clientSecret, String baseUrl) {
+        this(new ApiClient(clientId, clientSecret, baseUrl));
     }
 
     public WordsApi() {

@@ -54,7 +54,7 @@ public final class TestInitializer {
 
     public static void Initialize(String credsPath) throws FileNotFoundException, ApiException {
         Map<String, String> creds = GetConfig(credsPath);
-        wordsApi = new WordsApi(creds.get("AppSid"), creds.get("AppKey"), creds.get("BaseUrl"));
+        wordsApi = new WordsApi(creds.get("ClientId"), creds.get("ClientSecret"), creds.get("BaseUrl"));
     }
 
     public static Map<String, String> GetConfig(String credsPath) throws FileNotFoundException {
