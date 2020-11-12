@@ -80,6 +80,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphResponse result = TestInitializer.wordsApi.getParagraph(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraph());
+        assertEquals("0.0.0", result.getParagraph().getNodeId());
     }
 
     /*
@@ -107,6 +109,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphResponse result = TestInitializer.wordsApi.getParagraph(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraph());
+        assertEquals("0.0.0", result.getParagraph().getNodeId());
     }
 
     /*
@@ -133,6 +137,10 @@ public class TestParagraph  extends TestCase
 
         ParagraphLinkCollectionResponse result = TestInitializer.wordsApi.getParagraphs(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraphs());
+        assertNotNull(result.getParagraphs().getParagraphLinkList());
+        assertEquals(15, result.getParagraphs().getParagraphLinkList().size());
+        assertEquals("Page 1 of 3", result.getParagraphs().getParagraphLinkList().get(0).getText());
     }
 
     /*
@@ -159,6 +167,10 @@ public class TestParagraph  extends TestCase
 
         ParagraphLinkCollectionResponse result = TestInitializer.wordsApi.getParagraphs(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraphs());
+        assertNotNull(result.getParagraphs().getParagraphLinkList());
+        assertEquals(15, result.getParagraphs().getParagraphLinkList().size());
+        assertEquals("Page 1 of 3", result.getParagraphs().getParagraphLinkList().get(0).getText());
     }
 
     /*
@@ -186,6 +198,8 @@ public class TestParagraph  extends TestCase
 
         RunResponse result = TestInitializer.wordsApi.getRun(request);
         assertNotNull(result);
+        assertNotNull(result.getRun());
+        assertEquals("Page ", result.getRun().getText());
     }
 
     /*
@@ -213,6 +227,8 @@ public class TestParagraph  extends TestCase
 
         FontResponse result = TestInitializer.wordsApi.getRunFont(request);
         assertNotNull(result);
+        assertNotNull(result.getFont());
+        assertEquals("Times New Roman", result.getFont().getName());
     }
 
     /*
@@ -239,6 +255,10 @@ public class TestParagraph  extends TestCase
 
         RunsResponse result = TestInitializer.wordsApi.getRuns(request);
         assertNotNull(result);
+        assertNotNull(result.getRuns());
+        assertNotNull(result.getRuns().getList());
+        assertEquals(6, result.getRuns().getList().size());
+        assertEquals("Page ", result.getRuns().getList().get(0).getText());
     }
 
     /*
@@ -273,6 +293,8 @@ public class TestParagraph  extends TestCase
 
         FontResponse result = TestInitializer.wordsApi.updateRunFont(request);
         assertNotNull(result);
+        assertNotNull(result.getFont());
+        assertEquals(Boolean.valueOf(true), result.getFont().getBold());
     }
 
     /*
@@ -307,6 +329,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphResponse result = TestInitializer.wordsApi.insertParagraph(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraph());
+        assertEquals("0.3.8", result.getParagraph().getNodeId());
     }
 
     /*
@@ -341,6 +365,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphResponse result = TestInitializer.wordsApi.insertParagraph(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraph());
+        assertEquals("0.3.8", result.getParagraph().getNodeId());
     }
 
     /*
@@ -426,6 +452,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphFormatResponse result = TestInitializer.wordsApi.getParagraphFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraphFormat());
+        assertEquals("Normal", result.getParagraphFormat().getStyleName());
     }
 
     /*
@@ -453,6 +481,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphFormatResponse result = TestInitializer.wordsApi.getParagraphFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraphFormat());
+        assertEquals("Normal", result.getParagraphFormat().getStyleName());
     }
 
     /*
@@ -487,6 +517,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphFormatResponse result = TestInitializer.wordsApi.updateParagraphFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getParagraphFormat());
+
     }
 
     /*
@@ -572,6 +604,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphListFormatResponse result = TestInitializer.wordsApi.getParagraphListFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getListFormat());
+        assertEquals(Integer.valueOf(1), result.getListFormat().getListId());
     }
 
     /*
@@ -599,6 +633,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphListFormatResponse result = TestInitializer.wordsApi.getParagraphListFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getListFormat());
+        assertEquals(Integer.valueOf(1), result.getListFormat().getListId());
     }
 
     /*
@@ -633,6 +669,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphListFormatResponse result = TestInitializer.wordsApi.updateParagraphListFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getListFormat());
+        assertEquals(Integer.valueOf(2), result.getListFormat().getListId());
     }
 
     /*
@@ -667,6 +705,8 @@ public class TestParagraph  extends TestCase
 
         ParagraphListFormatResponse result = TestInitializer.wordsApi.updateParagraphListFormat(request);
         assertNotNull(result);
+        assertNotNull(result.getListFormat());
+        assertEquals(Integer.valueOf(2), result.getListFormat().getListId());
     }
 
     /*
@@ -754,6 +794,9 @@ public class TestParagraph  extends TestCase
 
         TabStopsResponse result = TestInitializer.wordsApi.getParagraphTabStops(request);
         assertNotNull(result);
+        assertNotNull(result.getTabStops());
+        assertEquals(2, result.getTabStops().size());
+        assertEquals(72.0, result.getTabStops().get(0).getPosition());
     }
 
     /*
@@ -781,6 +824,9 @@ public class TestParagraph  extends TestCase
 
         TabStopsResponse result = TestInitializer.wordsApi.getParagraphTabStops(request);
         assertNotNull(result);
+        assertNotNull(result.getTabStops());
+        assertEquals(2, result.getTabStops().size());
+        assertEquals(72.0, result.getTabStops().get(0).getPosition());
     }
 
     /*
@@ -799,7 +845,7 @@ public class TestParagraph  extends TestCase
         TabStopInsert requestDto = new TabStopInsert();
         requestDto.setAlignment(TabStopInsert.AlignmentEnum.LEFT);
         requestDto.setLeader(TabStopInsert.LeaderEnum.NONE);
-        requestDto.setPosition((double)72);
+        requestDto.setPosition((double)100.0);
 
         InsertOrUpdateParagraphTabStopRequest request = new InsertOrUpdateParagraphTabStopRequest(
             remoteFileName,
@@ -815,6 +861,11 @@ public class TestParagraph  extends TestCase
 
         TabStopsResponse result = TestInitializer.wordsApi.insertOrUpdateParagraphTabStop(request);
         assertNotNull(result);
+        assertNotNull(result.getTabStops());
+        assertEquals(3, result.getTabStops().size());
+        assertEquals(100.0, result.getTabStops().get(1).getPosition());
+
+
     }
 
     /*
@@ -833,7 +884,7 @@ public class TestParagraph  extends TestCase
         TabStopInsert requestDto = new TabStopInsert();
         requestDto.setAlignment(TabStopInsert.AlignmentEnum.LEFT);
         requestDto.setLeader(TabStopInsert.LeaderEnum.NONE);
-        requestDto.setPosition((double)72);
+        requestDto.setPosition((double)100.0);
 
         InsertOrUpdateParagraphTabStopRequest request = new InsertOrUpdateParagraphTabStopRequest(
             remoteFileName,
@@ -849,6 +900,11 @@ public class TestParagraph  extends TestCase
 
         TabStopsResponse result = TestInitializer.wordsApi.insertOrUpdateParagraphTabStop(request);
         assertNotNull(result);
+        assertNotNull(result.getTabStops());
+        assertEquals(3, result.getTabStops().size());
+        assertEquals(100.0, result.getTabStops().get(1).getPosition());
+
+
     }
 
     /*
@@ -877,6 +933,8 @@ public class TestParagraph  extends TestCase
 
         TabStopsResponse result = TestInitializer.wordsApi.deleteAllParagraphTabStops(request);
         assertNotNull(result);
+        assertNotNull(result.getTabStops());
+        assertEquals(0, result.getTabStops().size());
     }
 
     /*
@@ -905,6 +963,8 @@ public class TestParagraph  extends TestCase
 
         TabStopsResponse result = TestInitializer.wordsApi.deleteAllParagraphTabStops(request);
         assertNotNull(result);
+        assertNotNull(result.getTabStops());
+        assertEquals(0, result.getTabStops().size());
     }
 
     /*
@@ -922,7 +982,7 @@ public class TestParagraph  extends TestCase
 
         DeleteParagraphTabStopRequest request = new DeleteParagraphTabStopRequest(
             remoteFileName,
-            (double)72,
+            (double)72.0,
             0,
             "",
             remoteDataFolder,
@@ -934,6 +994,8 @@ public class TestParagraph  extends TestCase
 
         TabStopsResponse result = TestInitializer.wordsApi.deleteParagraphTabStop(request);
         assertNotNull(result);
+        assertNotNull(result.getTabStops());
+        assertEquals(1, result.getTabStops().size());
     }
 
     /*
@@ -951,7 +1013,7 @@ public class TestParagraph  extends TestCase
 
         DeleteParagraphTabStopRequest request = new DeleteParagraphTabStopRequest(
             remoteFileName,
-            (double)72,
+            (double)72.0,
             0,
             null,
             remoteDataFolder,
@@ -963,5 +1025,7 @@ public class TestParagraph  extends TestCase
 
         TabStopsResponse result = TestInitializer.wordsApi.deleteParagraphTabStop(request);
         assertNotNull(result);
+        assertNotNull(result.getTabStops());
+        assertEquals(1, result.getTabStops().size());
     }
 }

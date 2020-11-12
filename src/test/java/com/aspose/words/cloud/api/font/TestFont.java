@@ -74,5 +74,6 @@ public class TestFont  extends TestCase
 
         AvailableFontsResponse result = TestInitializer.wordsApi.getAvailableFonts(request);
         assertNotNull(result);
+        assertNotNull(result.getSystemFonts());
     }
 }

@@ -77,6 +77,10 @@ public class TestMathObject  extends TestCase
 
         OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjects(request);
         assertNotNull(result);
+        assertNotNull(result.getOfficeMathObjects());
+        assertNotNull(result.getOfficeMathObjects().getList());
+        assertEquals(16, result.getOfficeMathObjects().getList().size());
+        assertEquals("0.0.0.0", result.getOfficeMathObjects().getList().get(0).getNodeId());
     }
 
     /*
@@ -103,6 +107,10 @@ public class TestMathObject  extends TestCase
 
         OfficeMathObjectsResponse result = TestInitializer.wordsApi.getOfficeMathObjects(request);
         assertNotNull(result);
+        assertNotNull(result.getOfficeMathObjects());
+        assertNotNull(result.getOfficeMathObjects().getList());
+        assertEquals(16, result.getOfficeMathObjects().getList().size());
+        assertEquals("0.0.0.0", result.getOfficeMathObjects().getList().get(0).getNodeId());
     }
 
     /*
@@ -130,6 +138,8 @@ public class TestMathObject  extends TestCase
 
         OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObject(request);
         assertNotNull(result);
+        assertNotNull(result.getOfficeMathObject());
+        assertEquals("0.0.0.0", result.getOfficeMathObject().getNodeId());
     }
 
     /*
@@ -157,6 +167,8 @@ public class TestMathObject  extends TestCase
 
         OfficeMathObjectResponse result = TestInitializer.wordsApi.getOfficeMathObject(request);
         assertNotNull(result);
+        assertNotNull(result.getOfficeMathObject());
+        assertEquals("0.0.0.0", result.getOfficeMathObject().getNodeId());
     }
 
     /*

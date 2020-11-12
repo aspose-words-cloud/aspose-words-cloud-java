@@ -82,5 +82,8 @@ public class TestSplitDocumentToFormat  extends TestCase
 
         SplitDocumentResponse result = TestInitializer.wordsApi.splitDocument(request);
         assertNotNull(result);
+        assertNotNull(result.getSplitResult());
+        assertNotNull(result.getSplitResult().getPages());
+        assertEquals(2, result.getSplitResult().getPages().size());
     }
 }

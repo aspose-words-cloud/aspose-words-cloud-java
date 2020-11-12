@@ -77,6 +77,8 @@ public class TestRevisions  extends TestCase
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.acceptAllRevisions(request);
         assertNotNull(result);
+        assertNotNull(result.getResult());
+        assertNotNull(result.getResult().getDest());
     }
 
     /*
@@ -103,5 +105,7 @@ public class TestRevisions  extends TestCase
 
         RevisionsModificationResponse result = TestInitializer.wordsApi.rejectAllRevisions(request);
         assertNotNull(result);
+        assertNotNull(result.getResult());
+        assertNotNull(result.getResult().getDest());
     }
 }

@@ -77,6 +77,11 @@ public class TestTableBorder  extends TestCase
 
         BordersResponse result = TestInitializer.wordsApi.getBorders(request);
         assertNotNull(result);
+        assertNotNull(result.getBorders());
+        assertNotNull(result.getBorders().getList());
+        assertEquals(6, result.getBorders().getList().size());
+        assertNotNull(result.getBorders().getList().get(0).getColor());
+        assertEquals("#000000", result.getBorders().getList().get(0).getColor().getWeb());
     }
 
     /*
@@ -104,6 +109,9 @@ public class TestTableBorder  extends TestCase
 
         BorderResponse result = TestInitializer.wordsApi.getBorder(request);
         assertNotNull(result);
+        assertNotNull(result.getBorder());
+        assertNotNull(result.getBorder().getColor());
+        assertEquals("#000000", result.getBorder().getColor().getWeb());
     }
 
     /*
@@ -133,6 +141,11 @@ public class TestTableBorder  extends TestCase
 
         BordersResponse result = TestInitializer.wordsApi.deleteBorders(request);
         assertNotNull(result);
+        assertNotNull(result.getBorders());
+        assertNotNull(result.getBorders().getList());
+        assertEquals(6, result.getBorders().getList().size());
+        assertNotNull(result.getBorders().getList().get(0).getColor());
+        assertEquals("", result.getBorders().getList().get(0).getColor().getWeb());
     }
 
     /*
@@ -163,6 +176,9 @@ public class TestTableBorder  extends TestCase
 
         BorderResponse result = TestInitializer.wordsApi.deleteBorder(request);
         assertNotNull(result);
+        assertNotNull(result.getBorder());
+        assertNotNull(result.getBorder().getColor());
+        assertEquals("", result.getBorder().getColor().getWeb());
     }
 
     /*
@@ -184,9 +200,9 @@ public class TestTableBorder  extends TestCase
         Border requestBorderProperties = new Border();
         requestBorderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
         requestBorderProperties.setColor(requestBorderPropertiesColor);
-        requestBorderProperties.setDistanceFromText((double)6);
+        requestBorderProperties.setDistanceFromText((double)6.0);
         requestBorderProperties.setLineStyle(Border.LineStyleEnum.DASHDOTSTROKER);
-        requestBorderProperties.setLineWidth((double)2);
+        requestBorderProperties.setLineWidth((double)2.0);
         requestBorderProperties.setShadow(true);
 
         UpdateBorderRequest request = new UpdateBorderRequest(
@@ -205,5 +221,11 @@ public class TestTableBorder  extends TestCase
 
         BorderResponse result = TestInitializer.wordsApi.updateBorder(request);
         assertNotNull(result);
+        assertNotNull(result.getBorder());
+        assertNotNull(result.getBorder().getColor());
+        assertEquals("#000002", result.getBorder().getColor().getWeb());
+        assertEquals(6.0, result.getBorder().getDistanceFromText());
+        assertEquals(2.0, result.getBorder().getLineWidth());
+        assertEquals(Boolean.valueOf(true), result.getBorder().getShadow());
     }
 }

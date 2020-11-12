@@ -76,6 +76,9 @@ public class TestStyles  extends TestCase
 
         StylesResponse result = TestInitializer.wordsApi.getStyles(request);
         assertNotNull(result);
+        assertNotNull(result.getStyles());
+        assertEquals(22, result.getStyles().size());
+        assertEquals("Default Paragraph Font", result.getStyles().get(0).getName());
     }
 
     /*
@@ -102,6 +105,8 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.getStyle(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("Heading 1", result.getStyle().getName());
     }
 
     /*
@@ -135,6 +140,8 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.updateStyle(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("My Style", result.getStyle().getName());
     }
 
     /*
@@ -168,6 +175,8 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.insertStyle(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("My Style", result.getStyle().getName());
     }
 
     /*
@@ -200,6 +209,8 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.copyStyle(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("Heading 1_0", result.getStyle().getName());
     }
 
     /*
@@ -226,6 +237,8 @@ public class TestStyles  extends TestCase
 
         StyleResponse result = TestInitializer.wordsApi.getStyleFromDocumentElement(request);
         assertNotNull(result);
+        assertNotNull(result.getStyle());
+        assertEquals("TOC 1", result.getStyle().getName());
     }
 
     /*

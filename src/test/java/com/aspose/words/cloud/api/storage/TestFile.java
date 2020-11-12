@@ -69,6 +69,9 @@ public class TestFile  extends TestCase
 
         FilesUploadResult result = TestInitializer.wordsApi.uploadFile(request);
         assertNotNull(result);
+        assertNotNull(result.getUploaded());
+        assertEquals(1, result.getUploaded().size());
+        assertEquals("TestUploadFile.docx", result.getUploaded().get(0));
     }
 
     /*

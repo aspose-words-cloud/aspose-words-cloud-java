@@ -85,6 +85,9 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.insertFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals("0.1.7.1", result.getFootnote().getNodeId());
+        assertEquals(" test endnote" + "\r\n", result.getFootnote().getText());
     }
 
     /*
@@ -119,6 +122,9 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.insertFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals("0.1.7.1", result.getFootnote().getNodeId());
+        assertEquals(" test endnote" + "\r\n", result.getFootnote().getText());
     }
 
     /*
@@ -203,6 +209,10 @@ public class TestFootnote  extends TestCase
 
         FootnotesResponse result = TestInitializer.wordsApi.getFootnotes(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnotes());
+        assertNotNull(result.getFootnotes().getList());
+        assertEquals(6, result.getFootnotes().getList().size());
+        assertEquals(" Footnote 1." + "\r\n", result.getFootnotes().getList().get(0).getText());
     }
 
     /*
@@ -229,6 +239,10 @@ public class TestFootnote  extends TestCase
 
         FootnotesResponse result = TestInitializer.wordsApi.getFootnotes(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnotes());
+        assertNotNull(result.getFootnotes().getList());
+        assertEquals(6, result.getFootnotes().getList().size());
+        assertEquals(" Footnote 1." + "\r\n", result.getFootnotes().getList().get(0).getText());
     }
 
     /*
@@ -256,6 +270,8 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.getFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals(" Footnote 1." + "\r\n", result.getFootnote().getText());
     }
 
     /*
@@ -283,6 +299,8 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.getFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals(" Footnote 1." + "\r\n", result.getFootnote().getText());
     }
 
     /*
@@ -317,6 +335,8 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.updateFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals(" new text is here" + "\r\n", result.getFootnote().getText());
     }
 
     /*
@@ -351,5 +371,7 @@ public class TestFootnote  extends TestCase
 
         FootnoteResponse result = TestInitializer.wordsApi.updateFootnote(request);
         assertNotNull(result);
+        assertNotNull(result.getFootnote());
+        assertEquals(" new text is here" + "\r\n", result.getFootnote().getText());
     }
 }

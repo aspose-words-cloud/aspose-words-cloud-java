@@ -78,6 +78,9 @@ public class TestHeaderFooter  extends TestCase
 
         HeaderFootersResponse result = TestInitializer.wordsApi.getHeaderFooters(request);
         assertNotNull(result);
+        assertNotNull(result.getHeaderFooters());
+        assertNotNull(result.getHeaderFooters().getList());
+        assertEquals(6, result.getHeaderFooters().getList().size());
     }
 
     /*
@@ -105,6 +108,10 @@ public class TestHeaderFooter  extends TestCase
 
         HeaderFooterResponse result = TestInitializer.wordsApi.getHeaderFooter(request);
         assertNotNull(result);
+        assertNotNull(result.getHeaderFooter());
+        assertNotNull(result.getHeaderFooter().getChildNodes());
+        assertEquals(1, result.getHeaderFooter().getChildNodes().size());
+        assertEquals("0.0.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
     }
 
     /*
@@ -133,6 +140,10 @@ public class TestHeaderFooter  extends TestCase
 
         HeaderFooterResponse result = TestInitializer.wordsApi.getHeaderFooterOfSection(request);
         assertNotNull(result);
+        assertNotNull(result.getHeaderFooter());
+        assertNotNull(result.getHeaderFooter().getChildNodes());
+        assertEquals(1, result.getHeaderFooter().getChildNodes().size());
+        assertEquals("0.0.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
     }
 
     /*
@@ -221,5 +232,9 @@ public class TestHeaderFooter  extends TestCase
 
         HeaderFooterResponse result = TestInitializer.wordsApi.insertHeaderFooter(request);
         assertNotNull(result);
+        assertNotNull(result.getHeaderFooter());
+        assertNotNull(result.getHeaderFooter().getChildNodes());
+        assertEquals(1, result.getHeaderFooter().getChildNodes().size());
+        assertEquals("0.2.0", result.getHeaderFooter().getChildNodes().get(0).getNodeId());
     }
 }

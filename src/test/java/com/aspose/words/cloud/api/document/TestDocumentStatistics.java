@@ -79,5 +79,7 @@ public class TestDocumentStatistics  extends TestCase
 
         StatDataResponse result = TestInitializer.wordsApi.getDocumentStatistics(request);
         assertNotNull(result);
+        assertNotNull(result.getStatData());
+        assertEquals(Integer.valueOf(10), result.getStatData().getWordCount());
     }
 }

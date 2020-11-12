@@ -78,6 +78,8 @@ public class TestPageSetup  extends TestCase
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.getSectionPageSetup(request);
         assertNotNull(result);
+        assertNotNull(result.getPageSetup());
+        assertEquals(Integer.valueOf(1), result.getPageSetup().getLineStartingNumber());
     }
 
     /*
@@ -95,7 +97,7 @@ public class TestPageSetup  extends TestCase
 
         PageSetup requestPageSetup = new PageSetup();
         requestPageSetup.setRtlGutter(true);
-        requestPageSetup.setLeftMargin((double)10);
+        requestPageSetup.setLeftMargin((double)10.0);
         requestPageSetup.setOrientation(PageSetup.OrientationEnum.LANDSCAPE);
         requestPageSetup.setPaperSize(PageSetup.PaperSizeEnum.A5);
 
@@ -114,6 +116,10 @@ public class TestPageSetup  extends TestCase
 
         SectionPageSetupResponse result = TestInitializer.wordsApi.updateSectionPageSetup(request);
         assertNotNull(result);
+        assertNotNull(result.getPageSetup());
+        assertEquals(Boolean.valueOf(true), result.getPageSetup().getRtlGutter());
+
+
     }
 
     /*
