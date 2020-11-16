@@ -63,10 +63,10 @@ public class FieldNames extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of fields names.
+     * Gets or sets the collection of fields names.
     * @return names
     **/
-    @ApiModelProperty(value = "Gets or sets collection of fields names.")
+    @ApiModelProperty(value = "Gets or sets the collection of fields names.")
     public List<String> getNames() {
         return names;
     }

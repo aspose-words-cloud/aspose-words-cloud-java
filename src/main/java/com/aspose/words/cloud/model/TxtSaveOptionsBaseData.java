@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Base class for save options of text formats.")
 public class TxtSaveOptionsBaseData extends SaveOptionsData {
     /**
-     * Gets or sets specifies whether to output headers and footers when exporting in plain text format.
+     * Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
      * default value is TxtExportHeadersFootersMode.PrimaryOnly.
      */
     @JsonAdapter(ExportHeadersFootersModeEnum.Adapter.class)
@@ -112,10 +112,10 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the encoding to use when exporting in plain text format.
+     * Gets or sets the character encoding to use when exporting in plain text format.
     * @return encoding
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the encoding to use when exporting in plain text format.")
+    @ApiModelProperty(value = "Gets or sets the character encoding to use when exporting in plain text format.")
     public String getEncoding() {
         return encoding;
     }
@@ -130,11 +130,11 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies whether to output headers and footers when exporting in plain text format.
+     * Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
      * default value is TxtExportHeadersFootersMode.PrimaryOnly.
     * @return exportHeadersFootersMode
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.")
+    @ApiModelProperty(value = "Gets or sets the option that controls whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.")
     public ExportHeadersFootersModeEnum getExportHeadersFootersMode() {
         return exportHeadersFootersMode;
     }
@@ -149,11 +149,11 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets allows to specify whether the page breaks should be preserved during export.
+     * Gets or sets a value indicating whether the page breaks should be preserved during export.
      * The default value is false.
     * @return forcePageBreaks
     **/
-    @ApiModelProperty(value = "Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the page breaks should be preserved during export. The default value is false.")
     public Boolean getForcePageBreaks() {
         return forcePageBreaks;
     }
@@ -168,10 +168,10 @@ public class TxtSaveOptionsBaseData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.
+     * Gets or sets the string to use as a paragraph break when exporting in plain text format.
     * @return paragraphBreak
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.")
+    @ApiModelProperty(value = "Gets or sets the string to use as a paragraph break when exporting in plain text format.")
     public String getParagraphBreak() {
         return paragraphBreak;
     }

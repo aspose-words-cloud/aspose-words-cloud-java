@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class UpdateSectionPageSetupRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Section index.
+     * The index of the section.
      */
     private Integer sectionIndex;
 
     /*
-     * Page setup properties dto.
+     * The properties of the page setup.
      */
     private PageSetup pageSetup;
 
@@ -91,9 +91,9 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateSectionPageSetupRequest class.
      *
-     * @param String name The document name.
-     * @param Integer sectionIndex Section index.
-     * @param PageSetup pageSetup Page setup properties dto.
+     * @param String name The filename of the input document.
+     * @param Integer sectionIndex The index of the section.
+     * @param PageSetup pageSetup The properties of the page setup.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class UpdateSectionPageSetupRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Section index.
+     * Gets The index of the section.
      */
     public Integer getSectionIndex() {
         return this.sectionIndex;
     }
 
     /*
-     * Sets Section index.
+     * Sets The index of the section.
      */
     public void setSectionIndex(Integer value) {
         this.sectionIndex = value;
     }
 
     /*
-     * Gets Page setup properties dto.
+     * Gets The properties of the page setup.
      */
     public PageSetup getPageSetup() {
         return this.pageSetup;
     }
 
     /*
-     * Sets Page setup properties dto.
+     * Sets The properties of the page setup.
      */
     public void setPageSetup(PageSetup value) {
         this.pageSetup = value;

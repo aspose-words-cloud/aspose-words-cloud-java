@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class InsertTableRowRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Table row parameters/.
+     * The properties of the row.
      */
     private TableRowInsert row;
 
     /*
-     * Path to table.
+     * The path to the table in the document tree.
      */
     private String tablePath;
 
@@ -91,9 +91,9 @@ public class InsertTableRowRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertTableRowRequest class.
      *
-     * @param String name The document name.
-     * @param TableRowInsert row Table row parameters/.
-     * @param String tablePath Path to table.
+     * @param String name The filename of the input document.
+     * @param TableRowInsert row The properties of the row.
+     * @param String tablePath The path to the table in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class InsertTableRowRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Table row parameters/.
+     * Gets The properties of the row.
      */
     public TableRowInsert getRow() {
         return this.row;
     }
 
     /*
-     * Sets Table row parameters/.
+     * Sets The properties of the row.
      */
     public void setRow(TableRowInsert value) {
         this.row = value;
     }
 
     /*
-     * Gets Path to table.
+     * Gets The path to the table in the document tree.
      */
     public String getTablePath() {
         return this.tablePath;
     }
 
     /*
-     * Sets Path to table.
+     * Sets The path to the table in the document tree.
      */
     public void setTablePath(String value) {
         this.tablePath = value;

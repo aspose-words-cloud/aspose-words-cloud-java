@@ -43,12 +43,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents the table properties.
+ * DTO container with table properties.
  */
-@ApiModel(description = "Represents the table properties.")
+@ApiModel(description = "DTO container with table properties.")
 public class TableProperties extends LinkElement {
     /**
-     * Gets or sets specifies how an inline table is aligned in the document.
+     * Gets or sets the option that controls how an inline table is aligned in the document.
      */
     @JsonAdapter(AlignmentEnum.Adapter.class)
     public enum AlignmentEnum {
@@ -512,7 +512,7 @@ public class TableProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets bit flags that specify how a table style is applied to this table.
+     * Gets or sets the bit flags, that specify how a table style is applied to this table.
      */
     @JsonAdapter(StyleOptionsEnum.Adapter.class)
     public enum StyleOptionsEnum {
@@ -565,7 +565,7 @@ public class TableProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets get or sets TextWrapping for table.
+     * Gets or sets the option that controls text wrapping for the table.
      */
     @JsonAdapter(TextWrappingEnum.Adapter.class)
     public enum TextWrappingEnum {
@@ -658,10 +658,10 @@ public class TableProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets specifies how an inline table is aligned in the document.
+     * Gets or sets the option that controls how an inline table is aligned in the document.
     * @return alignment
     **/
-    @ApiModelProperty(value = "Gets or sets specifies how an inline table is aligned in the document.")
+    @ApiModelProperty(value = "Gets or sets the option that controls how an inline table is aligned in the document.")
     public AlignmentEnum getAlignment() {
         return alignment;
     }
@@ -676,10 +676,10 @@ public class TableProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
+     * Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
     * @return allowAutoFit
     **/
-    @ApiModelProperty(value = "Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.")
     public Boolean getAllowAutoFit() {
         return allowAutoFit;
     }
@@ -694,10 +694,10 @@ public class TableProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets whether this is a right-to-left table.
+     * Gets or sets a value indicating whether this is a right-to-left table.
     * @return bidi
     **/
-    @ApiModelProperty(value = "Gets or sets whether this is a right-to-left table.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this is a right-to-left table.")
     public Boolean getBidi() {
         return bidi;
     }
@@ -748,10 +748,10 @@ public class TableProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets the value that represents the left indent of the table.
+     * Gets or sets the value, that represents the left indent of the table.
     * @return leftIndent
     **/
-    @ApiModelProperty(value = "Gets or sets the value that represents the left indent of the table.")
+    @ApiModelProperty(value = "Gets or sets the value, that represents the left indent of the table.")
     public Double getLeftIndent() {
         return leftIndent;
     }
@@ -857,10 +857,10 @@ public class TableProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets bit flags that specify how a table style is applied to this table.
+     * Gets or sets the bit flags, that specify how a table style is applied to this table.
     * @return styleOptions
     **/
-    @ApiModelProperty(value = "Gets or sets bit flags that specify how a table style is applied to this table.")
+    @ApiModelProperty(value = "Gets or sets the bit flags, that specify how a table style is applied to this table.")
     public StyleOptionsEnum getStyleOptions() {
         return styleOptions;
     }
@@ -875,10 +875,10 @@ public class TableProperties extends LinkElement {
     }
 
     /**
-     * Gets or sets get or sets TextWrapping for table.
+     * Gets or sets the option that controls text wrapping for the table.
     * @return textWrapping
     **/
-    @ApiModelProperty(value = "Gets or sets get or sets TextWrapping for table.")
+    @ApiModelProperty(value = "Gets or sets the option that controls text wrapping for the table.")
     public TextWrappingEnum getTextWrapping() {
         return textWrapping;
     }

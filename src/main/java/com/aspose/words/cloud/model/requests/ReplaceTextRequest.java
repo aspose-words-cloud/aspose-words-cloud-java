@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class ReplaceTextRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * ReplaceTextResponse with the replace operation settings.
+     * The text replacement parameters.
      */
     private ReplaceTextParameters replaceText;
 
@@ -86,8 +86,8 @@ public class ReplaceTextRequest implements RequestIfc {
     /*
      * Initializes a new instance of the ReplaceTextRequest class.
      *
-     * @param String name The document name.
-     * @param ReplaceTextParameters replaceText ReplaceTextResponse with the replace operation settings.
+     * @param String name The filename of the input document.
+     * @param ReplaceTextParameters replaceText The text replacement parameters.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class ReplaceTextRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets ReplaceTextResponse with the replace operation settings.
+     * Gets The text replacement parameters.
      */
     public ReplaceTextParameters getReplaceText() {
         return this.replaceText;
     }
 
     /*
-     * Sets ReplaceTextResponse with the replace operation settings.
+     * Sets The text replacement parameters.
      */
     public void setReplaceText(ReplaceTextParameters value) {
         this.replaceText = value;

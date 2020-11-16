@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class GetHeaderFooterRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Header/footer index.
+     * The index of the HeaderFooter object.
      */
     private Integer headerFooterIndex;
 
@@ -69,20 +69,20 @@ public class GetHeaderFooterRequest implements RequestIfc {
     private String password;
 
     /*
-     * List of types of headers and footers.
+     * The list of HeaderFooter types.
      */
     private String filterByType;
 
     /*
      * Initializes a new instance of the GetHeaderFooterRequest class.
      *
-     * @param String name The document name.
-     * @param Integer headerFooterIndex Header/footer index.
+     * @param String name The filename of the input document.
+     * @param Integer headerFooterIndex The index of the HeaderFooter object.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String filterByType List of types of headers and footers.
+     * @param String filterByType The list of HeaderFooter types.
      */
     public GetHeaderFooterRequest(String name, Integer headerFooterIndex, String folder, String storage, String loadEncoding, String password, String filterByType) {
         this.name = name;
@@ -95,28 +95,28 @@ public class GetHeaderFooterRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Header/footer index.
+     * Gets The index of the HeaderFooter object.
      */
     public Integer getHeaderFooterIndex() {
         return this.headerFooterIndex;
     }
 
     /*
-     * Sets Header/footer index.
+     * Sets The index of the HeaderFooter object.
      */
     public void setHeaderFooterIndex(Integer value) {
         this.headerFooterIndex = value;
@@ -179,14 +179,14 @@ public class GetHeaderFooterRequest implements RequestIfc {
     }
 
     /*
-     * Gets List of types of headers and footers.
+     * Gets The list of HeaderFooter types.
      */
     public String getFilterByType() {
         return this.filterByType;
     }
 
     /*
-     * Sets List of types of headers and footers.
+     * Sets The list of HeaderFooter types.
      */
     public void setFilterByType(String value) {
         this.filterByType = value;

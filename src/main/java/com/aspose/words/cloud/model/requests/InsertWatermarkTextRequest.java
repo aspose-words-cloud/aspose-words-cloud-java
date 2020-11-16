@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class InsertWatermarkTextRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * WatermarkText with the watermark data.
+     * The watermark text to insert.
      */
     private WatermarkText watermarkText;
 
@@ -86,8 +86,8 @@ public class InsertWatermarkTextRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertWatermarkTextRequest class.
      *
-     * @param String name The document name.
-     * @param WatermarkText watermarkText WatermarkText with the watermark data.
+     * @param String name The filename of the input document.
+     * @param WatermarkText watermarkText The watermark text to insert.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class InsertWatermarkTextRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets WatermarkText with the watermark data.
+     * Gets The watermark text to insert.
      */
     public WatermarkText getWatermarkText() {
         return this.watermarkText;
     }
 
     /*
-     * Sets WatermarkText with the watermark data.
+     * Sets The watermark text to insert.
      */
     public void setWatermarkText(WatermarkText value) {
         this.watermarkText = value;

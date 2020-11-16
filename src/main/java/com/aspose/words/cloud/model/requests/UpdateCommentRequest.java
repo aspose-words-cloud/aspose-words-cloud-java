@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class UpdateCommentRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * The comment index.
+     * The index of the comment.
      */
     private Integer commentIndex;
 
     /*
-     * The comment data.
+     * The properties of the comment.
      */
     private CommentUpdate comment;
 
@@ -91,9 +91,9 @@ public class UpdateCommentRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateCommentRequest class.
      *
-     * @param String name The document name.
-     * @param Integer commentIndex The comment index.
-     * @param CommentUpdate comment The comment data.
+     * @param String name The filename of the input document.
+     * @param Integer commentIndex The index of the comment.
+     * @param CommentUpdate comment The properties of the comment.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -116,42 +116,42 @@ public class UpdateCommentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The comment index.
+     * Gets The index of the comment.
      */
     public Integer getCommentIndex() {
         return this.commentIndex;
     }
 
     /*
-     * Sets The comment index.
+     * Sets The index of the comment.
      */
     public void setCommentIndex(Integer value) {
         this.commentIndex = value;
     }
 
     /*
-     * Gets The comment data.
+     * Gets The properties of the comment.
      */
     public CommentUpdate getComment() {
         return this.comment;
     }
 
     /*
-     * Sets The comment data.
+     * Sets The properties of the comment.
      */
     public void setComment(CommentUpdate value) {
         this.comment = value;

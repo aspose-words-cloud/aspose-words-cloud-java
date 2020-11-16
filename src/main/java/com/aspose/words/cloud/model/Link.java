@@ -65,11 +65,10 @@ public class Link {
     }
 
     /**
-     * Gets or sets the "href" attribute contains the link's IRI. atom:link elements MUST
-     * have an href attribute, whose value MUST be a IRI reference.
+     * Gets or sets the "href" attribute with the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
     * @return href
     **/
-    @ApiModelProperty(value = "Gets or sets the \"href\" attribute contains the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.")
+    @ApiModelProperty(value = "Gets or sets the \"href\" attribute with the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.")
     public String getHref() {
         return href;
     }
@@ -84,12 +83,10 @@ public class Link {
     }
 
     /**
-     * Gets or sets atom:link elements MAY have a "rel" attribute that indicates the link
-     * relation type.  If the "rel" attribute is not present, the link
-     * element MUST be interpreted as if the link relation type is "alternate".
+     * Gets or sets the option that controls whether atom:link elements MAY have a "rel" attribute that indicates the link relation type.  If the "rel" attribute is not present, the link element MUST be interpreted as if the link relation type is "alternate".
     * @return rel
     **/
-    @ApiModelProperty(value = "Gets or sets atom:link elements MAY have a \"rel\" attribute that indicates the link relation type.  If the \"rel\" attribute is not present, the link element MUST be interpreted as if the link relation type is \"alternate\".")
+    @ApiModelProperty(value = "Gets or sets the option that controls whether atom:link elements MAY have a \"rel\" attribute that indicates the link relation type.  If the \"rel\" attribute is not present, the link element MUST be interpreted as if the link relation type is \"alternate\".")
     public String getRel() {
         return rel;
     }
@@ -104,11 +101,10 @@ public class Link {
     }
 
     /**
-     * Gets or sets the "title" attribute conveys human-readable information about the
-     * link.  The content of the "title" attribute is Language-Sensitive.
+     * Gets or sets the "title" attribute, that conveys human-readable information about the link. The content of the "title" attribute is Language-Sensitive.
     * @return title
     **/
-    @ApiModelProperty(value = "Gets or sets the \"title\" attribute conveys human-readable information about the link.  The content of the \"title\" attribute is Language-Sensitive.")
+    @ApiModelProperty(value = "Gets or sets the \"title\" attribute, that conveys human-readable information about the link. The content of the \"title\" attribute is Language-Sensitive.")
     public String getTitle() {
         return title;
     }
@@ -123,14 +119,10 @@ public class Link {
     }
 
     /**
-     * Gets or sets on the link element, the "type" attribute's value is an advisory
-     * media type: it is a hint about the type of the representation that is
-     * expected to be returned when the value of the href attribute is
-     * dereferenced.  Note that the type attribute does not override the
-     * actual media type returned with the representation.
+     * Gets or sets the "type" attribute. The "type" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced. Note that the type attribute does not override the actual media type returned with the representation.
     * @return type
     **/
-    @ApiModelProperty(value = "Gets or sets on the link element, the \"type\" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.")
+    @ApiModelProperty(value = "Gets or sets the \"type\" attribute. The \"type\" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced. Note that the type attribute does not override the actual media type returned with the representation.")
     public String getType() {
         return type;
     }

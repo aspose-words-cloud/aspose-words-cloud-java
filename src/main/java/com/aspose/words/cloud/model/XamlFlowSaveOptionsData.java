@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for xaml flow save options.
+ * Container class for xaml flow save options.
  */
-@ApiModel(description = "container class for xaml flow save options.")
+@ApiModel(description = "Container class for xaml flow save options.")
 public class XamlFlowSaveOptionsData extends SaveOptionsData {
     @SerializedName("ImagesFolder")
     private String imagesFolder = null;
@@ -58,10 +58,10 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the physical folder where images are saved when exporting.
+     * Gets or sets the physical folder where images are saved when exporting.
     * @return imagesFolder
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the physical folder where images are saved when exporting.")
+    @ApiModelProperty(value = "Gets or sets the physical folder where images are saved when exporting.")
     public String getImagesFolder() {
         return imagesFolder;
     }
@@ -76,10 +76,10 @@ public class XamlFlowSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies the name of the folder used to construct image URIs.
+     * Gets or sets the name of the folder used to construct image URIs.
     * @return imagesFolderAlias
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the name of the folder used to construct image URIs.")
+    @ApiModelProperty(value = "Gets or sets the name of the folder used to construct image URIs.")
     public String getImagesFolderAlias() {
         return imagesFolderAlias;
     }

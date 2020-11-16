@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of links to sections.
+ * The collection of section's links.
  */
-@ApiModel(description = "Collection of links to sections.")
+@ApiModel(description = "The collection of section's links.")
 public class SectionLinkCollection extends LinkElement {
     @SerializedName("SectionLinkList")
     private List<SectionLink> sectionLinkList = null;
@@ -63,10 +63,10 @@ public class SectionLinkCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of section's links.
+     * Gets or sets the collection of section's links.
     * @return sectionLinkList
     **/
-    @ApiModelProperty(value = "Gets or sets collection of section's links.")
+    @ApiModelProperty(value = "Gets or sets the collection of section's links.")
     public List<SectionLink> getSectionLinkList() {
         return sectionLinkList;
     }

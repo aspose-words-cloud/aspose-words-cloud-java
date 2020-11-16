@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class GetDocumentStatisticsRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -64,31 +64,31 @@ public class GetDocumentStatisticsRequest implements RequestIfc {
     private String password;
 
     /*
-     * Support including/excluding comments from the WordCount. Default value is "false".
+     * The flag indicating whether to include comments from the WordCount. The default value is "false".
      */
     private Boolean includeComments;
 
     /*
-     * Support including/excluding footnotes from the WordCount. Default value is "false".
+     * The flag indicating whether to include footnotes from the WordCount. The default value is "false".
      */
     private Boolean includeFootnotes;
 
     /*
-     * Support including/excluding shape's text from the WordCount. Default value is "false".
+     * The flag indicating whether to include shape's text from the WordCount. The default value is "false".
      */
     private Boolean includeTextInShapes;
 
     /*
      * Initializes a new instance of the GetDocumentStatisticsRequest class.
      *
-     * @param String name The document name.
+     * @param String name The filename of the input document.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean includeComments Support including/excluding comments from the WordCount. Default value is "false".
-     * @param Boolean includeFootnotes Support including/excluding footnotes from the WordCount. Default value is "false".
-     * @param Boolean includeTextInShapes Support including/excluding shape's text from the WordCount. Default value is "false".
+     * @param Boolean includeComments The flag indicating whether to include comments from the WordCount. The default value is "false".
+     * @param Boolean includeFootnotes The flag indicating whether to include footnotes from the WordCount. The default value is "false".
+     * @param Boolean includeTextInShapes The flag indicating whether to include shape's text from the WordCount. The default value is "false".
      */
     public GetDocumentStatisticsRequest(String name, String folder, String storage, String loadEncoding, String password, Boolean includeComments, Boolean includeFootnotes, Boolean includeTextInShapes) {
         this.name = name;
@@ -102,14 +102,14 @@ public class GetDocumentStatisticsRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
@@ -172,42 +172,42 @@ public class GetDocumentStatisticsRequest implements RequestIfc {
     }
 
     /*
-     * Gets Support including/excluding comments from the WordCount. Default value is "false".
+     * Gets The flag indicating whether to include comments from the WordCount. The default value is "false".
      */
     public Boolean getIncludeComments() {
         return this.includeComments;
     }
 
     /*
-     * Sets Support including/excluding comments from the WordCount. Default value is "false".
+     * Sets The flag indicating whether to include comments from the WordCount. The default value is "false".
      */
     public void setIncludeComments(Boolean value) {
         this.includeComments = value;
     }
 
     /*
-     * Gets Support including/excluding footnotes from the WordCount. Default value is "false".
+     * Gets The flag indicating whether to include footnotes from the WordCount. The default value is "false".
      */
     public Boolean getIncludeFootnotes() {
         return this.includeFootnotes;
     }
 
     /*
-     * Sets Support including/excluding footnotes from the WordCount. Default value is "false".
+     * Sets The flag indicating whether to include footnotes from the WordCount. The default value is "false".
      */
     public void setIncludeFootnotes(Boolean value) {
         this.includeFootnotes = value;
     }
 
     /*
-     * Gets Support including/excluding shape's text from the WordCount. Default value is "false".
+     * Gets The flag indicating whether to include shape's text from the WordCount. The default value is "false".
      */
     public Boolean getIncludeTextInShapes() {
         return this.includeTextInShapes;
     }
 
     /*
-     * Sets Support including/excluding shape's text from the WordCount. Default value is "false".
+     * Sets The flag indicating whether to include shape's text from the WordCount. The default value is "false".
      */
     public void setIncludeTextInShapes(Boolean value) {
         this.includeTextInShapes = value;

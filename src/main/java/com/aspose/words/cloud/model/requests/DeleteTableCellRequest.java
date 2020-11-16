@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class DeleteTableCellRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Path to table row.
+     * The path to the table row in the document tree.
      */
     private String tableRowPath;
 
@@ -91,8 +91,8 @@ public class DeleteTableCellRequest implements RequestIfc {
     /*
      * Initializes a new instance of the DeleteTableCellRequest class.
      *
-     * @param String name The document name.
-     * @param String tableRowPath Path to table row.
+     * @param String name The filename of the input document.
+     * @param String tableRowPath The path to the table row in the document tree.
      * @param Integer index Object index.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -116,28 +116,28 @@ public class DeleteTableCellRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Path to table row.
+     * Gets The path to the table row in the document tree.
      */
     public String getTableRowPath() {
         return this.tableRowPath;
     }
 
     /*
-     * Sets Path to table row.
+     * Sets The path to the table row in the document tree.
      */
     public void setTableRowPath(String value) {
         this.tableRowPath = value;

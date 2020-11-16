@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class InsertCommentRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * The comment data.
+     * The properties of the comment.
      */
     private CommentInsert comment;
 
@@ -86,8 +86,8 @@ public class InsertCommentRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertCommentRequest class.
      *
-     * @param String name The document name.
-     * @param CommentInsert comment The comment data.
+     * @param String name The filename of the input document.
+     * @param CommentInsert comment The properties of the comment.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class InsertCommentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The comment data.
+     * Gets The properties of the comment.
      */
     public CommentInsert getComment() {
         return this.comment;
     }
 
     /*
-     * Sets The comment data.
+     * Sets The properties of the comment.
      */
     public void setComment(CommentInsert value) {
         this.comment = value;

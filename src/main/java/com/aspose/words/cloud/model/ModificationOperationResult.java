@@ -58,10 +58,10 @@ public class ModificationOperationResult {
     }
 
     /**
-     * Gets or sets link to the dest document (result of the modification operation).
+     * Gets or sets the link to the dest document (result of the modification operation).
     * @return dest
     **/
-    @ApiModelProperty(value = "Gets or sets link to the dest document (result of the modification operation).")
+    @ApiModelProperty(value = "Gets or sets the link to the dest document (result of the modification operation).")
     public FileLink getDest() {
         return dest;
     }
@@ -76,10 +76,10 @@ public class ModificationOperationResult {
     }
 
     /**
-     * Gets or sets link to the source document (source for the modification operation).
+     * Gets or sets the link to the source document (source for the modification operation).
     * @return source
     **/
-    @ApiModelProperty(value = "Gets or sets link to the source document (source for the modification operation).")
+    @ApiModelProperty(value = "Gets or sets the link to the source document (source for the modification operation).")
     public FileLink getSource() {
         return source;
     }

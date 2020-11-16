@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Response for Api error.
+ * The REST response with an API error.
  */
-@ApiModel(description = "Response for Api error.")
+@ApiModel(description = "The REST response with an API error.")
 public class WordsApiErrorResponse extends WordsResponse {
     @SerializedName("Error")
     private ApiError error = null;
@@ -55,10 +55,10 @@ public class WordsApiErrorResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets error.
+     * Gets or sets the API error.
     * @return error
     **/
-    @ApiModelProperty(value = "Gets or sets error.")
+    @ApiModelProperty(value = "Gets or sets the API error.")
     public ApiError getError() {
         return error;
     }

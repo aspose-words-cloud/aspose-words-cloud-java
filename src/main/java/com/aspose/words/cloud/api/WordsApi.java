@@ -65,7 +65,7 @@ public class WordsApi {
     }
 
     /**
-     * Accepts all revisions in document.
+     * Accepts all revisions in the document.
      * @param request Request object
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -87,7 +87,7 @@ public class WordsApi {
     }
 
     /**
-     * Accepts all revisions in document.
+     * Accepts all revisions in the document.
      * @param request Request object
      * @return ApiResponse< RevisionsModificationResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -99,7 +99,7 @@ public class WordsApi {
     }
 
     /**
-     * Accepts all revisions in document. (asynchronously)
+     * Accepts all revisions in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -138,7 +138,7 @@ public class WordsApi {
     }
 
     /**
-     * Appends documents to original document.
+     * Appends documents to the original document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -160,7 +160,7 @@ public class WordsApi {
     }
 
     /**
-     * Appends documents to original document.
+     * Appends documents to the original document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -172,7 +172,7 @@ public class WordsApi {
     }
 
     /**
-     * Appends documents to original document. (asynchronously)
+     * Appends documents to the original document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -211,7 +211,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply a style to the document node.
+     * Applies a style to the document node.
      * @param request Request object
      * @return WordsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -233,7 +233,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply a style to the document node.
+     * Applies a style to the document node.
      * @param request Request object
      * @return ApiResponse< WordsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -245,7 +245,7 @@ public class WordsApi {
     }
 
     /**
-     * Apply a style to the document node. (asynchronously)
+     * Applies a style to the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -284,7 +284,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document "build report" operation.
+     * Executes the report generation process using the specified document template and the external data source in XML, JSON or CSV format.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -306,7 +306,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document "build report" operation.
+     * Executes the report generation process using the specified document template and the external data source in XML, JSON or CSV format.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -318,7 +318,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document "build report" operation. (asynchronously)
+     * Executes the report generation process using the specified document template and the external data source in XML, JSON or CSV format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -357,7 +357,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document "build report" online operation.
+     * Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -379,7 +379,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document "build report" online operation.
+     * Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -391,7 +391,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document "build report" online operation. (asynchronously)
+     * Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -430,7 +430,7 @@ public class WordsApi {
     }
 
     /**
-     * Classifies raw text.
+     * Runs a multi-class text classification for the specified raw text.
      * @param request Request object
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -452,7 +452,7 @@ public class WordsApi {
     }
 
     /**
-     * Classifies raw text.
+     * Runs a multi-class text classification for the specified raw text.
      * @param request Request object
      * @return ApiResponse< ClassificationResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -464,7 +464,7 @@ public class WordsApi {
     }
 
     /**
-     * Classifies raw text. (asynchronously)
+     * Runs a multi-class text classification for the specified raw text. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -503,7 +503,7 @@ public class WordsApi {
     }
 
     /**
-     * Classifies document.
+     * Runs a multi-class text classification for the document.
      * @param request Request object
      * @return ClassificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -525,7 +525,7 @@ public class WordsApi {
     }
 
     /**
-     * Classifies document.
+     * Runs a multi-class text classification for the document.
      * @param request Request object
      * @return ApiResponse< ClassificationResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -537,7 +537,7 @@ public class WordsApi {
     }
 
     /**
-     * Classifies document. (asynchronously)
+     * Runs a multi-class text classification for the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -576,7 +576,7 @@ public class WordsApi {
     }
 
     /**
-     * Compares document with original document.
+     * Compares two documents.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -598,7 +598,7 @@ public class WordsApi {
     }
 
     /**
-     * Compares document with original document.
+     * Compares two documents.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -610,7 +610,7 @@ public class WordsApi {
     }
 
     /**
-     * Compares document with original document. (asynchronously)
+     * Compares two documents. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -649,7 +649,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request's content to the specified format.
+     * Converts a document on a local drive to the specified format.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -671,7 +671,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request's content to the specified format.
+     * Converts a document on a local drive to the specified format.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -683,7 +683,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document from the request's content to the specified format. (asynchronously)
+     * Converts a document on a local drive to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -862,7 +862,7 @@ public class WordsApi {
     }
 
     /**
-     * Copy and insert a new style to the document, returns a copied style.
+     * Makes a copy of the style in the document.
      * @param request Request object
      * @return StyleResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -884,7 +884,7 @@ public class WordsApi {
     }
 
     /**
-     * Copy and insert a new style to the document, returns a copied style.
+     * Makes a copy of the style in the document.
      * @param request Request object
      * @return ApiResponse< StyleResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -896,7 +896,7 @@ public class WordsApi {
     }
 
     /**
-     * Copy and insert a new style to the document, returns a copied style. (asynchronously)
+     * Makes a copy of the style in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -935,8 +935,6 @@ public class WordsApi {
     }
 
     /**
-     * Creates new document.
-     * Document is created with format which is recognized from file extensions.
      * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
      * @param request Request object
      * @return DocumentResponse
@@ -959,8 +957,6 @@ public class WordsApi {
     }
 
     /**
-     * Creates new document.
-     * Document is created with format which is recognized from file extensions.
      * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
@@ -973,8 +969,6 @@ public class WordsApi {
     }
 
     /**
-     * Creates new document.
-     * Document is created with format which is recognized from file extensions.
      * Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf". (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
@@ -1084,7 +1078,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds new or update existing document property.
+     * Adds a new or updates an existing document property.
      * @param request Request object
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1106,7 +1100,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds new or update existing document property.
+     * Adds a new or updates an existing document property.
      * @param request Request object
      * @return ApiResponse< DocumentPropertyResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1118,7 +1112,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds new or update existing document property. (asynchronously)
+     * Adds a new or updates an existing document property. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1157,7 +1151,7 @@ public class WordsApi {
     }
 
     /**
-     * Remove all tab stops.
+     * Removes paragraph tab stops from the document node.
      * @param request Request object
      * @return TabStopsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1179,7 +1173,7 @@ public class WordsApi {
     }
 
     /**
-     * Remove all tab stops.
+     * Removes paragraph tab stops from the document node.
      * @param request Request object
      * @return ApiResponse< TabStopsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1191,7 +1185,7 @@ public class WordsApi {
     }
 
     /**
-     * Remove all tab stops. (asynchronously)
+     * Removes paragraph tab stops from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1230,7 +1224,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1252,7 +1246,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BorderResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1264,7 +1258,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1303,7 +1297,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1325,7 +1319,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BordersResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1337,7 +1331,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1376,7 +1370,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes comment from document.
+     * Removes a comment from the document.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -1395,7 +1389,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes comment from document.
+     * Removes a comment from the document.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1407,7 +1401,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes comment from document. (asynchronously)
+     * Removes a comment from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1446,7 +1440,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes document property.
+     * Removes a document property.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -1465,7 +1459,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes document property.
+     * Removes a document property.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1477,7 +1471,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes document property. (asynchronously)
+     * Removes a document property. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1516,7 +1510,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes drawing object from document.
+     * Removes a DrawingObject from the document node.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -1535,7 +1529,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes drawing object from document.
+     * Removes a DrawingObject from the document node.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1547,7 +1541,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes drawing object from document. (asynchronously)
+     * Removes a DrawingObject from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1586,7 +1580,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes field from document.
+     * Removes a field from the document node.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -1605,7 +1599,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes field from document.
+     * Removes a field from the document node.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1617,7 +1611,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes field from document. (asynchronously)
+     * Removes a field from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1656,7 +1650,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes fields from section paragraph.
+     * Removes fields from the document node.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -1675,7 +1669,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes fields from section paragraph.
+     * Removes fields from the document node.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1687,7 +1681,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes fields from section paragraph. (asynchronously)
+     * Removes fields from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1866,7 +1860,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes footnote from document.
+     * Removes a footnote from the document node.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -1885,7 +1879,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes footnote from document.
+     * Removes a footnote from the document node.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1897,7 +1891,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes footnote from document. (asynchronously)
+     * Removes a footnote from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1936,7 +1930,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes form field from document.
+     * Removes a form field from the document node.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -1955,7 +1949,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes form field from document.
+     * Removes a form field from the document node.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1967,7 +1961,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes form field from document. (asynchronously)
+     * Removes a form field from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2006,7 +2000,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes header/footer from document.
+     * Removes a HeaderFooter object from the document section.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2025,7 +2019,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes header/footer from document.
+     * Removes a HeaderFooter object from the document section.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2037,7 +2031,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes header/footer from document. (asynchronously)
+     * Removes a HeaderFooter object from the document section. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2076,7 +2070,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes document headers and footers.
+     * Removes HeaderFooter objects from the document section.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2095,7 +2089,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes document headers and footers.
+     * Removes HeaderFooter objects from the document section.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2107,7 +2101,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes document headers and footers. (asynchronously)
+     * Removes HeaderFooter objects from the document section. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2146,7 +2140,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes macros from document.
+     * Removes macros from the document.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2165,7 +2159,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes macros from document.
+     * Removes macros from the document.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2177,7 +2171,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes macros from document. (asynchronously)
+     * Removes macros from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2216,7 +2210,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes OfficeMath object from document.
+     * Removes an OfficeMath object from the document node.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2235,7 +2229,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes OfficeMath object from document.
+     * Removes an OfficeMath object from the document node.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2247,7 +2241,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes OfficeMath object from document. (asynchronously)
+     * Removes an OfficeMath object from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2286,7 +2280,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes paragraph from section.
+     * Removes a paragraph from the document node.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2305,7 +2299,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes paragraph from section.
+     * Removes a paragraph from the document node.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2317,7 +2311,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes paragraph from section. (asynchronously)
+     * Removes a paragraph from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2356,7 +2350,7 @@ public class WordsApi {
     }
 
     /**
-     * Delete paragraph list format, returns updated list format properties.
+     * Removes the formatting properties of a paragraph list from the document node.
      * @param request Request object
      * @return ParagraphListFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2378,7 +2372,7 @@ public class WordsApi {
     }
 
     /**
-     * Delete paragraph list format, returns updated list format properties.
+     * Removes the formatting properties of a paragraph list from the document node.
      * @param request Request object
      * @return ApiResponse< ParagraphListFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2390,7 +2384,7 @@ public class WordsApi {
     }
 
     /**
-     * Delete paragraph list format, returns updated list format properties. (asynchronously)
+     * Removes the formatting properties of a paragraph list from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2429,7 +2423,7 @@ public class WordsApi {
     }
 
     /**
-     * Remove the i-th tab stop.
+     * Removes a paragraph tab stop from the document node.
      * @param request Request object
      * @return TabStopsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2451,7 +2445,7 @@ public class WordsApi {
     }
 
     /**
-     * Remove the i-th tab stop.
+     * Removes a paragraph tab stop from the document node.
      * @param request Request object
      * @return ApiResponse< TabStopsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2463,7 +2457,7 @@ public class WordsApi {
     }
 
     /**
-     * Remove the i-th tab stop. (asynchronously)
+     * Removes a paragraph tab stop from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2502,7 +2496,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes run from document.
+     * Removes a Run object from the paragraph.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2521,7 +2515,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes run from document.
+     * Removes a Run object from the paragraph.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2533,7 +2527,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes run from document. (asynchronously)
+     * Removes a Run object from the paragraph. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2572,7 +2566,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes section from document.
+     * Removes a section from the document.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2591,7 +2585,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes section from document.
+     * Removes a section from the document.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2603,7 +2597,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes section from document. (asynchronously)
+     * Removes a section from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2642,7 +2636,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table.
+     * Removes a table from the document node.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2661,7 +2655,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table.
+     * Removes a table from the document node.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2673,7 +2667,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table. (asynchronously)
+     * Removes a table from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2712,7 +2706,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table cell.
+     * Removes a cell from the table row.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2731,7 +2725,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table cell.
+     * Removes a cell from the table row.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2743,7 +2737,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table cell. (asynchronously)
+     * Removes a cell from the table row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2782,7 +2776,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table row.
+     * Removes a row from the table.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -2801,7 +2795,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table row.
+     * Removes a row from the table.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2813,7 +2807,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes a table row. (asynchronously)
+     * Removes a row from the table. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2852,7 +2846,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes watermark (for deleting last watermark from the document).
+     * Removes a watermark from the document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2874,7 +2868,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes watermark (for deleting last watermark from the document).
+     * Removes a watermark from the document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2886,7 +2880,7 @@ public class WordsApi {
     }
 
     /**
-     * Deletes watermark (for deleting last watermark from the document). (asynchronously)
+     * Removes a watermark from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2998,7 +2992,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document mail merge operation.
+     * Executes a Mail Merge operation.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3020,7 +3014,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document mail merge operation.
+     * Executes a Mail Merge operation.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3032,7 +3026,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document mail merge operation. (asynchronously)
+     * Executes a Mail Merge operation. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3071,7 +3065,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document mail merge online.
+     * Executes a Mail Merge operation online.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3093,7 +3087,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document mail merge online.
+     * Executes a Mail Merge operation online.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3105,7 +3099,7 @@ public class WordsApi {
     }
 
     /**
-     * Executes document mail merge online. (asynchronously)
+     * Executes a Mail Merge operation online. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3144,7 +3138,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets the list of fonts, available for document processing.
+     * Reads available fonts from the document.
      * @param request Request object
      * @return AvailableFontsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3166,7 +3160,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets the list of fonts, available for document processing.
+     * Reads available fonts from the document.
      * @param request Request object
      * @return ApiResponse< AvailableFontsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3178,7 +3172,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets the list of fonts, available for document processing. (asynchronously)
+     * Reads available fonts from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3217,7 +3211,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document bookmark data by its name.
+     * Reads a bookmark, specified by name, from the document.
      * @param request Request object
      * @return BookmarkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3239,7 +3233,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document bookmark data by its name.
+     * Reads a bookmark, specified by name, from the document.
      * @param request Request object
      * @return ApiResponse< BookmarkResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3251,7 +3245,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document bookmark data by its name. (asynchronously)
+     * Reads a bookmark, specified by name, from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3290,7 +3284,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document bookmarks common info.
+     * Reads bookmarks from the document.
      * @param request Request object
      * @return BookmarksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3312,7 +3306,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document bookmarks common info.
+     * Reads bookmarks from the document.
      * @param request Request object
      * @return ApiResponse< BookmarksResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3324,7 +3318,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document bookmarks common info. (asynchronously)
+     * Reads bookmarks from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3363,7 +3357,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3385,7 +3379,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BorderResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3397,7 +3391,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3436,7 +3430,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * Reads borders from the document node.
      * @param request Request object
      * @return BordersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3458,7 +3452,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * Reads borders from the document node.
      * @param request Request object
      * @return ApiResponse< BordersResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3470,7 +3464,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * Reads borders from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3509,7 +3503,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets comment from document.
+     * Reads a comment from the document.
      * @param request Request object
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3531,7 +3525,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets comment from document.
+     * Reads a comment from the document.
      * @param request Request object
      * @return ApiResponse< CommentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3543,7 +3537,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets comment from document. (asynchronously)
+     * Reads a comment from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3582,7 +3576,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets comments from document.
+     * Reads comments from the document.
      * @param request Request object
      * @return CommentsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3604,7 +3598,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets comments from document.
+     * Reads comments from the document.
      * @param request Request object
      * @return ApiResponse< CommentsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3616,7 +3610,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets comments from document. (asynchronously)
+     * Reads comments from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3655,7 +3649,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document common info.
+     * Reads common information from the document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3677,7 +3671,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document common info.
+     * Reads common information from the document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3689,7 +3683,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document common info. (asynchronously)
+     * Reads common information from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3728,7 +3722,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document drawing object common info by its index or convert to format specified.
+     * Reads a DrawingObject from the document node.
      * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3750,7 +3744,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document drawing object common info by its index or convert to format specified.
+     * Reads a DrawingObject from the document node.
      * @param request Request object
      * @return ApiResponse< DrawingObjectResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3762,7 +3756,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document drawing object common info by its index or convert to format specified. (asynchronously)
+     * Reads a DrawingObject from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3801,7 +3795,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads drawing object image data.
+     * Reads image data of a DrawingObject from the document node.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3823,7 +3817,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads drawing object image data.
+     * Reads image data of a DrawingObject from the document node.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3835,7 +3829,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads drawing object image data. (asynchronously)
+     * Reads image data of a DrawingObject from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3874,7 +3868,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets drawing object OLE data.
+     * Reads OLE data of a DrawingObject from the document node.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3896,7 +3890,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets drawing object OLE data.
+     * Reads OLE data of a DrawingObject from the document node.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3908,7 +3902,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets drawing object OLE data. (asynchronously)
+     * Reads OLE data of a DrawingObject from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3947,7 +3941,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document drawing objects common info.
+     * Reads DrawingObjects from the document node.
      * @param request Request object
      * @return DrawingObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3969,7 +3963,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document drawing objects common info.
+     * Reads DrawingObjects from the document node.
      * @param request Request object
      * @return ApiResponse< DrawingObjectsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3981,7 +3975,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document drawing objects common info. (asynchronously)
+     * Reads DrawingObjects from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4020,7 +4014,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document field names.
+     * Reads merge field names from the document.
      * @param request Request object
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4042,7 +4036,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document field names.
+     * Reads merge field names from the document.
      * @param request Request object
      * @return ApiResponse< FieldNamesResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4054,7 +4048,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document field names. (asynchronously)
+     * Reads merge field names from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4093,7 +4087,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document field names.
+     * Reads merge field names from the document.
      * @param request Request object
      * @return FieldNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4115,7 +4109,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document field names.
+     * Reads merge field names from the document.
      * @param request Request object
      * @return ApiResponse< FieldNamesResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4127,7 +4121,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document field names. (asynchronously)
+     * Reads merge field names from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4166,7 +4160,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document hyperlink by its index.
+     * Reads a hyperlink from the document.
      * @param request Request object
      * @return HyperlinkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4188,7 +4182,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document hyperlink by its index.
+     * Reads a hyperlink from the document.
      * @param request Request object
      * @return ApiResponse< HyperlinkResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4200,7 +4194,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document hyperlink by its index. (asynchronously)
+     * Reads a hyperlink from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4239,7 +4233,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document hyperlinks common info.
+     * Reads hyperlinks from the document.
      * @param request Request object
      * @return HyperlinksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4261,7 +4255,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document hyperlinks common info.
+     * Reads hyperlinks from the document.
      * @param request Request object
      * @return ApiResponse< HyperlinksResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4273,7 +4267,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document hyperlinks common info. (asynchronously)
+     * Reads hyperlinks from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4312,7 +4306,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document properties info.
+     * Reads document properties.
      * @param request Request object
      * @return DocumentPropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4334,7 +4328,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document properties info.
+     * Reads document properties.
      * @param request Request object
      * @return ApiResponse< DocumentPropertiesResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4346,7 +4340,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document properties info. (asynchronously)
+     * Reads document properties. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4385,7 +4379,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document property info by the property name.
+     * Reads a document property.
      * @param request Request object
      * @return DocumentPropertyResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4407,7 +4401,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document property info by the property name.
+     * Reads a document property.
      * @param request Request object
      * @return ApiResponse< DocumentPropertyResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4419,7 +4413,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document property info by the property name. (asynchronously)
+     * Reads a document property. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4458,7 +4452,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document protection common info.
+     * Reads protection properties from the document.
      * @param request Request object
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4480,7 +4474,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document protection common info.
+     * Reads protection properties from the document.
      * @param request Request object
      * @return ApiResponse< ProtectionDataResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4492,7 +4486,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads document protection common info. (asynchronously)
+     * Reads protection properties from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4604,7 +4598,7 @@ public class WordsApi {
     }
 
     /**
-     * Exports the document into the specified format.
+     * Converts a document in cloud storage to the specified format.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4626,7 +4620,7 @@ public class WordsApi {
     }
 
     /**
-     * Exports the document into the specified format.
+     * Converts a document in cloud storage to the specified format.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4638,7 +4632,7 @@ public class WordsApi {
     }
 
     /**
-     * Exports the document into the specified format. (asynchronously)
+     * Converts a document in cloud storage to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4677,7 +4671,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets field from document.
+     * Reads a field from the document node.
      * @param request Request object
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4699,7 +4693,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets field from document.
+     * Reads a field from the document node.
      * @param request Request object
      * @return ApiResponse< FieldResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4711,7 +4705,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets field from document. (asynchronously)
+     * Reads a field from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4750,7 +4744,7 @@ public class WordsApi {
     }
 
     /**
-     * Get fields from document.
+     * Reads fields from the document node.
      * @param request Request object
      * @return FieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4772,7 +4766,7 @@ public class WordsApi {
     }
 
     /**
-     * Get fields from document.
+     * Reads fields from the document node.
      * @param request Request object
      * @return ApiResponse< FieldsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4784,7 +4778,7 @@ public class WordsApi {
     }
 
     /**
-     * Get fields from document. (asynchronously)
+     * Reads fields from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4896,7 +4890,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads footnote by index.
+     * Reads a footnote from the document node.
      * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4918,7 +4912,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads footnote by index.
+     * Reads a footnote from the document node.
      * @param request Request object
      * @return ApiResponse< FootnoteResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4930,7 +4924,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads footnote by index. (asynchronously)
+     * Reads a footnote from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4969,7 +4963,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets footnotes from document.
+     * Reads footnotes from the document node.
      * @param request Request object
      * @return FootnotesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4991,7 +4985,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets footnotes from document.
+     * Reads footnotes from the document node.
      * @param request Request object
      * @return ApiResponse< FootnotesResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5003,7 +4997,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets footnotes from document. (asynchronously)
+     * Reads footnotes from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5042,7 +5036,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns representation of an one of the form field.
+     * Reads a form field from the document node.
      * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5064,7 +5058,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns representation of an one of the form field.
+     * Reads a form field from the document node.
      * @param request Request object
      * @return ApiResponse< FormFieldResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5076,7 +5070,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns representation of an one of the form field. (asynchronously)
+     * Reads a form field from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5115,7 +5109,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets form fields from document.
+     * Reads form fields from the document node.
      * @param request Request object
      * @return FormFieldsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5137,7 +5131,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets form fields from document.
+     * Reads form fields from the document node.
      * @param request Request object
      * @return ApiResponse< FormFieldsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5149,7 +5143,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets form fields from document. (asynchronously)
+     * Reads form fields from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5188,7 +5182,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a header/footer from the document by index.
+     * Reads a HeaderFooter object from the document.
      * @param request Request object
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5210,7 +5204,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a header/footer from the document by index.
+     * Reads a HeaderFooter object from the document.
      * @param request Request object
      * @return ApiResponse< HeaderFooterResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5222,7 +5216,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a header/footer from the document by index. (asynchronously)
+     * Reads a HeaderFooter object from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5261,7 +5255,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a header/footer from the document section.
+     * Reads a HeaderFooter object from the document section.
      * @param request Request object
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5283,7 +5277,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a header/footer from the document section.
+     * Reads a HeaderFooter object from the document section.
      * @param request Request object
      * @return ApiResponse< HeaderFooterResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5295,7 +5289,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a header/footer from the document section. (asynchronously)
+     * Reads a HeaderFooter object from the document section. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5334,7 +5328,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of header/footers from the document.
+     * Reads HeaderFooter objects from the document section.
      * @param request Request object
      * @return HeaderFootersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5356,7 +5350,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of header/footers from the document.
+     * Reads HeaderFooter objects from the document section.
      * @param request Request object
      * @return ApiResponse< HeaderFootersResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5368,7 +5362,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of header/footers from the document. (asynchronously)
+     * Reads HeaderFooter objects from the document section. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5407,7 +5401,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the lists contained in the document.
+     * Reads a list from the document.
      * @param request Request object
      * @return ListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5429,7 +5423,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the lists contained in the document.
+     * Reads a list from the document.
      * @param request Request object
      * @return ApiResponse< ListResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5441,7 +5435,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the lists contained in the document. (asynchronously)
+     * Reads a list from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5480,7 +5474,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of lists that are contained in the document.
+     * Reads lists from the document.
      * @param request Request object
      * @return ListsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5502,7 +5496,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of lists that are contained in the document.
+     * Reads lists from the document.
      * @param request Request object
      * @return ApiResponse< ListsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5514,7 +5508,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of lists that are contained in the document. (asynchronously)
+     * Reads lists from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5553,7 +5547,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads OfficeMath object by index.
+     * Reads an OfficeMath object from the document node.
      * @param request Request object
      * @return OfficeMathObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5575,7 +5569,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads OfficeMath object by index.
+     * Reads an OfficeMath object from the document node.
      * @param request Request object
      * @return ApiResponse< OfficeMathObjectResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5587,7 +5581,7 @@ public class WordsApi {
     }
 
     /**
-     * Reads OfficeMath object by index. (asynchronously)
+     * Reads an OfficeMath object from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5626,7 +5620,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets OfficeMath objects from document.
+     * Reads OfficeMath objects from the document node.
      * @param request Request object
      * @return OfficeMathObjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5648,7 +5642,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets OfficeMath objects from document.
+     * Reads OfficeMath objects from the document node.
      * @param request Request object
      * @return ApiResponse< OfficeMathObjectsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5660,7 +5654,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets OfficeMath objects from document. (asynchronously)
+     * Reads OfficeMath objects from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5699,7 +5693,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the paragraphs contained in the document.
+     * Reads a paragraph from the document node.
      * @param request Request object
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5721,7 +5715,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the paragraphs contained in the document.
+     * Reads a paragraph from the document node.
      * @param request Request object
      * @return ApiResponse< ParagraphResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5733,7 +5727,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the paragraphs contained in the document. (asynchronously)
+     * Reads a paragraph from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5772,7 +5766,7 @@ public class WordsApi {
     }
 
     /**
-     * Represents all the formatting for a paragraph.
+     * Reads the formatting properties of a paragraph from the document node.
      * @param request Request object
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5794,7 +5788,7 @@ public class WordsApi {
     }
 
     /**
-     * Represents all the formatting for a paragraph.
+     * Reads the formatting properties of a paragraph from the document node.
      * @param request Request object
      * @return ApiResponse< ParagraphFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5806,7 +5800,7 @@ public class WordsApi {
     }
 
     /**
-     * Represents all the formatting for a paragraph. (asynchronously)
+     * Reads the formatting properties of a paragraph from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5845,7 +5839,7 @@ public class WordsApi {
     }
 
     /**
-     * Represents list format for a paragraph.
+     * Reads the formatting properties of a paragraph list from the document node.
      * @param request Request object
      * @return ParagraphListFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5867,7 +5861,7 @@ public class WordsApi {
     }
 
     /**
-     * Represents list format for a paragraph.
+     * Reads the formatting properties of a paragraph list from the document node.
      * @param request Request object
      * @return ApiResponse< ParagraphListFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5879,7 +5873,7 @@ public class WordsApi {
     }
 
     /**
-     * Represents list format for a paragraph. (asynchronously)
+     * Reads the formatting properties of a paragraph list from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5918,7 +5912,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of paragraphs that are contained in the document.
+     * Reads paragraphs from the document node.
      * @param request Request object
      * @return ParagraphLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5940,7 +5934,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of paragraphs that are contained in the document.
+     * Reads paragraphs from the document node.
      * @param request Request object
      * @return ApiResponse< ParagraphLinkCollectionResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5952,7 +5946,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of paragraphs that are contained in the document. (asynchronously)
+     * Reads paragraphs from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5991,7 +5985,7 @@ public class WordsApi {
     }
 
     /**
-     * Get all tab stops for the paragraph.
+     * Reads paragraph tab stops from the document node.
      * @param request Request object
      * @return TabStopsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6013,7 +6007,7 @@ public class WordsApi {
     }
 
     /**
-     * Get all tab stops for the paragraph.
+     * Reads paragraph tab stops from the document node.
      * @param request Request object
      * @return ApiResponse< TabStopsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6025,7 +6019,7 @@ public class WordsApi {
     }
 
     /**
-     * Get all tab stops for the paragraph. (asynchronously)
+     * Reads paragraph tab stops from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6064,7 +6058,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets the text from the range.
+     * Reads range text from the document.
      * @param request Request object
      * @return RangeTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6086,7 +6080,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets the text from the range.
+     * Reads range text from the document.
      * @param request Request object
      * @return ApiResponse< RangeTextResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6098,7 +6092,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets the text from the range. (asynchronously)
+     * Reads range text from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6137,7 +6131,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents run of text contained in the document.
+     * Reads a Run object from the paragraph.
      * @param request Request object
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6159,7 +6153,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents run of text contained in the document.
+     * Reads a Run object from the paragraph.
      * @param request Request object
      * @return ApiResponse< RunResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6171,7 +6165,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents run of text contained in the document. (asynchronously)
+     * Reads a Run object from the paragraph. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6210,7 +6204,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents font of run.
+     * Reads the font properties of a Run object from the paragraph.
      * @param request Request object
      * @return FontResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6232,7 +6226,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents font of run.
+     * Reads the font properties of a Run object from the paragraph.
      * @param request Request object
      * @return ApiResponse< FontResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6244,7 +6238,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents font of run. (asynchronously)
+     * Reads the font properties of a Run object from the paragraph. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6283,7 +6277,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents collection of runs in the paragraph.
+     * Reads Run objects from the paragraph.
      * @param request Request object
      * @return RunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6305,7 +6299,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents collection of runs in the paragraph.
+     * Reads Run objects from the paragraph.
      * @param request Request object
      * @return ApiResponse< RunsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6317,7 +6311,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents collection of runs in the paragraph. (asynchronously)
+     * Reads Run objects from the paragraph. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6356,7 +6350,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets document section by index.
+     * Reads a section from the document.
      * @param request Request object
      * @return SectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6378,7 +6372,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets document section by index.
+     * Reads a section from the document.
      * @param request Request object
      * @return ApiResponse< SectionResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6390,7 +6384,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets document section by index. (asynchronously)
+     * Reads a section from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6429,7 +6423,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets page setup of section.
+     * Reads the page setup of a section from the document.
      * @param request Request object
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6451,7 +6445,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets page setup of section.
+     * Reads the page setup of a section from the document.
      * @param request Request object
      * @return ApiResponse< SectionPageSetupResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6463,7 +6457,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets page setup of section. (asynchronously)
+     * Reads the page setup of a section from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6502,7 +6496,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of sections that are contained in the document.
+     * Reads sections from the document.
      * @param request Request object
      * @return SectionLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6524,7 +6518,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of sections that are contained in the document.
+     * Reads sections from the document.
      * @param request Request object
      * @return ApiResponse< SectionLinkCollectionResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6536,7 +6530,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of sections that are contained in the document. (asynchronously)
+     * Reads sections from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6575,7 +6569,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the styles contained in the document.
+     * Reads a style from the document.
      * @param request Request object
      * @return StyleResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6597,7 +6591,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the styles contained in the document.
+     * Reads a style from the document.
      * @param request Request object
      * @return ApiResponse< StyleResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6609,7 +6603,7 @@ public class WordsApi {
     }
 
     /**
-     * This resource represents one of the styles contained in the document. (asynchronously)
+     * Reads a style from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6648,7 +6642,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets a style from the document node.
+     * Reads a style from the document node.
      * @param request Request object
      * @return StyleResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6670,7 +6664,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets a style from the document node.
+     * Reads a style from the document node.
      * @param request Request object
      * @return ApiResponse< StyleResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6682,7 +6676,7 @@ public class WordsApi {
     }
 
     /**
-     * Gets a style from the document node. (asynchronously)
+     * Reads a style from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6721,7 +6715,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of styles contained in the document.
+     * Reads styles from the document.
      * @param request Request object
      * @return StylesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6743,7 +6737,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of styles contained in the document.
+     * Reads styles from the document.
      * @param request Request object
      * @return ApiResponse< StylesResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6755,7 +6749,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of styles contained in the document. (asynchronously)
+     * Reads styles from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6794,7 +6788,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table.
+     * Reads a table from the document node.
      * @param request Request object
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6816,7 +6810,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table.
+     * Reads a table from the document node.
      * @param request Request object
      * @return ApiResponse< TableResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6828,7 +6822,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table. (asynchronously)
+     * Reads a table from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6867,7 +6861,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table cell.
+     * Reads a cell from the table row.
      * @param request Request object
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6889,7 +6883,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table cell.
+     * Reads a cell from the table row.
      * @param request Request object
      * @return ApiResponse< TableCellResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6901,7 +6895,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table cell. (asynchronously)
+     * Reads a cell from the table row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6940,7 +6934,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table cell format.
+     * Reads the formatting properties of a table cell.
      * @param request Request object
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6962,7 +6956,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table cell format.
+     * Reads the formatting properties of a table cell.
      * @param request Request object
      * @return ApiResponse< TableCellFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6974,7 +6968,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table cell format. (asynchronously)
+     * Reads the formatting properties of a table cell. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7013,7 +7007,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table properties.
+     * Reads properties of a table from the document node.
      * @param request Request object
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7035,7 +7029,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table properties.
+     * Reads properties of a table from the document node.
      * @param request Request object
      * @return ApiResponse< TablePropertiesResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7047,7 +7041,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table properties. (asynchronously)
+     * Reads properties of a table from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7086,7 +7080,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table row.
+     * Reads a row from the table.
      * @param request Request object
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7108,7 +7102,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table row.
+     * Reads a row from the table.
      * @param request Request object
      * @return ApiResponse< TableRowResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7120,7 +7114,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table row. (asynchronously)
+     * Reads a row from the table. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7159,7 +7153,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table row format.
+     * Reads the formatting properties of a table row.
      * @param request Request object
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7181,7 +7175,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table row format.
+     * Reads the formatting properties of a table row.
      * @param request Request object
      * @return ApiResponse< TableRowFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7193,7 +7187,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a table row format. (asynchronously)
+     * Reads the formatting properties of a table row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7232,7 +7226,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of tables that are contained in the document.
+     * Reads tables from the document node.
      * @param request Request object
      * @return TableLinkCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7254,7 +7248,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of tables that are contained in the document.
+     * Reads tables from the document node.
      * @param request Request object
      * @return ApiResponse< TableLinkCollectionResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7266,7 +7260,7 @@ public class WordsApi {
     }
 
     /**
-     * Returns a list of tables that are contained in the document. (asynchronously)
+     * Reads tables from the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7305,7 +7299,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds comment to document, returns inserted comment data.
+     * Inserts a new comment to the document.
      * @param request Request object
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7327,7 +7321,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds comment to document, returns inserted comment data.
+     * Inserts a new comment to the document.
      * @param request Request object
      * @return ApiResponse< CommentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7339,7 +7333,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds comment to document, returns inserted comment data. (asynchronously)
+     * Inserts a new comment to the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7378,7 +7372,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds drawing object to document, returns added  drawing object's data.
+     * Inserts a new DrawingObject to the document node.
      * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7400,7 +7394,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds drawing object to document, returns added  drawing object's data.
+     * Inserts a new DrawingObject to the document node.
      * @param request Request object
      * @return ApiResponse< DrawingObjectResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7412,7 +7406,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds drawing object to document, returns added  drawing object's data. (asynchronously)
+     * Inserts a new DrawingObject to the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7451,7 +7445,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds field to document, returns inserted field's data.
+     * Inserts a new field to the document node.
      * @param request Request object
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7473,7 +7467,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds field to document, returns inserted field's data.
+     * Inserts a new field to the document node.
      * @param request Request object
      * @return ApiResponse< FieldResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7485,7 +7479,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds field to document, returns inserted field's data. (asynchronously)
+     * Inserts a new field to the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7524,7 +7518,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds footnote to document, returns added footnote's data.
+     * Inserts a new footnote to the document node.
      * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7546,7 +7540,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds footnote to document, returns added footnote's data.
+     * Inserts a new footnote to the document node.
      * @param request Request object
      * @return ApiResponse< FootnoteResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7558,7 +7552,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds footnote to document, returns added footnote's data. (asynchronously)
+     * Inserts a new footnote to the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7597,7 +7591,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds form field to paragraph, returns added form field's data.
+     * Inserts a new form field to the document node.
      * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7619,7 +7613,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds form field to paragraph, returns added form field's data.
+     * Inserts a new form field to the document node.
      * @param request Request object
      * @return ApiResponse< FormFieldResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7631,7 +7625,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds form field to paragraph, returns added form field's data. (asynchronously)
+     * Inserts a new form field to the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7670,7 +7664,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts to document header or footer.
+     * Inserts a new HeaderFooter object to the document section.
      * @param request Request object
      * @return HeaderFooterResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7692,7 +7686,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts to document header or footer.
+     * Inserts a new HeaderFooter object to the document section.
      * @param request Request object
      * @return ApiResponse< HeaderFooterResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7704,7 +7698,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts to document header or footer. (asynchronously)
+     * Inserts a new HeaderFooter object to the document section. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7743,7 +7737,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds list to document, returns added list's data.
+     * Inserts a new list to the document.
      * @param request Request object
      * @return ListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7765,7 +7759,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds list to document, returns added list's data.
+     * Inserts a new list to the document.
      * @param request Request object
      * @return ApiResponse< ListResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7777,7 +7771,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds list to document, returns added list's data. (asynchronously)
+     * Inserts a new list to the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7816,7 +7810,7 @@ public class WordsApi {
     }
 
     /**
-     * Insert or resplace tab stop if a tab stop with the position exists.
+     * Inserts a new or updates an existing paragraph tab stop in the document node.
      * @param request Request object
      * @return TabStopsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7838,7 +7832,7 @@ public class WordsApi {
     }
 
     /**
-     * Insert or resplace tab stop if a tab stop with the position exists.
+     * Inserts a new or updates an existing paragraph tab stop in the document node.
      * @param request Request object
      * @return ApiResponse< TabStopsResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7850,7 +7844,7 @@ public class WordsApi {
     }
 
     /**
-     * Insert or resplace tab stop if a tab stop with the position exists. (asynchronously)
+     * Inserts a new or updates an existing paragraph tab stop in the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7889,7 +7883,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document page numbers.
+     * Inserts page numbers to the document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7911,7 +7905,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document page numbers.
+     * Inserts page numbers to the document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7923,7 +7917,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document page numbers. (asynchronously)
+     * Inserts page numbers to the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7962,7 +7956,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds paragraph to document, returns added paragraph's data.
+     * Inserts a new paragraph to the document node.
      * @param request Request object
      * @return ParagraphResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7984,7 +7978,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds paragraph to document, returns added paragraph's data.
+     * Inserts a new paragraph to the document node.
      * @param request Request object
      * @return ApiResponse< ParagraphResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7996,7 +7990,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds paragraph to document, returns added paragraph's data. (asynchronously)
+     * Inserts a new paragraph to the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8035,7 +8029,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds run to document, returns added paragraph's data.
+     * Inserts a new Run object to the paragraph.
      * @param request Request object
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8057,7 +8051,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds run to document, returns added paragraph's data.
+     * Inserts a new Run object to the paragraph.
      * @param request Request object
      * @return ApiResponse< RunResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8069,7 +8063,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds run to document, returns added paragraph's data. (asynchronously)
+     * Inserts a new Run object to the paragraph. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8108,7 +8102,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds a style to the document, returns an added style.
+     * Inserts a new style to the document.
      * @param request Request object
      * @return StyleResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8130,7 +8124,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds a style to the document, returns an added style.
+     * Inserts a new style to the document.
      * @param request Request object
      * @return ApiResponse< StyleResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8142,7 +8136,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds a style to the document, returns an added style. (asynchronously)
+     * Inserts a new style to the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8181,7 +8175,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table to document, returns added table's data.
+     * Inserts a new table to the document node.
      * @param request Request object
      * @return TableResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8203,7 +8197,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table to document, returns added table's data.
+     * Inserts a new table to the document node.
      * @param request Request object
      * @return ApiResponse< TableResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8215,7 +8209,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table to document, returns added table's data. (asynchronously)
+     * Inserts a new table to the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8254,7 +8248,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table cell to table, returns added cell's data.
+     * Inserts a new cell to the table row.
      * @param request Request object
      * @return TableCellResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8276,7 +8270,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table cell to table, returns added cell's data.
+     * Inserts a new cell to the table row.
      * @param request Request object
      * @return ApiResponse< TableCellResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8288,7 +8282,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table cell to table, returns added cell's data. (asynchronously)
+     * Inserts a new cell to the table row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8327,7 +8321,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table row to table, returns added row's data.
+     * Inserts a new row to the table.
      * @param request Request object
      * @return TableRowResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8349,7 +8343,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table row to table, returns added row's data.
+     * Inserts a new row to the table.
      * @param request Request object
      * @return ApiResponse< TableRowResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8361,7 +8355,7 @@ public class WordsApi {
     }
 
     /**
-     * Adds table row to table, returns added row's data. (asynchronously)
+     * Inserts a new row to the table. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8400,7 +8394,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document watermark image.
+     * Inserts a new watermark image to the document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8422,7 +8416,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document watermark image.
+     * Inserts a new watermark image to the document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8434,7 +8428,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document watermark image. (asynchronously)
+     * Inserts a new watermark image to the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8473,7 +8467,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document watermark text.
+     * Inserts a new watermark text to the document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8495,7 +8489,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document watermark text.
+     * Inserts a new watermark text to the document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8507,7 +8501,7 @@ public class WordsApi {
     }
 
     /**
-     * Inserts document watermark text. (asynchronously)
+     * Inserts a new watermark text to the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8546,7 +8540,7 @@ public class WordsApi {
     }
 
     /**
-     * Loads new document from web into the file with any supported format of data.
+     * Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
      * @param request Request object
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8568,7 +8562,7 @@ public class WordsApi {
     }
 
     /**
-     * Loads new document from web into the file with any supported format of data.
+     * Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
      * @param request Request object
      * @return ApiResponse< SaveResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8580,7 +8574,7 @@ public class WordsApi {
     }
 
     /**
-     * Loads new document from web into the file with any supported format of data. (asynchronously)
+     * Downloads a document from the Web using URL and saves it to cloud storage in the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8759,7 +8753,7 @@ public class WordsApi {
     }
 
     /**
-     * Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
+     * Applies document content optimization options, specific to a particular versions of Microsoft Word.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -8778,7 +8772,7 @@ public class WordsApi {
     }
 
     /**
-     * Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
+     * Applies document content optimization options, specific to a particular versions of Microsoft Word.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8790,7 +8784,7 @@ public class WordsApi {
     }
 
     /**
-     * Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word. (asynchronously)
+     * Applies document content optimization options, specific to a particular versions of Microsoft Word. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8829,7 +8823,7 @@ public class WordsApi {
     }
 
     /**
-     * Protects document.
+     * Adds protection to the document.
      * @param request Request object
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8851,7 +8845,7 @@ public class WordsApi {
     }
 
     /**
-     * Protects document.
+     * Adds protection to the document.
      * @param request Request object
      * @return ApiResponse< ProtectionDataResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8863,7 +8857,7 @@ public class WordsApi {
     }
 
     /**
-     * Protects document. (asynchronously)
+     * Adds protection to the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8902,7 +8896,7 @@ public class WordsApi {
     }
 
     /**
-     * Rejects all revisions in document.
+     * Rejects all revisions in the document.
      * @param request Request object
      * @return RevisionsModificationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8924,7 +8918,7 @@ public class WordsApi {
     }
 
     /**
-     * Rejects all revisions in document.
+     * Rejects all revisions in the document.
      * @param request Request object
      * @return ApiResponse< RevisionsModificationResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8936,7 +8930,7 @@ public class WordsApi {
     }
 
     /**
-     * Rejects all revisions in document. (asynchronously)
+     * Rejects all revisions in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8975,7 +8969,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes the range from the document.
+     * Removes a range from the document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8997,7 +8991,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes the range from the document.
+     * Removes a range from the document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9009,7 +9003,7 @@ public class WordsApi {
     }
 
     /**
-     * Removes the range from the document. (asynchronously)
+     * Removes a range from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9048,7 +9042,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders drawing object to specified format.
+     * Renders a DrawingObject to the specified format.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9070,7 +9064,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders drawing object to specified format.
+     * Renders a DrawingObject to the specified format.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9082,7 +9076,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders drawing object to specified format. (asynchronously)
+     * Renders a DrawingObject to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9121,7 +9115,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders math object to specified format.
+     * Renders an OfficeMath object to the specified format.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9143,7 +9137,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders math object to specified format.
+     * Renders an OfficeMath object to the specified format.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9155,7 +9149,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders math object to specified format. (asynchronously)
+     * Renders an OfficeMath object to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9194,7 +9188,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders page to specified format.
+     * Renders a page to the specified format.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9216,7 +9210,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders page to specified format.
+     * Renders a page to the specified format.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9228,7 +9222,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders page to specified format. (asynchronously)
+     * Renders a page to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9267,7 +9261,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders paragraph to specified format.
+     * Renders a paragraph to the specified format.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9289,7 +9283,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders paragraph to specified format.
+     * Renders a paragraph to the specified format.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9301,7 +9295,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders paragraph to specified format. (asynchronously)
+     * Renders a paragraph to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9340,7 +9334,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders table to specified format.
+     * Renders a table to the specified format.
      * @param request Request object
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9362,7 +9356,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders table to specified format.
+     * Renders a table to the specified format.
      * @param request Request object
      * @return ApiResponse< File >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9374,7 +9368,7 @@ public class WordsApi {
     }
 
     /**
-     * Renders table to specified format. (asynchronously)
+     * Renders a table to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9413,7 +9407,7 @@ public class WordsApi {
     }
 
     /**
-     * Replaces document text.
+     * Replaces text in the document.
      * @param request Request object
      * @return ReplaceTextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9435,7 +9429,7 @@ public class WordsApi {
     }
 
     /**
-     * Replaces document text.
+     * Replaces text in the document.
      * @param request Request object
      * @return ApiResponse< ReplaceTextResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9447,7 +9441,7 @@ public class WordsApi {
     }
 
     /**
-     * Replaces document text. (asynchronously)
+     * Replaces text in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9486,7 +9480,7 @@ public class WordsApi {
     }
 
     /**
-     * Replaces the content in the range.
+     * Replaces a range with text in the document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9508,7 +9502,7 @@ public class WordsApi {
     }
 
     /**
-     * Replaces the content in the range.
+     * Replaces a range with text in the document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9520,7 +9514,7 @@ public class WordsApi {
     }
 
     /**
-     * Replaces the content in the range. (asynchronously)
+     * Replaces a range with text in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9559,7 +9553,7 @@ public class WordsApi {
     }
 
     /**
-     * Resets font's cache.
+     * Clears the font cache.
      * @param request Request object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @throws IOException If fail to serialize the request body object
@@ -9578,7 +9572,7 @@ public class WordsApi {
     }
 
     /**
-     * Resets font's cache.
+     * Clears the font cache.
      * @param request Request object
      * @return ApiResponse< Void >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9590,7 +9584,7 @@ public class WordsApi {
     }
 
     /**
-     * Resets font's cache. (asynchronously)
+     * Clears the font cache. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9629,7 +9623,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document to destination format with detailed settings and saves result to storage.
+     * Converts a document in cloud storage to the specified format.
      * @param request Request object
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9651,7 +9645,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document to destination format with detailed settings and saves result to storage.
+     * Converts a document in cloud storage to the specified format.
      * @param request Request object
      * @return ApiResponse< SaveResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9663,7 +9657,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document to destination format with detailed settings and saves result to storage. (asynchronously)
+     * Converts a document in cloud storage to the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9702,7 +9696,7 @@ public class WordsApi {
     }
 
     /**
-     * Saves the selected range as a new document.
+     * Saves a range as a new document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9724,7 +9718,7 @@ public class WordsApi {
     }
 
     /**
-     * Saves the selected range as a new document.
+     * Saves a range as a new document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9736,7 +9730,7 @@ public class WordsApi {
     }
 
     /**
-     * Saves the selected range as a new document. (asynchronously)
+     * Saves a range as a new document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9775,7 +9769,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document to tiff with detailed settings and saves result to storage.
+     * Converts a document in cloud storage to TIFF format using detailed conversion settings.
      * @param request Request object
      * @return SaveResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9797,7 +9791,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document to tiff with detailed settings and saves result to storage.
+     * Converts a document in cloud storage to TIFF format using detailed conversion settings.
      * @param request Request object
      * @return ApiResponse< SaveResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9809,7 +9803,7 @@ public class WordsApi {
     }
 
     /**
-     * Converts document to tiff with detailed settings and saves result to storage. (asynchronously)
+     * Converts a document in cloud storage to TIFF format using detailed conversion settings. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9848,7 +9842,7 @@ public class WordsApi {
     }
 
     /**
-     * Searches text in document.
+     * Searches text, specified by the regular expression, in the document.
      * @param request Request object
      * @return SearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9870,7 +9864,7 @@ public class WordsApi {
     }
 
     /**
-     * Searches text in document.
+     * Searches text, specified by the regular expression, in the document.
      * @param request Request object
      * @return ApiResponse< SearchResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9882,7 +9876,7 @@ public class WordsApi {
     }
 
     /**
-     * Searches text in document. (asynchronously)
+     * Searches text, specified by the regular expression, in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9921,7 +9915,7 @@ public class WordsApi {
     }
 
     /**
-     * Splits document.
+     * Splits a document into parts and saves them in the specified format.
      * @param request Request object
      * @return SplitDocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9943,7 +9937,7 @@ public class WordsApi {
     }
 
     /**
-     * Splits document.
+     * Splits a document into parts and saves them in the specified format.
      * @param request Request object
      * @return ApiResponse< SplitDocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9955,7 +9949,7 @@ public class WordsApi {
     }
 
     /**
-     * Splits document. (asynchronously)
+     * Splits a document into parts and saves them in the specified format. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9994,7 +9988,7 @@ public class WordsApi {
     }
 
     /**
-     * Unprotects document.
+     * Removes protection from the document.
      * @param request Request object
      * @return ProtectionDataResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10016,7 +10010,7 @@ public class WordsApi {
     }
 
     /**
-     * Unprotects document.
+     * Removes protection from the document.
      * @param request Request object
      * @return ApiResponse< ProtectionDataResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10028,7 +10022,7 @@ public class WordsApi {
     }
 
     /**
-     * Unprotects document. (asynchronously)
+     * Removes protection from the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10067,7 +10061,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates document bookmark.
+     * Updates a bookmark in the document.
      * @param request Request object
      * @return BookmarkResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10089,7 +10083,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates document bookmark.
+     * Updates a bookmark in the document.
      * @param request Request object
      * @return ApiResponse< BookmarkResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10101,7 +10095,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates document bookmark. (asynchronously)
+     * Updates a bookmark in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10140,7 +10134,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return BorderResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10162,7 +10156,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row.
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row.
      * @param request Request object
      * @return ApiResponse< BorderResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10174,7 +10168,7 @@ public class WordsApi {
     }
 
     /**
-     * 'nodePath' should refer to paragraph, cell or row. (asynchronously)
+     * The 'nodePath' parameter should refer to a paragraph, a cell or a row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10213,7 +10207,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates the comment, returns updated comment data.
+     * Updates a comment in the document.
      * @param request Request object
      * @return CommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10235,7 +10229,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates the comment, returns updated comment data.
+     * Updates a comment in the document.
      * @param request Request object
      * @return ApiResponse< CommentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10247,7 +10241,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates the comment, returns updated comment data. (asynchronously)
+     * Updates a comment in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10286,7 +10280,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates drawing object, returns updated  drawing object's data.
+     * Updates a DrawingObject in the document node.
      * @param request Request object
      * @return DrawingObjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10308,7 +10302,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates drawing object, returns updated  drawing object's data.
+     * Updates a DrawingObject in the document node.
      * @param request Request object
      * @return ApiResponse< DrawingObjectResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10320,7 +10314,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates drawing object, returns updated  drawing object's data. (asynchronously)
+     * Updates a DrawingObject in the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10359,7 +10353,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates field's properties, returns updated field's data.
+     * Updates a field in the document node.
      * @param request Request object
      * @return FieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10381,7 +10375,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates field's properties, returns updated field's data.
+     * Updates a field in the document node.
      * @param request Request object
      * @return ApiResponse< FieldResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10393,7 +10387,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates field's properties, returns updated field's data. (asynchronously)
+     * Updates a field in the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10432,7 +10426,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates (reevaluate) fields in document.
+     * Reevaluates field values in the document.
      * @param request Request object
      * @return DocumentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10454,7 +10448,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates (reevaluate) fields in document.
+     * Reevaluates field values in the document.
      * @param request Request object
      * @return ApiResponse< DocumentResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10466,7 +10460,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates (reevaluate) fields in document. (asynchronously)
+     * Reevaluates field values in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10505,7 +10499,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates footnote's properties, returns updated run's data.
+     * Updates a footnote in the document node.
      * @param request Request object
      * @return FootnoteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10527,7 +10521,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates footnote's properties, returns updated run's data.
+     * Updates a footnote in the document node.
      * @param request Request object
      * @return ApiResponse< FootnoteResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10539,7 +10533,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates footnote's properties, returns updated run's data. (asynchronously)
+     * Updates a footnote in the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10578,7 +10572,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates properties of form field, returns updated form field.
+     * Updates a form field in the document node.
      * @param request Request object
      * @return FormFieldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10600,7 +10594,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates properties of form field, returns updated form field.
+     * Updates a form field in the document node.
      * @param request Request object
      * @return ApiResponse< FormFieldResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10612,7 +10606,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates properties of form field, returns updated form field. (asynchronously)
+     * Updates a form field in the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10651,7 +10645,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates list properties, returns updated list.
+     * Updates a list in the document.
      * @param request Request object
      * @return ListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10673,7 +10667,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates list properties, returns updated list.
+     * Updates a list in the document.
      * @param request Request object
      * @return ApiResponse< ListResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10685,7 +10679,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates list properties, returns updated list. (asynchronously)
+     * Updates a list in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10724,7 +10718,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates list level in document list, returns updated list.
+     * Updates the level of a List element in the document.
      * @param request Request object
      * @return ListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10746,7 +10740,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates list level in document list, returns updated list.
+     * Updates the level of a List element in the document.
      * @param request Request object
      * @return ApiResponse< ListResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10758,7 +10752,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates list level in document list, returns updated list. (asynchronously)
+     * Updates the level of a List element in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10797,7 +10791,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates paragraph format properties, returns updated format properties.
+     * Updates the formatting properties of a paragraph in the document node.
      * @param request Request object
      * @return ParagraphFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10819,7 +10813,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates paragraph format properties, returns updated format properties.
+     * Updates the formatting properties of a paragraph in the document node.
      * @param request Request object
      * @return ApiResponse< ParagraphFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10831,7 +10825,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates paragraph format properties, returns updated format properties. (asynchronously)
+     * Updates the formatting properties of a paragraph in the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10870,7 +10864,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates paragraph list format properties, returns updated list format properties.
+     * Updates the formatting properties of a paragraph list in the document node.
      * @param request Request object
      * @return ParagraphListFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10892,7 +10886,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates paragraph list format properties, returns updated list format properties.
+     * Updates the formatting properties of a paragraph list in the document node.
      * @param request Request object
      * @return ApiResponse< ParagraphListFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10904,7 +10898,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates paragraph list format properties, returns updated list format properties. (asynchronously)
+     * Updates the formatting properties of a paragraph list in the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -10943,7 +10937,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates run's properties, returns updated run's data.
+     * Updates a Run object in the paragraph.
      * @param request Request object
      * @return RunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10965,7 +10959,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates run's properties, returns updated run's data.
+     * Updates a Run object in the paragraph.
      * @param request Request object
      * @return ApiResponse< RunResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -10977,7 +10971,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates run's properties, returns updated run's data. (asynchronously)
+     * Updates a Run object in the paragraph. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11016,7 +11010,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates font properties, returns updated font data.
+     * Updates the font properties of a Run object in the paragraph.
      * @param request Request object
      * @return FontResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11038,7 +11032,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates font properties, returns updated font data.
+     * Updates the font properties of a Run object in the paragraph.
      * @param request Request object
      * @return ApiResponse< FontResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11050,7 +11044,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates font properties, returns updated font data. (asynchronously)
+     * Updates the font properties of a Run object in the paragraph. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11089,7 +11083,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates page setup of section.
+     * Updates the page setup of a section in the document.
      * @param request Request object
      * @return SectionPageSetupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11111,7 +11105,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates page setup of section.
+     * Updates the page setup of a section in the document.
      * @param request Request object
      * @return ApiResponse< SectionPageSetupResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11123,7 +11117,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates page setup of section. (asynchronously)
+     * Updates the page setup of a section in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11162,7 +11156,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates style properties, returns an updated style.
+     * Updates a style in the document.
      * @param request Request object
      * @return StyleResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11184,7 +11178,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates style properties, returns an updated style.
+     * Updates a style in the document.
      * @param request Request object
      * @return ApiResponse< StyleResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11196,7 +11190,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates style properties, returns an updated style. (asynchronously)
+     * Updates a style in the document. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11235,7 +11229,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table cell format.
+     * Updates the formatting properties of a cell in the table row.
      * @param request Request object
      * @return TableCellFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11257,7 +11251,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table cell format.
+     * Updates the formatting properties of a cell in the table row.
      * @param request Request object
      * @return ApiResponse< TableCellFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11269,7 +11263,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table cell format. (asynchronously)
+     * Updates the formatting properties of a cell in the table row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11308,7 +11302,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table properties.
+     * Updates properties of a table in the document node.
      * @param request Request object
      * @return TablePropertiesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11330,7 +11324,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table properties.
+     * Updates properties of a table in the document node.
      * @param request Request object
      * @return ApiResponse< TablePropertiesResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11342,7 +11336,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table properties. (asynchronously)
+     * Updates properties of a table in the document node. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11381,7 +11375,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table row format.
+     * Updates the formatting properties of a table row.
      * @param request Request object
      * @return TableRowFormatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11403,7 +11397,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table row format.
+     * Updates the formatting properties of a table row.
      * @param request Request object
      * @return ApiResponse< TableRowFormatResponse >;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11415,7 +11409,7 @@ public class WordsApi {
     }
 
     /**
-     * Updates a table row format. (asynchronously)
+     * Updates the formatting properties of a table row. (asynchronously)
      * @param request Request object
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

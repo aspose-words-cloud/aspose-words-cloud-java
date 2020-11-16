@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents all formatting for a table row.
+ * DTO container with formatting for a table row.
  */
-@ApiModel(description = "Represents all formatting for a table row.")
+@ApiModel(description = "DTO container with formatting for a table row.")
 public class TableRowFormat extends LinkElement {
     /**
      * Gets or sets the rule for determining the height of the table row.
@@ -111,10 +111,10 @@ public class TableRowFormat extends LinkElement {
     }
 
     /**
-     * Gets or sets true if the text in a table row is allowed to split across a page break.
+     * Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
     * @return allowBreakAcrossPages
     **/
-    @ApiModelProperty(value = "Gets or sets true if the text in a table row is allowed to split across a page break.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.")
     public Boolean getAllowBreakAcrossPages() {
         return allowBreakAcrossPages;
     }
@@ -129,10 +129,10 @@ public class TableRowFormat extends LinkElement {
     }
 
     /**
-     * Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
+     * Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
     * @return headingFormat
     **/
-    @ApiModelProperty(value = "Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.")
     public Boolean getHeadingFormat() {
         return headingFormat;
     }

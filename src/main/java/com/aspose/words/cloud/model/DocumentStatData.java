@@ -67,10 +67,10 @@ public class DocumentStatData {
     }
 
     /**
-     * Gets or sets detailed statistics of footnotes.
+     * Gets or sets the detailed statistics on footnotes.
     * @return footnotesStatData
     **/
-    @ApiModelProperty(value = "Gets or sets detailed statistics of footnotes.")
+    @ApiModelProperty(value = "Gets or sets the detailed statistics on footnotes.")
     public FootnotesStatData getFootnotesStatData() {
         return footnotesStatData;
     }
@@ -85,10 +85,10 @@ public class DocumentStatData {
     }
 
     /**
-     * Gets or sets total count of pages in the document.
+     * Gets or sets the total count of pages in the document.
     * @return pageCount
     **/
-    @ApiModelProperty(value = "Gets or sets total count of pages in the document.")
+    @ApiModelProperty(value = "Gets or sets the total count of pages in the document.")
     public Integer getPageCount() {
         return pageCount;
     }
@@ -111,10 +111,10 @@ public class DocumentStatData {
     }
 
     /**
-     * Gets or sets detailed statistics of all pages.
+     * Gets or sets the detailed statistics on all pages.
     * @return pageStatData
     **/
-    @ApiModelProperty(value = "Gets or sets detailed statistics of all pages.")
+    @ApiModelProperty(value = "Gets or sets the detailed statistics on all pages.")
     public List<PageStatData> getPageStatData() {
         return pageStatData;
     }
@@ -129,10 +129,10 @@ public class DocumentStatData {
     }
 
     /**
-     * Gets or sets total count of paragraphs in the document.
+     * Gets or sets the total count of paragraphs in the document.
     * @return paragraphCount
     **/
-    @ApiModelProperty(value = "Gets or sets total count of paragraphs in the document.")
+    @ApiModelProperty(value = "Gets or sets the total count of paragraphs in the document.")
     public Integer getParagraphCount() {
         return paragraphCount;
     }
@@ -147,10 +147,10 @@ public class DocumentStatData {
     }
 
     /**
-     * Gets or sets total count of words in the document.
+     * Gets or sets the total count of words in the document.
     * @return wordCount
     **/
-    @ApiModelProperty(value = "Gets or sets total count of words in the document.")
+    @ApiModelProperty(value = "Gets or sets the total count of words in the document.")
     public Integer getWordCount() {
         return wordCount;
     }

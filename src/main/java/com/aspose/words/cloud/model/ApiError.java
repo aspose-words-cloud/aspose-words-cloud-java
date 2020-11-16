@@ -67,10 +67,10 @@ public class ApiError {
     }
 
     /**
-     * Gets or sets api error code.
+     * Gets or sets the API error code.
     * @return code
     **/
-    @ApiModelProperty(value = "Gets or sets api error code.")
+    @ApiModelProperty(value = "Gets or sets the API error code.")
     public String getCode() {
         return code;
     }
@@ -85,10 +85,10 @@ public class ApiError {
     }
 
     /**
-     * Gets or sets server datetime.
+     * Gets or sets the server DateTime.
     * @return dateTime
     **/
-    @ApiModelProperty(value = "Gets or sets server datetime.")
+    @ApiModelProperty(value = "Gets or sets the server DateTime.")
     public OffsetDateTime getDateTime() {
         return dateTime;
     }
@@ -103,10 +103,10 @@ public class ApiError {
     }
 
     /**
-     * Gets or sets error description.
+     * Gets or sets the error description.
     * @return description
     **/
-    @ApiModelProperty(value = "Gets or sets error description.")
+    @ApiModelProperty(value = "Gets or sets the error description.")
     public String getDescription() {
         return description;
     }
@@ -121,10 +121,10 @@ public class ApiError {
     }
 
     /**
-     * Gets or sets inner error.
+     * Gets or sets the inner error.
     * @return innerError
     **/
-    @ApiModelProperty(value = "Gets or sets inner error.")
+    @ApiModelProperty(value = "Gets or sets the inner error.")
     public ApiError getInnerError() {
         return innerError;
     }
@@ -139,10 +139,10 @@ public class ApiError {
     }
 
     /**
-     * Gets or sets error message.
+     * Gets or sets the error message.
     * @return message
     **/
-    @ApiModelProperty(value = "Gets or sets error message.")
+    @ApiModelProperty(value = "Gets or sets the error message.")
     public String getMessage() {
         return message;
     }

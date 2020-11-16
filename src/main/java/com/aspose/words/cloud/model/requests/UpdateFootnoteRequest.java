@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class UpdateFootnoteRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Footnote data.
+     * The properties of the footnote.
      */
     private FootnoteUpdate footnoteDto;
 
@@ -54,7 +54,7 @@ public class UpdateFootnoteRequest implements RequestIfc {
     private Integer index;
 
     /*
-     * Path to the node, which contains collection of footnotes.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -96,10 +96,10 @@ public class UpdateFootnoteRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateFootnoteRequest class.
      *
-     * @param String name The document name.
-     * @param FootnoteUpdate footnoteDto Footnote data.
+     * @param String name The filename of the input document.
+     * @param FootnoteUpdate footnoteDto The properties of the footnote.
      * @param Integer index Object index.
-     * @param String nodePath Path to the node, which contains collection of footnotes.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,28 +123,28 @@ public class UpdateFootnoteRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Footnote data.
+     * Gets The properties of the footnote.
      */
     public FootnoteUpdate getFootnoteDto() {
         return this.footnoteDto;
     }
 
     /*
-     * Sets Footnote data.
+     * Sets The properties of the footnote.
      */
     public void setFootnoteDto(FootnoteUpdate value) {
         this.footnoteDto = value;
@@ -165,14 +165,14 @@ public class UpdateFootnoteRequest implements RequestIfc {
     }
 
     /*
-     * Gets Path to the node, which contains collection of footnotes.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node, which contains collection of footnotes.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;

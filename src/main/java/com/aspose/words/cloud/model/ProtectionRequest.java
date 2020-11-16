@@ -61,10 +61,10 @@ public class ProtectionRequest {
     }
 
     /**
-     * Gets or sets new password.
+     * Gets or sets the new password.
     * @return newPassword
     **/
-    @ApiModelProperty(value = "Gets or sets new password.")
+    @ApiModelProperty(value = "Gets or sets the new password.")
     public String getNewPassword() {
         return newPassword;
     }
@@ -79,10 +79,10 @@ public class ProtectionRequest {
     }
 
     /**
-     * Gets or sets current password.
+     * Gets or sets the current password.
     * @return password
     **/
-    @ApiModelProperty(value = "Gets or sets current password.")
+    @ApiModelProperty(value = "Gets or sets the current password.")
     public String getPassword() {
         return password;
     }
@@ -97,10 +97,10 @@ public class ProtectionRequest {
     }
 
     /**
-     * Gets or sets new type of protection.
+     * Gets or sets the new type of protection.
     * @return protectionType
     **/
-    @ApiModelProperty(value = "Gets or sets new type of protection.")
+    @ApiModelProperty(value = "Gets or sets the new type of protection.")
     public String getProtectionType() {
         return protectionType;
     }

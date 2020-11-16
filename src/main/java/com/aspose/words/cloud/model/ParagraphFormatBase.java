@@ -195,7 +195,7 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets specifies the outline level of the paragraph in the document.
+     * Gets or sets the outline level of the paragraph in the document.
      */
     @JsonAdapter(OutlineLevelEnum.Adapter.class)
     public enum OutlineLevelEnum {
@@ -748,11 +748,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions
-     * of Latin text and regions of East Asian text in the current paragraph.
+     * Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
     * @return addSpaceBetweenFarEastAndAlpha
     **/
-    @ApiModelProperty(value = "Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.")
     public Boolean getAddSpaceBetweenFarEastAndAlpha() {
         return addSpaceBetweenFarEastAndAlpha;
     }
@@ -767,11 +766,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions
-     * of numbers and regions of East Asian text in the current paragraph.
+     * Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
     * @return addSpaceBetweenFarEastAndDigit
     **/
-    @ApiModelProperty(value = "Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.")
     public Boolean getAddSpaceBetweenFarEastAndDigit() {
         return addSpaceBetweenFarEastAndDigit;
     }
@@ -804,10 +802,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets whether this is a right-to-left paragraph.
+     * Gets or sets a value indicating whether this is a right-to-left paragraph.
     * @return bidi
     **/
-    @ApiModelProperty(value = "Gets or sets whether this is a right-to-left paragraph.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this is a right-to-left paragraph.")
     public Boolean getBidi() {
         return bidi;
     }
@@ -859,10 +857,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets true if all lines in the paragraph are to remain on the same page.
+     * Gets or sets a value indicating whether all lines in the paragraph are to remain on the same page.
     * @return keepTogether
     **/
-    @ApiModelProperty(value = "Gets or sets true if all lines in the paragraph are to remain on the same page.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether all lines in the paragraph are to remain on the same page.")
     public Boolean getKeepTogether() {
         return keepTogether;
     }
@@ -877,10 +875,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.
+     * Gets or sets a value indicating whether the paragraph is to remains on the same page as the paragraph that follows it.
     * @return keepWithNext
     **/
-    @ApiModelProperty(value = "Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the paragraph is to remains on the same page as the paragraph that follows it.")
     public Boolean getKeepWithNext() {
         return keepWithNext;
     }
@@ -895,10 +893,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets the value (in points) that represents the left indent for paragraph.
+     * Gets or sets the value (in points), that represents the left indent for paragraph.
     * @return leftIndent
     **/
-    @ApiModelProperty(value = "Gets or sets the value (in points) that represents the left indent for paragraph.")
+    @ApiModelProperty(value = "Gets or sets the value (in points), that represents the left indent for paragraph.")
     public Double getLeftIndent() {
         return leftIndent;
     }
@@ -967,11 +965,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets when true, SpaceBefore and SpaceAfter will be ignored
-     * between the paragraphs of the same style.
+     * Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
     * @return noSpaceBetweenParagraphsOfSameStyle
     **/
-    @ApiModelProperty(value = "Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.")
     public Boolean getNoSpaceBetweenParagraphsOfSameStyle() {
         return noSpaceBetweenParagraphsOfSameStyle;
     }
@@ -986,10 +983,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets specifies the outline level of the paragraph in the document.
+     * Gets or sets the outline level of the paragraph in the document.
     * @return outlineLevel
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the outline level of the paragraph in the document.")
+    @ApiModelProperty(value = "Gets or sets the outline level of the paragraph in the document.")
     public OutlineLevelEnum getOutlineLevel() {
         return outlineLevel;
     }
@@ -1004,10 +1001,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets true if a page break is forced before the paragraph.
+     * Gets or sets a value indicating whether a page break is forced before the paragraph.
     * @return pageBreakBefore
     **/
-    @ApiModelProperty(value = "Gets or sets true if a page break is forced before the paragraph.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether a page break is forced before the paragraph.")
     public Boolean getPageBreakBefore() {
         return pageBreakBefore;
     }
@@ -1040,10 +1037,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets a Shading object that refers to the shading formatting for the paragraph.
+     * Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
     * @return shading
     **/
-    @ApiModelProperty(value = "Gets or sets a Shading object that refers to the shading formatting for the paragraph.")
+    @ApiModelProperty(value = "Gets or sets the Shading object, that refers to the shading formatting for the paragraph.")
     public Shading getShading() {
         return shading;
     }
@@ -1076,10 +1073,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets true if the amount of spacing after the paragraph is set automatically.
+     * Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
     * @return spaceAfterAuto
     **/
-    @ApiModelProperty(value = "Gets or sets true if the amount of spacing after the paragraph is set automatically.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.")
     public Boolean getSpaceAfterAuto() {
         return spaceAfterAuto;
     }
@@ -1112,10 +1109,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets true if the amount of spacing before the paragraph is set automatically.
+     * Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
     * @return spaceBeforeAuto
     **/
-    @ApiModelProperty(value = "Gets or sets true if the amount of spacing before the paragraph is set automatically.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.")
     public Boolean getSpaceBeforeAuto() {
         return spaceBeforeAuto;
     }
@@ -1166,11 +1163,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which
-     * is applied in the document settings.
+     * Gets or sets a value indicating whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
     * @return suppressAutoHyphens
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.")
     public Boolean getSuppressAutoHyphens() {
         return suppressAutoHyphens;
     }
@@ -1185,11 +1181,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering
-     * which is applied in the parent section.
+     * Gets or sets a value indicating whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
     * @return suppressLineNumbers
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.")
     public Boolean getSuppressLineNumbers() {
         return suppressLineNumbers;
     }
@@ -1204,10 +1199,10 @@ public class ParagraphFormatBase extends LinkElement {
     }
 
     /**
-     * Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
+     * Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
     * @return widowControl
     **/
-    @ApiModelProperty(value = "Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.")
     public Boolean getWidowControl() {
         return widowControl;
     }

@@ -39,20 +39,20 @@ import java.util.*;
  */
 public class ClassifyRequest implements RequestIfc {
     /*
-     * Text to classify.
+     * The text to classify.
      */
     private String text;
 
     /*
-     * Number of the best classes to return.
+     * The number of the best classes to return.
      */
     private String bestClassesCount;
 
     /*
      * Initializes a new instance of the ClassifyRequest class.
      *
-     * @param String text Text to classify.
-     * @param String bestClassesCount Number of the best classes to return.
+     * @param String text The text to classify.
+     * @param String bestClassesCount The number of the best classes to return.
      */
     public ClassifyRequest(String text, String bestClassesCount) {
         this.text = text;
@@ -60,28 +60,28 @@ public class ClassifyRequest implements RequestIfc {
     }
 
     /*
-     * Gets Text to classify.
+     * Gets The text to classify.
      */
     public String getText() {
         return this.text;
     }
 
     /*
-     * Sets Text to classify.
+     * Sets The text to classify.
      */
     public void setText(String value) {
         this.text = value;
     }
 
     /*
-     * Gets Number of the best classes to return.
+     * Gets The number of the best classes to return.
      */
     public String getBestClassesCount() {
         return this.bestClassesCount;
     }
 
     /*
-     * Sets Number of the best classes to return.
+     * Sets The number of the best classes to return.
      */
     public void setBestClassesCount(String value) {
         this.bestClassesCount = value;

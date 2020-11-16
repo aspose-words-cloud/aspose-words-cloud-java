@@ -39,14 +39,12 @@ import java.util.*;
  */
 public class GetRangeTextRequest implements RequestIfc {
     /*
-     * The document.
+     * The filename of the input document.
      */
     private String name;
 
     /*
      * The range start identifier.
-     * Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
-     * It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     private String rangeStartIdentifier;
 
@@ -78,8 +76,8 @@ public class GetRangeTextRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetRangeTextRequest class.
      *
-     * @param String name The document.
-     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * @param String name The filename of the input document.
+     * @param String rangeStartIdentifier The range start identifier.
      * @param String rangeEndIdentifier The range end identifier.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -97,28 +95,28 @@ public class GetRangeTextRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Gets The range start identifier.
      */
     public String getRangeStartIdentifier() {
         return this.rangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Sets The range start identifier.
      */
     public void setRangeStartIdentifier(String value) {
         this.rangeStartIdentifier = value;

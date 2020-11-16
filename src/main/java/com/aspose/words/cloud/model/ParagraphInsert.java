@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Paragraph element.
+ * DTO container with a paragraph's text.
  */
-@ApiModel(description = "Paragraph element.")
+@ApiModel(description = "DTO container with a paragraph's text.")
 public class ParagraphInsert {
     @SerializedName("Text")
     private String text = null;
@@ -55,10 +55,10 @@ public class ParagraphInsert {
     }
 
     /**
-     * Gets or sets paragraph's text.
+     * Gets or sets the paragraph's text.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets paragraph's text.")
+    @ApiModelProperty(value = "Gets or sets the paragraph's text.")
     public String getText() {
         return text;
     }

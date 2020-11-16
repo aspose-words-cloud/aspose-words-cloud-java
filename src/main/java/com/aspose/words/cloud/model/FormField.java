@@ -79,10 +79,10 @@ public class FormField extends NodeLink {
     }
 
     /**
-     * Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.
+     * Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
     * @return calculateOnExit
     **/
-    @ApiModelProperty(value = "Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.")
     public Boolean getCalculateOnExit() {
         return calculateOnExit;
     }
@@ -97,10 +97,10 @@ public class FormField extends NodeLink {
     }
 
     /**
-     * Gets or sets true if a form field is enabled.
+     * Gets or sets a value indicating whether a form field is enabled.
     * @return enabled
     **/
-    @ApiModelProperty(value = "Gets or sets true if a form field is enabled.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether a form field is enabled.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -115,10 +115,10 @@ public class FormField extends NodeLink {
     }
 
     /**
-     * Gets or sets returns or sets an entry macro name for the form field.
+     * Gets or sets the entry macro name for the form field.
     * @return entryMacro
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets an entry macro name for the form field.")
+    @ApiModelProperty(value = "Gets or sets the entry macro name for the form field.")
     public String getEntryMacro() {
         return entryMacro;
     }
@@ -133,10 +133,10 @@ public class FormField extends NodeLink {
     }
 
     /**
-     * Gets or sets returns or sets an exit macro name for the form field.
+     * Gets or sets the exit macro name for the form field.
     * @return exitMacro
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets an exit macro name for the form field.")
+    @ApiModelProperty(value = "Gets or sets the exit macro name for the form field.")
     public String getExitMacro() {
         return exitMacro;
     }
@@ -151,10 +151,10 @@ public class FormField extends NodeLink {
     }
 
     /**
-     * Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.
+     * Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
     * @return helpText
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.")
+    @ApiModelProperty(value = "Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.")
     public String getHelpText() {
         return helpText;
     }
@@ -187,10 +187,10 @@ public class FormField extends NodeLink {
     }
 
     /**
-     * Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+     * Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
     * @return ownHelp
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.")
     public Boolean getOwnHelp() {
         return ownHelp;
     }
@@ -205,10 +205,10 @@ public class FormField extends NodeLink {
     }
 
     /**
-     * Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.
+     * Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
     * @return ownStatus
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.")
     public Boolean getOwnStatus() {
         return ownStatus;
     }
@@ -223,10 +223,10 @@ public class FormField extends NodeLink {
     }
 
     /**
-     * Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.
+     * Gets or sets text, displayed in the status bar when a form field has the focus.
     * @return statusText
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.")
+    @ApiModelProperty(value = "Gets or sets text, displayed in the status bar when a form field has the focus.")
     public String getStatusText() {
         return statusText;
     }

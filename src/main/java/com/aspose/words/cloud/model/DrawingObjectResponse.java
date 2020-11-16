@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Response for "drawingObjects/n" resource.
+ * The REST response with a DrawingObject.
  */
-@ApiModel(description = "Response for \"drawingObjects/n\" resource.")
+@ApiModel(description = "The REST response with a DrawingObject.")
 public class DrawingObjectResponse extends WordsResponse {
     @SerializedName("DrawingObject")
     private DrawingObject drawingObject = null;
@@ -55,10 +55,10 @@ public class DrawingObjectResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets drawing object.
+     * Gets or sets the DrawingObject.
     * @return drawingObject
     **/
-    @ApiModelProperty(value = "Gets or sets drawing object.")
+    @ApiModelProperty(value = "Gets or sets the DrawingObject.")
     public DrawingObject getDrawingObject() {
         return drawingObject;
     }

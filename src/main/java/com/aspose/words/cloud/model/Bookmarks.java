@@ -63,10 +63,10 @@ public class Bookmarks extends LinkElement {
     }
 
     /**
-     * Gets or sets array of bookmarks.
+     * Gets or sets the array of bookmarks.
     * @return bookmarkList
     **/
-    @ApiModelProperty(value = "Gets or sets array of bookmarks.")
+    @ApiModelProperty(value = "Gets or sets the array of bookmarks.")
     public List<Bookmark> getBookmarkList() {
         return bookmarkList;
     }

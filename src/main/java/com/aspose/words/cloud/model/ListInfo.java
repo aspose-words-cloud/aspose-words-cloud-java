@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents a single document list.
+ * DTO container with a single document list.
  */
-@ApiModel(description = "Represents a single document list.")
+@ApiModel(description = "DTO container with a single document list.")
 public class ListInfo extends LinkElement {
     @SerializedName("IsListStyleDefinition")
     private Boolean isListStyleDefinition = null;
@@ -73,10 +73,10 @@ public class ListInfo extends LinkElement {
     }
 
     /**
-     * Gets or sets a value indicating whether returns true if this list is a definition of a list style.
+     * Gets or sets a value indicating whether this list is a definition of a list style.
     * @return isListStyleDefinition
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if this list is a definition of a list style.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this list is a definition of a list style.")
     public Boolean getIsListStyleDefinition() {
         return isListStyleDefinition;
     }
@@ -91,10 +91,10 @@ public class ListInfo extends LinkElement {
     }
 
     /**
-     * Gets or sets a value indicating whether returns true if this list is a reference to a list style.
+     * Gets or sets a value indicating whether this list is a reference to a list style.
     * @return isListStyleReference
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if this list is a reference to a list style.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether this list is a reference to a list style.")
     public Boolean getIsListStyleReference() {
         return isListStyleReference;
     }
@@ -109,10 +109,10 @@ public class ListInfo extends LinkElement {
     }
 
     /**
-     * Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.
+     * Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
     * @return isMultiLevel
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.")
     public Boolean getIsMultiLevel() {
         return isMultiLevel;
     }
@@ -127,10 +127,10 @@ public class ListInfo extends LinkElement {
     }
 
     /**
-     * Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+     * Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
     * @return isRestartAtEachSection
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether list should be restarted at each section. The default value is false.")
     public Boolean getIsRestartAtEachSection() {
         return isRestartAtEachSection;
     }

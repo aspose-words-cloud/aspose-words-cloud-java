@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Font info.
+ * DTO container with font info.
  */
-@ApiModel(description = "Font info.")
+@ApiModel(description = "DTO container with font info.")
 public class FontInfo {
     @SerializedName("FilePath")
     private String filePath = null;
@@ -64,10 +64,10 @@ public class FontInfo {
     }
 
     /**
-     * Gets or sets path to the font file if any.
+     * Gets or sets the path to the font file if any.
     * @return filePath
     **/
-    @ApiModelProperty(value = "Gets or sets path to the font file if any.")
+    @ApiModelProperty(value = "Gets or sets the path to the font file if any.")
     public String getFilePath() {
         return filePath;
     }
@@ -82,10 +82,10 @@ public class FontInfo {
     }
 
     /**
-     * Gets or sets family name of the font.
+     * Gets or sets the family name of the font.
     * @return fontFamilyName
     **/
-    @ApiModelProperty(value = "Gets or sets family name of the font.")
+    @ApiModelProperty(value = "Gets or sets the family name of the font.")
     public String getFontFamilyName() {
         return fontFamilyName;
     }
@@ -100,10 +100,10 @@ public class FontInfo {
     }
 
     /**
-     * Gets or sets full name of the font.
+     * Gets or sets the full name of the font.
     * @return fullFontName
     **/
-    @ApiModelProperty(value = "Gets or sets full name of the font.")
+    @ApiModelProperty(value = "Gets or sets the full name of the font.")
     public String getFullFontName() {
         return fullFontName;
     }
@@ -118,10 +118,10 @@ public class FontInfo {
     }
 
     /**
-     * Gets or sets version string of the font.
+     * Gets or sets the version string of the font.
     * @return version
     **/
-    @ApiModelProperty(value = "Gets or sets version string of the font.")
+    @ApiModelProperty(value = "Gets or sets the version string of the font.")
     public String getVersion() {
         return version;
     }

@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class ClassifyDocumentRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String documentName;
 
@@ -64,25 +64,25 @@ public class ClassifyDocumentRequest implements RequestIfc {
     private String password;
 
     /*
-     * Count of the best classes to return.
+     * The number of the best classes to return.
      */
     private String bestClassesCount;
 
     /*
-     * Taxonomy to use for classification return.
+     * The taxonomy to use.
      */
     private String taxonomy;
 
     /*
      * Initializes a new instance of the ClassifyDocumentRequest class.
      *
-     * @param String documentName The document name.
+     * @param String documentName The filename of the input document.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String bestClassesCount Count of the best classes to return.
-     * @param String taxonomy Taxonomy to use for classification return.
+     * @param String bestClassesCount The number of the best classes to return.
+     * @param String taxonomy The taxonomy to use.
      */
     public ClassifyDocumentRequest(String documentName, String folder, String storage, String loadEncoding, String password, String bestClassesCount, String taxonomy) {
         this.documentName = documentName;
@@ -95,14 +95,14 @@ public class ClassifyDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getDocumentName() {
         return this.documentName;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setDocumentName(String value) {
         this.documentName = value;
@@ -165,28 +165,28 @@ public class ClassifyDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Count of the best classes to return.
+     * Gets The number of the best classes to return.
      */
     public String getBestClassesCount() {
         return this.bestClassesCount;
     }
 
     /*
-     * Sets Count of the best classes to return.
+     * Sets The number of the best classes to return.
      */
     public void setBestClassesCount(String value) {
         this.bestClassesCount = value;
     }
 
     /*
-     * Gets Taxonomy to use for classification return.
+     * Gets The taxonomy to use.
      */
     public String getTaxonomy() {
         return this.taxonomy;
     }
 
     /*
-     * Sets Taxonomy to use for classification return.
+     * Sets The taxonomy to use.
      */
     public void setTaxonomy(String value) {
         this.taxonomy = value;

@@ -39,19 +39,17 @@ import java.util.*;
  */
 public class SaveAsRangeRequest implements RequestIfc {
     /*
-     * The document.
+     * The filename of the input document.
      */
     private String name;
 
     /*
      * The range start identifier.
-     * Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
-     * It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
      */
     private String rangeStartIdentifier;
 
     /*
-     * Parameters of a new document.
+     * The parameters of a new document.
      */
     private RangeDocument documentParameters;
 
@@ -83,9 +81,9 @@ public class SaveAsRangeRequest implements RequestIfc {
     /*
      * Initializes a new instance of the SaveAsRangeRequest class.
      *
-     * @param String name The document.
-     * @param String rangeStartIdentifier The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
-     * @param RangeDocument documentParameters Parameters of a new document.
+     * @param String name The filename of the input document.
+     * @param String rangeStartIdentifier The range start identifier.
+     * @param RangeDocument documentParameters The parameters of a new document.
      * @param String rangeEndIdentifier The range end identifier.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -104,42 +102,42 @@ public class SaveAsRangeRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Gets The range start identifier.
      */
     public String getRangeStartIdentifier() {
         return this.rangeStartIdentifier;
     }
 
     /*
-     * Sets The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
+     * Sets The range start identifier.
      */
     public void setRangeStartIdentifier(String value) {
         this.rangeStartIdentifier = value;
     }
 
     /*
-     * Gets Parameters of a new document.
+     * Gets The parameters of a new document.
      */
     public RangeDocument getDocumentParameters() {
         return this.documentParameters;
     }
 
     /*
-     * Sets Parameters of a new document.
+     * Sets The parameters of a new document.
      */
     public void setDocumentParameters(RangeDocument value) {
         this.documentParameters = value;

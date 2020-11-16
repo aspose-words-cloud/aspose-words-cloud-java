@@ -64,10 +64,10 @@ public class PageStatData {
     }
 
     /**
-     * Gets or sets detailed statistics of footnotes.
+     * Gets or sets the detailed statistics on the footnotes.
     * @return footnotesStatData
     **/
-    @ApiModelProperty(value = "Gets or sets detailed statistics of footnotes.")
+    @ApiModelProperty(value = "Gets or sets the detailed statistics on the footnotes.")
     public FootnotesStatData getFootnotesStatData() {
         return footnotesStatData;
     }
@@ -82,10 +82,10 @@ public class PageStatData {
     }
 
     /**
-     * Gets or sets page number.
+     * Gets or sets the page number.
     * @return pageNumber
     **/
-    @ApiModelProperty(value = "Gets or sets page number.")
+    @ApiModelProperty(value = "Gets or sets the page number.")
     public Integer getPageNumber() {
         return pageNumber;
     }
@@ -100,10 +100,10 @@ public class PageStatData {
     }
 
     /**
-     * Gets or sets total count of paragraphs in the page.
+     * Gets or sets the total count of paragraphs in the page.
     * @return paragraphCount
     **/
-    @ApiModelProperty(value = "Gets or sets total count of paragraphs in the page.")
+    @ApiModelProperty(value = "Gets or sets the total count of paragraphs in the page.")
     public Integer getParagraphCount() {
         return paragraphCount;
     }
@@ -118,10 +118,10 @@ public class PageStatData {
     }
 
     /**
-     * Gets or sets total count of words in the page.
+     * Gets or sets the total count of words in the page.
     * @return wordCount
     **/
-    @ApiModelProperty(value = "Gets or sets total count of words in the page.")
+    @ApiModelProperty(value = "Gets or sets the total count of words in the page.")
     public Integer getWordCount() {
         return wordCount;
     }

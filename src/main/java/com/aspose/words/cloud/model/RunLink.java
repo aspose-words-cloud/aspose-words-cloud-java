@@ -55,10 +55,10 @@ public class RunLink extends NodeLink {
     }
 
     /**
-     * Gets or sets run's text.
+     * Gets or sets the run's text.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets run's text.")
+    @ApiModelProperty(value = "Gets or sets the run's text.")
     public String getText() {
         return text;
     }

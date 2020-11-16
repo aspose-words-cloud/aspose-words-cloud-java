@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class GetDocumentWithFormatRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -69,7 +69,7 @@ public class GetDocumentWithFormatRequest implements RequestIfc {
     private String password;
 
     /*
-     * Path to save the result.
+     * The path to the output document.
      */
     private String outPath;
 
@@ -81,13 +81,13 @@ public class GetDocumentWithFormatRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetDocumentWithFormatRequest class.
      *
-     * @param String name The document name.
+     * @param String name The filename of the input document.
      * @param String format The destination format.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String outPath Path to save the result.
+     * @param String outPath The path to the output document.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public GetDocumentWithFormatRequest(String name, String format, String folder, String storage, String loadEncoding, String password, String outPath, String fontsLocation) {
@@ -102,14 +102,14 @@ public class GetDocumentWithFormatRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
@@ -186,14 +186,14 @@ public class GetDocumentWithFormatRequest implements RequestIfc {
     }
 
     /*
-     * Gets Path to save the result.
+     * Gets The path to the output document.
      */
     public String getOutPath() {
         return this.outPath;
     }
 
     /*
-     * Sets Path to save the result.
+     * Sets The path to the output document.
      */
     public void setOutPath(String value) {
         this.outPath = value;

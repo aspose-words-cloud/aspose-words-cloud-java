@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class AppendDocumentRequest implements RequestIfc {
     /*
-     * Original document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * DocumentEntryList with a list of documents to append.
+     * The collection of documents to append.
      */
     private DocumentEntryList documentList;
 
@@ -86,8 +86,8 @@ public class AppendDocumentRequest implements RequestIfc {
     /*
      * Initializes a new instance of the AppendDocumentRequest class.
      *
-     * @param String name Original document name.
-     * @param DocumentEntryList documentList DocumentEntryList with a list of documents to append.
+     * @param String name The filename of the input document.
+     * @param DocumentEntryList documentList The collection of documents to append.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class AppendDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Original document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets Original document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets DocumentEntryList with a list of documents to append.
+     * Gets The collection of documents to append.
      */
     public DocumentEntryList getDocumentList() {
         return this.documentList;
     }
 
     /*
-     * Sets DocumentEntryList with a list of documents to append.
+     * Sets The collection of documents to append.
      */
     public void setDocumentList(DocumentEntryList value) {
         this.documentList = value;

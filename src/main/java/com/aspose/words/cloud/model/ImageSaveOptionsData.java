@@ -91,10 +91,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets allows to specify additional System.Drawing.Graphics quality options.
+     * Gets or sets the additional System.Drawing.Graphics quality options.
     * @return graphicsQualityOptions
     **/
-    @ApiModelProperty(value = "Gets or sets allows to specify additional System.Drawing.Graphics quality options.")
+    @ApiModelProperty(value = "Gets or sets the additional System.Drawing.Graphics quality options.")
     public GraphicsQualityOptionsData getGraphicsQualityOptions() {
         return graphicsQualityOptions;
     }
@@ -109,12 +109,12 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets the horizontal resolution for the generated images, in dots per inch.
+     * Gets or sets the horizontal resolution in dots per inch for the generated images.
      * This property has effect only when saving to raster image formats.
      * The default value is 96.
     * @return horizontalResolution
     **/
-    @ApiModelProperty(value = "Gets or sets the horizontal resolution for the generated images, in dots per inch. This property has effect only when saving to raster image formats. The default value is 96.")
+    @ApiModelProperty(value = "Gets or sets the horizontal resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.")
     public Double getHorizontalResolution() {
         return horizontalResolution;
     }
@@ -129,10 +129,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets brightness of image.
+     * Gets or sets the brightness level of the image.
     * @return imageBrightness
     **/
-    @ApiModelProperty(value = "Gets or sets brightness of image.")
+    @ApiModelProperty(value = "Gets or sets the brightness level of the image.")
     public Double getImageBrightness() {
         return imageBrightness;
     }
@@ -147,10 +147,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets color mode of image.
+     * Gets or sets the color mode of the image.
     * @return imageColorMode
     **/
-    @ApiModelProperty(value = "Gets or sets color mode of image.")
+    @ApiModelProperty(value = "Gets or sets the color mode of the image.")
     public String getImageColorMode() {
         return imageColorMode;
     }
@@ -165,10 +165,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets contrast of image.
+     * Gets or sets the contrast level of the image.
     * @return imageContrast
     **/
-    @ApiModelProperty(value = "Gets or sets contrast of image.")
+    @ApiModelProperty(value = "Gets or sets the contrast level of the image.")
     public Double getImageContrast() {
         return imageContrast;
     }
@@ -183,10 +183,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets background (paper) color of image.
+     * Gets or sets the background (paper) color of the image.
     * @return paperColor
     **/
-    @ApiModelProperty(value = "Gets or sets background (paper) color of image.")
+    @ApiModelProperty(value = "Gets or sets the background (paper) color of the image.")
     public String getPaperColor() {
         return paperColor;
     }
@@ -201,10 +201,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets pixel format of image.
+     * Gets or sets the pixel format of the image.
     * @return pixelFormat
     **/
-    @ApiModelProperty(value = "Gets or sets pixel format of image.")
+    @ApiModelProperty(value = "Gets or sets the pixel format of the image.")
     public String getPixelFormat() {
         return pixelFormat;
     }
@@ -219,12 +219,12 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.
+     * Gets or sets both horizontal and vertical resolution in dots per inch for the generated images.
      * This property has effect only when saving to raster image formats.
      * The default value is 96.
     * @return resolution
     **/
-    @ApiModelProperty(value = "Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch. This property has effect only when saving to raster image formats. The default value is 96.")
+    @ApiModelProperty(value = "Gets or sets both horizontal and vertical resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.")
     public Double getResolution() {
         return resolution;
     }
@@ -239,10 +239,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets zoom factor of image.
+     * Gets or sets the zoom factor of the image.
     * @return scale
     **/
-    @ApiModelProperty(value = "Gets or sets zoom factor of image.")
+    @ApiModelProperty(value = "Gets or sets the zoom factor of the image.")
     public Double getScale() {
         return scale;
     }
@@ -257,10 +257,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets determine whether or not to use anti-aliasing for rendering.
+     * Gets or sets a value indicating whether to use anti-aliasing for rendering.
     * @return useAntiAliasing
     **/
-    @ApiModelProperty(value = "Gets or sets determine whether or not to use anti-aliasing for rendering.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to use anti-aliasing for rendering.")
     public Boolean getUseAntiAliasing() {
         return useAntiAliasing;
     }
@@ -275,10 +275,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+     * Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
     * @return useGdiEmfRenderer
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.")
     public Boolean getUseGdiEmfRenderer() {
         return useGdiEmfRenderer;
     }
@@ -293,10 +293,10 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.
+     * Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
     * @return useHighQualityRendering
     **/
-    @ApiModelProperty(value = "Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.")
     public Boolean getUseHighQualityRendering() {
         return useHighQualityRendering;
     }
@@ -311,12 +311,12 @@ public class ImageSaveOptionsData extends FixedPageSaveOptionsData {
     }
 
     /**
-     * Gets or sets the vertical resolution for the generated images, in dots per inch.
+     * Gets or sets the vertical resolution in dots per inch for the generated images.
      * This property has effect only when saving to raster image formats.
      * The default value is 96.
     * @return verticalResolution
     **/
-    @ApiModelProperty(value = "Gets or sets the vertical resolution for the generated images, in dots per inch. This property has effect only when saving to raster image formats. The default value is 96.")
+    @ApiModelProperty(value = "Gets or sets the vertical resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.")
     public Double getVerticalResolution() {
         return verticalResolution;
     }

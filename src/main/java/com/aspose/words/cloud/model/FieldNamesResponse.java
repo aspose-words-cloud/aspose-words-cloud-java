@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
+ * The REST response with a collection of mail merge fields.
  */
-@ApiModel(description = "This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.")
+@ApiModel(description = "The REST response with a collection of mail merge fields.")
 public class FieldNamesResponse extends WordsResponse {
     @SerializedName("FieldNames")
     private FieldNames fieldNames = null;
@@ -55,10 +55,10 @@ public class FieldNamesResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets collection of mail merge fields.
+     * Gets or sets the collection of mail merge fields.
     * @return fieldNames
     **/
-    @ApiModelProperty(value = "Gets or sets collection of mail merge fields.")
+    @ApiModelProperty(value = "Gets or sets the collection of mail merge fields.")
     public FieldNames getFieldNames() {
         return fieldNames;
     }

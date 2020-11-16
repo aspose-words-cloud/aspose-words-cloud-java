@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class SearchRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
@@ -71,7 +71,7 @@ public class SearchRequest implements RequestIfc {
     /*
      * Initializes a new instance of the SearchRequest class.
      *
-     * @param String name The document name.
+     * @param String name The filename of the input document.
      * @param String pattern The regular expression used to find matches.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
@@ -88,14 +88,14 @@ public class SearchRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;

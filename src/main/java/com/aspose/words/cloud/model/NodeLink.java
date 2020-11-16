@@ -55,10 +55,10 @@ public class NodeLink extends LinkElement {
     }
 
     /**
-     * Gets or sets node id.
+     * Gets or sets the node id.
     * @return nodeId
     **/
-    @ApiModelProperty(value = "Gets or sets node id.")
+    @ApiModelProperty(value = "Gets or sets the node id.")
     public String getNodeId() {
         return nodeId;
     }

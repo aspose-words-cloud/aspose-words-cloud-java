@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents the response with document description.
+ * The REST response with a document description.
  */
-@ApiModel(description = "Represents the response with document description.")
+@ApiModel(description = "The REST response with a document description.")
 public class DocumentResponse extends WordsResponse {
     @SerializedName("Document")
     private Document document = null;
@@ -55,10 +55,10 @@ public class DocumentResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets document description.
+     * Gets or sets the document description.
     * @return document
     **/
-    @ApiModelProperty(value = "Gets or sets document description.")
+    @ApiModelProperty(value = "Gets or sets the document description.")
     public Document getDocument() {
         return document;
     }

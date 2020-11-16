@@ -111,10 +111,10 @@ public class ReportEngineSettings {
     }
 
     /**
-     * Gets or sets options for parsing CSV data.
+     * Gets or sets the options for parsing CSV data.
     * @return csvDataLoadOptions
     **/
-    @ApiModelProperty(value = "Gets or sets options for parsing CSV data.")
+    @ApiModelProperty(value = "Gets or sets the options for parsing CSV data.")
     public CsvDataLoadOptions getCsvDataLoadOptions() {
         return csvDataLoadOptions;
     }
@@ -129,10 +129,10 @@ public class ReportEngineSettings {
     }
 
     /**
-     * Gets or sets a name to reference the data source object in the template.
+     * Gets or sets the name to reference the data source object in the template.
     * @return dataSourceName
     **/
-    @ApiModelProperty(value = "Gets or sets a name to reference the data source object in the template.")
+    @ApiModelProperty(value = "Gets or sets the name to reference the data source object in the template.")
     public String getDataSourceName() {
         return dataSourceName;
     }

@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for png save options.
+ * Container class for png save options.
  */
-@ApiModel(description = "container class for png save options.")
+@ApiModel(description = "Container class for png save options.")
 public class PngSaveOptionsData extends ImageSaveOptionsData {
 
     @Override

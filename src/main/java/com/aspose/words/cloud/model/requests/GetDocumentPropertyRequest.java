@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class GetDocumentPropertyRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * The property name.
+     * The name of the property.
      */
     private String propertyName;
 
@@ -71,8 +71,8 @@ public class GetDocumentPropertyRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetDocumentPropertyRequest class.
      *
-     * @param String name The document name.
-     * @param String propertyName The property name.
+     * @param String name The filename of the input document.
+     * @param String propertyName The name of the property.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -88,28 +88,28 @@ public class GetDocumentPropertyRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets The property name.
+     * Gets The name of the property.
      */
     public String getPropertyName() {
         return this.propertyName;
     }
 
     /*
-     * Sets The property name.
+     * Sets The name of the property.
      */
     public void setPropertyName(String value) {
         this.propertyName = value;

@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
+ * The REST response with a collection of OfficeMath objects.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.")
+@ApiModel(description = "The REST response with a collection of OfficeMath objects.")
 public class OfficeMathObjectsResponse extends WordsResponse {
     @SerializedName("OfficeMathObjects")
     private OfficeMathObjectsCollection officeMathObjects = null;
@@ -56,10 +55,10 @@ public class OfficeMathObjectsResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets collection of OfficeMath objects.
+     * Gets or sets the collection of OfficeMath objects.
     * @return officeMathObjects
     **/
-    @ApiModelProperty(value = "Gets or sets collection of OfficeMath objects.")
+    @ApiModelProperty(value = "Gets or sets the collection of OfficeMath objects.")
     public OfficeMathObjectsCollection getOfficeMathObjects() {
         return officeMathObjects;
     }

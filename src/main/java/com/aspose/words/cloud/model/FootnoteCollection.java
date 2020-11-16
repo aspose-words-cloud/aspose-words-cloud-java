@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of footnotes.
+ * DTO container with a collection of footnotes.
  */
-@ApiModel(description = "Collection of footnotes.")
+@ApiModel(description = "DTO container with a collection of footnotes.")
 public class FootnoteCollection extends LinkElement {
     @SerializedName("List")
     private List<Footnote> list = null;
@@ -63,10 +63,10 @@ public class FootnoteCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of foonotes links.
+     * Gets or sets the collection of footnotes.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets collection of foonotes links.")
+    @ApiModelProperty(value = "Gets or sets the collection of footnotes.")
     public List<Footnote> getList() {
         return list;
     }

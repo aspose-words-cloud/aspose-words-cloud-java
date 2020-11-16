@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/tables.
+ * The REST response with a collection of tables.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables.")
+@ApiModel(description = "The REST response with a collection of tables.")
 public class TableLinkCollectionResponse extends WordsResponse {
     @SerializedName("Tables")
     private TableLinkCollection tables = null;
@@ -56,10 +55,10 @@ public class TableLinkCollectionResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets collection of tables.
+     * Gets or sets the collection of tables.
     * @return tables
     **/
-    @ApiModelProperty(value = "Gets or sets collection of tables.")
+    @ApiModelProperty(value = "Gets or sets the collection of tables.")
     public TableLinkCollection getTables() {
         return tables;
     }

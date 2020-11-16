@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class GetHeaderFootersRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Path to parent section.
+     * The path to the section in the document tree.
      */
     private String sectionPath;
 
@@ -69,20 +69,20 @@ public class GetHeaderFootersRequest implements RequestIfc {
     private String password;
 
     /*
-     * List of types of headers and footers.
+     * The list of HeaderFooter types.
      */
     private String filterByType;
 
     /*
      * Initializes a new instance of the GetHeaderFootersRequest class.
      *
-     * @param String name The document name.
-     * @param String sectionPath Path to parent section.
+     * @param String name The filename of the input document.
+     * @param String sectionPath The path to the section in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param String filterByType List of types of headers and footers.
+     * @param String filterByType The list of HeaderFooter types.
      */
     public GetHeaderFootersRequest(String name, String sectionPath, String folder, String storage, String loadEncoding, String password, String filterByType) {
         this.name = name;
@@ -95,28 +95,28 @@ public class GetHeaderFootersRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Path to parent section.
+     * Gets The path to the section in the document tree.
      */
     public String getSectionPath() {
         return this.sectionPath;
     }
 
     /*
-     * Sets Path to parent section.
+     * Sets The path to the section in the document tree.
      */
     public void setSectionPath(String value) {
         this.sectionPath = value;
@@ -179,14 +179,14 @@ public class GetHeaderFootersRequest implements RequestIfc {
     }
 
     /*
-     * Gets List of types of headers and footers.
+     * Gets The list of HeaderFooter types.
      */
     public String getFilterByType() {
         return this.filterByType;
     }
 
     /*
-     * Sets List of types of headers and footers.
+     * Sets The list of HeaderFooter types.
      */
     public void setFilterByType(String value) {
         this.filterByType = value;

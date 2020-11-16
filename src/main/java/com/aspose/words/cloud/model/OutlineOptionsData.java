@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for outline options.
+ * Container class for outline options.
  */
-@ApiModel(description = "container class for outline options.")
+@ApiModel(description = "Container class for outline options.")
 public class OutlineOptionsData {
     @SerializedName("BookmarksOutlineLevels")
     private List<BookmarksOutlineLevelData> bookmarksOutlineLevels = null;
@@ -78,10 +78,10 @@ public class OutlineOptionsData {
     }
 
     /**
-     * Gets or sets allows to specify individual bookmarks outline level.
+     * Gets or sets the individual bookmarks outline level.
     * @return bookmarksOutlineLevels
     **/
-    @ApiModelProperty(value = "Gets or sets allows to specify individual bookmarks outline level.")
+    @ApiModelProperty(value = "Gets or sets the individual bookmarks outline level.")
     public List<BookmarksOutlineLevelData> getBookmarksOutlineLevels() {
         return bookmarksOutlineLevels;
     }
@@ -96,12 +96,10 @@ public class OutlineOptionsData {
     }
 
     /**
-     * Gets or sets a value determining whether or not to create missing outline levels
-     * when the document is exported.
-     * Default value for this property is false.
+     * Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
     * @return createMissingOutlineLevels
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether or not to create missing outline levels when the document is exported. Default value for this property is false.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.")
     public Boolean getCreateMissingOutlineLevels() {
         return createMissingOutlineLevels;
     }
@@ -116,11 +114,10 @@ public class OutlineOptionsData {
     }
 
     /**
-     * Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted
-     * with the Heading styles) inside tables.
+     * Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
     * @return createOutlinesForHeadingsInTables
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.")
     public Boolean getCreateOutlinesForHeadingsInTables() {
         return createOutlinesForHeadingsInTables;
     }
@@ -135,10 +132,10 @@ public class OutlineOptionsData {
     }
 
     /**
-     * Gets or sets specifies the default level in the document outline at which to display Word bookmarks.
+     * Gets or sets the default level in the document outline at which to display Word bookmarks.
     * @return defaultBookmarksOutlineLevel
     **/
-    @ApiModelProperty(value = "Gets or sets specifies the default level in the document outline at which to display Word bookmarks.")
+    @ApiModelProperty(value = "Gets or sets the default level in the document outline at which to display Word bookmarks.")
     public Integer getDefaultBookmarksOutlineLevel() {
         return defaultBookmarksOutlineLevel;
     }
@@ -153,10 +150,10 @@ public class OutlineOptionsData {
     }
 
     /**
-     * Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.
+     * Gets or sets the number of levels in the document outline to show expanded when the file is viewed.
     * @return expandedOutlineLevels
     **/
-    @ApiModelProperty(value = "Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.")
+    @ApiModelProperty(value = "Gets or sets the number of levels in the document outline to show expanded when the file is viewed.")
     public Integer getExpandedOutlineLevels() {
         return expandedOutlineLevels;
     }
@@ -171,10 +168,10 @@ public class OutlineOptionsData {
     }
 
     /**
-     * Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
+     * Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
     * @return headingsOutlineLevels
     **/
-    @ApiModelProperty(value = "Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.")
+    @ApiModelProperty(value = "Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.")
     public Integer getHeadingsOutlineLevels() {
         return headingsOutlineLevels;
     }

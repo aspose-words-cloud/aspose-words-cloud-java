@@ -39,17 +39,17 @@ import java.util.*;
  */
 public class InsertFormFieldRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * From field data.
+     * The properties of the form field.
      */
     private FormField formField;
 
     /*
-     * Path to the node that contains collection of formfields.
+     * The path to the node in the document tree.
      */
     private String nodePath;
 
@@ -89,16 +89,16 @@ public class InsertFormFieldRequest implements RequestIfc {
     private String revisionDateTime;
 
     /*
-     * Form field will be inserted before node with index.
+     * The index of the node. A new form field will be inserted before the node with the specified node Id.
      */
     private String insertBeforeNode;
 
     /*
      * Initializes a new instance of the InsertFormFieldRequest class.
      *
-     * @param String name The document name.
-     * @param FormField formField From field data.
-     * @param String nodePath Path to the node that contains collection of formfields.
+     * @param String name The filename of the input document.
+     * @param FormField formField The properties of the form field.
+     * @param String nodePath The path to the node in the document tree.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -106,7 +106,7 @@ public class InsertFormFieldRequest implements RequestIfc {
      * @param String destFileName Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
      * @param String revisionAuthor Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
      * @param String revisionDateTime The date and time to use for revisions.
-     * @param String insertBeforeNode Form field will be inserted before node with index.
+     * @param String insertBeforeNode The index of the node. A new form field will be inserted before the node with the specified node Id.
      */
     public InsertFormFieldRequest(String name, FormField formField, String nodePath, String folder, String storage, String loadEncoding, String password, String destFileName, String revisionAuthor, String revisionDateTime, String insertBeforeNode) {
         this.name = name;
@@ -123,42 +123,42 @@ public class InsertFormFieldRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets From field data.
+     * Gets The properties of the form field.
      */
     public FormField getFormField() {
         return this.formField;
     }
 
     /*
-     * Sets From field data.
+     * Sets The properties of the form field.
      */
     public void setFormField(FormField value) {
         this.formField = value;
     }
 
     /*
-     * Gets Path to the node that contains collection of formfields.
+     * Gets The path to the node in the document tree.
      */
     public String getNodePath() {
         return this.nodePath;
     }
 
     /*
-     * Sets Path to the node that contains collection of formfields.
+     * Sets The path to the node in the document tree.
      */
     public void setNodePath(String value) {
         this.nodePath = value;
@@ -263,14 +263,14 @@ public class InsertFormFieldRequest implements RequestIfc {
     }
 
     /*
-     * Gets Form field will be inserted before node with index.
+     * Gets The index of the node. A new form field will be inserted before the node with the specified node Id.
      */
     public String getInsertBeforeNode() {
         return this.insertBeforeNode;
     }
 
     /*
-     * Sets Form field will be inserted before node with index.
+     * Sets The index of the node. A new form field will be inserted before the node with the specified node Id.
      */
     public void setInsertBeforeNode(String value) {
         this.insertBeforeNode = value;

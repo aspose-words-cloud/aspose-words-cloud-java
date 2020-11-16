@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class DeleteSectionRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Section index.
+     * The index of the section.
      */
     private Integer sectionIndex;
 
@@ -86,8 +86,8 @@ public class DeleteSectionRequest implements RequestIfc {
     /*
      * Initializes a new instance of the DeleteSectionRequest class.
      *
-     * @param String name The document name.
-     * @param Integer sectionIndex Section index.
+     * @param String name The filename of the input document.
+     * @param Integer sectionIndex The index of the section.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class DeleteSectionRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Section index.
+     * Gets The index of the section.
      */
     public Integer getSectionIndex() {
         return this.sectionIndex;
     }
 
     /*
-     * Sets Section index.
+     * Sets The index of the section.
      */
     public void setSectionIndex(Integer value) {
         this.sectionIndex = value;

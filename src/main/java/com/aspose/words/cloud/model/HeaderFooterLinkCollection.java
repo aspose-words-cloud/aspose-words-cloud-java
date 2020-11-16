@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of links to header/footers.
+ * The collection of HeaderFooter's links.
  */
-@ApiModel(description = "Collection of links to header/footers.")
+@ApiModel(description = "The collection of HeaderFooter's links.")
 public class HeaderFooterLinkCollection extends LinkElement {
     @SerializedName("List")
     private List<HeaderFooterLink> list = null;
@@ -63,10 +63,10 @@ public class HeaderFooterLinkCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of section's links.
+     * Gets or sets the collection of HeaderFooter's links.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets collection of section's links.")
+    @ApiModelProperty(value = "Gets or sets the collection of HeaderFooter's links.")
     public List<HeaderFooterLink> getList() {
         return list;
     }

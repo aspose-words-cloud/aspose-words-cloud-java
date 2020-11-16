@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "base container class for save options data.")
 public class SaveOptionsData {
     /**
-     * Gets or sets a value determining how 3D effects are rendered.
+     * Gets or sets the value determining how 3D effects are rendered.
      */
     @JsonAdapter(Dml3DEffectsRenderingModeEnum.Adapter.class)
     public enum Dml3DEffectsRenderingModeEnum {
@@ -128,10 +128,10 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining how 3D effects are rendered.
+     * Gets or sets the value determining how 3D effects are rendered.
     * @return dml3DEffectsRenderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining how 3D effects are rendered.")
+    @ApiModelProperty(value = "Gets or sets the value determining how 3D effects are rendered.")
     public Dml3DEffectsRenderingModeEnum getDml3DEffectsRenderingMode() {
         return dml3DEffectsRenderingMode;
     }
@@ -146,11 +146,11 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining how DrawingML effects are rendered.
+     * Gets or sets the value determining how DrawingML effects are rendered.
      * { Simplified | None | Fine }.
     * @return dmlEffectsRenderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.")
+    @ApiModelProperty(value = "Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.")
     public String getDmlEffectsRenderingMode() {
         return dmlEffectsRenderingMode;
     }
@@ -165,11 +165,10 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining how DrawingML shapes are rendered.
-     * { Fallback | DrawingML }.
+     * Gets or sets the option that controls how DrawingML shapes are rendered.
     * @return dmlRenderingMode
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.")
+    @ApiModelProperty(value = "Gets or sets the option that controls how DrawingML shapes are rendered.")
     public String getDmlRenderingMode() {
         return dmlRenderingMode;
     }
@@ -184,10 +183,10 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets name of destination file.
+     * Gets or sets the name of destination file.
     * @return fileName
     **/
-    @ApiModelProperty(value = "Gets or sets name of destination file.")
+    @ApiModelProperty(value = "Gets or sets the name of destination file.")
     public String getFileName() {
         return fileName;
     }
@@ -202,10 +201,10 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets format of save.
+     * Gets or sets the format of save.
     * @return saveFormat
     **/
-    @ApiModelProperty(value = "Gets or sets format of save.")
+    @ApiModelProperty(value = "Gets or sets the format of save.")
     public String getSaveFormat() {
         return saveFormat;
     }
@@ -220,11 +219,10 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining if fields should be updated before saving the document to a fixed page format.
-     * Default value for this property is. true.
+     * Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
     * @return updateFields
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.")
     public Boolean getUpdateFields() {
         return updateFields;
     }
@@ -239,11 +237,10 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted
-     * property is updated before saving.
+     * Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
     * @return updateLastPrintedProperty
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.")
     public Boolean getUpdateLastPrintedProperty() {
         return updateLastPrintedProperty;
     }
@@ -258,10 +255,10 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+     * Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
     * @return updateLastSavedTimeProperty
     **/
-    @ApiModelProperty(value = "Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.")
     public Boolean getUpdateLastSavedTimeProperty() {
         return updateLastSavedTimeProperty;
     }
@@ -276,10 +273,10 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.
+     * Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
     * @return updateSdtContent
     **/
-    @ApiModelProperty(value = "Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.")
     public Boolean getUpdateSdtContent() {
         return updateSdtContent;
     }
@@ -294,11 +291,11 @@ public class SaveOptionsData {
     }
 
     /**
-     * Gets or sets controls zip output or not.
-     * Default value is false.
+     * Gets or sets a value indicating whether to zip output or not.
+     * The default value is false.
     * @return zipOutput
     **/
-    @ApiModelProperty(value = "Gets or sets controls zip output or not. Default value is false.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to zip output or not. The default value is false.")
     public Boolean getZipOutput() {
         return zipOutput;
     }

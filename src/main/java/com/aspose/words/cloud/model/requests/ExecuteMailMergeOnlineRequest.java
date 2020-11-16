@@ -49,17 +49,17 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
     private byte[] data;
 
     /*
-     * With regions flag.
+     * The flag indicating whether to execute Mail Merge operation with regions.
      */
     private Boolean withRegions;
 
     /*
-     * Clean up options.
+     * The cleanup options.
      */
     private String cleanup;
 
     /*
-     * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     private String documentFileName;
 
@@ -68,9 +68,9 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
      *
      * @param byte[] template File with template.
      * @param byte[] data File with mailmerge data.
-     * @param Boolean withRegions With regions flag.
-     * @param String cleanup Clean up options.
-     * @param String documentFileName This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * @param Boolean withRegions The flag indicating whether to execute Mail Merge operation with regions.
+     * @param String cleanup The cleanup options.
+     * @param String documentFileName The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public ExecuteMailMergeOnlineRequest(byte[] template, byte[] data, Boolean withRegions, String cleanup, String documentFileName) {
         this.template = template;
@@ -109,42 +109,42 @@ public class ExecuteMailMergeOnlineRequest implements RequestIfc {
     }
 
     /*
-     * Gets With regions flag.
+     * Gets The flag indicating whether to execute Mail Merge operation with regions.
      */
     public Boolean getWithRegions() {
         return this.withRegions;
     }
 
     /*
-     * Sets With regions flag.
+     * Sets The flag indicating whether to execute Mail Merge operation with regions.
      */
     public void setWithRegions(Boolean value) {
         this.withRegions = value;
     }
 
     /*
-     * Gets Clean up options.
+     * Gets The cleanup options.
      */
     public String getCleanup() {
         return this.cleanup;
     }
 
     /*
-     * Sets Clean up options.
+     * Sets The cleanup options.
      */
     public void setCleanup(String value) {
         this.cleanup = value;
     }
 
     /*
-     * Gets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * Gets The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public String getDocumentFileName() {
         return this.documentFileName;
     }
 
     /*
-     * Sets This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+     * Sets The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
      */
     public void setDocumentFileName(String value) {
         this.documentFileName = value;

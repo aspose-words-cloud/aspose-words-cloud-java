@@ -43,10 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * This response should be returned by the service when handling:
- * GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
+ * The REST response with an array of tab stops.
  */
-@ApiModel(description = "This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.")
+@ApiModel(description = "The REST response with an array of tab stops.")
 public class TabStopsResponse extends WordsResponse {
     @SerializedName("TabStops")
     private List<TabStop> tabStops = null;
@@ -64,10 +63,10 @@ public class TabStopsResponse extends WordsResponse {
     }
 
     /**
-     * Gets or sets represents a tab stop.
+     * Gets or sets the array of tab stops.
     * @return tabStops
     **/
-    @ApiModelProperty(value = "Gets or sets represents a tab stop.")
+    @ApiModelProperty(value = "Gets or sets the array of tab stops.")
     public List<TabStop> getTabStops() {
         return tabStops;
     }

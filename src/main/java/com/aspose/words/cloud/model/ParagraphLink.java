@@ -55,10 +55,10 @@ public class ParagraphLink extends NodeLink {
     }
 
     /**
-     * Gets or sets paragraph's text.
+     * Gets or sets the paragraph's text.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets paragraph's text.")
+    @ApiModelProperty(value = "Gets or sets the paragraph's text.")
     public String getText() {
         return text;
     }

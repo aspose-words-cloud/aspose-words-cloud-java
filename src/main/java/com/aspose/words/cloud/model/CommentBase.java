@@ -70,10 +70,10 @@ public class CommentBase {
     }
 
     /**
-     * Gets or sets returns or sets the author name for a comment.
+     * Gets or sets the author name for a comment.
     * @return author
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the author name for a comment.")
+    @ApiModelProperty(value = "Gets or sets the author name for a comment.")
     public String getAuthor() {
         return author;
     }
@@ -106,10 +106,10 @@ public class CommentBase {
     }
 
     /**
-     * Gets or sets returns or sets the initials of the user associated with a specific comment.
+     * Gets or sets the initials of the user associated with a specific comment.
     * @return initial
     **/
-    @ApiModelProperty(value = "Gets or sets returns or sets the initials of the user associated with a specific comment.")
+    @ApiModelProperty(value = "Gets or sets the initials of the user associated with a specific comment.")
     public String getInitial() {
         return initial;
     }
@@ -124,10 +124,10 @@ public class CommentBase {
     }
 
     /**
-     * Gets or sets link to comment range end node.
+     * Gets or sets the link to comment range end node.
     * @return rangeEnd
     **/
-    @ApiModelProperty(value = "Gets or sets link to comment range end node.")
+    @ApiModelProperty(value = "Gets or sets the link to comment range end node.")
     public DocumentPosition getRangeEnd() {
         return rangeEnd;
     }
@@ -142,10 +142,10 @@ public class CommentBase {
     }
 
     /**
-     * Gets or sets link to comment range start node.
+     * Gets or sets the link to comment range start node.
     * @return rangeStart
     **/
-    @ApiModelProperty(value = "Gets or sets link to comment range start node.")
+    @ApiModelProperty(value = "Gets or sets the link to comment range start node.")
     public DocumentPosition getRangeStart() {
         return rangeStart;
     }
@@ -160,10 +160,10 @@ public class CommentBase {
     }
 
     /**
-     * Gets or sets this is a convenience property that allows to easily get or set text of the comment.
+     * Gets or sets text of the comment.
     * @return text
     **/
-    @ApiModelProperty(value = "Gets or sets this is a convenience property that allows to easily get or set text of the comment.")
+    @ApiModelProperty(value = "Gets or sets text of the comment.")
     public String getText() {
         return text;
     }

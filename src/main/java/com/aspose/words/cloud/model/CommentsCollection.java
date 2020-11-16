@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of comments.
+ * The collection of comments.
  */
-@ApiModel(description = "Collection of comments.")
+@ApiModel(description = "The collection of comments.")
 public class CommentsCollection extends LinkElement {
     @SerializedName("CommentList")
     private List<Comment> commentList = null;
@@ -63,10 +63,10 @@ public class CommentsCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of comments.
+     * Gets or sets the collection of comments.
     * @return commentList
     **/
-    @ApiModelProperty(value = "Gets or sets collection of comments.")
+    @ApiModelProperty(value = "Gets or sets the collection of comments.")
     public List<Comment> getCommentList() {
         return commentList;
     }

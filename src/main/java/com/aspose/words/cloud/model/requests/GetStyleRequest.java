@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class GetStyleRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Style name.
+     * The name of the style.
      */
     private String styleName;
 
@@ -71,8 +71,8 @@ public class GetStyleRequest implements RequestIfc {
     /*
      * Initializes a new instance of the GetStyleRequest class.
      *
-     * @param String name The document name.
-     * @param String styleName Style name.
+     * @param String name The filename of the input document.
+     * @param String styleName The name of the style.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -88,28 +88,28 @@ public class GetStyleRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Style name.
+     * Gets The name of the style.
      */
     public String getStyleName() {
         return this.styleName;
     }
 
     /*
-     * Sets Style name.
+     * Sets The name of the style.
      */
     public void setStyleName(String value) {
         this.styleName = value;

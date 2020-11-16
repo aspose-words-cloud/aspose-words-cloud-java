@@ -39,22 +39,22 @@ import java.util.*;
  */
 public class UpdateListLevelRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * List object.
+     * The properties of the List element.
      */
     private ListLevelUpdate listUpdate;
 
     /*
-     * List unique identifier.
+     * The list Id.
      */
     private Integer listId;
 
     /*
-     * List level identifier.
+     * The list level.
      */
     private Integer listLevel;
 
@@ -96,10 +96,10 @@ public class UpdateListLevelRequest implements RequestIfc {
     /*
      * Initializes a new instance of the UpdateListLevelRequest class.
      *
-     * @param String name The document name.
-     * @param ListLevelUpdate listUpdate List object.
-     * @param Integer listId List unique identifier.
-     * @param Integer listLevel List level identifier.
+     * @param String name The filename of the input document.
+     * @param ListLevelUpdate listUpdate The properties of the List element.
+     * @param Integer listId The list Id.
+     * @param Integer listLevel The list level.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -123,56 +123,56 @@ public class UpdateListLevelRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets List object.
+     * Gets The properties of the List element.
      */
     public ListLevelUpdate getListUpdate() {
         return this.listUpdate;
     }
 
     /*
-     * Sets List object.
+     * Sets The properties of the List element.
      */
     public void setListUpdate(ListLevelUpdate value) {
         this.listUpdate = value;
     }
 
     /*
-     * Gets List unique identifier.
+     * Gets The list Id.
      */
     public Integer getListId() {
         return this.listId;
     }
 
     /*
-     * Sets List unique identifier.
+     * Sets The list Id.
      */
     public void setListId(Integer value) {
         this.listId = value;
     }
 
     /*
-     * Gets List level identifier.
+     * Gets The list level.
      */
     public Integer getListLevel() {
         return this.listLevel;
     }
 
     /*
-     * Sets List level identifier.
+     * Sets The list level.
      */
     public void setListLevel(Integer value) {
         this.listLevel = value;

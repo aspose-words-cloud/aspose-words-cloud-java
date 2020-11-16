@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class LoadWebDocumentRequest implements RequestIfc {
     /*
-     * Parameters of loading.
+     * The properties of data downloading.
      */
     private LoadWebDocumentData data;
 
@@ -51,7 +51,7 @@ public class LoadWebDocumentRequest implements RequestIfc {
     /*
      * Initializes a new instance of the LoadWebDocumentRequest class.
      *
-     * @param LoadWebDocumentData data Parameters of loading.
+     * @param LoadWebDocumentData data The properties of data downloading.
      * @param String storage Original document storage.
      */
     public LoadWebDocumentRequest(LoadWebDocumentData data, String storage) {
@@ -60,14 +60,14 @@ public class LoadWebDocumentRequest implements RequestIfc {
     }
 
     /*
-     * Gets Parameters of loading.
+     * Gets The properties of data downloading.
      */
     public LoadWebDocumentData getData() {
         return this.data;
     }
 
     /*
-     * Sets Parameters of loading.
+     * Sets The properties of data downloading.
      */
     public void setData(LoadWebDocumentData value) {
         this.data = value;

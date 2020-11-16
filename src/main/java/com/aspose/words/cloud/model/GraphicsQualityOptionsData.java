@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Allows to specify additional System.Drawing.Graphics quality options.")
 public class GraphicsQualityOptionsData {
     /**
-     * Gets or sets a value that specifies how composited images are drawn to this Graphics.
+     * Gets or sets the value, that specifies how composited images are drawn to this Graphics.
      */
     @JsonAdapter(CompositingModeEnum.Adapter.class)
     public enum CompositingModeEnum {
@@ -319,10 +319,10 @@ public class GraphicsQualityOptionsData {
     }
 
     /**
-     * Gets or sets a value that specifies how composited images are drawn to this Graphics.
+     * Gets or sets the value, that specifies how composited images are drawn to this Graphics.
     * @return compositingMode
     **/
-    @ApiModelProperty(value = "Gets or sets a value that specifies how composited images are drawn to this Graphics.")
+    @ApiModelProperty(value = "Gets or sets the value, that specifies how composited images are drawn to this Graphics.")
     public CompositingModeEnum getCompositingMode() {
         return compositingMode;
     }

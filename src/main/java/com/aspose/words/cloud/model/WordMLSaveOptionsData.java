@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * container class for wml save options.
+ * Container class for wml save options.
  */
-@ApiModel(description = "container class for wml save options.")
+@ApiModel(description = "Container class for wml save options.")
 public class WordMLSaveOptionsData extends SaveOptionsData {
     @SerializedName("PrettyFormat")
     private Boolean prettyFormat = null;
@@ -55,10 +55,10 @@ public class WordMLSaveOptionsData extends SaveOptionsData {
     }
 
     /**
-     * Gets or sets specifies whether or not use pretty formats output.
+     * Gets or sets a value indicating whether to use pretty formats output.
     * @return prettyFormat
     **/
-    @ApiModelProperty(value = "Gets or sets specifies whether or not use pretty formats output.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether to use pretty formats output.")
     public Boolean getPrettyFormat() {
         return prettyFormat;
     }

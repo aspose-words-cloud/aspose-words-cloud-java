@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Represents drawing objects collection DTO.
+ * DTO container with a collection of DrawingObjects links.
  */
-@ApiModel(description = "Represents drawing objects collection DTO.")
+@ApiModel(description = "DTO container with a collection of DrawingObjects links.")
 public class DrawingObjectCollection extends LinkElement {
     @SerializedName("List")
     private List<LinkElement> list = null;
@@ -63,10 +63,10 @@ public class DrawingObjectCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of DrawingObjects links.
+     * Gets or sets the collection of DrawingObjects links.
     * @return list
     **/
-    @ApiModelProperty(value = "Gets or sets collection of DrawingObjects links.")
+    @ApiModelProperty(value = "Gets or sets the collection of DrawingObjects links.")
     public List<LinkElement> getList() {
         return list;
     }

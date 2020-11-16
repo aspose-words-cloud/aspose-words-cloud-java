@@ -135,10 +135,10 @@ public class Document {
     }
 
     /**
-     * Gets or sets returns document properties.
+     * Gets or sets the document properties.
     * @return documentProperties
     **/
-    @ApiModelProperty(value = "Gets or sets returns document properties.")
+    @ApiModelProperty(value = "Gets or sets the document properties.")
     public DocumentProperties getDocumentProperties() {
         return documentProperties;
     }
@@ -171,10 +171,10 @@ public class Document {
     }
 
     /**
-     * Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
+     * Gets or sets a value indicating whether the document is encrypted and requires a password to open.
     * @return isEncrypted
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the document is encrypted and requires a password to open.")
     public Boolean getIsEncrypted() {
         return isEncrypted;
     }
@@ -189,11 +189,10 @@ public class Document {
     }
 
     /**
-     * Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a
-     * digital signature is present on a document, but it does not specify whether the signature is valid or not.
+     * Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
     * @return isSigned
     **/
-    @ApiModelProperty(value = "Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.")
+    @ApiModelProperty(value = "Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.")
     public Boolean getIsSigned() {
         return isSigned;
     }
@@ -216,10 +215,10 @@ public class Document {
     }
 
     /**
-     * Gets or sets a list of links that originate from this document.
+     * Gets or sets the list of links that originate from this document.
     * @return links
     **/
-    @ApiModelProperty(value = "Gets or sets a list of links that originate from this document.")
+    @ApiModelProperty(value = "Gets or sets the list of links that originate from this document.")
     public List<Link> getLinks() {
         return links;
     }

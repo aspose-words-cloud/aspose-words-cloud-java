@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class SaveAsTiffRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * Tiff save options.
+     * The save options to TIFF format.
      */
     private TiffSaveOptionsData saveOptions;
 
@@ -69,22 +69,22 @@ public class SaveAsTiffRequest implements RequestIfc {
     private String password;
 
     /*
-     * Use antialiasing flag.
+     * The flag indicating whether to use antialiasing.
      */
     private Boolean useAntiAliasing;
 
     /*
-     * Use high quality flag.
+     * The flag indicating whether to use high quality.
      */
     private Boolean useHighQualityRendering;
 
     /*
-     * Brightness for the generated images.
+     * The level of brightness for the generated images.
      */
     private Double imageBrightness;
 
     /*
-     * Color mode for the generated images.
+     * The color mode for the generated images.
      */
     private String imageColorMode;
 
@@ -99,32 +99,32 @@ public class SaveAsTiffRequest implements RequestIfc {
     private String numeralFormat;
 
     /*
-     * Number of pages to render.
+     * The number of pages to render.
      */
     private Integer pageCount;
 
     /*
-     * Page index to start rendering.
+     * The index of the page to start rendering.
      */
     private Integer pageIndex;
 
     /*
-     * Background image color.
+     * The background image color.
      */
     private String paperColor;
 
     /*
-     * The pixel format of generated images.
+     * The pixel format of the generated images.
      */
     private String pixelFormat;
 
     /*
-     * The resolution of generated images.
+     * The resolution of the generated images.
      */
     private Double resolution;
 
     /*
-     * Zoom factor for generated images.
+     * The zoom factor for the generated images.
      */
     private Double scale;
 
@@ -134,22 +134,22 @@ public class SaveAsTiffRequest implements RequestIfc {
     private String tiffCompression;
 
     /*
-     * Optional, default is Fallback.
+     * The optional dml rendering mode. The default value is Fallback.
      */
     private String dmlRenderingMode;
 
     /*
-     * Optional, default is Simplified.
+     * The optional dml effects rendering mode. The default value is Simplified.
      */
     private String dmlEffectsRenderingMode;
 
     /*
-     * Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
+     * The optional TIFF binarization method. Possible values are: FloydSteinbergDithering, Threshold.
      */
     private String tiffBinarizationMethod;
 
     /*
-     * Optional. A value determining zip output or not.
+     * The flag indicating whether to ZIP the output.
      */
     private Boolean zipOutput;
 
@@ -161,29 +161,29 @@ public class SaveAsTiffRequest implements RequestIfc {
     /*
      * Initializes a new instance of the SaveAsTiffRequest class.
      *
-     * @param String name The document name.
-     * @param TiffSaveOptionsData saveOptions Tiff save options.
+     * @param String name The filename of the input document.
+     * @param TiffSaveOptionsData saveOptions The save options to TIFF format.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
      * @param String password Password for opening an encrypted document.
-     * @param Boolean useAntiAliasing Use antialiasing flag.
-     * @param Boolean useHighQualityRendering Use high quality flag.
-     * @param Double imageBrightness Brightness for the generated images.
-     * @param String imageColorMode Color mode for the generated images.
+     * @param Boolean useAntiAliasing The flag indicating whether to use antialiasing.
+     * @param Boolean useHighQualityRendering The flag indicating whether to use high quality.
+     * @param Double imageBrightness The level of brightness for the generated images.
+     * @param String imageColorMode The color mode for the generated images.
      * @param Double imageContrast The contrast for the generated images.
      * @param String numeralFormat The images numeral format.
-     * @param Integer pageCount Number of pages to render.
-     * @param Integer pageIndex Page index to start rendering.
-     * @param String paperColor Background image color.
-     * @param String pixelFormat The pixel format of generated images.
-     * @param Double resolution The resolution of generated images.
-     * @param Double scale Zoom factor for generated images.
+     * @param Integer pageCount The number of pages to render.
+     * @param Integer pageIndex The index of the page to start rendering.
+     * @param String paperColor The background image color.
+     * @param String pixelFormat The pixel format of the generated images.
+     * @param Double resolution The resolution of the generated images.
+     * @param Double scale The zoom factor for the generated images.
      * @param String tiffCompression The compression tipe.
-     * @param String dmlRenderingMode Optional, default is Fallback.
-     * @param String dmlEffectsRenderingMode Optional, default is Simplified.
-     * @param String tiffBinarizationMethod Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
-     * @param Boolean zipOutput Optional. A value determining zip output or not.
+     * @param String dmlRenderingMode The optional dml rendering mode. The default value is Fallback.
+     * @param String dmlEffectsRenderingMode The optional dml effects rendering mode. The default value is Simplified.
+     * @param String tiffBinarizationMethod The optional TIFF binarization method. Possible values are: FloydSteinbergDithering, Threshold.
+     * @param Boolean zipOutput The flag indicating whether to ZIP the output.
      * @param String fontsLocation Folder in filestorage with custom fonts.
      */
     public SaveAsTiffRequest(String name, TiffSaveOptionsData saveOptions, String folder, String storage, String loadEncoding, String password, Boolean useAntiAliasing, Boolean useHighQualityRendering, Double imageBrightness, String imageColorMode, Double imageContrast, String numeralFormat, Integer pageCount, Integer pageIndex, String paperColor, String pixelFormat, Double resolution, Double scale, String tiffCompression, String dmlRenderingMode, String dmlEffectsRenderingMode, String tiffBinarizationMethod, Boolean zipOutput, String fontsLocation) {
@@ -214,28 +214,28 @@ public class SaveAsTiffRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets Tiff save options.
+     * Gets The save options to TIFF format.
      */
     public TiffSaveOptionsData getSaveOptions() {
         return this.saveOptions;
     }
 
     /*
-     * Sets Tiff save options.
+     * Sets The save options to TIFF format.
      */
     public void setSaveOptions(TiffSaveOptionsData value) {
         this.saveOptions = value;
@@ -298,56 +298,56 @@ public class SaveAsTiffRequest implements RequestIfc {
     }
 
     /*
-     * Gets Use antialiasing flag.
+     * Gets The flag indicating whether to use antialiasing.
      */
     public Boolean getUseAntiAliasing() {
         return this.useAntiAliasing;
     }
 
     /*
-     * Sets Use antialiasing flag.
+     * Sets The flag indicating whether to use antialiasing.
      */
     public void setUseAntiAliasing(Boolean value) {
         this.useAntiAliasing = value;
     }
 
     /*
-     * Gets Use high quality flag.
+     * Gets The flag indicating whether to use high quality.
      */
     public Boolean getUseHighQualityRendering() {
         return this.useHighQualityRendering;
     }
 
     /*
-     * Sets Use high quality flag.
+     * Sets The flag indicating whether to use high quality.
      */
     public void setUseHighQualityRendering(Boolean value) {
         this.useHighQualityRendering = value;
     }
 
     /*
-     * Gets Brightness for the generated images.
+     * Gets The level of brightness for the generated images.
      */
     public Double getImageBrightness() {
         return this.imageBrightness;
     }
 
     /*
-     * Sets Brightness for the generated images.
+     * Sets The level of brightness for the generated images.
      */
     public void setImageBrightness(Double value) {
         this.imageBrightness = value;
     }
 
     /*
-     * Gets Color mode for the generated images.
+     * Gets The color mode for the generated images.
      */
     public String getImageColorMode() {
         return this.imageColorMode;
     }
 
     /*
-     * Sets Color mode for the generated images.
+     * Sets The color mode for the generated images.
      */
     public void setImageColorMode(String value) {
         this.imageColorMode = value;
@@ -382,84 +382,84 @@ public class SaveAsTiffRequest implements RequestIfc {
     }
 
     /*
-     * Gets Number of pages to render.
+     * Gets The number of pages to render.
      */
     public Integer getPageCount() {
         return this.pageCount;
     }
 
     /*
-     * Sets Number of pages to render.
+     * Sets The number of pages to render.
      */
     public void setPageCount(Integer value) {
         this.pageCount = value;
     }
 
     /*
-     * Gets Page index to start rendering.
+     * Gets The index of the page to start rendering.
      */
     public Integer getPageIndex() {
         return this.pageIndex;
     }
 
     /*
-     * Sets Page index to start rendering.
+     * Sets The index of the page to start rendering.
      */
     public void setPageIndex(Integer value) {
         this.pageIndex = value;
     }
 
     /*
-     * Gets Background image color.
+     * Gets The background image color.
      */
     public String getPaperColor() {
         return this.paperColor;
     }
 
     /*
-     * Sets Background image color.
+     * Sets The background image color.
      */
     public void setPaperColor(String value) {
         this.paperColor = value;
     }
 
     /*
-     * Gets The pixel format of generated images.
+     * Gets The pixel format of the generated images.
      */
     public String getPixelFormat() {
         return this.pixelFormat;
     }
 
     /*
-     * Sets The pixel format of generated images.
+     * Sets The pixel format of the generated images.
      */
     public void setPixelFormat(String value) {
         this.pixelFormat = value;
     }
 
     /*
-     * Gets The resolution of generated images.
+     * Gets The resolution of the generated images.
      */
     public Double getResolution() {
         return this.resolution;
     }
 
     /*
-     * Sets The resolution of generated images.
+     * Sets The resolution of the generated images.
      */
     public void setResolution(Double value) {
         this.resolution = value;
     }
 
     /*
-     * Gets Zoom factor for generated images.
+     * Gets The zoom factor for the generated images.
      */
     public Double getScale() {
         return this.scale;
     }
 
     /*
-     * Sets Zoom factor for generated images.
+     * Sets The zoom factor for the generated images.
      */
     public void setScale(Double value) {
         this.scale = value;
@@ -480,56 +480,56 @@ public class SaveAsTiffRequest implements RequestIfc {
     }
 
     /*
-     * Gets Optional, default is Fallback.
+     * Gets The optional dml rendering mode. The default value is Fallback.
      */
     public String getDmlRenderingMode() {
         return this.dmlRenderingMode;
     }
 
     /*
-     * Sets Optional, default is Fallback.
+     * Sets The optional dml rendering mode. The default value is Fallback.
      */
     public void setDmlRenderingMode(String value) {
         this.dmlRenderingMode = value;
     }
 
     /*
-     * Gets Optional, default is Simplified.
+     * Gets The optional dml effects rendering mode. The default value is Simplified.
      */
     public String getDmlEffectsRenderingMode() {
         return this.dmlEffectsRenderingMode;
     }
 
     /*
-     * Sets Optional, default is Simplified.
+     * Sets The optional dml effects rendering mode. The default value is Simplified.
      */
     public void setDmlEffectsRenderingMode(String value) {
         this.dmlEffectsRenderingMode = value;
     }
 
     /*
-     * Gets Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
+     * Gets The optional TIFF binarization method. Possible values are: FloydSteinbergDithering, Threshold.
      */
     public String getTiffBinarizationMethod() {
         return this.tiffBinarizationMethod;
     }
 
     /*
-     * Sets Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
+     * Sets The optional TIFF binarization method. Possible values are: FloydSteinbergDithering, Threshold.
      */
     public void setTiffBinarizationMethod(String value) {
         this.tiffBinarizationMethod = value;
     }
 
     /*
-     * Gets Optional. A value determining zip output or not.
+     * Gets The flag indicating whether to ZIP the output.
      */
     public Boolean getZipOutput() {
         return this.zipOutput;
     }
 
     /*
-     * Sets Optional. A value determining zip output or not.
+     * Sets The flag indicating whether to ZIP the output.
      */
     public void setZipOutput(Boolean value) {
         this.zipOutput = value;

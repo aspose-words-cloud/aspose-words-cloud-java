@@ -69,10 +69,10 @@ public class SaveResult {
     }
 
     /**
-     * Gets or sets links to additional items (css, images etc).
+     * Gets or sets the list of links to additional items (css, images etc).
     * @return additionalItems
     **/
-    @ApiModelProperty(value = "Gets or sets links to additional items (css, images etc).")
+    @ApiModelProperty(value = "Gets or sets the list of links to additional items (css, images etc).")
     public List<FileLink> getAdditionalItems() {
         return additionalItems;
     }
@@ -87,10 +87,10 @@ public class SaveResult {
     }
 
     /**
-     * Gets or sets link to destination document.
+     * Gets or sets the link to destination document.
     * @return destDocument
     **/
-    @ApiModelProperty(value = "Gets or sets link to destination document.")
+    @ApiModelProperty(value = "Gets or sets the link to destination document.")
     public FileLink getDestDocument() {
         return destDocument;
     }
@@ -105,10 +105,10 @@ public class SaveResult {
     }
 
     /**
-     * Gets or sets link to source document.
+     * Gets or sets the link to source document.
     * @return sourceDocument
     **/
-    @ApiModelProperty(value = "Gets or sets link to source document.")
+    @ApiModelProperty(value = "Gets or sets the link to source document.")
     public FileLink getSourceDocument() {
         return sourceDocument;
     }

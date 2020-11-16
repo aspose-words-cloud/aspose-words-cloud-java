@@ -43,9 +43,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Collection of links to tables.
+ * The collection of table's links.
  */
-@ApiModel(description = "Collection of links to tables.")
+@ApiModel(description = "The collection of table's links.")
 public class TableLinkCollection extends LinkElement {
     @SerializedName("TableLinkList")
     private List<TableLink> tableLinkList = null;
@@ -63,10 +63,10 @@ public class TableLinkCollection extends LinkElement {
     }
 
     /**
-     * Gets or sets collection of table's links.
+     * Gets or sets the collection of table's links.
     * @return tableLinkList
     **/
-    @ApiModelProperty(value = "Gets or sets collection of table's links.")
+    @ApiModelProperty(value = "Gets or sets the collection of table's links.")
     public List<TableLink> getTableLinkList() {
         return tableLinkList;
     }

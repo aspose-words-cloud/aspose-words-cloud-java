@@ -39,12 +39,12 @@ import java.util.*;
  */
 public class InsertListRequest implements RequestIfc {
     /*
-     * The document name.
+     * The filename of the input document.
      */
     private String name;
 
     /*
-     * List to insert.
+     * The properties of the list.
      */
     private ListInsert listInsert;
 
@@ -86,8 +86,8 @@ public class InsertListRequest implements RequestIfc {
     /*
      * Initializes a new instance of the InsertListRequest class.
      *
-     * @param String name The document name.
-     * @param ListInsert listInsert List to insert.
+     * @param String name The filename of the input document.
+     * @param ListInsert listInsert The properties of the list.
      * @param String folder Original document folder.
      * @param String storage Original document storage.
      * @param String loadEncoding Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -109,28 +109,28 @@ public class InsertListRequest implements RequestIfc {
     }
 
     /*
-     * Gets The document name.
+     * Gets The filename of the input document.
      */
     public String getName() {
         return this.name;
     }
 
     /*
-     * Sets The document name.
+     * Sets The filename of the input document.
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /*
-     * Gets List to insert.
+     * Gets The properties of the list.
      */
     public ListInsert getListInsert() {
         return this.listInsert;
     }
 
     /*
-     * Sets List to insert.
+     * Sets The properties of the list.
      */
     public void setListInsert(ListInsert value) {
         this.listInsert = value;
