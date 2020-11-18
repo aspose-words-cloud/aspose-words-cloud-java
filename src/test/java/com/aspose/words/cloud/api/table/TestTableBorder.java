@@ -195,7 +195,7 @@ public class TestTableBorder  extends TestCase
         );
 
         XmlColor requestBorderPropertiesColor = new XmlColor();
-        requestBorderPropertiesColor.setAlpha(2);
+        requestBorderPropertiesColor.setWeb("#AABBCC");
 
         Border requestBorderProperties = new Border();
         requestBorderProperties.setBorderType(Border.BorderTypeEnum.LEFT);
@@ -223,7 +223,7 @@ public class TestTableBorder  extends TestCase
         assertNotNull(result);
         assertNotNull(result.getBorder());
         assertNotNull(result.getBorder().getColor());
-        assertEquals("#000002", result.getBorder().getColor().getWeb());
+        assertEquals("#AABBCC", result.getBorder().getColor().getWeb());
         assertEquals(6.0, result.getBorder().getDistanceFromText());
         assertEquals(2.0, result.getBorder().getLineWidth());
         assertEquals(Boolean.valueOf(true), result.getBorder().getShadow());
